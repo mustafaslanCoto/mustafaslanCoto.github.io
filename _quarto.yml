@@ -1,0 +1,30 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "About"
+  open-graph: true
+  page-footer: "Made with ❤️ and Quarto"
+  navbar:
+    right:
+      - text: "Talks"
+        href: talks/index.qmd
+
+      - href: CV.qmd
+        text: CV
+    tools:
+      - icon: github
+        href: github.com
+
+format:
+  html:
+    execute:
+      enable: true
+    linkcolor: "black"
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+
+

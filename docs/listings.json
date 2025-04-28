@@ -1,0 +1,10 @@
+[
+  {
+    "listing": "/talks/index.html",
+    "items": [
+      "/talks/stats/cond_prob_main.html",
+      "/talks/stats/distributions_main.html",
+      "/talks/so_rl/rl_main.html"
+    ]
+  }
+]

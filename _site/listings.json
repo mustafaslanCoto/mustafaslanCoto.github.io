@@ -1,0 +1,41 @@
+[
+  {
+    "listing": "/talks/index.html",
+    "items": [
+      "/talks/stats/cond_prob_main.html",
+      "/talks/stats/distributions_main.html",
+      "/talks/so_rl/rl_main.html"
+    ]
+  },
+  {
+    "listing": "/talks/talks.html",
+    "items": [
+      "/talks/distributions_main.html",
+      "/talks/stats_ML/dist_slides_docs/distributions.html",
+      "/talks/so_rl/reinforcement_learning_Sutton_Barto/python_code_for_rl.html",
+      "/talks/rl_main.html",
+      "/talks/so_rl/reinforcement_learning_Sutton_Barto/RL_presentation.html",
+      "/talks/so_rl/reinforcement_learning_Sutton_Barto/comments_definitions.html",
+      "/talks/so_rl/reinforcement_learning_Sutton_Barto/10_bandit_simul.html"
+    ]
+  },
+  {
+    "listing": "/talks/combine/index.html",
+    "items": [
+      "/talks/combine/distributions_main.html",
+      "/talks/combine/rl_main.html"
+    ]
+  },
+  {
+    "listing": "/talks/stat/stat_qmd.html",
+    "items": [
+      "/talks/stat/distributions_main.html"
+    ]
+  },
+  {
+    "listing": "/talks/rl/rl_index.html",
+    "items": [
+      "/talks/rl/rl_main.html"
+    ]
+  }
+]

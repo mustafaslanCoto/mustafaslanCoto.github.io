@@ -1,0 +1,18 @@
+---
+title: "my dist"
+author: "Mustafa"
+format: html
+---
+
+asdasdasda
+
+$$
+f_x = \int
+$$
+
+```{python}
+
+import pandas as pd
+import numpy as np
+
+```

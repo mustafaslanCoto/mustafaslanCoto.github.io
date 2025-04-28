@@ -1,0 +1,22 @@
+---
+title: "Dynamic Programming and Reincorecement Learning"
+author: "Mustafa Aslan"
+date: 2025-10-17T09:00:00
+location: Cardiff, UK
+categories: [tools, seminar]
+image: ../images/rl_photo.webp
+description: "This is designed for posts"
+format:
+  html:
+    toc: false
+resources:
+  - ../so_rl/reinforcement_learning_Sutton_Barto/RL_presentation.qmd
+---
+
+[Slides](../so_rl_docs/reinforcement_learning_Sutton_Barto/RL_presentation.qmd){.btn .btn-sm .btn-outline-primary}
+
+---
+
+**Date:** Jul 18, 2023 3:50 PM – 4:30 PM\
+**Event:** Stats\
+**Location:** Cardiff, UK
