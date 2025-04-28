@@ -2,7 +2,7 @@
   "hash": "813587dae9bc9fcb6cdbe579f0e03e80",
   "result": {
     "engine": "jupyter",
-    "markdown": "---\ntitle: \"my dist\"\nauthor: \"Mustafa\"\nformat: html\n---\n\nasdasdasda\n\n$$\nf_x = \\int\n$$\n\n::: {#500e110f .cell execution_count=1}\n``` {.python .cell-code}\nimport pandas as pd\nimport numpy as np\n```\n:::\n\n\n",
+    "markdown": "---\ntitle: \"my dist\"\nauthor: \"Mustafa\"\nformat: html\n---\n\nasdasdasda\n\n$$\nf_x = \\int\n$$\n\n::: {#d11047f9 .cell execution_count=1}\n``` {.python .cell-code}\nimport pandas as pd\nimport numpy as np\n```\n:::\n\n\n",
     "supporting": [
       "dist_files"
     ],
