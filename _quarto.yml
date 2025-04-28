@@ -5,7 +5,6 @@ project:
 website:
   title: "About"
   open-graph: true
-  site-url: https://mustafaslanCoto.github.io/
   page-footer: "Made with ❤️ and Quarto"
   navbar:
     right:
