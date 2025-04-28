@@ -1,28 +1,6 @@
 {
   "listingMap": {
-    "talks\\index.qmd": [
-      "B3049D40"
-    ],
-    "talks\\talks.qmd": [
-      ".",
-      "B3049D40"
-    ],
-    "talks\\combine\\index.qmd": [
-      "B3049D40",
-      "talks"
-    ],
-    "talks/combine/index.qmd": [
-      "B3049D40"
-    ],
-    "talks/stat/stat_qmd.qmd": [
-      "B3049D40"
-    ],
-    "talks/rl/rl_index.qmd": [
-      "B3049D40"
-    ],
     "talks/index.qmd": [
-      "rl",
-      "stat",
       "stats",
       "so_rl"
     ]
