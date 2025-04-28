@@ -22,10 +22,10 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.13'
+          cache: 'pip'  # ✅ NOW you can add this safely!
 
-      - name: Install Jupyter
-        run: |
-          pip install jupyter
+      - name: Install Python packages
+        run: pip install -r requirements.txt
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
