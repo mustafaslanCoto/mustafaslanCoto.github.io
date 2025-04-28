@@ -1,6 +1,0 @@
----
-title: Mustafa Aslan 
----
-
-{{< lipsum 1 >}}
-
