@@ -4,7 +4,7 @@
     "href": "CV.html",
     "title": "Mustafa Aslan",
     "section": "",
-    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis posuere ligula sit amet lacinia. Duis dignissim pellentesque magna, rhoncus congue sapien finibus mollis. Ut eu sem laoreet, vehicula ipsum in, convallis erat. Vestibulum magna sem, blandit pulvinar augue sit amet, auctor malesuada sapien. Nullam faucibus leo eget eros hendrerit, non laoreet ipsum lacinia. Curabitur cursus diam elit, non tempus ante volutpat a. Quisque hendrerit blandit purus non fringilla. Integer sit amet elit viverra ante dapibus semper. Vestibulum viverra rutrum enim, at luctus enim posuere eu. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+    "text": "Results-driven data science enthusiast with over two years of experience as a data analytics executive and a proven track record in leveraging data analysis, inferential statistics, and advanced machine learning techniques to drive strategic decision-making and enhance business performance. Currently pursuing a PhD in data-driven modeling for healthcare. Holds a master’s degree in Financial Mathematics from the Institute of Applied Mathematics."
   },
   {
     "objectID": "talks/so_rl/rl_main.html",
@@ -88,7 +88,7 @@
     "href": "talks/stats_docs/dist_slides_docs/condition_prob.html#computing-expectations-by-conditioning",
     "title": "Conditional Probability and Conditional Expectation",
     "section": "Computing Expectations by Conditioning",
-    "text": "Computing Expectations by Conditioning"
+    "text": "Computing Expectations by Conditioning\nLet us denote by \\(E[X|Y]\\) that function of the random variable \\(Y\\) whose value at \\(Y = y\\) is \\(E[X|Y = y]\\). Note that \\(E[X|Y]\\) is itself a random variable. An extremely important important property of conditional expectation is that for all random variables \\(X\\) and \\(Y\\) \\[\nE[X] = E[E[X|Y]]\n\\]\nIf \\(Y\\) is a discrete random variable, then \\[\nE[X] = \\sum_{y} E[X|Y = y] P(Y = y)\n\\]\nIf \\(Y\\) is continuous with density \\(f_Y(y)\\), then \\[\nE[X] = \\int_{-\\infty}^{\\infty} E[X|Y = y] f_Y(y) dy\n\\]"
   },
   {
     "objectID": "bins/dist.html",
@@ -579,5 +579,19 @@
     "title": "Mustafa Aslan",
     "section": "Experiences",
     "text": "Experiences\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+  },
+  {
+    "objectID": "CV.html#experience-summary",
+    "href": "CV.html#experience-summary",
+    "title": "Mustafa Aslan",
+    "section": "",
+    "text": "Results-driven data science enthusiast with over two years of experience as a data analytics executive and a proven track record in leveraging data analysis, inferential statistics, and advanced machine learning techniques to drive strategic decision-making and enhance business performance. Currently pursuing a PhD in data-driven modeling for healthcare. Holds a master’s degree in Financial Mathematics from the Institute of Applied Mathematics."
+  },
+  {
+    "objectID": "CV.html#education",
+    "href": "CV.html#education",
+    "title": "Mustafa Aslan",
+    "section": "EDUCATION",
+    "text": "EDUCATION\nPhD Research Student in Business Studies | Cardiff University, Cardiff, Wales, UK | 10/2024 – 06/2028\n\nPhD research project: Enhancing discharge care coordination in healthcare and social care using a probabilistic data-driven modelling approach\n\nMSc in Financial Mathematics | Middle East Technical University, Ankara, Turkey | 09/2017 – 10/2021\n\nMSc thesis: Effects of Exchange Rate Volatility and Firm-Specific Features on the Rates of Returns of the Manufacturing Firms Listed in Borsa İstanbul: A CAPM Approach (Thesis link: https://hdl.handle.net/11511/93166)\n\nStatistical&Machine learning techniques used: Markov Switching GARCH Models, ARIMA, Panel Data Econometrics, Principal Component Analysis"
   }
 ]
