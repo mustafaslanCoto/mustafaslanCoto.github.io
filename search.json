@@ -543,7 +543,7 @@
     "href": "talks/stats_docs/dist_slides_docs/condition_prob.html#computing-expectations-by-conditioning",
     "title": "Conditional Probability and Conditional Expectation",
     "section": "Computing Expectations by Conditioning",
-    "text": "Computing Expectations by Conditioning"
+    "text": "Computing Expectations by Conditioning\nLet us denote by \\(E[X|Y]\\) that function of the random variable \\(Y\\) whose value at \\(Y = y\\) is \\(E[X|Y = y]\\). Note that \\(E[X|Y]\\) is itself a random variable. An extremely important important property of conditional expectation is that for all random variables \\(X\\) and \\(Y\\) \\[\nE[X] = E[E[X|Y]]\n\\]\nIf \\(Y\\) is a discrete random variable, then \\[\nE[X] = \\sum_{y} E[X|Y = y] P(Y = y)\n\\]\nIf \\(Y\\) is continuous with density \\(f_Y(y)\\), then \\[\nE[X] = \\int_{-\\infty}^{\\infty} E[X|Y = y] f_Y(y) dy\n\\]"
   },
   {
     "objectID": "talks/so_rl/rl_main.html",

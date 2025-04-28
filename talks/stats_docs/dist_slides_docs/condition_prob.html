@@ -255,6 +255,15 @@ E[X | Y = y] &amp;= \int_{-\infty}^{\infty} x f_{X|Y}(x|y) dx \\
 </section>
 <section id="computing-expectations-by-conditioning" class="level2">
 <h2 class="anchored" data-anchor-id="computing-expectations-by-conditioning">Computing Expectations by Conditioning</h2>
+<p>Let us denote by <span class="math inline">\(E[X|Y]\)</span> that function of the random variable <span class="math inline">\(Y\)</span> whose value at <span class="math inline">\(Y = y\)</span> is <span class="math inline">\(E[X|Y = y]\)</span>. Note that <span class="math inline">\(E[X|Y]\)</span> is itself a random variable. An extremely important important property of conditional expectation is that for all random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> <span class="math display">\[
+E[X] = E[E[X|Y]]
+\]</span></p>
+<p>If <span class="math inline">\(Y\)</span> is a discrete random variable, then <span class="math display">\[
+E[X] = \sum_{y} E[X|Y = y] P(Y = y)
+\]</span></p>
+<p>If <span class="math inline">\(Y\)</span> is continuous with density <span class="math inline">\(f_Y(y)\)</span>, then <span class="math display">\[
+E[X] = \int_{-\infty}^{\infty} E[X|Y = y] f_Y(y) dy
+\]</span></p>
 
 
 </section>
