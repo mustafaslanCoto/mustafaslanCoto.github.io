@@ -1,7 +1,112 @@
 ---
-title: Mustafa Aslan
+title: "Curriculum Vitae"
+format:
+  html:
+    toc: true
+  pdf:
+    author: Mustafa Aslan
+    pdf-engine: weasyprint
+css: cv.css
+format-links: [pdf]
 ---
 
+::: {.print-only .contact-block}
+aslanm@cardiff.ac.uk
+:::
+
+## EDUCATION
+
+**PhD in Probabilistic Machine Learning in Healthcare Management**  [*Cardiff, UK*]{.cvlocation} <br> **[Cardiff University, UK]{.cvinstitution}** [*Oct 2024 --- Present*]{.cvdate}
+
+-   Recipient of WGSSS‑ESRC Studentship Award
+-   Project focused on enhancing discharge care coordination in healthcare and social care using a probabilistic data-driven modelling approach
+      - Supervisors: Prof Bahman Rostami‑Tabar, Dr. Jeremy Dixon
+
+**MSc in Financial Mathematics**  [*Ankara, Turkey*]{.cvlocation} <br> **[Middle East Technical University, Turkey]{.cvinstitution}** [*Oct 2017 --- Aug 2021*]{.cvdate}
+
+-   [Dissertation](https://open.metu.edu.tr/handle/11511/93166): Effects of Exchange Rate Volatility and Firm-Specific Features on the Rates of Returns of the Manufacturing Firms Listed in Borsa İstanbul: A CAPM Approach
+    - Statistical&Machine learning techniques used: Markov Switching GARCH Models, ARIMA, Panel Data Econometrics, Principal Component Analysis
+
+**BSc in Business Administration**  [*Ankara, Turkey*]{.cvlocation} <br> **[Middle East Technical University, Turkey]{.cvinstitution}** [*Oct 2011 --- Aug 2015*]{.cvdate}
 
 
-{{< include CV_Mustafa_Aslan.pdf >}}
+## WORK EXPERINCE{style="page-break-before: always"}
+
+
+**Reporting and Data Analytics Executive**  [*Ankara, Turkey (Remote)*]{.cvlocation} <br> **[AKBANK (a leading bank in Turkey)]{.cvinstitution}** [*Jun 2022 --- Sep 2024*]{.cvdate}
+
+-   Applied time-series forecasting and machine learning techniques, including ARIMA, Bayesian Time Series, Prophet, ANN, LSTM, Random Forest, LightGBM and XGBoost, to historical data for making long-horizon forecasts of daily customer call volume. The best model achieved over 94% accuracy (1-MAPE) in forecasting all days of the next month.
+-   Implemented machine learning models (e.g., XGBoost, LightGBM, CatBoost) to predict customer behavior with an over recall rate of 70% and an accuracy rate of 85%, enabling fewer customer complaints and increase sales by 14%.
+-   Analyzing large amounts of data to identify trends and find patterns, signals and hidden stories within customer calls data.
+-   Applied machine learning techniques (Z-score, IsolationForest) to detect anomalies.
+-   Applied unsupervised machine learning techniques (DBSCAN, Gaussian mixture, K-means) to cluster customers.
+-   Hyperparameter tuning for machine learning models using Hyperopt, Optuna and KerasTuner.
+
+**Research Associate**  [*Ankara, Turkey*]{.cvlocation} <br> **[The Economic Policy Research Foundation of Turkey (Think Tank)]{.cvinstitution}** [*Jan 2022 --- Apr 2024*]{.cvdate}
+
+-   Determined areas of research to increase knowledge in the particular field.
+-   Utilizing inferential statistics such as hypothesis testing (e.g., t-test, ANOVA test, population proportion test), confidence intervals, correlation analysis and regression analysis to make inferences and draw conclusions about data.
+-   Developed statistical models (regression analysis, panel data modeling) for regional development projects to contribute to data-driven decisions.
+
+**Senior Process Development Analyst**  [*Eskisehir, Turkey*]{.cvlocation} <br> **[ETI GIDA Inc (a major FMCG player in Turkey)]{.cvinstitution}** [*Jun 2019 --- Jan 2022*]{.cvdate}
+
+-   Interacted with internal customers to understand business needs and translate into requirements and project scope.
+-   Assessed the impact of current business processes on users and stakeholders and evaluated potential areas for improvement.
+-   Maintained strong working knowledge of ERP (SAP), CRM and business intelligence tools and operational features.
+
+**Internal Auditor**  [*Ankara, Turkey*]{.cvlocation} <br> **[Turk Telekom Inc. (the telecom giant of Turkey)]{.cvinstitution}** [*Nov 2015 --- Jun 2019*]{.cvdate}
+
+-  Performed strategic planning, execution and finalization of audits using data analytics and critical thinking skills.
+-  Investigated discrepancies discovered during the auditing process.
+-  Recommended new methods to improve internal controls and operating efficiency.
+
+## RESEARCH INTERESTS{style="page-break-before: always"}
+
+-   Data-driven decision making
+-   Machine learning
+-   Reinforcement learning and stocastic optimization in decision making
+-   Time series forecasting
+-   Probabilistic forecasting
+-   Conformal prediction for time series forecasting
+
+## SKILLS & EXPERTISE{style="page-break-before: always"}
+
+**Expertise:** Mathematical and Statistical Modeling, Machine Learning, Time Series Analysis and Forecasting, Stocastic Optimization and Reinforecement Learning, Statistical and Explanatory Data Analysis
+
+**Programming:** Python, SQL
+
+**Reporting:** Quarto, Advanced Excel, QlikView, SAS
+
+**Languages** English (Fluent), Kurdish (Native), Turkish (Native)
+
+## PROFESSIONAL DEVELOPMENT{style="page-break-before: always"}
+
+-   Certification:
+    -   [Data Science: Machine Learning, HarvardX (edX)](https://courses.edx.org/certificates/f1ae5e21826241a5ad7ebb4de58dabb4)
+
+-   Books (some of my go-to books):
+    - Forecasting: Principles and Practice (Hyndman et al, 2021)
+    - Introduction to Statistical Learning with Applications in R (Tibshirani et al, 2019)
+    - The Elements of Statistical Learning (Tibshirani et al, 2008)
+    - Probabilistic Machine Learning: An Introduction (Murphy. 2022)
+    - Reinforcement Learning: An Introduction (Barto et al, 2018)
+    - Reinforcement Learning and Stochastic Optimization (Powell, 2022)
+    - Time Series Forecasting in Python (Peixeiro, 2022)
+    - A Student’s Guide to Bayesian Statistics (Lambert, 2018)
+    - Dive into deep learning (Zhang, 2022)
+
+  
+<!-- 
+::: {.no-print}
+## PRESENTATIONS AND WORKSHOPS
+
+-   Talk: [Misadventures with Reproducibility in R](https://github.com/cynthiahqy/rladies-2022-11) (30 Nov 2022, R Ladies Melbourne Meetup)
+-   Talk: [Designing R Packages](https://github.com/cynthiahqy/design-r-magic_2022-10) (4 Oct 2022, Monash EBS Data Science Research Software Study Group)
+-   Talk: [Quarto Websites as Research Compendiums](https://github.com/cynthiahqy/quarto-wiki-template) (16 Aug 2022, Monash EBS Data Science Research Software Study Group)
+-   Workshop: [Writing academic papers with Rmarkdown and friends](https://www.cynthiahqy.com/posts/r-markdown-and-friends/) (9 Aug 2022, Monash University)
+:::
+
+::: {.print-only}
+## References
+Available upon request
+::: -->
