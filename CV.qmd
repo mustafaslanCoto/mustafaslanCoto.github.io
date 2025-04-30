@@ -5,8 +5,6 @@ format:
     toc: true
   pdf:
     author: Mustafa Aslan
-    pdf-engine: weasyprint
-    skip: true
 css: cv.css
 format-links: [pdf]
 ---
