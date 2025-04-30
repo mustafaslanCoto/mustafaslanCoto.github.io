@@ -6,6 +6,7 @@ format:
   pdf:
     author: Mustafa Aslan
     pdf-engine: weasyprint
+    skip: true
 css: cv.css
 format-links: [pdf]
 ---
@@ -15,7 +16,7 @@ format-links: [pdf]
 aslanm@cardiff.ac.uk
 ::: -->
 
-## EDUCATION_______
+## EDUCATION
 
 **PhD in Probabilistic Machine Learning in Healthcare Management**  [*Cardiff, UK*]{.cvlocation} <br> **[Cardiff University, UK]{.cvinstitution}** [*Oct 2024 --- Present*]{.cvdate}
 
