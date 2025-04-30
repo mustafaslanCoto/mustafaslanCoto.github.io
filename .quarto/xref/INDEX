@@ -152,5 +152,10 @@
   },
   "talks/stats/cond_prob_main.qmd": {
     "cond_prob_main.html": "c11b6df9"
+  },
+  "CV/CV.qmd": {
+    "CV.html": "afd83f1b",
+    "CV.tex": "3b6cb345",
+    "CV.pdf": "437bf4db"
   }
 }

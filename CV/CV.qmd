@@ -5,15 +5,17 @@ format:
     toc: true
   pdf:
     author: Mustafa Aslan
+    pdf-engine: weasyprint
 css: cv.css
 format-links: [pdf]
 ---
 
-::: {.print-only .contact-block}
-aslanm@cardiff.ac.uk
-:::
 
-## EDUCATION
+<!-- ::: {.print-only .contact-block}
+aslanm@cardiff.ac.uk
+::: -->
+
+## EDUCATION_______
 
 **PhD in Probabilistic Machine Learning in Healthcare Management**  [*Cardiff, UK*]{.cvlocation} <br> **[Cardiff University, UK]{.cvinstitution}** [*Oct 2024 --- Present*]{.cvdate}
 
@@ -94,18 +96,8 @@ aslanm@cardiff.ac.uk
     - A Student’s Guide to Bayesian Statistics (Lambert, 2018)
     - Dive into deep learning (Zhang, 2022)
 
-  
-<!-- 
-::: {.no-print}
-## PRESENTATIONS AND WORKSHOPS
-
--   Talk: [Misadventures with Reproducibility in R](https://github.com/cynthiahqy/rladies-2022-11) (30 Nov 2022, R Ladies Melbourne Meetup)
--   Talk: [Designing R Packages](https://github.com/cynthiahqy/design-r-magic_2022-10) (4 Oct 2022, Monash EBS Data Science Research Software Study Group)
--   Talk: [Quarto Websites as Research Compendiums](https://github.com/cynthiahqy/quarto-wiki-template) (16 Aug 2022, Monash EBS Data Science Research Software Study Group)
--   Workshop: [Writing academic papers with Rmarkdown and friends](https://www.cynthiahqy.com/posts/r-markdown-and-friends/) (9 Aug 2022, Monash University)
-:::
-
 ::: {.print-only}
 ## References
 Available upon request
-::: -->
+:::
+
