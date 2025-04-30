@@ -11,7 +11,7 @@ website:
       - text: "Talks"
         href: talks/index.qmd
 
-      - href: CV.qmd
+      - href: CV/CV.qmd
         text: CV
     tools:
       - icon: github
