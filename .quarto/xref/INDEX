@@ -157,5 +157,17 @@
     "CV.html": "afd83f1b",
     "CV.tex": "3b6cb345",
     "CV.pdf": "437bf4db"
+  },
+  "cvpdf/cvpdf.qmd": {
+    "cvpdf.html": "420b3bbd",
+    "cvpdf.tex": "efd1e19c"
+  },
+  "bins/CV/CV.qmd": {
+    "CV.html": "146b06f5",
+    "CV.tex": "eed66d2f",
+    "CV.pdf": "f0edf796"
+  },
+  "cvpdf/LICENSE.md": {
+    "LICENSE.html": "02d66b1f"
   }
 }

@@ -4,9 +4,8 @@ format:
   html:
     toc: true
   pdf:
-    author: Mustafa Aslan
-    pdf-engine: weasyprint
-css: cv1.css
+    author: Mustafa
+css: cv.css
 format-links: [pdf]
 ---
 
@@ -17,7 +16,8 @@ aslanm@cardiff.ac.uk
 
 ## EDUCATION
 
-**PhD in Probabilistic Machine Learning in Healthcare Management**  [*Cardiff, UK*]{.cvlocation} <br> **[Cardiff University, UK]{.cvinstitution}** [*Oct 2024 --- Present*]{.cvdate}
+**PhD in Probabilistic Machine Learning in Healthcare Management** \hfill [*Cardiff, UK*]{.cvlocation}  
+**[Cardiff University, UK]{.cvinstitution}** \hfill [*Oct 2024 --- Present*]{.cvdate}
 
 -   Recipient of WGSSS‑ESRC Studentship Award
 -   Project focused on enhancing discharge care coordination in healthcare and social care using a probabilistic data-driven modelling approach
