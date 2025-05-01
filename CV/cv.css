@@ -13,6 +13,11 @@
   font-style: bold
 }
 
+.cvinstitution {
+  font-weight: bold;
+  font-size: 0.8em;   /* Normal size (larger than body text) */
+}
+
 .print-only {
   display: none;
   /*color: aquamarine;*/
@@ -39,6 +44,7 @@ from: https://github.com/quarto-dev/quarto-cli/discussions/2538#discussioncommen
   }
   .print-only {
       display: block;
+      text-align: center;
   }
 
 
@@ -92,11 +98,6 @@ from: https://github.com/quarto-dev/quarto-cli/discussions/2538#discussioncommen
     font-weight: 700;
     color: #36a7e9;
   }
-}
-
-.cvinstitution {
-  font-weight: bold;
-  font-size: 0.9em;   /* Normal size (larger than body text) */
 }
 
 a {
