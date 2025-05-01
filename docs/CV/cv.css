@@ -8,6 +8,11 @@
   font-style: italic
 }
 
+.cvlocation {
+  float: right;
+  font-style: bold
+}
+
 .print-only {
   display: none;
   /*color: aquamarine;*/
@@ -89,7 +94,6 @@ from: https://github.com/quarto-dev/quarto-cli/discussions/2538#discussioncommen
   }
 }
 
-
 .cvinstitution {
   font-weight: bold;
   font-size: 0.9em;   /* Normal size (larger than body text) */
@@ -104,11 +108,6 @@ a {
 a:hover {
   text-decoration: underline;
   color: #333;  /* slight color change on hover */
-}
-
-.cvlocation {
-  float: right;
-  font-style: bold
 }
 
 .cv-header {

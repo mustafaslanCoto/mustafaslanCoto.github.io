@@ -10,7 +10,7 @@
 
 .cvlocation {
   float: right;
-  font-style: bold
+  font-style: italic
 }
 
 .print-only {
@@ -40,7 +40,6 @@ from: https://github.com/quarto-dev/quarto-cli/discussions/2538#discussioncommen
   .print-only {
       display: block;
   }
-
 
   .contact-block {
       margin-top: 0%;
@@ -92,50 +91,4 @@ from: https://github.com/quarto-dev/quarto-cli/discussions/2538#discussioncommen
     font-weight: 700;
     color: #36a7e9;
   }
-}
-
-.cvinstitution {
-  font-weight: bold;
-  font-size: 0.9em;   /* Normal size (larger than body text) */
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-  border-bottom: 1px dotted #888; /* subtle dotted underline */
-}
-
-a:hover {
-  text-decoration: underline;
-  color: #333;  /* slight color change on hover */
-}
-
-.cv-header {
-  text-align: center;
-  margin-bottom: 2em;
-  font-family: 'Public Sans', sans-serif;
-}
-
-.cv-header h1 {
-  font-size: 2.2em;
-  font-weight: 700;
-  margin-bottom: 0.2em;
-}
-
-.cv-header strong {
-  font-weight: 600;
-}
-
-.cv-header .contact {
-  display: block;
-  margin-top: 0.5em;
-  font-size: 0.95em;
-  color: #222;
-  line-height: 1.4;
-}
-
-.cv-header .contact a {
-  text-decoration: none;
-  color: inherit;
-  font-weight: 500;
 }

@@ -6,8 +6,7 @@ format:
   pdf:
     author: Mustafa Aslan
     pdf-engine: weasyprint
-    skip: true
-css: cv.css
+css: cv1.css
 format-links: [pdf]
 ---
 
