@@ -1,0 +1,19 @@
+% title.tex
+
+$if(title)$
+\begin{center}
+  {\huge\bfseries\color{titlecolor}$title$}
+\end{center}
+$endif$
+
+$if(author)$
+\begin{center}
+  {\large\color{authorcolor}$for(author)$$author$$sep$ \and $endfor$}
+\end{center}
+$endif$
+
+$if(date)$
+\begin{center}
+  {\small\color{datecolor}$date$}
+\end{center}
+$endif$

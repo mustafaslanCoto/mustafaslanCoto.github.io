@@ -169,5 +169,11 @@
   },
   "cvpdf/LICENSE.md": {
     "LICENSE.html": "02d66b1f"
+  },
+  "bins/cvpdf/LICENSE.md": {
+    "LICENSE.html": "a536978f"
+  },
+  "bins/cvpdf/cvpdf.qmd": {
+    "cvpdf.html": "9e85fcb5"
   }
 }

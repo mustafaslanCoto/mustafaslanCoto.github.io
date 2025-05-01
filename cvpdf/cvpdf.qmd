@@ -1,11 +1,19 @@
 ---
-title: CV
+title: Data Scientist | Mathematical Modeller
+author: Mustafa Aslan
+jobtitle: "Data Scientist • Mathematical Modeller"
 format:
   html: default
-  quarto-cv-pdf: default
-author: Mustafa Aslan
-date: last-modified
+  quarto-cv-pdf:
+    include-in-header:
+      text: |
+        \usepackage{enumitem}
+        \setlist[itemize,2]{label=\textopenbullet}
+        \newcommand{\sectionline}{\vspace{-1.5em}\noindent\rule{\linewidth}{0.8pt}\vspace{-0.5em}}
+        \usepackage{fontawesome5}
+# date: last-modified
 address: "Cardiff Business School, Colum Drive, Cardiff CF10 3EU, UK"
+linkedin: aslanmu
 email: aslanm@cardiff.ac.uk
 fontsize: 11pt
 #fontfamily: ebgaramond-maths # default font LaTeX package https://tug.org/FontCatalogue/about.html
@@ -15,36 +23,49 @@ github: mustafaslanCoto # github account
 #osf: ymqui # osf five character id
 #twitter: twitter # twitter handle
 web: mustafaslancoto.github.io
-fontawesome: No
+fontawesome: true
 nocite: '@*'
 validate-yaml: false
+bullets: true
 css: cv.css
 ---
 
+```{=html}
+<!-- ::: print-only
+\begin{center}
+\faEnvelope\  \href{mailto:aslanm@cardiff.ac.uk}{aslanm@cardiff.ac.uk} \ \faGithub\  \href{https://github.com/mustafaslanCoto}{mustafaslanCoto} \ \faGlobe\  \href{https://mustafaslancoto.github.io}{mustafaslancoto.github.io} \ \faLinkedin\  \href{https://www.linkedin.com/in/mustafa-aslan-047b4780/}{LinkedIn}
+\end{center}
+::: -->
+```
 
-## EDUCATION
+\setlist[itemize,2]{label=\textopenbullet}
 
-**PhD in Probabilistic Machine Learning in Healthcare Management** \hfill [*Cardiff, UK*]{.cvlocation}  
-**[Cardiff University, UK]{.cvinstitution}** \hfill [*Oct 2024 --- Present*]{.cvdate}
+## **EDUCATION**
+
+\sectionline
+
+**PhD in Probabilistic Machine Learning in Healthcare Management**\
+[**Cardiff University, Cardiff, UK**]{.cvinstitution} \hfill [*Oct 2024 --- Present*]{.cvdate}.
 
 -   Recipient of WGSSS‑ESRC Studentship Award
 -   Project focused on enhancing discharge care coordination in healthcare and social care using a probabilistic data-driven modelling approach
-      - Supervisors: Prof Bahman Rostami‑Tabar, Dr. Jeremy Dixon
+    -   Supervisors: Prof Bahman Rostami‑Tabar, Dr. Jeremy Dixon
 
-**MSc in Financial Mathematics**  \hfill [*Ankara, Turkey*]{.cvlocation}  
-**[Middle East Technical University, Turkey]{.cvinstitution}** \hfill [*Oct 2017 --- Aug 2021*]{.cvdate}
+**MSc in Financial Mathematics**\
+[**Middle East Technical University, Ankara, Turkey**]{.cvinstitution} \hfill [*Oct 2017 --- Aug 2021*]{.cvdate}
 
 -   [Dissertation](https://open.metu.edu.tr/handle/11511/93166): Effects of Exchange Rate Volatility and Firm-Specific Features on the Rates of Returns of the Manufacturing Firms Listed in Borsa İstanbul: A CAPM Approach
-    - Statistical&Machine learning techniques used: Markov Switching GARCH Models, ARIMA, Panel Data Econometrics, Principal Component Analysis
+    -   Statistical&Machine learning techniques used: Markov Switching GARCH Models, ARIMA, Panel Data Econometrics, Principal Component Analysis
 
-**BSc in Business Administration** \hfill [*Ankara, Turkey*]{.cvlocation}  
-**[Middle East Technical University, Turkey]{.cvinstitution}** \hfill [*Oct 2011 --- Aug 2015*]{.cvdate}
+**BSc in Business Administration**\
+[**Middle East Technical University, Ankara, Turkey**]{.cvinstitution} \hfill [*Oct 2011 --- Aug 2015*]{.cvdate}
 
+## **WORK EXPERINCES**
 
-## WORK EXPERINCES
+\sectionline
 
-**Reporting and Data Analytics Executive**  \hfill [*Ankara, Turkey (Remote)*]{.cvlocation}  
-**[AKBANK (a leading bank in Turkey)]{.cvinstitution}** \hfill [*Jun 2022 --- Sep 2024*]{.cvdate}
+**Reporting and Data Analytics Executive**\
+[**AKBANK (a leading bank in Turkey), Istanbul**]{.cvinstitution} \hfill [*Jun 2022 --- Sep 2024*]{.cvdate}
 
 -   Applied time-series forecasting and machine learning techniques, including ARIMA, Bayesian Time Series, Prophet, ANN, LSTM, Random Forest, LightGBM and XGBoost, to historical data for making long-horizon forecasts of daily customer call volume. The best model achieved over 94% accuracy (1-MAPE) in forecasting all days of the next month.
 -   Implemented machine learning models (e.g., XGBoost, LightGBM, CatBoost) to predict customer behavior with an over recall rate of 70% and an accuracy rate of 85%, enabling fewer customer complaints and increase sales by 14%.
@@ -53,28 +74,30 @@ css: cv.css
 -   Applied unsupervised machine learning techniques (DBSCAN, Gaussian mixture, K-means) to cluster customers.
 -   Hyperparameter tuning for machine learning models using Hyperopt, Optuna and KerasTuner.
 
-**Research Associate**  \hfill [*Ankara, Turkey*]{.cvlocation}  
-**[The Economic Policy Research Foundation of Turkey (Think Tank)]{.cvinstitution}** \hfill [*Jan 2022 --- Apr 2024*]{.cvdate}
+**Research Associate**\
+[**The Economic Policy Research Foundation of Turkey (Think Tank), Ankara**]{.cvinstitution} \hfill [*Jan 2022 --- Apr 2024*]{.cvdate}
 
 -   Determined areas of research to increase knowledge in the particular field.
 -   Utilizing inferential statistics such as hypothesis testing (e.g., t-test, ANOVA test, population proportion test), confidence intervals, correlation analysis and regression analysis to make inferences and draw conclusions about data.
 -   Developed statistical models (regression analysis, panel data modeling) for regional development projects to contribute to data-driven decisions.
 
-**Senior Process Development Analyst** \hfill [*Eskisehir, Turkey*]{.cvlocation}  
-**[ETI GIDA Inc (a major FMCG player in Turkey)]{.cvinstitution}** \hfill [*Jun 2019 --- Jan 2022*]{.cvdate}
+**Senior Process Development Analyst**\
+[**ETI GIDA Inc (a major FMCG player in Turkey), Eskisehir**]{.cvinstitution} \hfill [*Jun 2019 --- Jan 2022*]{.cvdate}
 
 -   Interacted with internal customers to understand business needs and translate into requirements and project scope.
 -   Assessed the impact of current business processes on users and stakeholders and evaluated potential areas for improvement.
 -   Maintained strong working knowledge of ERP (SAP), CRM and business intelligence tools and operational features.
 
-**Internal Auditor**  \hfill [*Ankara, Turkey*]{.cvlocation}  
-**[Turk Telekom Inc. (the telecom giant of Turkey)]{.cvinstitution}** \hfill [*Nov 2015 --- Jun 2019*]{.cvdate}
+**Internal Auditor**\
+[**Turk Telekom Inc. (the telecom giant of Turkey), Ankara**]{.cvinstitution} \hfill [*Nov 2015 --- Jun 2019*]{.cvdate}
 
--  Performed strategic planning, execution and finalization of audits using data analytics and critical thinking skills.
--  Investigated discrepancies discovered during the auditing process.
--  Recommended new methods to improve internal controls and operating efficiency.
+-   Performed strategic planning, execution and finalization of audits using data analytics and critical thinking skills.
+-   Investigated discrepancies discovered during the auditing process.
+-   Recommended new methods to improve internal controls and operating efficiency.
 
-## RESEARCH INTERESTS{style="page-break-before: always"}
+## **RESEARCH INTERESTS** {style="page-break-before: always"}
+
+\sectionline
 
 -   Data-driven decision making
 -   Machine learning
@@ -83,32 +106,36 @@ css: cv.css
 -   Probabilistic forecasting
 -   Conformal prediction for time series forecasting
 
-## SKILLS & EXPERTISE{style="page-break-before: always"}
+## **SKILLS & EXPERTISE** {style="page-break-before: always"}
 
-**Expertise:** Mathematical and Statistical Modeling, Machine Learning, Time Series Analysis and Forecasting, Stocastic Optimization and Reinforecement Learning, Statistical and Explanatory Data Analysis  
-**Programming:** Python, SQL  
-**Reporting:** Quarto, Advanced Excel, QlikView, SAS  
+\sectionline
+
+**Expertise:** Mathematical and Statistical Modeling, Machine Learning, Time Series Analysis and Forecasting, Stocastic Optimization and Reinforecement Learning, Statistical and Explanatory Data Analysis\
+**Programming:** ![](images/python.jpeg){width="15"}Python ![](images/sql.png){width="28"}SQL\
+**Reporting:** ![](images/quarto.png){width="40" height="10"}Quarto ![](images/excel.png){width="22" height="15"}Advanced Excel ![](images/qlick.png){width="23" height="10"}QlikView ![](images/sas.png){width="26"}SAS\
 **Languages** English (Fluent), Kurdish (Native), Turkish (Native)
 
-## PROFESSIONAL DEVELOPMENT{style="page-break-before: always"}
+## **PROFESSIONAL DEVELOPMENT** {style="page-break-before: always"}
+
+\sectionline
 
 -   Certification:
     -   [Data Science: Machine Learning, HarvardX (edX)](https://courses.edx.org/certificates/f1ae5e21826241a5ad7ebb4de58dabb4)
-
 -   Books (some of my go-to books):
-    - Forecasting: Principles and Practice (Hyndman et al, 2021)
-    - Introduction to Statistical Learning with Applications in R (Tibshirani et al, 2019)
-    - The Elements of Statistical Learning (Tibshirani et al, 2008)
-    - Probabilistic Machine Learning: An Introduction (Murphy. 2022)
-    - Reinforcement Learning: An Introduction (Barto et al, 2018)
-    - Reinforcement Learning and Stochastic Optimization (Powell, 2022)
-    - Time Series Forecasting in Python (Peixeiro, 2022)
-    - A Student’s Guide to Bayesian Statistics (Lambert, 2018)
-    - Dive into deep learning (Zhang, 2022)
+    -   Forecasting: Principles and Practice (Hyndman et al, 2021)
+    -   Introduction to Statistical Learning with Applications in R (Tibshirani et al, 2019)
+    -   The Elements of Statistical Learning (Tibshirani et al, 2008)
+    -   Probabilistic Machine Learning: An Introduction (Murphy. 2022)
+    -   Reinforcement Learning: An Introduction (Barto et al, 2018)
+    -   Reinforcement Learning and Stochastic Optimization (Powell, 2022)
+    -   Time Series Forecasting in Python (Peixeiro, 2022)
+    -   A Student’s Guide to Bayesian Statistics (Lambert, 2018)
+    -   Dive into deep learning (Zhang, 2022)
 
-::: {.print-only}
-## References
+::: print-only
+## **References**
+
+\sectionline
+
 Available upon request
 :::
-
-

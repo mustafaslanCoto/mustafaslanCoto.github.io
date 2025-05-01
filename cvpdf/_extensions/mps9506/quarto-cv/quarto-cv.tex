@@ -170,21 +170,38 @@ $endif$
 
 \centerline{\huge \bf $author$}
 
+% \vspace{2 mm}
+
+% \hrule
+
 \vspace{2 mm}
 
-\hrule
+% $if(jobtitle)$\moveleft.5\hoffset\centerline{$jobtitle$}$endif$
 
-\vspace{2 mm}
 
-$if(jobtitle)$\moveleft.5\hoffset\centerline{$jobtitle$}$endif$
+$if(jobtitle)$\moveleft.5\hoffset\centerline{\textbf{\textcolor{black!80}{$jobtitle$}}}$endif$
+
 $if(address)$\moveleft.5\hoffset\centerline{$address$}$endif$
-\moveleft.5\hoffset\centerline{ $if(email)$$if(fontawesome)$\faEnvelope \hspace{1 mm}$else$\emph{E-mail:}$endif$ \href{mailto:}{\tt $email$} \hspace{1 mm}$endif$ $if(phone)$$if(fontawesome)$ \faPhone \hspace{1 mm}$else$\emph{Phone:}$endif$  $phone$  \hspace{1 mm} $endif$ $if(github)$$if(fontawesome)$\faGithub \hspace{1 mm}$else$\emph{Github:}$endif$ \href{http://github.com/$github$}{\tt $github$} \hspace{1 mm} $endif$  $if(twitter)$$if(fontawesome)$\faTwitter \hspace{1 mm}$else$\emph{Twitter:}$endif$ \href{https:/twitter.com/$twitter$}{\tt $twitter$} \hspace{1 mm} $endif$ $if(osf)$$if(fontawesome)$\faUnlock \hspace{1 mm}$else$\emph{osf:}$endif$ \href{https:/osf.io/$osf$}{\tt osf.io/$osf$} \hspace{1 mm} $endif$ $if(orcid)$$if(fontawesome)$\orcidlink{$orcid$} \hspace{.5 mm}$else$\emph{ORCID:}$endif$ \href{https://orcid.org/$orcid$}{\tt $orcid$} \hspace{1 mm} $endif$ $if(web)$$if(fontawesome)$\faGlobe \hspace{1 mm}$else$\emph{Web:}$endif$ \href{http://$web$}{\tt $web$}  $endif$ $if(kaggle)$$if(fontawesome)$\faKaggle \hspace{1 mm}$else$\emph{Kaggle:}$endif$ \href{http://kaggle.com/$kaggle$}{\tt $kaggle$} \hspace{1 mm} $endif$   $if(updated)$ | \emph{Updated:} $if(rdateformat)$$rdateformat$$else$\apstylekinda\today$endif$$endif$}
+% \moveleft.5\hoffset\centerline{ $if(email)$$if(fontawesome)$\faEnvelope \hspace{1 mm}$else$\emph{E-mail:}$endif$ \href{mailto:}{\tt $email$} \hspace{1 mm}$endif$ $if(phone)$$if(fontawesome)$ \faPhone \hspace{1 mm}$else$\emph{Phone:}$endif$  $phone$  \hspace{1 mm} $endif$ $if(github)$$if(fontawesome)$\faGithub \hspace{1 mm}$else$\emph{Github:}$endif$ \href{http://github.com/$github$}{\tt $github$} \hspace{1 mm} $endif$  $if(twitter)$$if(fontawesome)$\faTwitter \hspace{1 mm}$else$\emph{Twitter:}$endif$ \href{https:/twitter.com/$twitter$}{\tt $twitter$} \hspace{1 mm} $endif$ $if(osf)$$if(fontawesome)$\faUnlock \hspace{1 mm}$else$\emph{osf:}$endif$ \href{https:/osf.io/$osf$}{\tt osf.io/$osf$} \hspace{1 mm} $endif$ $if(orcid)$$if(fontawesome)$\orcidlink{$orcid$} \hspace{.5 mm}$else$\emph{ORCID:}$endif$ \href{https://orcid.org/$orcid$}{\tt $orcid$} \hspace{1 mm} $endif$ $if(web)$$if(fontawesome)$\faGlobe \hspace{1 mm}$else$\emph{Web:}$endif$ \href{http://$web$}{\tt $web$}  $endif$ $if(kaggle)$$if(fontawesome)$\faKaggle \hspace{1 mm}$else$\emph{Kaggle:}$endif$ \href{http://kaggle.com/$kaggle$}{\tt $kaggle$} \hspace{1 mm} $endif$   $if(updated)$ | \emph{Updated:} $if(rdateformat)$$rdateformat$$else$\apstylekinda\today$endif$$endif$}
+
+\moveleft.5\hoffset\centerline{
+  $if(email)$$if(fontawesome)$\faEnvelope \hspace{1 mm}$else$\emph{E-mail:}$endif$ \href{mailto:$email$}{\tt $email$} \hspace{1 mm}$endif$
+  $if(phone)$$if(fontawesome)$\faPhone \hspace{1 mm}$else$\emph{Phone:}$endif$ $phone$ \hspace{1 mm}$endif$
+  $if(github)$$if(fontawesome)$\faGithub \hspace{1 mm}$else$\emph{Github:}$endif$ \href{http://github.com/$github$}{\tt $github$} \hspace{1 mm}$endif$
+  $if(web)$$if(fontawesome)$\faGlobe \hspace{1 mm}$else$\emph{Web:}$endif$ \href{http://$web$}{\tt $web$} \hspace{1 mm}$endif$
+  $if(linkedin)$$if(fontawesome)$\faLinkedin \hspace{1 mm}$else$\emph{LinkedIn:}$endif$ \href{https://linkedin.com/in/$linkedin$}{\tt $linkedin$} \hspace{1 mm}$endif$
+  $if(twitter)$$if(fontawesome)$\faTwitter \hspace{1 mm}$else$\emph{Twitter:}$endif$ \href{https:/twitter.com/$twitter$}{\tt $twitter$} \hspace{1 mm}$endif$
+  $if(osf)$$if(fontawesome)$\faUnlock \hspace{1 mm}$else$\emph{OSF:}$endif$ \href{https:/osf.io/$osf$}{\tt osf.io/$osf$} \hspace{1 mm}$endif$
+  $if(orcid)$$if(fontawesome)$\orcidlink{$orcid$} \hspace{.5 mm}$else$\emph{ORCID:}$endif$ \href{https://orcid.org/$orcid$}{\tt $orcid$} \hspace{1 mm}$endif$
+  $if(kaggle)$$if(fontawesome)$\faKaggle \hspace{1 mm}$else$\emph{Kaggle:}$endif$ \href{http://kaggle.com/$kaggle$}{\tt $kaggle$} \hspace{1 mm}$endif$
+  $if(updated)$ | \emph{Updated:} $if(rdateformat)$$rdateformat$$else$\apstylekinda\today$endif$$endif$
+}
 
 
 
 \vspace{2 mm}
 
-\hrule
+% \hrule
 
 
 
