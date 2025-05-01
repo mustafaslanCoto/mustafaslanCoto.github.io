@@ -11,15 +11,7 @@ about:
           href: https://github.com/mustafaslanCoto
         - icon: linkedin
           text: LinkedIn
-          href: https://www.linkedin.com/in/mustafa-aslan-047b4780/
+          href: https://www.linkedin.com/in/aslanmu/
 ---
 
-I am currently pursuing a PhD at Cardiff Business School, where I specialise in developing AI&machine learning models for healthcare management. My research involves developing and refining advanced statistical&machine learning techniques to analyse complex datasets, aiming to enhance decision-making processes in real-world applications. I hold a master’s degree in Financial Mathematics from the Institute of Applied Mathematics, where I deepened my knowledge and skills in statistical and machine learning modelling. With two years of professional experience as a data scientist, I have gained practical expertise in data analysis and the development of predictive models using Python in a banking environment. This experience has equipped me with a solid understanding of how to apply mathematical concepts to solve business challenges effectively.
-
-## Eduacation
-
-Cardiff University \| UK \| 2024-2028 
-
-## Experiences
-
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+I am currently pursuing a PhD at Cardiff Business School, where I specialise in developing AI&machine learning models for healthcare management. My research involves developing and refining advanced statistical&machine learning techniques to analyse complex datasets, aiming to enhance decision-making processes in real-world applications. In addition to my PhD work, I manage the Learning Labs workshop series, providing training on machine learning, statistics, reinfircement learning and forecasting methodologies using Python. I am also responsible for organizing seminars for the [Data Lab for Social Good](https://www.cardiff.ac.uk/research/explore/research-units/data-lab-for-social-good), delivering sessions on AI, machine learning, forecasting, mathematical modeling, and optimization techniques.
