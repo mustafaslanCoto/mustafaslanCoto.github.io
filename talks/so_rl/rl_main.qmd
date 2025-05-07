@@ -1,11 +1,11 @@
 ---
-title: "Dynamic Programming and Reincorecement Learning"
+title: "Dynamic Programming and Reinforcement Learning"
 author: "Mustafa Aslan"
 date: 2025-10-17T09:00:00
 location: Cardiff, UK
 categories: [tools, seminar]
 image: ../images/rl_photo.webp
-description: "This is designed for posts"
+# description: "This is designed for posts"
 format:
   html:
     toc: false
