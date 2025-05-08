@@ -17,7 +17,7 @@ format:
     slide-number: true
     theme: simple
     title-slide-attributes:
-      data-background-iframe:  ../images/custom-logos.html
+      data-background-iframe: custom-logos.html
 ---
 
 
