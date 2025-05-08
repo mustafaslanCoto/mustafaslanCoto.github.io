@@ -175,5 +175,11 @@
   },
   "bins/cvpdf/cvpdf.qmd": {
     "cvpdf.html": "9e85fcb5"
+  },
+  "talks/so_rl_docs/reinforcemment_learning/RL_presentation.qmd": {
+    "RL_presentation.html": "dfd5c89b"
+  },
+  "talks/so_rl_docs/RL_presentation.qmd": {
+    "RL_presentation.html": "b9e54563"
   }
 }

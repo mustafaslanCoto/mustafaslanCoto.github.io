@@ -1,11 +1,37 @@
 ---
+title: "Reinforcement Learning"
+author: 
+  - name: Mustafa Aslan
+    affiliation: PhD student 
+    role: PhD Researcher
+#   - name: Prof. Bahman Rostami-Tabar
+#     affiliation: Lead supervisor
+#     role: Lead Supervisor
+#   - name: Dr. Jeremy Dixon
+#     affiliation: Co-supervisor
+#     role: Co-supervisor
+date: 05/15/2025
+project:
+  resources:
+    - talks/images/
+format:
+  revealjs:
+    css: style.css
+    slide-number: true
+    theme: simple
+    title-slide-attributes:
+      data-background-iframe:  ../../images/custom_logos.html
+---
+
+
+<!-- ---
 title: "Summary of Reinforcement Learning"
 author: "Mustafa Aslan"
 date: 04/01/2025
 format:
   revealjs:
-    mathjax:
-      config: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+#     mathjax:
+#       config: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
     slide-number: true
     theme: simple
     width: 1200
@@ -15,22 +41,48 @@ format:
     min-scale: 0.2
     max-scale: 2
     title-slide-attributes:
-      data-background-image: images/book_cover.png
       data-background-size: contain
       data-background-opacity: "0.3"
 css: styles/cover2.css
----
+--- -->
 
 ## Outline
 
-- Finite Markov Decision Processes
+- What is reinforcement learning
 - Dynamic programming
 - Monte carlo methods
 - Temporal-Difference Learning
 - $n$-step Bootstrapping
 
 
-# Finite Markov Decision Processes
+# What is reinforcement learning
+
+## Reinforcement Learning
+
+Reinforcement learning is learning:
+
+- `What` to do — `how to map situations to actions` to maximize a numerical reward signal/noise.
+
+- The learner is not told which actions to take, but instead must discover which actions yield the most reward by trying them.
+
+## Elements of Reinforcement Learning
+
+- A `Policy` defines the learning agent’s way of behaving at a given time.
+       - Mapping from states of the environment to actions to be taken when in those states.
+
+- A `reward` signal defines the goal of a reinforcement learning problem and indicates what is good in an immediate sense.
+       - The agent’s sole objective is to maximize the total reward it receives over the long run.
+
+- A `value` function specifies what is good in the long run.
+
+       * The value of a state is the total amount of reward an agent can expect to accumulate over the future, starting from that state.
+
+
+
+## 
+ 
+(![alt](images/agent_env.png))
+
 
 ## Finite Markov Decision Processes
 

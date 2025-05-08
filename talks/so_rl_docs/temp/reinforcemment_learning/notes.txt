@@ -1,0 +1,13 @@
+Friday 17 Jan:
+- Hospital-Wide Inpatient Flow Optimization
+- Timing It Right: Balancing Inpatient Congestion vs. Readmission Risk at Discharge
+- Data-Driven Hospital Admission Control: A Learning Approach
+- When will I get out of the Hospital? Modeling Length of Stay using Comorbidity Networks
+- Should Hospitals Keep Their Patients Longer? The Role of Inpatient Care in Reducing Postdischarge Mortality
+- Queueing Models for Patient-Flow Dynamics in Inpatient Wards
+
+- Models and Insights for Hospital Inpatient Operations: Time-Dependent ED Boarding Time - 2016
+- Surgical Case-Mix and Discharge Decisions: Does Within-Hospital Coordination Matter?
+
+- Deep Reinforcement Learning for Efficient and Fair Allocation of Healthcare Resources
+- 
