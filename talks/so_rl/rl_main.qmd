@@ -13,7 +13,7 @@ resources:
   - ../so_rl/reinforcement_learning_Sutton_Barto/RL_presentation.qmd
 ---
 
-[Slides](../so_rl_docs/RL_presentation.qmd){.btn .btn-sm .btn-outline-primary}
+[Slides](../so_rl_docs/reinforcement_learning/RL_presentation.qmd){.btn .btn-sm .btn-outline-primary}
 
 ---
 
