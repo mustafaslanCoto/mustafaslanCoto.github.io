@@ -6,8 +6,8 @@
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.29">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.30">
 
   <meta name="author" content="Mustafa Aslan">
   <meta name="dcterms.date" content="2025-05-15">
@@ -130,7 +130,7 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" data-background-iframe="../../images/custom_logos.html" class="quarto-title-block center">
+<section id="title-slide" data-background="white" data-title="true" data-visibility="visible" class="quarto-title-block center">
   <h1 class="title">Reinforcement Learning</h1>
 
 <div class="quarto-title-authors">
@@ -148,6 +148,23 @@ Mustafa Aslan
 </section>
 <section class="slide level2">
 
+<style>
+  .logos {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  .logos img {
+  height: 120px;
+  width: auto;
+}
+</style>
+<div class="logos">
+<p><img src="images_rl/cu.jpg" alt="Logo 1"> <img src="images_rl/dlsg.png" alt="Logo 2"></p>
+</div>
 <!-- ---
 title: "Summary of Reinforcement Learning"
 author: "Mustafa Aslan"
@@ -187,24 +204,6 @@ css: styles/cover2.css
 </section>
 <section id="reinforcement-learning" class="slide level2">
 <h2>Reinforcement Learning</h2>
-<p>Reinforcement learning is learning:</p>
-<ul>
-<li><p><code>What</code> to do — <code>how to map situations to actions</code> to maximize a numerical reward signal/noise.</p></li>
-<li><p>The learner is not told which actions to take, but instead must discover which actions yield the most reward by trying them.</p></li>
-</ul>
-</section>
-<section id="elements-of-reinforcement-learning" class="slide level2">
-<h2>Elements of Reinforcement Learning</h2>
-<ul>
-<li><p>A <code>Policy</code> defines the learning agent’s way of behaving at a given time. - Mapping from states of the environment to actions to be taken when in those states.</p></li>
-<li><p>A <code>reward</code> signal defines the goal of a reinforcement learning problem and indicates what is good in an immediate sense. - The agent’s sole objective is to maximize the total reward it receives over the long run.</p></li>
-<li><p>A <code>value</code> function specifies what is good in the long run.</p>
-<pre><code> * The value of a state is the total amount of reward an agent can expect to accumulate over the future, starting from that state.</code></pre></li>
-</ul>
-</section>
-<section id="section" class="slide level2">
-<h2></h2>
-<p>(<img data-src="images/agent_env.png" alt="alt">)</p>
 </section>
 <section id="finite-markov-decision-processes" class="slide level2">
 <h2>Finite Markov Decision Processes</h2>
@@ -1168,6 +1167,15 @@ Loop for each episode:<br>
 <iframe data-external="1" src="https://www.youtube.com/embed/sJIFUTITfBc" title="Model Based Reinforcement Learning: Policy Iteration, Value Iteration, and Dynamic Programming" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
 <iframe data-external="1" src="https://www.youtube.com/embed/0iqz4tcKN58" title="Q-Learning: Model Free Reinforcement Learning and Temporal Difference Learning" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
 <iframe data-external="1" src="https://www.youtube.com/embed/wDVteayWWvU" title="Overview of Deep Reinforcement Learning Methods" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+</section>
+<section id="notes" class="slide level2">
+<h2>Notes</h2>
+<ul>
+<li><strong>Reinforcement learning</strong> is a framework for learning how to interact with environment from experience.</li>
+<li>Agent takes actions to interact with environment</li>
+<li>The big challange in RL Design a policy of what actions to take given a state s to maximize a future reward</li>
+<li>Q(s,a) tells us what is the quality of being in state s and taking action a. Then once I find myself in a state s, I just have to look across all of the actions and pick the one that gives the best quality. If I do that in future I will maximize my value.</li>
+</ul>
 
 
 </section></section>
@@ -1455,7 +1463,7 @@ Loop for each episode:<br>
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp('/' + window.location.host + '/');
+            var filterRegex = new RegExp("https:\/\/mustafaslanCoto\.github\.io\/");
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }
