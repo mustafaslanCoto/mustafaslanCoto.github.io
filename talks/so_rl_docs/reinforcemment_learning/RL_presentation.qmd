@@ -17,8 +17,51 @@ format:
     slide-number: true
     theme: simple
     title-slide-attributes:
-      data-background-iframe: custom-logos.html
+      data-title: true
+      data-background: white
+      data-visibility: visible
+    title-slide-contents: |
+       <style>
+       .logos {
+       position: absolute;
+       top: 20px;
+       right: 20px;
+       display: flex;
+       gap: 10px;
+       align-items: center;
+       }
+       .logos img {
+       height: 120px;
+       width: auto;
+       }
+       </style>
+       <div class="logos">
+       <img src="images_rl/cu.jpg" alt="Logo 1">
+       <img src="images_rl/dlsg.png" alt="Logo 2">
+       </div>
 ---
+
+
+<style>
+  .logos {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  .logos img {
+  height: 120px;
+  width: auto;
+}
+</style>
+<div class="logos">
+  <img src="images_rl/cu.jpg" alt="Logo 1">
+  <img src="images_rl/dlsg.png" alt="Logo 2">
+</div>
+
+
 
 
 <!-- ---
@@ -56,29 +99,7 @@ css: styles/cover2.css
 
 ## Reinforcement Learning
 
-Reinforcement learning is learning:
 
-- `What` to do — `how to map situations to actions` to maximize a numerical reward signal/noise.
-
-- The learner is not told which actions to take, but instead must discover which actions yield the most reward by trying them.
-
-## Elements of Reinforcement Learning
-
-- A `Policy` defines the learning agent’s way of behaving at a given time.
-       - Mapping from states of the environment to actions to be taken when in those states.
-
-- A `reward` signal defines the goal of a reinforcement learning problem and indicates what is good in an immediate sense.
-       - The agent’s sole objective is to maximize the total reward it receives over the long run.
-
-- A `value` function specifies what is good in the long run.
-
-       * The value of a state is the total amount of reward an agent can expect to accumulate over the future, starting from that state.
-
-
-
-## 
- 
-(![alt](images/agent_env.png))
 
 
 ## Finite Markov Decision Processes
@@ -1067,3 +1088,9 @@ Where vector $\mathbf{x}(s)$ is called a *feature vector* representing state $s$
 
 
 
+## Notes
+
+- **Reinforcement learning** is a framework for learning how to interact with environment from experience.
+- Agent takes actions to interact with environment
+- The big challange in RL Design a policy of what actions to take given a state s to maximize a future reward
+- Q(s,a) tells us what is the quality of being in state s and taking action a. Then once I find myself in a state s, I just have to look across all of the actions and pick the one that gives the best quality. If I do that in future I will maximize my value.

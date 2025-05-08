@@ -1,9 +1,0 @@
----
-title: "Untitled"
-format: html
----
-
-- **Reinforcement learning** is a framework for learning how to interact with environment from experience.
-- Agent takes actions to interact with environment
-- The big challange in RL Design a policy of what actions to take given a state s to maximize a future reward
-- Q(s,a) tells us what is the quality of being in state s and taking action a. Then once I find myself in a state s, I just have to look across all of the actions and pick the one that gives the best quality. If I do that in future I will maximize my value.

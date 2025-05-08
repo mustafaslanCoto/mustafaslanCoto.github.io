@@ -956,7 +956,7 @@
     "href": "talks/so_rl_docs/reinforcemment_learning/RL_presentation.html#reinforcement-learning",
     "title": "Reinforcement Learning",
     "section": "Reinforcement Learning",
-    "text": "Reinforcement Learning\nReinforcement learning is learning:\n\nWhat to do — how to map situations to actions to maximize a numerical reward signal/noise.\nThe learner is not told which actions to take, but instead must discover which actions yield the most reward by trying them."
+    "text": "Reinforcement Learning"
   },
   {
     "objectID": "talks/so_rl_docs/reinforcemment_learning/RL_presentation.html#elements-of-reinforcement-learning",
@@ -1685,5 +1685,19 @@
     "title": "Reinforcement Learning",
     "section": "Tutorials on RL",
     "text": "Tutorials on RL"
+  },
+  {
+    "objectID": "talks/so_rl_docs/rl_dlfsg/rl_slides.html#outline",
+    "href": "talks/so_rl_docs/rl_dlfsg/rl_slides.html#outline",
+    "title": "Reinforcement Learning",
+    "section": "Outline",
+    "text": "Outline\n\nWhat is Reinforcement Learning\nWhat\nModel-based RL methods\n\nDynamic Programming\n\nModel-free RL methods"
+  },
+  {
+    "objectID": "talks/so_rl_docs/reinforcemment_learning/RL_presentation.html#notes",
+    "href": "talks/so_rl_docs/reinforcemment_learning/RL_presentation.html#notes",
+    "title": "Reinforcement Learning",
+    "section": "Notes",
+    "text": "Notes\n\nReinforcement learning is a framework for learning how to interact with environment from experience.\nAgent takes actions to interact with environment\nThe big challange in RL Design a policy of what actions to take given a state s to maximize a future reward\nQ(s,a) tells us what is the quality of being in state s and taking action a. Then once I find myself in a state s, I just have to look across all of the actions and pick the one that gives the best quality. If I do that in future I will maximize my value."
   }
 ]

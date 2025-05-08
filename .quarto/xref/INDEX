@@ -181,5 +181,8 @@
   },
   "talks/so_rl_docs/RL_presentation.qmd": {
     "RL_presentation.html": "b9e54563"
+  },
+  "talks/so_rl_docs/rl_dlfsg/rl_slides.qmd": {
+    "rl_slides.html": "7f5d8dac"
   }
 }
