@@ -187,5 +187,17 @@
   },
   "talks/so_rl_docs/reinforcement_learning/RL_presentation.qmd": {
     "RL_presentation.html": "9442024d"
+  },
+  "talks/so_rl_docs/temp/reinforcemment_learning/10_bandit_simul.ipynb": {
+    "10_bandit_simul.html": "7dd68e0f"
+  },
+  "talks/so_rl_docs/temp/reinforcemment_learning/comments_definitions.qmd": {
+    "comments_definitions.html": "df631f0f"
+  },
+  "talks/so_rl_docs/temp/reinforcemment_learning/python_code_for_rl.ipynb": {
+    "python_code_for_rl.html": "42fb2e6b"
+  },
+  "talks/so_rl_docs/temp/reinforcemment_learning/RL_presentation.qmd": {
+    "RL_presentation.html": "f3695c9e"
   }
 }

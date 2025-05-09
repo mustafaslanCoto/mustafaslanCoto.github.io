@@ -1,1 +1,30 @@
 /* css styles */
+/* body {
+  font-family: 'Inter', sans-serif;
+  background-color: #fefcf9;
+  color: #2c2c2c;
+}
+
+h1, h2, h3 {
+  font-weight: 600;
+}
+
+a {
+  color: #d72638;
+}
+
+a:hover {
+  text-decoration: underline dotted;
+} */
+
+/* ✅ Style only main content links */
+main a, .about-links a {
+  color: #1a0dab; /* Google-style blue */
+  font-weight: 500;
+  text-decoration: none;
+}
+
+main a:hover, .about-links a:hover {
+  color: #0033cc;  /* darker blue on hover */
+  text-decoration: underline;
+}
