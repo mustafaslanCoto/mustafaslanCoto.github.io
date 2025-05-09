@@ -184,5 +184,8 @@
   },
   "talks/so_rl_docs/rl_dlfsg/rl_slides.qmd": {
     "rl_slides.html": "7f5d8dac"
+  },
+  "talks/so_rl_docs/reinforcement_learning/RL_presentation.qmd": {
+    "RL_presentation.html": "9442024d"
   }
 }

@@ -1,90 +1,21 @@
 ---
-title: "Reinforcement Learning"
-author: 
-  - name: Mustafa Aslan
-    affiliation: PhD student 
-    role: PhD Researcher
-#   - name: Prof. Bahman Rostami-Tabar
-#     affiliation: Lead supervisor
-#     role: Lead Supervisor
-#   - name: Dr. Jeremy Dixon
-#     affiliation: Co-supervisor
-#     role: Co-supervisor
-date: 05/15/2025
-format:
+format: 
   revealjs:
+    slide-number: c/t
+    width: 1600
+    height: 900
+    theme: simple
     css: style.css
-    slide-number: true
-    theme: simple
-    title-slide-attributes:
-      data-title: true
-      data-background: white
-      data-visibility: visible
-    title-slide-contents: |
-       <style>
-       .logos {
-       position: absolute;
-       top: 20px;
-       right: 20px;
-       display: flex;
-       gap: 10px;
-       align-items: center;
-       }
-       .logos img {
-       height: 120px;
-       width: auto;
-       }
-       </style>
-       <div class="logos">
-       <img src="images_rl/cu.jpg" alt="Logo 1">
-       <img src="images_rl/dlsg.png" alt="Logo 2">
-       </div>
----
+    footer: "[Dynamic Programming and Reinforcement Learning](https://mustafaslancoto.github.io/talks/so_rl/rl_main.html)"
+    echo: true
+editor: source
+execute:
+  warning: false
+---   
 
 
-<style>
-  .logos {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    display: flex;
-    gap: 10px;
-    align-items: center;
-  }
-  .logos img {
-  height: 120px;
-  width: auto;
-}
-</style>
-<div class="logos">
-  <img src="images_rl/cu.jpg" alt="Logo 1">
-  <img src="images_rl/dlsg.png" alt="Logo 2">
-</div>
+{{< include title-slide.html >}}
 
-
-
-
-<!-- ---
-title: "Summary of Reinforcement Learning"
-author: "Mustafa Aslan"
-date: 04/01/2025
-format:
-  revealjs:
-#     mathjax:
-#       config: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
-    slide-number: true
-    theme: simple
-    width: 1200
-    height: 800
-    autoSlide: 0
-    margin: 0.2
-    min-scale: 0.2
-    max-scale: 2
-    title-slide-attributes:
-      data-background-size: contain
-      data-background-opacity: "0.3"
-css: styles/cover2.css
---- -->
 
 ## Outline
 
@@ -98,6 +29,19 @@ css: styles/cover2.css
 # What is reinforcement learning
 
 ## Reinforcement Learning
+- Reinforcement learning is learning what to do—how to map situations to actions to maximize a numerical reward signal.
+- The learner is not told which actions to take, but instead must discover which actions yield the most reward by trying them.
+
+## Elements of Reinforcement Learning
+
+- A `policy` defines the learning agent’s way of behaving at a given time. Roughly speaking
+  - A mapping from states of the environment to actions to be taken when in those states.
+
+- The `reward` signal indicates what is good immediately after each decision time.
+
+- A `value function` specifies what is good in the long run.
+  - The value of a state is the total amount of reward an agent can expect to accumulate over the future, starting from that state.
+
 
 
 
