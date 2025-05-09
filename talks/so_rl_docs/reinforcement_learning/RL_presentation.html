@@ -9,9 +9,7 @@
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.7.30">
 
-  <meta name="author" content="Mustafa Aslan">
-  <meta name="dcterms.date" content="2025-05-15">
-  <title>Home – Reinforcement Learning</title>
+  <title>Home – rl_presentation</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -123,69 +121,62 @@
       margin-right: 0; 
     }
   </style>
-<meta property="og:title" content="Reinforcement Learning – Home">
+<meta property="og:title" content="Home">
 <meta property="og:site_name" content="Home">
 </head>
 <body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" data-background="white" data-title="true" data-visibility="visible" class="quarto-title-block center">
-  <h1 class="title">Reinforcement Learning</h1>
 
-<div class="quarto-title-authors">
-<div class="quarto-title-author">
-<div class="quarto-title-author-name">
-Mustafa Aslan 
-</div>
-        <p class="quarto-title-affiliation">
-            PhD student
-          </p>
-    </div>
-</div>
-
-  <p class="date">2025-05-15</p>
-</section>
 <section class="slide level2">
 
+<!-- logo style -->
 <style>
-  .logos {
+  .logo-left {
     position: absolute;
-    top: 20px;
-    right: 20px;
-    display: flex;
-    gap: 10px;
-    align-items: center;
+    top: 1px;
+    left: 1px;
   }
-  .logos img {
-  height: 120px;
-  width: auto;
-}
+
+  .logo-right {
+    position: absolute;
+    top: 1px;
+    right: 1px;
+  }
+
+  .logo-left img,
+  .logo-right img {
+    height: 140px;
+    width: auto;
+    
+  }
+  
+/* title sytle */
+  h1 {
+    text-align: center;
+  }
+
 </style>
-<div class="logos">
-<p><img src="images_rl/cu.jpg" alt="Logo 1"> <img src="images_rl/dlsg.png" alt="Logo 2"></p>
+<div class="logo-left">
+<p><img src="images_rl/cu.jpg" alt="Left Logo"></p>
 </div>
-<!-- ---
-title: "Summary of Reinforcement Learning"
-author: "Mustafa Aslan"
-date: 04/01/2025
-format:
-  revealjs:
-#     mathjax:
-#       config: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
-    slide-number: true
-    theme: simple
-    width: 1200
-    height: 800
-    autoSlide: 0
-    margin: 0.2
-    min-scale: 0.2
-    max-scale: 2
-    title-slide-attributes:
-      data-background-size: contain
-      data-background-opacity: "0.3"
-css: styles/cover2.css
---- -->
+<div class="logo-right">
+<p><img src="images_rl/dlsg.png" alt="Right Logo"></p>
+</div>
+<br> <br> <br> <br>
+<h1>
+An Introduction to Reinforcement Learning
+</h1>
+<div class="title-block">
+<br>
+<h3>
+Mustafa Aslan, PhD Researcher <br> Data Lab for Social Good Research Lab <br> Cardiff University, UK <br> <span style="color: rgba(179, 0, 0, 0.7); font-weight: bold;">Slides:</span> <a href="https://mustafaslancoto.github.io/talks/" style="color: #000; font-weight: bold; text-decoration: underline dotted;text-underline-offset: 5px"> https://mustafaslancoto.github.io/talks/ </a>
+</h3>
+<p>
+15 May 2025
+</p>
+</div>
 </section>
 <section id="outline" class="slide level2">
 <h2>Outline</h2>
@@ -204,6 +195,24 @@ css: styles/cover2.css
 </section>
 <section id="reinforcement-learning" class="slide level2">
 <h2>Reinforcement Learning</h2>
+<ul>
+<li>Reinforcement learning is learning what to do—how to map situations to actions to maximize a numerical reward signal.</li>
+<li>The learner is not told which actions to take, but instead must discover which actions yield the most reward by trying them.</li>
+</ul>
+</section>
+<section id="elements-of-reinforcement-learning" class="slide level2">
+<h2>Elements of Reinforcement Learning</h2>
+<ul>
+<li><p>A <code>policy</code> defines the learning agent’s way of behaving at a given time. Roughly speaking</p>
+<ul>
+<li>A mapping from states of the environment to actions to be taken when in those states.</li>
+</ul></li>
+<li><p>The <code>reward</code> signal indicates what is good immediately after each decision time.</p></li>
+<li><p>A <code>value function</code> specifies what is good in the long run.</p>
+<ul>
+<li>The value of a state is the total amount of reward an agent can expect to accumulate over the future, starting from that state.</li>
+</ul></li>
+</ul>
 </section>
 <section id="finite-markov-decision-processes" class="slide level2">
 <h2>Finite Markov Decision Processes</h2>
@@ -1182,7 +1191,7 @@ Loop for each episode:<br>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
-
+<p><a href="https://mustafaslancoto.github.io/talks/so_rl/rl_main.html">Dynamic Programming and Reinforcement Learning</a></p>
 </div>
 </div></div>
 
@@ -1360,9 +1369,9 @@ Loop for each episode:<br>
         // The "normal" size of the presentation, aspect ratio will be preserved
         // when the presentation is scaled to fit different resolutions. Can be
         // specified using percentage units.
-        width: 1050,
+        width: 1600,
 
-        height: 700,
+        height: 900,
 
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
