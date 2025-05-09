@@ -181,9 +181,20 @@ Mustafa Aslan, PhD Researcher <br> Data Lab for Social Good Research Lab <br> Ca
 <section id="outline" class="slide level2">
 <h2>Outline</h2>
 <ul>
-<li>What is reinforcement learning</li>
-<li>Dynamic programming</li>
-<li>Monte carlo methods</li>
+<li>What is Reinforcement Learning</li>
+<li>Elements of Reinforcement Learning</li>
+<li>Categories of RL methods
+<ul>
+<li>Model-based methods
+<ul>
+<li>Dynamic Programming</li>
+</ul></li>
+<li>Model-Free Methods
+<ul>
+<li>Monte Carlo</li>
+<li>Q-learning</li>
+</ul></li>
+</ul></li>
 <li>Temporal-Difference Learning</li>
 <li><span class="math inline">\(n\)</span>-step Bootstrapping</li>
 </ul>
@@ -199,20 +210,173 @@ Mustafa Aslan, PhD Researcher <br> Data Lab for Social Good Research Lab <br> Ca
 <li>Reinforcement learning is learning what to do—how to map situations to actions to maximize a numerical reward signal.</li>
 <li>The learner is not told which actions to take, but instead must discover which actions yield the most reward by trying them.</li>
 </ul>
+</section></section>
+<section>
+<section id="elements-of-reinforcement-learning" class="title-slide slide level1 center">
+<h1>Elements of Reinforcement Learning</h1>
+
 </section>
-<section id="elements-of-reinforcement-learning" class="slide level2">
+<section id="elements-of-reinforcement-learning-1" class="slide level2">
 <h2>Elements of Reinforcement Learning</h2>
 <ul>
-<li><p>A <code>policy</code> defines the learning agent’s way of behaving at a given time. Roughly speaking</p>
+<li><p><em>Agent</em> is the learner and decision maker.</p>
+<ul>
+<li>It interacts with the environment (comprising everything outside the agent) continually to select actions<br>
+</li>
+<li>The environment responds to these actions and presents new situations to the agent.</li>
+</ul></li>
+<li><p>A <em>policy</em> defines the learning agent’s way of behaving at a given time.</p>
 <ul>
 <li>A mapping from states of the environment to actions to be taken when in those states.</li>
 </ul></li>
-<li><p>The <code>reward</code> signal indicates what is good immediately after each decision time.</p></li>
-<li><p>A <code>value function</code> specifies what is good in the long run.</p>
+<li><p>The <em>reward</em> signal indicates what is good immediately after each decision time.</p></li>
+<li><p>A <em>value function</em> specifies what is good in the long run.</p>
 <ul>
 <li>The value of a state is the total amount of reward an agent can expect to accumulate over the future, starting from that state.</li>
 </ul></li>
 </ul>
+</section>
+<section id="elements-of-reinforcement-learning-2" class="slide level2">
+<h2>Elements of Reinforcement Learning</h2>
+
+<img data-src="images_rl/agent_environment.png" class="r-stretch quarto-figure-center"><p class="caption">The agent–environment interaction in a decision process</p><p>Agent gives rise to a <code>sequence</code> that begins like this</p>
+<p><span class="math display">\[
+S_0, A_0, R_1, S_1, A_1, R_2, S_2, A_2, R_3, \dots  S_t, A_t, R_{t+1}
+\]</span></p>
+</section>
+<section id="goals-and-rewards" class="slide level2 smaller">
+<h2>Goals and Rewards</h2>
+<ul>
+<li>At each time step, the reward is a simple number, <span class="math inline">\(R_t \in \mathbb{R}\)</span> passing from the environment to the agent.</li>
+<li>The agent’s goal is to maximize the total (cumulative) amount of reward it receives in the long run.</li>
+<li>The aim is to maximize the <em><code>expected return</code></em>, <span class="math inline">\(G_t\)</span>, which is defined as: <span class="math display">\[
+G_t \doteq R_{t+1} + R_{t+2} + R_{t+3}+ \dots+R_T
+\]</span></li>
+</ul>
+<p><em>Discounting</em> technique is used to prioritize immediate rewards over future rewards.</p>
+<ul>
+<li>The idea is to multiply future rewards by a discount factor <span class="math inline">\(\gamma \in (0,1]\)</span></li>
+<li>This makes future rewards worth less than immediate rewards.</li>
+<li>The return <span class="math inline">\(G_t\)</span> with discounting is defined as:</li>
+</ul>
+<p><span class="math display">\[
+G_t \doteq R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + \cdots = \sum_{k=0}^{\infty} \gamma^k R_{t+k+1}
+\]</span></p>
+</section>
+<section id="policies-and-value-functions" class="slide level2">
+<h2>Policies and Value Functions</h2>
+<ul>
+<li><p>A <strong>policy</strong> is a mapping from states to probabilities of selecting each possible action. If the agent is following policy <span class="math inline">\(\pi\)</span> at time <span class="math inline">\(t\)</span>, then <span class="math inline">\(\pi(a \mid s)\)</span> is the probability that <span class="math inline">\(A_t = a\)</span> if <span class="math inline">\(S_t = s\)</span></p></li>
+<li><p><em><code>Value functions—functions of states (or of state–action pairs)</code></em> estimate <em>how good</em> it is for the agent to be in a given state (or how good it is to perform a given action in a given state)</p>
+<ul>
+<li>The <em>value function</em> of a state <span class="math inline">\(s\)</span> under a policy <span class="math inline">\(\pi\)</span>, denoted <span class="math inline">\(v_\pi(s)\)</span> is: <span class="math display">\[
+v_\pi(s) \doteq \mathbb{E}_\pi[G_t | S_t=s] = \mathbb{E}_\pi\left[\sum_{k=0}^{\infty} \gamma^k R_{t+k+1} \mid S_t=s\right], \text{ for all } s \in \mathbf{S},
+\]</span></li>
+</ul></li>
+</ul>
+<p>where <span class="math inline">\(\mathbb{E}[\cdot]\)</span> denotes the expected value of a random variable given that the agent follows policy <span class="math inline">\(\pi\)</span>, and <span class="math inline">\(t\)</span> is any time step.</p>
+</section></section>
+<section>
+<section id="categories-of-rl-methods" class="title-slide slide level1 center">
+<h1>Categories of RL methods</h1>
+
+</section>
+<section id="categories-of-reinforcement-learning-methods" class="slide level2 smaller">
+<h2>Categories of reinforcement learning methods</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="model-based"><code>Model-based</code></h3>
+<div class="fragment">
+<ul>
+<li>The agent knows/learns the model of the environment</li>
+<li>They then compute the policy using the ADP methods or the model-free methods on simulated data</li>
+</ul>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>Sample efficient</li>
+<li>Safer exploration</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>Prone to the model errors</li>
+<li>Learning a model is challenging</li>
+</ul>
+</div>
+</div><div class="column" style="width:50%;">
+<h3 id="model-free"><code>Model-free</code></h3>
+<div class="fragment">
+<ul>
+<li>The agent does not know the model of the environment</li>
+<li>They learn the values or policies from trial-and-error interactions with the environment</li>
+</ul>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>Do not need a model</li>
+<li>Flexible</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>Sample inefficient: requires a lot of interactions with the environment</li>
+<li>Slow convergence</li>
+</ul>
+</div>
+</div></div>
+</section>
+<section id="model-based-methods" class="slide level2">
+<h2>Model-based methods</h2>
+<p>Conditional probability of the next state given the current state and action taken <span class="math display">\[
+p(s' \mid s, a) \doteq \Pr \{ S_t = s' \mid S_{t-1} = s, A_{t-1} = a \}, \text{ for all } s',s \in S, \text{and} a \in A(s)
+\]</span></p>
+<p>The function <span class="math inline">\(p\)</span> defines the <em>dynamics</em> of the MDP</p>
+<p><span class="math inline">\(p(s', \mid s, a)\)</span> is a <em>dynamics function</em> and <span class="math inline">\(p\)</span> specifies a probability distribution for each choice of <span class="math inline">\(s\)</span> and <span class="math inline">\(a\)</span>, that is: <span class="math display">\[
+\sum_{s'\in S}p(s'\mid s, a) = 1, \text{ for all } s \in S, a \in A(s)
+\]</span></p>
+</section>
+<section id="model-based-methods-1" class="slide level2">
+<h2>Model-based methods</h2>
+<ul>
+<li>They are used to derive optimal policies and value functions in Markov Decision Processes (MDPs) and reinforcement learning.</li>
+</ul>
+<h4 id="bellman-equations">Bellman Equations</h4>
+<ul>
+<li>The Bellman equations express the relationship between the value of a state and the values of its successor states. For the state-value function <span class="math inline">\(v_\pi\)</span>, the Bellman equation is:</li>
+</ul>
+<p><span class="math display">\[
+\begin{aligned}
+v_\pi(s) &amp;\doteq \mathbb{E}_\pi \big[G_t \mid S_t = s \big] \\
+         &amp;= \mathbb{E}_\pi \big[R_{t+1} + \gamma G_{t+1} \mid S_t = s \big] \\
+         &amp;= \mathbb{E}_\pi \big[R_{t+1} + \gamma v_\pi(S_{t+1}) \mid S_t = s \big] \\
+         &amp;= \sum_a \pi(a \mid s) \sum_{s',r} p(s', r \mid s, a) \big[ r + \gamma v_\pi(s') \big].
+\end{aligned}
+\]</span></p>
+</section>
+<section id="model-based-methods-2" class="slide level2 smaller">
+<h2>Model-based methods</h2>
+<ul>
+<li><p>An optimal policy is a policy that achieves the maximum expected return from any initial state.</p></li>
+<li><p>The optimal state-value function <span class="math inline">\(v_*\)</span> is the maximum value function over all policies: <span class="math display">\[
+v_*(s) = \max_\pi v_\pi(s), \text{ for all } s \in \mathcal{S}
+\]</span></p></li>
+<li><p>The optimal action-value function <span class="math inline">\(q_*\)</span> is the maximum action-value function over all policies: <span class="math display">\[
+q_*(s, a) = \max_\pi q_\pi(s, a), \text{ for all } s \in \mathcal{S}, a \in \mathcal{A}(s)
+\]</span></p></li>
+</ul>
+<p>We use Dynamic Programming (DP) to leverage value functions in the search for good policies.</p>
+<ul>
+<li><p>The Bellman optimality equation for <span class="math inline">\(v_*\)</span> is: <span class="math display">\[
+\begin{aligned}
+v_*(s) &amp;= \max_a \mathbb{E} \big[R_{t+1} + \gamma v_*(S_{t+1}) \mid S_{t} = s, A_{t} = a  \big] \\
+     &amp;= \max_a \sum_{s',r}p(s',r|s,a) \big[r+\gamma v_*(s')],
+\end{aligned}
+\]</span></p></li>
+<li><p>The Bellman optimality equation for <span class="math inline">\(q_*\)</span> is: <span class="math display">\[
+q_*(s, a) = \sum_{s', r} p(s', r \mid s, a) \big[ r + \gamma \max_{a'} q_*(s', a') \big]
+\]</span></p></li>
+</ul>
+<p>Solving these equations gives us the optimal value functions, from which we can derive the optimal policy.</p>
+</section>
+<section id="model-free-methods" class="slide level2">
+<h2>Model-free methods</h2>
 </section>
 <section id="finite-markov-decision-processes" class="slide level2">
 <h2>Finite Markov Decision Processes</h2>
@@ -321,7 +485,7 @@ G_t &amp;\doteq R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + \gamma^3 R_{t+4}+\
 \end{aligned}
 \]</span></p>
 </section>
-<section id="policies-and-value-functions" class="slide level2">
+<section id="policies-and-value-functions-1" class="slide level2">
 <h2>Policies and Value Functions</h2>
 <ul>
 <li>Almost all reinforcement learning algorithms involve estimating <em>value functions</em>—functions of states (or of state–action pairs) that estimate <em>how good</em> it is for the agent to be in a given state (or how good it is to perform a given action in a given state).</li>
@@ -343,7 +507,7 @@ q_\pi(s, a) \doteq \mathbb{E}_\pi[G_t | S_t=s, A_t=a] = \mathbb{E}_\pi\left[\sum
 </section>
 <section id="policies-and-value-functions-continued-1" class="slide level2 smaller">
 <h2>Policies and Value Functions (continued)</h2>
-<h3 id="bellman-equations">Bellman Equations</h3>
+<h3 id="bellman-equations-1">Bellman Equations</h3>
 <p>A fundamental property of value functions used throughout reinforcement learning and dynamic programming is that they satisfy recursive relationships similar to that which we have already established for returns. These recursive relationships are known as the Bellman equations.</p>
 <p>For the state-value function <span class="math inline">\(v_\pi\)</span>, the Bellman equation is:</p>
 <p><span class="math display">\[
@@ -358,7 +522,7 @@ v_\pi(s) &amp;\doteq \mathbb{E}_\pi \big[G_t \mid S_t = s \big] \\
 </section>
 <section id="policies-and-value-functions-continued-2" class="slide level2">
 <h2>Policies and Value Functions (continued)</h2>
-<h3 id="bellman-equations-1">Bellman Equations</h3>
+<h3 id="bellman-equations-2">Bellman Equations</h3>
 <p>For the action-value function <span class="math inline">\(q_\pi\)</span>, the Bellman equation is:</p>
 <p><span class="math display">\[
 q_\pi(s, a) = \mathbb{E}_\pi \big[ R_{t+1} + \gamma q_\pi(S_{t+1}, A_{t+1}) \mid S_t = s, A_t = a \big]
@@ -369,20 +533,20 @@ q_\pi(s, a) = \mathbb{E}_\pi \big[ R_{t+1} + \gamma q_\pi(S_{t+1}, A_{t+1}) \mid
 <section id="optimal-policies-and-optimal-value-functions" class="slide level2 smaller">
 <h2>Optimal Policies and Optimal Value Functions</h2>
 <ul>
-<li class="fragment">An optimal policy is a policy that achieves the maximum expected return from any initial state.</li>
-<li class="fragment">The optimal state-value function <span class="math inline">\(v_*\)</span> is the maximum value function over all policies: <span class="math display">\[
+<li class="fragment"><p>An optimal policy is a policy that achieves the maximum expected return from any initial state.</p></li>
+<li class="fragment"><p>The optimal state-value function <span class="math inline">\(v_*\)</span> is the maximum value function over all policies: <span class="math display">\[
 v_*(s) = \max_\pi v_\pi(s), \text{ for all } s \in \mathcal{S}
-\]</span></li>
-<li class="fragment">The optimal action-value function <span class="math inline">\(q_*\)</span> is the maximum action-value function over all policies: <span class="math display">\[
+\]</span></p></li>
+<li class="fragment"><p>The optimal action-value function <span class="math inline">\(q_*\)</span> is the maximum action-value function over all policies: <span class="math display">\[
 q_*(s, a) = \max_\pi q_\pi(s, a), \text{ for all } s \in \mathcal{S}, a \in \mathcal{A}(s)
-\]</span></li>
-<li class="fragment">The Bellman optimality equation for <span class="math inline">\(v_*\)</span> is: <span class="math display">\[
+\]</span></p></li>
+<li class="fragment"><p>The Bellman optimality equation for <span class="math inline">\(v_*\)</span> is: <span class="math display">\[
 v_*(s) = \max_a \sum_{s', r} p(s', r \mid s, a) \big[ r + \gamma v_*(s') \big]
-\]</span></li>
-<li class="fragment">The Bellman optimality equation for <span class="math inline">\(q_*\)</span> is: <span class="math display">\[
+\]</span></p></li>
+<li class="fragment"><p>The Bellman optimality equation for <span class="math inline">\(q_*\)</span> is: <span class="math display">\[
 q_*(s, a) = \sum_{s', r} p(s', r \mid s, a) \big[ r + \gamma \max_{a'} q_*(s', a') \big]
-\]</span></li>
-<li class="fragment">Solving these equations gives us the optimal value functions, from which we can derive the optimal policy.</li>
+\]</span></p></li>
+<li class="fragment"><p>Solving these equations gives us the optimal value functions, from which we can derive the optimal policy.</p></li>
 </ul>
 </section></section>
 <section>

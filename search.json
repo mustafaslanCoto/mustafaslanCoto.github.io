@@ -546,11 +546,25 @@
     "text": "Tutorials on RL"
   },
   {
+    "objectID": "talks/so_rl_docs/reinforcement_learning/rl.html",
+    "href": "talks/so_rl_docs/reinforcement_learning/rl.html",
+    "title": "Home",
+    "section": "",
+    "text": "import numpy as np\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n\\[\np(s'\\mid s, a) \\doteq \\Pr \\{ S_t = s' \\mid S_{t-1} = s, A_{t-1} = a \\}, \\text{for all } s',s \\in \\mathcal{S} \\text{ and } a \\in \\mathcal{A(s)}  \n\\]\nThe transition function \\(p\\) is a function that gives the probability of moving from state \\(s\\) to state \\(s'\\) given action \\(a\\). It is defined as the conditional probability of the next state given the current state and action taken. The notation \\(\\mathcal{A(s)}\\) indicates that the action set may depend on the current state \\(s\\).\n\nBellman Equations\nThe Bellman equations express the relationship between the value of a state and the values of its successor states. They are used to derive optimal policies and value functions in Markov Decision Processes (MDPs) and reinforcement learning."
+  },
+  {
+    "objectID": "talks/so_rl/rl_main.html",
+    "href": "talks/so_rl/rl_main.html",
+    "title": "Dynamic Programming and Reinforcement Learning",
+    "section": "",
+    "text": "Slides\n\nDate: Jul 18, 2023 3:50 PM – 4:30 PM\nEvent: Stats\nLocation: Cardiff, UK"
+  },
+  {
     "objectID": "talks/so_rl_docs/reinforcement_learning/RL_presentation.html#outline",
     "href": "talks/so_rl_docs/reinforcement_learning/RL_presentation.html#outline",
     "title": "Home",
     "section": "Outline",
-    "text": "Outline\n\nWhat is reinforcement learning\nDynamic programming\nMonte carlo methods\nTemporal-Difference Learning\n\\(n\\)-step Bootstrapping"
+    "text": "Outline\n\nWhat is Reinforcement Learning\nElements of Reinforcement Learning\nCategories of RL methods\n\nModel-based methods\n\nDynamic Programming\n\nModel-Free Methods\n\nMonte Carlo\nQ-learning\n\n\nTemporal-Difference Learning\n\\(n\\)-step Bootstrapping"
   },
   {
     "objectID": "talks/so_rl_docs/reinforcement_learning/RL_presentation.html#reinforcement-learning",
@@ -560,11 +574,67 @@
     "text": "Reinforcement Learning\n\nReinforcement learning is learning what to do—how to map situations to actions to maximize a numerical reward signal.\nThe learner is not told which actions to take, but instead must discover which actions yield the most reward by trying them."
   },
   {
-    "objectID": "talks/so_rl_docs/reinforcement_learning/RL_presentation.html#elements-of-reinforcement-learning",
-    "href": "talks/so_rl_docs/reinforcement_learning/RL_presentation.html#elements-of-reinforcement-learning",
+    "objectID": "talks/so_rl_docs/reinforcement_learning/RL_presentation.html#elements-of-reinforcement-learning-1",
+    "href": "talks/so_rl_docs/reinforcement_learning/RL_presentation.html#elements-of-reinforcement-learning-1",
     "title": "Home",
     "section": "Elements of Reinforcement Learning",
-    "text": "Elements of Reinforcement Learning\n\nA policy defines the learning agent’s way of behaving at a given time. Roughly speaking\n\nA mapping from states of the environment to actions to be taken when in those states.\n\nThe reward signal indicates what is good immediately after each decision time.\nA value function specifies what is good in the long run.\n\nThe value of a state is the total amount of reward an agent can expect to accumulate over the future, starting from that state."
+    "text": "Elements of Reinforcement Learning\n\nAgent is the learner and decision maker.\n\nIt interacts with the environment (comprising everything outside the agent) continually to select actions\n\nThe environment responds to these actions and presents new situations to the agent.\n\nA policy defines the learning agent’s way of behaving at a given time.\n\nA mapping from states of the environment to actions to be taken when in those states.\n\nThe reward signal indicates what is good immediately after each decision time.\nA value function specifies what is good in the long run.\n\nThe value of a state is the total amount of reward an agent can expect to accumulate over the future, starting from that state."
+  },
+  {
+    "objectID": "talks/so_rl_docs/reinforcement_learning/RL_presentation.html#elements-of-reinforcement-learning-2",
+    "href": "talks/so_rl_docs/reinforcement_learning/RL_presentation.html#elements-of-reinforcement-learning-2",
+    "title": "Home",
+    "section": "Elements of Reinforcement Learning",
+    "text": "Elements of Reinforcement Learning\n\nThe agent–environment interaction in a decision processAgent gives rise to a sequence that begins like this\n\\[\nS_0, A_0, R_1, S_1, A_1, R_2, S_2, A_2, R_3, \\dots  S_t, A_t, R_{t+1}\n\\]"
+  },
+  {
+    "objectID": "talks/so_rl_docs/reinforcement_learning/RL_presentation.html#goals-and-rewards",
+    "href": "talks/so_rl_docs/reinforcement_learning/RL_presentation.html#goals-and-rewards",
+    "title": "Home",
+    "section": "Goals and Rewards",
+    "text": "Goals and Rewards\n\nAt each time step, the reward is a simple number, \\(R_t \\in \\mathbb{R}\\) passing from the environment to the agent.\nThe agent’s goal is to maximize the total (cumulative) amount of reward it receives in the long run.\nThe aim is to maximize the expected return, \\(G_t\\), which is defined as: \\[\nG_t \\doteq R_{t+1} + R_{t+2} + R_{t+3}+ \\dots+R_T\n\\]\n\nDiscounting technique is used to prioritize immediate rewards over future rewards.\n\nThe idea is to multiply future rewards by a discount factor \\(\\gamma \\in (0,1]\\)\nThis makes future rewards worth less than immediate rewards.\nThe return \\(G_t\\) with discounting is defined as:\n\n\\[\nG_t \\doteq R_{t+1} + \\gamma R_{t+2} + \\gamma^2 R_{t+3} + \\cdots = \\sum_{k=0}^{\\infty} \\gamma^k R_{t+k+1}\n\\]"
+  },
+  {
+    "objectID": "talks/so_rl_docs/reinforcement_learning/RL_presentation.html#policies-and-value-functions",
+    "href": "talks/so_rl_docs/reinforcement_learning/RL_presentation.html#policies-and-value-functions",
+    "title": "Home",
+    "section": "Policies and Value Functions",
+    "text": "Policies and Value Functions\n\nA policy is a mapping from states to probabilities of selecting each possible action. If the agent is following policy \\(\\pi\\) at time \\(t\\), then \\(\\pi(a \\mid s)\\) is the probability that \\(A_t = a\\) if \\(S_t = s\\)\nValue functions—functions of states (or of state–action pairs) estimate how good it is for the agent to be in a given state (or how good it is to perform a given action in a given state)\n\nThe value function of a state \\(s\\) under a policy \\(\\pi\\), denoted \\(v_\\pi(s)\\) is: \\[\nv_\\pi(s) \\doteq \\mathbb{E}_\\pi[G_t | S_t=s] = \\mathbb{E}_\\pi\\left[\\sum_{k=0}^{\\infty} \\gamma^k R_{t+k+1} \\mid S_t=s\\right], \\text{ for all } s \\in \\mathbf{S},\n\\]\n\n\nwhere \\(\\mathbb{E}[\\cdot]\\) denotes the expected value of a random variable given that the agent follows policy \\(\\pi\\), and \\(t\\) is any time step."
+  },
+  {
+    "objectID": "talks/so_rl_docs/reinforcement_learning/RL_presentation.html#categories-of-reinforcement-learning-methods",
+    "href": "talks/so_rl_docs/reinforcement_learning/RL_presentation.html#categories-of-reinforcement-learning-methods",
+    "title": "Home",
+    "section": "Categories of reinforcement learning methods",
+    "text": "Categories of reinforcement learning methods\n\n\nModel-based\n\n\nThe agent knows/learns the model of the environment\nThey then compute the policy using the ADP methods or the model-free methods on simulated data\n\nPros:\n\nSample efficient\nSafer exploration\n\nCons:\n\nProne to the model errors\nLearning a model is challenging\n\n\n\nModel-free\n\n\nThe agent does not know the model of the environment\nThey learn the values or policies from trial-and-error interactions with the environment\n\nPros:\n\nDo not need a model\nFlexible\n\nCons:\n\nSample inefficient: requires a lot of interactions with the environment\nSlow convergence"
+  },
+  {
+    "objectID": "talks/so_rl_docs/reinforcement_learning/RL_presentation.html#model-based-methods",
+    "href": "talks/so_rl_docs/reinforcement_learning/RL_presentation.html#model-based-methods",
+    "title": "Home",
+    "section": "Model-based methods",
+    "text": "Model-based methods\nConditional probability of the next state given the current state and action taken \\[\np(s' \\mid s, a) \\doteq \\Pr \\{ S_t = s' \\mid S_{t-1} = s, A_{t-1} = a \\}, \\text{ for all } s',s \\in S, \\text{and} a \\in A(s)\n\\]\nThe function \\(p\\) defines the dynamics of the MDP\n\\(p(s', \\mid s, a)\\) is a dynamics function and \\(p\\) specifies a probability distribution for each choice of \\(s\\) and \\(a\\), that is: \\[\n\\sum_{s'\\in S}p(s'\\mid s, a) = 1, \\text{ for all } s \\in S, a \\in A(s)\n\\]"
+  },
+  {
+    "objectID": "talks/so_rl_docs/reinforcement_learning/RL_presentation.html#model-based-methods-1",
+    "href": "talks/so_rl_docs/reinforcement_learning/RL_presentation.html#model-based-methods-1",
+    "title": "Home",
+    "section": "Model-based methods",
+    "text": "Model-based methods\n\nThey are used to derive optimal policies and value functions in Markov Decision Processes (MDPs) and reinforcement learning.\n\nBellman Equations\n\nThe Bellman equations express the relationship between the value of a state and the values of its successor states. For the state-value function \\(v_\\pi\\), the Bellman equation is:\n\n\\[\n\\begin{aligned}\nv_\\pi(s) &\\doteq \\mathbb{E}_\\pi \\big[G_t \\mid S_t = s \\big] \\\\\n         &= \\mathbb{E}_\\pi \\big[R_{t+1} + \\gamma G_{t+1} \\mid S_t = s \\big] \\\\\n         &= \\mathbb{E}_\\pi \\big[R_{t+1} + \\gamma v_\\pi(S_{t+1}) \\mid S_t = s \\big] \\\\\n         &= \\sum_a \\pi(a \\mid s) \\sum_{s',r} p(s', r \\mid s, a) \\big[ r + \\gamma v_\\pi(s') \\big].\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "talks/so_rl_docs/reinforcement_learning/RL_presentation.html#model-based-methods-2",
+    "href": "talks/so_rl_docs/reinforcement_learning/RL_presentation.html#model-based-methods-2",
+    "title": "Home",
+    "section": "Model-based methods",
+    "text": "Model-based methods\n\nAn optimal policy is a policy that achieves the maximum expected return from any initial state.\nThe optimal state-value function \\(v_*\\) is the maximum value function over all policies: \\[\nv_*(s) = \\max_\\pi v_\\pi(s), \\text{ for all } s \\in \\mathcal{S}\n\\]\nThe optimal action-value function \\(q_*\\) is the maximum action-value function over all policies: \\[\nq_*(s, a) = \\max_\\pi q_\\pi(s, a), \\text{ for all } s \\in \\mathcal{S}, a \\in \\mathcal{A}(s)\n\\]\n\nWe use Dynamic Programming (DP) to leverage value functions in the search for good policies.\n\nThe Bellman optimality equation for \\(v_*\\) is: \\[\n\\begin{aligned}\nv_*(s) &= \\max_a \\mathbb{E} \\big[R_{t+1} + \\gamma v_*(S_{t+1}) \\mid S_{t} = s, A_{t} = a  \\big] \\\\\n     &= \\max_a \\sum_{s',r}p(s',r|s,a) \\big[r+\\gamma v_*(s')],\n\\end{aligned}\n\\]\nThe Bellman optimality equation for \\(q_*\\) is: \\[\nq_*(s, a) = \\sum_{s', r} p(s', r \\mid s, a) \\big[ r + \\gamma \\max_{a'} q_*(s', a') \\big]\n\\]\n\nSolving these equations gives us the optimal value functions, from which we can derive the optimal policy."
+  },
+  {
+    "objectID": "talks/so_rl_docs/reinforcement_learning/RL_presentation.html#model-free-methods",
+    "href": "talks/so_rl_docs/reinforcement_learning/RL_presentation.html#model-free-methods",
+    "title": "Home",
+    "section": "Model-free methods",
+    "text": "Model-free methods"
   },
   {
     "objectID": "talks/so_rl_docs/reinforcement_learning/RL_presentation.html#finite-markov-decision-processes",
@@ -609,8 +679,8 @@
     "text": "Returns and Episodes\nDiscounting is a technique used to prioritize immediate rewards over future rewards. The idea is to multiply future rewards by a factor \\(\\gamma\\) (the discount factor) which lies between 0 and 1. This makes future rewards worth less than immediate rewards. The return \\(G_t\\) with discounting is defined as:\n\\[\nG_t \\doteq R_{t+1} + \\gamma R_{t+2} + \\gamma^2 R_{t+3} + \\cdots = \\sum_{k=0}^{\\infty} \\gamma^k R_{t+k+1}\n\\]\nReturns at successive time steps are related to each other in a way that is important for the theory and algorithms of reinforcement learning:\n\\[\n\\begin{aligned}\nG_t &\\doteq R_{t+1} + \\gamma R_{t+2} + \\gamma^2 R_{t+3} + \\gamma^3 R_{t+4}+\\dots \\\\\n& = R_{t+1} + \\gamma \\big(R_{t+2} + \\gamma R_{t+3} + \\gamma^2 R_{t+4}+\\dots \\big) \\\\\n& = R_{t+1} + \\gamma G_{t+1}\n\\end{aligned}\n\\]"
   },
   {
-    "objectID": "talks/so_rl_docs/reinforcement_learning/RL_presentation.html#policies-and-value-functions",
-    "href": "talks/so_rl_docs/reinforcement_learning/RL_presentation.html#policies-and-value-functions",
+    "objectID": "talks/so_rl_docs/reinforcement_learning/RL_presentation.html#policies-and-value-functions-1",
+    "href": "talks/so_rl_docs/reinforcement_learning/RL_presentation.html#policies-and-value-functions-1",
     "title": "Home",
     "section": "Policies and Value Functions",
     "text": "Policies and Value Functions\n\nAlmost all reinforcement learning algorithms involve estimating value functions—functions of states (or of state–action pairs) that estimate how good it is for the agent to be in a given state (or how good it is to perform a given action in a given state).\nThe notion of “how good” here is defined in terms of future rewards that can be expected, or, to be precise, in terms of expected return.\nFormally, a policy is a mapping from states to probabilities of selecting each possible action. If the agent is following policy \\(\\pi\\) at time \\(t\\), then \\(\\pi(a \\mid s)\\) is the probability that \\(A_t = a\\) if \\(S_t = s\\)"
@@ -915,13 +985,6 @@
     "title": "Home",
     "section": "Notes",
     "text": "Notes\n\nReinforcement learning is a framework for learning how to interact with environment from experience.\nAgent takes actions to interact with environment\nThe big challange in RL Design a policy of what actions to take given a state s to maximize a future reward\nQ(s,a) tells us what is the quality of being in state s and taking action a. Then once I find myself in a state s, I just have to look across all of the actions and pick the one that gives the best quality. If I do that in future I will maximize my value."
-  },
-  {
-    "objectID": "talks/so_rl/rl_main.html",
-    "href": "talks/so_rl/rl_main.html",
-    "title": "Dynamic Programming and Reinforcement Learning",
-    "section": "",
-    "text": "Slides\n\nDate: Jul 18, 2023 3:50 PM – 4:30 PM\nEvent: Stats\nLocation: Cardiff, UK"
   },
   {
     "objectID": "talks/so_rl_docs/temp/reinforcemment_learning/comments_definitions.html",

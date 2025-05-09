@@ -19,9 +19,14 @@ execute:
 
 ## Outline
 
-- What is reinforcement learning
-- Dynamic programming
-- Monte carlo methods
+- What is Reinforcement Learning
+- Elements of Reinforcement Learning
+- Categories of RL methods
+  - Model-based methods
+       - Dynamic Programming
+  - Model-Free Methods
+       - Monte Carlo
+       - Q-learning
 - Temporal-Difference Learning
 - $n$-step Bootstrapping
 
@@ -32,20 +37,178 @@ execute:
 - Reinforcement learning is learning what to do—how to map situations to actions to maximize a numerical reward signal.
 - The learner is not told which actions to take, but instead must discover which actions yield the most reward by trying them.
 
+
+# Elements of Reinforcement Learning
+
 ## Elements of Reinforcement Learning
 
-- A `policy` defines the learning agent’s way of behaving at a given time. Roughly speaking
+- *Agent* is the learner and decision maker.
+  - It interacts with the environment (comprising everything outside the agent) continually to select actions  
+  - The environment responds to these actions and presents new situations to the agent.
+
+- A *policy* defines the learning agent’s way of behaving at a given time.
   - A mapping from states of the environment to actions to be taken when in those states.
+       
+- The *reward* signal indicates what is good immediately after each decision time.
 
-- The `reward` signal indicates what is good immediately after each decision time.
-
-- A `value function` specifies what is good in the long run.
+- A *value function* specifies what is good in the long run.
   - The value of a state is the total amount of reward an agent can expect to accumulate over the future, starting from that state.
 
 
 
+## Elements of Reinforcement Learning
+![The agent–environment interaction in a decision process](images_rl/agent_environment.png){.r-stretch}
+
+Agent gives rise to a `sequence` that begins like this
+
+$$
+S_0, A_0, R_1, S_1, A_1, R_2, S_2, A_2, R_3, \dots  S_t, A_t, R_{t+1}
+$$
+
+## Goals and Rewards {.smaller}
+- At each time step, the reward is a simple number, $R_t \in \mathbb{R}$ passing from the environment to the agent.
+- The agent’s goal is to maximize the total (cumulative) amount of reward it receives in the long run.
+- The aim is to maximize the *`expected return`*, $G_t$, which is defined as:
+$$
+G_t \doteq R_{t+1} + R_{t+2} + R_{t+3}+ \dots+R_T
+$$
+
+*Discounting* technique is used to prioritize immediate rewards over future rewards.
+
+- The idea is to multiply future rewards by a discount factor $\gamma \in (0,1]$
+- This makes future rewards worth less than immediate rewards.
+- The return $G_t$ with discounting is defined as:
+
+$$
+G_t \doteq R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + \cdots = \sum_{k=0}^{\infty} \gamma^k R_{t+k+1}
+$$
+
+## Policies and Value Functions
+
+- A **policy** is a mapping from states to probabilities of selecting each possible action. If the agent is following policy $\pi$ at time $t$, then $\pi(a \mid s)$ is the probability that $A_t = a$ if $S_t = s$
+
+- *`Value functions—functions of states (or of state–action pairs)`* estimate *how good* it is for the agent to be in a given state (or how good it is to perform a given action in a given state)
+
+  - The *value function* of a state $s$ under a policy $\pi$, denoted $v_\pi(s)$ is:
+$$
+v_\pi(s) \doteq \mathbb{E}_\pi[G_t | S_t=s] = \mathbb{E}_\pi\left[\sum_{k=0}^{\infty} \gamma^k R_{t+k+1} \mid S_t=s\right], \text{ for all } s \in \mathbf{S},
+$$
+
+where $\mathbb{E}[\cdot]$ denotes the expected value of a random variable given that the agent follows policy $\pi$, and $t$ is any time step.
+
+# Categories of RL methods
+
+## Categories of reinforcement learning methods{.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+### `Model-based`
+::: {.fragment}
+- The agent knows/learns the model of the environment
+- They then compute the policy using the ADP methods or the model-free methods on simulated data  
+
+**Pros:**
+
+- Sample efficient
+- Safer exploration
+
+**Cons:**
+
+- Prone to the model errors
+- Learning a model is challenging
+:::
+:::
+
+::: {.column width="50%"}
+### `Model-free`
+::: {.fragment}
+- The agent does not know the model of the environment
+- They learn the values or policies from trial-and-error interactions with the environment
+
+**Pros:**
+
+- Do not need a model
+- Flexible
+
+**Cons:**
+
+- Sample inefficient: requires a lot of interactions with the environment
+- Slow convergence
+:::
+:::
+::::
+
+## Model-based methods
+
+Conditional probability of the next state given the current state and action taken
+$$
+p(s' \mid s, a) \doteq \Pr \{ S_t = s' \mid S_{t-1} = s, A_{t-1} = a \}, \text{ for all } s',s \in S, \text{and} a \in A(s)
+$$
+
+The function $p$ defines the *dynamics* of the MDP
+
+$p(s', \mid s, a)$ is a *dynamics function* and $p$ specifies a probability distribution for each choice of $s$ and $a$, that is:
+$$
+\sum_{s'\in S}p(s'\mid s, a) = 1, \text{ for all } s \in S, a \in A(s)
+$$
+
+## Model-based methods
+
+- They are used to derive optimal policies and value functions in Markov Decision Processes (MDPs) and reinforcement learning.
+
+#### Bellman Equations
+- The Bellman equations express the relationship between the value of a state and the values of its successor states.
+For the state-value function $v_\pi$, the Bellman equation is:
+
+$$
+\begin{aligned}
+v_\pi(s) &\doteq \mathbb{E}_\pi \big[G_t \mid S_t = s \big] \\
+         &= \mathbb{E}_\pi \big[R_{t+1} + \gamma G_{t+1} \mid S_t = s \big] \\
+         &= \mathbb{E}_\pi \big[R_{t+1} + \gamma v_\pi(S_{t+1}) \mid S_t = s \big] \\
+         &= \sum_a \pi(a \mid s) \sum_{s',r} p(s', r \mid s, a) \big[ r + \gamma v_\pi(s') \big].
+\end{aligned}
+$$
 
 
+
+## Model-based methods {.smaller}
+
+- An optimal policy is a policy that achieves the maximum expected return from any initial state.
+
+- The optimal state-value function $v_*$ is the maximum value function over all policies:
+$$
+v_*(s) = \max_\pi v_\pi(s), \text{ for all } s \in \mathcal{S}
+$$
+
+- The optimal action-value function $q_*$ is the maximum action-value function over all policies:
+$$
+q_*(s, a) = \max_\pi q_\pi(s, a), \text{ for all } s \in \mathcal{S}, a \in \mathcal{A}(s)
+$$
+
+We use Dynamic Programming (DP) to leverage value functions in the search for good policies.
+
+- The Bellman optimality equation for $v_*$ is:
+$$
+\begin{aligned}
+v_*(s) &= \max_a \mathbb{E} \big[R_{t+1} + \gamma v_*(S_{t+1}) \mid S_{t} = s, A_{t} = a  \big] \\
+       &= \max_a \sum_{s',r}p(s',r|s,a) \big[r+\gamma v_*(s')],
+\end{aligned}
+$$
+
+- The Bellman optimality equation for $q_*$ is:
+$$
+q_*(s, a) = \sum_{s', r} p(s', r \mid s, a) \big[ r + \gamma \max_{a'} q_*(s', a') \big]
+$$
+
+Solving these equations gives us the optimal value functions, from which we can derive the optimal policy.
+
+
+
+
+
+## Model-free methods
+
+------
 ## Finite Markov Decision Processes
 
 :::: {.columns}
@@ -232,15 +395,18 @@ $$
 $$
 q_*(s, a) = \max_\pi q_\pi(s, a), \text{ for all } s \in \mathcal{S}, a \in \mathcal{A}(s)
 $$
+
 - The Bellman optimality equation for $v_*$ is:
 $$
 v_*(s) = \max_a \sum_{s', r} p(s', r \mid s, a) \big[ r + \gamma v_*(s') \big]
 $$
+
 - The Bellman optimality equation for $q_*$ is:
 $$
 q_*(s, a) = \sum_{s', r} p(s', r \mid s, a) \big[ r + \gamma \max_{a'} q_*(s', a') \big]
 $$
 - Solving these equations gives us the optimal value functions, from which we can derive the optimal policy.
+
 :::
 
 # Dynamic Programming
