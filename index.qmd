@@ -6,6 +6,9 @@ about:
     template: trestles
     image-shape: round
     links:
+        - icon: envelope
+          text: e-mail
+          href: mailto:aslanm@cardiff.ac.uk
         - icon: github
           text: Github
           href: https://github.com/mustafaslanCoto
