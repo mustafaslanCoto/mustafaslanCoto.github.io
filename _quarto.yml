@@ -22,8 +22,7 @@ format:
     execute:
       enable: true
     linkcolor: "black"
-    theme:
-      light: flatly
+    theme: cosmo
     css: styles.css
     toc: true
 
