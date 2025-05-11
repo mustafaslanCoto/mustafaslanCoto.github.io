@@ -366,7 +366,7 @@ q_*(s, a) = \max_\pi q_\pi(s, a), \text{ for all } s \in \mathcal{S}, a \in \mat
 <li><p>The Bellman optimality equation for <span class="math inline">\(v_*\)</span> is: <span class="math display">\[
 \begin{aligned}
 v_*(s) &amp;= \max_a \mathbb{E} \big[R_{t+1} + \gamma v_*(S_{t+1}) \mid S_{t} = s, A_{t} = a  \big] \\
-     &amp;= \max_a \sum_{s',r}p(s',r|s,a) \big[r+\gamma v_*(s')],
+    &amp;= \max_a \sum_{s',r}p(s',r|s,a) \big[r+\gamma v_*(s')],
 \end{aligned}
 \]</span></p></li>
 <li><p>The Bellman optimality equation for <span class="math inline">\(q_*\)</span> is: <span class="math display">\[
@@ -513,27 +513,29 @@ v_{k+1}(s) &amp;= \mathbb{E} \big[R_{t+1} + \gamma v_k(S_{t+1}) \mid S_t=s, A_t 
 <div class="callout callout-note no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>Value Iteration, for estimating <span class="math inline">\(\pi \approx \pi_*\)</span></strong></p>
+<p><strong>Note</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Algorithm parameter:</strong><br>
-A small threshold <span class="math inline">\(\theta &gt; 0\)</span> determining the accuracy of estimation</p>
-<p><strong>Initialization:</strong><br>
-Initialize <span class="math inline">\(V(s)\)</span> arbitrarily for all <span class="math inline">\(s \in \mathcal{S}^+\)</span>, except that <span class="math inline">\(V(\text{terminal}) = 0\)</span></p>
-<p><strong>Loop:</strong><br>
- <span class="math inline">\(\Delta \leftarrow 0\)</span><br>
- Loop for each <span class="math inline">\(s \in \mathcal{S}\)</span>:<br>
-  <span class="math inline">\(v \leftarrow V(s)\)</span><br>
-  <span class="math inline">\(V(s) \leftarrow \max_a \sum_{s', r} p(s', r \mid s, a) \left[ r + \gamma V(s') \right]\)</span><br>
-  <span class="math inline">\(\Delta \leftarrow \max(\Delta, |v - V(s)|)\)</span><br>
-<strong>until</strong> <span class="math inline">\(\Delta &lt; \theta\)</span></p>
-<p><strong>Output:</strong><br>
-A deterministic policy, <span class="math inline">\(\pi \approx \pi_*\)</span>, such that<br>
- <span class="math inline">\(\pi(s) = \arg\max_a \sum_{s', r} p(s', r \mid s, a) \left[ r + \gamma V(s') \right]\)</span></p>
-</div>
-</div>
-</div>
-</section>
+<pre><code>## Value Iteration, for estimating $\pi \approx \pi_*$
+
+**Algorithm parameter:**\
+A small threshold $\theta &gt; 0$ determining the accuracy of estimation
+
+**Initialization:**\
+Initialize $V(s)$ arbitrarily for all $s \in \mathcal{S}^+$, except that $V(\text{terminal}) = 0$
+
+**Loop:**\
+ $\Delta \leftarrow 0$\
+ Loop for each $s \in \mathcal{S}$:\
+  $v \leftarrow V(s)$\
+  $V(s) \leftarrow \max_a \sum_{s', r} p(s', r \mid s, a) \left[ r + \gamma V(s') \right]$\
+  $\Delta \leftarrow \max(\Delta, |v - V(s)|)$\
+**until** $\Delta &lt; \theta$
+
+**Output:**\
+A deterministic policy, $\pi \approx \pi_*$, such that\
+ $\pi(s) = \arg\max_a \sum_{s', r} p(s', r \mid s, a) \left[ r + \gamma V(s') \right]$
+:::</code></pre>
 <section id="generalized-policy-iteration" class="slide level2 smaller">
 <h2>Generalized Policy Iteration</h2>
 <div class="columns">
@@ -546,13 +548,12 @@ A deterministic policy, <span class="math inline">\(\pi \approx \pi_*\)</span>, 
 </div><div class="column fragment" style="font-size: 100%;">
 <p><img data-src="images_rl/eval_greed_diag.png"></p>
 </div></div>
-</section></section>
+</section>
 <section id="model-free-methods" class="title-slide slide level1 center">
 <h1>Model-free methods</h1>
 
 </section>
 
-<section>
 <section id="monte-carlo-methods" class="title-slide slide level1 center">
 <h1>Monte Carlo Methods</h1>
 
@@ -666,8 +667,8 @@ Small <span class="math inline">\(\varepsilon &gt; 0\)</span></p>
 </div>
 <p>where <span class="math inline">\(|\mathcal{A}(s)|\)</span> is the number of actions available in state <span class="math inline">\(s\)</span>.</p>
 <p>The <span class="math inline">\(\epsilon\)</span>-greedy policy ensures that all actions are tried, but actions with higher value estimates are tried more frequently. This balances exploration (trying new actions) and exploitation (choosing the best-known action).</p>
-</section></section>
-<section>
+</section>
+
 <section id="temporal-difference-learning" class="title-slide slide level1 center">
 <h1>Temporal-Difference Learning</h1>
 
@@ -840,6 +841,11 @@ except that <span class="math inline">\(Q(\text{terminal}, \cdot) = 0\)</span></
 </ul>
 
 
+</section>
+
+</div>
+</div>
+</div>
 </section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">

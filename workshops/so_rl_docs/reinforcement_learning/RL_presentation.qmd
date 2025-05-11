@@ -140,13 +140,15 @@ where $\mathbb{E}[\cdot]$ denotes the expected value of a random variable given 
 
 ## Model-based methods
 
-Conditional probability of the next state given the current state and action taken $$
+Conditional probability of the next state given the current state and action taken
+$$
 p(s' \mid s, a) \doteq \Pr \{ S_t = s' \mid S_{t-1} = s, A_{t-1} = a \}, \text{ for all } s',s \in S, \text{and} a \in A(s)
 $$
 
 The function $p$ defines the *dynamics* of the MDP
 
-$p(s', \mid s, a)$ is a *dynamics function* and $p$ specifies a probability distribution for each choice of $s$ and $a$, that is: $$
+$p(s', \mid s, a)$ is a *dynamics function* and $p$ specifies a probability distribution for each choice of $s$ and $a$, that is:
+$$
 \sum_{s'\in S}p(s'\mid s, a) = 1, \text{ for all } s \in S, a \in A(s)
 $$
 
@@ -171,30 +173,35 @@ $$
 
 -   An optimal policy is a policy that achieves the maximum expected return from any initial state.
 
--   The optimal state-value function $v_*$ is the maximum value function over all policies: $$
-    v_*(s) = \max_\pi v_\pi(s), \text{ for all } s \in \mathcal{S}
-    $$
+-   The optimal state-value function $v_*$ is the maximum value function over all policies:
+$$
+v_*(s) = \max_\pi v_\pi(s), \text{ for all } s \in \mathcal{S}
+$$
 
--   The optimal action-value function $q_*$ is the maximum action-value function over all policies: $$
-    q_*(s, a) = \max_\pi q_\pi(s, a), \text{ for all } s \in \mathcal{S}, a \in \mathcal{A}(s)
-    $$
+-   The optimal action-value function $q_*$ is the maximum action-value function over all policies:
+$$
+q_*(s, a) = \max_\pi q_\pi(s, a), \text{ for all } s \in \mathcal{S}, a \in \mathcal{A}(s)
+$$
 
 We use Dynamic Programming (DP) to leverage value functions in the search for good policies.
 
--   The Bellman optimality equation for $v_*$ is: $$
-    \begin{aligned}
-    v_*(s) &= \max_a \mathbb{E} \big[R_{t+1} + \gamma v_*(S_{t+1}) \mid S_{t} = s, A_{t} = a  \big] \\
-         &= \max_a \sum_{s',r}p(s',r|s,a) \big[r+\gamma v_*(s')],
-    \end{aligned}
-    $$
+-   The Bellman optimality equation for $v_*$ is:
+$$
+\begin{aligned}
+v_*(s) &= \max_a \mathbb{E} \big[R_{t+1} + \gamma v_*(S_{t+1}) \mid S_{t} = s, A_{t} = a  \big] \\
+        &= \max_a \sum_{s',r}p(s',r|s,a) \big[r+\gamma v_*(s')],
+\end{aligned}
+$$
 
--   The Bellman optimality equation for $q_*$ is: $$
-    q_*(s, a) = \sum_{s', r} p(s', r \mid s, a) \big[ r + \gamma \max_{a'} q_*(s', a') \big]
-    $$
+-   The Bellman optimality equation for $q_*$ is:
+$$
+q_*(s, a) = \sum_{s', r} p(s', r \mid s, a) \big[ r + \gamma \max_{a'} q_*(s', a') \big]
+$$
 
 ## Policy Evalulation (Prediction) {.smaller}
 
-*Policy evaluation* is the computation of the state-value function $v_\pi$ for an arbitrary policy $\pi$. We also refer to it as the \*prediction problem. $$
+*Policy evaluation* is the computation of the state-value function $v_\pi$ for an arbitrary policy $\pi$. We also refer to it as the \*prediction problem.
+$$
 \begin{aligned}
 v_\pi(s) &\doteq \mathbb{E}_\pi \big[G_t \mid S_t = s \big] \\
          &= \mathbb{E}_\pi \big[R_{t+1} + \gamma G_{t+1} \mid S_t = s \big] \\
@@ -338,26 +345,26 @@ for all $s \in \mathcal{S}$.
 -   Also note how the value iteration update is identical to the policy evaluation update except that it requires the maximum to be taken over all actions.
 
 ::: {.callout-note icon="false"}
-## Value Iteration, for estimating $\pi \approx \pi_*$
+    ## Value Iteration, for estimating $\pi \approx \pi_*$
 
-**Algorithm parameter:**\
-A small threshold $\theta > 0$ determining the accuracy of estimation
+    **Algorithm parameter:**\
+    A small threshold $\theta > 0$ determining the accuracy of estimation
 
-**Initialization:**\
-Initialize $V(s)$ arbitrarily for all $s \in \mathcal{S}^+$, except that $V(\text{terminal}) = 0$
+    **Initialization:**\
+    Initialize $V(s)$ arbitrarily for all $s \in \mathcal{S}^+$, except that $V(\text{terminal}) = 0$
 
-**Loop:**\
- $\Delta \leftarrow 0$\
- Loop for each $s \in \mathcal{S}$:\
-  $v \leftarrow V(s)$\
-  $V(s) \leftarrow \max_a \sum_{s', r} p(s', r \mid s, a) \left[ r + \gamma V(s') \right]$\
-  $\Delta \leftarrow \max(\Delta, |v - V(s)|)$\
-**until** $\Delta < \theta$
+    **Loop:**\
+     $\Delta \leftarrow 0$\
+     Loop for each $s \in \mathcal{S}$:\
+      $v \leftarrow V(s)$\
+      $V(s) \leftarrow \max_a \sum_{s', r} p(s', r \mid s, a) \left[ r + \gamma V(s') \right]$\
+      $\Delta \leftarrow \max(\Delta, |v - V(s)|)$\
+    **until** $\Delta < \theta$
 
-**Output:**\
-A deterministic policy, $\pi \approx \pi_*$, such that\
- $\pi(s) = \arg\max_a \sum_{s', r} p(s', r \mid s, a) \left[ r + \gamma V(s') \right]$
-:::
+    **Output:**\
+    A deterministic policy, $\pi \approx \pi_*$, such that\
+     $\pi(s) = \arg\max_a \sum_{s', r} p(s', r \mid s, a) \left[ r + \gamma V(s') \right]$
+    :::
 
 ## Generalized Policy Iteration {.smaller}
 
