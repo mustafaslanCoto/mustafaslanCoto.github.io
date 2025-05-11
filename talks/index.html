@@ -72,34 +72,6 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-probability-statistics .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-probability-statistics'] = new List('listing-probability-statistics', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
     const listingTargetEl = window.document.querySelector('#listing-reinforcement-learning .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
@@ -159,7 +131,7 @@ window.Quarto = {
 
 <link rel="stylesheet" href="../styles.css">
 <meta property="og:title" content="Talks &amp; Workshops – Home">
-<meta property="og:image" content="https://mustafaslanCoto.github.io/talks/images/cond_prob.jpg">
+<meta property="og:image" content="https://mustafaslanCoto.github.io/talks/images/rl_photo.webp">
 <meta property="og:site_name" content="Home">
 </head>
 
@@ -181,8 +153,12 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
+    <a class="nav-link" href="../learn/index_lrn.html"> 
+<span class="menu-text">Learn</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link active" href="../talks/index.html" aria-current="page"> 
-<span class="menu-text">Talks</span></a>
+<span class="menu-text">Workshops</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../cvpdf/cvpdf.html"> 
@@ -200,15 +176,8 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#probability-and-statistics" id="toc-probability-and-statistics" class="nav-link active" data-scroll-target="#probability-and-statistics">Probability and Statistics</a></li>
-  <li><a href="#stocastic-optimization-and-reinforcement-learning" id="toc-stocastic-optimization-and-reinforcement-learning" class="nav-link" data-scroll-target="#stocastic-optimization-and-reinforcement-learning">Stocastic Optimization and Reinforcement Learning</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -232,75 +201,23 @@ window.Quarto = {
 </header>
 
 
-<section id="probability-and-statistics" class="level2">
-<h2 class="anchored" data-anchor-id="probability-and-statistics">Probability and Statistics</h2>
-<div id="listing-probability-statistics" class="quarto-listing quarto-listing-container-grid">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="dG9vbHMlMkNzZW1pbmFy" data-listing-date-sort="1742301000000" data-listing-file-modified-sort="1746833964227" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="14">
-<a href="../talks/stats/cond_prob_main.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="../talks/images/cond_prob.jpg" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Conditional Probability and Conditional Expectation
-</h5>
-<div class="card-text listing-description delink">
-Slides
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Mustafa Aslan
-</div>
-<div class="listing-date">
-Mar 18, 2025
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="1" data-categories="dG9vbHMlMkNzZW1pbmFy" data-listing-date-sort="1742301000000" data-listing-file-modified-sort="1746833964227" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="14">
-<a href="../talks/stats/distributions_main.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="../talks/images/dits.gif" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Random Variables
-</h5>
-<div class="card-text listing-description delink">
-Slides
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Mustafa Aslan
-</div>
-<div class="listing-date">
-Mar 18, 2025
-</div>
-</div>
-</div>
-</div></a>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div>
-</section>
-<section id="stocastic-optimization-and-reinforcement-learning" class="level2">
-<h2 class="anchored" data-anchor-id="stocastic-optimization-and-reinforcement-learning">Stocastic Optimization and Reinforcement Learning</h2>
-<div id="reinforcement-rearning">
+<!-- ## Probability and Statistics
 
-</div>
+:::{#probability-statistics}
+
+:::
+
+## Stocastic Optimization and Reinforcement Learning
+
+:::{#reinforcement-rearning}
+::: -->
 
 
 
-</section>
 
 <div class="quarto-listing quarto-listing-container-grid" id="listing-reinforcement-learning">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="dG9vbHMlMkNzZW1pbmFy" data-listing-date-sort="1760691600000" data-listing-file-modified-sort="1746833964221" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="14">
+<div class="g-col-1" data-index="0" data-categories="dG9vbHMlMkNzZW1pbmFy" data-listing-date-sort="1760691600000" data-listing-file-modified-sort="1746931959198" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="14">
 <a href="../talks/so_rl/rl_main.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">

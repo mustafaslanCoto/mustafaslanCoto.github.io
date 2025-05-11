@@ -2,9 +2,14 @@
   {
     "listing": "/talks/index.html",
     "items": [
-      "/talks/stats/cond_prob_main.html",
-      "/talks/stats/distributions_main.html",
       "/talks/so_rl/rl_main.html"
+    ]
+  },
+  {
+    "listing": "/learn/index_lrn.html",
+    "items": [
+      "/learn/stats/cond_prob_main.html",
+      "/learn/stats/distributions_main.html"
     ]
   }
 ]

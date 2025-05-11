@@ -157,8 +157,12 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
+    <a class="nav-link" href="../../../learn/index_lrn.html"> 
+<span class="menu-text">Learn</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="../../../talks/index.html"> 
-<span class="menu-text">Talks</span></a>
+<span class="menu-text">Workshops</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../../cvpdf/cvpdf.html"> 
@@ -204,6 +208,17 @@ p(s'\mid s, a) \doteq \Pr \{ S_t = s' \mid S_{t-1} = s, A_{t-1} = a \}, \text{fo
 <section id="bellman-equations" class="level3">
 <h3 class="anchored" data-anchor-id="bellman-equations">Bellman Equations</h3>
 <p>The Bellman equations express the relationship between the value of a state and the values of its successor states. They are used to derive optimal policies and value functions in Markov Decision Processes (MDPs) and reinforcement learning.</p>
+<p><strong>Input:</strong><br>
+<span class="math inline">\(\pi\)</span>, the policy to be evaluated<br>
+Algorithm parameter: a small threshold <span class="math inline">\(\theta &gt; 0\)</span> determining accuracy of estimation<br>
+Initialize <span class="math inline">\(V(s)\)</span> arbitrarily, for <span class="math inline">\(s \in \mathcal{S}\)</span>, and <span class="math inline">\(V(\text{terminal}) = 0\)</span></p>
+<p><strong>Loop:</strong><br>
+<span class="math inline">\(\Delta \leftarrow 0\)</span><br>
+Loop for each <span class="math inline">\(s \in \mathcal{S}\)</span>:<br>
+ <span class="math inline">\(v \leftarrow V(s)\)</span><br>
+ <span class="math inline">\(V(s) \leftarrow \sum_a \pi(a|s) \sum_{s', r} p(s', r | s, a) [r + \gamma V(s')]\)</span><br>
+ <span class="math inline">\(\Delta \leftarrow \max(\Delta, |v - V(s)|)\)</span></p>
+<p><strong>until</strong> <span class="math inline">\(\Delta &lt; \theta\)</span></p>
 
 
 </section>
