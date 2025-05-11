@@ -3,6 +3,12 @@
     "talks/index.qmd": [
       "stats",
       "so_rl"
+    ],
+    "workshops/index.qmd": [
+      "so_rl"
+    ],
+    "learn/index_lrn.qmd": [
+      "stats"
     ]
   }
 }

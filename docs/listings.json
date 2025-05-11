@@ -6,5 +6,18 @@
       "/talks/stats/distributions_main.html",
       "/talks/so_rl/rl_main.html"
     ]
+  },
+  {
+    "listing": "/workshops/index.html",
+    "items": [
+      "/workshops/so_rl/rl_main.html"
+    ]
+  },
+  {
+    "listing": "/learn/index_lrn.html",
+    "items": [
+      "/learn/stats/cond_prob_main.html",
+      "/learn/stats/distributions_main.html"
+    ]
   }
 ]

@@ -199,5 +199,44 @@
   },
   "talks/so_rl_docs/temp/reinforcemment_learning/RL_presentation.qmd": {
     "RL_presentation.html": "f3695c9e"
+  },
+  "workshops/so_rl_docs/reinforcement_learning/RL_presentation.qmd": {
+    "RL_presentation.html": "5324fadf"
+  },
+  "workshops/so_rl/rl_main.qmd": {
+    "rl_main.html": "1b115838"
+  },
+  "workshops/index.qmd": {
+    "index.html": "4992e0bc"
+  },
+  "workshops/so_rl_docs/temp/reinforcemment_learning/10_bandit_simul.ipynb": {
+    "10_bandit_simul.html": "99d92589"
+  },
+  "workshops/so_rl_docs/temp/reinforcemment_learning/comments_definitions.qmd": {
+    "comments_definitions.html": "c334e01c"
+  },
+  "workshops/so_rl_docs/temp/reinforcemment_learning/python_code_for_rl.ipynb": {
+    "python_code_for_rl.html": "ad46f83a"
+  },
+  "workshops/so_rl_docs/temp/reinforcemment_learning/RL_presentation.qmd": {
+    "RL_presentation.html": "87f05c00"
+  },
+  "workshops/so_rl_docs/reinforcement_learning/rl.ipynb": {
+    "rl.html": "d8c97a17"
+  },
+  "learn/stats_docs/dist_slides_docs/distributions.ipynb": {
+    "distributions.html": "93a4053a"
+  },
+  "learn/stats_docs/dist_slides_docs/condition_prob.ipynb": {
+    "condition_prob.html": "6f1b7114"
+  },
+  "learn/index_lrn.qmd": {
+    "index_lrn.html": "2758aac7"
+  },
+  "learn/stats/cond_prob_main.qmd": {
+    "cond_prob_main.html": "1487ec47"
+  },
+  "learn/stats/distributions_main.qmd": {
+    "distributions_main.html": "9bf41839"
   }
 }
