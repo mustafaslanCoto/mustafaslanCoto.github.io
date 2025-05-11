@@ -1,13 +1,13 @@
 ---
 title: "Talks & Workshops"
 listing: 
-  - id: reinforcement-learning
-    contents: so_rl
+  - id: probability-statistics
+    contents: stats
     type: grid
 ---
 
-
-<!-- ## Probability and Statistics
+<!-- 
+## Probability and Statistics
 
 :::{#probability-statistics}
 
