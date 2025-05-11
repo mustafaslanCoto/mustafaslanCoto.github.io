@@ -6,8 +6,8 @@
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.29">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.30">
 
   <title>Home – rl_presentation</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -801,9 +801,11 @@ except that <span class="math inline">\(Q(\text{terminal}, \cdot) = 0\)</span></
 <p>Uses:</p>
 <ul>
 <li><p>A behavior policy for exploration (e.g., <span class="math inline">\(\varepsilon\)</span>-greedy)</p></li>
-<li><p>A target policy for learning (e.g., greedy)</p>
-<p>Example: Q-learning</p></li>
-<li><p>Even if the agent explores randomly, it updates Q-values based on the best possible action (max over Q), as if it was following a greedy policy.</p></li>
+<li><p>A target policy for learning (e.g., greedy)</p></li>
+</ul>
+<p>Example: Q-learning</p>
+<ul>
+<li>Even if the agent explores randomly, it updates Q-values based on the best possible action (max over Q), as if it was following a greedy policy.</li>
 </ul>
 </section>
 <section id="example" class="slide level2 smaller">
@@ -842,7 +844,7 @@ except that <span class="math inline">\(Q(\text{terminal}, \cdot) = 0\)</span></
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
-<p><a href="https://mustafaslancoto.github.io/talks/so_rl/rl_main.html">Dynamic Programming and Reinforcement Learning</a></p>
+<p><a href="https://mustafaslancoto.github.io/workshops/so_rl/rl_main.html">Dynamic Programming and Reinforcement Learning</a></p>
 </div>
 </div></div>
 
@@ -1123,7 +1125,7 @@ except that <span class="math inline">\(Q(\text{terminal}, \cdot) = 0\)</span></
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp('/' + window.location.host + '/');
+            var filterRegex = new RegExp("https:\/\/mustafaslanCoto\.github\.io\/");
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }
