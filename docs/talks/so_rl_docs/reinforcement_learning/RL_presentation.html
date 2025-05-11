@@ -373,237 +373,10 @@ v_*(s) &amp;= \max_a \mathbb{E} \big[R_{t+1} + \gamma v_*(S_{t+1}) \mid S_{t} = 
 q_*(s, a) = \sum_{s', r} p(s', r \mid s, a) \big[ r + \gamma \max_{a'} q_*(s', a') \big]
 \]</span></p></li>
 </ul>
-<p>Solving these equations gives us the optimal value functions, from which we can derive the optimal policy.</p>
-</section></section>
-<section>
-<section id="dynamic-programming" class="title-slide slide level1 center">
-<h1>Dynamic Programming</h1>
-
-</section>
-<section id="dynamic-programming-1" class="slide level2 smaller">
-<h2>Dynamic Programming</h2>
-<ul>
-<li>The key idea of DP, and of reinforcement learning generally, is the use of value functions to organize and structure the search for good policies.</li>
-<li>We can obtain optimal policies once we have found the optimal value functions, <span class="math inline">\(v_*\)</span> or <span class="math inline">\(q_*\)</span>, which satisfy the Bellman optimality equations:</li>
-</ul>
-<p><span class="math display">\[
-\begin{aligned}
-v_*(s) &amp;= \max_a \mathbb{E} \big[R_{t+1} + \gamma v_*(S_{t+1}) \mid S_{t} = s, A_{t} = a  \big] \\
-       &amp;= \max_a \sum_{s',r}p(s',r|s,a) \big[r+\gamma v_*(s')],
-\end{aligned}
-\]</span></p>
-<p>or <span class="math display">\[
-\begin{aligned}
-q_*(s) &amp;= \max_a \mathbb{E} \big[R_{t+1} + \gamma \max_{a'}q_*(S_{t+1}, a') \mid S_{t} = s, A_{t} = a  \big] \\
-       &amp;= \sum_{s',r}p(s',r \mid s, a ) \big[r+\gamma \max_{a'}q_*(s', a') \big]
-\end{aligned}
-\]</span></p>
-<p>for all <span class="math inline">\(s \in \mathcal{S}, a \in \mathcal{A(s)}\)</span>, and <span class="math inline">\(s' \in \mathcal{S}^+\)</span>.</p>
-<h3 id="dynamic-programming-dp">Dynamic programming (DP)</h3>
-<p>DP can be used to compute the value functions defined by Belman Equations.</p>
-</section>
-<section id="model-free-methods" class="slide level2">
-<h2>Model-free methods</h2>
-</section>
-<section id="finite-markov-decision-processes" class="slide level2">
-<h2>Finite Markov Decision Processes</h2>
-<div class="columns">
-<div class="column fragment" style="font-size: 70%;">
-<p>A finite Markov decision process (MDP) is a model of an environment in reinforcement learning. It consists of:</p>
-<ul>
-<li>A finite set of states <span class="math inline">\(\mathcal{S}\)</span></li>
-<li>A finite set of actions <span class="math inline">\(\mathcal{A}\)</span></li>
-<li>A state transition probability function <span class="math inline">\(p: \mathcal{S} \times \mathcal{A} \times \mathcal{S} \to [0,1]\)</span></li>
-<li>A reward function <span class="math inline">\(r: \mathcal{S} \times \mathcal{A} \to \mathbb{R}\)</span></li>
-</ul>
-</div><div class="column fragment" style="font-size: 70%;">
-<div class="fragment">
-<ul>
-<li>The state transition probability function <span class="math inline">\(p(s' \mid s, a)\)</span> defines the probability of transitioning to state <span class="math inline">\(s'\)</span> from state <span class="math inline">\(s\)</span> after taking action <span class="math inline">\(a\)</span>.</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>The reward function <span class="math inline">\(r(s, a)\)</span> defines the expected reward received after taking action <span class="math inline">\(a\)</span> in state <span class="math inline">\(s\)</span>.</li>
-</ul>
-</div>
-<div class="fragment">
-<p>In an MDP, the agent interacts with the environment in discrete time steps. At each time step <span class="math inline">\(t\)</span>, the agent:</p>
-<ul>
-<li>Observes the current state <span class="math inline">\(S_t \in \mathcal{S}\)</span></li>
-<li>Chooses an action <span class="math inline">\(A_t \in \mathcal{A}(S_t)\)</span></li>
-<li>Receives a reward <span class="math inline">\(R_{t+1} \in \mathcal{R}\)</span></li>
-<li>Transitions to the next state <span class="math inline">\(S_{t+1} \in \mathcal{S}\)</span></li>
-</ul>
-</div>
-<div class="fragment">
-<p>The goal of the agent is to maximize the cumulative reward it receives over time.</p>
-</div>
-</div></div>
-</section>
-<section id="the-agentenvironment-interface" class="slide level2 smaller">
-<h2>The Agent–Environment Interface</h2>
-<div class="columns">
-<div class="column fragment" style="font-size: 90%;">
-<ol type="1">
-<li>The learner and decision maker is called the <strong>agent</strong>.</li>
-<li>The thing it interacts with, comprising everything outside the agent, is called the <strong>environment</strong>.</li>
-<li>These interact continually, the agent selecting <strong>actions</strong> and the environment responding to those actions and presenting new situations to the agent.</li>
-<li>The environment also gives rise to <strong>rewards</strong>, special numerical values that the agent seeks to <strong>maximize</strong> over time through its choice of actions.</li>
-</ol>
-</div><div class="column fragment" style="font-size: 90%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images\agent_environment.png"></p>
-<figcaption>The agent–environment interaction in a Markov decision process</figcaption>
-</figure>
-</div>
-<ul>
-<li>The agent and environment interact at each of a sequence of discrete time steps, <span class="math inline">\(t = 0,1,2,3,\dots\)</span></li>
-<li>At each time step <span class="math inline">\(t\)</span>, the agent receives some representation of the environment’s state, <span class="math inline">\(S_t \in \mathcal{S}\)</span>, and on that basis selects an action, <span class="math inline">\(A_t \in \mathcal{A(s)}\)</span>.</li>
-<li>One time step later, in part as a consequence of its action, the agent receives a numerical reward, <span class="math inline">\(R_{t+1} \in \mathcal{R} \subset \mathbb{R}\)</span>, and finds itself in a new state, <span class="math inline">\(S_{t+1}\)</span>.</li>
-<li>The MDP and agent together thereby give rise to a sequence or trajectory that begins like this: <span class="math display">\[
-S_0, A_0, R_1, S_1, A_1, R_2,S_2, A_2, R_3,\dots
-\]</span></li>
-</ul>
-</div></div>
-</section>
-<section id="the-agentenvironment-interface-1" class="slide level2 smaller">
-<h2>The Agent–Environment Interface</h2>
-<p>For particular values of these random variables, <span class="math inline">\(s' \in\mathcal{S}\)</span> and <span class="math inline">\(r \in \mathcal{R}\)</span>. There is a probability of those values occurring at time <span class="math inline">\(\mathcal{t}\)</span>, given particular values of the preceding state and action: <span class="math display">\[
-p(s', r \mid s, a) \doteq \Pr \{ S_t = s', R_t = r \mid S_{t-1} = s, A_{t-1} = a \}, \text{for all } s',s \in \mathcal{S}, r \in \mathcal{R}, \text{and} a \in \mathcal{A(s)}  
-\]</span></p>
-<p><span class="math inline">\(p(s', r \mid s, a)\)</span> is <em>four-argument dynamics function</em> and <span class="math inline">\(p\)</span> specifies a probability distribution for each choice of <span class="math inline">\(s\)</span> and <span class="math inline">\(a\)</span>, that is, that: <span class="math display">\[
-\sum_{s'\in\mathcal{S}}\sum_{r\in\mathcal{R}}p(s', r \mid s, a) = 1, \text{for all } s \in \mathcal{S}, a \in \mathcal{A(s)}
-\]</span></p>
-</section>
-<section id="the-agentenvironment-interface-2" class="slide level2 smaller">
-<h2>The Agent–Environment Interface</h2>
-<p>From the four-argument dynamics function, <span class="math inline">\(p\)</span>, one can compute anything else one might want to know about the environment, such as the state-transition probabilities (which we denote, with a slight abuse of notation, as a three-argument function <span class="math inline">\(p:\mathcal{S}\times\mathcal{S}\times\mathcal{A}\to [0,1]\)</span> <span class="math display">\[
-p(s' \mid s, a) \doteq \Pr \{S_t=s'\mid S_{t-1} = s, A_{t-1} = a\} = \sum_{r \in\mathcal{R}}p(s', r \mid s, a)
-\]</span></p>
-<p>We can also compute the expected rewards for state–action pairs as a two-argument function <span class="math inline">\(r:\mathcal{S} \times \mathcal{A} \to \mathbb{R}\)</span></p>
-<p><span class="math display">\[
-r(s,a) \doteq \mathbb{E}[R_t \mid S_{t-1}=s,A_{t-1} = a] = \sum_{r\in \mathcal{R}}r\sum_{s'\in \mathcal{S}}p(s',r \mid s, a)
-\]</span></p>
-<p>and the expected rewards for state–action–next-state triples as a three-argument function <span class="math inline">\(r:\mathcal{S}\times\mathcal{A}\times\mathcal{S}\to \mathbb{R},\)</span> <span class="math display">\[
-r(s,a, s') \doteq \mathbb{E}[R_t \mid S_{t-1}=s,A_{t-1} = a, S_t=s'] =  \sum_{r \in\mathcal{R}}r \frac{p(s', r \mid s, a)}{p(s' \mid s, a)}
-\]</span></p>
-</section>
-<section id="returns-and-episodes" class="slide level2">
-<h2>Returns and Episodes</h2>
-<p>The agent’s goal is to maximize the cumulative reward it receives in the long run. If the sequence of rewards received after time step <span class="math inline">\(t\)</span> is denoted as <span class="math inline">\(R_{t+1}, R_{t+2}, R_{t+3}, \ldots\)</span>. In general, we seek to maximize the <em>expected return</em>, where the return, denoted <span class="math inline">\(G_t\)</span>, is defined as some specific function of the reward sequence. In the simplest case the return is the sum of the rewards: <span class="math display">\[
-G_t \doteq R_{t+1} + R_{t+2} + R_{t+3}+ \dots+R_T
-\]</span></p>
-<p>When the agent–environment interaction breaks naturally into subsequences, which we call <em>episodes</em> such as plays of a game, trips through a maze, or any sort of repeated interaction.</p>
-</section>
-<section id="returns-and-episodes-1" class="slide level2 smaller">
-<h2>Returns and Episodes</h2>
-<p><em>Discounting</em> is a technique used to prioritize immediate rewards over future rewards. The idea is to multiply future rewards by a factor <span class="math inline">\(\gamma\)</span> (the discount factor) which lies between 0 and 1. This makes future rewards worth less than immediate rewards. The return <span class="math inline">\(G_t\)</span> with discounting is defined as:</p>
-<p><span class="math display">\[
-G_t \doteq R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + \cdots = \sum_{k=0}^{\infty} \gamma^k R_{t+k+1}
-\]</span></p>
-<p>Returns at successive time steps are related to each other in a way that is important for the theory and algorithms of reinforcement learning:</p>
-<p><span class="math display">\[
-\begin{aligned}
-G_t &amp;\doteq R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + \gamma^3 R_{t+4}+\dots \\
-&amp; = R_{t+1} + \gamma \big(R_{t+2} + \gamma R_{t+3} + \gamma^2 R_{t+4}+\dots \big) \\
-&amp; = R_{t+1} + \gamma G_{t+1}
-\end{aligned}
-\]</span></p>
-</section>
-<section id="policies-and-value-functions-1" class="slide level2">
-<h2>Policies and Value Functions</h2>
-<ul>
-<li>Almost all reinforcement learning algorithms involve estimating <em>value functions</em>—functions of states (or of state–action pairs) that estimate <em>how good</em> it is for the agent to be in a given state (or how good it is to perform a given action in a given state).</li>
-<li>The notion of “how good” here is defined in terms of future rewards that can be expected, or, to be precise, in terms of expected return.</li>
-<li>Formally, a <strong>policy</strong> is a mapping from states to probabilities of selecting each possible action. If the agent is following policy <span class="math inline">\(\pi\)</span> at time <span class="math inline">\(t\)</span>, then <span class="math inline">\(\pi(a \mid s)\)</span> is the probability that <span class="math inline">\(A_t = a\)</span> if <span class="math inline">\(S_t = s\)</span></li>
-</ul>
-</section>
-<section id="policies-and-value-functions-continued" class="slide level2 smaller">
-<h2>Policies and Value Functions (continued)</h2>
-<p>The <em>value function</em> of a state <span class="math inline">\(s\)</span> under a policy <span class="math inline">\(\pi\)</span>, denoted <span class="math inline">\(v_\pi(s)\)</span>, is the expected return when starting in <span class="math inline">\(s\)</span> and following <span class="math inline">\(\pi\)</span> thereafter. For MDPs, we can define <span class="math inline">\(v_\pi\)</span> formally by <span class="math display">\[
-v_\pi(s) \doteq \mathbb{E}_\pi[G_t | S_t=s] = \mathbb{E}_\pi\left[\sum_{k=0}^{\infty} \gamma^k R_{t+k+1} \middle| S_t=s\right], \text{ for all } s \in \mathcal{S}
-\]</span></p>
-<p>where <span class="math inline">\(\mathbb{E}[\cdot]\)</span> denotes the expected value of a random variable given that the agent follows policy <span class="math inline">\(\pi\)</span>, and <span class="math inline">\(t\)</span> is any time step.</p>
-<p>Similarly, we define the value of taking action <span class="math inline">\(a\)</span> in state <span class="math inline">\(s\)</span> under a policy <span class="math inline">\(\pi\)</span>, denoted <span class="math inline">\(q(s, a)\)</span>, as the expected return starting from <span class="math inline">\(s\)</span>, taking the action <span class="math inline">\(a\)</span>, and thereafter following policy <span class="math inline">\(\pi\)</span>:</p>
-<p><span class="math display">\[
-q_\pi(s, a) \doteq \mathbb{E}_\pi[G_t | S_t=s, A_t=a] = \mathbb{E}_\pi\left[\sum_{k=0}^{\infty} \gamma^k R_{t+k+1} \middle| S_t=s,A_t=a \right].
-\]</span></p>
-<p>We call <span class="math inline">\(q_\pi\)</span> the <em>action-value function for policy <span class="math inline">\(\pi\)</span></em>.</p>
-</section>
-<section id="policies-and-value-functions-continued-1" class="slide level2 smaller">
-<h2>Policies and Value Functions (continued)</h2>
-<h3 id="bellman-equations-1">Bellman Equations</h3>
-<p>A fundamental property of value functions used throughout reinforcement learning and dynamic programming is that they satisfy recursive relationships similar to that which we have already established for returns. These recursive relationships are known as the Bellman equations.</p>
-<p>For the state-value function <span class="math inline">\(v_\pi\)</span>, the Bellman equation is:</p>
-<p><span class="math display">\[
-\begin{aligned}
-v_\pi(s) &amp;\doteq \mathbb{E}_\pi \big[G_t \mid S_t = s \big] \\
-&amp;= \mathbb{E}_\pi \big[ R_{t+1} + \gamma G_{t+1} \mid S_t = s \big] \\
-&amp;= \sum_a\pi(a | s) \sum_{s^{'}}\sum_r p(s', r | s, a) \big[r+\mathbb{E}_\pi[G_{t+1}|S_{t+1} = s'] \big] \\
-&amp;= \sum_a\pi(a | s)\sum_{s^{'}, r}p(s', r | s, a)\big[r+v_\pi(s') \big], \:\: \text{for all } s \in \mathcal{S}   
-\end{aligned}
-\]</span></p>
-<p>This equation expresses the value of a state <span class="math inline">\(s\)</span> under a policy <span class="math inline">\(\pi\)</span> as the expected return starting from <span class="math inline">\(s\)</span>, taking the action prescribed by <span class="math inline">\(\pi\)</span>, and thereafter following <span class="math inline">\(\pi\)</span>.</p>
-</section>
-<section id="policies-and-value-functions-continued-2" class="slide level2">
-<h2>Policies and Value Functions (continued)</h2>
-<h3 id="bellman-equations-2">Bellman Equations</h3>
-<p>For the action-value function <span class="math inline">\(q_\pi\)</span>, the Bellman equation is:</p>
-<p><span class="math display">\[
-q_\pi(s, a) = \mathbb{E}_\pi \big[ R_{t+1} + \gamma q_\pi(S_{t+1}, A_{t+1}) \mid S_t = s, A_t = a \big]
-\]</span></p>
-<p>This equation expresses the value of taking action <span class="math inline">\(a\)</span> in state <span class="math inline">\(s\)</span> under a policy <span class="math inline">\(\pi\)</span> as the expected return starting from <span class="math inline">\(s\)</span>, taking action <span class="math inline">\(a\)</span>, and thereafter following <span class="math inline">\(\pi\)</span>.</p>
-<p>These Bellman equations form the basis for many reinforcement learning algorithms, as they provide a way to iteratively compute the value functions.</p>
-</section>
-<section id="optimal-policies-and-optimal-value-functions" class="slide level2 smaller">
-<h2>Optimal Policies and Optimal Value Functions</h2>
-<ul>
-<li class="fragment"><p>An optimal policy is a policy that achieves the maximum expected return from any initial state.</p></li>
-<li class="fragment"><p>The optimal state-value function <span class="math inline">\(v_*\)</span> is the maximum value function over all policies: <span class="math display">\[
-v_*(s) = \max_\pi v_\pi(s), \text{ for all } s \in \mathcal{S}
-\]</span></p></li>
-<li class="fragment"><p>The optimal action-value function <span class="math inline">\(q_*\)</span> is the maximum action-value function over all policies: <span class="math display">\[
-q_*(s, a) = \max_\pi q_\pi(s, a), \text{ for all } s \in \mathcal{S}, a \in \mathcal{A}(s)
-\]</span></p></li>
-<li class="fragment"><p>The Bellman optimality equation for <span class="math inline">\(v_*\)</span> is: <span class="math display">\[
-v_*(s) = \max_a \sum_{s', r} p(s', r \mid s, a) \big[ r + \gamma v_*(s') \big]
-\]</span></p></li>
-<li class="fragment"><p>The Bellman optimality equation for <span class="math inline">\(q_*\)</span> is: <span class="math display">\[
-q_*(s, a) = \sum_{s', r} p(s', r \mid s, a) \big[ r + \gamma \max_{a'} q_*(s', a') \big]
-\]</span></p></li>
-<li class="fragment"><p>Solving these equations gives us the optimal value functions, from which we can derive the optimal policy.</p></li>
-</ul>
-</section></section>
-<section>
-<section id="dynamic-programming-2" class="title-slide slide level1 center">
-<h1>Dynamic Programming</h1>
-
-</section>
-<section id="dynamic-programming-3" class="slide level2 smaller">
-<h2>Dynamic Programming</h2>
-<ul>
-<li>The key idea of DP, and of reinforcement learning generally, is the use of value functions to organize and structure the search for good policies.</li>
-<li>We can obtain optimal policies once we have found the optimal value functions, <span class="math inline">\(v_*\)</span> or <span class="math inline">\(q_*\)</span>, which satisfy the Bellman optimality equations:</li>
-</ul>
-<p><span class="math display">\[
-\begin{aligned}
-v_*(s) &amp;= \max_a \mathbb{E} \big[R_{t+1} + \gamma v_*(S_{t+1}) \mid S_{t} = s, A_{t} = a  \big] \\
-       &amp;= \max_a \sum_{s',r}p(s',r|s,a) \big[r+\gamma v_*(s')],
-\end{aligned}
-\]</span></p>
-<p>or <span class="math display">\[
-\begin{aligned}
-q_*(s) &amp;= \max_a \mathbb{E} \big[R_{t+1} + \gamma \max_{a'}q_*(S_{t+1}, a') \mid S_{t} = s, A_{t} = a  \big] \\
-       &amp;= \sum_{s',r}p(s',r \mid s, a ) \big[r+\gamma \max_{a'}q_*(s', a') \big]
-\end{aligned}
-\]</span></p>
-<p>for all <span class="math inline">\(s \in \mathcal{S}, a \in \mathcal{A(s)}\)</span>, and <span class="math inline">\(s' \in \mathcal{S}^+\)</span>.</p>
 </section>
 <section id="policy-evalulation-prediction" class="slide level2 smaller">
 <h2>Policy Evalulation (Prediction)</h2>
-<p>First we consider how to compute the state-value function <span class="math inline">\(v_\pi\)</span> for an arbitrary policy <span class="math inline">\(\pi\)</span>. This is called <em>policy evaluation</em> in the DP literature. We also refer to it as the *prediction problem. <span class="math display">\[
+<p><em>Policy evaluation</em> is the computation of the state-value function <span class="math inline">\(v_\pi\)</span> for an arbitrary policy <span class="math inline">\(\pi\)</span>. We also refer to it as the *prediction problem. <span class="math display">\[
 \begin{aligned}
 v_\pi(s) &amp;\doteq \mathbb{E}_\pi \big[G_t \mid S_t = s \big] \\
          &amp;= \mathbb{E}_\pi \big[R_{t+1} + \gamma G_{t+1} \mid S_t = s \big] \\
@@ -612,14 +385,13 @@ v_\pi(s) &amp;\doteq \mathbb{E}_\pi \big[G_t \mid S_t = s \big] \\
 \end{aligned}
 \]</span></p>
 <p>where <span class="math inline">\(\pi(a|s)\)</span> is the probability of taking action <span class="math inline">\(\alpha\)</span> in state <span class="math inline">\(s\)</span> under policy <span class="math inline">\(\pi\)</span>, and the expectations are subscripted by <span class="math inline">\(\pi\)</span> to indicate that they are conditional on <span class="math inline">\(\pi\)</span> being followed.</p>
-<p>Consider a sequence of approximate value functions <span class="math inline">\(v_0, v_1, v_2,\dots,\)</span> each mapping <span class="math inline">\(\mathcal{S}^+\)</span> to <span class="math inline">\(\mathbb{R}\)</span> (the real numbers). The initial approximation, <span class="math inline">\(v_0\)</span>, is chosen arbitrarily (except that the terminal state, if any, must be given value 0), and each successive approximation is obtained by using the Bellman equation for <span class="math inline">\(v_\pi\)</span> as an update rule:</p>
+<p>Consider a sequence of approximate value functions <span class="math inline">\(v_0, v_1, v_2,\dots,\)</span>. Each successive approximation is obtained by using the Bellman equation for <span class="math inline">\(v_\pi\)</span> as an update rule:</p>
 <p><span class="math display">\[
 \begin{aligned}
 v_{k+1}(s) &amp;\doteq \mathbb{E}_\pi \big[R_{t+1} + \gamma v_k(S_{t+1}) \mid S_t = s \big] \\
          &amp;= \sum_a \pi(a \mid s) \sum_{s',r} p(s', r \mid s, a) \big[ r + \gamma v_k(s') \big].
 \end{aligned}
 \]</span></p>
-<p>for all <span class="math inline">\(s \in \mathcal{S}\)</span>. Clearly, <span class="math inline">\(v_k = v_\pi\)</span> is a fixed point for this update rule because the Bellman equation for <span class="math inline">\(v_\pi\)</span> assures us of equality in this case.</p>
 </section>
 <section id="policy-evalulation-prediction-1" class="slide level2">
 <h2>Policy Evalulation (Prediction)</h2>
@@ -627,20 +399,20 @@ v_{k+1}(s) &amp;\doteq \mathbb{E}_\pi \big[R_{t+1} + \gamma v_k(S_{t+1}) \mid S_
 <div class="callout callout-note no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>Iterative Policy Evaluation, for estimating <span class="math inline">\(V \approx \pi_*\)</span><br>
-</strong></p>
+<p><strong>Iterative Policy Evaluation, for estimating <span class="math inline">\(V \approx v_\pi\)</span></strong></p>
 </div>
 <div class="callout-content">
-<div class="line-block">Input <span class="math inline">\(\pi\)</span>, the policy to be evaluated<br>
-Algorithm parameter: a small threshold <span class="math inline">\(\theta &gt;0\)</span> determining accuracy of estimation<br>
-Initialize <span class="math inline">\(V(s)\)</span> arbitrarily, for <span class="math inline">\(s \in \mathcal{S}\)</span>, and <span class="math inline">\(V(terminal) = 0\)</span><br>
-Loop:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(\Delta \gets0\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;Loop for each <span class="math inline">\(s \in \mathcal{S}\)</span>:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(v \gets V(s)\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(V(s) \gets \sum_a \pi(a \mid s) \sum_{s',r} p(s', r \mid s, a) \big[ r + \gamma V(s') \big]\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(\Delta \gets \max(\Delta, |v - V(s)|)\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;until <span class="math inline">\(\Delta &lt; \theta\)</span></div>
+<p><strong>Input:</strong><br>
+<span class="math inline">\(\pi\)</span>, the policy to be evaluated<br>
+Algorithm parameter: a small threshold <span class="math inline">\(\theta &gt; 0\)</span> determining accuracy of estimation<br>
+Initialize <span class="math inline">\(V(s)\)</span> arbitrarily, for <span class="math inline">\(s \in \mathcal{S}\)</span>, and <span class="math inline">\(V(\text{terminal}) = 0\)</span></p>
+<p><strong>Loop:</strong><br>
+<span class="math inline">\(\Delta \leftarrow 0\)</span><br>
+Loop for each <span class="math inline">\(s \in \mathcal{S}\)</span>:<br>
+ <span class="math inline">\(v \leftarrow V(s)\)</span><br>
+ <span class="math inline">\(V(s) \leftarrow \sum_a \pi(a|s) \sum_{s', r} p(s', r | s, a) [r + \gamma V(s')]\)</span><br>
+ <span class="math inline">\(\Delta \leftarrow \max(\Delta, |v - V(s)|)\)</span><br>
+<strong>until</strong> <span class="math inline">\(\Delta &lt; \theta\)</span></p>
 </div>
 </div>
 </div>
@@ -649,7 +421,10 @@ Loop:<br>
 <h2>Policy Improvement</h2>
 <div class="columns">
 <div class="column fragment" style="font-size: 70%;">
-<p>We know how good it is to follow the current policy from <span class="math inline">\(s\)</span>—that is <span class="math inline">\(v_\pi(s)\)</span>—but would it be better or worse to change to the new policy? One way to answer this question is to consider selecting <span class="math inline">\(a\)</span> in <span class="math inline">\(s\)</span> and thereafter following the existing policy <span class="math inline">\(\pi\)</span>.</p>
+<ul>
+<li>We know how good it is to follow the current policy from <span class="math inline">\(s\)</span>—that is <span class="math inline">\(v_\pi(s)\)</span>—but would it be better or worse to change to the new policy?</li>
+</ul>
+<p>One way to answer this question is to consider selecting <span class="math inline">\(a\)</span> in <span class="math inline">\(s\)</span> and thereafter following the existing policy <span class="math inline">\(\pi\)</span>.</p>
 <p>This leads to the definition of the <em>q-value</em> of a state-action pair:</p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -676,39 +451,40 @@ v_{\pi'}(s) \geq v_\pi(s).
 </section>
 <section id="policy-iteration" class="slide level2">
 <h2>Policy Iteration</h2>
-<p>Once a policy, <span class="math inline">\(\pi\)</span>, has been improved using <span class="math inline">\(v_\pi\)</span> to yield a better policy, <span class="math inline">\(\pi^{'}\)</span>, we can then compute <span class="math inline">\(v_{\pi^{'}}\)</span> and improve it again to yield an even better <span class="math inline">\(\pi^{''}\)</span>. We can thus obtain a sequence of monotonically improving policies and value functions:</p>
+<p>Once a policy, <span class="math inline">\(\pi\)</span>, has been improved using <span class="math inline">\(v_\pi\)</span> to yield a better policy, <span class="math inline">\(\pi^{'}\)</span>, we can then compute <span class="math inline">\(v_{\pi^{'}}\)</span> and improve it again to yield an even better <span class="math inline">\(\pi^{''}\)</span>.</p>
 <p><span class="math display">\[
-\pi_0 \xrightarrow E v_{\pi_0} \xrightarrow I \pi_1 \xrightarrow E v_{\pi_1}\xrightarrow I \pi_2,\dots,\xrightarrow I \pi_* \xrightarrow E v_*
+\pi_0 \xrightarrow E v_{\pi_0} \xrightarrow I \pi_1 \xrightarrow E v_{\pi_1}\xrightarrow I \pi_2,\dots,\xrightarrow I \pi_* \     xrightarrow E v_*
 \]</span></p>
 <p>where <span class="math inline">\(\xrightarrow E\)</span> denotes a policy <em>evaluation</em> and <span class="math inline">\(\xrightarrow I\)</span> denotes a policy <em>improvement</em>. This way of finding an optimal policy is called policy iteration.</p>
 </section>
-<section id="policy-iteration-1" class="slide level2">
+<section id="policy-iteration-1" class="slide level2 smaller">
 <h2>Policy Iteration</h2>
 <p>A complete <em>policy iteration</em> algorithm</p>
 <div class="callout callout-note no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>Policy Iteration (using iterative policy evaluation) for estimating <span class="math inline">\(\pi \approx \pi_*\)</span><br>
-</strong></p>
+<p><strong>Policy Iteration (using iterative policy evaluation) for estimating <span class="math inline">\(\pi \approx \pi_*\)</span></strong></p>
 </div>
 <div class="callout-content">
-<div class="line-block">1. Initilaization:<br>
-&nbsp;&nbsp;&nbsp;<span class="math inline">\(V(s) \in \mathbb{R}\)</span> and <span class="math inline">\(\pi(s) \in \mathcal{A(s)}\)</span> arbitrarily for all <span class="math inline">\(s \in \mathcal{S}\)</span>; <span class="math inline">\(V(terminal) = 0\)</span><br>
-2. Policy Evaluation<br>
-&nbsp;&nbsp;&nbsp;Loop:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(\Delta \gets 0\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Loop for each <span class="math inline">\(s \in \mathcal{S}\)</span>:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(v \gets V(s)\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(V(s) \gets \sum_{s',r} p(s', r \mid s, \pi(s)) \big[ r + \gamma V(s') \big]\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(\Delta \gets \max(\Delta, |v - V(s)|)\)</span><br>
-&nbsp;&nbsp;&nbsp;until <span class="math inline">\(\Delta &lt; \theta\)</span><br>
-3. Policy Improvement<br>
-&nbsp;&nbsp;&nbsp;<em>policy-stable <span class="math inline">\(\gets\)</span></em> true<br>
-&nbsp;&nbsp;&nbsp;For each <span class="math inline">\(s \in \mathcal{S}\)</span>:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>old-action <span class="math inline">\(\gets \pi(s)\)</span></em><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(\pi(s) \gets \arg \max_a \sum_{s',r} p(s', r \mid s, a) \big[ r + \gamma V(s') \big]\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If <em>old-action</em> <span class="math inline">\(\neq\)</span> <span class="math inline">\(\pi(s)\)</span>, then <em>policy-stable <span class="math inline">\(\gets\)</span> false</em><br>
-&nbsp;&nbsp;&nbsp;If <em>policy-stable</em>, then stop and return <span class="math inline">\(V \approx v_*\)</span> and <span class="math inline">\(\pi \approx \pi_*\)</span>; else go to 2</div>
+<p><strong>1. Initialization</strong><br>
+<span class="math inline">\(V(s) \in \mathbb{R}\)</span> and <span class="math inline">\(\pi(s) \in \mathcal{A}(s)\)</span> arbitrarily for all <span class="math inline">\(s \in \mathcal{S}\)</span><br>
+<span class="math inline">\(V(\text{terminal}) \doteq 0\)</span></p>
+<p><strong>2. Policy Evaluation</strong><br>
+Loop:<br>
+ <span class="math inline">\(\Delta \leftarrow 0\)</span><br>
+ Loop for each <span class="math inline">\(s \in \mathcal{S}\)</span>:<br>
+  <span class="math inline">\(v \leftarrow V(s)\)</span><br>
+  <span class="math inline">\(V(s) \leftarrow \sum_{s', r} p(s', r \mid s, \pi(s)) \left[r + \gamma V(s')\right]\)</span><br>
+  <span class="math inline">\(\Delta \leftarrow \max(\Delta, |v - V(s)|)\)</span><br>
+Until <span class="math inline">\(\Delta &lt; \theta\)</span> (a small positive number determining the accuracy of estimation)</p>
+<p><strong>3. Policy Improvement</strong><br>
+<em>policy-stable</em> <span class="math inline">\(\leftarrow\)</span> true<br>
+For each <span class="math inline">\(s \in \mathcal{S}\)</span>:<br>
+ <em>old-action</em> <span class="math inline">\(\leftarrow \pi(s)\)</span><br>
+ <span class="math inline">\(\pi(s) \leftarrow \arg\max_a \sum_{s', r} p(s', r \mid s, a)\left[r + \gamma V(s')\right]\)</span><br>
+ If <em>old-action</em> <span class="math inline">\(\ne \pi(s)\)</span>, then <em>policy-stable</em> <span class="math inline">\(\leftarrow\)</span> false</p>
+<p>If <em>policy-stable</em>, then stop and return <span class="math inline">\(V \approx v_*\)</span> and <span class="math inline">\(\pi \approx \pi_*\)</span>;<br>
+Else go to step 2</p>
 </div>
 </div>
 </div>
@@ -740,17 +516,20 @@ v_{k+1}(s) &amp;= \mathbb{E} \big[R_{t+1} + \gamma v_k(S_{t+1}) \mid S_t=s, A_t 
 <p><strong>Value Iteration, for estimating <span class="math inline">\(\pi \approx \pi_*\)</span></strong></p>
 </div>
 <div class="callout-content">
-<div class="line-block">Algorithm parameter: a small threshold <span class="math inline">\(\theta &gt; 0\)</span> determining accuracy of estimation<br>
-Initialize <span class="math inline">\(V(s)\)</span> arbitrarily, for all <span class="math inline">\(s \in \mathcal{S}^+\)</span>, and <span class="math inline">\(V(terminal) = 0\)</span><br>
-Loop:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(\Delta \gets 0\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;Loop for each <span class="math inline">\(s \in \mathcal{S}\)</span>:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(v \gets V(s)\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(V(s) \gets \max_a \sum_{s', r} p(s', r \mid s, a) \big[ r + \gamma V(s') \big]\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(\Delta \gets \max(\Delta, |v - V(s)|)\)</span><br>
-until <span class="math inline">\(\Delta &lt; \theta\)</span><br>
-Output a deterministic policy, <span class="math inline">\(\pi \approx \pi_*\)</span>, such that<br>
-&nbsp;&nbsp;<span class="math inline">\(\pi(s) = \arg\max_a \sum_{s', r} p(s', r \mid s, a) \big[ r + \gamma V(s') \big]\)</span></div>
+<p><strong>Algorithm parameter:</strong><br>
+A small threshold <span class="math inline">\(\theta &gt; 0\)</span> determining the accuracy of estimation</p>
+<p><strong>Initialization:</strong><br>
+Initialize <span class="math inline">\(V(s)\)</span> arbitrarily for all <span class="math inline">\(s \in \mathcal{S}^+\)</span>, except that <span class="math inline">\(V(\text{terminal}) = 0\)</span></p>
+<p><strong>Loop:</strong><br>
+ <span class="math inline">\(\Delta \leftarrow 0\)</span><br>
+ Loop for each <span class="math inline">\(s \in \mathcal{S}\)</span>:<br>
+  <span class="math inline">\(v \leftarrow V(s)\)</span><br>
+  <span class="math inline">\(V(s) \leftarrow \max_a \sum_{s', r} p(s', r \mid s, a) \left[ r + \gamma V(s') \right]\)</span><br>
+  <span class="math inline">\(\Delta \leftarrow \max(\Delta, |v - V(s)|)\)</span><br>
+<strong>until</strong> <span class="math inline">\(\Delta &lt; \theta\)</span></p>
+<p><strong>Output:</strong><br>
+A deterministic policy, <span class="math inline">\(\pi \approx \pi_*\)</span>, such that<br>
+ <span class="math inline">\(\pi(s) = \arg\max_a \sum_{s', r} p(s', r \mid s, a) \left[ r + \gamma V(s') \right]\)</span></p>
 </div>
 </div>
 </div>
@@ -758,55 +537,58 @@ Output a deterministic policy, <span class="math inline">\(\pi \approx \pi_*\)</
 <section id="generalized-policy-iteration" class="slide level2 smaller">
 <h2>Generalized Policy Iteration</h2>
 <div class="columns">
-<div class="column fragment" style="font-size: 70%;">
+<div class="column fragment" style="font-size: 100%;">
 <ul>
-<li>The term <em>generalized policy iteration (GPI)</em> is to the general idea of letting policy-evaluation and policyimprovement processes interact, independent of the granularity and other details of the two processes.</li>
-<li>Almost all reinforcement learning methods are well described as <em>GPI</em>. That is, all have identifiable policies and value functions, with the policy always being improved with respect to the value function and the value function always being driven toward the value function for the policy, as suggested by the diagram to the right.</li>
-<li>If both the evaluation process and the improvement process stabilize, that is, no longer produce changes, then the value function and policy must be optimal. The value function stabilizes only when it is consistent with the current policy, and the policy stabilizes only when it is greedy with respect to the current value function</li>
+<li><p>GPI is a general idea that describes how two processes — <em>evaluating a policy and improving it</em> — work together and influence each other.</p></li>
+<li><p>Most reinforcement learning algorithms use a value function to judge how good a policy is, and then update the policy based on that judgment.</p></li>
+<li><p>If both value estimation and policy improvement stabilize (i.e., stop changing), then the policy must be the best possible one for that value function—meaning the policy is optimal.</p></li>
 </ul>
-</div><div class="column fragment" style="font-size: 70%;">
-<p><img data-src="images/eval_greed_diag.png"></p>
+</div><div class="column fragment" style="font-size: 100%;">
+<p><img data-src="images_rl/eval_greed_diag.png"></p>
 </div></div>
 </section></section>
+<section id="model-free-methods" class="title-slide slide level1 center">
+<h1>Model-free methods</h1>
+
+</section>
+
 <section>
 <section id="monte-carlo-methods" class="title-slide slide level1 center">
 <h1>Monte Carlo Methods</h1>
 
 </section>
-<section id="monte-carlo-methods-1" class="slide level2">
-<h2>Monte Carlo Methods</h2>
+<section id="monte-carlo-mc-methods" class="slide level2">
+<h2>Monte Carlo (MC) Methods</h2>
 <ul>
-<li>Monte Carlo methods are ways of solving the reinforcement learning problem based on averaging sample returns.</li>
-<li>To ensure that well-defined returns are available, here we define Monte Carlo methods only for episodic tasks. That is, we assume experience is divided into episodes, and that all episodes eventually terminate no matter what actions are selected.</li>
-<li>Only on the completion of an episode are value estimates and policies changed. Monte Carlo methods can thus be incremental in an episode-by-episode sense, but not in a step-by-step (online) sense.</li>
-<li>The term “Monte Carlo” is often used more broadly for any estimation method whose operation involves a significant random component.</li>
+<li><p>The term “Monte Carlo” is often used more broadly for any estimation method whose operation involves a significant random component.</p></li>
+<li><p>MC methods solve reinforcement learning problems by averaging results (returns) from sampled experiences sequences of states, actions, and rewards.</p></li>
+<li><p>They do not require knowledge of the environment’s dynamics, making them powerful for learning from real or simulated experiences.</p></li>
 </ul>
 </section>
 <section id="monte-carlo-prediction" class="slide level2 smaller">
 <h2>Monte Carlo Prediction</h2>
 <ul>
 <li>Suppose we wish to estimate <span class="math inline">\(v_{\pi}(s)\)</span>, the values of a state <span class="math inline">\(s\)</span> under policy <span class="math inline">\(\pi\)</span>, given a set of episodes obtained by following <span class="math inline">\(\pi\)</span> and passing through <span class="math inline">\(s\)</span>.</li>
-<li>Essentially, the actions taken in every state are determined by the probabilities defined by the policy <span class="math inline">\(\pi\)</span>.</li>
 </ul>
 <div class="callout callout-note no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>Monte Carlo ES (Exploring Starts), for estimating <span class="math inline">\(\pi \approx \pi_*\)</span><br>
-</strong></p>
+<p><strong>First-Visit Monte Carlo Prediction (for estimating <span class="math inline">\(V \approx v_\pi\)</span>)</strong></p>
 </div>
 <div class="callout-content">
-<div class="line-block">Initilaize:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(\pi(s) \in \mathcal{A(s)}\)</span> (arbitrarily), for all <span class="math inline">\(s \in \mathcal{S}\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(V(s) \in \mathbb{R}\)</span>, arbitrarily, for all <span class="math inline">\(s \in \mathcal{S}\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(Returns \leftarrow\)</span> an empity list for all <span class="math inline">\(s \in \mathcal{S}\)</span><br>
-Loop forever (for each episode):<br>
-&nbsp;&nbsp;&nbsp;&nbsp;Generate an episode following <span class="math inline">\(\pi: S_0,A_0,R_1,\dots,S_{T-1},A_{T-1},R_T\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(G \leftarrow0\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;Loop for each step of episode following, <span class="math inline">\(t=T-1, T-2, \dots, 0:\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(G \leftarrow \gamma G+R_{t+1}\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Unless the pair <span class="math inline">\(S_t\)</span>, appears in <span class="math inline">\(S_0, S_1, \dots, S_{t-1}:\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Append <span class="math inline">\(G\)</span> to <span class="math inline">\(Returns(S_t)\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(V(s) \leftarrow\)</span> average(<span class="math inline">\(Returns(S_t)\)</span>)</div>
+<p><strong>Input:</strong><br>
+A policy <span class="math inline">\(\pi\)</span> to be evaluated</p>
+<p><strong>Initialize:</strong><br>
+ <span class="math inline">\(V(s) \in \mathbb{R}\)</span> arbitrarily, for all <span class="math inline">\(s \in S\)</span><br>
+ <span class="math inline">\(\text{Returns}(s) \leftarrow\)</span> an empty list, for all <span class="math inline">\(s \in S\)</span></p>
+<p><strong>Loop forever</strong> (for each episode):<br>
+ Generate an episode following <span class="math inline">\(\pi\)</span>: <span class="math inline">\(S_0, A_0, R_1, S_1, A_1, R_2, \dots, S_{T-1}, A_{T-1}, R_T\)</span><br>
+ <span class="math inline">\(G \leftarrow 0\)</span><br>
+ Loop for each step of the episode, <span class="math inline">\(t = T-1, T-2, \dots, 0\)</span>:<br>
+  <span class="math inline">\(G \leftarrow \gamma G + R_{t+1}\)</span><br>
+  Unless <span class="math inline">\(S_t\)</span> appears in <span class="math inline">\(S_0, S_1, \dots, S_{t-1}\)</span>:<br>
+   Append <span class="math inline">\(G\)</span> to <span class="math inline">\(\text{Returns}(S_t)\)</span><br>
+   <span class="math inline">\(V(S_t) \leftarrow \text{average}(\text{Returns}(S_t))\)</span></p>
 </div>
 </div>
 </div>
@@ -820,25 +602,25 @@ Loop forever (for each episode):<br>
 <div class="callout callout-note no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>Monte Carlo ES (Exploring Starts), for estimating <span class="math inline">\(\pi \approx \pi_*\)</span><br>
-</strong></p>
+<p><strong>Monte Carlo ES (Exploring Starts), for estimating <span class="math inline">\(\pi \approx \pi_*\)</span></strong></p>
 </div>
 <div class="callout-content">
-<div class="line-block">Algorithm paramater: small <span class="math inline">\(\epsilon&gt;0\)</span><br>
-Initilaize:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(\pi(s) \in \mathcal{A(s)}\)</span> (arbitrarily), for all <span class="math inline">\(s \in \mathcal{S}\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(Q(s,a) \in \mathbb{R}\)</span> (arbitrarily), for all <span class="math inline">\(s \in \mathcal{S}, a \in \mathcal{A}\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(Returns(s,a) \leftarrow\)</span> empty list, for all <span class="math inline">\(s \in \mathcal{S}, a \in \mathcal{A}\)</span></div>
-<div class="line-block">Loop forever (for each episode):<br>
-&nbsp;&nbsp;&nbsp;&nbsp;Choose <span class="math inline">\(S_0 \in \mathcal{S}, A_0 \in \mathcal{A}(S_0)\)</span> randomly such that all pairs have probability &gt; 0<br>
-&nbsp;&nbsp;&nbsp;&nbsp;Generate an episode from <span class="math inline">\(S_0, A_0,\)</span> following <span class="math inline">\(\pi: S_0,A_0,R_1,\dots,S_{T-1},A_{T-1},R_T\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(G \leftarrow0\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;Loop for each step of episode, <span class="math inline">\(t=T-1, T-2, \dots, 0:\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(G \leftarrow \gamma G+R_{t+1}\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Unless the pair <span class="math inline">\(S_t, A_t\)</span> appears in <span class="math inline">\(S_0, A_0, S_1, A_1, \dots, S_{t-1}, A_{t-1}:\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Append <span class="math inline">\(G\)</span> to <span class="math inline">\(Returns(S_t, A_t)\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(Q(S_t, A_t) \leftarrow\)</span> average(<span class="math inline">\(Returns(S_t, A_t)\)</span>)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(\pi(S_t) \leftarrow \arg\max_aQ(S_t,a)\)</span></div>
+<p><strong>Initialize:</strong><br>
+<span class="math inline">\(\pi(s) \in \mathcal{A}(s)\)</span> arbitrarily, for all <span class="math inline">\(s \in \mathcal{S}\)</span><br>
+<span class="math inline">\(Q(s, a) \in \mathbb{R}\)</span> arbitrarily, for all <span class="math inline">\(s \in \mathcal{S}, a \in \mathcal{A}(s)\)</span><br>
+<span class="math inline">\(\text{Returns}(s, a) \leftarrow\)</span> empty list, for all <span class="math inline">\(s \in \mathcal{S}, a \in \mathcal{A}(s)\)</span></p>
+<p><strong>Loop forever</strong> (for each episode):<br>
+ Choose <span class="math inline">\(S_0 \in \mathcal{S}, A_0 \in \mathcal{A}(S_0)\)</span> randomly, such that all pairs have probability <span class="math inline">\(&gt; 0\)</span><br>
+ Generate an episode from <span class="math inline">\(S_0, A_0\)</span>, following <span class="math inline">\(\pi\)</span>:<br>
+  <span class="math inline">\(S_0, A_0, R_1, \dots, S_{T-1}, A_{T-1}, R_T\)</span><br>
+ <span class="math inline">\(G \leftarrow 0\)</span><br>
+ Loop for each step of episode, <span class="math inline">\(t = T-1, T-2, \dots, 0\)</span>:<br>
+  <span class="math inline">\(G \leftarrow \gamma G + R_{t+1}\)</span><br>
+  Unless the pair <span class="math inline">\((S_t, A_t)\)</span> appears in<br>
+   <span class="math inline">\(S_0, A_0, S_1, A_1, \dots, S_{t-1}, A_{t-1}\)</span>:<br>
+   Append <span class="math inline">\(G\)</span> to <span class="math inline">\(\text{Returns}(S_t, A_t)\)</span><br>
+   <span class="math inline">\(Q(S_t, A_t) \leftarrow \text{average}(\text{Returns}(S_t, A_t))\)</span><br>
+   <span class="math inline">\(\pi(S_t) \leftarrow \arg\max_a Q(S_t, a)\)</span></p>
 </div>
 </div>
 </div>
@@ -847,7 +629,7 @@ Initilaize:<br>
 <h2>Monte Carlo Control without Exploring Starts</h2>
 <ul>
 <li>In on-policy control methods the policy is generally <strong>soft</strong>, meaning that <span class="math inline">\(\pi(a\mid s)&gt;0\)</span> for all <span class="math inline">\(s \in \mathcal{S}\)</span> and all <span class="math inline">\(a \in \mathcal{A(s)}\)</span>, but gradually shifted closer and closer to a deterministic policy.</li>
-<li>The on-policy method we present in this section uses <strong><span class="math inline">\(\epsilon\)</span>-greedy</strong> policies, meaning that most of the time they choose an action that has maximal estimated action value, but with probability <span class="math inline">\(\epsilon\)</span> they instead select an action at random. That is, all nongreedy actions are given the minimal probability of selection, <span class="math inline">\(\frac{\epsilon}{|\mathcal{A(s)}|}\)</span>, and the remaining bulk of the probability <span class="math inline">\(1-\epsilon+\frac{\epsilon}{|\mathcal{A(s)}|}\)</span> is given to the greedy action.</li>
+<li>The on-policy method we present in this section uses <span class="math inline">\(\epsilon\)</span>-greedy policies, meaning that most of the time they choose an action that has maximal estimated action value, but with probability <span class="math inline">\(\epsilon\)</span> they instead select an action at random. That is, all nongreedy actions are given the minimal probability of selection, <span class="math inline">\(\frac{\epsilon}{|\mathcal{A(s)}|}\)</span>, and the remaining bulk of the probability <span class="math inline">\(1-\epsilon+\frac{\epsilon}{|\mathcal{A(s)}|}\)</span> is given to the greedy action.</li>
 <li><span class="math inline">\(\epsilon\)</span>-greedy policies are examples of <span class="math inline">\(\epsilon-soft\)</span> policies, definied as policies for which <span class="math inline">\(\pi(a \mid s) \geq \frac{\epsilon}{|\mathcal{A(s)}|}\)</span> for all states and actions, for some <span class="math inline">\(\epsilon &gt; 0\)</span>. Among <span class="math inline">\(\epsilon\)</span>-soft policies, <span class="math inline">\(\epsilon\)</span>-greedy policies are in some sense those that are closest to greedy.</li>
 </ul>
 </section>
@@ -856,144 +638,34 @@ Initilaize:<br>
 <div class="callout callout-note no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>On-policy first-visit MC control (for <span class="math inline">\(\epsilon\)</span>-soft policies), estimates <span class="math inline">\(\pi \approx \pi_*\)</span><br>
-</strong></p>
+<p><strong>On-policy First-Visit MC Control (for <span class="math inline">\(\varepsilon\)</span>-soft policies), estimates <span class="math inline">\(\pi \approx \pi_*\)</span></strong></p>
 </div>
 <div class="callout-content">
-<div class="line-block">Algorithm paramater: small <span class="math inline">\(\epsilon&gt;0\)</span><br>
-Initilaize:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(\pi \leftarrow\)</span> an arbitrary <span class="math inline">\(\epsilon\)</span>-soft policy<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(Q(s,a) \in \mathbb{R}\)</span> (arbitrarily), for all <span class="math inline">\(s \in \mathcal{S}, a \in \mathcal{A}\)</span></div>
-<div class="line-block">Repeat forever (for each episode):<br>
-&nbsp;&nbsp;&nbsp;&nbsp;Generate an episode following <span class="math inline">\(\pi: S_0,A_0,R_1,\dots,S_{T-1},A_{T-1},R_T\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(G \leftarrow0\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;Loop for each step of episode following, <span class="math inline">\(t=T-1, T-2, \dots, 0:\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(G \leftarrow \gamma G+R_{t+1}\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Unless the pair <span class="math inline">\(S_t, A_t\)</span> appears in <span class="math inline">\(S_0, A_0, S_1, A_1, \dots, S_{t-1}, A_{t-1}:\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Append <span class="math inline">\(G\)</span> to <span class="math inline">\(Returns(S_t, A_t)\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(Q(S_t, A_t) \leftarrow\)</span> average(<span class="math inline">\(Returns(S_t, A_t)\)</span>)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(A^* \leftarrow \arg\max_aQ(S_t,a)\)</span> (with ties broken arbitrarily)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For all <span class="math inline">\(a \in \mathcal{A(S_t)}\)</span>:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(\pi(a \mid s) = \begin{cases}  1 - \epsilon + \frac{\epsilon}{|\mathcal{A}(s)|} &amp; \text{if } a = \arg\max_{a'} q(s, a') \\ \frac{\epsilon}{|\mathcal{A}(s)|} &amp; \text{otherwise} \end{cases}\)</span></div>
+<p><strong>Algorithm parameter:</strong><br>
+Small <span class="math inline">\(\varepsilon &gt; 0\)</span></p>
+<p><strong>Initialize:</strong><br>
+<span class="math inline">\(\pi \leftarrow\)</span> an arbitrary <span class="math inline">\(\varepsilon\)</span>-soft policy<br>
+<span class="math inline">\(Q(s, a) \in \mathbb{R}\)</span> arbitrarily, for all <span class="math inline">\(s \in \mathcal{S}, a \in \mathcal{A}(s)\)</span><br>
+<span class="math inline">\(\text{Returns}(s, a) \leftarrow\)</span> empty list, for all <span class="math inline">\(s \in \mathcal{S}, a \in \mathcal{A}(s)\)</span></p>
+<p><strong>Repeat forever</strong> (for each episode):<br>
+ Generate an episode following <span class="math inline">\(\pi\)</span>: <span class="math inline">\(S_0, A_0, R_1, \dots, S_{T-1}, A_{T-1}, R_T\)</span><br>
+ <span class="math inline">\(G \leftarrow 0\)</span><br>
+ Loop for each step of episode, <span class="math inline">\(t = T-1, T-2, \dots, 0\)</span>:<br>
+  <span class="math inline">\(G \leftarrow \gamma G + R_{t+1}\)</span><br>
+  Unless the pair <span class="math inline">\((S_t, A_t)\)</span> appears in <span class="math inline">\(S_0, A_0, \dots, S_{t-1}, A_{t-1}\)</span>:<br>
+   Append <span class="math inline">\(G\)</span> to <span class="math inline">\(\text{Returns}(S_t, A_t)\)</span><br>
+   <span class="math inline">\(Q(S_t, A_t) \leftarrow \text{average}(\text{Returns}(S_t, A_t))\)</span><br>
+   <span class="math inline">\(A^* \leftarrow \arg\max_a Q(S_t, a)\)</span> (ties broken arbitrarily)<br>
+   For all <span class="math inline">\(a \in \mathcal{A}(S_t)\)</span>:<br>
+    <span class="math inline">\(\pi(a \mid S_t) \leftarrow \begin{cases}
+1 - \varepsilon + \varepsilon / |\mathcal{A}(S_t)| &amp; \text{if } a = A^* \\
+\varepsilon / |\mathcal{A}(S_t)| &amp; \text{if } a \ne A^*
+\end{cases}\)</span></p>
 </div>
 </div>
 </div>
 <p>where <span class="math inline">\(|\mathcal{A}(s)|\)</span> is the number of actions available in state <span class="math inline">\(s\)</span>.</p>
 <p>The <span class="math inline">\(\epsilon\)</span>-greedy policy ensures that all actions are tried, but actions with higher value estimates are tried more frequently. This balances exploration (trying new actions) and exploitation (choosing the best-known action).</p>
-</section>
-<section id="off-policy-prediction-via-importance-sampling" class="slide level2">
-<h2>Off-policy Prediction via Importance Sampling</h2>
-<ul>
-<li>The policy being learned about is called the <em>target policy</em>, and the policy used to generate behavior is called the <em>behavior policy</em>.</li>
-<li>In this case we say that learning is from data “off” the target policy, and the overall process is termed off-policy learning. That is, The process of learning the target policy from the behavior policy’s data is called off-policy learning</li>
-<li>We apply importance sampling to off-policy learning by <strong>weighting returns according to the relative probability of their trajectories occurring under the target and behavior policies</strong>, called the <em>importance-sampling ratio</em>.</li>
-</ul>
-</section>
-<section id="off-policy-prediction-via-importance-sampling-1" class="slide level2 smaller">
-<h2>Off-policy Prediction via Importance Sampling</h2>
-<p>Given a starting state <span class="math inline">\(S_t\)</span>, the probability of the subsequent state–action trajectory, <span class="math inline">\(A_t, S_{t+1},A_{t+1}, \dots ,S_T\)</span> , occurring under any policy <span class="math inline">\(\pi\)</span> is</p>
-<p><span class="math display">\[
-\begin{aligned}
-Pr\{A_t,S_{t+1},A_{t+1},\dots, S_T \mid S_t, A_{t:T-1} \} &amp;= \pi(A_t \mid S_t) p(S_{t+1} \mid S_t, A_t) \pi(A_{t+1} \mid S_{t+1}),\dots, p(S_T \mid S_{T-1}, A_{T-1})   \\
-       &amp;= \prod_{k=1}^{T-1}\pi(A_k \mid S_k) p(S_{k+1} \mid S_k, A_k ),
-\end{aligned}
-\]</span></p>
-<p>where <span class="math inline">\(p\)</span> here is the state-transition probability function. Thus, the relative probability of the trajectory under the target and behavior policies (the importance sampling ratio) is</p>
-<p><span class="math display">\[
-\rho_{t:T-1} \doteq \frac{\prod_{k=1}^{T-1}\pi(A_k \mid S_k) p(S_{k+1} \mid S_k, A_k )}{\prod_{k=1}^{T-1}b(A_k \mid S_k) p(S_{k+1} \mid S_k, A_k )} = \prod_{k=1}^{T-1}\frac{\pi(A_k \mid S_k)}{b(A_k \mid S_k)}
-\]</span></p>
-</section>
-<section id="off-policy-prediction-via-importance-sampling-continued" class="slide level2 smaller">
-<h2>Off-policy Prediction via Importance Sampling (continued)</h2>
-<p>The <span class="math inline">\(\rho_{t:T-1}\)</span> transforms the returns to have the right expected value:</p>
-<p><span class="math display">\[
-\mathbb{E} \big[\rho_{t:T-1}G_t \mid S_t = s \big] = v_\pi(s)
-\]</span></p>
-<p><strong>Ordinary importance sampling</strong></p>
-<p>To estimate <span class="math inline">\(v_\pi(s)\)</span>, we simply scale the returns by the ratios and average the results:</p>
-<p><span class="math display">\[
-V(s) \doteq \frac{\sum_{t \in \mathcal{J}(s)}\rho_{t:T(t)-1}G_t}{|\mathcal{J}(s)|}
-\]</span></p>
-<p>where <span class="math inline">\(\mathcal{J}(s)\)</span> includes time steps that were first visits to <span class="math inline">\(s\)</span> within their episodes. <span class="math inline">\(T(t)\)</span> denote the first time of termination following time t, and <span class="math inline">\(G_t\)</span> denote the return after <span class="math inline">\(t\)</span> up through <span class="math inline">\(T(t)\)</span>. Then <span class="math inline">\(\{G_t\}_{t \in \mathcal{J}(s)}\)</span> are the returns that pertain to state <span class="math inline">\(s\)</span>, and <span class="math inline">\(\{ \rho_{t:T(t)-1} \}_{t \in \mathcal{J}(s)}\)</span> are the corresponding importance-sampling ratios.</p>
-<p><strong>Weighted importance sampling</strong></p>
-<p><span class="math display">\[
-V(s) \doteq \frac{\sum_{t \in \mathcal{J}(s)}\rho_{t:T(t)-1}G_t}{\sum_{t \in \mathcal{J}(s)}\rho_{t:T(t)-1}}
-\]</span></p>
-</section>
-<section id="incremental-implementation" class="slide level2 smaller">
-<h2>Incremental Implementation</h2>
-<p>Suppose we have a sequence of returns <span class="math inline">\(G_1,G_2,\dots,G_{n−1}\)</span>, all starting in the same state and each with a corresponding random weight <span class="math inline">\(W_i \text{ } (\text{e.g.}, W_i = \rho_{t_i:T(t_i)-1})\)</span>. We wish to form the estimate</p>
-<p><span class="math display">\[
-V_n \doteq \frac{\sum_{k=1}^{n-1}W_kG_k}{\sum_{k=1}^{n-1}W_k}, \:\:\: n \geq 2,
-\]</span></p>
-<p>and keep it up-to-date as we obtain a single additional return <span class="math inline">\(G_n\)</span>. In addition to keeping track of <span class="math inline">\(V_n\)</span>, we must maintain for each state the cumulative sum <span class="math inline">\(C_n\)</span> of the weights given to the first <span class="math inline">\(n\)</span> returns. The update rule for <span class="math inline">\(V_n\)</span> is</p>
-<p><span class="math display">\[
-V_{n+1} \doteq V_n + \frac{W_n}{C_n} \big[G_n - V_n \big], \:\:\: n \geq 1,
-\]</span></p>
-<p>and</p>
-<p><span class="math display">\[
-C_{n+1} \doteq C_n + W_{n+1},
-\]</span></p>
-</section>
-<section id="incremental-implementation-continued" class="slide level2">
-<h2>Incremental Implementation (continued)</h2>
-<p>A complete episode-by-episode incremental algorithm for Monte Carlo policy evaluation.</p>
-<div class="callout callout-note no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Off-policy MC prediction (policy evaluation) for estimating <span class="math inline">\(Q \approx q_\pi\)</span></strong></p>
-</div>
-<div class="callout-content">
-<div class="line-block">Input: an arbitrary target policy <span class="math inline">\(\pi\)</span><br>
-Initialize, for all <span class="math inline">\(s \in \mathcal{S}, a \in \mathcal{A(s)}\)</span>:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(Q(s,a) \in \mathbb{R}\)</span> (arbitrarily)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(C(s,a) \gets0\)</span><br>
-Loop forever (for each episode):<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(b \gets\)</span> any policy with coverage of <span class="math inline">\(\pi\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;Generate an episode following <span class="math inline">\(b: S_0, A_0, R_1, \dots, S_{T-1}, A_{T-1}, R_T\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(G \gets 0\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(W \gets 1\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;Loop for each step of episode, <span class="math inline">\(t = T-1, T-2, \dots, 0,\)</span> while <span class="math inline">\(W \neq 0\)</span>:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(G \gets \gamma G + R_{t+1}\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(C(S_t, A_t) \gets C(S_t, A_t) + W\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(Q(S_t, A_t) \gets Q(S_t, A_t) + \frac{W}{C(S_t, A_t)} \big[G - Q(S_t, A_t)\big]\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(W \gets W \frac{\pi(A_t \mid S_t)}{b(A_t \mid S_t)}\)</span></div>
-</div>
-</div>
-</div>
-</section>
-<section id="off-policy-monte-carlo-control" class="slide level2 smaller">
-<h2>Off-policy Monte Carlo Control</h2>
-<ul>
-<li>The policy used to generate behavior, called the behavior policy, may in fact be unrelated to the policy that is evaluated and improved, called the target policy/</li>
-<li>An advantage of this separation is that the target policy may be deterministic (e.g., greedy), while the behavior policy can continue to sample all possible actions.</li>
-</ul>
-<div class="callout callout-note no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Off-policy MC prediction (policy evaluation) for estimating <span class="math inline">\(\pi \approx \pi_*\)</span></strong></p>
-</div>
-<div class="callout-content">
-<div class="line-block">Input: an arbitrary target policy <span class="math inline">\(\pi\)</span><br>
-Initialize, for all <span class="math inline">\(s \in \mathcal{S}, a \in \mathcal{A(s)}\)</span>:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(Q(s,a) \in \mathbb{R}\)</span> (arbitrarily)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(C(s,a) \gets0\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(\pi(s) \gets \arg \max_aQ(s,a)\)</span> (with ties broken consistently)<br>
-Loop forever (for each episode):<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(b \gets\)</span> any soft policy<br>
-&nbsp;&nbsp;&nbsp;&nbsp;Generate an episode following <span class="math inline">\(b: S_0, A_0, R_1, \dots, S_{T-1}, A_{T-1}, R_T\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(G \gets 0\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(W \gets 1\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;Loop for each step of episode, <span class="math inline">\(t = T-1, T-2, \dots, 0,\)</span> while <span class="math inline">\(W \neq 0\)</span>:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(G \gets \gamma G + R_{t+1}\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(C(S_t, A_t) \gets C(S_t, A_t) + W\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(Q(S_t, A_t) \gets Q(S_t, A_t) + \frac{W}{C(S_t, A_t)} \big[G - Q(S_t, A_t)\big]\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(\pi(S_t) \gets \arg \max Q(S_t, a)\)</span> (with ties broken consistently)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If <span class="math inline">\(A_t \neq \pi(S_t)\)</span> then exit inner Loop (proceed to next episode)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(W \gets W \frac{1}{b(A_t \mid S_t)}\)</span></div>
-</div>
-</div>
-</div>
 </section></section>
 <section>
 <section id="temporal-difference-learning" class="title-slide slide level1 center">
@@ -1021,25 +693,28 @@ V(S_t) \leftarrow V(S_t) + \alpha \big[ R_{t+1} + \gamma V(S_{t+1})-V(S_t)  \big
 <div class="callout callout-note no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>Tabular TD(0) for estimating <span class="math inline">\(v_{\pi}\)</span></strong></p>
+<p><strong>Tabular TD(0) for Estimating <span class="math inline">\(v_\pi\)</span></strong></p>
 </div>
 <div class="callout-content">
-<div class="line-block">Input: the policy <span class="math inline">\(v_{\pi}\)</span> to be evaluated<br>
-Algorithm parameter: step size <span class="math inline">\(\alpha \in \big(0, 1 \big]\)</span><br>
-Initialize <span class="math inline">\(V(s)\)</span>, for all <span class="math inline">\(s \in \mathcal{S}^+\)</span>, arbitrarily except that <span class="math inline">\(V(terminal) = 0\)</span><br>
-Loop for each episode:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;Initialize <span class="math inline">\(S\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;Loop for each step of episode:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(A \leftarrow\)</span> action given by <span class="math inline">\(\pi\)</span> for <span class="math inline">\(S\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Take action <span class="math inline">\(A\)</span>, observe <span class="math inline">\(R,S^{'}\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(V(S) \leftarrow V(S)+ \alpha \big[R+\gamma V(S^{'})-V(S)  \big]\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(S \leftarrow S^{'}\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;until <span class="math inline">\(S\)</span> is terminal</div>
+<p><strong>Input:</strong><br>
+The policy <span class="math inline">\(\pi\)</span> to be evaluated</p>
+<p><strong>Algorithm parameter:</strong><br>
+Step size <span class="math inline">\(\alpha \in (0, 1]\)</span></p>
+<p><strong>Initialize:</strong><br>
+<span class="math inline">\(V(s)\)</span> arbitrarily for all <span class="math inline">\(s \in \mathcal{S}^+\)</span>, except that <span class="math inline">\(V(\text{terminal}) = 0\)</span></p>
+<p><strong>Loop for each episode:</strong><br>
+ Initialize <span class="math inline">\(S\)</span><br>
+ <strong>Loop for each step of episode:</strong><br>
+  <span class="math inline">\(A \leftarrow\)</span> action given by <span class="math inline">\(\pi\)</span> for <span class="math inline">\(S\)</span><br>
+  Take action <span class="math inline">\(A\)</span>, observe <span class="math inline">\(R\)</span>, <span class="math inline">\(S'\)</span><br>
+  <span class="math inline">\(V(S) \leftarrow V(S) + \alpha \left[ R + \gamma V(S') - V(S) \right]\)</span><br>
+  <span class="math inline">\(S \leftarrow S'\)</span><br>
+ Until <span class="math inline">\(S\)</span> is terminal</p>
 </div>
 </div>
 </div>
 </section>
-<section id="sarsa-on-policy-td-control" class="slide level2">
+<section id="sarsa-on-policy-td-control" class="slide level2 smaller">
 <h2>Sarsa: On-policy TD Control</h2>
 <p>we consider transitions from state–action pair to state–action pair, and learn the values of state–action pairs.</p>
 <p><span class="math display">\[
@@ -1048,28 +723,30 @@ Q(S_t, A_t) \leftarrow Q(S_t, A_t) + \alpha \big[R_{t+1}+\gamma Q(S_{t+1}, A_{t+
 <div class="callout callout-note no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>Sarsa (on-policy TD control) for estimating <span class="math inline">\(Q \approx q_*\)</span></strong></p>
+<p><strong>SARSA (On-Policy TD Control), for estimating <span class="math inline">\(Q \approx q_*\)</span></strong></p>
 </div>
 <div class="callout-content">
-<div class="line-block">Algorithm parameter: step size <span class="math inline">\(\alpha \in \big(0, 1 \big]\)</span>, small <span class="math inline">\(\epsilon &gt; 0\)</span><br>
-Initialize <span class="math inline">\(Q(S_t, A_t)\)</span>, for all <span class="math inline">\(s \in \mathcal{S}^+, \alpha \in \mathcal{A}(s)\)</span>, arbitrarily except that <span class="math inline">\(Q(terminal) = 0\)</span><br>
-Loop for each episode:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;Initialize <span class="math inline">\(S\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;Choose <span class="math inline">\(A\)</span> from <span class="math inline">\(S\)</span> using policy derived from <span class="math inline">\(Q\)</span> (e.g., <span class="math inline">\(\epsilon\)</span>-greedy)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;Loop for each step of episode:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Take action <span class="math inline">\(A\)</span>, observe <span class="math inline">\(R, S^{'}\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Choose <span class="math inline">\(A^{'}\)</span> from <span class="math inline">\(S^{'}\)</span> using policy derived from <span class="math inline">\(Q\)</span> (e.g., <span class="math inline">\(\epsilon\)</span>-greedy)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(Q(S, A) \leftarrow Q(S, A)+ \alpha \big[R+\gamma Q(S^{'}, A^{'})-Q(S, A)  \big]\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(S \leftarrow S^{'}; A \leftarrow A^{'};\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;until <span class="math inline">\(S\)</span> is terminal</div>
+<p><strong>Algorithm parameters:</strong><br>
+Step size <span class="math inline">\(\alpha \in (0, 1]\)</span>, small <span class="math inline">\(\varepsilon &gt; 0\)</span></p>
+<p><strong>Initialize:</strong><br>
+<span class="math inline">\(Q(s, a)\)</span> arbitrarily, for all <span class="math inline">\(s \in \mathcal{S}^+\)</span>, <span class="math inline">\(a \in \mathcal{A}(s)\)</span><br>
+<span class="math inline">\(Q(\text{terminal}, \cdot) = 0\)</span></p>
+<p><strong>Loop for each episode:</strong><br>
+ Initialize <span class="math inline">\(S\)</span><br>
+ Choose <span class="math inline">\(A\)</span> from <span class="math inline">\(S\)</span> using a policy derived from <span class="math inline">\(Q\)</span> (e.g., <span class="math inline">\(\varepsilon\)</span>-greedy)</p>
+<p> <strong>Loop for each step of episode:</strong><br>
+  Take action <span class="math inline">\(A\)</span>, observe <span class="math inline">\(R\)</span>, <span class="math inline">\(S'\)</span><br>
+  Choose <span class="math inline">\(A'\)</span> from <span class="math inline">\(S'\)</span> using a policy derived from <span class="math inline">\(Q\)</span> (e.g., <span class="math inline">\(\varepsilon\)</span>-greedy)<br>
+  <span class="math inline">\(Q(S, A) \leftarrow Q(S, A) + \alpha \left[ R + \gamma Q(S', A') - Q(S, A) \right]\)</span><br>
+  <span class="math inline">\(S \leftarrow S';\quad A \leftarrow A'\)</span></p>
+<p>Until <span class="math inline">\(S\)</span> is terminal</p>
 </div>
 </div>
 </div>
 </section>
-<section id="q-learning-off-policy-td-control" class="slide level2">
+<section id="q-learning-off-policy-td-control" class="slide level2 smaller">
 <h2>Q-learning: Off-policy TD Control</h2>
-<div class="r-fit-text">
-<p>TD control algorithm known as <em>Q-learning</em> (Watkins, 1989), defined by</p>
+<p><em>Q-learning</em> is defined by</p>
 <p><span class="math display">\[
 Q(S_t, A_t) \leftarrow Q(S_t, A_t)+ \alpha \big[R_{t+1}+\gamma \max_aQ(S_{t+1}, a)-Q(S_t, A_t)  \big]
 \]</span></p>
@@ -1077,288 +754,25 @@ Q(S_t, A_t) \leftarrow Q(S_t, A_t)+ \alpha \big[R_{t+1}+\gamma \max_aQ(S_{t+1}, 
 <div class="callout callout-note no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>Q-learning (off-policy TD control) for estimating <span class="math inline">\(\pi \approx \pi_*\)</span></strong></p>
+<p><strong>Q-learning (Off-Policy TD Control), for estimating <span class="math inline">\(\pi \approx \pi_*\)</span></strong></p>
 </div>
 <div class="callout-content">
-<div class="line-block">Algorithm parameter: step size <span class="math inline">\(\alpha \in \big(0, 1 \big]\)</span>, small <span class="math inline">\(\epsilon &gt; 0\)</span><br>
-Initialize <span class="math inline">\(Q(S_t, A_t)\)</span>, for all <span class="math inline">\(s \in \mathcal{S}^+, \alpha \in \mathcal{A}(s)\)</span>, arbitrarily except that <span class="math inline">\(Q (terminal) = 0\)</span><br>
-Loop for each episode:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;Initialize <span class="math inline">\(S\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;Loop for each step of episode:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Choose <span class="math inline">\(A\)</span> from <span class="math inline">\(S\)</span> using policy derived from <span class="math inline">\(Q\)</span> (e.g., <span class="math inline">\(\epsilon\)</span>-greedy)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Take action <span class="math inline">\(A\)</span>, observe <span class="math inline">\(R, S^{'}\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(Q(S, A) \leftarrow Q(S, A)+ \alpha \big[R+ \gamma \max_aQ(S^{'}, a)-Q(S, A) \big]\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(S \leftarrow S^{'}\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;until <span class="math inline">\(S\)</span> is terminal</div>
+<p><strong>Algorithm parameters:</strong><br>
+Step size <span class="math inline">\(\alpha \in (0, 1]\)</span>, small <span class="math inline">\(\varepsilon &gt; 0\)</span></p>
+<p><strong>Initialize:</strong><br>
+<span class="math inline">\(Q(s, a)\)</span> arbitrarily for all <span class="math inline">\(s \in \mathcal{S}^+\)</span>, <span class="math inline">\(a \in \mathcal{A}(s)\)</span>,<br>
+except that <span class="math inline">\(Q(\text{terminal}, \cdot) = 0\)</span></p>
+<p><strong>Loop for each episode:</strong><br>
+ Initialize <span class="math inline">\(S\)</span><br>
+ <strong>Loop for each step of episode:</strong><br>
+  Choose <span class="math inline">\(A\)</span> from <span class="math inline">\(S\)</span> using a policy derived from <span class="math inline">\(Q\)</span> (e.g., <span class="math inline">\(\varepsilon\)</span>-greedy)<br>
+  Take action <span class="math inline">\(A\)</span>, observe <span class="math inline">\(R\)</span>, <span class="math inline">\(S'\)</span><br>
+  <span class="math inline">\(Q(S, A) \leftarrow Q(S, A) + \alpha \left[ R + \gamma \max_a Q(S', a) - Q(S, A) \right]\)</span><br>
+  <span class="math inline">\(S \leftarrow S'\)</span></p>
+<p>Until <span class="math inline">\(S\)</span> is terminal</p>
 </div>
 </div>
 </div>
-</div>
-</section>
-<section id="expected-sarsa" class="slide level2">
-<h2>Expected Sarsa</h2>
-<p>Expected Sarsa is more complex computationally than Sarsa but, in return, it eliminates the variance due to the random selection of <span class="math inline">\(A_{t+1}\)</span>. Given the same amount of experience we might expect it to perform slightly better than Sarsa, and indeed it generally does.</p>
-<div class="r-fit-text">
-<p><span class="math display">\[
-\begin{aligned}
-Q(S_t, A_t) &amp;\leftarrow Q(S_t, A_t)+ \alpha \big[R_{t+1}+\gamma \mathbb{E}_{\pi} [Q(S_{t+1}, A_{t+1} \mid S_{t+1} \big] -Q(S_t, A_t)  \big] \\
-       &amp;= Q(S_t, A_t)+ \alpha \big[R_{t+1}+\gamma \sum_a \pi(a \mid S_{t+1})Q(S_{t+1}, a) -Q(S_t, A_t)  \big]
-\end{aligned}
-\]</span></p>
-</div>
-</section>
-<section id="td-prediction-2" class="slide level2">
-<h2>TD Prediction</h2>
-<div class="callout callout-note no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Tabular TD(0) for estimating <span class="math inline">\(v_{\pi}\)</span></strong></p>
-</div>
-<div class="callout-content">
-<div class="line-block">Input: the policy <span class="math inline">\(v_{\pi}\)</span> to be evaluated<br>
-Algorithm parameter: step size <span class="math inline">\(\alpha \in \big(0, 1 \big]\)</span><br>
-Initialize <span class="math inline">\(V(s)\)</span>, for all <span class="math inline">\(s \in \mathcal{S}^+\)</span>, arbitrarily except that <span class="math inline">\(V(terminal) = 0\)</span><br>
-Loop for each episode:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;Initialize <span class="math inline">\(S\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;Loop for each step of episode:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(A \leftarrow\)</span> action given by <span class="math inline">\(\pi\)</span> for <span class="math inline">\(S\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Take action <span class="math inline">\(A\)</span>, observe <span class="math inline">\(R,S^{'}\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(V(S) \leftarrow V(S)+ \alpha \big[R+\gamma V(S^{'})-V(S)  \big]\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(S \leftarrow S^{'}\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;until <span class="math inline">\(S\)</span> is terminal</div>
-</div>
-</div>
-</div>
-</section>
-<section id="maximization-bias-and-double-learning" class="slide level2">
-<h2>Maximization Bias and Double Learning</h2>
-<div class="r-fit-text">
-<p>In Q-learning and Sarsa algorithms, a maximum over estimated values is used implicitly as an estimate of the maximum value, which can lead to a significant positive bias. This is known as maximization bias. One way to address this issue is to use Double Learning, which reduces the bias by decoupling the selection and evaluation of actions.</p>
-<p>Double Q-learning maintains two separate estimates of action values, <span class="math inline">\(Q_1\)</span> and <span class="math inline">\(Q_2\)</span>. These estimates are updated alternately, and the action selection is based on the sum of these two estimates.</p>
-<p><span class="math display">\[
-\begin{aligned}
-Q_1(S_t, A_t) &amp;\leftarrow Q_1(S_t, A_t) + \alpha \big[R_{t+1} + \gamma Q_2(S_{t+1}, \arg\max_a Q_1(S_{t+1}, a)) - Q_1(S_t, A_t) \big] \\
-Q_2(S_t, A_t) &amp;\leftarrow Q_2(S_t, A_t) + \alpha \big[R_{t+1} + \gamma Q_1(S_{t+1}, \arg\max_a Q_2(S_{t+1}, a)) - Q_2(S_t, A_t) \big]
-\end{aligned}
-\]</span></p>
-</div>
-</section>
-<section id="maximization-bias-and-double-learning-1" class="slide level2">
-<h2>Maximization Bias and Double Learning</h2>
-<div class="r-fit-text">
-<p>The Double Q-learning algorithm in procedural form:</p>
-<div class="callout callout-note no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Double Q-learning, for estimating <span class="math inline">\(Q_1 \approx Q_2 \approx q_*\)</span></strong></p>
-</div>
-<div class="callout-content">
-<div class="line-block">Algorithm parameter: step size <span class="math inline">\(\alpha \in \big(0, 1 \big]\)</span>, small <span class="math inline">\(\epsilon &gt; 0\)</span><br>
-Initialize <span class="math inline">\(Q_1(S_t, A_t)\)</span> and <span class="math inline">\(Q_2(S_t, A_t)\)</span>, for all <span class="math inline">\(s \in \mathcal{S}^+, \alpha \in \mathcal{A}(s)\)</span>, such that <span class="math inline">\(Q(terminal) = 0\)</span><br>
-Loop for each episode:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;Initialize <span class="math inline">\(S\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;Loop for each step of episode:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Choose <span class="math inline">\(A\)</span> from <span class="math inline">\(S\)</span> using the policy <span class="math inline">\(\epsilon\)</span>-greedy in <span class="math inline">\(Q_1 + Q_2\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Take action <span class="math inline">\(A\)</span>, observe <span class="math inline">\(R, S^{'}\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;With probability 0.5:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(Q_1(S, A) \leftarrow Q_1(S, A) + \alpha \big[R + \gamma Q_2(S^{'}, \arg\max_a Q_1(S^{'}, a)) - Q_1(S, A) \big]\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Otherwise:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(Q_2(S, A) \leftarrow Q_2(S, A) + \alpha \big[R + \gamma Q_1(S^{'}, \arg\max_a Q_2(S^{'}, a)) - Q_2(S, A) \big]\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(S \leftarrow S^{'}\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;until <span class="math inline">\(S\)</span> is terminal</div>
-</div>
-</div>
-</div>
-</div>
-</section></section>
-<section>
-<section id="n-step-bootstrapping" class="title-slide slide level1 center">
-<h1><span class="math inline">\(n\)</span>-step Bootstrapping</h1>
-
-</section>
-<section id="n-step-bootstrapping-1" class="slide level2">
-<h2><span class="math inline">\(n\)</span>-step Bootstrapping</h2>
-<ul>
-<li>n-step TD methods generalize MC and TD(0) methods so that one can shift from one to the other smoothly as needed to meet the demands of a particular task.</li>
-<li>n-step methods span a spectrum with MC methods at one end and one-step TD methods at the other.</li>
-<li>The best methods are often intermediate between the two extremes.</li>
-</ul>
-</section>
-<section id="n-step-td-prediction" class="slide level2">
-<h2><span class="math inline">\(n\)</span>-step TD Prediction</h2>
-<div class="columns">
-<div class="column fragment" style="font-size: 70%;">
-<p>The estimate of <span class="math inline">\(v_{\pi}(S_t)\)</span> is updated in the direction of the complete return:</p>
-<p><span class="math display">\[
-\begin{aligned}
-G_t &amp;\doteq R_{t+1} + \gamma R_{t+2} + \gamma R_{t+3} + \\
-&amp;\dots + \gamma^{T-t-1}R_T
-\end{aligned}
-\]</span></p>
-<p>which is the <em>one-step</em> return:</p>
-<p><span class="math display">\[
-G_{t:t+1} \doteq R_{t+1} + \gamma V_t(S_{t+1})
-\]</span></p>
-<p>where <span class="math inline">\(V_t\)</span> is the estimate at time <span class="math inline">\(t\)</span> of <span class="math inline">\(v_{\pi}\)</span></p>
-<p><em>two-step</em> return:</p>
-<p><span class="math display">\[
-G_{t:t+2} \doteq R_{t+1}+\gamma R_{t+2} + \gamma ^{2} V_{t+1}(S_{t+2})
-\]</span></p>
-</div><div class="column fragment" style="font-size: 70%;">
-<p><em><span class="math inline">\(n\)</span>-step</em> return:</p>
-<p><span class="math display">\[
-G_{t:t+n} \doteq R_{t+1}+\gamma R_{t+2} +\dots + \gamma R_{t+n} + \gamma ^{n} V_{t+n-1}(S_{t+n}),
-\]</span></p>
-<p>for all <span class="math inline">\(n, t\)</span> such that <span class="math inline">\(n \geq 1\)</span> and <span class="math inline">\(0 \leq t &lt; T-n\)</span>.</p>
-<p>State-value learning algorithm for using n-step returns is</p>
-<p><span class="math display">\[
-V_{t+n}(S_t) \doteq V_{t+n-1}(S_t) + \alpha \big[G_{t:t+n} - V_{t+n-1}(S_t) \big]
-\]</span></p>
-</div></div>
-</section>
-<section id="n-step-td-prediction-1" class="slide level2 scrollable">
-<h2><span class="math inline">\(n\)</span>-step TD Prediction</h2>
-<div class="r-fit-text">
-<p>Complete pseudocode</p>
-<div class="callout callout-note no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong><span class="math inline">\(n\)</span>-step TD for estimating <span class="math inline">\(V \approx v_*\)</span></strong></p>
-</div>
-<div class="callout-content">
-<div class="line-block">Input: a policy <span class="math inline">\(\pi\)</span><br>
-Algorithm parameter: step size <span class="math inline">\(\alpha \in \big(0, 1 \big]\)</span>, a positive integer <span class="math inline">\(n\)</span><br>
-Initialize <span class="math inline">\(V(s)\)</span> arbitrarily, for all <span class="math inline">\(s \in \mathcal{S}\)</span><br>
-All store and access operations (for <span class="math inline">\(S_t\)</span> and <span class="math inline">\(R_t\)</span>) can take their index model <span class="math inline">\(n+1\)</span><br>
-Loop for each episode:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;Initialize and store <span class="math inline">\(S_0 \neq terminal\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(T \leftarrow \infty\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;Loop for <span class="math inline">\(t= 0,1,2,\dots\)</span>:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If <span class="math inline">\(t&lt;T\)</span>, then:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Take an action according to <span class="math inline">\(\pi(\cdot \mid S_t)\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Observe and store the next reward as <span class="math inline">\(R_{t+1}\)</span> and the next state as <span class="math inline">\(S_{t+1}\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If <span class="math inline">\(S_{t+1}\)</span> is terminal, then <span class="math inline">\(T \leftarrow t + 1\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(\tau \leftarrow t-n+1\)</span> (<span class="math inline">\(\tau\)</span> is the time whose state’s estimate is being updated)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If <span class="math inline">\(\tau \geq 0\)</span>:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(G \leftarrow \sum_{i=\tau+1}^{\min(\tau+n, T)}\gamma^{i-\tau-1}R_i\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If <span class="math inline">\(\tau+n &lt; T\)</span>, then: <span class="math inline">\(G \leftarrow G+ \gamma^{n}V(S_{\tau+n})\)</span> (<span class="math inline">\(G_{\tau:\tau+n}\)</span>)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(V(S_\tau) \leftarrow V(S_\tau) + \alpha \big[G-V(S_\tau)  \big]\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;Until <span class="math inline">\(\tau = T-1\)</span> is terminal</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="n-step-sarsa" class="slide level2">
-<h2><span class="math inline">\(n\)</span>-step Sarsa</h2>
-<div class="r-fit-text">
-<p><span class="math inline">\(n\)</span>-step returns (update targets) are redefined in terms of estimated action values:</p>
-<p><span class="math display">\[
-G_{t:t+n} \doteq R_{t+1}+\gamma R_{t+2} +\dots + \gamma^{n-1} R_{t+n} + \gamma ^{n} Q_{t+n-1}(S_{t+n}, A_{t+n}),\: n \geq1, 0 \leq t &lt; T-n
-\]</span></p>
-<p>with <span class="math inline">\(G_{t:t+n} \doteq\)</span> if <span class="math inline">\(t+n \geq T\)</span>. The natural algorithm is then:</p>
-<p><span class="math display">\[
-Q_{t+n}(S_t, A_t) \doteq Q_{t+n-1}(S_t, A_t) + \alpha \big[G_{t:t+n} - Q_{t+n-1}(S_t, A_t) \big], \: \: 0 \leq t &lt; T
-\]</span></p>
-</div>
-</section>
-<section id="n-step-sarsa-1" class="slide level2 scrollable">
-<h2><span class="math inline">\(n\)</span>-step Sarsa</h2>
-<div class="r-fit-text">
-<div class="callout callout-note no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong><span class="math inline">\(n\)</span>-step Sarsa for estimating <span class="math inline">\(Q \approx q_*\)</span> or <span class="math inline">\(q_\pi\)</span></strong></p>
-</div>
-<div class="callout-content">
-<div class="line-block">Initialize <span class="math inline">\(Q(s, a)\)</span> arbitrarily, for all <span class="math inline">\(s \in \mathcal{S}\)</span>, and <span class="math inline">\(a \in \mathcal{A}(s)\)</span><br>
-Initialize <span class="math inline">\(\pi\)</span> to be <span class="math inline">\(\epsilon\)</span>-greedy with resprecto to <span class="math inline">\(Q\)</span>, or to be given a fixed policy<br>
-Algorithm parameter: step size <span class="math inline">\(\alpha \in \big(0, 1 \big]\)</span>, small <span class="math inline">\(\epsilon&gt;0\)</span>, a positive integer <span class="math inline">\(n\)</span><br>
-All store and access operations (for <span class="math inline">\(S_t\)</span>, <span class="math inline">\(A_t\)</span>, and <span class="math inline">\(R_t\)</span>) can take their index modul <span class="math inline">\(n+1\)</span><br>
-Loop for each episode:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;Initialize and store <span class="math inline">\(S_0 \neq terminal\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;Choose and store <span class="math inline">\(A_0 \sim \pi(\cdot \mid S_0)\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(T \leftarrow \infty\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;Loop for <span class="math inline">\(t= 0,1,2,\dots\)</span>:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If <span class="math inline">\(t&lt;T\)</span>, then:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Take action <span class="math inline">\(A_t\)</span>, observe and store the next reward as <span class="math inline">\(R_{t+1}\)</span> and the next state as <span class="math inline">\(S_{t+1}\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If <span class="math inline">\(S_{t+1}\)</span> is terminal, then <span class="math inline">\(T \leftarrow t + 1\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Else, choose and store <span class="math inline">\(A_{t+1} \sim \pi(\cdot \mid S_{t+1})\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(\tau \leftarrow t-n+1\)</span> (<span class="math inline">\(\tau\)</span> is the time whose state’s estimate is being updated)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If <span class="math inline">\(\tau \ge 0\)</span>:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(G \leftarrow \sum_{i=\tau+1}^{\min(\tau+n, T)}\gamma^{i-\tau-1}R_i\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If <span class="math inline">\(\tau+n &lt; T\)</span>, then: <span class="math inline">\(G \leftarrow G+ \gamma^{n}Q(S_{\tau+n}, A_{\tau+n})\)</span> (<span class="math inline">\(G_{\tau:\tau+n}\)</span>)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(Q(S_\tau, A_\tau) \leftarrow Q(S_\tau, A_\tau) + \alpha \big[G-Q(S_\tau, A_\tau)  \big]\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If <span class="math inline">\(\pi\)</span> is being learned, then ensure that <span class="math inline">\(\pi(\cdot \mid S_\tau)\)</span> is <span class="math inline">\(\epsilon\)</span>-greedy wrt <span class="math inline">\(Q\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;Until <span class="math inline">\(\tau = T-1\)</span></div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="n-step-off-policy-learning" class="slide level2">
-<h2><span class="math inline">\(n\)</span>-step Off-policy Learning</h2>
-<div class="r-fit-text">
-<p>To make a simple off-policy version of <span class="math inline">\(n\)</span>-step TD, the update for time <span class="math inline">\(t\)</span> (actually made at time <span class="math inline">\(t + n\)</span>) can simply be weighted by <span class="math inline">\(\rho_{t:t+n−1}\)</span>:</p>
-<p><span class="math display">\[
-V_{t+n}(S_t) \doteq V_{t+n-1}(S_t) + \alpha \rho_{t:t+n−1} \big[G_{t:t+n} - V_{t+n-1}(S_t) \big], \: 0 \leq t &lt; T
-\]</span></p>
-<p>where <span class="math inline">\(\rho_{t:t+n−1}\)</span> called the <em>importance sampling ratio</em>, is the relative probability under the two policies of taking the <span class="math inline">\(n\)</span> actions from <span class="math inline">\(A_t\)</span> to <span class="math inline">\(A_{t+n-1}\)</span>:</p>
-<p><span class="math inline">\(\rho_{t:h} \doteq \prod_{k=1}^{\min(h, T-1)}\frac{\pi(A_k\mid A_k)}{b(A_k\mid A_k)}\)</span></p>
-<p>Similarly, our previous <span class="math inline">\(n\)</span>-step Sarsa update can be completely replaced by a simple off-policy form:</p>
-<p><span class="math display">\[
-Q_{t+n}(S_t, A_t) \doteq Q_{t+n-1}(S_t, A_t) + \alpha \rho_{t+1:t+n} \big[G_{t:t+n} - Q_{t+n-1}(S_t, A_t) \big], \: \: 0 \leq t &lt; T
-\]</span></p>
-</div>
-</section>
-<section id="n-step-off-policy-learning-1" class="slide level2 scrollable">
-<h2><span class="math inline">\(n\)</span>-step Off-policy Learning</h2>
-<div class="r-fit-text">
-<div class="callout callout-note no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Off-policy <span class="math inline">\(n\)</span>-step Sarsa for estimating <span class="math inline">\(Q \approx q_*\)</span> or <span class="math inline">\(q_\pi\)</span></strong></p>
-</div>
-<div class="callout-content">
-<div class="line-block">Input: an arbitrary behavior policy <span class="math inline">\(b\)</span> such that <span class="math inline">\(b(\alpha \mid s)\)</span>, for all <span class="math inline">\(s \in \mathcal{S}, \alpha \in \mathcal{A}\)</span><br>
-Initialize <span class="math inline">\(Q(s, a)\)</span> arbitrarily, for all <span class="math inline">\(s \in \mathcal{S}, a \in \mathcal{A}(s)\)</span><br>
-Initialize <span class="math inline">\(\pi\)</span> to be <span class="math inline">\(\epsilon\)</span>-greedy with respect to <span class="math inline">\(Q\)</span>, or to be given a fixed policy<br>
-Algorithm parameter: step size <span class="math inline">\(\alpha \in \big(0, 1 \big]\)</span>, a positive integer <span class="math inline">\(n\)</span><br>
-All store and access operations (for <span class="math inline">\(S_t\)</span>, <span class="math inline">\(A_t\)</span>, and <span class="math inline">\(R_t\)</span>) can take their index mod <span class="math inline">\(n+1\)</span><br>
-Loop for each episode:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;Initialize and store <span class="math inline">\(S_0 \neq terminal\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;Choose and store <span class="math inline">\(A_0 \sim b(\cdot \mid S_0)\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(T \leftarrow \infty\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;Loop for <span class="math inline">\(t= 0,1,2,\dots\)</span>:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If <span class="math inline">\(t&lt;T\)</span>, then:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Take action <span class="math inline">\(A_t\)</span>, observe and store the next reward as <span class="math inline">\(R_{t+1}\)</span> and the next state as <span class="math inline">\(S_{t+1}\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If <span class="math inline">\(S_{t+1}\)</span> is terminal, then <span class="math inline">\(T \leftarrow t + 1\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Else, choose and store <span class="math inline">\(A_{t+1} \sim b(\cdot \mid S_{t+1})\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(\tau \leftarrow t-n+1\)</span> (<span class="math inline">\(\tau\)</span> is the time whose state’s estimate is being updated)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If <span class="math inline">\(\tau \ge 0\)</span>:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(\rho \leftarrow \prod_{i=\tau+1}^{\min(\tau+n, T-1)}\frac{\pi(A_i \mid S_i)}{b(A_i \mid S_i)}\)</span> (<span class="math inline">\(\rho_{t+1:t+n}\)</span>)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(G \leftarrow \sum_{i=\tau+1}^{\min(\tau+n, T)}\gamma^{i-\tau-1}R_i\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If <span class="math inline">\(\tau+n &lt; T\)</span>, then: <span class="math inline">\(G \leftarrow G+ \gamma^{n}Q(S_{\tau+n}, A_{\tau+n})\)</span> (<span class="math inline">\(G_{\tau:\tau+n}\)</span>)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(Q(S_\tau, A_\tau) \leftarrow Q(S_\tau, A_\tau) + \alpha \rho \big[G-Q(S_\tau, A_\tau)  \big]\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If <span class="math inline">\(\pi\)</span> is being learned, then ensure that <span class="math inline">\(\pi(\cdot \mid S_\tau)\)</span> is <span class="math inline">\(\epsilon\)</span>-greedy wrt <span class="math inline">\(Q\)</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;Until <span class="math inline">\(\tau = T-1\)</span></div>
-</div>
-</div>
-</div>
-</div>
-</section></section>
-<section>
-<section id="on-policy-prediction-with-approximation" class="title-slide slide level1 center">
-<h1>On-policy Prediction with Approximation</h1>
-
-</section>
-<section id="linear-methods" class="slide level2">
-<h2>Linear Methods</h2>
-<p>The approximation function, <span class="math inline">\(\hat{v}(\cdot , \mathbf{w})\)</span>, is a linear function of the weight vector, <span class="math inline">\(\mathbf{w}\)</span>. Corresponding to every state <span class="math inline">\(s\)</span>, there is a feature (real-valued) vector <span class="math inline">\(\mathbf{x}(s) \doteq (x_1(s), x_2(s),\dots ,x_d(s))^{\text{T}}\)</span>. The approximate value of state <span class="math inline">\(s\)</span> is given by:</p>
-<p><span class="math display">\[
-\hat{v} (s, \mathbf{w}) \doteq \mathbf{w}^{\text{T}} \mathbf{x}(s) \doteq \sum_{i=1}^d w_i x_i(s).
-\]</span></p>
-<p>Where vector <span class="math inline">\(\mathbf{x}(s)\)</span> is called a <em>feature vector</em> representing state <span class="math inline">\(s\)</span>.</p>
 </section>
 <section id="tutorials-on-rl" class="slide level2">
 <h2>Tutorials on RL</h2>
@@ -1367,6 +781,52 @@ Loop for each episode:<br>
 <iframe data-external="1" src="https://www.youtube.com/embed/sJIFUTITfBc" title="Model Based Reinforcement Learning: Policy Iteration, Value Iteration, and Dynamic Programming" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
 <iframe data-external="1" src="https://www.youtube.com/embed/0iqz4tcKN58" title="Q-Learning: Model Free Reinforcement Learning and Temporal Difference Learning" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
 <iframe data-external="1" src="https://www.youtube.com/embed/wDVteayWWvU" title="Overview of Deep Reinforcement Learning Methods" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+</section>
+<section id="the-difference-between-on-policy-and-off-policy" class="slide level2 smaller">
+<h2>The difference between on-policy and off-policy</h2>
+<h3 id="on-policy-learning">On-Policy Learning</h3>
+<p>Learns about the policy it is currently using to make decisions.</p>
+<p>The same policy is used for both:</p>
+<ul>
+<li><p>Acting (exploring the environment)</p></li>
+<li><p>Learning (updating value functions)</p></li>
+</ul>
+<p>Example: SARSA</p>
+<ul>
+<li><p>Updates Q-values using the action that was actually taken.</p></li>
+<li><p>Learns the value of the <span class="math inline">\(\varepsilon\)</span>-greedy policy it follows.</p></li>
+</ul>
+<h3 id="off-policy-learning">Off-Policy Learning</h3>
+<p>Learns about one policy while following another.</p>
+<p>Uses:</p>
+<ul>
+<li><p>A behavior policy for exploration (e.g., <span class="math inline">\(\varepsilon\)</span>-greedy)</p></li>
+<li><p>A target policy for learning (e.g., greedy)</p>
+<p>Example: Q-learning</p></li>
+<li><p>Even if the agent explores randomly, it updates Q-values based on the best possible action (max over Q), as if it was following a greedy policy.</p></li>
+</ul>
+</section>
+<section id="example" class="slide level2 smaller">
+<h2>Example:</h2>
+<p>🎯 Imagine you’re learning to play chess.</p>
+<p>🧑 On-policy (SARSA-like):</p>
+<ul>
+<li>You’re learning by watching yourself play, including your mistakes and explorations.</li>
+<li>You play games using a mix of good and random moves (e.g., trying new strategies).</li>
+<li>You update your knowledge based on what you actually did in each game.</li>
+<li>You get better at playing the way you currently play, gradually improving it.</li>
+</ul>
+<p>✅ On-policy:</p>
+<p>You learn the value of the policy you’re following.</p>
+<p>👀 Off-policy (Q-learning-like):</p>
+<ul>
+<li>You’re learning how a grandmaster would play, while still playing your own games.</li>
+<li>You still explore (e.g., try risky moves), but…</li>
+<li>When updating your knowledge, you ask what the best move would have been, not the one you actually chose.</li>
+<li>You get better at playing like the grandmaster, even though you’re not playing like them yet.</li>
+</ul>
+<p>✅ This is off-policy:</p>
+<p>You learn the value of a different, better policy (often greedy), while following a more exploratory one.</p>
 </section>
 <section id="notes" class="slide level2">
 <h2>Notes</h2>
