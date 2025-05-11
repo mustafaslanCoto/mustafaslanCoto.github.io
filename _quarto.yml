@@ -12,7 +12,7 @@ website:
         text: Learn
 
       - text: "Workshops"
-        href: talks/index.qmd
+        href: workshops/index.qmd
 
       - href: cvpdf/cvpdf.qmd
         text: CV

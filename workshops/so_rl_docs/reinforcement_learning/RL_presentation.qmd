@@ -6,7 +6,7 @@ format:
     height: 900
     theme: simple
     css: style.css
-    footer: "[Dynamic Programming and Reinforcement Learning](https://mustafaslancoto.github.io/talks/so_rl/rl_main.html)"
+    footer: "[Dynamic Programming and Reinforcement Learning](https://mustafaslancoto.github.io/workshops/so_rl/rl_main.html)"
     echo: true
 editor: source
 execute:
