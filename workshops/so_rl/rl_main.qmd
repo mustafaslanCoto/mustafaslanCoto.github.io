@@ -19,11 +19,10 @@ resources:
 
 [<i class="fas fa-bookmark"></i> Slides](../so_rl_docs/reinforcement_learning/RL_presentation.qmd){.btn .btn-sm .btn-outline-primary}
 [<i class="fab fa-python"></i> Code](../so_rl_docs/reinforcement_learning/rl.ipynb){.btn .btn-sm .btn-outline-primary}
-btn btn-success
 
 
 **Date:** May 22, 2025 11:00 AM – 13:00 PM\
-**Event:** Data Lab for Social Good Training Session 
+**Event:** Data Lab for Social Good Training Session\
 **Location:** Aberconway Building Meeting Room, Cardiff University, UK
 
 -------
