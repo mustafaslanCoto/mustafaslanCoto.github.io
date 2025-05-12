@@ -2,78 +2,70 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://mustafaslanCoto.github.io/index.html</loc>
-    <lastmod>2025-05-12T02:24:26.562Z</lastmod>
+    <lastmod>2025-05-12T19:05:03.076Z</lastmod>
   </url>
   <url>
-    <loc>https://mustafaslanCoto.github.io/workshops/so_rl_docs/temp/reinforcemment_learning/python_code_for_rl.html</loc>
-    <lastmod>2025-05-12T02:24:26.581Z</lastmod>
+    <loc>https://mustafaslanCoto.github.io/workshops/DL4SG/rl/slides/rl.html</loc>
+    <lastmod>2025-05-12T19:05:03.091Z</lastmod>
   </url>
   <url>
-    <loc>https://mustafaslanCoto.github.io/workshops/so_rl_docs/temp/reinforcemment_learning/RL_presentation.html</loc>
-    <lastmod>2025-05-12T02:24:26.580Z</lastmod>
+    <loc>https://mustafaslanCoto.github.io/workshops/DL4SG/rl/slides/notes_ides.html</loc>
+    <lastmod>2025-05-12T19:05:03.091Z</lastmod>
   </url>
   <url>
-    <loc>https://mustafaslanCoto.github.io/workshops/so_rl_docs/reinforcement_learning/rl.html</loc>
-    <lastmod>2025-05-12T02:24:26.579Z</lastmod>
+    <loc>https://mustafaslanCoto.github.io/workshops/DL4SG/index.html</loc>
+    <lastmod>2025-05-12T19:05:03.087Z</lastmod>
   </url>
   <url>
-    <loc>https://mustafaslanCoto.github.io/workshops/so_rl_docs/reinforcement_learning/RL_presentation.html</loc>
-    <lastmod>2025-05-12T02:24:26.575Z</lastmod>
+    <loc>https://mustafaslanCoto.github.io/learn/stats_ml/index.html</loc>
+    <lastmod>2025-05-12T19:05:03.085Z</lastmod>
   </url>
   <url>
-    <loc>https://mustafaslanCoto.github.io/cvpdf/LICENSE.html</loc>
-    <lastmod>2025-05-12T02:24:26.494Z</lastmod>
+    <loc>https://mustafaslanCoto.github.io/learn/stats_ml/distributions/distributions.html</loc>
+    <lastmod>2025-05-12T19:05:03.082Z</lastmod>
   </url>
   <url>
-    <loc>https://mustafaslanCoto.github.io/learn/stats/distributions_main.html</loc>
-    <lastmod>2025-05-12T02:24:26.567Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mustafaslanCoto.github.io/learn/index_lrn.html</loc>
-    <lastmod>2025-05-12T02:24:26.567Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mustafaslanCoto.github.io/learn/stats_docs/dist_slides_docs/distributions.html</loc>
-    <lastmod>2025-05-12T02:24:26.570Z</lastmod>
+    <loc>https://mustafaslanCoto.github.io/learn/stats_ml/cond_dists/cond_dist_notebook.html</loc>
+    <lastmod>2025-05-12T19:05:03.076Z</lastmod>
   </url>
   <url>
     <loc>https://mustafaslanCoto.github.io/bins/CV/CV.html</loc>
-    <lastmod>2025-05-12T02:24:26.494Z</lastmod>
+    <lastmod>2025-05-12T19:05:02.996Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mustafaslanCoto.github.io/CV/LICENSE.html</loc>
+    <lastmod>2025-05-12T19:05:02.982Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mustafaslanCoto.github.io/CV/CV.html</loc>
+    <lastmod>2025-05-12T19:05:02.982Z</lastmod>
   </url>
   <url>
     <loc>https://mustafaslanCoto.github.io/bins/dist.html</loc>
-    <lastmod>2025-05-12T02:24:26.494Z</lastmod>
+    <lastmod>2025-05-12T19:05:02.996Z</lastmod>
   </url>
   <url>
-    <loc>https://mustafaslanCoto.github.io/learn/stats_docs/dist_slides_docs/condition_prob.html</loc>
-    <lastmod>2025-05-12T02:24:26.567Z</lastmod>
+    <loc>https://mustafaslanCoto.github.io/learn/stats_ml/cond_dists/cond_dists.html</loc>
+    <lastmod>2025-05-12T19:05:03.076Z</lastmod>
   </url>
   <url>
-    <loc>https://mustafaslanCoto.github.io/learn/stats/cond_prob_main.html</loc>
-    <lastmod>2025-05-12T02:24:26.567Z</lastmod>
+    <loc>https://mustafaslanCoto.github.io/learn/stats_ml/distributions/dists_notebook.html</loc>
+    <lastmod>2025-05-12T19:05:03.085Z</lastmod>
   </url>
   <url>
-    <loc>https://mustafaslanCoto.github.io/cvpdf/cvpdf.html</loc>
-    <lastmod>2025-05-12T02:24:26.495Z</lastmod>
+    <loc>https://mustafaslanCoto.github.io/learn/index.html</loc>
+    <lastmod>2025-05-12T19:05:03.076Z</lastmod>
   </url>
   <url>
-    <loc>https://mustafaslanCoto.github.io/workshops/so_rl/rl_main.html</loc>
-    <lastmod>2025-05-12T02:24:26.575Z</lastmod>
+    <loc>https://mustafaslanCoto.github.io/workshops/DL4SG/rl/index.html</loc>
+    <lastmod>2025-05-12T19:05:03.088Z</lastmod>
   </url>
   <url>
-    <loc>https://mustafaslanCoto.github.io/workshops/so_rl_docs/reinforcement_learning/notes_ideas.html</loc>
-    <lastmod>2025-05-12T02:24:26.579Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mustafaslanCoto.github.io/workshops/so_rl_docs/temp/reinforcemment_learning/comments_definitions.html</loc>
-    <lastmod>2025-05-12T02:24:26.580Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mustafaslanCoto.github.io/workshops/so_rl_docs/temp/reinforcemment_learning/10_bandit_simul.html</loc>
-    <lastmod>2025-05-12T02:24:26.580Z</lastmod>
+    <loc>https://mustafaslanCoto.github.io/workshops/DL4SG/rl/slides/RL_presentation.html</loc>
+    <lastmod>2025-05-12T19:05:03.088Z</lastmod>
   </url>
   <url>
     <loc>https://mustafaslanCoto.github.io/workshops/index.html</loc>
-    <lastmod>2025-05-12T02:24:26.575Z</lastmod>
+    <lastmod>2025-05-12T19:05:03.095Z</lastmod>
   </url>
 </urlset>

@@ -50,3 +50,32 @@
   text-align: left !important;
 }
 
+
+
+
+.reveal .columns {
+  display: flex;
+  gap: 0; /* no gap, line acts as separator */
+}
+
+.reveal .column {
+  position: relative;
+  padding-left: 1.5rem; /* space for the line */
+}
+
+/* Add a semi-transparent vertical line to the left of every column except the first */
+.reveal .column:not(:first-child)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.15); /* semi-transparent black */
+}
+
+/* center text */
+.center-text {
+  text-align: center;
+}
+

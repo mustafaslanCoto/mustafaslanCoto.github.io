@@ -1,15 +1,27 @@
 [
   {
-    "listing": "/learn/index_lrn.html",
+    "listing": "/workshops/DL4SG/index.html",
     "items": [
-      "/learn/stats/cond_prob_main.html",
-      "/learn/stats/distributions_main.html"
+      "/workshops/DL4SG/rl/index.html"
+    ]
+  },
+  {
+    "listing": "/learn/stats_ml/index.html",
+    "items": [
+      "/learn/stats_ml/cond_dists/cond_dists.html",
+      "/learn/stats_ml/distributions/distributions.html"
+    ]
+  },
+  {
+    "listing": "/learn/index.html",
+    "items": [
+      "/learn/stats_ml/index.html"
     ]
   },
   {
     "listing": "/workshops/index.html",
     "items": [
-      "/workshops/so_rl/rl_main.html"
+      "/workshops/DL4SG/index.html"
     ]
   }
 ]
