@@ -1,8 +1,8 @@
 ---
 title: "Dynamic Programming and Reinforcement Learning"
 author: "Mustafa Aslan"
-date: 2025-10-17T09:00:00
-location: Cardiff, UK
+date: 2025-05-22:00:00
+location: Aberconway Building Meeting Room, Cardiff University, UK
 categories: [tools, seminar]
 image: ../images/rl_photo.webp
 # description: "This is designed for posts"
@@ -19,7 +19,11 @@ resources:
 
 [<i class="fas fa-bookmark"></i> Slides](../so_rl_docs/reinforcement_learning/RL_presentation.qmd){.btn .btn-sm .btn-outline-primary}
 [<i class="fab fa-python"></i> Code](../so_rl_docs/reinforcement_learning/rl.ipynb){.btn .btn-sm .btn-outline-primary}
+btn btn-success
 
-**Date:** Jul 18, 2023 3:50 PM – 4:30 PM\
-**Event:** Stats\
-**Location:** Cardiff, UK
+
+**Date:** May 22, 2025 11:00 AM – 13:00 PM\
+**Event:** Data Lab for Social Good Training Session 
+**Location:** Aberconway Building Meeting Room, Cardiff University, UK
+
+-------

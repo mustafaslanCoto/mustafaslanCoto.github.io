@@ -3,7 +3,7 @@ title: "Conditional Probability and Conditional Expectation"
 author: "Mustafa Aslan"
 date: 2025-03-18T12:30:00
 image: ../images/cond_prob.jpg
-location: Executive Suite, Cardiff, UK
+# location: Executive Suite, Cardiff, UK
 categories: [tools, seminar]
 format:
   html:

@@ -73,3 +73,9 @@
   height: 100%;
   background: rgba(0, 0, 0, 0.15); /* semi-transparent black */
 }
+
+/* center text */
+.center-text {
+  text-align: center;
+}
+

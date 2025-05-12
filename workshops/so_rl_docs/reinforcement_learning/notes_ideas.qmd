@@ -1,0 +1,69 @@
+---
+title: "Notes"
+format: html
+---
+
+## The difference between on-policy and off-policy {.smaller}
+
+### On-Policy Learning
+
+Learns about the policy it is currently using to make decisions.
+
+The same policy is used for both:
+
+-   Acting (exploring the environment)
+
+-   Learning (updating value functions)
+
+Example: SARSA
+
+-   Updates Q-values using the action that was actually taken.
+
+-   Learns the value of the $\varepsilon$-greedy policy it follows.
+
+### Off-Policy Learning
+
+Learns about one policy while following another.
+
+Uses:
+
+-   A behavior policy for exploration (e.g., $\varepsilon$-greedy)
+
+-   A target policy for learning (e.g., greedy)
+
+Example: Q-learning
+
+-   Even if the agent explores randomly, it updates Q-values based on the best possible action (max over Q), as if it was following a greedy policy.
+
+## Example: {.smaller}
+
+🎯 Imagine you're learning to play chess.
+
+🧑 On-policy (SARSA-like):
+
+-   You’re learning by watching yourself play, including your mistakes and explorations.
+-   You play games using a mix of good and random moves (e.g., trying new strategies).
+-   You update your knowledge based on what you actually did in each game.
+-   You get better at playing the way you currently play, gradually improving it.
+
+✅ On-policy:
+
+You learn the value of the policy you're following.
+
+👀 Off-policy (Q-learning-like):
+
+-   You’re learning how a grandmaster would play, while still playing your own games.
+-   You still explore (e.g., try risky moves), but...
+-   When updating your knowledge, you ask what the best move would have been, not the one you actually chose.
+-   You get better at playing like the grandmaster, even though you're not playing like them yet.
+
+✅ This is off-policy:
+
+You learn the value of a different, better policy (often greedy), while following a more exploratory one.
+
+## Notes
+
+-   **Reinforcement learning** is a framework for learning how to interact with environment from experience.
+-   Agent takes actions to interact with environment
+-   The big challange in RL Design a policy of what actions to take given a state s to maximize a future reward
+-   Q(s,a) tells us what is the quality of being in state s and taking action a. Then once I find myself in a state s, I just have to look across all of the actions and pick the one that gives the best quality. If I do that in future I will maximize my value.

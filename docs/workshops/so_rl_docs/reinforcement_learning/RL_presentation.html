@@ -121,6 +121,8 @@
       margin-right: 0; 
     }
   </style>
+  <link href="../../../site_libs/countdown-0.4.0/countdown.css" rel="stylesheet">
+  <script src="../../../site_libs/countdown-0.4.0/countdown.js"></script>
 <meta property="og:title" content="Home">
 <meta property="og:site_name" content="Home">
 </head>
@@ -164,12 +166,12 @@
 <div class="logo-right">
 <p><img src="images_rl/dlsg.png" alt="Right Logo"></p>
 </div>
-<br> <br> <br> <br>
+<br> <br> <br> <br> <br> <br>
 <h1>
 An Introduction to Reinforcement Learning
 </h1>
 <div class="title-block">
-<br>
+<br> <br> <br> <br>
 <h3>
 Mustafa Aslan, PhD Researcher <br> Data Lab for Social Good Research Lab <br> Cardiff University, UK <br> <span style="color: rgba(179, 0, 0, 0.7); font-weight: bold;">Slides:</span> <a href="https://mustafaslancoto.github.io/talks/" style="color: #000; font-weight: bold; text-decoration: underline dotted;text-underline-offset: 5px"> https://mustafaslancoto.github.io/talks/ </a>
 </h3>
@@ -178,25 +180,21 @@ Mustafa Aslan, PhD Researcher <br> Data Lab for Social Good Research Lab <br> Ca
 </p>
 </div>
 </section>
-<section id="outline" class="slide level2">
-<h2>Outline</h2>
+<section id="agenda" class="slide level2">
+<h2>Agenda</h2>
 <ul>
 <li>What is Reinforcement Learning</li>
 <li>Elements of Reinforcement Learning</li>
 <li>Categories of RL methods
 <ul>
-<li>Model-based methods
-<ul>
-<li>Dynamic Programming</li>
-</ul></li>
+<li>Model-based methods <span class="math inline">\(\approx\)</span> Dynamic Programming</li>
 <li>Model-Free Methods
 <ul>
 <li>Monte Carlo</li>
+<li>Sarsa</li>
 <li>Q-learning</li>
 </ul></li>
 </ul></li>
-<li>Temporal-Difference Learning</li>
-<li><span class="math inline">\(n\)</span>-step Bootstrapping</li>
 </ul>
 </section>
 <section>
@@ -322,8 +320,8 @@ v_\pi(s) \doteq \mathbb{E}_\pi[G_t | S_t=s] = \mathbb{E}_\pi\left[\sum_{k=0}^{\i
 </div>
 </div></div>
 </section>
-<section id="model-based-methods" class="slide level2">
-<h2>Model-based methods</h2>
+<section id="model-based-methods-dynamic-programming" class="slide level2">
+<h2>Model-based methods (Dynamic Programming)</h2>
 <p>Conditional probability of the next state given the current state and action taken <span class="math display">\[
 p(s' \mid s, a) \doteq \Pr \{ S_t = s' \mid S_{t-1} = s, A_{t-1} = a \}, \text{ for all } s',s \in S, \text{and} a \in A(s)
 \]</span></p>
@@ -332,12 +330,12 @@ p(s' \mid s, a) \doteq \Pr \{ S_t = s' \mid S_{t-1} = s, A_{t-1} = a \}, \text{ 
 \sum_{s'\in S}p(s'\mid s, a) = 1, \text{ for all } s \in S, a \in A(s)
 \]</span></p>
 </section>
-<section id="model-based-methods-1" class="slide level2">
-<h2>Model-based methods</h2>
+<section id="model-based-methods-dynamic-programming-1" class="slide level2">
+<h2>Model-based methods (Dynamic Programming)</h2>
 <ul>
 <li>They are used to derive optimal policies and value functions in Markov Decision Processes (MDPs) and reinforcement learning.</li>
 </ul>
-<h4 id="bellman-equations">Bellman Equations</h4>
+<h4 id="bellman-equation">Bellman Equation</h4>
 <ul>
 <li>The Bellman equations express the relationship between the value of a state and the values of its successor states. For the state-value function <span class="math inline">\(v_\pi\)</span>, the Bellman equation is:</li>
 </ul>
@@ -350,15 +348,15 @@ v_\pi(s) &amp;\doteq \mathbb{E}_\pi \big[G_t \mid S_t = s \big] \\
 \end{aligned}
 \]</span></p>
 </section>
-<section id="model-based-methods-2" class="slide level2 smaller">
-<h2>Model-based methods</h2>
+<section id="model-based-methods-dynamic-programming-2" class="slide level2 smaller">
+<h2>Model-based methods (Dynamic Programming)</h2>
 <ul>
 <li><p>An optimal policy is a policy that achieves the maximum expected return from any initial state.</p></li>
 <li><p>The optimal state-value function <span class="math inline">\(v_*\)</span> is the maximum value function over all policies: <span class="math display">\[
-v_*(s) = \max_\pi v_\pi(s), \text{ for all } s \in \mathcal{S}
+v_*(s) = \max_\pi v_\pi(s), \text{ for all } s \in S
 \]</span></p></li>
 <li><p>The optimal action-value function <span class="math inline">\(q_*\)</span> is the maximum action-value function over all policies: <span class="math display">\[
-q_*(s, a) = \max_\pi q_\pi(s, a), \text{ for all } s \in \mathcal{S}, a \in \mathcal{A}(s)
+q_*(s, a) = \max_\pi q_\pi(s, a), \text{ for all } s \in S, a \in A(s)
 \]</span></p></li>
 </ul>
 <p>We use Dynamic Programming (DP) to leverage value functions in the search for good policies.</p>
@@ -405,10 +403,10 @@ v_{k+1}(s) &amp;\doteq \mathbb{E}_\pi \big[R_{t+1} + \gamma v_k(S_{t+1}) \mid S_
 <p><strong>Input:</strong><br>
 <span class="math inline">\(\pi\)</span>, the policy to be evaluated<br>
 Algorithm parameter: a small threshold <span class="math inline">\(\theta &gt; 0\)</span> determining accuracy of estimation<br>
-Initialize <span class="math inline">\(V(s)\)</span> arbitrarily, for <span class="math inline">\(s \in \mathcal{S}\)</span>, and <span class="math inline">\(V(\text{terminal}) = 0\)</span></p>
+Initialize <span class="math inline">\(V(s)\)</span> arbitrarily, for <span class="math inline">\(s \in S\)</span>, and <span class="math inline">\(V(\text{terminal}) = 0\)</span></p>
 <p><strong>Loop:</strong><br>
 <span class="math inline">\(\Delta \leftarrow 0\)</span><br>
-Loop for each <span class="math inline">\(s \in \mathcal{S}\)</span>:<br>
+Loop for each <span class="math inline">\(s \in S\)</span>:<br>
  <span class="math inline">\(v \leftarrow V(s)\)</span><br>
  <span class="math inline">\(V(s) \leftarrow \sum_a \pi(a|s) \sum_{s', r} p(s', r | s, a) [r + \gamma V(s')]\)</span><br>
  <span class="math inline">\(\Delta \leftarrow \max(\Delta, |v - V(s)|)\)</span><br>
@@ -417,7 +415,7 @@ Loop for each <span class="math inline">\(s \in \mathcal{S}\)</span>:<br>
 </div>
 </div>
 </section>
-<section id="policy-improvement" class="slide level2 smaller">
+<section id="policy-improvement" class="slide level2">
 <h2>Policy Improvement</h2>
 <div class="columns">
 <div class="column fragment" style="font-size: 70%;">
@@ -446,14 +444,14 @@ q_\pi(s, a) &amp;\doteq \mathbb{E} \big[ R_{t+1} + \gamma v_\pi(S_{t+1}) \mid S_
 <p><span class="math display">\[
 v_{\pi'}(s) \geq v_\pi(s).
 \]</span></p>
-<p>for all <span class="math inline">\(s \in \mathcal{S}\)</span>.</p>
+<p>for all <span class="math inline">\(s \in S\)</span>.</p>
 </div></div>
 </section>
 <section id="policy-iteration" class="slide level2">
 <h2>Policy Iteration</h2>
 <p>Once a policy, <span class="math inline">\(\pi\)</span>, has been improved using <span class="math inline">\(v_\pi\)</span> to yield a better policy, <span class="math inline">\(\pi^{'}\)</span>, we can then compute <span class="math inline">\(v_{\pi^{'}}\)</span> and improve it again to yield an even better <span class="math inline">\(\pi^{''}\)</span>.</p>
 <p><span class="math display">\[
-\pi_0 \xrightarrow E v_{\pi_0} \xrightarrow I \pi_1 \xrightarrow E v_{\pi_1}\xrightarrow I \pi_2,\dots,\xrightarrow I \pi_* \     xrightarrow E v_*
+\pi_0 \xrightarrow E v_{\pi_0} \xrightarrow I \pi_1 \xrightarrow E v_{\pi_1}\xrightarrow I \pi_2,\dots \xrightarrow I \pi_* \xrightarrow E v_*
 \]</span></p>
 <p>where <span class="math inline">\(\xrightarrow E\)</span> denotes a policy <em>evaluation</em> and <span class="math inline">\(\xrightarrow I\)</span> denotes a policy <em>improvement</em>. This way of finding an optimal policy is called policy iteration.</p>
 </section>
@@ -467,19 +465,19 @@ v_{\pi'}(s) \geq v_\pi(s).
 </div>
 <div class="callout-content">
 <p><strong>1. Initialization</strong><br>
-<span class="math inline">\(V(s) \in \mathbb{R}\)</span> and <span class="math inline">\(\pi(s) \in \mathcal{A}(s)\)</span> arbitrarily for all <span class="math inline">\(s \in \mathcal{S}\)</span><br>
+<span class="math inline">\(V(s) \in \mathbb{R}\)</span> and <span class="math inline">\(\pi(s) \in A(s)\)</span> arbitrarily for all <span class="math inline">\(s \in S\)</span><br>
 <span class="math inline">\(V(\text{terminal}) \doteq 0\)</span></p>
 <p><strong>2. Policy Evaluation</strong><br>
 Loop:<br>
  <span class="math inline">\(\Delta \leftarrow 0\)</span><br>
- Loop for each <span class="math inline">\(s \in \mathcal{S}\)</span>:<br>
+ Loop for each <span class="math inline">\(s \in S\)</span>:<br>
   <span class="math inline">\(v \leftarrow V(s)\)</span><br>
   <span class="math inline">\(V(s) \leftarrow \sum_{s', r} p(s', r \mid s, \pi(s)) \left[r + \gamma V(s')\right]\)</span><br>
   <span class="math inline">\(\Delta \leftarrow \max(\Delta, |v - V(s)|)\)</span><br>
 Until <span class="math inline">\(\Delta &lt; \theta\)</span> (a small positive number determining the accuracy of estimation)</p>
 <p><strong>3. Policy Improvement</strong><br>
 <em>policy-stable</em> <span class="math inline">\(\leftarrow\)</span> true<br>
-For each <span class="math inline">\(s \in \mathcal{S}\)</span>:<br>
+For each <span class="math inline">\(s \in S\)</span>:<br>
  <em>old-action</em> <span class="math inline">\(\leftarrow \pi(s)\)</span><br>
  <span class="math inline">\(\pi(s) \leftarrow \arg\max_a \sum_{s', r} p(s', r \mid s, a)\left[r + \gamma V(s')\right]\)</span><br>
  If <em>old-action</em> <span class="math inline">\(\ne \pi(s)\)</span>, then <em>policy-stable</em> <span class="math inline">\(\leftarrow\)</span> false</p>
@@ -502,7 +500,7 @@ v_{k+1}(s) &amp;= \mathbb{E} \big[R_{t+1} + \gamma v_k(S_{t+1}) \mid S_t=s, A_t 
        &amp;=\max_a \sum_{s', r} p(s', r \mid s, a) \big[ r + \gamma v_k(s') \big]
 \end{aligned}
 \]</span></p>
-<p>for all <span class="math inline">\(s \in \mathcal{S}\)</span>.</p>
+<p>for all <span class="math inline">\(s \in S\)</span>.</p>
 </section>
 <section id="value-iteration-1" class="slide level2 smaller">
 <h2>Value Iteration</h2>
@@ -513,29 +511,42 @@ v_{k+1}(s) &amp;= \mathbb{E} \big[R_{t+1} + \gamma v_k(S_{t+1}) \mid S_t=s, A_t 
 <div class="callout callout-note no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>Note</strong></p>
+<p><strong>Value Iteration, for estimating <span class="math inline">\(\pi \approx \pi_*\)</span></strong></p>
 </div>
 <div class="callout-content">
-<pre><code>## Value Iteration, for estimating $\pi \approx \pi_*$
+<p><strong>Algorithm parameter:</strong><br>
+A small threshold <span class="math inline">\(\theta &gt; 0\)</span> determining the accuracy of estimation</p>
+<p><strong>Initialization:</strong><br>
+Initialize <span class="math inline">\(V(s)\)</span> arbitrarily for all <span class="math inline">\(s \in S^+\)</span>, except that <span class="math inline">\(V(\text{terminal}) = 0\)</span></p>
+<p><strong>Loop:</strong><br>
+ <span class="math inline">\(\Delta \leftarrow 0\)</span><br>
+ Loop for each <span class="math inline">\(s \in S\)</span>:<br>
+  <span class="math inline">\(v \leftarrow V(s)\)</span><br>
+  <span class="math inline">\(V(s) \leftarrow \max_a \sum_{s', r} p(s', r \mid s, a) \left[ r + \gamma V(s') \right]\)</span><br>
+  <span class="math inline">\(\Delta \leftarrow \max(\Delta, |v - V(s)|)\)</span><br>
+<strong>until</strong> <span class="math inline">\(\Delta &lt; \theta\)</span></p>
+<p><strong>Output:</strong><br>
+A deterministic policy, <span class="math inline">\(\pi \approx \pi_*\)</span>, such that<br>
+ <span class="math inline">\(\pi(s) = \arg\max_a \sum_{s', r} p(s', r \mid s, a) \left[ r + \gamma V(s') \right]\)</span></p>
+</div>
+</div>
+</div>
+<!-- #| echo: false
 
-**Algorithm parameter:**\
-A small threshold $\theta &gt; 0$ determining the accuracy of estimation
-
-**Initialization:**\
-Initialize $V(s)$ arbitrarily for all $s \in \mathcal{S}^+$, except that $V(\text{terminal}) = 0$
-
-**Loop:**\
- $\Delta \leftarrow 0$\
- Loop for each $s \in \mathcal{S}$:\
-  $v \leftarrow V(s)$\
-  $V(s) \leftarrow \max_a \sum_{s', r} p(s', r \mid s, a) \left[ r + \gamma V(s') \right]$\
-  $\Delta \leftarrow \max(\Delta, |v - V(s)|)$\
-**until** $\Delta &lt; \theta$
-
-**Output:**\
-A deterministic policy, $\pi \approx \pi_*$, such that\
- $\pi(s) = \arg\max_a \sum_{s', r} p(s', r \mid s, a) \left[ r + \gamma V(s') \right]$
-:::</code></pre>
+countdown::countdown(minutes = 15, seconds = 00) -->
+</section></section>
+<section>
+<section id="lets-code-py" class="title-slide slide level1 center">
+<h1>Let’s code py</h1>
+<div class="cell">
+<div class="cell-output-display">
+<div class="countdown" id="timer_6018ed05" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+</div>
+</div>
+</section>
 <section id="generalized-policy-iteration" class="slide level2 smaller">
 <h2>Generalized Policy Iteration</h2>
 <div class="columns">
@@ -548,12 +559,19 @@ A deterministic policy, $\pi \approx \pi_*$, such that\
 </div><div class="column fragment" style="font-size: 100%;">
 <p><img data-src="images_rl/eval_greed_diag.png"></p>
 </div></div>
-</section>
+</section></section>
 <section id="model-free-methods" class="title-slide slide level1 center">
 <h1>Model-free methods</h1>
-
+<div class="center-text">
+<ul>
+<li><strong>Monte Carlo Methods</strong></li>
+<li><strong>Sarsa</strong></li>
+<li><strong>Q-learning</strong></li>
+</ul>
+</div>
 </section>
 
+<section>
 <section id="monte-carlo-methods" class="title-slide slide level1 center">
 <h1>Monte Carlo Methods</h1>
 
@@ -607,11 +625,11 @@ A policy <span class="math inline">\(\pi\)</span> to be evaluated</p>
 </div>
 <div class="callout-content">
 <p><strong>Initialize:</strong><br>
-<span class="math inline">\(\pi(s) \in \mathcal{A}(s)\)</span> arbitrarily, for all <span class="math inline">\(s \in \mathcal{S}\)</span><br>
-<span class="math inline">\(Q(s, a) \in \mathbb{R}\)</span> arbitrarily, for all <span class="math inline">\(s \in \mathcal{S}, a \in \mathcal{A}(s)\)</span><br>
-<span class="math inline">\(\text{Returns}(s, a) \leftarrow\)</span> empty list, for all <span class="math inline">\(s \in \mathcal{S}, a \in \mathcal{A}(s)\)</span></p>
+<span class="math inline">\(\pi(s) \in A(s)\)</span> arbitrarily, for all <span class="math inline">\(s \in S\)</span><br>
+<span class="math inline">\(Q(s, a) \in \mathbb{R}\)</span> arbitrarily, for all <span class="math inline">\(s \in S, a \in A(s)\)</span><br>
+<span class="math inline">\(\text{Returns}(s, a) \leftarrow\)</span> empty list, for all <span class="math inline">\(s \in S, a \in A(s)\)</span></p>
 <p><strong>Loop forever</strong> (for each episode):<br>
- Choose <span class="math inline">\(S_0 \in \mathcal{S}, A_0 \in \mathcal{A}(S_0)\)</span> randomly, such that all pairs have probability <span class="math inline">\(&gt; 0\)</span><br>
+ Choose <span class="math inline">\(S_0 \in S, A_0 \in A(S_0)\)</span> randomly, such that all pairs have probability <span class="math inline">\(&gt; 0\)</span><br>
  Generate an episode from <span class="math inline">\(S_0, A_0\)</span>, following <span class="math inline">\(\pi\)</span>:<br>
   <span class="math inline">\(S_0, A_0, R_1, \dots, S_{T-1}, A_{T-1}, R_T\)</span><br>
  <span class="math inline">\(G \leftarrow 0\)</span><br>
@@ -625,13 +643,25 @@ A policy <span class="math inline">\(\pi\)</span> to be evaluated</p>
 </div>
 </div>
 </div>
+</section></section>
+<section>
+<section id="lets-code" class="title-slide slide level1 center">
+<h1>Let’s code</h1>
+<div class="cell">
+<div class="cell-output-display">
+<div class="countdown" id="timer_a3196b01" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+</div>
+</div>
 </section>
 <section id="monte-carlo-control-without-exploring-starts" class="slide level2 smaller">
 <h2>Monte Carlo Control without Exploring Starts</h2>
 <ul>
-<li>In on-policy control methods the policy is generally <strong>soft</strong>, meaning that <span class="math inline">\(\pi(a\mid s)&gt;0\)</span> for all <span class="math inline">\(s \in \mathcal{S}\)</span> and all <span class="math inline">\(a \in \mathcal{A(s)}\)</span>, but gradually shifted closer and closer to a deterministic policy.</li>
-<li>The on-policy method we present in this section uses <span class="math inline">\(\epsilon\)</span>-greedy policies, meaning that most of the time they choose an action that has maximal estimated action value, but with probability <span class="math inline">\(\epsilon\)</span> they instead select an action at random. That is, all nongreedy actions are given the minimal probability of selection, <span class="math inline">\(\frac{\epsilon}{|\mathcal{A(s)}|}\)</span>, and the remaining bulk of the probability <span class="math inline">\(1-\epsilon+\frac{\epsilon}{|\mathcal{A(s)}|}\)</span> is given to the greedy action.</li>
-<li><span class="math inline">\(\epsilon\)</span>-greedy policies are examples of <span class="math inline">\(\epsilon-soft\)</span> policies, definied as policies for which <span class="math inline">\(\pi(a \mid s) \geq \frac{\epsilon}{|\mathcal{A(s)}|}\)</span> for all states and actions, for some <span class="math inline">\(\epsilon &gt; 0\)</span>. Among <span class="math inline">\(\epsilon\)</span>-soft policies, <span class="math inline">\(\epsilon\)</span>-greedy policies are in some sense those that are closest to greedy.</li>
+<li>In on-policy control methods the policy is generally <strong>soft</strong>, meaning that <span class="math inline">\(\pi(a\mid s)&gt;0\)</span> for all <span class="math inline">\(s \in S\)</span> and all <span class="math inline">\(a \in A(s)\)</span>, but gradually shifted closer and closer to a deterministic policy.</li>
+<li>The on-policy method we present in this section uses <span class="math inline">\(\epsilon\)</span>-greedy policies, meaning that most of the time they choose an action that has maximal estimated action value, but with probability <span class="math inline">\(\epsilon\)</span> they instead select an action at random. That is, all nongreedy actions are given the minimal probability of selection, <span class="math inline">\(\frac{\epsilon}{|A(s)|}\)</span>, and the remaining bulk of the probability <span class="math inline">\(1-\epsilon+\frac{\epsilon}{|A(s)|}\)</span> is given to the greedy action.</li>
+<li><span class="math inline">\(\epsilon\)</span>-greedy policies are examples of <span class="math inline">\(\epsilon-soft\)</span> policies, definied as policies for which <span class="math inline">\(\pi(a \mid s) \geq \frac{\epsilon}{|A(s)|}\)</span> for all states and actions, for some <span class="math inline">\(\epsilon &gt; 0\)</span>. Among <span class="math inline">\(\epsilon\)</span>-soft policies, <span class="math inline">\(\epsilon\)</span>-greedy policies are in some sense those that are closest to greedy.</li>
 </ul>
 </section>
 <section id="monte-carlo-control-without-exploring-starts-1" class="slide level2 smaller">
@@ -646,8 +676,8 @@ A policy <span class="math inline">\(\pi\)</span> to be evaluated</p>
 Small <span class="math inline">\(\varepsilon &gt; 0\)</span></p>
 <p><strong>Initialize:</strong><br>
 <span class="math inline">\(\pi \leftarrow\)</span> an arbitrary <span class="math inline">\(\varepsilon\)</span>-soft policy<br>
-<span class="math inline">\(Q(s, a) \in \mathbb{R}\)</span> arbitrarily, for all <span class="math inline">\(s \in \mathcal{S}, a \in \mathcal{A}(s)\)</span><br>
-<span class="math inline">\(\text{Returns}(s, a) \leftarrow\)</span> empty list, for all <span class="math inline">\(s \in \mathcal{S}, a \in \mathcal{A}(s)\)</span></p>
+<span class="math inline">\(Q(s, a) \in \mathbb{R}\)</span> arbitrarily, for all <span class="math inline">\(s \in S, a \in A(s)\)</span><br>
+<span class="math inline">\(\text{Returns}(s, a) \leftarrow\)</span> empty list, for all <span class="math inline">\(s \in S, a \in A(s)\)</span></p>
 <p><strong>Repeat forever</strong> (for each episode):<br>
  Generate an episode following <span class="math inline">\(\pi\)</span>: <span class="math inline">\(S_0, A_0, R_1, \dots, S_{T-1}, A_{T-1}, R_T\)</span><br>
  <span class="math inline">\(G \leftarrow 0\)</span><br>
@@ -657,18 +687,18 @@ Small <span class="math inline">\(\varepsilon &gt; 0\)</span></p>
    Append <span class="math inline">\(G\)</span> to <span class="math inline">\(\text{Returns}(S_t, A_t)\)</span><br>
    <span class="math inline">\(Q(S_t, A_t) \leftarrow \text{average}(\text{Returns}(S_t, A_t))\)</span><br>
    <span class="math inline">\(A^* \leftarrow \arg\max_a Q(S_t, a)\)</span> (ties broken arbitrarily)<br>
-   For all <span class="math inline">\(a \in \mathcal{A}(S_t)\)</span>:<br>
+   For all <span class="math inline">\(a \in A(S_t)\)</span>:<br>
     <span class="math inline">\(\pi(a \mid S_t) \leftarrow \begin{cases}
-1 - \varepsilon + \varepsilon / |\mathcal{A}(S_t)| &amp; \text{if } a = A^* \\
-\varepsilon / |\mathcal{A}(S_t)| &amp; \text{if } a \ne A^*
+1 - \varepsilon + \varepsilon / |A(S_t)| &amp; \text{if } a = A^* \\
+\varepsilon / |A(S_t)| &amp; \text{if } a \ne A^*
 \end{cases}\)</span></p>
 </div>
 </div>
 </div>
-<p>where <span class="math inline">\(|\mathcal{A}(s)|\)</span> is the number of actions available in state <span class="math inline">\(s\)</span>.</p>
+<p>where <span class="math inline">\(|A(s)|\)</span> is the number of actions available in state <span class="math inline">\(s\)</span>.</p>
 <p>The <span class="math inline">\(\epsilon\)</span>-greedy policy ensures that all actions are tried, but actions with higher value estimates are tried more frequently. This balances exploration (trying new actions) and exploitation (choosing the best-known action).</p>
-</section>
-
+</section></section>
+<section>
 <section id="temporal-difference-learning" class="title-slide slide level1 center">
 <h1>Temporal-Difference Learning</h1>
 
@@ -702,7 +732,7 @@ The policy <span class="math inline">\(\pi\)</span> to be evaluated</p>
 <p><strong>Algorithm parameter:</strong><br>
 Step size <span class="math inline">\(\alpha \in (0, 1]\)</span></p>
 <p><strong>Initialize:</strong><br>
-<span class="math inline">\(V(s)\)</span> arbitrarily for all <span class="math inline">\(s \in \mathcal{S}^+\)</span>, except that <span class="math inline">\(V(\text{terminal}) = 0\)</span></p>
+<span class="math inline">\(V(s)\)</span> arbitrarily for all <span class="math inline">\(s \in S^+\)</span>, except that <span class="math inline">\(V(\text{terminal}) = 0\)</span></p>
 <p><strong>Loop for each episode:</strong><br>
  Initialize <span class="math inline">\(S\)</span><br>
  <strong>Loop for each step of episode:</strong><br>
@@ -730,7 +760,7 @@ Q(S_t, A_t) \leftarrow Q(S_t, A_t) + \alpha \big[R_{t+1}+\gamma Q(S_{t+1}, A_{t+
 <p><strong>Algorithm parameters:</strong><br>
 Step size <span class="math inline">\(\alpha \in (0, 1]\)</span>, small <span class="math inline">\(\varepsilon &gt; 0\)</span></p>
 <p><strong>Initialize:</strong><br>
-<span class="math inline">\(Q(s, a)\)</span> arbitrarily, for all <span class="math inline">\(s \in \mathcal{S}^+\)</span>, <span class="math inline">\(a \in \mathcal{A}(s)\)</span><br>
+<span class="math inline">\(Q(s, a)\)</span> arbitrarily, for all <span class="math inline">\(s \in S^+\)</span>, <span class="math inline">\(a \in A(s)\)</span><br>
 <span class="math inline">\(Q(\text{terminal}, \cdot) = 0\)</span></p>
 <p><strong>Loop for each episode:</strong><br>
  Initialize <span class="math inline">\(S\)</span><br>
@@ -741,6 +771,18 @@ Step size <span class="math inline">\(\alpha \in (0, 1]\)</span>, small <span cl
   <span class="math inline">\(Q(S, A) \leftarrow Q(S, A) + \alpha \left[ R + \gamma Q(S', A') - Q(S, A) \right]\)</span><br>
   <span class="math inline">\(S \leftarrow S';\quad A \leftarrow A'\)</span></p>
 <p>Until <span class="math inline">\(S\)</span> is terminal</p>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="lets-code-1" class="title-slide slide level1 center">
+<h1>Let’s code</h1>
+<div class="cell">
+<div class="cell-output-display">
+<div class="countdown" id="timer_f11d98f7" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 </div>
 </div>
@@ -761,7 +803,7 @@ Q(S_t, A_t) \leftarrow Q(S_t, A_t)+ \alpha \big[R_{t+1}+\gamma \max_aQ(S_{t+1}, 
 <p><strong>Algorithm parameters:</strong><br>
 Step size <span class="math inline">\(\alpha \in (0, 1]\)</span>, small <span class="math inline">\(\varepsilon &gt; 0\)</span></p>
 <p><strong>Initialize:</strong><br>
-<span class="math inline">\(Q(s, a)\)</span> arbitrarily for all <span class="math inline">\(s \in \mathcal{S}^+\)</span>, <span class="math inline">\(a \in \mathcal{A}(s)\)</span>,<br>
+<span class="math inline">\(Q(s, a)\)</span> arbitrarily for all <span class="math inline">\(s \in S^+\)</span>, <span class="math inline">\(a \in S(s)\)</span>,<br>
 except that <span class="math inline">\(Q(\text{terminal}, \cdot) = 0\)</span></p>
 <p><strong>Loop for each episode:</strong><br>
  Initialize <span class="math inline">\(S\)</span><br>
@@ -774,83 +816,42 @@ except that <span class="math inline">\(Q(\text{terminal}, \cdot) = 0\)</span></
 </div>
 </div>
 </div>
+</section></section>
+<section>
+<section id="lets-code-2" class="title-slide slide level1 center">
+<h1>Let’s code</h1>
+<div class="cell">
+<div class="cell-output-display">
+<div class="countdown" id="timer_c5c25555" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+</div>
+</div>
 </section>
-<section id="tutorials-on-rl" class="slide level2">
-<h2>Tutorials on RL</h2>
+<section id="recommended-materials" class="slide level2">
+<h2>Recommended materials</h2>
+<h3 id="readings">Readings:</h3>
+<ul>
+<li><a href="http://www.incompleteideas.net/book/the-book-2nd.html">Reinforcement Learning: An Introduction</a> by Richard S. Sutton and Andrew G. Barto</li>
+<li><a href="https://castle.princeton.edu/rlso/">Reinforcement Learning and Stochastic Optimization</a> by Warren B. Powell</li>
+</ul>
+<h3 id="tutoriols">Tutoriols:</h3>
 <iframe data-external="1" src="https://www.youtube.com/embed/0MNVhXEX9to" title="Reinforcement Learning: Machine Learning Meets Control Theory" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
 <iframe data-external="1" src="https://www.youtube.com/embed/i7q8bISGwMQ" title="Reinforcement Learning Series: Overview of Methods" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
 <iframe data-external="1" src="https://www.youtube.com/embed/sJIFUTITfBc" title="Model Based Reinforcement Learning: Policy Iteration, Value Iteration, and Dynamic Programming" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
 <iframe data-external="1" src="https://www.youtube.com/embed/0iqz4tcKN58" title="Q-Learning: Model Free Reinforcement Learning and Temporal Difference Learning" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
 <iframe data-external="1" src="https://www.youtube.com/embed/wDVteayWWvU" title="Overview of Deep Reinforcement Learning Methods" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
-</section>
-<section id="the-difference-between-on-policy-and-off-policy" class="slide level2 smaller">
-<h2>The difference between on-policy and off-policy</h2>
-<h3 id="on-policy-learning">On-Policy Learning</h3>
-<p>Learns about the policy it is currently using to make decisions.</p>
-<p>The same policy is used for both:</p>
-<ul>
-<li><p>Acting (exploring the environment)</p></li>
-<li><p>Learning (updating value functions)</p></li>
-</ul>
-<p>Example: SARSA</p>
-<ul>
-<li><p>Updates Q-values using the action that was actually taken.</p></li>
-<li><p>Learns the value of the <span class="math inline">\(\varepsilon\)</span>-greedy policy it follows.</p></li>
-</ul>
-<h3 id="off-policy-learning">Off-Policy Learning</h3>
-<p>Learns about one policy while following another.</p>
-<p>Uses:</p>
-<ul>
-<li><p>A behavior policy for exploration (e.g., <span class="math inline">\(\varepsilon\)</span>-greedy)</p></li>
-<li><p>A target policy for learning (e.g., greedy)</p></li>
-</ul>
-<p>Example: Q-learning</p>
-<ul>
-<li>Even if the agent explores randomly, it updates Q-values based on the best possible action (max over Q), as if it was following a greedy policy.</li>
-</ul>
-</section>
-<section id="example" class="slide level2 smaller">
-<h2>Example:</h2>
-<p>🎯 Imagine you’re learning to play chess.</p>
-<p>🧑 On-policy (SARSA-like):</p>
-<ul>
-<li>You’re learning by watching yourself play, including your mistakes and explorations.</li>
-<li>You play games using a mix of good and random moves (e.g., trying new strategies).</li>
-<li>You update your knowledge based on what you actually did in each game.</li>
-<li>You get better at playing the way you currently play, gradually improving it.</li>
-</ul>
-<p>✅ On-policy:</p>
-<p>You learn the value of the policy you’re following.</p>
-<p>👀 Off-policy (Q-learning-like):</p>
-<ul>
-<li>You’re learning how a grandmaster would play, while still playing your own games.</li>
-<li>You still explore (e.g., try risky moves), but…</li>
-<li>When updating your knowledge, you ask what the best move would have been, not the one you actually chose.</li>
-<li>You get better at playing like the grandmaster, even though you’re not playing like them yet.</li>
-</ul>
-<p>✅ This is off-policy:</p>
-<p>You learn the value of a different, better policy (often greedy), while following a more exploratory one.</p>
-</section>
-<section id="notes" class="slide level2">
-<h2>Notes</h2>
-<ul>
-<li><strong>Reinforcement learning</strong> is a framework for learning how to interact with environment from experience.</li>
-<li>Agent takes actions to interact with environment</li>
-<li>The big challange in RL Design a policy of what actions to take given a state s to maximize a future reward</li>
-<li>Q(s,a) tells us what is the quality of being in state s and taking action a. Then once I find myself in a state s, I just have to look across all of the actions and pick the one that gives the best quality. If I do that in future I will maximize my value.</li>
-</ul>
-
-
-</section>
-
-</div>
-</div>
-</div>
 </section></section>
+<section id="any-questions-or-thoughts" class="title-slide slide level1 center">
+<h1>Any questions or thoughts?</h1>
+
+
+</section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
-<p><a href="https://mustafaslancoto.github.io/workshops/so_rl/rl_main.html">Dynamic Programming and Reinforcement Learning</a></p>
+<p><a href="https://mustafaslancoto.github.io/workshops/so_rl/rl_main.html">Reinforcement Learning</a></p>
 </div>
 </div></div>
 
@@ -1062,6 +1063,44 @@ except that <span class="math inline">\(Q(\text{terminal}, \cdot) = 0\)</span></
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")

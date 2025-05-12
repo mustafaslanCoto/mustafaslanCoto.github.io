@@ -238,5 +238,8 @@
   },
   "learn/stats/distributions_main.qmd": {
     "distributions_main.html": "9bf41839"
+  },
+  "workshops/so_rl_docs/reinforcement_learning/notes_ideas.qmd": {
+    "notes_ideas.html": "e2b89beb"
   }
 }
