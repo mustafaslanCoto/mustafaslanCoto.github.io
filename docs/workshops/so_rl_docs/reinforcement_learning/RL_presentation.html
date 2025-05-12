@@ -121,8 +121,6 @@
       margin-right: 0; 
     }
   </style>
-  <link href="../../../site_libs/countdown-0.4.0/countdown.css" rel="stylesheet">
-  <script src="../../../site_libs/countdown-0.4.0/countdown.js"></script>
 <meta property="og:title" content="Home">
 <meta property="og:site_name" content="Home">
 </head>
@@ -531,20 +529,12 @@ A deterministic policy, <span class="math inline">\(\pi \approx \pi_*\)</span>, 
 </div>
 </div>
 </div>
-<!-- #| echo: false
-
-countdown::countdown(minutes = 15, seconds = 00) -->
 </section></section>
 <section>
-<section id="lets-code-py" class="title-slide slide level1 center">
-<h1>Let’s code py</h1>
-<div class="cell">
-<div class="cell-output-display">
-<div class="countdown" id="timer_6018ed05" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-</div>
+<section id="lets-code" class="title-slide slide level1 center">
+<h1>Let’s code</h1>
+<div id="timer-container" style="font-size:2em;">
+<p><span id="timer-display">05:00</span> <br> <button id="start-btn">Start</button> <button id="stop-btn">Stop</button> <button id="reset-btn">Reset</button></p>
 </div>
 </section>
 <section id="generalized-policy-iteration" class="slide level2 smaller">
@@ -645,16 +635,9 @@ A policy <span class="math inline">\(\pi\)</span> to be evaluated</p>
 </div>
 </section></section>
 <section>
-<section id="lets-code" class="title-slide slide level1 center">
+<section id="lets-code-1" class="title-slide slide level1 center">
 <h1>Let’s code</h1>
-<div class="cell">
-<div class="cell-output-display">
-<div class="countdown" id="timer_a3196b01" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-</div>
-</div>
+
 </section>
 <section id="monte-carlo-control-without-exploring-starts" class="slide level2 smaller">
 <h2>Monte Carlo Control without Exploring Starts</h2>
@@ -776,16 +759,9 @@ Step size <span class="math inline">\(\alpha \in (0, 1]\)</span>, small <span cl
 </div>
 </section></section>
 <section>
-<section id="lets-code-1" class="title-slide slide level1 center">
+<section id="lets-code-2" class="title-slide slide level1 center">
 <h1>Let’s code</h1>
-<div class="cell">
-<div class="cell-output-display">
-<div class="countdown" id="timer_f11d98f7" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-</div>
-</div>
+
 </section>
 <section id="q-learning-off-policy-td-control" class="slide level2 smaller">
 <h2>Q-learning: Off-policy TD Control</h2>
@@ -818,16 +794,9 @@ except that <span class="math inline">\(Q(\text{terminal}, \cdot) = 0\)</span></
 </div>
 </section></section>
 <section>
-<section id="lets-code-2" class="title-slide slide level1 center">
+<section id="lets-code-3" class="title-slide slide level1 center">
 <h1>Let’s code</h1>
-<div class="cell">
-<div class="cell-output-display">
-<div class="countdown" id="timer_c5c25555" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-</div>
-</div>
+
 </section>
 <section id="recommended-materials" class="slide level2">
 <h2>Recommended materials</h2>
@@ -1063,44 +1032,6 @@ except that <span class="math inline">\(Q(\text{terminal}, \cdot) = 0\)</span></
         ]
       });
     </script>
-    
-    <script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
-    </script>
-
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")

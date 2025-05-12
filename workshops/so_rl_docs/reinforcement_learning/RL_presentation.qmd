@@ -365,19 +365,8 @@ A deterministic policy, $\pi \approx \pi_*$, such that\
 :::
 
 
+# Let's code
 
-<!-- #| echo: false
-
-countdown::countdown(minutes = 15, seconds = 00) -->
-
-
-# Let's code py
-
-```{r}
-#| echo: false
-
-countdown::countdown(minutes = 10, seconds = 00)
-```
 
 
 ## Generalized Policy Iteration {.smaller}
@@ -469,13 +458,6 @@ $\text{Returns}(s, a) \leftarrow$ empty list, for all $s \in S, a \in A(s)$
 :::
 
 # Let's code
-
-```{r}
-#| echo: false
-
-countdown::countdown(minutes = 10, seconds = 00)
-```
-
 
 ## Monte Carlo Control without Exploring Starts {.smaller}
 
@@ -591,12 +573,6 @@ Until $S$ is terminal
 
 # Let's code
 
-```{r}
-#| echo: false
-
-countdown::countdown(minutes = 10, seconds = 00)
-```
-
 ## Q-learning: Off-policy TD Control {.smaller}
 
 *Q-learning* is defined by
@@ -629,12 +605,6 @@ Until $S$ is terminal
 :::
 
 # Let's code
-
-```{r}
-#| echo: false
-
-countdown::countdown(minutes = 10, seconds = 00)
-```
 
 ## Recommended materials
 

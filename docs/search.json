@@ -3533,5 +3533,12 @@
     "title": "Notes",
     "section": "Notes",
     "text": "Notes\n\nReinforcement learning is a framework for learning how to interact with environment from experience.\nAgent takes actions to interact with environment\nThe big challange in RL Design a policy of what actions to take given a state s to maximize a future reward\nQ(s,a) tells us what is the quality of being in state s and taking action a. Then once I find myself in a state s, I just have to look across all of the actions and pick the one that gives the best quality. If I do that in future I will maximize my value."
+  },
+  {
+    "objectID": "workshops/so_rl_docs/reinforcement_learning/RL_presentation.html#countdown-timer",
+    "href": "workshops/so_rl_docs/reinforcement_learning/RL_presentation.html#countdown-timer",
+    "title": "Home",
+    "section": "⏳ Countdown Timer",
+    "text": "⏳ Countdown Timer\n\n\n05:00\n\n\n&lt;button onclick=\"startTimer()\" style=\"font-size: 1.5rem; padding: 0.5rem 1.5rem;\"&gt;▶️ Start&lt;/button&gt;\n&lt;button onclick=\"stopTimer()\" style=\"font-size: 1.5rem; padding: 0.5rem 1.5rem;\"&gt;⏹ Stop&lt;/button&gt;\n&lt;button onclick=\"resetTimer()\" style=\"font-size: 1.5rem; padding: 0.5rem 1.5rem;\"&gt;🔄 Reset&lt;/button&gt;"
   }
 ]
