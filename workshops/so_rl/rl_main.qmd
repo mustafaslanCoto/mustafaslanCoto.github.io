@@ -1,5 +1,5 @@
 ---
-title: "Dynamic Programming and Reinforcement Learning"
+title: "Reinforcement Learning"
 author: "Mustafa Aslan"
 date: 2025-05-22:00:00
 location: Aberconway Building Meeting Room, Cardiff University, UK
