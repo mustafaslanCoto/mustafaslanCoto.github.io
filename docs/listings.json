@@ -10,7 +10,7 @@
   {
     "listing": "/workshops/index.html",
     "items": [
-      "/workshops/so_rl/rl_main.html"
+      "/workshops/DL4SG/index.html"
     ]
   },
   {
@@ -18,6 +18,32 @@
     "items": [
       "/learn/stats/cond_prob_main.html",
       "/learn/stats/distributions_main.html"
+    ]
+  },
+  {
+    "listing": "/learn/index.html",
+    "items": [
+      "/learn/stats_ml/index.html"
+    ]
+  },
+  {
+    "listing": "/learn/stats_ml/index.html",
+    "items": [
+      "/learn/stats_ml/cond_dists/cond_dists.html",
+      "/learn/stats_ml/distributions/distributions.html"
+    ]
+  },
+  {
+    "listing": "/workshops/DL4SG/index.html",
+    "items": [
+      "/workshops/DL4SG/rl/index.html"
+    ]
+  },
+  {
+    "listing": "/workshops/DL4SG/rl/index.html",
+    "items": [
+      "/workshops/DL4SG/rl/slides/rl.html",
+      "/workshops/DL4SG/rl/slides/notes_ides.html"
     ]
   }
 ]

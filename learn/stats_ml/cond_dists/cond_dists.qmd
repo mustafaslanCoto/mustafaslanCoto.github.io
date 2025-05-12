@@ -1,0 +1,23 @@
+---
+title: "Conditional Probability and Conditional Expectation"
+description: "learning material"
+author: "Mustafa Aslan"
+image: "cond_prob.jpg"
+date: "2025-04-30"
+categories:
+  - Statistics
+  - Machine Learning
+  - Python
+link-external-newwindow: true
+format:
+  html:
+    toc: false
+    include-in-header:
+      - text: |
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+---
+
+![](cond_prob.jpg){fig-align="center"}
+
+[<i class="fas fa-bookmark"></i> Slides](cond_dist_notebook.ipynb){.btn .btn-sm .btn-outline-primary}
+----

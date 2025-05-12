@@ -8,13 +8,13 @@ website:
   page-footer: "Made with ❤️ and Quarto"
   navbar:
     right:
-      - href: learn/index_lrn.qmd
+      - href: learn/index.qmd
         text: Learn
 
       - text: "Workshops"
         href: workshops/index.qmd
 
-      - href: cvpdf/cvpdf.qmd
+      - href: CV/CV.qmd
         text: CV
 
     tools:

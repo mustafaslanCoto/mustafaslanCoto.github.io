@@ -1,0 +1,12 @@
+---
+title: Data Lab for Social Good Workshops
+# description: 'Time series forecasting materials using R and Python.'
+image: "dlsg.png"
+listing: 
+  contents: 
+    - "rl/*.qmd"
+  type: grid
+  sort-ui: false
+  filter-ui: false
+  fields: [title, image, description, categories]
+---

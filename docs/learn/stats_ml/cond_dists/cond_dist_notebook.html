@@ -7,8 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Mustafa Aslan">
+<meta name="dcterms.date" content="2025-04-23">
+<meta name="description" content="A quick notebook on Conditional Probability and Conditional Expectation in statistics and machine learning.">
 
-<title>Data Scientist | Mathematical Modeller – Home</title>
+<title>Conditional Probability and Conditional Expectation – Home</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,23 +26,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7712559504b582f2e81c54892ba03bc0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-fe4309c7225341acc1ac1ef082ecc45b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,12 +71,39 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="../styles.css">
-<link rel="stylesheet" href="cv.css">
-<meta property="og:title" content="Data Scientist | Mathematical Modeller – Home">
-<meta property="og:description" content="">
-<meta property="og:image" content="images/python.jpeg">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../../styles.css">
+<meta property="og:title" content="Conditional Probability and Conditional Expectation – Home">
+<meta property="og:description" content="A quick notebook on Conditional Probability and Conditional Expectation in statistics and machine learning.">
 <meta property="og:site_name" content="Home">
 </head>
 
@@ -85,7 +114,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Home</span>
     </a>
   </div>
@@ -96,15 +125,15 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../learn/index.html"> 
+    <a class="nav-link" href="../../../learn/index.html"> 
 <span class="menu-text">Learn</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../workshops/index.html"> 
+    <a class="nav-link" href="../../../workshops/index.html"> 
 <span class="menu-text">Workshops</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../CV/CV.html" aria-current="page"> 
+    <a class="nav-link" href="../../../CV/CV.html"> 
 <span class="menu-text">CV</span></a>
   </li>  
 </ul>
@@ -124,34 +153,52 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#education" id="toc-education" class="nav-link active" data-scroll-target="#education"><strong>EDUCATION</strong></a></li>
-  <li><a href="#work-experinces" id="toc-work-experinces" class="nav-link" data-scroll-target="#work-experinces"><strong>WORK EXPERINCES</strong></a></li>
-  <li><a href="#research-interests" id="toc-research-interests" class="nav-link" data-scroll-target="#research-interests"><strong>RESEARCH INTERESTS</strong></a></li>
-  <li><a href="#skills-expertise" id="toc-skills-expertise" class="nav-link" data-scroll-target="#skills-expertise"><strong>SKILLS &amp; EXPERTISE</strong></a></li>
-  <li><a href="#professional-development" id="toc-professional-development" class="nav-link" data-scroll-target="#professional-development"><strong>PROFESSIONAL DEVELOPMENT</strong></a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><strong>References</strong></a></li>
+  <li><a href="#the-discrete-case" id="toc-the-discrete-case" class="nav-link active" data-scroll-target="#the-discrete-case">The Discrete Case</a></li>
+  <li><a href="#the-continuous-case" id="toc-the-continuous-case" class="nav-link" data-scroll-target="#the-continuous-case">The Continuous Case</a></li>
+  <li><a href="#computing-expectations-by-conditioning" id="toc-computing-expectations-by-conditioning" class="nav-link" data-scroll-target="#computing-expectations-by-conditioning">Computing Expectations by Conditioning</a></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="CV.pdf"><i class="bi bi-file-pdf"></i>PDF (quarto-cv)</a></li></ul></div></nav>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Data Scientist | Mathematical Modeller</h1>
+<h1 class="title">Conditional Probability and Conditional Expectation</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">talks</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    A quick notebook on Conditional Probability and Conditional Expectation in statistics and machine learning.
+  </div>
 </div>
 
-
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Mustafa Aslan <a href="mailto:aslanm@cardiff.ac.uk" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Cardiff University, UK
+          </p>
+      </div>
+  </div>
 
 <div class="quarto-title-meta">
 
+      
     <div>
-    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-             <p>Mustafa Aslan </p>
-          </div>
+      <p class="date">April 23, 2025</p>
+    </div>
   </div>
-    
   
     
   </div>
@@ -161,112 +208,69 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<!-- ::: print-only
-\begin{center}
-\faEnvelope\  \href{mailto:aslanm@cardiff.ac.uk}{aslanm@cardiff.ac.uk} \ \faGithub\  \href{https://github.com/mustafaslanCoto}{mustafaslanCoto} \ \faGlobe\  \href{https://mustafaslancoto.github.io}{mustafaslancoto.github.io} \ \faLinkedin\  \href{https://www.linkedin.com/in/mustafa-aslan-047b4780/}{LinkedIn}
-\end{center}
-::: -->
-<section id="education" class="level2">
-<h2 class="anchored" data-anchor-id="education"><strong>EDUCATION</strong></h2>
-<p><strong>PhD in Probabilistic Machine Learning in Healthcare Management</strong><br>
-<span class="cvinstitution"><strong>Cardiff University, Cardiff, UK</strong></span> <span class="cvdate"><em>Oct 2024 — Present</em></span>.</p>
-<ul>
-<li>Recipient of WGSSS‑ESRC Studentship Award</li>
-<li>Project focused on enhancing discharge care coordination in healthcare and social care using a probabilistic data-driven modelling approach
-<ul>
-<li>Supervisors: Prof Bahman Rostami‑Tabar, Dr.&nbsp;Jeremy Dixon</li>
-</ul></li>
-</ul>
-<p><strong>MSc in Financial Mathematics</strong><br>
-<span class="cvinstitution"><strong>Middle East Technical University, Ankara, Turkey</strong></span> <span class="cvdate"><em>Oct 2017 — Aug 2021</em></span></p>
-<ul>
-<li><a href="https://open.metu.edu.tr/handle/11511/93166">Dissertation</a>: Effects of Exchange Rate Volatility and Firm-Specific Features on the Rates of Returns of the Manufacturing Firms Listed in Borsa İstanbul: A CAPM Approach
-<ul>
-<li>Statistical&amp;Machine learning techniques used: Markov Switching GARCH Models, ARIMA, Panel Data Econometrics, Principal Component Analysis</li>
-</ul></li>
-</ul>
-<p><strong>BSc in Business Administration</strong><br>
-<span class="cvinstitution"><strong>Middle East Technical University, Ankara, Turkey</strong></span> <span class="cvdate"><em>Oct 2011 — Aug 2015</em></span></p>
+<section id="the-discrete-case" class="level2">
+<h2 class="anchored" data-anchor-id="the-discrete-case">The Discrete Case</h2>
+<p>For any two events <span class="math inline">\(E\)</span> and <span class="math inline">\(F\)</span>, the conditional probability of <span class="math inline">\(E\)</span> given <span class="math inline">\(F\)</span> is defined, as long as <span class="math inline">\(P(F) &gt; 0\)</span>, by</p>
+<p><span class="math display">\[
+P(E|F) = \frac{P(E  F)}{P(F)}.
+\]</span></p>
+<p>Hence, if <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are discrete random variables, then it is natural to define the <em>conditional probability mass function</em> of <span class="math inline">\(X\)</span> given that <span class="math inline">\(Y = y\)</span>, by</p>
+<p><span class="math display">\[
+\begin{align*}
+p_{X|Y}(x|y) &amp;= P(X = x | Y = y) \\
+&amp;= \frac{P(X = x, Y = y)}{P(Y = y)} \\
+&amp;= \frac{p(x,y)}{p_Y(y)}.
+\end{align*}
+\]</span></p>
+<p>Similarly, the conditional probability distribution function of <span class="math inline">\(X\)</span> given that <span class="math inline">\(Y=y\)</span> is defined, for all <span class="math inline">\(y\)</span> such that <span class="math inline">\(P(Y = y) &gt; 0\)</span>, by</p>
+<p><span class="math display">\[
+\begin{align*}
+F_{X|Y}(x|y) &amp;= P(X \leq x | Y = y) \\
+&amp;= \sum_{a \leq x} P_{X | Y}(a | y) \\
+\end{align*}
+\]</span></p>
+<p>The conditional expectation of <span class="math inline">\(X\)</span> given that <span class="math inline">\(Y = y\)</span> is defined by <span class="math display">\[
+E[X | Y = y] = \sum_{x} x P(X = x | Y = y) = \sum_{x} x p_{X|Y}(x|y).
+\]</span></p>
 </section>
-<section id="work-experinces" class="level2">
-<h2 class="anchored" data-anchor-id="work-experinces"><strong>WORK EXPERINCES</strong></h2>
-<p><strong>Reporting and Data Analytics Executive</strong><br>
-<span class="cvinstitution"><strong>AKBANK (a leading bank in Turkey), Istanbul</strong></span> <span class="cvdate"><em>Jun 2022 — Sep 2024</em></span></p>
-<ul>
-<li>Applied time-series forecasting and machine learning techniques, including ARIMA, Bayesian Time Series, Prophet, ANN, LSTM, Random Forest, LightGBM and XGBoost, to historical data for making long-horizon forecasts of daily customer call volume. The best model achieved over 94% accuracy (1-MAPE) in forecasting all days of the next month.</li>
-<li>Implemented machine learning models (e.g., XGBoost, LightGBM, CatBoost) to predict customer behavior with an over recall rate of 70% and an accuracy rate of 85%, enabling fewer customer complaints and increase sales by 14%.</li>
-<li>Analyzing large amounts of data to identify trends and find patterns, signals and hidden stories within customer calls data.</li>
-<li>Applied machine learning techniques (Z-score, IsolationForest) to detect anomalies.</li>
-<li>Applied unsupervised machine learning techniques (DBSCAN, Gaussian mixture, K-means) to cluster customers.</li>
-<li>Hyperparameter tuning for machine learning models using Hyperopt, Optuna and KerasTuner.</li>
-</ul>
-<p><strong>Research Associate</strong><br>
-<span class="cvinstitution"><strong>The Economic Policy Research Foundation of Turkey (Think Tank), Ankara</strong></span> <span class="cvdate"><em>Jan 2022 — Apr 2024</em></span></p>
-<ul>
-<li>Determined areas of research to increase knowledge in the particular field.</li>
-<li>Utilizing inferential statistics such as hypothesis testing (e.g., t-test, ANOVA test, population proportion test), confidence intervals, correlation analysis and regression analysis to make inferences and draw conclusions about data.</li>
-<li>Developed statistical models (regression analysis, panel data modeling) for regional development projects to contribute to data-driven decisions.</li>
-</ul>
-<p><strong>Senior Process Development Analyst</strong><br>
-<span class="cvinstitution"><strong>ETI GIDA Inc (a major FMCG player in Turkey), Eskisehir</strong></span> <span class="cvdate"><em>Jun 2019 — Jan 2022</em></span></p>
-<ul>
-<li>Interacted with internal customers to understand business needs and translate into requirements and project scope.</li>
-<li>Assessed the impact of current business processes on users and stakeholders and evaluated potential areas for improvement.</li>
-<li>Maintained strong working knowledge of ERP (SAP), CRM and business intelligence tools and operational features.</li>
-</ul>
-<p><strong>Internal Auditor</strong><br>
-<span class="cvinstitution"><strong>Turk Telekom Inc.&nbsp;(the telecom giant of Turkey), Ankara</strong></span> <span class="cvdate"><em>Nov 2015 — Jun 2019</em></span></p>
-<ul>
-<li>Performed strategic planning, execution and finalization of audits using data analytics and critical thinking skills.</li>
-<li>Investigated discrepancies discovered during the auditing process.</li>
-<li>Recommended new methods to improve internal controls and operating efficiency.</li>
-</ul>
+<section id="the-continuous-case" class="level2">
+<h2 class="anchored" data-anchor-id="the-continuous-case">The Continuous Case</h2>
+<p>If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have a joint probability density function <span class="math inline">\(f(x, y)\)</span>, then the conditional probability density function of <span class="math inline">\(X\)</span>, given that <span class="math inline">\(Y = y\)</span>, is defined for all values of <span class="math inline">\(y\)</span> such that <span class="math inline">\(f_Y(y) &gt; 0\)</span>, by</p>
+<p><span class="math display">\[
+\begin{align*}
+f_{X|Y}(x|y) &amp;= \frac{f(x,y)}{f_Y(y)} \\
+&amp;= \frac{f(x,y)}{\int_{-\infty}^{\infty} f(x,y) dx}.
+\end{align*}
+\]</span> The conditional distribution function of <span class="math inline">\(X\)</span> given that <span class="math inline">\(Y = y\)</span> is defined by <span class="math display">\[
+\begin{align*}
+F_{X|Y}(x|y) &amp;= P(X \leq x | Y = y) \\
+&amp;= \int_{-\infty}^{x} f_{X|Y}(a|y) da \\
+&amp;= \int_{-\infty}^{x} \frac{f(a,y)}{f_Y(y)} da \\
+&amp;= \frac{1}{f_Y(y)} \int_{-\infty}^{x} f(a,y) da.
+\end{align*}
+\]</span></p>
+<p>The conditional expectation of <span class="math inline">\(X\)</span> given that <span class="math inline">\(Y = y\)</span> is defined or all values of <span class="math inline">\(y\)</span> such that <span class="math inline">\(f_Y(y) &gt; 0\)</span>, by <span class="math display">\[
+\begin{align*}
+E[X | Y = y] &amp;= \int_{-\infty}^{\infty} x f_{X|Y}(x|y) dx \\
+&amp;= \int_{-\infty}^{\infty} x \frac{f(x,y)}{f_Y(y)} dx \\
+&amp;= \frac{1}{f_Y(y)} \int_{-\infty}^{\infty} x f(x,y) dx.
+\end{align*}
+\]</span></p>
 </section>
-<section id="research-interests" class="level2" style="page-break-before: always">
-<h2 style="page-break-before: always" class="anchored" data-anchor-id="research-interests"><strong>RESEARCH INTERESTS</strong></h2>
-<ul>
-<li>Data-driven decision making</li>
-<li>Machine learning</li>
-<li>Reinforcement learning and stocastic optimization in decision making</li>
-<li>Time series forecasting</li>
-<li>Probabilistic forecasting</li>
-<li>Conformal prediction for time series forecasting</li>
-</ul>
-</section>
-<section id="skills-expertise" class="level2" style="page-break-before: always">
-<h2 style="page-break-before: always" class="anchored" data-anchor-id="skills-expertise"><strong>SKILLS &amp; EXPERTISE</strong></h2>
-<p><strong>Expertise:</strong> Mathematical and Statistical Modeling, Machine Learning, Time Series Analysis and Forecasting, Stocastic Optimization and Reinforecement Learning, Statistical and Explanatory Data Analysis<br>
-<strong>Programming:</strong> <img src="images/python.jpeg" class="img-fluid" width="15">Python <img src="images/sql.png" class="img-fluid" width="28">SQL<br>
-<strong>Reporting:</strong> <img src="images/quarto.png" width="40" height="10">Quarto <img src="images/excel.png" width="22" height="15">Advanced Excel <img src="images/qlick.png" width="23" height="10">QlikView <img src="images/sas.png" class="img-fluid" width="26">SAS<br>
-<strong>Languages</strong> English (Fluent), Kurdish (Native), Turkish (Native)</p>
-</section>
-<section id="professional-development" class="level2" style="page-break-before: always">
-<h2 style="page-break-before: always" class="anchored" data-anchor-id="professional-development"><strong>PROFESSIONAL DEVELOPMENT</strong></h2>
-<ul>
-<li>Certification:
-<ul>
-<li><a href="https://courses.edx.org/certificates/f1ae5e21826241a5ad7ebb4de58dabb4">Data Science: Machine Learning, HarvardX (edX)</a></li>
-</ul></li>
-<li>Books (some of my go-to books):
-<ul>
-<li>Forecasting: Principles and Practice (Hyndman et al, 2021)</li>
-<li>Introduction to Statistical Learning with Applications in R (Tibshirani et al, 2019)</li>
-<li>The Elements of Statistical Learning (Tibshirani et al, 2008)</li>
-<li>Probabilistic Machine Learning: An Introduction (Murphy. 2022)</li>
-<li>Reinforcement Learning: An Introduction (Barto et al, 2018)</li>
-<li>Reinforcement Learning and Stochastic Optimization (Powell, 2022)</li>
-<li>Time Series Forecasting in Python (Peixeiro, 2022)</li>
-<li>A Student’s Guide to Bayesian Statistics (Lambert, 2018)</li>
-<li>Dive into deep learning (Zhang, 2022)</li>
-</ul></li>
-</ul>
-</section>
-<section id="references" class="level2 print-only">
-<h2 class="anchored" data-anchor-id="references"><strong>References</strong></h2>
-<p>Available upon request</p>
-</section>
+<section id="computing-expectations-by-conditioning" class="level2">
+<h2 class="anchored" data-anchor-id="computing-expectations-by-conditioning">Computing Expectations by Conditioning</h2>
+<p>Let us denote by <span class="math inline">\(E[X|Y]\)</span> that function of the random variable <span class="math inline">\(Y\)</span> whose value at <span class="math inline">\(Y = y\)</span> is <span class="math inline">\(E[X|Y = y]\)</span>. Note that <span class="math inline">\(E[X|Y]\)</span> is itself a random variable. An extremely important important property of conditional expectation is that for all random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> <span class="math display">\[
+E[X] = E[E[X|Y]]
+\]</span></p>
+<p>If <span class="math inline">\(Y\)</span> is a discrete random variable, then <span class="math display">\[
+E[X] = \sum_{y} E[X|Y = y] P(Y = y)
+\]</span></p>
+<p>If <span class="math inline">\(Y\)</span> is continuous with density <span class="math inline">\(f_Y(y)\)</span>, then <span class="math display">\[
+E[X] = \int_{-\infty}^{\infty} E[X|Y = y] f_Y(y) dy
+\]</span></p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

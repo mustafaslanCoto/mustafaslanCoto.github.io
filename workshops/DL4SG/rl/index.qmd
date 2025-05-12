@@ -1,0 +1,48 @@
+---
+title: "Introduction to Reinforcement Learning"
+description: "Workshop"
+author: "Mustafa Aslan"
+date: "2025-05-22"
+image: "agent_env.png"
+categories:
+  - Reinforcement Learning
+  - Stocastic Optimization
+  - Dynamic Programming
+  - Python
+link-external-newwindow: true
+format:
+  html:
+    toc: false
+    include-in-header:
+      - text: |
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+---
+![](agent_env.png){fig-align="center"}
+
+
+[<i class="fas fa-bookmark"></i> Slides](slides/RL_presentation.qmd){.btn .btn-sm .btn-outline-primary}
+[<i class="fab fa-python"></i> Code](slides/rl.ipynb){.btn .btn-sm .btn-outline-primary}
+
+
+**Date:** May 22, 2025 11:00 AM – 13:00 PM\
+**Event:** Data Lab for Social Good Training Session\
+**Location:** Aberconway Building Meeting Room, Cardiff University, UK
+
+## Who is the course for?
+This course is designed for researchers and postgraduate students who want to apply Reinforcement Learning (RL) to real-world decision-making in interdisciplinary settings, including supply chains, healthcare, and operational contexts across diverse industries. It is especially relevant for those working on problems involving sequential decision-making under uncertainty.
+
+You don’t need prior RL knowledge, but you should be comfortable with basic probability and Python programming.
+
+## Learning Objectives
+By the end of this workshop, participants will be able to:
+
+- Understand the core ideas of RL in the context of healthcare decision-making
+- Model sequential sequential decisions using Markov Decision Processes (MDPs)
+- Apply key RL algorithms (Monte Carlo, SARSA, Q-learning) to learn optimal policies from experience
+- Interpret learned policies and value functions in a healthcare context (e.g. when to treat, when to wait)
+- Link RL insights to practical policy decisions like cost control, clinical risk, or stockout mitigation
+
+## Prerequisites
+- Familiarity with basic probability and statistics (e.g., expected value, random variables)
+- Some experience with Python, particularly with lists, dictionaries, and basic control flow
+- No prior knowledge of RL or advanced machine learning is required

@@ -6,7 +6,7 @@ format:
     height: 900
     theme: simple
     css: style.css
-    footer: "[Dynamic Programming and Reinforcement Learning](https://mustafaslancoto.github.io/workshops/so_rl/rl_main.html)"
+    footer: "[Reinforcement Learning](https://mustafaslancoto.github.io/workshops/so_rl/rl_main.html)"
     echo: true
 editor: source
 execute:
@@ -15,18 +15,16 @@ execute:
 
 {{< include title-slide.html >}}
 
-## Outline
+## Agenda
 
 -   What is Reinforcement Learning
 -   Elements of Reinforcement Learning
 -   Categories of RL methods
-    -   Model-based methods
-        -   Dynamic Programming
+    -   Model-based methods $\approx$ Dynamic Programming
     -   Model-Free Methods
         -   Monte Carlo
+        -   Sarsa
         -   Q-learning
--   Temporal-Difference Learning
--   $n$-step Bootstrapping
 
 # What is reinforcement learning
 
@@ -138,7 +136,7 @@ where $\mathbb{E}[\cdot]$ denotes the expected value of a random variable given 
 ::::
 :::::::
 
-## Model-based methods
+## Model-based methods (Dynamic Programming)
 
 Conditional probability of the next state given the current state and action taken
 $$
@@ -152,11 +150,11 @@ $$
 \sum_{s'\in S}p(s'\mid s, a) = 1, \text{ for all } s \in S, a \in A(s)
 $$
 
-## Model-based methods
+## Model-based methods (Dynamic Programming)
 
 -   They are used to derive optimal policies and value functions in Markov Decision Processes (MDPs) and reinforcement learning.
 
-#### Bellman Equations
+#### Bellman Equation
 
 -   The Bellman equations express the relationship between the value of a state and the values of its successor states. For the state-value function $v_\pi$, the Bellman equation is:
 
@@ -169,18 +167,18 @@ v_\pi(s) &\doteq \mathbb{E}_\pi \big[G_t \mid S_t = s \big] \\
 \end{aligned}
 $$
 
-## Model-based methods {.smaller}
+## Model-based methods (Dynamic Programming) {.smaller}
 
 -   An optimal policy is a policy that achieves the maximum expected return from any initial state.
 
 -   The optimal state-value function $v_*$ is the maximum value function over all policies:
 $$
-v_*(s) = \max_\pi v_\pi(s), \text{ for all } s \in \mathcal{S}
+v_*(s) = \max_\pi v_\pi(s), \text{ for all } s \in S
 $$
 
 -   The optimal action-value function $q_*$ is the maximum action-value function over all policies:
 $$
-q_*(s, a) = \max_\pi q_\pi(s, a), \text{ for all } s \in \mathcal{S}, a \in \mathcal{A}(s)
+q_*(s, a) = \max_\pi q_\pi(s, a), \text{ for all } s \in S, a \in A(s)
 $$
 
 We use Dynamic Programming (DP) to leverage value functions in the search for good policies.
@@ -231,18 +229,18 @@ The sequence ${v_k}$ can be shown in general to converge to $v_\pi$ as $k \right
 **Input:**\
 $\pi$, the policy to be evaluated\
 Algorithm parameter: a small threshold $\theta > 0$ determining accuracy of estimation\
-Initialize $V(s)$ arbitrarily, for $s \in \mathcal{S}$, and $V(\text{terminal}) = 0$
+Initialize $V(s)$ arbitrarily, for $s \in S$, and $V(\text{terminal}) = 0$
 
 **Loop:**\
 $\Delta \leftarrow 0$\
-Loop for each $s \in \mathcal{S}$:\
+Loop for each $s \in S$:\
  $v \leftarrow V(s)$\
  $V(s) \leftarrow \sum_a \pi(a|s) \sum_{s', r} p(s', r | s, a) [r + \gamma V(s')]$\
  $\Delta \leftarrow \max(\Delta, |v - V(s)|)$\
 **until** $\Delta < \theta$
 :::
 
-## Policy Improvement {.smaller}
+## Policy Improvement
 
 ::::: columns
 ::: {.column .fragment width="50%" style="font-size: 70%;"}
@@ -279,7 +277,7 @@ $$
 v_{\pi'}(s) \geq v_\pi(s).
 $$
 
-for all $s \in \mathcal{S}$.
+for all $s \in S$.
 :::
 :::::
 
@@ -288,7 +286,7 @@ for all $s \in \mathcal{S}$.
 Once a policy, $\pi$, has been improved using $v_\pi$ to yield a better policy, $\pi^{'}$, we can then compute $v_{\pi^{'}}$ and improve it again to yield an even better $\pi^{''}$.
 
 $$
-\pi_0 \xrightarrow E v_{\pi_0} \xrightarrow I \pi_1 \xrightarrow E v_{\pi_1}\xrightarrow I \pi_2,\dots,\xrightarrow I \pi_* \     xrightarrow E v_*
+\pi_0 \xrightarrow E v_{\pi_0} \xrightarrow I \pi_1 \xrightarrow E v_{\pi_1}\xrightarrow I \pi_2,\dots \xrightarrow I \pi_* \xrightarrow E v_*
 $$
 
 where $\xrightarrow E$ denotes a policy *evaluation* and $\xrightarrow I$ denotes a policy *improvement*. This way of finding an optimal policy is called policy iteration.
@@ -301,13 +299,13 @@ A complete *policy iteration* algorithm
 ## Policy Iteration (using iterative policy evaluation) for estimating $\pi \approx \pi_*$
 
 **1. Initialization**\
-$V(s) \in \mathbb{R}$ and $\pi(s) \in \mathcal{A}(s)$ arbitrarily for all $s \in \mathcal{S}$\
+$V(s) \in \mathbb{R}$ and $\pi(s) \in A(s)$ arbitrarily for all $s \in S$\
 $V(\text{terminal}) \doteq 0$
 
 **2. Policy Evaluation**\
 Loop:\
  $\Delta \leftarrow 0$\
- Loop for each $s \in \mathcal{S}$:\
+ Loop for each $s \in S$:\
   $v \leftarrow V(s)$\
   $V(s) \leftarrow \sum_{s', r} p(s', r \mid s, \pi(s)) \left[r + \gamma V(s')\right]$\
   $\Delta \leftarrow \max(\Delta, |v - V(s)|)$\
@@ -315,7 +313,7 @@ Until $\Delta < \theta$ (a small positive number determining the accuracy of est
 
 **3. Policy Improvement**\
 *policy-stable* $\leftarrow$ true\
-For each $s \in \mathcal{S}$:\
+For each $s \in S$:\
  *old-action* $\leftarrow \pi(s)$\
  $\pi(s) \leftarrow \arg\max_a \sum_{s', r} p(s', r \mid s, a)\left[r + \gamma V(s')\right]$\
  If *old-action* $\ne \pi(s)$, then *policy-stable* $\leftarrow$ false
@@ -324,7 +322,7 @@ If *policy-stable*, then stop and return $V \approx v_*$ and $\pi \approx \pi_*$
 Else go to step 2
 :::
 
-## Value Iteration
+## Value Iteration  
 
 -   One drawback to policy iteration is that each of its iterations involves policy evaluation, which may itself be a protracted iterative computation requiring multiple sweeps through the state set.
 -   Value iteration is a special case of policy iteration where the policy evaluation step is truncated to just one sweep.
@@ -337,7 +335,7 @@ v_{k+1}(s) &= \mathbb{E} \big[R_{t+1} + \gamma v_k(S_{t+1}) \mid S_t=s, A_t = a 
 \end{aligned}
 $$
 
-for all $s \in \mathcal{S}$.
+for all $s \in S$.
 
 ## Value Iteration {.smaller}
 
@@ -345,26 +343,31 @@ for all $s \in \mathcal{S}$.
 -   Also note how the value iteration update is identical to the policy evaluation update except that it requires the maximum to be taken over all actions.
 
 ::: {.callout-note icon="false"}
-    ## Value Iteration, for estimating $\pi \approx \pi_*$
+## Value Iteration, for estimating $\pi \approx \pi_*$
 
-    **Algorithm parameter:**\
-    A small threshold $\theta > 0$ determining the accuracy of estimation
+**Algorithm parameter:**\
+A small threshold $\theta > 0$ determining the accuracy of estimation
 
-    **Initialization:**\
-    Initialize $V(s)$ arbitrarily for all $s \in \mathcal{S}^+$, except that $V(\text{terminal}) = 0$
+**Initialization:**\
+Initialize $V(s)$ arbitrarily for all $s \in S^+$, except that $V(\text{terminal}) = 0$
 
-    **Loop:**\
-     $\Delta \leftarrow 0$\
-     Loop for each $s \in \mathcal{S}$:\
-      $v \leftarrow V(s)$\
-      $V(s) \leftarrow \max_a \sum_{s', r} p(s', r \mid s, a) \left[ r + \gamma V(s') \right]$\
-      $\Delta \leftarrow \max(\Delta, |v - V(s)|)$\
-    **until** $\Delta < \theta$
+**Loop:**\
+ $\Delta \leftarrow 0$\
+ Loop for each $s \in S$:\
+  $v \leftarrow V(s)$\
+  $V(s) \leftarrow \max_a \sum_{s', r} p(s', r \mid s, a) \left[ r + \gamma V(s') \right]$\
+  $\Delta \leftarrow \max(\Delta, |v - V(s)|)$\
+**until** $\Delta < \theta$
 
-    **Output:**\
-    A deterministic policy, $\pi \approx \pi_*$, such that\
-     $\pi(s) = \arg\max_a \sum_{s', r} p(s', r \mid s, a) \left[ r + \gamma V(s') \right]$
-    :::
+**Output:**\
+A deterministic policy, $\pi \approx \pi_*$, such that\
+ $\pi(s) = \arg\max_a \sum_{s', r} p(s', r \mid s, a) \left[ r + \gamma V(s') \right]$
+:::
+
+
+# Let's code
+
+
 
 ## Generalized Policy Iteration {.smaller}
 
@@ -383,6 +386,12 @@ for all $s \in \mathcal{S}$.
 :::::
 
 # Model-free methods
+
+::: {.center-text}
+- **Monte Carlo Methods**
+- **Sarsa**
+- **Q-learning**
+:::
 
 # Monte Carlo Methods
 
@@ -430,12 +439,12 @@ $$
 ## Monte Carlo ES (Exploring Starts), for estimating $\pi \approx \pi_*$
 
 **Initialize:**\
-$\pi(s) \in \mathcal{A}(s)$ arbitrarily, for all $s \in \mathcal{S}$\
-$Q(s, a) \in \mathbb{R}$ arbitrarily, for all $s \in \mathcal{S}, a \in \mathcal{A}(s)$\
-$\text{Returns}(s, a) \leftarrow$ empty list, for all $s \in \mathcal{S}, a \in \mathcal{A}(s)$
+$\pi(s) \in A(s)$ arbitrarily, for all $s \in S$\
+$Q(s, a) \in \mathbb{R}$ arbitrarily, for all $s \in S, a \in A(s)$\
+$\text{Returns}(s, a) \leftarrow$ empty list, for all $s \in S, a \in A(s)$
 
 **Loop forever** (for each episode):\
- Choose $S_0 \in \mathcal{S}, A_0 \in \mathcal{A}(S_0)$ randomly, such that all pairs have probability $> 0$\
+ Choose $S_0 \in S, A_0 \in A(S_0)$ randomly, such that all pairs have probability $> 0$\
  Generate an episode from $S_0, A_0$, following $\pi$:\
   $S_0, A_0, R_1, \dots, S_{T-1}, A_{T-1}, R_T$\
  $G \leftarrow 0$\
@@ -448,11 +457,13 @@ $\text{Returns}(s, a) \leftarrow$ empty list, for all $s \in \mathcal{S}, a \in 
    $\pi(S_t) \leftarrow \arg\max_a Q(S_t, a)$
 :::
 
+# Let's code
+
 ## Monte Carlo Control without Exploring Starts {.smaller}
 
--   In on-policy control methods the policy is generally **soft**, meaning that $\pi(a\mid s)>0$ for all $s \in \mathcal{S}$ and all $a \in \mathcal{A(s)}$, but gradually shifted closer and closer to a deterministic policy.
--   The on-policy method we present in this section uses $\epsilon$-greedy policies, meaning that most of the time they choose an action that has maximal estimated action value, but with probability $\epsilon$ they instead select an action at random. That is, all nongreedy actions are given the minimal probability of selection, $\frac{\epsilon}{|\mathcal{A(s)}|}$, and the remaining bulk of the probability $1-\epsilon+\frac{\epsilon}{|\mathcal{A(s)}|}$ is given to the greedy action.
--   $\epsilon$-greedy policies are examples of $\epsilon-soft$ policies, definied as policies for which $\pi(a \mid s) \geq \frac{\epsilon}{|\mathcal{A(s)}|}$ for all states and actions, for some $\epsilon > 0$. Among $\epsilon$-soft policies, $\epsilon$-greedy policies are in some sense those that are closest to greedy.
+-   In on-policy control methods the policy is generally **soft**, meaning that $\pi(a\mid s)>0$ for all $s \in S$ and all $a \in A(s)$, but gradually shifted closer and closer to a deterministic policy.
+-   The on-policy method we present in this section uses $\epsilon$-greedy policies, meaning that most of the time they choose an action that has maximal estimated action value, but with probability $\epsilon$ they instead select an action at random. That is, all nongreedy actions are given the minimal probability of selection, $\frac{\epsilon}{|A(s)|}$, and the remaining bulk of the probability $1-\epsilon+\frac{\epsilon}{|A(s)|}$ is given to the greedy action.
+-   $\epsilon$-greedy policies are examples of $\epsilon-soft$ policies, definied as policies for which $\pi(a \mid s) \geq \frac{\epsilon}{|A(s)|}$ for all states and actions, for some $\epsilon > 0$. Among $\epsilon$-soft policies, $\epsilon$-greedy policies are in some sense those that are closest to greedy.
 
 ## Monte Carlo Control without Exploring Starts {.smaller}
 
@@ -464,8 +475,8 @@ Small $\varepsilon > 0$
 
 **Initialize:**\
 $\pi \leftarrow$ an arbitrary $\varepsilon$-soft policy\
-$Q(s, a) \in \mathbb{R}$ arbitrarily, for all $s \in \mathcal{S}, a \in \mathcal{A}(s)$\
-$\text{Returns}(s, a) \leftarrow$ empty list, for all $s \in \mathcal{S}, a \in \mathcal{A}(s)$
+$Q(s, a) \in \mathbb{R}$ arbitrarily, for all $s \in S, a \in A(s)$\
+$\text{Returns}(s, a) \leftarrow$ empty list, for all $s \in S, a \in A(s)$
 
 **Repeat forever** (for each episode):\
  Generate an episode following $\pi$: $S_0, A_0, R_1, \dots, S_{T-1}, A_{T-1}, R_T$\
@@ -476,14 +487,14 @@ $\text{Returns}(s, a) \leftarrow$ empty list, for all $s \in \mathcal{S}, a \in 
    Append $G$ to $\text{Returns}(S_t, A_t)$\
    $Q(S_t, A_t) \leftarrow \text{average}(\text{Returns}(S_t, A_t))$\
    $A^* \leftarrow \arg\max_a Q(S_t, a)$ (ties broken arbitrarily)\
-   For all $a \in \mathcal{A}(S_t)$:\
+   For all $a \in A(S_t)$:\
     $\pi(a \mid S_t) \leftarrow \begin{cases}
-1 - \varepsilon + \varepsilon / |\mathcal{A}(S_t)| & \text{if } a = A^* \\
-\varepsilon / |\mathcal{A}(S_t)| & \text{if } a \ne A^*
+1 - \varepsilon + \varepsilon / |A(S_t)| & \text{if } a = A^* \\
+\varepsilon / |A(S_t)| & \text{if } a \ne A^*
 \end{cases}$
 :::
 
-where $|\mathcal{A}(s)|$ is the number of actions available in state $s$.
+where $|A(s)|$ is the number of actions available in state $s$.
 
 The $\epsilon$-greedy policy ensures that all actions are tried, but actions with higher value estimates are tried more frequently. This balances exploration (trying new actions) and exploitation (choosing the best-known action).
 
@@ -517,7 +528,7 @@ The policy $\pi$ to be evaluated
 Step size $\alpha \in (0, 1]$
 
 **Initialize:**\
-$V(s)$ arbitrarily for all $s \in \mathcal{S}^+$, except that $V(\text{terminal}) = 0$
+$V(s)$ arbitrarily for all $s \in S^+$, except that $V(\text{terminal}) = 0$
 
 **Loop for each episode:**\
  Initialize $S$\
@@ -544,7 +555,7 @@ $$
 Step size $\alpha \in (0, 1]$, small $\varepsilon > 0$
 
 **Initialize:**\
-$Q(s, a)$ arbitrarily, for all $s \in \mathcal{S}^+$, $a \in \mathcal{A}(s)$\
+$Q(s, a)$ arbitrarily, for all $s \in S^+$, $a \in A(s)$\
 $Q(\text{terminal}, \cdot) = 0$
 
 **Loop for each episode:**\
@@ -559,6 +570,8 @@ $Q(\text{terminal}, \cdot) = 0$
 
 Until $S$ is terminal
 :::
+
+# Let's code
 
 ## Q-learning: Off-policy TD Control {.smaller}
 
@@ -577,7 +590,7 @@ The Q-learning algorithm is shown below in procedural form.
 Step size $\alpha \in (0, 1]$, small $\varepsilon > 0$
 
 **Initialize:**\
-$Q(s, a)$ arbitrarily for all $s \in \mathcal{S}^+$, $a \in \mathcal{A}(s)$,\
+$Q(s, a)$ arbitrarily for all $s \in S^+$, $a \in S(s)$,\
 except that $Q(\text{terminal}, \cdot) = 0$
 
 **Loop for each episode:**\
@@ -591,7 +604,16 @@ except that $Q(\text{terminal}, \cdot) = 0$
 Until $S$ is terminal
 :::
 
-## Tutorials on RL
+# Let's code
+
+## Recommended materials
+
+### Readings:
+
+- [Reinforcement Learning: An Introduction](http://www.incompleteideas.net/book/the-book-2nd.html) by Richard S. Sutton and Andrew G. Barto
+- [Reinforcement Learning and Stochastic Optimization](https://castle.princeton.edu/rlso/) by Warren B. Powell
+
+### Tutoriols:
 
 {{< video https://www.youtube.com/watch?v=0MNVhXEX9to&list=PLMrJAkhIeNNQe1JXNvaFvURxGY4gE9k74&index=1 title='Reinforcement Learning: Machine Learning Meets Control Theory' >}}
 
@@ -603,67 +625,6 @@ Until $S$ is terminal
 
 {{< video https://www.youtube.com/watch?v=wDVteayWWvU title = 'Overview of Deep Reinforcement Learning Methods' >}}
 
-## The difference between on-policy and off-policy {.smaller}
+# Any questions or thoughts?
 
-### On-Policy Learning
 
-Learns about the policy it is currently using to make decisions.
-
-The same policy is used for both:
-
--   Acting (exploring the environment)
-
--   Learning (updating value functions)
-
-Example: SARSA
-
--   Updates Q-values using the action that was actually taken.
-
--   Learns the value of the $\varepsilon$-greedy policy it follows.
-
-### Off-Policy Learning
-
-Learns about one policy while following another.
-
-Uses:
-
--   A behavior policy for exploration (e.g., $\varepsilon$-greedy)
-
--   A target policy for learning (e.g., greedy)
-
-Example: Q-learning
-
--   Even if the agent explores randomly, it updates Q-values based on the best possible action (max over Q), as if it was following a greedy policy.
-
-## Example: {.smaller}
-
-🎯 Imagine you're learning to play chess.
-
-🧑 On-policy (SARSA-like):
-
--   You’re learning by watching yourself play, including your mistakes and explorations.
--   You play games using a mix of good and random moves (e.g., trying new strategies).
--   You update your knowledge based on what you actually did in each game.
--   You get better at playing the way you currently play, gradually improving it.
-
-✅ On-policy:
-
-You learn the value of the policy you're following.
-
-👀 Off-policy (Q-learning-like):
-
--   You’re learning how a grandmaster would play, while still playing your own games.
--   You still explore (e.g., try risky moves), but...
--   When updating your knowledge, you ask what the best move would have been, not the one you actually chose.
--   You get better at playing like the grandmaster, even though you're not playing like them yet.
-
-✅ This is off-policy:
-
-You learn the value of a different, better policy (often greedy), while following a more exploratory one.
-
-## Notes
-
--   **Reinforcement learning** is a framework for learning how to interact with environment from experience.
--   Agent takes actions to interact with environment
--   The big challange in RL Design a policy of what actions to take given a state s to maximize a future reward
--   Q(s,a) tells us what is the quality of being in state s and taking action a. Then once I find myself in a state s, I just have to look across all of the actions and pick the one that gives the best quality. If I do that in future I will maximize my value.

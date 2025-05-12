@@ -7,8 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Mustafa Aslan">
+<meta name="dcterms.date" content="2025-05-22">
+<meta name="description" content="Workshop">
 
-<title>Data Scientist | Mathematical Modeller – Home</title>
+<title>Introduction to Reinforcement Learning – Home</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,23 +26,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7712559504b582f2e81c54892ba03bc0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-fe4309c7225341acc1ac1ef082ecc45b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,24 +70,24 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 
-<link rel="stylesheet" href="../styles.css">
-<link rel="stylesheet" href="cv.css">
-<meta property="og:title" content="Data Scientist | Mathematical Modeller – Home">
-<meta property="og:description" content="">
-<meta property="og:image" content="images/python.jpeg">
+<link rel="stylesheet" href="../../../styles.css">
+<meta property="og:title" content="Introduction to Reinforcement Learning – Home">
+<meta property="og:description" content="Workshop">
+<meta property="og:image" content="agent_env.png">
 <meta property="og:site_name" content="Home">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Home</span>
     </a>
   </div>
@@ -96,15 +98,15 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../learn/index.html"> 
+    <a class="nav-link" href="../../../learn/index.html"> 
 <span class="menu-text">Learn</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../workshops/index.html"> 
+    <a class="nav-link" href="../../../workshops/index.html"> 
 <span class="menu-text">Workshops</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../CV/CV.html" aria-current="page"> 
+    <a class="nav-link" href="../../../CV/CV.html"> 
 <span class="menu-text">CV</span></a>
   </li>  
 </ul>
@@ -119,28 +121,26 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#education" id="toc-education" class="nav-link active" data-scroll-target="#education"><strong>EDUCATION</strong></a></li>
-  <li><a href="#work-experinces" id="toc-work-experinces" class="nav-link" data-scroll-target="#work-experinces"><strong>WORK EXPERINCES</strong></a></li>
-  <li><a href="#research-interests" id="toc-research-interests" class="nav-link" data-scroll-target="#research-interests"><strong>RESEARCH INTERESTS</strong></a></li>
-  <li><a href="#skills-expertise" id="toc-skills-expertise" class="nav-link" data-scroll-target="#skills-expertise"><strong>SKILLS &amp; EXPERTISE</strong></a></li>
-  <li><a href="#professional-development" id="toc-professional-development" class="nav-link" data-scroll-target="#professional-development"><strong>PROFESSIONAL DEVELOPMENT</strong></a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><strong>References</strong></a></li>
-  </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="CV.pdf"><i class="bi bi-file-pdf"></i>PDF (quarto-cv)</a></li></ul></div></nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Data Scientist | Mathematical Modeller</h1>
-</div>
+<h1 class="title">Introduction to Reinforcement Learning</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Reinforcement Learning</div>
+    <div class="quarto-category">Stocastic Optimization</div>
+    <div class="quarto-category">Dynamic Programming</div>
+    <div class="quarto-category">Python</div>
+  </div>
+  </div>
 
+<div>
+  <div class="description">
+    Workshop
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
@@ -152,6 +152,12 @@ ul.task-list li input[type="checkbox"] {
           </div>
   </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 22, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -161,112 +167,42 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<!-- ::: print-only
-\begin{center}
-\faEnvelope\  \href{mailto:aslanm@cardiff.ac.uk}{aslanm@cardiff.ac.uk} \ \faGithub\  \href{https://github.com/mustafaslanCoto}{mustafaslanCoto} \ \faGlobe\  \href{https://mustafaslancoto.github.io}{mustafaslancoto.github.io} \ \faLinkedin\  \href{https://www.linkedin.com/in/mustafa-aslan-047b4780/}{LinkedIn}
-\end{center}
-::: -->
-<section id="education" class="level2">
-<h2 class="anchored" data-anchor-id="education"><strong>EDUCATION</strong></h2>
-<p><strong>PhD in Probabilistic Machine Learning in Healthcare Management</strong><br>
-<span class="cvinstitution"><strong>Cardiff University, Cardiff, UK</strong></span> <span class="cvdate"><em>Oct 2024 — Present</em></span>.</p>
-<ul>
-<li>Recipient of WGSSS‑ESRC Studentship Award</li>
-<li>Project focused on enhancing discharge care coordination in healthcare and social care using a probabilistic data-driven modelling approach
-<ul>
-<li>Supervisors: Prof Bahman Rostami‑Tabar, Dr.&nbsp;Jeremy Dixon</li>
-</ul></li>
-</ul>
-<p><strong>MSc in Financial Mathematics</strong><br>
-<span class="cvinstitution"><strong>Middle East Technical University, Ankara, Turkey</strong></span> <span class="cvdate"><em>Oct 2017 — Aug 2021</em></span></p>
-<ul>
-<li><a href="https://open.metu.edu.tr/handle/11511/93166">Dissertation</a>: Effects of Exchange Rate Volatility and Firm-Specific Features on the Rates of Returns of the Manufacturing Firms Listed in Borsa İstanbul: A CAPM Approach
-<ul>
-<li>Statistical&amp;Machine learning techniques used: Markov Switching GARCH Models, ARIMA, Panel Data Econometrics, Principal Component Analysis</li>
-</ul></li>
-</ul>
-<p><strong>BSc in Business Administration</strong><br>
-<span class="cvinstitution"><strong>Middle East Technical University, Ankara, Turkey</strong></span> <span class="cvdate"><em>Oct 2011 — Aug 2015</em></span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="agent_env.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p><a href="../../../workshops/DL4SG/rl/slides/RL_presentation.html" class="btn btn-sm btn-outline-primary"><i class="fas fa-bookmark"></i> Slides</a> <a href="../../../workshops/DL4SG/rl/slides/rl.html" class="btn btn-sm btn-outline-primary"><i class="fab fa-python"></i> Code</a></p>
+<p><strong>Date:</strong> May 22, 2025 11:00 AM – 13:00 PM<br>
+<strong>Event:</strong> Data Lab for Social Good Training Session<br>
+<strong>Location:</strong> Aberconway Building Meeting Room, Cardiff University, UK</p>
+<hr>
+<section id="who-is-the-course-for" class="level2">
+<h2 class="anchored" data-anchor-id="who-is-the-course-for">Who is the course for?</h2>
+<p>This course is designed for researchers and postgraduate students who want to apply Reinforcement Learning (RL) to real-world decision-making in interdisciplinary settings, including supply chains, healthcare, and operational contexts across diverse industries. It is especially relevant for those working on problems involving sequential decision-making under uncertainty.</p>
+<p>You don’t need prior RL knowledge, but you should be comfortable with basic probability and Python programming.</p>
 </section>
-<section id="work-experinces" class="level2">
-<h2 class="anchored" data-anchor-id="work-experinces"><strong>WORK EXPERINCES</strong></h2>
-<p><strong>Reporting and Data Analytics Executive</strong><br>
-<span class="cvinstitution"><strong>AKBANK (a leading bank in Turkey), Istanbul</strong></span> <span class="cvdate"><em>Jun 2022 — Sep 2024</em></span></p>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
+<p>By the end of this workshop, participants will be able to:</p>
 <ul>
-<li>Applied time-series forecasting and machine learning techniques, including ARIMA, Bayesian Time Series, Prophet, ANN, LSTM, Random Forest, LightGBM and XGBoost, to historical data for making long-horizon forecasts of daily customer call volume. The best model achieved over 94% accuracy (1-MAPE) in forecasting all days of the next month.</li>
-<li>Implemented machine learning models (e.g., XGBoost, LightGBM, CatBoost) to predict customer behavior with an over recall rate of 70% and an accuracy rate of 85%, enabling fewer customer complaints and increase sales by 14%.</li>
-<li>Analyzing large amounts of data to identify trends and find patterns, signals and hidden stories within customer calls data.</li>
-<li>Applied machine learning techniques (Z-score, IsolationForest) to detect anomalies.</li>
-<li>Applied unsupervised machine learning techniques (DBSCAN, Gaussian mixture, K-means) to cluster customers.</li>
-<li>Hyperparameter tuning for machine learning models using Hyperopt, Optuna and KerasTuner.</li>
-</ul>
-<p><strong>Research Associate</strong><br>
-<span class="cvinstitution"><strong>The Economic Policy Research Foundation of Turkey (Think Tank), Ankara</strong></span> <span class="cvdate"><em>Jan 2022 — Apr 2024</em></span></p>
-<ul>
-<li>Determined areas of research to increase knowledge in the particular field.</li>
-<li>Utilizing inferential statistics such as hypothesis testing (e.g., t-test, ANOVA test, population proportion test), confidence intervals, correlation analysis and regression analysis to make inferences and draw conclusions about data.</li>
-<li>Developed statistical models (regression analysis, panel data modeling) for regional development projects to contribute to data-driven decisions.</li>
-</ul>
-<p><strong>Senior Process Development Analyst</strong><br>
-<span class="cvinstitution"><strong>ETI GIDA Inc (a major FMCG player in Turkey), Eskisehir</strong></span> <span class="cvdate"><em>Jun 2019 — Jan 2022</em></span></p>
-<ul>
-<li>Interacted with internal customers to understand business needs and translate into requirements and project scope.</li>
-<li>Assessed the impact of current business processes on users and stakeholders and evaluated potential areas for improvement.</li>
-<li>Maintained strong working knowledge of ERP (SAP), CRM and business intelligence tools and operational features.</li>
-</ul>
-<p><strong>Internal Auditor</strong><br>
-<span class="cvinstitution"><strong>Turk Telekom Inc.&nbsp;(the telecom giant of Turkey), Ankara</strong></span> <span class="cvdate"><em>Nov 2015 — Jun 2019</em></span></p>
-<ul>
-<li>Performed strategic planning, execution and finalization of audits using data analytics and critical thinking skills.</li>
-<li>Investigated discrepancies discovered during the auditing process.</li>
-<li>Recommended new methods to improve internal controls and operating efficiency.</li>
+<li>Understand the core ideas of RL in the context of healthcare decision-making</li>
+<li>Model sequential sequential decisions using Markov Decision Processes (MDPs)</li>
+<li>Apply key RL algorithms (Monte Carlo, SARSA, Q-learning) to learn optimal policies from experience</li>
+<li>Interpret learned policies and value functions in a healthcare context (e.g.&nbsp;when to treat, when to wait)</li>
+<li>Link RL insights to practical policy decisions like cost control, clinical risk, or stockout mitigation</li>
 </ul>
 </section>
-<section id="research-interests" class="level2" style="page-break-before: always">
-<h2 style="page-break-before: always" class="anchored" data-anchor-id="research-interests"><strong>RESEARCH INTERESTS</strong></h2>
+<section id="prerequisites" class="level2">
+<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
 <ul>
-<li>Data-driven decision making</li>
-<li>Machine learning</li>
-<li>Reinforcement learning and stocastic optimization in decision making</li>
-<li>Time series forecasting</li>
-<li>Probabilistic forecasting</li>
-<li>Conformal prediction for time series forecasting</li>
+<li>Familiarity with basic probability and statistics (e.g., expected value, random variables)</li>
+<li>Some experience with Python, particularly with lists, dictionaries, and basic control flow</li>
+<li>No prior knowledge of RL or advanced machine learning is required</li>
 </ul>
-</section>
-<section id="skills-expertise" class="level2" style="page-break-before: always">
-<h2 style="page-break-before: always" class="anchored" data-anchor-id="skills-expertise"><strong>SKILLS &amp; EXPERTISE</strong></h2>
-<p><strong>Expertise:</strong> Mathematical and Statistical Modeling, Machine Learning, Time Series Analysis and Forecasting, Stocastic Optimization and Reinforecement Learning, Statistical and Explanatory Data Analysis<br>
-<strong>Programming:</strong> <img src="images/python.jpeg" class="img-fluid" width="15">Python <img src="images/sql.png" class="img-fluid" width="28">SQL<br>
-<strong>Reporting:</strong> <img src="images/quarto.png" width="40" height="10">Quarto <img src="images/excel.png" width="22" height="15">Advanced Excel <img src="images/qlick.png" width="23" height="10">QlikView <img src="images/sas.png" class="img-fluid" width="26">SAS<br>
-<strong>Languages</strong> English (Fluent), Kurdish (Native), Turkish (Native)</p>
-</section>
-<section id="professional-development" class="level2" style="page-break-before: always">
-<h2 style="page-break-before: always" class="anchored" data-anchor-id="professional-development"><strong>PROFESSIONAL DEVELOPMENT</strong></h2>
-<ul>
-<li>Certification:
-<ul>
-<li><a href="https://courses.edx.org/certificates/f1ae5e21826241a5ad7ebb4de58dabb4">Data Science: Machine Learning, HarvardX (edX)</a></li>
-</ul></li>
-<li>Books (some of my go-to books):
-<ul>
-<li>Forecasting: Principles and Practice (Hyndman et al, 2021)</li>
-<li>Introduction to Statistical Learning with Applications in R (Tibshirani et al, 2019)</li>
-<li>The Elements of Statistical Learning (Tibshirani et al, 2008)</li>
-<li>Probabilistic Machine Learning: An Introduction (Murphy. 2022)</li>
-<li>Reinforcement Learning: An Introduction (Barto et al, 2018)</li>
-<li>Reinforcement Learning and Stochastic Optimization (Powell, 2022)</li>
-<li>Time Series Forecasting in Python (Peixeiro, 2022)</li>
-<li>A Student’s Guide to Bayesian Statistics (Lambert, 2018)</li>
-<li>Dive into deep learning (Zhang, 2022)</li>
-</ul></li>
-</ul>
-</section>
-<section id="references" class="level2 print-only">
-<h2 class="anchored" data-anchor-id="references"><strong>References</strong></h2>
-<p>Available upon request</p>
-</section>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -355,6 +291,11 @@ ul.task-list li input[type="checkbox"] {
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {

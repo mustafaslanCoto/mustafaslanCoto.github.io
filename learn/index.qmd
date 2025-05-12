@@ -1,24 +1,21 @@
 ---
-image: "cover.png"
 listing: 
   contents: 
-    - "DL4SG/*.qmd"
+    - "stats_ml/*.qmd"
   type: grid
-  sort-ui: false
-  filter-ui: false
-  fields: [title, image, description, categories]
+  # fields: [image, title, description, categories]
 ---
 
 <!-- ---
 title: "Talks & Workshops"
 listing: 
-  - id: reinforcement-learning
-    contents: so_rl
+  - id: probability-statistics
+    contents: stats
     type: grid
 --- -->
 
-
-<!-- ## Probability and Statistics
+<!-- 
+## Probability and Statistics
 
 :::{#probability-statistics}
 

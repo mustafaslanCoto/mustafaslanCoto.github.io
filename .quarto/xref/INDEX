@@ -241,5 +241,41 @@
   },
   "workshops/so_rl_docs/reinforcement_learning/notes_ideas.qmd": {
     "notes_ideas.html": "e2b89beb"
+  },
+  "learn/index.qmd": {
+    "index.html": "3565e5a0"
+  },
+  "learn/stats_ml/cond_dists/cond_dists.qmd": {
+    "cond_dists.html": "3924104e"
+  },
+  "learn/stats_ml/cond_dists/cond_dist_notebook.ipynb": {
+    "cond_dist_notebook.html": "9b5a7574"
+  },
+  "learn/stats_ml/index.qmd": {
+    "index.html": "f83500ea"
+  },
+  "learn/stats_ml/distributions/distributions.qmd": {
+    "distributions.html": "2eb88134"
+  },
+  "learn/stats_ml/distributions/dists_notebook.ipynb": {
+    "dists_notebook.html": "ecf9d9f9"
+  },
+  "workshops/DL4SG/rl/slides/RL_presentation.qmd": {
+    "RL_presentation.html": "548285f1"
+  },
+  "workshops/DL4SG/index.qmd": {
+    "index.html": "0dd6ab6a"
+  },
+  "workshops/DL4SG/rl/index.qmd": {
+    "index.html": "74587d3f"
+  },
+  "workshops/DL4SG/rl/slides/rl.ipynb": {
+    "rl.html": "682079d8"
+  },
+  "workshops/DL4SG/rl/slides/notes_ides.ipynb": {
+    "notes_ides.html": "2e6580eb"
+  },
+  "CV/LICENSE.md": {
+    "LICENSE.html": "0ef917ef"
   }
 }
