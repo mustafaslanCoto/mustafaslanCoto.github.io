@@ -10,7 +10,7 @@
   {
     "listing": "/workshops/index.html",
     "items": [
-      "/workshops/DL4SG/index.html"
+      "/workshops/rl/index.html"
     ]
   },
   {
@@ -23,7 +23,8 @@
   {
     "listing": "/learn/index.html",
     "items": [
-      "/learn/stats_ml/index.html"
+      "/learn/cond_dists/cond_dists.html",
+      "/learn/distributions/distributions.html"
     ]
   },
   {

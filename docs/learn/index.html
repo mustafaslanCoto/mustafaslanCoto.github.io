@@ -79,9 +79,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-title','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -131,7 +131,7 @@ window.Quarto = {
 
 <link rel="stylesheet" href="../styles.css">
 <meta property="og:title" content="Home">
-<meta property="og:image" content="../learn/stats_ml/cover_ml.png">
+<meta property="og:image" content="../learn/cond_dists/cond_prob.jpg">
 <meta property="og:site_name" content="Home">
 </head>
 
@@ -209,23 +209,52 @@ listing:
 
 <div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1747071041707" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
-<a href="../learn/stats_ml/index.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="0" data-categories="U3RhdGlzdGljcyUyQ01hY2hpbmUlMjBMZWFybmluZyUyQ1B5dGhvbg==" data-listing-date-sort="1745967600000" data-listing-file-modified-sort="1747076448479" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<a href="../learn/cond_dists/cond_dists.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img loading="lazy" src="../learn/stats_ml/cover_ml.png" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" src="../learn/cond_dists/cond_prob.jpg" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
-Probability and Statistics
+Conditional Probability and Conditional Expectation
 </h5>
-<div class="card-text listing-description delink">
-<p>Probability and Statistics materials using Python</p>
-</div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('U3RhdGlzdGljcw=='); return false;">Statistics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('TWFjaGluZSUyMExlYXJuaW5n'); return false;">Machine Learning</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('UHl0aG9u'); return false;">Python</div>
 
 </div>
+<div class="card-text listing-description delink">
+<p>learning material</p>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="U3RhdGlzdGljcyUyQ01hY2hpbmUlMjBMZWFybmluZyUyQ1B5dGhvbg==" data-listing-date-sort="1745967600000" data-listing-file-modified-sort="1747076490052" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<a href="../learn/distributions/distributions.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../learn/distributions/dits.gif" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Random Variables
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('U3RhdGlzdGljcw=='); return false;">Statistics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('TWFjaGluZSUyMExlYXJuaW5n'); return false;">Machine Learning</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('UHl0aG9u'); return false;">Python</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>learning material</p>
 </div>
 </div>
 </div></a>

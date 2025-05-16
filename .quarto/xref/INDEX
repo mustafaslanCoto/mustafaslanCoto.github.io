@@ -277,5 +277,29 @@
   },
   "CV/LICENSE.md": {
     "LICENSE.html": "0ef917ef"
+  },
+  "learn/cond_dists/cond_dists.qmd": {
+    "cond_dists.html": "35183795"
+  },
+  "learn/cond_dists/cond_dist_notebook.ipynb": {
+    "cond_dist_notebook.html": "1da85f4d"
+  },
+  "learn/distributions/distributions.qmd": {
+    "distributions.html": "d9ecded6"
+  },
+  "learn/distributions/dists_notebook.ipynb": {
+    "dists_notebook.html": "c2b04857"
+  },
+  "workshops/rl/index.qmd": {
+    "index.html": "06c2c7e6"
+  },
+  "workshops/rl/slides/rl.ipynb": {
+    "rl.html": "e0b5c584"
+  },
+  "workshops/rl/slides/notes_ides.ipynb": {
+    "notes_ides.html": "9ddf4b8e"
+  },
+  "workshops/rl/slides/RL_presentation.qmd": {
+    "RL_presentation.html": "75578fd8"
   }
 }

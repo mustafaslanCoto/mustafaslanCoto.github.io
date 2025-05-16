@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.29">
+
+  <title>Home – rl_presentation</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto-2c1b5f745a11cfad616ebade4a4a7d24.css">
+  <link rel="stylesheet" href="style.css">
+  <link href="../../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+<meta property="og:title" content="Home">
+<meta property="og:site_name" content="Home">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+
+<section class="slide level2">
+
+<!-- logo style -->
+<style>
+  .logo-left {
+    position: absolute;
+    top: 1px;
+    left: 1px;
+  }
+
+  .logo-right {
+    position: absolute;
+    top: 1px;
+    right: 1px;
+  }
+
+  .logo-left img,
+  .logo-right img {
+    height: 140px;
+    width: auto;
+    
+  }
+  
+/* title sytle */
+  h1 {
+    text-align: center;
+  }
+
+</style>
+<div class="logo-left">
+<p><img src="images_rl/cu.jpg" alt="Left Logo"></p>
+</div>
+<div class="logo-right">
+<p><img src="images_rl/dlsg.png" alt="Right Logo"></p>
+</div>
+<br> <br> <br> <br> <br> <br>
+<h1>
+An Introduction to Reinforcement Learning
+</h1>
+<div class="title-block">
+<br> <br> <br> <br>
+<h3>
+Mustafa Aslan, PhD Researcher <br> Data Lab for Social Good Research Lab <br> Cardiff University, UK <br> <span style="color: rgba(179, 0, 0, 0.7); font-weight: bold;">Slides:</span> <a href="https://mustafaslancoto.github.io/workshops/" style="color: #000; font-weight: bold; text-decoration: underline dotted;text-underline-offset: 5px"> https://mustafaslancoto.github.io/workshops/ </a>
+</h3>
+<p>
+15 May 2025
+</p>
+</div>
+</section>
+<section id="agenda" class="slide level2">
+<h2>Agenda</h2>
+<ul>
+<li>What is Reinforcement Learning</li>
+<li>Elements of Reinforcement Learning</li>
+<li>Categories of RL methods
+<ul>
+<li>Model-based methods <span class="math inline">\(\approx\)</span> Dynamic Programming</li>
+<li>Model-Free Methods
+<ul>
+<li>Monte Carlo</li>
+<li>Sarsa</li>
+<li>Q-learning</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section>
+<section id="what-is-reinforcement-learning" class="title-slide slide level1 center">
+<h1>What is reinforcement learning</h1>
+
+</section>
+<section id="reinforcement-learning" class="slide level2">
+<h2>Reinforcement Learning</h2>
+<ul>
+<li>Reinforcement learning is learning what to do—how to map situations to actions to maximize a numerical reward signal.</li>
+<li>The learner is not told which actions to take, but instead must discover which actions yield the most reward by trying them.</li>
+</ul>
+</section></section>
+<section>
+<section id="elements-of-reinforcement-learning" class="title-slide slide level1 center">
+<h1>Elements of Reinforcement Learning</h1>
+
+</section>
+<section id="elements-of-reinforcement-learning-1" class="slide level2">
+<h2>Elements of Reinforcement Learning</h2>
+<ul>
+<li><p><em>Agent</em> is the learner and decision maker.</p>
+<ul>
+<li>It interacts with the environment (comprising everything outside the agent) continually to select actions<br>
+</li>
+<li>The environment responds to these actions and presents new situations to the agent.</li>
+</ul></li>
+<li><p>A <em>policy</em> defines the learning agent’s way of behaving at a given time.</p>
+<ul>
+<li>A mapping from states of the environment to actions to be taken when in those states.</li>
+</ul></li>
+<li><p>The <em>reward</em> signal indicates what is good immediately after each decision time.</p></li>
+<li><p>A <em>value function</em> specifies what is good in the long run.</p>
+<ul>
+<li>The value of a state is the total amount of reward an agent can expect to accumulate over the future, starting from that state.</li>
+</ul></li>
+</ul>
+</section>
+<section id="elements-of-reinforcement-learning-2" class="slide level2">
+<h2>Elements of Reinforcement Learning</h2>
+
+<img data-src="images_rl/agent_environment.png" class="r-stretch quarto-figure-center"><p class="caption">The agent–environment interaction in a decision process</p><p>Agent gives rise to a <code>sequence</code> that begins like this</p>
+<p><span class="math display">\[
+S_0, A_0, R_1, S_1, A_1, R_2, S_2, A_2, R_3, \dots  S_t, A_t, R_{t+1}
+\]</span></p>
+</section>
+<section id="goals-and-rewards" class="slide level2 smaller">
+<h2>Goals and Rewards</h2>
+<ul>
+<li>At each time step, the reward is a simple number, <span class="math inline">\(R_t \in \mathbb{R}\)</span> passing from the environment to the agent.</li>
+<li>The agent’s goal is to maximize the total (cumulative) amount of reward it receives in the long run.</li>
+<li>The aim is to maximize the <em><code>expected return</code></em>, <span class="math inline">\(G_t\)</span>, which is defined as: <span class="math display">\[
+G_t \doteq R_{t+1} + R_{t+2} + R_{t+3}+ \dots+R_T
+\]</span></li>
+</ul>
+<p><em>Discounting</em> technique is used to prioritize immediate rewards over future rewards.</p>
+<ul>
+<li>The idea is to multiply future rewards by a discount factor <span class="math inline">\(\gamma \in (0,1]\)</span></li>
+<li>This makes future rewards worth less than immediate rewards.</li>
+<li>The return <span class="math inline">\(G_t\)</span> with discounting is defined as:</li>
+</ul>
+<p><span class="math display">\[
+G_t \doteq R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + \cdots = \sum_{k=0}^{\infty} \gamma^k R_{t+k+1}
+\]</span></p>
+</section>
+<section id="policies-and-value-functions" class="slide level2">
+<h2>Policies and Value Functions</h2>
+<ul>
+<li><p>A <strong>policy</strong> is a mapping from states to probabilities of selecting each possible action. If the agent is following policy <span class="math inline">\(\pi\)</span> at time <span class="math inline">\(t\)</span>, then <span class="math inline">\(\pi(a \mid s)\)</span> is the probability that <span class="math inline">\(A_t = a\)</span> if <span class="math inline">\(S_t = s\)</span></p></li>
+<li><p><em><code>Value functions—functions of states (or of state–action pairs)</code></em> estimate <em>how good</em> it is for the agent to be in a given state (or how good it is to perform a given action in a given state)</p>
+<ul>
+<li>The <em>value function</em> of a state <span class="math inline">\(s\)</span> under a policy <span class="math inline">\(\pi\)</span>, denoted <span class="math inline">\(v_\pi(s)\)</span> is: <span class="math display">\[
+v_\pi(s) \doteq \mathbb{E}_\pi[G_t | S_t=s] = \mathbb{E}_\pi\left[\sum_{k=0}^{\infty} \gamma^k R_{t+k+1} \mid S_t=s\right], \text{ for all } s \in \mathbf{S},
+\]</span></li>
+</ul></li>
+</ul>
+<p>where <span class="math inline">\(\mathbb{E}[\cdot]\)</span> denotes the expected value of a random variable given that the agent follows policy <span class="math inline">\(\pi\)</span>, and <span class="math inline">\(t\)</span> is any time step.</p>
+</section></section>
+<section>
+<section id="categories-of-rl-methods" class="title-slide slide level1 center">
+<h1>Categories of RL methods</h1>
+
+</section>
+<section id="categories-of-reinforcement-learning-methods" class="slide level2 smaller">
+<h2>Categories of reinforcement learning methods</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="model-based"><code>Model-based</code></h3>
+<div class="fragment">
+<ul>
+<li>The agent knows/learns the model of the environment</li>
+<li>They then compute the policy using the ADP methods or the model-free methods on simulated data</li>
+</ul>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>Sample efficient</li>
+<li>Safer exploration</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>Prone to the model errors</li>
+<li>Learning a model is challenging</li>
+</ul>
+</div>
+</div><div class="column" style="width:50%;">
+<h3 id="model-free"><code>Model-free</code></h3>
+<div class="fragment">
+<ul>
+<li>The agent does not know the model of the environment</li>
+<li>They learn the values or policies from trial-and-error interactions with the environment</li>
+</ul>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>Do not need a model</li>
+<li>Flexible</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>Sample inefficient: requires a lot of interactions with the environment</li>
+<li>Slow convergence</li>
+</ul>
+</div>
+</div></div>
+</section>
+<section id="model-based-methods-dynamic-programming" class="slide level2">
+<h2>Model-based methods (Dynamic Programming)</h2>
+<p>Conditional probability of the next state given the current state and action taken <span class="math display">\[
+p(s' \mid s, a) \doteq \Pr \{ S_t = s' \mid S_{t-1} = s, A_{t-1} = a \}, \text{ for all } s',s \in S, \text{and} a \in A(s)
+\]</span></p>
+<p>The function <span class="math inline">\(p\)</span> defines the <em>dynamics</em> of the MDP</p>
+<p><span class="math inline">\(p(s', \mid s, a)\)</span> is a <em>dynamics function</em> and <span class="math inline">\(p\)</span> specifies a probability distribution for each choice of <span class="math inline">\(s\)</span> and <span class="math inline">\(a\)</span>, that is: <span class="math display">\[
+\sum_{s'\in S}p(s'\mid s, a) = 1, \text{ for all } s \in S, a \in A(s)
+\]</span></p>
+</section>
+<section id="model-based-methods-dynamic-programming-1" class="slide level2">
+<h2>Model-based methods (Dynamic Programming)</h2>
+<ul>
+<li>They are used to derive optimal policies and value functions in Markov Decision Processes (MDPs) and reinforcement learning.</li>
+</ul>
+<h4 id="bellman-equation">Bellman Equation</h4>
+<ul>
+<li>The Bellman equations express the relationship between the value of a state and the values of its successor states. For the state-value function <span class="math inline">\(v_\pi\)</span>, the Bellman equation is:</li>
+</ul>
+<p><span class="math display">\[
+\begin{aligned}
+v_\pi(s) &amp;\doteq \mathbb{E}_\pi \big[G_t \mid S_t = s \big] \\
+         &amp;= \mathbb{E}_\pi \big[R_{t+1} + \gamma G_{t+1} \mid S_t = s \big] \\
+         &amp;= \mathbb{E}_\pi \big[R_{t+1} + \gamma v_\pi(S_{t+1}) \mid S_t = s \big] \\
+         &amp;= \sum_a \pi(a \mid s) \sum_{s',r} p(s', r \mid s, a) \big[ r + \gamma v_\pi(s') \big].
+\end{aligned}
+\]</span></p>
+</section>
+<section id="model-based-methods-dynamic-programming-2" class="slide level2 smaller">
+<h2>Model-based methods (Dynamic Programming)</h2>
+<ul>
+<li><p>An optimal policy is a policy that achieves the maximum expected return from any initial state.</p></li>
+<li><p>The optimal state-value function <span class="math inline">\(v_*\)</span> is the maximum value function over all policies: <span class="math display">\[
+v_*(s) = \max_\pi v_\pi(s), \text{ for all } s \in S
+\]</span></p></li>
+<li><p>The optimal action-value function <span class="math inline">\(q_*\)</span> is the maximum action-value function over all policies: <span class="math display">\[
+q_*(s, a) = \max_\pi q_\pi(s, a), \text{ for all } s \in S, a \in A(s)
+\]</span></p></li>
+</ul>
+<p>We use Dynamic Programming (DP) to leverage value functions in the search for good policies.</p>
+<ul>
+<li><p>The Bellman optimality equation for <span class="math inline">\(v_*\)</span> is: <span class="math display">\[
+\begin{aligned}
+v_*(s) &amp;= \max_a \mathbb{E} \big[R_{t+1} + \gamma v_*(S_{t+1}) \mid S_{t} = s, A_{t} = a  \big] \\
+    &amp;= \max_a \sum_{s',r}p(s',r|s,a) \big[r+\gamma v_*(s')],
+\end{aligned}
+\]</span></p></li>
+<li><p>The Bellman optimality equation for <span class="math inline">\(q_*\)</span> is: <span class="math display">\[
+q_*(s, a) = \sum_{s', r} p(s', r \mid s, a) \big[ r + \gamma \max_{a'} q_*(s', a') \big]
+\]</span></p></li>
+</ul>
+</section>
+<section id="policy-evalulation-prediction" class="slide level2 smaller">
+<h2>Policy Evalulation (Prediction)</h2>
+<p><em>Policy evaluation</em> is the computation of the state-value function <span class="math inline">\(v_\pi\)</span> for an arbitrary policy <span class="math inline">\(\pi\)</span>. We also refer to it as the *prediction problem. <span class="math display">\[
+\begin{aligned}
+v_\pi(s) &amp;\doteq \mathbb{E}_\pi \big[G_t \mid S_t = s \big] \\
+         &amp;= \mathbb{E}_\pi \big[R_{t+1} + \gamma G_{t+1} \mid S_t = s \big] \\
+         &amp;= \mathbb{E}_\pi \big[R_{t+1} + \gamma v_\pi(S_{t+1}) \mid S_t = s \big] \\
+         &amp;= \sum_a \pi(a \mid s) \sum_{s',r} p(s', r \mid s, a) \big[ r + \gamma v_\pi(s') \big].
+\end{aligned}
+\]</span></p>
+<p>where <span class="math inline">\(\pi(a|s)\)</span> is the probability of taking action <span class="math inline">\(\alpha\)</span> in state <span class="math inline">\(s\)</span> under policy <span class="math inline">\(\pi\)</span>, and the expectations are subscripted by <span class="math inline">\(\pi\)</span> to indicate that they are conditional on <span class="math inline">\(\pi\)</span> being followed.</p>
+<p>Consider a sequence of approximate value functions <span class="math inline">\(v_0, v_1, v_2,\dots,\)</span>. Each successive approximation is obtained by using the Bellman equation for <span class="math inline">\(v_\pi\)</span> as an update rule:</p>
+<p><span class="math display">\[
+\begin{aligned}
+v_{k+1}(s) &amp;\doteq \mathbb{E}_\pi \big[R_{t+1} + \gamma v_k(S_{t+1}) \mid S_t = s \big] \\
+         &amp;= \sum_a \pi(a \mid s) \sum_{s',r} p(s', r \mid s, a) \big[ r + \gamma v_k(s') \big].
+\end{aligned}
+\]</span></p>
+</section>
+<section id="policy-evalulation-prediction-1" class="slide level2">
+<h2>Policy Evalulation (Prediction)</h2>
+<p>The sequence <span class="math inline">\({v_k}\)</span> can be shown in general to converge to <span class="math inline">\(v_\pi\)</span> as <span class="math inline">\(k \rightarrow \infty\)</span> under the same conditions that guarantee the existence of <span class="math inline">\(v_\pi\)</span>. This algorithm is called <em>iterative policy evaluation</em>.</p>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Iterative Policy Evaluation, for estimating <span class="math inline">\(V \approx v_\pi\)</span></strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Input:</strong><br>
+<span class="math inline">\(\pi\)</span>, the policy to be evaluated<br>
+Algorithm parameter: a small threshold <span class="math inline">\(\theta &gt; 0\)</span> determining accuracy of estimation<br>
+Initialize <span class="math inline">\(V(s)\)</span> arbitrarily, for <span class="math inline">\(s \in S\)</span>, and <span class="math inline">\(V(\text{terminal}) = 0\)</span></p>
+<p><strong>Loop:</strong><br>
+<span class="math inline">\(\Delta \leftarrow 0\)</span><br>
+Loop for each <span class="math inline">\(s \in S\)</span>:<br>
+ <span class="math inline">\(v \leftarrow V(s)\)</span><br>
+ <span class="math inline">\(V(s) \leftarrow \sum_a \pi(a|s) \sum_{s', r} p(s', r | s, a) [r + \gamma V(s')]\)</span><br>
+ <span class="math inline">\(\Delta \leftarrow \max(\Delta, |v - V(s)|)\)</span><br>
+<strong>until</strong> <span class="math inline">\(\Delta &lt; \theta\)</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="policy-improvement" class="slide level2">
+<h2>Policy Improvement</h2>
+<div class="columns">
+<div class="column fragment" style="font-size: 70%;">
+<ul>
+<li>We know how good it is to follow the current policy from <span class="math inline">\(s\)</span>—that is <span class="math inline">\(v_\pi(s)\)</span>—but would it be better or worse to change to the new policy?</li>
+</ul>
+<p>One way to answer this question is to consider selecting <span class="math inline">\(a\)</span> in <span class="math inline">\(s\)</span> and thereafter following the existing policy <span class="math inline">\(\pi\)</span>.</p>
+<p>This leads to the definition of the <em>q-value</em> of a state-action pair:</p>
+<p><span class="math display">\[
+\begin{aligned}
+q_\pi(s, a) &amp;\doteq \mathbb{E} \big[ R_{t+1} + \gamma v_\pi(S_{t+1}) \mid S_t = s, A_t = a \big] \\
+     &amp;= \sum_{s', r} p(s', r \mid s, a) \big[ r + \gamma v_\pi(s') \big].
+\end{aligned}
+\]</span></p>
+</div><div class="column fragment" style="font-size: 70%;">
+<p>The policy improvement theorem states that if we improve the policy by acting greedily with respect to <span class="math inline">\(q_\pi\)</span>, the new policy <span class="math inline">\(\pi'\)</span> will be at least as good as <span class="math inline">\(\pi\)</span>.</p>
+<p>Formally, if</p>
+<p><span class="math display">\[
+\begin{aligned}
+\pi'(s) &amp;= \arg\max_a q_\pi(s, a) \\
+&amp;= \arg \max_a \mathbb{E} \big[R_{t+1}+\gamma v_\pi(S_{t+1}) \mid S_t=s, A_t=a \big] \\
+&amp;= \arg \max_a \sum_{s',r}p(s',r \mid s, a) \big[r+\gamma v_\pi(s') \big]
+\end{aligned}
+\]</span></p>
+<p>then</p>
+<p><span class="math display">\[
+v_{\pi'}(s) \geq v_\pi(s).
+\]</span></p>
+<p>for all <span class="math inline">\(s \in S\)</span>.</p>
+</div></div>
+</section>
+<section id="policy-iteration" class="slide level2">
+<h2>Policy Iteration</h2>
+<p>Once a policy, <span class="math inline">\(\pi\)</span>, has been improved using <span class="math inline">\(v_\pi\)</span> to yield a better policy, <span class="math inline">\(\pi^{'}\)</span>, we can then compute <span class="math inline">\(v_{\pi^{'}}\)</span> and improve it again to yield an even better <span class="math inline">\(\pi^{''}\)</span>.</p>
+<p><span class="math display">\[
+\pi_0 \xrightarrow E v_{\pi_0} \xrightarrow I \pi_1 \xrightarrow E v_{\pi_1}\xrightarrow I \pi_2,\dots \xrightarrow I \pi_* \xrightarrow E v_*
+\]</span></p>
+<p>where <span class="math inline">\(\xrightarrow E\)</span> denotes a policy <em>evaluation</em> and <span class="math inline">\(\xrightarrow I\)</span> denotes a policy <em>improvement</em>. This way of finding an optimal policy is called policy iteration.</p>
+</section>
+<section id="policy-iteration-1" class="slide level2 smaller">
+<h2>Policy Iteration</h2>
+<p>A complete <em>policy iteration</em> algorithm</p>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Policy Iteration (using iterative policy evaluation) for estimating <span class="math inline">\(\pi \approx \pi_*\)</span></strong></p>
+</div>
+<div class="callout-content">
+<p><strong>1. Initialization</strong><br>
+<span class="math inline">\(V(s) \in \mathbb{R}\)</span> and <span class="math inline">\(\pi(s) \in A(s)\)</span> arbitrarily for all <span class="math inline">\(s \in S\)</span><br>
+<span class="math inline">\(V(\text{terminal}) \doteq 0\)</span></p>
+<p><strong>2. Policy Evaluation</strong><br>
+Loop:<br>
+ <span class="math inline">\(\Delta \leftarrow 0\)</span><br>
+ Loop for each <span class="math inline">\(s \in S\)</span>:<br>
+  <span class="math inline">\(v \leftarrow V(s)\)</span><br>
+  <span class="math inline">\(V(s) \leftarrow \sum_{s', r} p(s', r \mid s, \pi(s)) \left[r + \gamma V(s')\right]\)</span><br>
+  <span class="math inline">\(\Delta \leftarrow \max(\Delta, |v - V(s)|)\)</span><br>
+Until <span class="math inline">\(\Delta &lt; \theta\)</span> (a small positive number determining the accuracy of estimation)</p>
+<p><strong>3. Policy Improvement</strong><br>
+<em>policy-stable</em> <span class="math inline">\(\leftarrow\)</span> true<br>
+For each <span class="math inline">\(s \in S\)</span>:<br>
+ <em>old-action</em> <span class="math inline">\(\leftarrow \pi(s)\)</span><br>
+ <span class="math inline">\(\pi(s) \leftarrow \arg\max_a \sum_{s', r} p(s', r \mid s, a)\left[r + \gamma V(s')\right]\)</span><br>
+ If <em>old-action</em> <span class="math inline">\(\ne \pi(s)\)</span>, then <em>policy-stable</em> <span class="math inline">\(\leftarrow\)</span> false</p>
+<p>If <em>policy-stable</em>, then stop and return <span class="math inline">\(V \approx v_*\)</span> and <span class="math inline">\(\pi \approx \pi_*\)</span>;<br>
+Else go to step 2</p>
+</div>
+</div>
+</div>
+</section>
+<section id="value-iteration" class="slide level2">
+<h2>Value Iteration</h2>
+<ul>
+<li>One drawback to policy iteration is that each of its iterations involves policy evaluation, which may itself be a protracted iterative computation requiring multiple sweeps through the state set.</li>
+<li>Value iteration is a special case of policy iteration where the policy evaluation step is truncated to just one sweep.</li>
+<li>This algorithm combines the policy improvement and truncated policy evaluation steps into a single update operation:</li>
+</ul>
+<p><span class="math display">\[
+\begin{aligned}
+v_{k+1}(s) &amp;= \mathbb{E} \big[R_{t+1} + \gamma v_k(S_{t+1}) \mid S_t=s, A_t = a \big] \\
+       &amp;=\max_a \sum_{s', r} p(s', r \mid s, a) \big[ r + \gamma v_k(s') \big]
+\end{aligned}
+\]</span></p>
+<p>for all <span class="math inline">\(s \in S\)</span>.</p>
+</section>
+<section id="value-iteration-1" class="slide level2 smaller">
+<h2>Value Iteration</h2>
+<ul>
+<li>Value iteration is obtained simply by turning the Bellman optimality equation into an update rule.</li>
+<li>Also note how the value iteration update is identical to the policy evaluation update except that it requires the maximum to be taken over all actions.</li>
+</ul>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Value Iteration, for estimating <span class="math inline">\(\pi \approx \pi_*\)</span></strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Algorithm parameter:</strong><br>
+A small threshold <span class="math inline">\(\theta &gt; 0\)</span> determining the accuracy of estimation</p>
+<p><strong>Initialization:</strong><br>
+Initialize <span class="math inline">\(V(s)\)</span> arbitrarily for all <span class="math inline">\(s \in S^+\)</span>, except that <span class="math inline">\(V(\text{terminal}) = 0\)</span></p>
+<p><strong>Loop:</strong><br>
+ <span class="math inline">\(\Delta \leftarrow 0\)</span><br>
+ Loop for each <span class="math inline">\(s \in S\)</span>:<br>
+  <span class="math inline">\(v \leftarrow V(s)\)</span><br>
+  <span class="math inline">\(V(s) \leftarrow \max_a \sum_{s', r} p(s', r \mid s, a) \left[ r + \gamma V(s') \right]\)</span><br>
+  <span class="math inline">\(\Delta \leftarrow \max(\Delta, |v - V(s)|)\)</span><br>
+<strong>until</strong> <span class="math inline">\(\Delta &lt; \theta\)</span></p>
+<p><strong>Output:</strong><br>
+A deterministic policy, <span class="math inline">\(\pi \approx \pi_*\)</span>, such that<br>
+ <span class="math inline">\(\pi(s) = \arg\max_a \sum_{s', r} p(s', r \mid s, a) \left[ r + \gamma V(s') \right]\)</span></p>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="lets-code" class="title-slide slide level1 center">
+<h1>Let’s code</h1>
+
+</section>
+<section id="generalized-policy-iteration" class="slide level2 smaller">
+<h2>Generalized Policy Iteration</h2>
+<div class="columns">
+<div class="column fragment" style="font-size: 100%;">
+<ul>
+<li><p>GPI is a general idea that describes how two processes — <em>evaluating a policy and improving it</em> — work together and influence each other.</p></li>
+<li><p>Most reinforcement learning algorithms use a value function to judge how good a policy is, and then update the policy based on that judgment.</p></li>
+<li><p>If both value estimation and policy improvement stabilize (i.e., stop changing), then the policy must be the best possible one for that value function—meaning the policy is optimal.</p></li>
+</ul>
+</div><div class="column fragment" style="font-size: 100%;">
+<p><img data-src="images_rl/eval_greed_diag.png"></p>
+</div></div>
+</section></section>
+<section id="model-free-methods" class="title-slide slide level1 center">
+<h1>Model-free methods</h1>
+<div class="center-text">
+<ul>
+<li><strong>Monte Carlo Methods</strong></li>
+<li><strong>Sarsa</strong></li>
+<li><strong>Q-learning</strong></li>
+</ul>
+</div>
+</section>
+
+<section>
+<section id="monte-carlo-methods" class="title-slide slide level1 center">
+<h1>Monte Carlo Methods</h1>
+
+</section>
+<section id="monte-carlo-mc-methods" class="slide level2">
+<h2>Monte Carlo (MC) Methods</h2>
+<ul>
+<li><p>The term “Monte Carlo” is often used more broadly for any estimation method whose operation involves a significant random component.</p></li>
+<li><p>MC methods solve reinforcement learning problems by averaging results (returns) from sampled experiences sequences of states, actions, and rewards.</p></li>
+<li><p>They do not require knowledge of the environment’s dynamics, making them powerful for learning from real or simulated experiences.</p></li>
+</ul>
+</section>
+<section id="monte-carlo-prediction" class="slide level2 smaller">
+<h2>Monte Carlo Prediction</h2>
+<ul>
+<li>Suppose we wish to estimate <span class="math inline">\(v_{\pi}(s)\)</span>, the values of a state <span class="math inline">\(s\)</span> under policy <span class="math inline">\(\pi\)</span>, given a set of episodes obtained by following <span class="math inline">\(\pi\)</span> and passing through <span class="math inline">\(s\)</span>.</li>
+</ul>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>First-Visit Monte Carlo Prediction (for estimating <span class="math inline">\(V \approx v_\pi\)</span>)</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Input:</strong><br>
+A policy <span class="math inline">\(\pi\)</span> to be evaluated</p>
+<p><strong>Initialize:</strong><br>
+ <span class="math inline">\(V(s) \in \mathbb{R}\)</span> arbitrarily, for all <span class="math inline">\(s \in S\)</span><br>
+ <span class="math inline">\(\text{Returns}(s) \leftarrow\)</span> an empty list, for all <span class="math inline">\(s \in S\)</span></p>
+<p><strong>Loop forever</strong> (for each episode):<br>
+ Generate an episode following <span class="math inline">\(\pi\)</span>: <span class="math inline">\(S_0, A_0, R_1, S_1, A_1, R_2, \dots, S_{T-1}, A_{T-1}, R_T\)</span><br>
+ <span class="math inline">\(G \leftarrow 0\)</span><br>
+ Loop for each step of the episode, <span class="math inline">\(t = T-1, T-2, \dots, 0\)</span>:<br>
+  <span class="math inline">\(G \leftarrow \gamma G + R_{t+1}\)</span><br>
+  Unless <span class="math inline">\(S_t\)</span> appears in <span class="math inline">\(S_0, S_1, \dots, S_{t-1}\)</span>:<br>
+   Append <span class="math inline">\(G\)</span> to <span class="math inline">\(\text{Returns}(S_t)\)</span><br>
+   <span class="math inline">\(V(S_t) \leftarrow \text{average}(\text{Returns}(S_t))\)</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="monte-carlo-control" class="slide level2 smaller">
+<h2>Monte Carlo Control</h2>
+<p>Alternating complete steps of policy evaluation and policy improvement are performed, beginning with an arbitrary policy <span class="math inline">\(\pi_0\)</span> and ending with the optimal policy and optimal action-value function:</p>
+<p><span class="math display">\[
+\pi_0 \xrightarrow E q_{\pi_0} \xrightarrow I \pi_1 \xrightarrow E q_{\pi_1}\xrightarrow I \pi_2,\dots,\xrightarrow I \pi_* \xrightarrow E q_*
+\]</span></p>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Monte Carlo ES (Exploring Starts), for estimating <span class="math inline">\(\pi \approx \pi_*\)</span></strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Initialize:</strong><br>
+<span class="math inline">\(\pi(s) \in A(s)\)</span> arbitrarily, for all <span class="math inline">\(s \in S\)</span><br>
+<span class="math inline">\(Q(s, a) \in \mathbb{R}\)</span> arbitrarily, for all <span class="math inline">\(s \in S, a \in A(s)\)</span><br>
+<span class="math inline">\(\text{Returns}(s, a) \leftarrow\)</span> empty list, for all <span class="math inline">\(s \in S, a \in A(s)\)</span></p>
+<p><strong>Loop forever</strong> (for each episode):<br>
+ Choose <span class="math inline">\(S_0 \in S, A_0 \in A(S_0)\)</span> randomly, such that all pairs have probability <span class="math inline">\(&gt; 0\)</span><br>
+ Generate an episode from <span class="math inline">\(S_0, A_0\)</span>, following <span class="math inline">\(\pi\)</span>:<br>
+  <span class="math inline">\(S_0, A_0, R_1, \dots, S_{T-1}, A_{T-1}, R_T\)</span><br>
+ <span class="math inline">\(G \leftarrow 0\)</span><br>
+ Loop for each step of episode, <span class="math inline">\(t = T-1, T-2, \dots, 0\)</span>:<br>
+  <span class="math inline">\(G \leftarrow \gamma G + R_{t+1}\)</span><br>
+  Unless the pair <span class="math inline">\((S_t, A_t)\)</span> appears in<br>
+   <span class="math inline">\(S_0, A_0, S_1, A_1, \dots, S_{t-1}, A_{t-1}\)</span>:<br>
+   Append <span class="math inline">\(G\)</span> to <span class="math inline">\(\text{Returns}(S_t, A_t)\)</span><br>
+   <span class="math inline">\(Q(S_t, A_t) \leftarrow \text{average}(\text{Returns}(S_t, A_t))\)</span><br>
+   <span class="math inline">\(\pi(S_t) \leftarrow \arg\max_a Q(S_t, a)\)</span></p>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="lets-code-1" class="title-slide slide level1 center">
+<h1>Let’s code</h1>
+
+</section>
+<section id="monte-carlo-control-without-exploring-starts" class="slide level2 smaller">
+<h2>Monte Carlo Control without Exploring Starts</h2>
+<ul>
+<li>In on-policy control methods the policy is generally <strong>soft</strong>, meaning that <span class="math inline">\(\pi(a\mid s)&gt;0\)</span> for all <span class="math inline">\(s \in S\)</span> and all <span class="math inline">\(a \in A(s)\)</span>, but gradually shifted closer and closer to a deterministic policy.</li>
+<li>The on-policy method we present in this section uses <span class="math inline">\(\epsilon\)</span>-greedy policies, meaning that most of the time they choose an action that has maximal estimated action value, but with probability <span class="math inline">\(\epsilon\)</span> they instead select an action at random. That is, all nongreedy actions are given the minimal probability of selection, <span class="math inline">\(\frac{\epsilon}{|A(s)|}\)</span>, and the remaining bulk of the probability <span class="math inline">\(1-\epsilon+\frac{\epsilon}{|A(s)|}\)</span> is given to the greedy action.</li>
+<li><span class="math inline">\(\epsilon\)</span>-greedy policies are examples of <span class="math inline">\(\epsilon-soft\)</span> policies, definied as policies for which <span class="math inline">\(\pi(a \mid s) \geq \frac{\epsilon}{|A(s)|}\)</span> for all states and actions, for some <span class="math inline">\(\epsilon &gt; 0\)</span>. Among <span class="math inline">\(\epsilon\)</span>-soft policies, <span class="math inline">\(\epsilon\)</span>-greedy policies are in some sense those that are closest to greedy.</li>
+</ul>
+</section>
+<section id="monte-carlo-control-without-exploring-starts-1" class="slide level2 smaller">
+<h2>Monte Carlo Control without Exploring Starts</h2>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>On-policy First-Visit MC Control (for <span class="math inline">\(\varepsilon\)</span>-soft policies), estimates <span class="math inline">\(\pi \approx \pi_*\)</span></strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Algorithm parameter:</strong><br>
+Small <span class="math inline">\(\varepsilon &gt; 0\)</span></p>
+<p><strong>Initialize:</strong><br>
+<span class="math inline">\(\pi \leftarrow\)</span> an arbitrary <span class="math inline">\(\varepsilon\)</span>-soft policy<br>
+<span class="math inline">\(Q(s, a) \in \mathbb{R}\)</span> arbitrarily, for all <span class="math inline">\(s \in S, a \in A(s)\)</span><br>
+<span class="math inline">\(\text{Returns}(s, a) \leftarrow\)</span> empty list, for all <span class="math inline">\(s \in S, a \in A(s)\)</span></p>
+<p><strong>Repeat forever</strong> (for each episode):<br>
+ Generate an episode following <span class="math inline">\(\pi\)</span>: <span class="math inline">\(S_0, A_0, R_1, \dots, S_{T-1}, A_{T-1}, R_T\)</span><br>
+ <span class="math inline">\(G \leftarrow 0\)</span><br>
+ Loop for each step of episode, <span class="math inline">\(t = T-1, T-2, \dots, 0\)</span>:<br>
+  <span class="math inline">\(G \leftarrow \gamma G + R_{t+1}\)</span><br>
+  Unless the pair <span class="math inline">\((S_t, A_t)\)</span> appears in <span class="math inline">\(S_0, A_0, \dots, S_{t-1}, A_{t-1}\)</span>:<br>
+   Append <span class="math inline">\(G\)</span> to <span class="math inline">\(\text{Returns}(S_t, A_t)\)</span><br>
+   <span class="math inline">\(Q(S_t, A_t) \leftarrow \text{average}(\text{Returns}(S_t, A_t))\)</span><br>
+   <span class="math inline">\(A^* \leftarrow \arg\max_a Q(S_t, a)\)</span> (ties broken arbitrarily)<br>
+   For all <span class="math inline">\(a \in A(S_t)\)</span>:<br>
+    <span class="math inline">\(\pi(a \mid S_t) \leftarrow \begin{cases}
+1 - \varepsilon + \varepsilon / |A(S_t)| &amp; \text{if } a = A^* \\
+\varepsilon / |A(S_t)| &amp; \text{if } a \ne A^*
+\end{cases}\)</span></p>
+</div>
+</div>
+</div>
+<p>where <span class="math inline">\(|A(s)|\)</span> is the number of actions available in state <span class="math inline">\(s\)</span>.</p>
+<p>The <span class="math inline">\(\epsilon\)</span>-greedy policy ensures that all actions are tried, but actions with higher value estimates are tried more frequently. This balances exploration (trying new actions) and exploitation (choosing the best-known action).</p>
+</section></section>
+<section>
+<section id="temporal-difference-learning" class="title-slide slide level1 center">
+<h1>Temporal-Difference Learning</h1>
+
+</section>
+<section id="temporal-difference-learning-1" class="slide level2">
+<h2>Temporal-Difference Learning</h2>
+<ul>
+<li>TD learning is a combination of Monte Carlo ideas and dynamic programming (DP) ideas.</li>
+<li>Like Monte Carlo methods, TD methods can learn directly from raw experience without a model of the environment’s dynamics.</li>
+<li>Like DP, TD methods update estimates based in part on other learned estimates, without waiting for a final outcome (they bootstrap).</li>
+</ul>
+</section>
+<section id="td-prediction" class="slide level2">
+<h2>TD Prediction</h2>
+<p>Whereas Monte Carlo methods must wait until the end of the episode to determine the increment to <span class="math inline">\(V(St)\)</span> (only then is <span class="math inline">\(G_t\)</span> known), TD methods need to wait only until the next time step. At time t + 1 they immediately form a target and make a useful update using the observed reward <span class="math inline">\(R_{t+1}\)</span> and the estimate <span class="math inline">\(V_{S_{t+1}}\)</span>. The simplest TD method makes the update:</p>
+<p><span class="math display">\[
+V(S_t) \leftarrow V(S_t) + \alpha \big[ R_{t+1} + \gamma V(S_{t+1})-V(S_t)  \big]
+\]</span></p>
+<p>immediately on transition to <span class="math inline">\(S_{t+1}\)</span> and receiving <span class="math inline">\(R_{t+1}\)</span>. In effect, the target for the Monte Carlo update is <span class="math inline">\(G_t\)</span>, whereas the target for the TD update is <span class="math inline">\(R_{t+1} + \gamma V(S_{t+1})\)</span>. This TD method is called TD(0), or <em>one-step</em> TD.</p>
+</section>
+<section id="td-prediction-1" class="slide level2">
+<h2>TD Prediction</h2>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Tabular TD(0) for Estimating <span class="math inline">\(v_\pi\)</span></strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Input:</strong><br>
+The policy <span class="math inline">\(\pi\)</span> to be evaluated</p>
+<p><strong>Algorithm parameter:</strong><br>
+Step size <span class="math inline">\(\alpha \in (0, 1]\)</span></p>
+<p><strong>Initialize:</strong><br>
+<span class="math inline">\(V(s)\)</span> arbitrarily for all <span class="math inline">\(s \in S^+\)</span>, except that <span class="math inline">\(V(\text{terminal}) = 0\)</span></p>
+<p><strong>Loop for each episode:</strong><br>
+ Initialize <span class="math inline">\(S\)</span><br>
+ <strong>Loop for each step of episode:</strong><br>
+  <span class="math inline">\(A \leftarrow\)</span> action given by <span class="math inline">\(\pi\)</span> for <span class="math inline">\(S\)</span><br>
+  Take action <span class="math inline">\(A\)</span>, observe <span class="math inline">\(R\)</span>, <span class="math inline">\(S'\)</span><br>
+  <span class="math inline">\(V(S) \leftarrow V(S) + \alpha \left[ R + \gamma V(S') - V(S) \right]\)</span><br>
+  <span class="math inline">\(S \leftarrow S'\)</span><br>
+ Until <span class="math inline">\(S\)</span> is terminal</p>
+</div>
+</div>
+</div>
+</section>
+<section id="sarsa-on-policy-td-control" class="slide level2 smaller">
+<h2>Sarsa: On-policy TD Control</h2>
+<p>we consider transitions from state–action pair to state–action pair, and learn the values of state–action pairs.</p>
+<p><span class="math display">\[
+Q(S_t, A_t) \leftarrow Q(S_t, A_t) + \alpha \big[R_{t+1}+\gamma Q(S_{t+1}, A_{t+1})-Q(S_t, A_t) \big]
+\]</span></p>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>SARSA (On-Policy TD Control), for estimating <span class="math inline">\(Q \approx q_*\)</span></strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Algorithm parameters:</strong><br>
+Step size <span class="math inline">\(\alpha \in (0, 1]\)</span>, small <span class="math inline">\(\varepsilon &gt; 0\)</span></p>
+<p><strong>Initialize:</strong><br>
+<span class="math inline">\(Q(s, a)\)</span> arbitrarily, for all <span class="math inline">\(s \in S^+\)</span>, <span class="math inline">\(a \in A(s)\)</span><br>
+<span class="math inline">\(Q(\text{terminal}, \cdot) = 0\)</span></p>
+<p><strong>Loop for each episode:</strong><br>
+ Initialize <span class="math inline">\(S\)</span><br>
+ Choose <span class="math inline">\(A\)</span> from <span class="math inline">\(S\)</span> using a policy derived from <span class="math inline">\(Q\)</span> (e.g., <span class="math inline">\(\varepsilon\)</span>-greedy)</p>
+<p> <strong>Loop for each step of episode:</strong><br>
+  Take action <span class="math inline">\(A\)</span>, observe <span class="math inline">\(R\)</span>, <span class="math inline">\(S'\)</span><br>
+  Choose <span class="math inline">\(A'\)</span> from <span class="math inline">\(S'\)</span> using a policy derived from <span class="math inline">\(Q\)</span> (e.g., <span class="math inline">\(\varepsilon\)</span>-greedy)<br>
+  <span class="math inline">\(Q(S, A) \leftarrow Q(S, A) + \alpha \left[ R + \gamma Q(S', A') - Q(S, A) \right]\)</span><br>
+  <span class="math inline">\(S \leftarrow S';\quad A \leftarrow A'\)</span></p>
+<p>Until <span class="math inline">\(S\)</span> is terminal</p>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="lets-code-2" class="title-slide slide level1 center">
+<h1>Let’s code</h1>
+
+</section>
+<section id="q-learning-off-policy-td-control" class="slide level2 smaller">
+<h2>Q-learning: Off-policy TD Control</h2>
+<p><em>Q-learning</em> is defined by</p>
+<p><span class="math display">\[
+Q(S_t, A_t) \leftarrow Q(S_t, A_t)+ \alpha \big[R_{t+1}+\gamma \max_aQ(S_{t+1}, a)-Q(S_t, A_t)  \big]
+\]</span></p>
+<p>The Q-learning algorithm is shown below in procedural form.</p>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Q-learning (Off-Policy TD Control), for estimating <span class="math inline">\(\pi \approx \pi_*\)</span></strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Algorithm parameters:</strong><br>
+Step size <span class="math inline">\(\alpha \in (0, 1]\)</span>, small <span class="math inline">\(\varepsilon &gt; 0\)</span></p>
+<p><strong>Initialize:</strong><br>
+<span class="math inline">\(Q(s, a)\)</span> arbitrarily for all <span class="math inline">\(s \in S^+\)</span>, <span class="math inline">\(a \in S(s)\)</span>,<br>
+except that <span class="math inline">\(Q(\text{terminal}, \cdot) = 0\)</span></p>
+<p><strong>Loop for each episode:</strong><br>
+ Initialize <span class="math inline">\(S\)</span><br>
+ <strong>Loop for each step of episode:</strong><br>
+  Choose <span class="math inline">\(A\)</span> from <span class="math inline">\(S\)</span> using a policy derived from <span class="math inline">\(Q\)</span> (e.g., <span class="math inline">\(\varepsilon\)</span>-greedy)<br>
+  Take action <span class="math inline">\(A\)</span>, observe <span class="math inline">\(R\)</span>, <span class="math inline">\(S'\)</span><br>
+  <span class="math inline">\(Q(S, A) \leftarrow Q(S, A) + \alpha \left[ R + \gamma \max_a Q(S', a) - Q(S, A) \right]\)</span><br>
+  <span class="math inline">\(S \leftarrow S'\)</span></p>
+<p>Until <span class="math inline">\(S\)</span> is terminal</p>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="lets-code-3" class="title-slide slide level1 center">
+<h1>Let’s code</h1>
+
+</section>
+<section id="recommended-materials" class="slide level2">
+<h2>Recommended materials</h2>
+<h3 id="readings">Readings:</h3>
+<ul>
+<li><a href="http://www.incompleteideas.net/book/the-book-2nd.html">Reinforcement Learning: An Introduction</a> by Richard S. Sutton and Andrew G. Barto</li>
+<li><a href="https://castle.princeton.edu/rlso/">Reinforcement Learning and Stochastic Optimization</a> by Warren B. Powell</li>
+</ul>
+<h3 id="tutoriols">Tutoriols:</h3>
+<iframe data-external="1" src="https://www.youtube.com/embed/0MNVhXEX9to" title="Reinforcement Learning: Machine Learning Meets Control Theory" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+<iframe data-external="1" src="https://www.youtube.com/embed/i7q8bISGwMQ" title="Reinforcement Learning Series: Overview of Methods" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+<iframe data-external="1" src="https://www.youtube.com/embed/sJIFUTITfBc" title="Model Based Reinforcement Learning: Policy Iteration, Value Iteration, and Dynamic Programming" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+<iframe data-external="1" src="https://www.youtube.com/embed/0iqz4tcKN58" title="Q-Learning: Model Free Reinforcement Learning and Temporal Difference Learning" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+<iframe data-external="1" src="https://www.youtube.com/embed/wDVteayWWvU" title="Overview of Deep Reinforcement Learning Methods" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+</section></section>
+<section id="any-questions-or-thoughts" class="title-slide slide level1 center">
+<h1>Any questions or thoughts?</h1>
+
+
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+<p><a href="https://mustafaslancoto.github.io/workshops/DL4SG/rl/index.html">Reinforcement Learning</a></p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1600,
+
+        height: 900,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
+              }
+            }
+            return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

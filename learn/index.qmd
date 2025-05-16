@@ -1,9 +1,10 @@
 ---
 listing: 
   contents: 
-    - "stats_ml/*.qmd"
+    - "cond_dists/*.qmd"
+    - "distributions/*.qmd"
   type: grid
-  # fields: [image, title, description, categories]
+  fields: [title, image, description, categories]
 ---
 
 <!-- ---

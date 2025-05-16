@@ -28,3 +28,9 @@ main a:hover, .about-links a:hover {
   color: #0033cc;  /* darker blue on hover */
   text-decoration: underline;
 }
+
+
+/* subtitle font */
+.subtitle {
+  font-size: 1.15em; /* Change to your preferred size */
+}

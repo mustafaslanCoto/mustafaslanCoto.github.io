@@ -6,13 +6,16 @@
     ],
     "workshops/index.qmd": [
       "so_rl",
-      "DL4SG/*.qmd"
+      "DL4SG/*.qmd",
+      "rl/*.qmd"
     ],
     "learn/index_lrn.qmd": [
       "stats"
     ],
     "learn/index.qmd": [
-      "stats_ml/*.qmd"
+      "stats_ml/*.qmd",
+      "cond_dists/*.qmd",
+      "distributions/*.qmd"
     ],
     "learn/stats_ml/index.qmd": [
       "epss_training/*.qmd",
