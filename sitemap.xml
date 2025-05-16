@@ -1,71 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://mustafaslanCoto.github.io/index.html</loc>
-    <lastmod>2025-05-12T19:51:33.410Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mustafaslanCoto.github.io/workshops/DL4SG/rl/slides/rl.html</loc>
-    <lastmod>2025-05-12T19:51:33.426Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mustafaslanCoto.github.io/workshops/DL4SG/rl/slides/notes_ides.html</loc>
-    <lastmod>2025-05-12T19:51:33.425Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mustafaslanCoto.github.io/workshops/DL4SG/index.html</loc>
-    <lastmod>2025-05-12T19:51:33.422Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mustafaslanCoto.github.io/learn/stats_ml/index.html</loc>
-    <lastmod>2025-05-12T19:51:33.419Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mustafaslanCoto.github.io/learn/stats_ml/distributions/distributions.html</loc>
-    <lastmod>2025-05-12T19:51:33.416Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mustafaslanCoto.github.io/learn/stats_ml/cond_dists/cond_dist_notebook.html</loc>
-    <lastmod>2025-05-12T19:51:33.410Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mustafaslanCoto.github.io/bins/CV/CV.html</loc>
-    <lastmod>2025-05-12T19:51:33.326Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mustafaslanCoto.github.io/CV/LICENSE.html</loc>
-    <lastmod>2025-05-12T19:51:33.312Z</lastmod>
+    <loc>https://mustafaslanCoto.github.io/bins/dist.html</loc>
+    <lastmod>2025-05-16T00:19:02.033Z</lastmod>
   </url>
   <url>
     <loc>https://mustafaslanCoto.github.io/CV/CV.html</loc>
-    <lastmod>2025-05-12T19:51:33.312Z</lastmod>
+    <lastmod>2025-05-16T00:19:02.020Z</lastmod>
   </url>
   <url>
-    <loc>https://mustafaslanCoto.github.io/bins/dist.html</loc>
-    <lastmod>2025-05-12T19:51:33.326Z</lastmod>
+    <loc>https://mustafaslanCoto.github.io/index.html</loc>
+    <lastmod>2025-05-16T00:19:02.126Z</lastmod>
   </url>
   <url>
-    <loc>https://mustafaslanCoto.github.io/learn/stats_ml/cond_dists/cond_dists.html</loc>
-    <lastmod>2025-05-12T19:51:33.410Z</lastmod>
+    <loc>https://mustafaslanCoto.github.io/workshops/rl/index.html</loc>
+    <lastmod>2025-05-16T00:19:02.142Z</lastmod>
   </url>
   <url>
-    <loc>https://mustafaslanCoto.github.io/learn/stats_ml/distributions/dists_notebook.html</loc>
-    <lastmod>2025-05-12T19:51:33.419Z</lastmod>
+    <loc>https://mustafaslanCoto.github.io/workshops/rl/slides/notes_ides.html</loc>
+    <lastmod>2025-05-16T00:19:02.145Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mustafaslanCoto.github.io/learn/cond_dists/cond_dists.html</loc>
+    <lastmod>2025-05-16T00:19:02.127Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mustafaslanCoto.github.io/learn/distributions/dists_notebook.html</loc>
+    <lastmod>2025-05-16T00:19:02.135Z</lastmod>
   </url>
   <url>
     <loc>https://mustafaslanCoto.github.io/learn/index.html</loc>
-    <lastmod>2025-05-12T19:51:33.410Z</lastmod>
+    <lastmod>2025-05-16T00:19:02.135Z</lastmod>
   </url>
   <url>
-    <loc>https://mustafaslanCoto.github.io/workshops/DL4SG/rl/index.html</loc>
-    <lastmod>2025-05-12T19:51:33.422Z</lastmod>
+    <loc>https://mustafaslanCoto.github.io/learn/distributions/distributions.html</loc>
+    <lastmod>2025-05-16T00:19:02.133Z</lastmod>
   </url>
   <url>
-    <loc>https://mustafaslanCoto.github.io/workshops/DL4SG/rl/slides/RL_presentation.html</loc>
-    <lastmod>2025-05-12T19:51:33.422Z</lastmod>
+    <loc>https://mustafaslanCoto.github.io/learn/cond_dists/cond_dist_notebook.html</loc>
+    <lastmod>2025-05-16T00:19:02.127Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mustafaslanCoto.github.io/workshops/rl/slides/rl.html</loc>
+    <lastmod>2025-05-16T00:19:02.145Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mustafaslanCoto.github.io/workshops/rl/slides/RL_presentation.html</loc>
+    <lastmod>2025-05-16T00:19:02.142Z</lastmod>
   </url>
   <url>
     <loc>https://mustafaslanCoto.github.io/workshops/index.html</loc>
-    <lastmod>2025-05-12T19:51:33.429Z</lastmod>
+    <lastmod>2025-05-16T00:19:02.142Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mustafaslanCoto.github.io/CV/LICENSE.html</loc>
+    <lastmod>2025-05-16T00:19:02.020Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mustafaslanCoto.github.io/bins/CV/CV.html</loc>
+    <lastmod>2025-05-16T00:19:02.033Z</lastmod>
   </url>
 </urlset>
