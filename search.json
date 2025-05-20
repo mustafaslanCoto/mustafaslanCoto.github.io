@@ -112,10 +112,10 @@
     "text": "Notes\n\nReinforcement learning is a framework for learning how to interact with environment from experience.\nAgent takes actions to interact with environment\nThe big challange in RL Design a policy of what actions to take given a state s to maximize a future reward\nQ(s,a) tells us what is the quality of being in state s and taking action a. Then once I find myself in a state s, I just have to look across all of the actions and pick the one that gives the best quality. If I do that in future I will maximize my value."
   },
   {
-    "objectID": "learn/cond_dists/cond_dists.html#slides",
-    "href": "learn/cond_dists/cond_dists.html#slides",
+    "objectID": "learn/cond_dists/cond_dists.html",
+    "href": "learn/cond_dists/cond_dists.html",
     "title": "Conditional Probability and Conditional Expectation",
-    "section": " Slides",
+    "section": "",
     "text": "Slides"
   },
   {
@@ -203,10 +203,10 @@
     "text": "Conditional Probability and Conditional Expectation\n\n\n\nStatistics\n\nMachine Learning\n\nPython\n\n\n\nlearning material\n\n\n\n\n\n\n\n\n\n\n\n\nRandom Variables\n\n\n\nStatistics\n\nMachine Learning\n\nPython\n\n\n\nlearning material\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "learn/distributions/distributions.html#slides",
-    "href": "learn/distributions/distributions.html#slides",
+    "objectID": "learn/distributions/distributions.html",
+    "href": "learn/distributions/distributions.html",
     "title": "Random Variables",
-    "section": " Slides",
+    "section": "",
     "text": "Slides"
   },
   {
