@@ -1,10 +1,9 @@
 ---
-image: "cover.png"
 listing: 
   contents: 
     - "rl/*.qmd"
-  type: grid
-  fields: [title, image, description, categories]
+  type: default
+  sort: date desc
 ---
 <!-- ---
 title: "Talks & Workshops"

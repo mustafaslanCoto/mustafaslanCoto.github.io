@@ -23,9 +23,6 @@ website:
 
 format:
   html:
-    execute:
-      enable: true
-    linkcolor: "black"
     theme: cosmo
     css: styles.css
     toc: true

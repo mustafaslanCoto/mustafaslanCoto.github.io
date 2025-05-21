@@ -3,8 +3,8 @@ listing:
   contents: 
     - "cond_dists/*.qmd"
     - "distributions/*.qmd"
-  type: grid
-  fields: [title, image, description, categories]
+  type: default
+  sort: date desc
 ---
 
 <!-- ---
