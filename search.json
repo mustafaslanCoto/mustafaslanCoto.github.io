@@ -63,32 +63,18 @@
     "text": "I am currently pursuing a PhD at Cardiff Business School, where I specialise in developing AI&machine learning models for healthcare management. My research involves developing and refining advanced statistical&machine learning techniques to analyse complex datasets, aiming to enhance decision-making processes in real-world applications. In addition to my PhD work, I manage the Learning Labs workshop series, providing training on machine learning, statistics, reinforcement learning and forecasting methodologies using Python. I am also responsible for organizing seminars for the Data Lab for Social Good, delivering sessions on AI, machine learning, forecasting, mathematical modeling, and optimization techniques."
   },
   {
-    "objectID": "workshops/trainings/rl_index.html",
-    "href": "workshops/trainings/rl_index.html",
-    "title": "Introduction to Reinforcement Learning",
+    "objectID": "workshops/index.html",
+    "href": "workshops/index.html",
+    "title": "Home",
     "section": "",
-    "text": "Slides  Code\nDate: May 29, 2025 10:00 AM – 13:00 PM\nEvent: Data Lab for Social Good Training Session\nLocation: Aberconway Building Meeting Room, Cardiff University, UK"
+    "text": "Introduction to Reinforcement Learning\n\n\nWorkshop\n\n\n\n\n\nMay 22, 2025\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nBasics of Python and Introduction to Quarto in Visual Studio Code\n\n\nWorkshop\n\n\n\n\n\nMar 3, 2025\n\n\nMustafa Aslan\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "workshops/trainings/rl_index.html#who-is-the-course-for",
-    "href": "workshops/trainings/rl_index.html#who-is-the-course-for",
-    "title": "Introduction to Reinforcement Learning",
-    "section": "Who is the course for?",
-    "text": "Who is the course for?\nThis course is designed for researchers and postgraduate students who want to apply Reinforcement Learning (RL) to real-world decision-making in interdisciplinary settings, including supply chains, healthcare, and operational contexts across diverse industries. It is especially relevant for those working on problems involving sequential decision-making under uncertainty.\nYou don’t need prior RL knowledge, but you should be comfortable with basic probability and Python programming."
-  },
-  {
-    "objectID": "workshops/trainings/rl_index.html#learning-objectives",
-    "href": "workshops/trainings/rl_index.html#learning-objectives",
-    "title": "Introduction to Reinforcement Learning",
-    "section": "Learning Objectives",
-    "text": "Learning Objectives\nBy the end of this workshop, participants will be able to:\n\nUnderstand the core ideas of RL in the context of healthcare decision-making\nModel sequential sequential decisions using Markov Decision Processes (MDPs)\nApply key RL algorithms (Monte Carlo, SARSA, Q-learning) to learn optimal policies from experience\nInterpret learned policies and value functions in a healthcare context (e.g. when to treat, when to wait)\nLink RL insights to practical policy decisions like cost control, clinical risk, or stockout mitigation"
-  },
-  {
-    "objectID": "workshops/trainings/rl_index.html#prerequisites",
-    "href": "workshops/trainings/rl_index.html#prerequisites",
-    "title": "Introduction to Reinforcement Learning",
-    "section": "Prerequisites",
-    "text": "Prerequisites\n\nFamiliarity with basic probability and statistics (e.g., expected value, random variables)\nSome experience with Python, particularly with lists, dictionaries, and basic control flow\nNo prior knowledge of RL or advanced machine learning is required"
+    "objectID": "workshops/trainings/py_index.html",
+    "href": "workshops/trainings/py_index.html",
+    "title": "Basics of Python and Introduction to Quarto in Visual Studio Code",
+    "section": "",
+    "text": "Slides\nDate: Mar 3 2025 11:00 AM – 13:00 PM\nEvent: Data Lab for Social Good Training Session\nLocation: Aberconway Building Meeting Room, Cardiff University, UK"
   },
   {
     "objectID": "workshops/rl/notes_ides.html",
@@ -469,11 +455,123 @@
     "text": "Recommended materials\nReadings:\n\nReinforcement Learning: An Introduction by Richard S. Sutton and Andrew G. Barto\nReinforcement Learning and Stochastic Optimization by Warren B. Powell\n\nTutoriols:"
   },
   {
-    "objectID": "workshops/index.html",
-    "href": "workshops/index.html",
-    "title": "Home",
+    "objectID": "workshops/trainings/rl_index.html",
+    "href": "workshops/trainings/rl_index.html",
+    "title": "Introduction to Reinforcement Learning",
     "section": "",
-    "text": "Introduction to Reinforcement Learning\n\n\nWorkshop\n\n\n\n\n\nMay 22, 2025\n\n\nMustafa Aslan\n\n\n\n\n\nNo matching items"
+    "text": "Slides  Code\nDate: May 29, 2025 10:00 AM – 13:00 PM\nEvent: Data Lab for Social Good Training Session\nLocation: Aberconway Building Meeting Room, Cardiff University, UK"
+  },
+  {
+    "objectID": "workshops/trainings/rl_index.html#who-is-the-course-for",
+    "href": "workshops/trainings/rl_index.html#who-is-the-course-for",
+    "title": "Introduction to Reinforcement Learning",
+    "section": "Who is the course for?",
+    "text": "Who is the course for?\nThis course is designed for researchers and postgraduate students who want to apply Reinforcement Learning (RL) to real-world decision-making in interdisciplinary settings, including supply chains, healthcare, and operational contexts across diverse industries. It is especially relevant for those working on problems involving sequential decision-making under uncertainty.\nYou don’t need prior RL knowledge, but you should be comfortable with basic probability and Python programming."
+  },
+  {
+    "objectID": "workshops/trainings/rl_index.html#learning-objectives",
+    "href": "workshops/trainings/rl_index.html#learning-objectives",
+    "title": "Introduction to Reinforcement Learning",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBy the end of this workshop, participants will be able to:\n\nUnderstand the core ideas of RL in the context of healthcare decision-making\nModel sequential sequential decisions using Markov Decision Processes (MDPs)\nApply key RL algorithms (Monte Carlo, SARSA, Q-learning) to learn optimal policies from experience\nInterpret learned policies and value functions in a healthcare context (e.g. when to treat, when to wait)\nLink RL insights to practical policy decisions like cost control, clinical risk, or stockout mitigation"
+  },
+  {
+    "objectID": "workshops/trainings/rl_index.html#prerequisites",
+    "href": "workshops/trainings/rl_index.html#prerequisites",
+    "title": "Introduction to Reinforcement Learning",
+    "section": "Prerequisites",
+    "text": "Prerequisites\n\nFamiliarity with basic probability and statistics (e.g., expected value, random variables)\nSome experience with Python, particularly with lists, dictionaries, and basic control flow\nNo prior knowledge of RL or advanced machine learning is required"
+  },
+  {
+    "objectID": "workshops/intro_python/intro_to_python_part_3.html#outline",
+    "href": "workshops/intro_python/intro_to_python_part_3.html#outline",
+    "title": "Home",
+    "section": "Outline",
+    "text": "Outline\n\nIntroduction to VS\nInstalling and Importing Libraries in Python\nGetting Help in Python\nIntroduction to Quarto"
+  },
+  {
+    "objectID": "workshops/intro_python/intro_to_python_part_3.html#introduction-to-vs-code-1",
+    "href": "workshops/intro_python/intro_to_python_part_3.html#introduction-to-vs-code-1",
+    "title": "Home",
+    "section": "Introduction to VS Code",
+    "text": "Introduction to VS Code\n\n\nWhat is VS Code\n\nA free, and open-source code editor developed by Microsoft.\nSupports multiple programming languages and frameworks.\n\n\nKey Features\n\nIntegrated Terminal: Access a terminal directly in VS Code for running commands.\nExtensions: Add functionality for specific languages, tools, or frameworks (e.g., Quarto, Python, R).\nSource Control: Built-in Git integration for version control.\nDebugging: Powerful debugging tools for various languages.\nCustomizable Interface: Themes, layout, and key bindings to suit user preferences."
+  },
+  {
+    "objectID": "workshops/intro_python/intro_to_python_part_3.html#what-is-library",
+    "href": "workshops/intro_python/intro_to_python_part_3.html#what-is-library",
+    "title": "Home",
+    "section": "What is library?",
+    "text": "What is library?\n\nA collection of pre-written code that contains functions and modules that developers can use to solve programming tasks\nPython libraries cover libraries for a wide range of tasks, including:\n\npandas and numpy for data analysis, cleaning, exploration, and efficient numerical computations.\nscikit-learn, TensorFlow for machine learning tasks such as prediction, clustering, and forecasting.\nstatsforecast, darts and skforecast for forecasting tasks"
+  },
+  {
+    "objectID": "workshops/intro_python/intro_to_python_part_3.html#what-is-library-1",
+    "href": "workshops/intro_python/intro_to_python_part_3.html#what-is-library-1",
+    "title": "Home",
+    "section": "What is library?",
+    "text": "What is library?\n\n\nWhat is PIP?\n\nPIP is a package manager for Python packages or modules\nPIP is used to install and manage Python libraries\n\n\nInstalling a Library\n\n\nOpen a terminal or command prompt.\n\n\nUse the command pip install &lt;library-name&gt;.\n\n\nExample: pip install numpy\n\n\nAlternatively, run the following code in a notebook to install libraries directly: python       !pip install numpy"
+  },
+  {
+    "objectID": "workshops/intro_python/intro_to_python_part_3.html#importing-libraries-or-modules",
+    "href": "workshops/intro_python/intro_to_python_part_3.html#importing-libraries-or-modules",
+    "title": "Home",
+    "section": "Importing libraries or modules",
+    "text": "Importing libraries or modules\n\nOnce a library is installed, you need to import it into your Python script:\n\nExample:\nimport numpy\n\nUse as to create an alias for convenience (e.g., import pandas as pd or import numpy as np).\nUse from … import … to call specific functions from libraries or modules :\n\nExample:\nfrom math import sqrt\nprint(sqrt(16))  # Output: 4.0"
+  },
+  {
+    "objectID": "workshops/intro_python/intro_to_python_part_3.html#namespaces",
+    "href": "workshops/intro_python/intro_to_python_part_3.html#namespaces",
+    "title": "Home",
+    "section": "Namespaces",
+    "text": "Namespaces\n\n\n\nA namespace is a system that has a unique name for each and every object in Python.\nAn object might be a variable or a method.\nSome functions like print(), id() are always present, these are built-in namespaces.\nWhen a user creates a module, a global namespace gets created, later the creation of local functions creates the local namespace.\n\n\nExample:\nx = \"global\"\n\ndef outer_function():\n    # Enclosing namespace\n    x = \"enclosing\"\n    \n    def inner_function():\n        # Local namespace\n        x = \"local\"\n        print(\"Inner:\", x)  # Prints: Inner: local\n\n    inner_function()\n    print(\"Outer:\", x)  # Prints: Outer: enclosing\n\nouter_function()\nprint(\"Global:\", x)  # Prints: Global: global"
+  },
+  {
+    "objectID": "workshops/intro_python/intro_to_python_part_3.html#using-built-in-help-functions",
+    "href": "workshops/intro_python/intro_to_python_part_3.html#using-built-in-help-functions",
+    "title": "Home",
+    "section": "Using built-in help functions",
+    "text": "Using built-in help functions\n\nPython provides built-in tools to explore libraries and and functions\nSome of them are:\n\nhelp(): Displays documentation for an object.\ndir(): Lists the attributes and methods of an object\ntype(): Displays the type of the object"
+  },
+  {
+    "objectID": "workshops/intro_python/intro_to_python_part_3.html#using-built-in-help-functions-1",
+    "href": "workshops/intro_python/intro_to_python_part_3.html#using-built-in-help-functions-1",
+    "title": "Home",
+    "section": "Using built-in help functions",
+    "text": "Using built-in help functions\nExamples:\n\n\nExample -1:\n\nprint(help(len))\n# output:\n\nHelp on built-in function len in module builtins:\n\nlen(obj, /)\n    Return the number of items in a container.\n\nNone\n\n\n\nExample -2:\n\nprint(dir(list))\n# output:\n\n['__add__', '__class__', '__class_getitem__', '__contains__', '__delattr__', '__delitem__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getstate__', '__gt__', '__hash__', '__iadd__', '__imul__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__reversed__', '__rmul__', '__setattr__', '__setitem__', '__sizeof__', '__str__', '__subclasshook__', 'append', 'clear', 'copy', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']\n\n\n\nExample -3:\n\nx = \"cardiff\"\ny = 5\nz = [1,2,3,4,5]\n\nprint(type(x))\nprint(type(y))\nprint(type(z))\n# output:\n\n&lt;class 'str'&gt;\n&lt;class 'int'&gt;\n&lt;class 'list'&gt;"
+  },
+  {
+    "objectID": "workshops/intro_python/intro_to_python_part_3.html#three-main-tasks-using-quarto",
+    "href": "workshops/intro_python/intro_to_python_part_3.html#three-main-tasks-using-quarto",
+    "title": "Home",
+    "section": "Three Main Tasks Using Quarto",
+    "text": "Three Main Tasks Using Quarto\nQuarto help us publish reproducible, production quality articles, presentations, dashboards, websites, blogs, and books in HTML, PDF, MS Word, ePub, and more.\n\nWriting: Combine Markdown, code, and visualizations in .qmd files.\nRender: Generate output formats like HTML, PDF, or slides.\nPublish: Share documents or host on platforms like GitHub."
+  },
+  {
+    "objectID": "workshops/intro_python/intro_to_python_part_3.html#how-to-use-quarto-in-vs-code",
+    "href": "workshops/intro_python/intro_to_python_part_3.html#how-to-use-quarto-in-vs-code",
+    "title": "Home",
+    "section": "How to Use Quarto in VS Code",
+    "text": "How to Use Quarto in VS Code\n\n\n1. Install the Quarto Extension\n\nOpen VS Code.\nGo to the Extensions view by clicking on the Extensions icon in the Activity Bar on the side of the window or press Ctrl+Shift+X.\nSearch for “Quarto”.\nInstall the Quarto extension on you vs code\n\n\n2. Create a Quarto Document\n\nGo to File &gt; New File.\nSave the file with a .qmd extension (e.g., example.qmd).\nStart writing your Quarto content.\n\n\n3. Render a Quarto Document\n\nTo render and preview, execute the Quarto: “Preview” command.\nIf you want to preview a different format, use the Quarto: Preview Format command and select the format you want to render to (e.g., HTML, PDF, DOCX).\nQuarto will render the document, and the output file will be saved in the same directory."
+  },
+  {
+    "objectID": "workshops/intro_python/intro_to_python_part_3.html#example--1",
+    "href": "workshops/intro_python/intro_to_python_part_3.html#example--1",
+    "title": "Home",
+    "section": "Example -1",
+    "text": "Example -1\nHere’s an example of creating a bar plot using Seaborn package with a sample dataset:\n\n\n# Import required libraries\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Sample data\ndata = {\n    \"Category\": [\"A\", \"B\", \"C\", \"D\", \"E\"],\n    \"Values\": [23, 45, 56, 78, 12]\n}\n\n# Convert to a DataFrame\nimport pandas as pd\ndf = pd.DataFrame(data).sort_values(by = \"Values\", ascending=False)\n\n# Create a bar plot\nsns.barplot(x=\"Category\", y=\"Values\", data=df, palette=\"viridis\")\n\n# Add a title and labels\nplt.title(\"Sample Bar Plot\")\nplt.xlabel(\"Category\")\nplt.ylabel(\"Values\")\n# Show the plot\nplt.show()"
+  },
+  {
+    "objectID": "workshops/intro_python/intro_to_python_part_3.html#example--2",
+    "href": "workshops/intro_python/intro_to_python_part_3.html#example--2",
+    "title": "Home",
+    "section": "Example -2",
+    "text": "Example -2\nAn example of creating a line graph using plotly package\n\nimport plotly.express as px\n\ndf = px.data.gapminder().query(\"country=='Canada'\")\nfig = px.line(df, x=\"year\", y=\"lifeExp\", title='Life expectancy in Canada')\nfig.show()"
+  },
+  {
+    "objectID": "workshops/intro_python/intro_to_python_part_3.html#exploring-python-documentation-and-community-forums",
+    "href": "workshops/intro_python/intro_to_python_part_3.html#exploring-python-documentation-and-community-forums",
+    "title": "Home",
+    "section": "Exploring Python documentation and community forums",
+    "text": "Exploring Python documentation and community forums\n\n\nWebsites\n\nw3schools\ndatacamp\ncodeacademy\nlearnpython\n\n\nForums\n\nStack Overflow\nReal Python"
   },
   {
     "objectID": "CV/LICENSE.html",
