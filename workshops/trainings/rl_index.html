@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Mustafa Aslan">
+<meta name="dcterms.date" content="2025-05-22">
+<meta name="description" content="Workshop">
 
-<title>index – Home</title>
+<title>Introduction to Reinforcement Learning – Home</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,25 +26,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-dde8d7229bfee0f8bb5efd37f0f9ae1e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-dde8d7229bfee0f8bb5efd37f0f9ae1e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,68 +70,11 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-dl4sg .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-dl4sg'] = new List('listing-dl4sg', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="../styles.css">
-<meta property="og:title" content="Home">
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Introduction to Reinforcement Learning – Home">
+<meta property="og:description" content="Workshop">
 <meta property="og:image" content="https://mustafaslanCoto.github.io/workshops/images/agent_env.png">
 <meta property="og:site_name" content="Home">
 <meta property="og:image:height" content="212">
@@ -144,7 +88,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Home</span>
     </a>
   </div>
@@ -155,15 +99,15 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../learn/index.html"> 
+    <a class="nav-link" href="../../learn/index.html"> 
 <span class="menu-text">Learn</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../workshops/index.html" aria-current="page"> 
+    <a class="nav-link" href="../../workshops/index.html"> 
 <span class="menu-text">Workshops</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../CV/CV.html"> 
+    <a class="nav-link" href="../../CV/CV.html"> 
 <span class="menu-text">CV</span></a>
   </li>  
 </ul>
@@ -178,66 +122,100 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#who-is-the-course-for" id="toc-who-is-the-course-for" class="nav-link active" data-scroll-target="#who-is-the-course-for">Who is the course for?</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Introduction to Reinforcement Learning</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Reinforcement Learning</div>
+    <div class="quarto-category">Stocastic Optimization</div>
+    <div class="quarto-category">Dynamic Programming</div>
+    <div class="quarto-category">Python</div>
+  </div>
+  </div>
 
-
-
-<!-- ---
-listing: 
-  contents: 
-    - "rl/*.qmd"
-  type: default
-  sort: date desc
---- -->
-<!-- ## Probability and Statistics
-
-:::{#probability-statistics}
-
-:::
-
-## Stocastic Optimization and Reinforcement Learning
-
-:::{#reinforcement-rearning}
-::: -->
-
-
-
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-dl4sg">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="UmVpbmZvcmNlbWVudCUyMExlYXJuaW5nJTJDU3RvY2FzdGljJTIwT3B0aW1pemF0aW9uJTJDRHluYW1pYyUyMFByb2dyYW1taW5nJTJDUHl0aG9u" data-listing-date-sort="1747872000000" data-listing-file-modified-sort="1747960620235" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="210">
-<div class="thumbnail"><a href="../workshops/trainings/rl_index.html" class="no-external">
-
-<img loading="lazy" src="../workshops/images/agent_env.png" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../workshops/trainings/rl_index.html" class="no-external">Introduction to Reinforcement Learning</a>
-</h3>
-<div class="delink listing-description"><a href="../workshops/trainings/rl_index.html" class="no-external">
-<p>Workshop</p>
-</a></div>
+<div>
+  <div class="description">
+    Workshop
+  </div>
 </div>
-<div class="metadata">
-<a href="../workshops/trainings/rl_index.html" class="no-external">
-<div class="listing-date">
-May 22, 2025
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Mustafa Aslan </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 22, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/agent_env.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
 </div>
-<div class="listing-author">
-Mustafa Aslan
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+<p><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></p>
+<p><a href="../../workshops/rl/RL_presentation.html" class="btn btn-sm btn-outline-primary"><i class="fas fa-bookmark"></i> Slides</a> <a href="../../workshops/rl/rl.html" class="btn btn-sm btn-outline-primary"><i class="fab fa-python"></i> Code</a></p>
+<p><strong>Date:</strong> May 29, 2025 10:00 AM – 13:00 PM<br>
+<strong>Event:</strong> Data Lab for Social Good Training Session<br>
+<strong>Location:</strong> Aberconway Building Meeting Room, Cardiff University, UK</p>
+<section id="who-is-the-course-for" class="level2">
+<h2 class="anchored" data-anchor-id="who-is-the-course-for">Who is the course for?</h2>
+<p>This course is designed for researchers and postgraduate students who want to apply Reinforcement Learning (RL) to real-world decision-making in interdisciplinary settings, including supply chains, healthcare, and operational contexts across diverse industries. It is especially relevant for those working on problems involving sequential decision-making under uncertainty.</p>
+<p>You don’t need prior RL knowledge, but you should be comfortable with basic probability and Python programming.</p>
+</section>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
+<p>By the end of this workshop, participants will be able to:</p>
+<ul>
+<li>Understand the core ideas of RL in the context of healthcare decision-making</li>
+<li>Model sequential sequential decisions using Markov Decision Processes (MDPs)</li>
+<li>Apply key RL algorithms (Monte Carlo, SARSA, Q-learning) to learn optimal policies from experience</li>
+<li>Interpret learned policies and value functions in a healthcare context (e.g.&nbsp;when to treat, when to wait)</li>
+<li>Link RL insights to practical policy decisions like cost control, clinical risk, or stockout mitigation</li>
+</ul>
+</section>
+<section id="prerequisites" class="level2">
+<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Familiarity with basic probability and statistics (e.g., expected value, random variables)</li>
+<li>Some experience with Python, particularly with lists, dictionaries, and basic control flow</li>
+<li>No prior knowledge of RL or advanced machine learning is required</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -324,6 +302,11 @@ Mustafa Aslan
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {

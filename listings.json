@@ -1,12 +1,15 @@
 [
   {
     "listing": "/learn/index.html",
-    "items": []
+    "items": [
+      "/learn/prob_stats/cond_index.html",
+      "/learn/prob_stats/dists_index.html"
+    ]
   },
   {
     "listing": "/workshops/index.html",
     "items": [
-      "/workshops/rl/index.html"
+      "/workshops/trainings/rl_index.html"
     ]
   }
 ]
