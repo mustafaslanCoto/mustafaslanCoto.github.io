@@ -3,7 +3,7 @@ title: "Random Variables"
 author: "Mustafa Aslan"
 description: "learning material"
 date: 2025-04-30
-image: "dits.gif"
+image: "distributions/dits.gif"
 categories:
   - Statistics
   - Machine Learning
@@ -15,4 +15,4 @@ link-external-newwindow: true
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-[<i class="fas fa-bookmark"></i> Slides](dists_notebook.ipynb){.btn .btn-sm .btn-outline-primary}
+[<i class="fas fa-bookmark"></i> Slides](distributions/dists_notebook.ipynb){.btn .btn-sm .btn-outline-primary}
