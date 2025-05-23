@@ -1,17 +1,19 @@
 ---
 listing: 
+  - id: dl4sg
+    contents: trainings
+    type: default
+    sort: date desc
+---
+
+<!-- ---
+listing: 
   contents: 
     - "rl/*.qmd"
   type: default
   sort: date desc
----
-<!-- ---
-title: "Talks & Workshops"
-listing: 
-  - id: reinforcement-learning
-    contents: so_rl
-    type: grid
 --- -->
+
 
 <!-- ## Probability and Statistics
 

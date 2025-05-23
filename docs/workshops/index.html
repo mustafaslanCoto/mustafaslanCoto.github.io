@@ -41,7 +41,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-fe4309c7225341acc1ac1ef082ecc45b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-c1fac2584b48ed01fb6e278e36375074.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -72,20 +72,20 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    const listingTargetEl = window.document.querySelector('#listing-dl4sg .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
     }
 
     const options = {
-      valueNames: ['listing-title','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+    window['quarto-listings']['listing-dl4sg'] = new List('listing-dl4sg', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -131,7 +131,7 @@ window.Quarto = {
 
 <link rel="stylesheet" href="../styles.css">
 <meta property="og:title" content="Home">
-<meta property="og:image" content="cover.png">
+<meta property="og:image" content="../workshops/images/agent_env.png">
 <meta property="og:site_name" content="Home">
 </head>
 
@@ -186,11 +186,11 @@ window.Quarto = {
 
 
 <!-- ---
-title: "Talks & Workshops"
 listing: 
-  - id: reinforcement-learning
-    contents: so_rl
-    type: grid
+  contents: 
+    - "rl/*.qmd"
+  type: default
+  sort: date desc
 --- -->
 <!-- ## Probability and Statistics
 
@@ -206,34 +206,32 @@ listing:
 
 
 
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="UmVpbmZvcmNlbWVudCUyMExlYXJuaW5nJTJDU3RvY2FzdGljJTIwT3B0aW1pemF0aW9uJTJDRHluYW1pYyUyMFByb2dyYW1taW5nJTJDUHl0aG9u" data-listing-date-sort="1747868400000" data-listing-file-modified-sort="1747752663619" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="210">
-<a href="../workshops/rl/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="../workshops/rl/agent_env.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Introduction to Reinforcement Learning
-</h5>
-<div class="listing-categories">
+<div class="quarto-listing quarto-listing-container-default" id="listing-dl4sg">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="UmVpbmZvcmNlbWVudCUyMExlYXJuaW5nJTJDU3RvY2FzdGljJTIwT3B0aW1pemF0aW9uJTJDRHluYW1pYyUyMFByb2dyYW1taW5nJTJDUHl0aG9u" data-listing-date-sort="1747868400000" data-listing-file-modified-sort="1747960491581" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="210">
+<div class="thumbnail"><a href="../workshops/trainings/rl_index.html" class="no-external">
 
-<div class="listing-category" onclick="window.quartoListingCategory('UmVpbmZvcmNlbWVudCUyMExlYXJuaW5n'); return false;">Reinforcement Learning</div>
+<img loading="lazy" src="../workshops/images/agent_env.png" class="thumbnail-image">
 
-<div class="listing-category" onclick="window.quartoListingCategory('U3RvY2FzdGljJTIwT3B0aW1pemF0aW9u'); return false;">Stocastic Optimization</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RHluYW1pYyUyMFByb2dyYW1taW5n'); return false;">Dynamic Programming</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHl0aG9u'); return false;">Python</div>
-
-</div>
-<div class="card-text listing-description delink">
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../workshops/trainings/rl_index.html" class="no-external">Introduction to Reinforcement Learning</a>
+</h3>
+<div class="delink listing-description"><a href="../workshops/trainings/rl_index.html" class="no-external">
 <p>Workshop</p>
+</a></div>
 </div>
+<div class="metadata">
+<a href="../workshops/trainings/rl_index.html" class="no-external">
+<div class="listing-date">
+May 22, 2025
 </div>
-</div></a>
+<div class="listing-author">
+Mustafa Aslan
+</div>
+</a>
+</div>
 </div>
 </div>
 <div class="listing-no-matching d-none">No matching items</div>

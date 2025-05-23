@@ -1,18 +1,18 @@
 ---
 listing: 
+  - id: probability-statistics
+    contents: prob_stats
+    type: default
+    sort: date desc
+---
+
+<!-- ---
+listing: 
   contents: 
     - "cond_dists/*.qmd"
     - "distributions/*.qmd"
   type: default
   sort: date desc
----
-
-<!-- ---
-title: "Talks & Workshops"
-listing: 
-  - id: probability-statistics
-    contents: stats
-    type: grid
 --- -->
 
 <!-- 

@@ -301,5 +301,23 @@
   },
   "workshops/rl/slides/RL_presentation.qmd": {
     "RL_presentation.html": "75578fd8"
+  },
+  "learn/prob_stats/cond_index.qmd": {
+    "cond_index.html": "88ddfeb1"
+  },
+  "learn/prob_stats/dists_index.qmd": {
+    "dists_index.html": "d6ce629c"
+  },
+  "workshops/trainings/rl_index.qmd": {
+    "rl_index.html": "c6958602"
+  },
+  "workshops/rl/rl.ipynb": {
+    "rl.html": "eaca386b"
+  },
+  "workshops/rl/notes_ides.ipynb": {
+    "notes_ides.html": "5ac87457"
+  },
+  "workshops/rl/RL_presentation.qmd": {
+    "RL_presentation.html": "2a5e5d3e"
   }
 }

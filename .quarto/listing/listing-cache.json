@@ -7,7 +7,8 @@
     "workshops/index.qmd": [
       "so_rl",
       "DL4SG/*.qmd",
-      "rl/*.qmd"
+      "rl/*.qmd",
+      "trainings"
     ],
     "learn/index_lrn.qmd": [
       "stats"
@@ -15,7 +16,8 @@
     "learn/index.qmd": [
       "stats_ml/*.qmd",
       "cond_dists/*.qmd",
-      "distributions/*.qmd"
+      "distributions/*.qmd",
+      "prob_stats"
     ],
     "learn/stats_ml/index.qmd": [
       "epss_training/*.qmd",

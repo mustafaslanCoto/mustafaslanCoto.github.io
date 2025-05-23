@@ -3,7 +3,7 @@ title: "Introduction to Reinforcement Learning"
 description: "Workshop"
 author: "Mustafa Aslan"
 date: "2025-05-22"
-image: "agent_env.png"
+image: "../images/agent_env.png"
 categories:
   - Reinforcement Learning
   - Stocastic Optimization
@@ -13,15 +13,15 @@ link-external-newwindow: true
 ---
 
 
-![](agent_env.png){fig-align="center"}
+![](../images/agent_env.png){fig-align="center"}
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-[<i class="fas fa-bookmark"></i> Slides](slides/RL_presentation.qmd){.btn .btn-sm .btn-outline-primary}
-[<i class="fab fa-python"></i> Code](slides/rl.ipynb){.btn .btn-sm .btn-outline-primary}
+[<i class="fas fa-bookmark"></i> Slides](../rl/RL_presentation.qmd){.btn .btn-sm .btn-outline-primary}
+[<i class="fab fa-python"></i> Code](../rl/rl.ipynb){.btn .btn-sm .btn-outline-primary}
 
 
-**Date:** May 22, 2025 11:00 AM – 13:00 PM\
+**Date:** May 29, 2025 10:00 AM – 13:00 PM\
 **Event:** Data Lab for Social Good Training Session\
 **Location:** Aberconway Building Meeting Room, Cardiff University, UK
 
