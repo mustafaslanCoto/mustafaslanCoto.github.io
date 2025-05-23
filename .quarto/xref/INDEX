@@ -319,5 +319,11 @@
   },
   "workshops/rl/RL_presentation.qmd": {
     "RL_presentation.html": "2a5e5d3e"
+  },
+  "workshops/trainings/py_index.qmd": {
+    "py_index.html": "dc2cba93"
+  },
+  "workshops/intro_python/intro_to_python_part_3.qmd": {
+    "intro_to_python_part_3.html": "8d658d69"
   }
 }

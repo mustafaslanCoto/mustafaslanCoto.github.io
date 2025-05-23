@@ -10,7 +10,8 @@
   {
     "listing": "/workshops/index.html",
     "items": [
-      "/workshops/trainings/rl_index.html"
+      "/workshops/trainings/rl_index.html",
+      "/workshops/trainings/py_index.html"
     ]
   },
   {

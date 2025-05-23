@@ -1,0 +1,22 @@
+---
+title: "Basics of Python and Introduction to Quarto in Visual Studio Code"
+description: "Workshop"
+author: "Mustafa Aslan"
+date: "2025-03-03"
+image: "../images/vs_py.webp"
+categories:
+  - Training
+  - Python
+link-external-newwindow: true
+---
+
+
+![](../images/vs_py.webp){fig-align="center"}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+[<i class="fas fa-bookmark"></i> Slides](../intro_python/intro_to_python_part_3.qmd){.btn .btn-sm .btn-outline-primary}
+
+**Date:** Mar 3 2025 11:00 AM – 13:00 PM\
+**Event:** Data Lab for Social Good Training Session\
+**Location:** Aberconway Building Meeting Room, Cardiff University, UK

@@ -1,0 +1,339 @@
+---
+format:
+  revealjs:
+    slide-number: c/t
+    width: 1600
+    height: 900
+    theme: simple
+jupyter: quarto-python
+---
+
+{{< include title-slide.html >}}
+
+## Outline
+
+- Introduction to VS
+
+- Installing and Importing Libraries in Python
+
+- Getting Help in Python
+
+- Introduction to Quarto
+
+# Introduction to VS Code
+
+## Introduction to VS Code
+
+:::: {.columns}
+::: {.column width="50%" .fragment style="font-size: 80%;"}
+### What is VS Code
+::: {.incremental}
+- A free, and open-source code editor developed by Microsoft.
+- Supports multiple programming languages and frameworks.
+:::
+:::
+
+::: {.column width="50%" .fragment style="font-size: 80%;"}
+### Key Features
+::: {.incremental}
+- **Integrated Terminal:** Access a terminal directly in VS Code for running commands.
+- **Extensions:** Add functionality for specific languages, tools, or frameworks (e.g., Quarto, Python, R).
+- **Source Control:** Built-in Git integration for version control.
+- **Debugging:** Powerful debugging tools for various languages.
+- **Customizable Interface:** Themes, layout, and key bindings to suit user preferences.
+:::
+:::
+::::
+
+# Installing and Importing Libraries
+
+## What is library?
+
+::: {.incremental}
+- A collection of pre-written code that contains **functions** and **modules** that developers can use to solve programming tasks
+
+- Python libraries cover libraries for a wide range of tasks, including:
+  - `pandas` and `numpy` for data analysis, cleaning, exploration, and efficient numerical computations. 
+  - `scikit-learn`, `TensorFlow` for machine learning tasks such as prediction, clustering, and forecasting.
+  - `statsforecast`, `darts` and `skforecast` for forecasting tasks
+:::
+
+## What is library?
+
+:::: {.columns}
+::: {.column width="50%" .fragment style="font-size: 80%;"}
+### What is PIP?
+::: {.incremental}
+- PIP is a package manager for Python packages or modules 
+- PIP is used to install and manage Python libraries
+:::
+:::
+
+::: {.column width="50%" .fragment style="font-size: 80%;"}
+### Installing a Library
+::: {.incremental}
+- 1. Open a **terminal** or **command prompt**.
+- 2. Use the command `pip install <library-name>`.
+  - Example: `pip install numpy`
+- 3. Alternatively, run the following code in a notebook to install libraries directly:
+      ```python
+      !pip install numpy
+      ```
+:::
+:::
+::::
+
+## Importing libraries or modules
+
+::: {.incremental}
+- Once a library is installed, you need to import it into your Python script:
+  - Example:
+    ```python
+    import numpy
+    ```
+- Use `as` to create an alias for convenience (e.g., `import pandas as pd` or `import numpy as np`).
+- Use `from` ... `import` ... to call specific functions from libraries or modules :
+
+  - Example:
+    ```python
+    from math import sqrt
+    print(sqrt(16))  # Output: 4.0
+    ```
+:::
+
+## Namespaces
+
+:::: {.columns}
+::: {.column width="50%" .fragment style="font-size: 80%;"}
+
+::: {.incremental}
+- A namespace is a system that has a unique name for each and every object in Python.
+- An object might be a variable or a method.
+- Some functions like `print()`, `id()` are always present, these are built-in namespaces. 
+- When a user creates a module, a global namespace gets created, later the creation of local functions creates the local namespace.
+:::
+:::
+
+::: {.column width="50%" .fragment style="font-size: 80%;"}
+
+### Example:
+
+```{.python}
+x = "global"
+
+def outer_function():
+    # Enclosing namespace
+    x = "enclosing"
+    
+    def inner_function():
+        # Local namespace
+        x = "local"
+        print("Inner:", x)  # Prints: Inner: local
+
+    inner_function()
+    print("Outer:", x)  # Prints: Outer: enclosing
+
+outer_function()
+print("Global:", x)  # Prints: Global: global
+```
+:::
+::::
+
+# Getting Help in Python
+
+## Using built-in help functions
+
+::: {.incremental}
+- Python provides built-in tools to explore libraries and and functions
+- Some of them are: 
+    - `help()`: Displays documentation for an object.
+    - `dir()`: Lists the attributes and methods of an object
+    - `type()`: Displays the type of the object
+:::
+
+## Using built-in help functions
+
+### Examples:
+
+:::: {.columns}
+::: {.column width="33%" .fragment style="font-size: 60%;"}
+
+Example -1:
+```{python}
+#| echo: true
+print(help(len))
+# output:
+```
+
+:::
+
+::: {.column width="33%" .fragment style="font-size: 60%;"}
+Example -2:
+```{python}
+#| echo: true
+print(dir(list))
+# output:
+```
+
+:::
+
+::: {.column width="33%" .fragment style="font-size: 60%;"}
+Example -3:
+```{python}
+#| echo: true
+x = "cardiff"
+y = 5
+z = [1,2,3,4,5]
+
+print(type(x))
+print(type(y))
+print(type(z))
+# output:
+```
+
+:::
+:::: 
+
+# Introduction to Quarto
+
+## Three Main Tasks Using Quarto 
+
+Quarto help us publish reproducible, production quality articles, presentations, dashboards, websites, blogs, and books in HTML, PDF, MS Word, ePub, and more.
+
+::: {.incremental}
+-   Writing: Combine Markdown, code, and visualizations in .qmd files.
+-   Render: Generate output formats like HTML, PDF, or slides.
+-   Publish: Share documents or host on platforms like GitHub.
+:::
+
+## How to Use Quarto in VS Code {.smaller}
+
+:::: {.columns}
+::: {.column width="33%" .fragment fragment-index=1 style="font-size: 80%;"}
+
+### 1. Install the Quarto Extension {.smaller}
+
+- Open VS Code.
+- Go to the Extensions view by clicking on the Extensions icon in the Activity Bar on the side of the window or press Ctrl+Shift+X.
+- Search for "Quarto".
+- Install the Quarto extension on you vs code
+:::
+
+::: {.column width="33%" .fragment fragment-index=2 style="font-size: 80%;"}
+### 2. Create a Quarto Document {.smaller}
+- Go to File > New File.
+- Save the file with a .qmd extension (e.g., example.qmd).
+- Start writing your Quarto content.
+:::
+
+::: {.column width="33%" .fragment fragment-index=3 style="font-size: 80%;"}
+### 3. Render a Quarto Document {.smaller}
+- To render and preview, execute the Quarto: "Preview" command.
+- If you want to preview a different format, use the Quarto: Preview Format command and select the format you want to render to (e.g., HTML, PDF, DOCX).
+- Quarto will render the document, and the output file will be saved in the same directory.
+:::
+::::
+
+## Example -1 {.smaller}
+
+Here’s an example of creating a bar plot using Seaborn package with a sample dataset:
+
+:::: {.columns}
+::: {.column width="50%"}
+```{.python code-line-numbers="16-23"}
+# Import required libraries
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Sample data
+data = {
+    "Category": ["A", "B", "C", "D", "E"],
+    "Values": [23, 45, 56, 78, 12]
+}
+
+# Convert to a DataFrame
+import pandas as pd
+df = pd.DataFrame(data).sort_values(by = "Values", ascending=False)
+
+# Create a bar plot
+sns.barplot(x="Category", y="Values", data=df, palette="viridis")
+
+# Add a title and labels
+plt.title("Sample Bar Plot")
+plt.xlabel("Category")
+plt.ylabel("Values")
+# Show the plot
+plt.show()
+```
+:::
+
+::: {.column width="50%"}
+```{python}
+# Import required libraries
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Sample data
+data = {
+    "Category": ["A", "B", "C", "D", "E"],
+    "Values": [23, 45, 56, 78, 12]
+}
+
+# Convert to a DataFrame
+import pandas as pd
+df = pd.DataFrame(data).sort_values(by = "Values", ascending=False)
+
+# Create a bar plot
+sns.barplot(x="Category", y="Values", data=df, palette="viridis")
+
+# Add a title and labels
+plt.title("Sample Bar Plot")
+plt.xlabel("Category")
+plt.ylabel("Values")
+# Show the plot
+plt.show()
+```
+:::
+
+::::
+
+## Example -2
+
+An example of creating a line graph using plotly package
+
+```{python}
+#| echo: true
+#| output: true
+
+import plotly.express as px
+
+df = px.data.gapminder().query("country=='Canada'")
+fig = px.line(df, x="year", y="lifeExp", title='Life expectancy in Canada')
+fig.show()
+```
+
+## Exploring Python documentation and community forums
+
+:::: {.columns}
+::: {.column width="50%"}
+
+### Websites
+
+- [w3schools](https://www.w3schools.com/)
+- [datacamp](https://www.datacamp.com/)
+- [codeacademy](https://www.codecademy.com/)
+- [learnpython](https://www.learnpython.org/)
+
+:::
+
+::: {.column width="50%"}
+### Forums
+- [Stack Overflow](https://stackoverflow.co/)
+- [Real Python](https://realpython.com/)
+
+:::
+::::
+
+# THANK YOU !!!
