@@ -112,8 +112,50 @@
     "text": "Notes\n\nReinforcement learning is a framework for learning how to interact with environment from experience.\nAgent takes actions to interact with environment\nThe big challange in RL Design a policy of what actions to take given a state s to maximize a future reward\nQ(s,a) tells us what is the quality of being in state s and taking action a. Then once I find myself in a state s, I just have to look across all of the actions and pick the one that gives the best quality. If I do that in future I will maximize my value."
   },
   {
-    "objectID": "learn/cond_dists/cond_dists.html",
-    "href": "learn/cond_dists/cond_dists.html",
+    "objectID": "learn/cond_dists/cond_dist_notebook.html",
+    "href": "learn/cond_dists/cond_dist_notebook.html",
+    "title": "Conditional Probability and Conditional Expectation",
+    "section": "",
+    "text": "For any two events \\(E\\) and \\(F\\), the conditional probability of \\(E\\) given \\(F\\) is defined, as long as \\(P(F) &gt; 0\\), by\n\\[\nP(E|F) = \\frac{P(E  F)}{P(F)}.\n\\]\nHence, if \\(X\\) and \\(Y\\) are discrete random variables, then it is natural to define the conditional probability mass function of \\(X\\) given that \\(Y = y\\), by\n\\[\n\\begin{align*}\np_{X|Y}(x|y) &= P(X = x | Y = y) \\\\\n&= \\frac{P(X = x, Y = y)}{P(Y = y)} \\\\\n&= \\frac{p(x,y)}{p_Y(y)}.\n\\end{align*}\n\\]\nSimilarly, the conditional probability distribution function of \\(X\\) given that \\(Y=y\\) is defined, for all \\(y\\) such that \\(P(Y = y) &gt; 0\\), by\n\\[\n\\begin{align*}\nF_{X|Y}(x|y) &= P(X \\leq x | Y = y) \\\\\n&= \\sum_{a \\leq x} P_{X | Y}(a | y) \\\\\n\\end{align*}\n\\]\nThe conditional expectation of \\(X\\) given that \\(Y = y\\) is defined by \\[\nE[X | Y = y] = \\sum_{x} x P(X = x | Y = y) = \\sum_{x} x p_{X|Y}(x|y).\n\\]"
+  },
+  {
+    "objectID": "learn/cond_dists/cond_dist_notebook.html#the-discrete-case",
+    "href": "learn/cond_dists/cond_dist_notebook.html#the-discrete-case",
+    "title": "Conditional Probability and Conditional Expectation",
+    "section": "",
+    "text": "For any two events \\(E\\) and \\(F\\), the conditional probability of \\(E\\) given \\(F\\) is defined, as long as \\(P(F) &gt; 0\\), by\n\\[\nP(E|F) = \\frac{P(E  F)}{P(F)}.\n\\]\nHence, if \\(X\\) and \\(Y\\) are discrete random variables, then it is natural to define the conditional probability mass function of \\(X\\) given that \\(Y = y\\), by\n\\[\n\\begin{align*}\np_{X|Y}(x|y) &= P(X = x | Y = y) \\\\\n&= \\frac{P(X = x, Y = y)}{P(Y = y)} \\\\\n&= \\frac{p(x,y)}{p_Y(y)}.\n\\end{align*}\n\\]\nSimilarly, the conditional probability distribution function of \\(X\\) given that \\(Y=y\\) is defined, for all \\(y\\) such that \\(P(Y = y) &gt; 0\\), by\n\\[\n\\begin{align*}\nF_{X|Y}(x|y) &= P(X \\leq x | Y = y) \\\\\n&= \\sum_{a \\leq x} P_{X | Y}(a | y) \\\\\n\\end{align*}\n\\]\nThe conditional expectation of \\(X\\) given that \\(Y = y\\) is defined by \\[\nE[X | Y = y] = \\sum_{x} x P(X = x | Y = y) = \\sum_{x} x p_{X|Y}(x|y).\n\\]"
+  },
+  {
+    "objectID": "learn/cond_dists/cond_dist_notebook.html#the-continuous-case",
+    "href": "learn/cond_dists/cond_dist_notebook.html#the-continuous-case",
+    "title": "Conditional Probability and Conditional Expectation",
+    "section": "The Continuous Case",
+    "text": "The Continuous Case\nIf \\(X\\) and \\(Y\\) have a joint probability density function \\(f(x, y)\\), then the conditional probability density function of \\(X\\), given that \\(Y = y\\), is defined for all values of \\(y\\) such that \\(f_Y(y) &gt; 0\\), by\n\\[\n\\begin{align*}\nf_{X|Y}(x|y) &= \\frac{f(x,y)}{f_Y(y)} \\\\\n&= \\frac{f(x,y)}{\\int_{-\\infty}^{\\infty} f(x,y) dx}.\n\\end{align*}\n\\] The conditional distribution function of \\(X\\) given that \\(Y = y\\) is defined by \\[\n\\begin{align*}\nF_{X|Y}(x|y) &= P(X \\leq x | Y = y) \\\\\n&= \\int_{-\\infty}^{x} f_{X|Y}(a|y) da \\\\\n&= \\int_{-\\infty}^{x} \\frac{f(a,y)}{f_Y(y)} da \\\\\n&= \\frac{1}{f_Y(y)} \\int_{-\\infty}^{x} f(a,y) da.\n\\end{align*}\n\\]\nThe conditional expectation of \\(X\\) given that \\(Y = y\\) is defined or all values of \\(y\\) such that \\(f_Y(y) &gt; 0\\), by \\[\n\\begin{align*}\nE[X | Y = y] &= \\int_{-\\infty}^{\\infty} x f_{X|Y}(x|y) dx \\\\\n&= \\int_{-\\infty}^{\\infty} x \\frac{f(x,y)}{f_Y(y)} dx \\\\\n&= \\frac{1}{f_Y(y)} \\int_{-\\infty}^{\\infty} x f(x,y) dx.\n\\end{align*}\n\\]"
+  },
+  {
+    "objectID": "learn/cond_dists/cond_dist_notebook.html#computing-expectations-by-conditioning",
+    "href": "learn/cond_dists/cond_dist_notebook.html#computing-expectations-by-conditioning",
+    "title": "Conditional Probability and Conditional Expectation",
+    "section": "Computing Expectations by Conditioning",
+    "text": "Computing Expectations by Conditioning\nLet us denote by \\(E[X|Y]\\) that function of the random variable \\(Y\\) whose value at \\(Y = y\\) is \\(E[X|Y = y]\\). Note that \\(E[X|Y]\\) is itself a random variable. An extremely important important property of conditional expectation is that for all random variables \\(X\\) and \\(Y\\) \\[\nE[X] = E[E[X|Y]]\n\\]\nIf \\(Y\\) is a discrete random variable, then \\[\nE[X] = \\sum_{y} E[X|Y = y] P(Y = y)\n\\]\nIf \\(Y\\) is continuous with density \\(f_Y(y)\\), then \\[\nE[X] = \\int_{-\\infty}^{\\infty} E[X|Y = y] f_Y(y) dy\n\\]"
+  },
+  {
+    "objectID": "learn/prob_stats/dists_index.html",
+    "href": "learn/prob_stats/dists_index.html",
+    "title": "Random Variables",
+    "section": "",
+    "text": "Slides"
+  },
+  {
+    "objectID": "learn/index.html",
+    "href": "learn/index.html",
+    "title": "Home",
+    "section": "",
+    "text": "No matching items"
+  },
+  {
+    "objectID": "learn/prob_stats/cond_index.html",
+    "href": "learn/prob_stats/cond_index.html",
     "title": "Conditional Probability and Conditional Expectation",
     "section": "",
     "text": "Slides"
@@ -194,48 +236,6 @@
     "title": "Random Variables",
     "section": "Moment Generating Functions",
     "text": "Moment Generating Functions"
-  },
-  {
-    "objectID": "learn/index.html",
-    "href": "learn/index.html",
-    "title": "Home",
-    "section": "",
-    "text": "Conditional Probability and Conditional Expectation\n\n\nlearning material\n\n\n\n\n\nApr 30, 2025\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nRandom Variables\n\n\nlearning material\n\n\n\n\n\nApr 30, 2025\n\n\nMustafa Aslan\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "learn/distributions/distributions.html",
-    "href": "learn/distributions/distributions.html",
-    "title": "Random Variables",
-    "section": "",
-    "text": "Slides"
-  },
-  {
-    "objectID": "learn/cond_dists/cond_dist_notebook.html",
-    "href": "learn/cond_dists/cond_dist_notebook.html",
-    "title": "Conditional Probability and Conditional Expectation",
-    "section": "",
-    "text": "For any two events \\(E\\) and \\(F\\), the conditional probability of \\(E\\) given \\(F\\) is defined, as long as \\(P(F) &gt; 0\\), by\n\\[\nP(E|F) = \\frac{P(E  F)}{P(F)}.\n\\]\nHence, if \\(X\\) and \\(Y\\) are discrete random variables, then it is natural to define the conditional probability mass function of \\(X\\) given that \\(Y = y\\), by\n\\[\n\\begin{align*}\np_{X|Y}(x|y) &= P(X = x | Y = y) \\\\\n&= \\frac{P(X = x, Y = y)}{P(Y = y)} \\\\\n&= \\frac{p(x,y)}{p_Y(y)}.\n\\end{align*}\n\\]\nSimilarly, the conditional probability distribution function of \\(X\\) given that \\(Y=y\\) is defined, for all \\(y\\) such that \\(P(Y = y) &gt; 0\\), by\n\\[\n\\begin{align*}\nF_{X|Y}(x|y) &= P(X \\leq x | Y = y) \\\\\n&= \\sum_{a \\leq x} P_{X | Y}(a | y) \\\\\n\\end{align*}\n\\]\nThe conditional expectation of \\(X\\) given that \\(Y = y\\) is defined by \\[\nE[X | Y = y] = \\sum_{x} x P(X = x | Y = y) = \\sum_{x} x p_{X|Y}(x|y).\n\\]"
-  },
-  {
-    "objectID": "learn/cond_dists/cond_dist_notebook.html#the-discrete-case",
-    "href": "learn/cond_dists/cond_dist_notebook.html#the-discrete-case",
-    "title": "Conditional Probability and Conditional Expectation",
-    "section": "",
-    "text": "For any two events \\(E\\) and \\(F\\), the conditional probability of \\(E\\) given \\(F\\) is defined, as long as \\(P(F) &gt; 0\\), by\n\\[\nP(E|F) = \\frac{P(E  F)}{P(F)}.\n\\]\nHence, if \\(X\\) and \\(Y\\) are discrete random variables, then it is natural to define the conditional probability mass function of \\(X\\) given that \\(Y = y\\), by\n\\[\n\\begin{align*}\np_{X|Y}(x|y) &= P(X = x | Y = y) \\\\\n&= \\frac{P(X = x, Y = y)}{P(Y = y)} \\\\\n&= \\frac{p(x,y)}{p_Y(y)}.\n\\end{align*}\n\\]\nSimilarly, the conditional probability distribution function of \\(X\\) given that \\(Y=y\\) is defined, for all \\(y\\) such that \\(P(Y = y) &gt; 0\\), by\n\\[\n\\begin{align*}\nF_{X|Y}(x|y) &= P(X \\leq x | Y = y) \\\\\n&= \\sum_{a \\leq x} P_{X | Y}(a | y) \\\\\n\\end{align*}\n\\]\nThe conditional expectation of \\(X\\) given that \\(Y = y\\) is defined by \\[\nE[X | Y = y] = \\sum_{x} x P(X = x | Y = y) = \\sum_{x} x p_{X|Y}(x|y).\n\\]"
-  },
-  {
-    "objectID": "learn/cond_dists/cond_dist_notebook.html#the-continuous-case",
-    "href": "learn/cond_dists/cond_dist_notebook.html#the-continuous-case",
-    "title": "Conditional Probability and Conditional Expectation",
-    "section": "The Continuous Case",
-    "text": "The Continuous Case\nIf \\(X\\) and \\(Y\\) have a joint probability density function \\(f(x, y)\\), then the conditional probability density function of \\(X\\), given that \\(Y = y\\), is defined for all values of \\(y\\) such that \\(f_Y(y) &gt; 0\\), by\n\\[\n\\begin{align*}\nf_{X|Y}(x|y) &= \\frac{f(x,y)}{f_Y(y)} \\\\\n&= \\frac{f(x,y)}{\\int_{-\\infty}^{\\infty} f(x,y) dx}.\n\\end{align*}\n\\] The conditional distribution function of \\(X\\) given that \\(Y = y\\) is defined by \\[\n\\begin{align*}\nF_{X|Y}(x|y) &= P(X \\leq x | Y = y) \\\\\n&= \\int_{-\\infty}^{x} f_{X|Y}(a|y) da \\\\\n&= \\int_{-\\infty}^{x} \\frac{f(a,y)}{f_Y(y)} da \\\\\n&= \\frac{1}{f_Y(y)} \\int_{-\\infty}^{x} f(a,y) da.\n\\end{align*}\n\\]\nThe conditional expectation of \\(X\\) given that \\(Y = y\\) is defined or all values of \\(y\\) such that \\(f_Y(y) &gt; 0\\), by \\[\n\\begin{align*}\nE[X | Y = y] &= \\int_{-\\infty}^{\\infty} x f_{X|Y}(x|y) dx \\\\\n&= \\int_{-\\infty}^{\\infty} x \\frac{f(x,y)}{f_Y(y)} dx \\\\\n&= \\frac{1}{f_Y(y)} \\int_{-\\infty}^{\\infty} x f(x,y) dx.\n\\end{align*}\n\\]"
-  },
-  {
-    "objectID": "learn/cond_dists/cond_dist_notebook.html#computing-expectations-by-conditioning",
-    "href": "learn/cond_dists/cond_dist_notebook.html#computing-expectations-by-conditioning",
-    "title": "Conditional Probability and Conditional Expectation",
-    "section": "Computing Expectations by Conditioning",
-    "text": "Computing Expectations by Conditioning\nLet us denote by \\(E[X|Y]\\) that function of the random variable \\(Y\\) whose value at \\(Y = y\\) is \\(E[X|Y = y]\\). Note that \\(E[X|Y]\\) is itself a random variable. An extremely important important property of conditional expectation is that for all random variables \\(X\\) and \\(Y\\) \\[\nE[X] = E[E[X|Y]]\n\\]\nIf \\(Y\\) is a discrete random variable, then \\[\nE[X] = \\sum_{y} E[X|Y = y] P(Y = y)\n\\]\nIf \\(Y\\) is continuous with density \\(f_Y(y)\\), then \\[\nE[X] = \\int_{-\\infty}^{\\infty} E[X|Y = y] f_Y(y) dy\n\\]"
   },
   {
     "objectID": "workshops/rl/slides/rl.html",

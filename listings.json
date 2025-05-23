@@ -1,10 +1,7 @@
 [
   {
     "listing": "/learn/index.html",
-    "items": [
-      "/learn/cond_dists/cond_dists.html",
-      "/learn/distributions/distributions.html"
-    ]
+    "items": []
   },
   {
     "listing": "/workshops/index.html",
