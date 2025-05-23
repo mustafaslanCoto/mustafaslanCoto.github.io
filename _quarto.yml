@@ -3,23 +3,27 @@ project:
   output-dir: docs
 
 website:
-  title: "Home"
+  title: "HOME"
   open-graph: true
   page-footer: "Made with ❤️ and Quarto"
   navbar:
     right:
       - href: learn/index.qmd
-        text: Learn
+        text: LEARN
 
-      - text: "Workshops"
+      - text: WORKSHOPS
         href: workshops/index.qmd
 
       - href: CV/CV.qmd
         text: CV
 
     tools:
+      - icon: envelope
+        href: mailto:aslanm@cardiff.ac.uk
       - icon: github
         href: https://github.com/mustafaslanCoto
+      - icon: linkedin
+        href: https://www.linkedin.com/in/aslanmu/
 
 format:
   html:
