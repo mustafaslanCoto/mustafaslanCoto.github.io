@@ -44,7 +44,6 @@ from: https://github.com/quarto-dev/quarto-cli/discussions/2538#discussioncommen
   }
   .print-only {
       display: block;
-      text-align: center;
   }
 
 
@@ -140,3 +139,22 @@ a:hover {
   color: inherit;
   font-weight: 500;
 }
+
+
+/* Highlight the active TOC link */
+.toc-active .nav-link.active,
+#TOC .nav-link.active,
+#TOC .toc-active > .nav-link {
+  color: #b23a53 !important;
+  font-weight: bold;
+  /* Optional: add underline or background */
+  /* text-decoration: underline; */
+  /* background-color: #fbe6ec; */
+}
+
+#TOC a:hover,
+#TOC a:focus {
+  color: #0077B5 !important;
+  text-decoration: none; 
+}
+

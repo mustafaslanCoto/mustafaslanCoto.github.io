@@ -1,7 +1,8 @@
 ---
 title: "Mustafa Aslan"
-subtitle: "PhD Researcher | Data Scientist | Educator"
+subtitle: "Researcher | Data Scientist | Educator"
 image: images/profil_photo.jpg
+card-style: "summary"
 about:
     template: trestles
     image-shape: round

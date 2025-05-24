@@ -30,13 +30,12 @@ bullets: true
 css: cv.css
 ---
 
-```{=html}
+<!-- ```{=html}
 <!-- ::: print-only
 \begin{center}
 \faEnvelope\  \href{mailto:aslanm@cardiff.ac.uk}{aslanm@cardiff.ac.uk} \ \faGithub\  \href{https://github.com/mustafaslanCoto}{mustafaslanCoto} \ \faGlobe\  \href{https://mustafaslancoto.github.io}{mustafaslancoto.github.io} \ \faLinkedin\  \href{https://www.linkedin.com/in/mustafa-aslan-047b4780/}{LinkedIn}
 \end{center}
 ::: -->
-```
 
 \setlist[itemize,2]{label=\textopenbullet}
 
