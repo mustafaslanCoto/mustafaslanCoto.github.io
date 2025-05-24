@@ -5,16 +5,17 @@
 .btn-outline-primary:visited {
   background-color: #fff !important;
   color: #b23a53 !important;
-  border: 2px solid #b23a53 !important;
+  border: 1px solid #b23a53 !important;
   box-shadow: none !important;
 }
 
 .btn-outline-primary:hover,
 .btn-outline-primary:focus,
 .btn-outline-primary:active {
-  background-color: #fff !important;
-  color: #0077B5 !important;
-  border: 2px solid #0077B5 !important;
+  background-color: #0077B5 !important;
+  color: #fff !important;
+  border: 1px solid #0077B5 !important;
+  text-decoration: none !important;
 }
 
 /* Force icons inside buttons to match text color */
@@ -32,7 +33,7 @@
 .btn-outline-primary:hover svg,
 .btn-outline-primary:focus svg,
 .btn-outline-primary:active svg {
-  color: #0077B5 !important;
+  color: #fff !important;
   fill: #0077B5 !important;
 }
 
@@ -43,7 +44,7 @@
 .about-link {
   background-color: #fff !important;
   color: #b23a53 !important;
-  border: 2px solid #b23a53 !important;
+  border: 1px solid #b23a53 !important;
   border-radius: 5px;
   padding: 6px 18px;
   margin: 3px;
@@ -103,14 +104,6 @@ p a:hover, p a:focus {
   transition: color 0.2s;
 }
 
-/* Hover effect: change color */
-.navbar .nav-link:hover,
-.navbar-nav .nav-link:hover,
-.navbar .nav-link:focus,
-.navbar-nav .nav-link:focus {
-  color: #b23a53 !important;
-  text-decoration: none; /* Optional: add underline on hover */
-}
 
 
 /* Navbar text links */
@@ -124,7 +117,7 @@ p a:hover, p a:focus {
 .navbar-nav .nav-link:hover,
 .navbar .nav-link:focus,
 .navbar-nav .nav-link:focus {
-  color: #0077B5 !important;
+  color: #1c7fb5 !important;
   text-decoration: None;
 }
 
@@ -136,7 +129,6 @@ p a:hover, p a:focus {
   /* text-decoration: underline; */
   /* background-color: #fbe6ec; */
 }
-
 
 /* Highlight the active TOC link */
 .toc-active .nav-link.active,
@@ -170,4 +162,8 @@ p a:hover, p a:focus {
 }
 
 
+.subtitle {
+  text-align: center;
+  font-size: 1.3em;
+}
 
