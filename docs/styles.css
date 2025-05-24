@@ -117,7 +117,7 @@ p a:hover, p a:focus {
 .navbar-nav .nav-link:hover,
 .navbar .nav-link:focus,
 .navbar-nav .nav-link:focus {
-  color: #1877F2 !important;
+  color: #00A0DC !important;
   text-decoration: none !important; /* Optional: underline on hover */
 }
 
@@ -160,7 +160,7 @@ p a:hover, p a:focus {
 /* Hover effect for Home link */
 .navbar .navbar-brand:hover,
 .navbar .navbar-brand:focus {
-  color: #1877F2 !important;
+  color: #00A0DC !important;
   text-decoration: none; /* Optional: underline on hover */
 }
 

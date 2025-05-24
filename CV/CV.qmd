@@ -48,7 +48,7 @@ css: cv.css
 
 -   Recipient of WGSSS‑ESRC Studentship Award
 -   Project focused on enhancing discharge care coordination in healthcare and social care using a probabilistic data-driven modelling approach
-    -   Supervisors: Prof Bahman Rostami‑Tabar, Dr. Jeremy Dixon
+    -   Supervisors: [Prof Bahman Rostami‑Tabar](https://www.bahmanrt.com/), [Dr. Jeremy Dixon](https://profiles.cardiff.ac.uk/staff/dixonj7)
 
 **MSc in Financial Mathematics**\
 [**Middle East Technical University, Ankara, Turkey**]{.cvinstitution} \hfill [*Oct 2017 --- Aug 2021*]{.cvdate}
