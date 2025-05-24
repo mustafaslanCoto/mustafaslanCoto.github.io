@@ -132,7 +132,7 @@ css: cv.css
     -   Dive into deep learning (Zhang, 2022)
 
 ::: print-only
-## **References**
+## **References** {.unlisted}
 
 \sectionline
 

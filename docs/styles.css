@@ -117,9 +117,12 @@ p a:hover, p a:focus {
 .navbar-nav .nav-link:hover,
 .navbar .nav-link:focus,
 .navbar-nav .nav-link:focus {
-  color: #1c7fb5 !important;
-  text-decoration: None;
+  color: #1877F2 !important;
+  text-decoration: none !important; /* Optional: underline on hover */
 }
+
+
+
 
 /* Highlight the active navbar link */
 .navbar .navbar-nav .nav-link.active {
@@ -157,10 +160,9 @@ p a:hover, p a:focus {
 /* Hover effect for Home link */
 .navbar .navbar-brand:hover,
 .navbar .navbar-brand:focus {
-  color: #0077B5 !important;
+  color: #1877F2 !important;
   text-decoration: none; /* Optional: underline on hover */
 }
-
 
 .subtitle {
   text-align: center;
