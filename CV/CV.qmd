@@ -5,12 +5,20 @@ jobtitle: "Data Scientist • Mathematical Modeller"
 format:
   html: default
   quarto-cv-pdf:
+    linkcolor: "mycolor"
+    urlcolor: "mycolor"
+    citecolor: "mycolor"
     include-in-header:
       text: |
         \usepackage{enumitem}
         \setlist[itemize,2]{label=\textopenbullet}
         \newcommand{\sectionline}{\vspace{-1.5em}\noindent\rule{\linewidth}{0.8pt}\vspace{-0.5em}}
         \usepackage{fontawesome5}
+        \usepackage{xcolor}
+        \usepackage{hyperref}
+        \definecolor{mycolor}{HTML}{004471}
+        \let\oldhref\href
+        \renewcommand{\href}[2]{\oldhref{#1}{\textmd{#2}}}
 # date: last-modified
 address: "Cardiff Business School, Colum Drive, Cardiff CF10 3EU, UK"
 linkedin: aslanmu
