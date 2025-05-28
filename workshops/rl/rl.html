@@ -282,7 +282,7 @@ A deterministic policy, <span class="math inline">\(\pi \approx \pi_*\)</span>, 
  <span class="math inline">\(\pi(s) = \arg\max_a \sum_{s', r} p(s', r \mid s, a) \left[ r + \gamma V(s') \right]\)</span></p>
 </div>
 </div>
-<div id="09bc58df" class="cell">
+<div id="09bc58df" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> value_iteration(env, gamma<span class="op">=</span><span class="fl">0.99</span>, theta<span class="op">=</span><span class="fl">1e-6</span>):</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Performs value iteration to compute an optimal policy.</span></span>
@@ -352,7 +352,7 @@ A deterministic policy, <span class="math inline">\(\pi \approx \pi_*\)</span>, 
 <li>The transitions define the probabilities of moving from one state to another based on the action taken.</li>
 <li>The rewards are based on the health outcomes of the actions taken.</li>
 </ul>
-<div id="4775d10c" class="cell" data-execution_count="18">
+<div id="4775d10c" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> DiabetesCareEnv:</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
@@ -448,7 +448,7 @@ A deterministic policy, <span class="math inline">\(\pi \approx \pi_*\)</span>, 
 <span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> []</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="456873e8" class="cell" data-execution_count="20">
+<div id="456873e8" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>env <span class="op">=</span> DiabetesCareEnv()</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>V, policy, hist <span class="op">=</span> value_iteration(env, gamma<span class="op">=</span><span class="fl">0.95</span>, theta<span class="op">=</span><span class="fl">1e-4</span>)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>

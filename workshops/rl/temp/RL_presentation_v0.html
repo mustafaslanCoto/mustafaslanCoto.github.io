@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-html/tabby.min.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.7.31">
 
-  <title>HOME – rl_presentation</title>
+  <title>HOME – rl_presentation_v0</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -28,12 +28,12 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-2c1b5f745a11cfad616ebade4a4a7d24.css">
+  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto-2c1b5f745a11cfad616ebade4a4a7d24.css">
   <link rel="stylesheet" href="style.css">
-  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link href="../../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
@@ -129,68 +129,21 @@
     <div class="slides">
 
 
-<section class="slide level2">
-
-<!-- logo style -->
-<style>
-  .logo-left {
-    position: absolute;
-    top: 1px;
-    left: 1px;
-  }
-
-  .logo-right {
-    position: absolute;
-    top: 1px;
-    right: 1px;
-  }
-
-  .logo-left img,
-  .logo-right img {
-    height: 140px;
-    width: auto;
-    
-  }
-  
-/* title sytle */
-  h1 {
-    text-align: center;
-  }
-
-</style>
-<div class="logo-left">
-<p><img src="images_rl/cu.jpg" alt="Left Logo"></p>
-</div>
-<div class="logo-right">
-<p><img src="images_rl/dlsg.png" alt="Right Logo"></p>
-</div>
-<br> <br> <br> <br> <br> <br>
-<h1>
-An Introduction to Reinforcement Learning
-</h1>
-<div class="title-block">
-<br> <br>
-<h3>
-Mustafa Aslan, PhD Researcher <br> Data Lab for Social Good Research Lab <br> Cardiff University, UK <br> <span style="color: rgba(179, 0, 0, 0.7); font-weight: bold;">Slides:</span> <a href="https://mustafaslancoto.github.io/workshops/" style="color: #000; font-weight: bold; text-decoration: underline dotted;text-underline-offset: 5px"> https://mustafaslancoto.github.io/workshops/ </a>
-</h3>
-<p>
-29 May 2025
-</p>
-</div>
-</section>
-<section id="outline" class="slide level2">
-<h2>Outline</h2>
+<section id="agenda" class="slide level2">
+<h2>Agenda</h2>
 <ul>
 <li>What is Reinforcement Learning</li>
-<li>Markov Decision Processes</li>
-<li>Dynamic Programming</li>
-<li>Monte Carlo Methods</li>
-<li>Temporal Difference Learning
+<li>Elements of Reinforcement Learning</li>
+<li>Categories of RL methods
 <ul>
+<li>Model-based methods <span class="math inline">\(\approx\)</span> Dynamic Programming</li>
+<li>Model-Free Methods
+<ul>
+<li>Monte Carlo</li>
 <li>Sarsa</li>
 <li>Q-learning</li>
 </ul></li>
-<li>More advanced approximation methods</li>
+</ul></li>
 </ul>
 </section>
 <section>
@@ -201,87 +154,45 @@ Mustafa Aslan, PhD Researcher <br> Data Lab for Social Good Research Lab <br> Ca
 <section id="reinforcement-learning" class="slide level2">
 <h2>Reinforcement Learning</h2>
 <ul>
-<li><code>Reinforcement learning</code> is learning what to do—how to map situations to actions to maximize a numerical reward signal.</li>
+<li>Reinforcement learning is learning what to do—how to map situations to actions to maximize a numerical reward signal.</li>
 <li>The learner is not told which actions to take, but instead must discover which actions yield the most reward by trying them.</li>
 </ul>
+</section></section>
+<section>
+<section id="elements-of-reinforcement-learning" class="title-slide slide level1 center">
+<h1>Elements of Reinforcement Learning</h1>
+
 </section>
-<section id="why-use-reinforcement-learning" class="slide level2">
-<h2>Why use Reinforcement Learning?</h2>
-<div class="columns">
-<div class="column" style="width:45%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images_rl/rl_page3.webp" class="quarto-figure quarto-figure-center" height="550"></p>
-</figure>
-</div>
-</div><div class="column" style="width:55%;">
+<section id="elements-of-reinforcement-learning-1" class="slide level2">
+<h2>Elements of Reinforcement Learning</h2>
 <ul>
-<li><p><strong><code>Model-Free Adaptation</code></strong>: Learns optimal behavior directly from experience</p></li>
-<li><p><strong><code>Long-Term Planning</code></strong>: Optimizes decisions over long time horizons</p></li>
-<li><p><strong><code>Data-Driven Policies</code></strong>: Automatically refines its policy as more data becomes available</p></li>
-<li><p><strong><code>Scalable to Complex Tasks</code></strong>: Can handle very large state-action spaces via function approximation.</p></li>
-</ul>
-</div></div>
-</section>
-<section id="core-concepts" class="slide level2">
-<h2>Core Concepts</h2>
+<li><p><em>Agent</em> is the learner and decision maker.</p>
 <ul>
-<li><p><strong><code>Agent</code></strong> is the learner and decision maker.</p>
-<ul>
-<li>It interacts with the environment continually to select actions<br>
+<li>It interacts with the environment (comprising everything outside the agent) continually to select actions<br>
 </li>
 <li>The environment responds to these actions and presents new situations to the agent.</li>
 </ul></li>
-<li><p>A <strong><code>policy</code></strong> defines the learning agent’s way of behaving at a given time.</p>
+<li><p>A <em>policy</em> defines the learning agent’s way of behaving at a given time.</p>
 <ul>
 <li>A mapping from states of the environment to actions to be taken when in those states.</li>
 </ul></li>
-<li><p>The <strong><code>reward</code></strong> signal indicates what is good immediately after each decision time.</p></li>
-<li><p>A <strong><code>value function</code></strong> specifies what is good in the long run.</p>
+<li><p>The <em>reward</em> signal indicates what is good immediately after each decision time.</p></li>
+<li><p>A <em>value function</em> specifies what is good in the long run.</p>
 <ul>
 <li>The value of a state is the total amount of reward an agent can expect to accumulate over the future, starting from that state.</li>
 </ul></li>
 </ul>
-</section></section>
-<section>
-<section id="markov-decision-processes-mdps" class="title-slide slide level1 center">
-<h1>Markov Decision Processes (MDPs)</h1>
-
 </section>
-<section id="core-definitions" class="slide level2">
-<h2>Core definitions</h2>
-<ul>
-<li><p>MDPs are a classical formalization of <code>sequential decision making</code> or reinforcement learning problem</p></li>
-<li><p>Actions taken now influence not only <code>immediate contributions</code> (e.g.&nbsp;reward, cost, profit), but also future situations (states), and consequently, <code>future contributions</code></p></li>
-<li><p>MDPs involve delayed contribution and the need to trade off immediate and delayed contributions</p></li>
-</ul>
-</section>
-<section id="the-agentenvironment-interaction-in-a-decision-process" class="slide level2">
-<h2>The agent–environment interaction in a decision process</h2>
+<section id="elements-of-reinforcement-learning-2" class="slide level2">
+<h2>Elements of Reinforcement Learning</h2>
 
 <img data-src="images_rl/agent_environment.png" class="r-stretch quarto-figure-center"><p class="caption">The agent–environment interaction in a decision process</p><p>Agent gives rise to a <code>sequence</code> that begins like this</p>
 <p><span class="math display">\[
 S_0, A_0, R_1, S_1, A_1, R_2, S_2, A_2, R_3, \dots  S_t, A_t, R_{t+1}
 \]</span></p>
 </section>
-<section id="the-agentenvironment-interaction-in-a-decision-process-continued" class="slide level2">
-<h2>The agent–environment interaction in a decision process (continued)</h2>
-<ul>
-<li><p>An MDP can be described by the tuple <span class="math inline">\((S, A, p, r(a,s), \pi)\)</span>, where:</p>
-<ul>
-<li><span class="math inline">\(S\)</span> is a finite set of states,</li>
-<li><span class="math inline">\(A\)</span> is a finite set of actions,</li>
-<li><span class="math inline">\(p(s', r \mid s, a)\)</span> is the probability of transitioning to state <span class="math inline">\(s' \in S\)</span> and receiving reward <span class="math inline">\(r(a,s)\)</span> when taking action <span class="math inline">\(a \in A\)</span> in state <span class="math inline">\(s \in S\)</span>,</li>
-<li><span class="math inline">\(r(s, a)\)</span> is the expected immediate reward received after taking action <span class="math inline">\(a\)</span> in state <span class="math inline">\(s\)</span>,</li>
-<li><span class="math inline">\(\pi\)</span> is the policy, a mapping from states to probabilities of selecting each possible action.</li>
-</ul></li>
-<li><p>The <span class="math inline">\(p(s', \mid s, a)\)</span> defines the <em>dynamics</em> of the MDP and <span class="math inline">\(p\)</span> specifies a probability distribution for each choice of <span class="math inline">\(s\)</span> and <span class="math inline">\(a\)</span>: <span class="math display">\[
-\sum_{s'\in S}p(s' \mid s, a) = 1, \text{ for all } s \in S, a \in A(s)
-\]</span></p></li>
-</ul>
-</section>
-<section id="the-goal-of-agent" class="slide level2 smaller">
-<h2>The Goal of Agent</h2>
+<section id="goals-and-rewards" class="slide level2 smaller">
+<h2>Goals and Rewards</h2>
 <ul>
 <li>At each time step, the reward is a simple number, <span class="math inline">\(R_t \in \mathbb{R}\)</span> passing from the environment to the agent.</li>
 <li>The agent’s goal is to maximize the total (cumulative) amount of reward it receives in the long run.</li>
@@ -289,7 +200,7 @@ S_0, A_0, R_1, S_1, A_1, R_2, S_2, A_2, R_3, \dots  S_t, A_t, R_{t+1}
 G_t \doteq R_{t+1} + R_{t+2} + R_{t+3}+ \dots+R_T
 \]</span></li>
 </ul>
-<p><em><code>Discounting</code></em> technique is used to prioritize immediate rewards over future rewards.</p>
+<p><em>Discounting</em> technique is used to prioritize immediate rewards over future rewards.</p>
 <ul>
 <li>The idea is to multiply future rewards by a discount factor <span class="math inline">\(\gamma \in (0,1]\)</span></li>
 <li>This makes future rewards worth less than immediate rewards.</li>
@@ -302,59 +213,136 @@ G_t \doteq R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + \cdots = \sum_{k=0}^{\i
 <section id="policies-and-value-functions" class="slide level2">
 <h2>Policies and Value Functions</h2>
 <ul>
-<li><p>A <strong><code>policy</code></strong> is a mapping from states to probabilities of selecting each possible action. If the agent is following policy <span class="math inline">\(\pi\)</span> at time <span class="math inline">\(t\)</span>, then <span class="math inline">\(\pi(a \mid s)\)</span> is the probability that <span class="math inline">\(A_t = a\)</span> if <span class="math inline">\(S_t = s\)</span></p></li>
-<li><p><strong><code>Value functions—functions of states</code></strong> estimate <em>how good</em> it is for the agent to be in a given state (or how good it is to perform a given action in a given state).</p></li>
-<li><p>The value of a state <span class="math inline">\(s\)</span> under a policy <span class="math inline">\(\pi\)</span>, denoted <span class="math inline">\(v_\pi\)</span> is expressed as <span class="math display">\[
-v_\pi(s) \doteq \mathbb{E}_\pi[G_t | S_t=s] = \mathbb{E}_\pi\left[\sum_{k=0}^{\infty} \gamma^k R_{t+k+1} \mid S_t=s\right], \text{ for all } s \in S,
-\]</span></p></li>
+<li><p>A <strong>policy</strong> is a mapping from states to probabilities of selecting each possible action. If the agent is following policy <span class="math inline">\(\pi\)</span> at time <span class="math inline">\(t\)</span>, then <span class="math inline">\(\pi(a \mid s)\)</span> is the probability that <span class="math inline">\(A_t = a\)</span> if <span class="math inline">\(S_t = s\)</span></p></li>
+<li><p><em><code>Value functions—functions of states (or of state–action pairs)</code></em> estimate <em>how good</em> it is for the agent to be in a given state (or how good it is to perform a given action in a given state)</p>
+<ul>
+<li>The <em>value function</em> of a state <span class="math inline">\(s\)</span> under a policy <span class="math inline">\(\pi\)</span>, denoted <span class="math inline">\(v_\pi(s)\)</span> is: <span class="math display">\[
+v_\pi(s) \doteq \mathbb{E}_\pi[G_t | S_t=s] = \mathbb{E}_\pi\left[\sum_{k=0}^{\infty} \gamma^k R_{t+k+1} \mid S_t=s\right], \text{ for all } s \in \mathbf{S},
+\]</span></li>
+</ul></li>
 </ul>
 <p>where <span class="math inline">\(\mathbb{E}[\cdot]\)</span> denotes the expected value of a random variable given that the agent follows policy <span class="math inline">\(\pi\)</span>, and <span class="math inline">\(t\)</span> is any time step.</p>
-</section>
-<section id="bellman-equation" class="slide level2 smaller">
-<h2>Bellman Equation</h2>
-<p>To solve stochastic sequential decision problems</p>
-<ol type="1">
-<li><p>We have to model the fact that new information becomes available after we make the decision <span class="math inline">\(a_t\)</span>.</p></li>
-<li><p>The result can be uncertainty in both the contribution earned, and in the determination of the next state we visit, <span class="math inline">\(S_{t+1}\)</span>.</p></li>
-</ol>
-<p>We estimate the <code>expected future contributions (cumulative rewards)</code> and add the <code>immediate contribution</code> received from the action taken in the current state <code>following a given policy</code>. This relationship is expressed by the Bellman equation, defined as:</p>
-<!-- V_\pi(S_t) = \max_{a_t \in A_t} \left( \underbrace{r_{t+1}(S_t, a_t)}_{\text{immediate contribution}} +\ 
-\underbrace{\gamma \mathbb{E}[V_{t+1}(S_{t+1}) \mid S_t, a_t]}_{\text{future contributions}}
-\right) -->
-<p><span class="math display">\[
-V_\pi(S_t) = \max_{a_t \in A_t} \left(r_{t+1}(S_t, a_t) +\
-\gamma \mathbb{E}[V_{t+1}(S_{t+1}) \mid S_t, a_t]
-\right)
-\]</span></p>
-<p>This equation can be solved backward or forward recursively. You get the value functions and at the same time an optimal policy at time <span class="math inline">\(t\)</span></p>
-<p><span class="math display">\[
-a_t^*(S_t) = \arg\max_{a_t \in A_t} \left(r_{t+1}(S_t, a_t) + \gamma [V_{t+1}(S_{t+1}) \mid S_t, a_t] \right),
-\]</span></p>
 </section></section>
 <section>
-<section id="dynamic-programming" class="title-slide slide level1 center">
-<h1>Dynamic Programming</h1>
+<section id="categories-of-rl-methods" class="title-slide slide level1 center">
+<h1>Categories of RL methods</h1>
 
 </section>
-<section id="policy-evalulation-prediction" class="slide level2">
-<h2>Policy Evalulation (Prediction)</h2>
+<section id="categories-of-reinforcement-learning-methods" class="slide level2 smaller">
+<h2>Categories of reinforcement learning methods</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="model-based"><code>Model-based</code></h3>
+<div class="fragment">
 <ul>
-<li><p><em>Policy evaluation</em> is the computation of the state-value function <span class="math inline">\(v_\pi\)</span> for an arbitrary policy <span class="math inline">\(\pi\)</span>.</p></li>
-<li><p>Consider a sequence of approximate value functions <span class="math inline">\(v_0, v_1, v_2,\dots,\)</span>. Each successive approximation is obtained by using the <code>Bellman equation</code> for <span class="math inline">\(v_\pi\)</span> as an update rule:</p></li>
+<li>The agent knows/learns the model of the environment</li>
+<li>They then compute the policy using the ADP methods or the model-free methods on simulated data</li>
+</ul>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>Sample efficient</li>
+<li>Safer exploration</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>Prone to the model errors</li>
+<li>Learning a model is challenging</li>
+</ul>
+</div>
+</div><div class="column" style="width:50%;">
+<h3 id="model-free"><code>Model-free</code></h3>
+<div class="fragment">
+<ul>
+<li>The agent does not know the model of the environment</li>
+<li>They learn the values or policies from trial-and-error interactions with the environment</li>
+</ul>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>Do not need a model</li>
+<li>Flexible</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>Sample inefficient: requires a lot of interactions with the environment</li>
+<li>Slow convergence</li>
+</ul>
+</div>
+</div></div>
+</section>
+<section id="model-based-methods-dynamic-programming" class="slide level2">
+<h2>Model-based methods (Dynamic Programming)</h2>
+<p>Conditional probability of the next state given the current state and action taken <span class="math display">\[
+p(s' \mid s, a) \doteq \Pr \{ S_t = s' \mid S_{t-1} = s, A_{t-1} = a \}, \text{ for all } s',s \in S, \text{and} a \in A(s)
+\]</span></p>
+<p>The function <span class="math inline">\(p\)</span> defines the <em>dynamics</em> of the MDP</p>
+<p><span class="math inline">\(p(s', \mid s, a)\)</span> is a <em>dynamics function</em> and <span class="math inline">\(p\)</span> specifies a probability distribution for each choice of <span class="math inline">\(s\)</span> and <span class="math inline">\(a\)</span>, that is: <span class="math display">\[
+\sum_{s'\in S}p(s'\mid s, a) = 1, \text{ for all } s \in S, a \in A(s)
+\]</span></p>
+</section>
+<section id="model-based-methods-dynamic-programming-1" class="slide level2">
+<h2>Model-based methods (Dynamic Programming)</h2>
+<ul>
+<li>They are used to derive optimal policies and value functions in Markov Decision Processes (MDPs) and reinforcement learning.</li>
+</ul>
+<h4 id="bellman-equation">Bellman Equation</h4>
+<ul>
+<li>The Bellman equations express the relationship between the value of a state and the values of its successor states. For the state-value function <span class="math inline">\(v_\pi\)</span>, the Bellman equation is:</li>
 </ul>
 <p><span class="math display">\[
 \begin{aligned}
-v_{k+1}(s) &amp;\doteq \mathbb{E}_\pi \big[G_t \mid S_t = s \big] \\
-&amp;= \mathbb{E}_\pi \big[r_{t+1} + \gamma G_{t+1} \mid S_t = s \big] \\
-&amp;\doteq \mathbb{E}_\pi \big[r_{t+1} + \gamma v_k(S_{t+1}) \mid S_t = s \big] \\
+v_\pi(s) &amp;\doteq \mathbb{E}_\pi \big[G_t \mid S_t = s \big] \\
+         &amp;= \mathbb{E}_\pi \big[R_{t+1} + \gamma G_{t+1} \mid S_t = s \big] \\
+         &amp;= \mathbb{E}_\pi \big[R_{t+1} + \gamma v_\pi(S_{t+1}) \mid S_t = s \big] \\
+         &amp;= \sum_a \pi(a \mid s) \sum_{s',r} p(s', r \mid s, a) \big[ r + \gamma v_\pi(s') \big].
+\end{aligned}
+\]</span></p>
+</section>
+<section id="model-based-methods-dynamic-programming-2" class="slide level2 smaller">
+<h2>Model-based methods (Dynamic Programming)</h2>
+<ul>
+<li><p>An optimal policy is a policy that achieves the maximum expected return from any initial state.</p></li>
+<li><p>The optimal state-value function <span class="math inline">\(v_*\)</span> is the maximum value function over all policies: <span class="math display">\[
+v_*(s) = \max_\pi v_\pi(s), \text{ for all } s \in S
+\]</span></p></li>
+<li><p>The optimal action-value function <span class="math inline">\(q_*\)</span> is the maximum action-value function over all policies: <span class="math display">\[
+q_*(s, a) = \max_\pi q_\pi(s, a), \text{ for all } s \in S, a \in A(s)
+\]</span></p></li>
+</ul>
+<p>We use Dynamic Programming (DP) to leverage value functions in the search for good policies.</p>
+<ul>
+<li><p>The Bellman optimality equation for <span class="math inline">\(v_*\)</span> is: <span class="math display">\[
+\begin{aligned}
+v_*(s) &amp;= \max_a \mathbb{E} \big[R_{t+1} + \gamma v_*(S_{t+1}) \mid S_{t} = s, A_{t} = a  \big] \\
+    &amp;= \max_a \sum_{s',r}p(s',r|s,a) \big[r+\gamma v_*(s')],
+\end{aligned}
+\]</span></p></li>
+<li><p>The Bellman optimality equation for <span class="math inline">\(q_*\)</span> is: <span class="math display">\[
+q_*(s, a) = \sum_{s', r} p(s', r \mid s, a) \big[ r + \gamma \max_{a'} q_*(s', a') \big]
+\]</span></p></li>
+</ul>
+</section>
+<section id="policy-evalulation-prediction" class="slide level2 smaller">
+<h2>Policy Evalulation (Prediction)</h2>
+<p><em>Policy evaluation</em> is the computation of the state-value function <span class="math inline">\(v_\pi\)</span> for an arbitrary policy <span class="math inline">\(\pi\)</span>. We also refer to it as the *prediction problem. <span class="math display">\[
+\begin{aligned}
+v_\pi(s) &amp;\doteq \mathbb{E}_\pi \big[G_t \mid S_t = s \big] \\
+         &amp;= \mathbb{E}_\pi \big[R_{t+1} + \gamma G_{t+1} \mid S_t = s \big] \\
+         &amp;= \mathbb{E}_\pi \big[R_{t+1} + \gamma v_\pi(S_{t+1}) \mid S_t = s \big] \\
+         &amp;= \sum_a \pi(a \mid s) \sum_{s',r} p(s', r \mid s, a) \big[ r + \gamma v_\pi(s') \big].
+\end{aligned}
+\]</span></p>
+<p>where <span class="math inline">\(\pi(a|s)\)</span> is the probability of taking action <span class="math inline">\(\alpha\)</span> in state <span class="math inline">\(s\)</span> under policy <span class="math inline">\(\pi\)</span>, and the expectations are subscripted by <span class="math inline">\(\pi\)</span> to indicate that they are conditional on <span class="math inline">\(\pi\)</span> being followed.</p>
+<p>Consider a sequence of approximate value functions <span class="math inline">\(v_0, v_1, v_2,\dots,\)</span>. Each successive approximation is obtained by using the Bellman equation for <span class="math inline">\(v_\pi\)</span> as an update rule:</p>
+<p><span class="math display">\[
+\begin{aligned}
+v_{k+1}(s) &amp;\doteq \mathbb{E}_\pi \big[R_{t+1} + \gamma v_k(S_{t+1}) \mid S_t = s \big] \\
          &amp;= \sum_a \pi(a \mid s) \sum_{s',r} p(s', r \mid s, a) \big[ r + \gamma v_k(s') \big].
 \end{aligned}
 \]</span></p>
-<p>where <span class="math inline">\(k\)</span> refers to iteration number.</p>
 </section>
 <section id="policy-evalulation-prediction-1" class="slide level2">
 <h2>Policy Evalulation (Prediction)</h2>
-<p>The sequence <span class="math inline">\({v_k}\)</span> can be shown in general to converge to <span class="math inline">\(v_\pi\)</span> as <span class="math inline">\(k \rightarrow \infty\)</span>. This algorithm is called <em><code>iterative policy evaluation</code></em>.</p>
+<p>The sequence <span class="math inline">\({v_k}\)</span> can be shown in general to converge to <span class="math inline">\(v_\pi\)</span> as <span class="math inline">\(k \rightarrow \infty\)</span> under the same conditions that guarantee the existence of <span class="math inline">\(v_\pi\)</span>. This algorithm is called <em>iterative policy evaluation</em>.</p>
 <div class="callout callout-note no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -378,17 +366,45 @@ Loop for each <span class="math inline">\(s \in S\)</span>:<br>
 </section>
 <section id="policy-improvement" class="slide level2">
 <h2>Policy Improvement</h2>
+<div class="columns">
+<div class="column fragment" style="font-size: 70%;">
 <ul>
-<li><p>We know how good it is to follow the current policy from <span class="math inline">\(s\)</span>—that is <span class="math inline">\(v_\pi(s)\)</span></p></li>
-<li><p>But would it be better or worse to change to the new policy?</p></li>
+<li>We know how good it is to follow the current policy from <span class="math inline">\(s\)</span>—that is <span class="math inline">\(v_\pi(s)\)</span>—but would it be better or worse to change to the new policy?</li>
 </ul>
+<p>One way to answer this question is to consider selecting <span class="math inline">\(a\)</span> in <span class="math inline">\(s\)</span> and thereafter following the existing policy <span class="math inline">\(\pi\)</span>.</p>
+<p>This leads to the definition of the <em>q-value</em> of a state-action pair:</p>
+<p><span class="math display">\[
+\begin{aligned}
+q_\pi(s, a) &amp;\doteq \mathbb{E} \big[ R_{t+1} + \gamma v_\pi(S_{t+1}) \mid S_t = s, A_t = a \big] \\
+     &amp;= \sum_{s', r} p(s', r \mid s, a) \big[ r + \gamma v_\pi(s') \big].
+\end{aligned}
+\]</span></p>
+</div><div class="column fragment" style="font-size: 70%;">
+<p>The policy improvement theorem states that if we improve the policy by acting greedily with respect to <span class="math inline">\(q_\pi\)</span>, the new policy <span class="math inline">\(\pi'\)</span> will be at least as good as <span class="math inline">\(\pi\)</span>.</p>
+<p>Formally, if</p>
+<p><span class="math display">\[
+\begin{aligned}
+\pi'(s) &amp;= \arg\max_a q_\pi(s, a) \\
+&amp;= \arg \max_a \mathbb{E} \big[R_{t+1}+\gamma v_\pi(S_{t+1}) \mid S_t=s, A_t=a \big] \\
+&amp;= \arg \max_a \sum_{s',r}p(s',r \mid s, a) \big[r+\gamma v_\pi(s') \big]
+\end{aligned}
+\]</span></p>
+<p>then</p>
+<p><span class="math display">\[
+v_{\pi'}(s) \geq v_\pi(s).
+\]</span></p>
+<p>for all <span class="math inline">\(s \in S\)</span>.</p>
+</div></div>
+</section>
+<section id="policy-iteration" class="slide level2">
+<h2>Policy Iteration</h2>
 <p>Once a policy, <span class="math inline">\(\pi\)</span>, has been improved using <span class="math inline">\(v_\pi\)</span> to yield a better policy, <span class="math inline">\(\pi^{'}\)</span>, we can then compute <span class="math inline">\(v_{\pi^{'}}\)</span> and improve it again to yield an even better <span class="math inline">\(\pi^{''}\)</span>.</p>
 <p><span class="math display">\[
 \pi_0 \xrightarrow E v_{\pi_0} \xrightarrow I \pi_1 \xrightarrow E v_{\pi_1}\xrightarrow I \pi_2,\dots \xrightarrow I \pi_* \xrightarrow E v_*
 \]</span></p>
 <p>where <span class="math inline">\(\xrightarrow E\)</span> denotes a policy <em>evaluation</em> and <span class="math inline">\(\xrightarrow I\)</span> denotes a policy <em>improvement</em>. This way of finding an optimal policy is called policy iteration.</p>
 </section>
-<section id="policy-iteration" class="slide level2 smaller">
+<section id="policy-iteration-1" class="slide level2 smaller">
 <h2>Policy Iteration</h2>
 <p>A complete <em>policy iteration</em> algorithm</p>
 <div class="callout callout-note no-icon callout-titled callout-style-default">
@@ -423,7 +439,7 @@ Else go to step 2</p>
 <section id="value-iteration" class="slide level2">
 <h2>Value Iteration</h2>
 <ul>
-<li>One drawback to policy iteration is that each of its iterations involves policy evaluation, which may need a huge iterative computation requiring multiple sweeps through the state set.</li>
+<li>One drawback to policy iteration is that each of its iterations involves policy evaluation, which may itself be a protracted iterative computation requiring multiple sweeps through the state set.</li>
 <li>Value iteration is a special case of policy iteration where the policy evaluation step is truncated to just one sweep.</li>
 <li>This algorithm combines the policy improvement and truncated policy evaluation steps into a single update operation:</li>
 </ul>
@@ -438,7 +454,7 @@ v_{k+1}(s) &amp;= \mathbb{E} \big[R_{t+1} + \gamma v_k(S_{t+1}) \mid S_t=s, A_t 
 <section id="value-iteration-1" class="slide level2 smaller">
 <h2>Value Iteration</h2>
 <ul>
-<li>Value iteration is also obtained simply by turning the Bellman optimality equation into an update rule.</li>
+<li>Value iteration is obtained simply by turning the Bellman optimality equation into an update rule.</li>
 <li>Also note how the value iteration update is identical to the policy evaluation update except that it requires the maximum to be taken over all actions.</li>
 </ul>
 <div class="callout callout-note no-icon callout-titled callout-style-default">
@@ -465,9 +481,33 @@ A deterministic policy, <span class="math inline">\(\pi \approx \pi_*\)</span>, 
 </div>
 </div>
 </section></section>
+<section>
 <section id="lets-code" class="title-slide slide level1 center">
 <h1>Let’s code</h1>
 
+</section>
+<section id="generalized-policy-iteration" class="slide level2 smaller">
+<h2>Generalized Policy Iteration</h2>
+<div class="columns">
+<div class="column fragment" style="font-size: 100%;">
+<ul>
+<li><p>GPI is a general idea that describes how two processes — <em>evaluating a policy and improving it</em> — work together and influence each other.</p></li>
+<li><p>Most reinforcement learning algorithms use a value function to judge how good a policy is, and then update the policy based on that judgment.</p></li>
+<li><p>If both value estimation and policy improvement stabilize (i.e., stop changing), then the policy must be the best possible one for that value function—meaning the policy is optimal.</p></li>
+</ul>
+</div><div class="column fragment" style="font-size: 100%;">
+<p><img data-src="images_rl/eval_greed_diag.png"></p>
+</div></div>
+</section></section>
+<section id="model-free-methods" class="title-slide slide level1 center">
+<h1>Model-free methods</h1>
+<div class="center-text">
+<ul>
+<li><strong>Monte Carlo Methods</strong></li>
+<li><strong>Sarsa</strong></li>
+<li><strong>Q-learning</strong></li>
+</ul>
+</div>
 </section>
 
 <section>
@@ -483,9 +523,11 @@ A deterministic policy, <span class="math inline">\(\pi \approx \pi_*\)</span>, 
 <li><p>They do not require knowledge of the environment’s dynamics, making them powerful for learning from real or simulated experiences.</p></li>
 </ul>
 </section>
-<section id="monte-carlo-prediction" class="slide level2">
+<section id="monte-carlo-prediction" class="slide level2 smaller">
 <h2>Monte Carlo Prediction</h2>
-<p>Suppose we wish to estimate <span class="math inline">\(v_{\pi}(s)\)</span>, the values of a state <span class="math inline">\(s\)</span> under policy <span class="math inline">\(\pi\)</span>, given a set of episodes obtained by following <span class="math inline">\(\pi\)</span> and passing through <span class="math inline">\(s\)</span>.</p>
+<ul>
+<li>Suppose we wish to estimate <span class="math inline">\(v_{\pi}(s)\)</span>, the values of a state <span class="math inline">\(s\)</span> under policy <span class="math inline">\(\pi\)</span>, given a set of episodes obtained by following <span class="math inline">\(\pi\)</span> and passing through <span class="math inline">\(s\)</span>.</li>
+</ul>
 <div class="callout callout-note no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -589,24 +631,27 @@ Small <span class="math inline">\(\varepsilon &gt; 0\)</span></p>
 <p>The <span class="math inline">\(\epsilon\)</span>-greedy policy ensures that all actions are tried, but actions with higher value estimates are tried more frequently. This balances exploration (trying new actions) and exploitation (choosing the best-known action).</p>
 </section></section>
 <section>
-<section id="temporal-difference-td-learning" class="title-slide slide level1 center">
-<h1>Temporal-Difference (TD) Learning</h1>
+<section id="temporal-difference-learning" class="title-slide slide level1 center">
+<h1>Temporal-Difference Learning</h1>
 
 </section>
-<section id="what-is-td-learning" class="slide level2">
-<h2>What is TD Learning</h2>
+<section id="temporal-difference-learning-1" class="slide level2">
+<h2>Temporal-Difference Learning</h2>
 <ul>
 <li>TD learning is a combination of Monte Carlo ideas and dynamic programming (DP) ideas.</li>
 <li>Like Monte Carlo methods, TD methods can learn directly from raw experience without a model of the environment’s dynamics.</li>
-<li>Like DP, TD methods update estimates without waiting for a final outcome.</li>
-<li>Whereas Monte Carlo methods must wait until the end of the episode to determine the increment to <span class="math inline">\(V(St)\)</span></li>
+<li>Like DP, TD methods update estimates based in part on other learned estimates, without waiting for a final outcome (they bootstrap).</li>
 </ul>
-<p>The simplest TD method updates <span class="math inline">\(v_(S_t)\)</span> as follow:</p>
-<p><span class="math display">\[
-v(S_t) \leftarrow v(S_t) + \alpha \big[r_{t+1} + \gamma v(S_{t+1})-v(S_t)  \big]
-\]</span></p>
 </section>
 <section id="td-prediction" class="slide level2">
+<h2>TD Prediction</h2>
+<p>Whereas Monte Carlo methods must wait until the end of the episode to determine the increment to <span class="math inline">\(V(St)\)</span> (only then is <span class="math inline">\(G_t\)</span> known), TD methods need to wait only until the next time step. At time t + 1 they immediately form a target and make a useful update using the observed reward <span class="math inline">\(R_{t+1}\)</span> and the estimate <span class="math inline">\(V_{S_{t+1}}\)</span>. The simplest TD method makes the update:</p>
+<p><span class="math display">\[
+V(S_t) \leftarrow V(S_t) + \alpha \big[ R_{t+1} + \gamma V(S_{t+1})-V(S_t)  \big]
+\]</span></p>
+<p>immediately on transition to <span class="math inline">\(S_{t+1}\)</span> and receiving <span class="math inline">\(R_{t+1}\)</span>. In effect, the target for the Monte Carlo update is <span class="math inline">\(G_t\)</span>, whereas the target for the TD update is <span class="math inline">\(R_{t+1} + \gamma V(S_{t+1})\)</span>. This TD method is called TD(0), or <em>one-step</em> TD.</p>
+</section>
+<section id="td-prediction-1" class="slide level2">
 <h2>TD Prediction</h2>
 <div class="callout callout-note no-icon callout-titled callout-style-default">
 <div class="callout-body">
@@ -634,7 +679,7 @@ Step size <span class="math inline">\(\alpha \in (0, 1]\)</span></p>
 </section>
 <section id="sarsa-on-policy-td-control" class="slide level2 smaller">
 <h2>Sarsa: On-policy TD Control</h2>
-<p>We consider transitions from state–action pair to state–action pair, and learn the values of state–action pairs.</p>
+<p>we consider transitions from state–action pair to state–action pair, and learn the values of state–action pairs.</p>
 <p><span class="math display">\[
 Q(S_t, A_t) \leftarrow Q(S_t, A_t) + \alpha \big[R_{t+1}+\gamma Q(S_{t+1}, A_{t+1})-Q(S_t, A_t) \big]
 \]</span></p>
@@ -661,8 +706,13 @@ Step size <span class="math inline">\(\alpha \in (0, 1]\)</span>, small <span cl
 </div>
 </div>
 </div>
+</section></section>
+<section>
+<section id="lets-code-2" class="title-slide slide level1 center">
+<h1>Let’s code</h1>
+
 </section>
-<section id="q-learning-off-policy-td-control" class="slide level2 smaller-font">
+<section id="q-learning-off-policy-td-control" class="slide level2 smaller">
 <h2>Q-learning: Off-policy TD Control</h2>
 <p><em>Q-learning</em> is defined by</p>
 <p><span class="math display">\[
@@ -693,50 +743,9 @@ except that <span class="math inline">\(Q(\text{terminal}, \cdot) = 0\)</span></
 </div>
 </section></section>
 <section>
-<section id="lets-code-2" class="title-slide slide level1 center">
+<section id="lets-code-3" class="title-slide slide level1 center">
 <h1>Let’s code</h1>
 
-</section>
-<section id="model-based-vs-model-free-methods" class="slide level2 smaller">
-<h2>Model-based vs Model-free Methods</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<h3 id="model-based"><code>Model-based</code></h3>
-<div class="fragment">
-<ul>
-<li>The agent knows/learns the model of the environment</li>
-<li>They then compute the policy using the ADP methods or the model-free methods on simulated data</li>
-</ul>
-<p><strong>Pros:</strong></p>
-<ul>
-<li>Sample efficient</li>
-<li>Safer exploration</li>
-</ul>
-<p><strong>Cons:</strong></p>
-<ul>
-<li>Prone to the model errors</li>
-<li>Learning a model is challenging</li>
-</ul>
-</div>
-</div><div class="column" style="width:50%;">
-<h3 id="model-free"><code>Model-free</code></h3>
-<div class="fragment">
-<ul>
-<li>The agent does not know the model of the environment</li>
-<li>They learn the values or policies from trial-and-error interactions with the environment</li>
-</ul>
-<p><strong>Pros:</strong></p>
-<ul>
-<li>Do not need a model</li>
-<li>Flexible</li>
-</ul>
-<p><strong>Cons:</strong></p>
-<ul>
-<li>Sample inefficient: requires a lot of interactions with the environment</li>
-<li>Slow convergence</li>
-</ul>
-</div>
-</div></div>
 </section>
 <section id="recommended-materials" class="slide level2">
 <h2>Recommended materials</h2>
@@ -745,7 +754,7 @@ except that <span class="math inline">\(Q(\text{terminal}, \cdot) = 0\)</span></
 <li><a href="http://www.incompleteideas.net/book/the-book-2nd.html">Reinforcement Learning: An Introduction</a> by Richard S. Sutton and Andrew G. Barto</li>
 <li><a href="https://castle.princeton.edu/rlso/">Reinforcement Learning and Stochastic Optimization</a> by Warren B. Powell</li>
 </ul>
-<h3 id="tutoriols-by-steve-brunton">Tutoriols by <code>Steve Brunton</code>:</h3>
+<h3 id="tutoriols">Tutoriols:</h3>
 <iframe data-external="1" src="https://www.youtube.com/embed/0MNVhXEX9to" title="Reinforcement Learning: Machine Learning Meets Control Theory" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
 <iframe data-external="1" src="https://www.youtube.com/embed/i7q8bISGwMQ" title="Reinforcement Learning Series: Overview of Methods" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
 <iframe data-external="1" src="https://www.youtube.com/embed/sJIFUTITfBc" title="Model Based Reinforcement Learning: Policy Iteration, Value Iteration, and Dynamic Programming" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
@@ -765,19 +774,19 @@ except that <span class="math inline">\(Q(\text{terminal}, \cdot) = 0\)</span></
 </div></div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
+  <script src="../../../site_libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
-  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -940,7 +949,7 @@ except that <span class="math inline">\(Q(\text{terminal}, \cdot) = 0\)</span></
         // specified using percentage units.
         width: 1600,
 
-        height: 800,
+        height: 900,
 
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
