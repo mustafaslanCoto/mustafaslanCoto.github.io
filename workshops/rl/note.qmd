@@ -1,0 +1,14 @@
+---
+title: Notes for presentation
+---
+
+page 2
+- **Model-Free Adaptation**:  Learns optimal behavior directly from experience, without needing an explicit model of the environment.  
+
+- **Long-Term Planning**: Optimizes decisions over long time horizons by balancing immediate vs. future rewards.  
+- **Scalable to Complex Tasks**  
+  Can handle very large state-action spaces via function approximation (e.g., neural networks).  
+- **Interactive Settings**  
+  Ideal when you have an agent interacting with an environment (games, robotics, resource allocation).  
+- **Data-Driven Policies**  
+  Automatically refines its policy as more data becomes available, making it robust to non-stationarity.

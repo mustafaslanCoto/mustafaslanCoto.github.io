@@ -325,5 +325,16 @@
   },
   "workshops/intro_python/intro_to_python_part_3.qmd": {
     "intro_to_python_part_3.html": "8d658d69"
+  },
+  "workshops/rl/RL_presentation_new.qmd": {
+    "RL_presentation_new.html": "ce5cf1c6",
+    "RL_presentation_new.tex": "5390373a",
+    "RL_presentation_new.typ": "d0d13e43"
+  },
+  "workshops/rl/cc.qmd": {
+    "cc.html": "65fb0523"
+  },
+  "workshops/rl/xx.qmd": {
+    "xx.html": "9f9d4c72"
   }
 }

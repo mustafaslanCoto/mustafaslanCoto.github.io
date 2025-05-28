@@ -9,7 +9,7 @@
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.7.29">
 
-  <title>HOME – rl_presentation</title>
+  <title>HOME – rl_presentation_new</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -169,17 +169,17 @@
 An Introduction to Reinforcement Learning
 </h1>
 <div class="title-block">
-<br> <br>
+<br> <br> <br> <br>
 <h3>
 Mustafa Aslan, PhD Researcher <br> Data Lab for Social Good Research Lab <br> Cardiff University, UK <br> <span style="color: rgba(179, 0, 0, 0.7); font-weight: bold;">Slides:</span> <a href="https://mustafaslancoto.github.io/workshops/" style="color: #000; font-weight: bold; text-decoration: underline dotted;text-underline-offset: 5px"> https://mustafaslancoto.github.io/workshops/ </a>
 </h3>
 <p>
-29 May 2025
+15 May 2025
 </p>
 </div>
 </section>
-<section id="outline" class="slide level2">
-<h2>Outline</h2>
+<section id="agenda" class="slide level2">
+<h2>Agenda</h2>
 <ul>
 <li>What is Reinforcement Learning</li>
 <li>Markov Decision Processes</li>
@@ -204,24 +204,6 @@ Mustafa Aslan, PhD Researcher <br> Data Lab for Social Good Research Lab <br> Ca
 <li><code>Reinforcement learning</code> is learning what to do—how to map situations to actions to maximize a numerical reward signal.</li>
 <li>The learner is not told which actions to take, but instead must discover which actions yield the most reward by trying them.</li>
 </ul>
-</section>
-<section id="why-use-reinforcement-learning" class="slide level2">
-<h2>Why use Reinforcement Learning?</h2>
-<div class="columns">
-<div class="column" style="width:45%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images_rl/rl_page3.webp" class="quarto-figure quarto-figure-center" height="550"></p>
-</figure>
-</div>
-</div><div class="column" style="width:55%;">
-<ul>
-<li><p><strong><code>Model-Free Adaptation</code></strong>: Learns optimal behavior directly from experience</p></li>
-<li><p><strong><code>Long-Term Planning</code></strong>: Optimizes decisions over long time horizons</p></li>
-<li><p><strong><code>Data-Driven Policies</code></strong>: Automatically refines its policy as more data becomes available</p></li>
-<li><p><strong><code>Scalable to Complex Tasks</code></strong>: Can handle very large state-action spaces via function approximation.</p></li>
-</ul>
-</div></div>
 </section>
 <section id="core-concepts" class="slide level2">
 <h2>Core Concepts</h2>
@@ -318,12 +300,9 @@ v_\pi(s) \doteq \mathbb{E}_\pi[G_t | S_t=s] = \mathbb{E}_\pi\left[\sum_{k=0}^{\i
 <li><p>The result can be uncertainty in both the contribution earned, and in the determination of the next state we visit, <span class="math inline">\(S_{t+1}\)</span>.</p></li>
 </ol>
 <p>We estimate the <code>expected future contributions (cumulative rewards)</code> and add the <code>immediate contribution</code> received from the action taken in the current state <code>following a given policy</code>. This relationship is expressed by the Bellman equation, defined as:</p>
-<!-- V_\pi(S_t) = \max_{a_t \in A_t} \left( \underbrace{r_{t+1}(S_t, a_t)}_{\text{immediate contribution}} +\ 
-\underbrace{\gamma \mathbb{E}[V_{t+1}(S_{t+1}) \mid S_t, a_t]}_{\text{future contributions}}
-\right) -->
 <p><span class="math display">\[
-V_\pi(S_t) = \max_{a_t \in A_t} \left(r_{t+1}(S_t, a_t) +\
-\gamma \mathbb{E}[V_{t+1}(S_{t+1}) \mid S_t, a_t]
+V_\pi(S_t) = \max_{a_t \in A_t} \left( \underbrace{r_{t+1}(S_t, a_t)}_{\text{immediate contribution}} +\
+\underbrace{\gamma \mathbb{E}[V_{t+1}(S_{t+1}) \mid S_t, a_t]}_{\text{future contributions}}
 \right)
 \]</span></p>
 <p>This equation can be solved backward or forward recursively. You get the value functions and at the same time an optimal policy at time <span class="math inline">\(t\)</span></p>
@@ -354,7 +333,7 @@ v_{k+1}(s) &amp;\doteq \mathbb{E}_\pi \big[G_t \mid S_t = s \big] \\
 </section>
 <section id="policy-evalulation-prediction-1" class="slide level2">
 <h2>Policy Evalulation (Prediction)</h2>
-<p>The sequence <span class="math inline">\({v_k}\)</span> can be shown in general to converge to <span class="math inline">\(v_\pi\)</span> as <span class="math inline">\(k \rightarrow \infty\)</span>. This algorithm is called <em><code>iterative policy evaluation</code></em>.</p>
+<p>The sequence <span class="math inline">\({v_k}\)</span> can be shown in general to converge to <span class="math inline">\(v_\pi\)</span> as <span class="math inline">\(k \rightarrow \infty\)</span>. This algorithm is called <code>*iterative policy evaluation*</code>.</p>
 <div class="callout callout-note no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -379,9 +358,9 @@ Loop for each <span class="math inline">\(s \in S\)</span>:<br>
 <section id="policy-improvement" class="slide level2">
 <h2>Policy Improvement</h2>
 <ul>
-<li><p>We know how good it is to follow the current policy from <span class="math inline">\(s\)</span>—that is <span class="math inline">\(v_\pi(s)\)</span></p></li>
-<li><p>But would it be better or worse to change to the new policy?</p></li>
+<li>We know how good it is to follow the current policy from <span class="math inline">\(s\)</span>—that is <span class="math inline">\(v_\pi(s)\)</span> — But would it be better or worse to change to the new policy?</li>
 </ul>
+<p>One way to answer this question is to consider selecting <span class="math inline">\(a\)</span> in <span class="math inline">\(s\)</span> and thereafter following the existing policy <span class="math inline">\(\pi\)</span>.</p>
 <p>Once a policy, <span class="math inline">\(\pi\)</span>, has been improved using <span class="math inline">\(v_\pi\)</span> to yield a better policy, <span class="math inline">\(\pi^{'}\)</span>, we can then compute <span class="math inline">\(v_{\pi^{'}}\)</span> and improve it again to yield an even better <span class="math inline">\(\pi^{''}\)</span>.</p>
 <p><span class="math display">\[
 \pi_0 \xrightarrow E v_{\pi_0} \xrightarrow I \pi_1 \xrightarrow E v_{\pi_1}\xrightarrow I \pi_2,\dots \xrightarrow I \pi_* \xrightarrow E v_*
@@ -465,11 +444,24 @@ A deterministic policy, <span class="math inline">\(\pi \approx \pi_*\)</span>, 
 </div>
 </div>
 </section></section>
+<section>
 <section id="lets-code" class="title-slide slide level1 center">
 <h1>Let’s code</h1>
 
 </section>
-
+<section id="generalized-policy-iteration" class="slide level2 smaller">
+<h2>Generalized Policy Iteration</h2>
+<div class="columns">
+<div class="column fragment" style="width:30%;">
+<p><img data-src="images_rl/eval_greed_diag.png"></p>
+</div><div class="column fragment" style="width:70%;">
+<ul>
+<li><p>GPI is a general idea that describes how two processes — <em>evaluating a policy and improving it</em> — work together and influence each other.</p></li>
+<li><p>Most reinforcement learning algorithms use a value function to judge how good a policy is, and then update the policy based on that judgment.</p></li>
+<li><p>If both value estimation and policy improvement stabilize (i.e., stop changing), then the policy must be the best possible one for that value function—meaning the policy is optimal.</p></li>
+</ul>
+</div></div>
+</section></section>
 <section>
 <section id="monte-carlo-methods" class="title-slide slide level1 center">
 <h1>Monte Carlo Methods</h1>
@@ -483,9 +475,11 @@ A deterministic policy, <span class="math inline">\(\pi \approx \pi_*\)</span>, 
 <li><p>They do not require knowledge of the environment’s dynamics, making them powerful for learning from real or simulated experiences.</p></li>
 </ul>
 </section>
-<section id="monte-carlo-prediction" class="slide level2">
+<section id="monte-carlo-prediction" class="slide level2 smaller">
 <h2>Monte Carlo Prediction</h2>
-<p>Suppose we wish to estimate <span class="math inline">\(v_{\pi}(s)\)</span>, the values of a state <span class="math inline">\(s\)</span> under policy <span class="math inline">\(\pi\)</span>, given a set of episodes obtained by following <span class="math inline">\(\pi\)</span> and passing through <span class="math inline">\(s\)</span>.</p>
+<ul>
+<li>Suppose we wish to estimate <span class="math inline">\(v_{\pi}(s)\)</span>, the values of a state <span class="math inline">\(s\)</span> under policy <span class="math inline">\(\pi\)</span>, given a set of episodes obtained by following <span class="math inline">\(\pi\)</span> and passing through <span class="math inline">\(s\)</span>.</li>
+</ul>
 <div class="callout callout-note no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -598,13 +592,14 @@ Small <span class="math inline">\(\varepsilon &gt; 0\)</span></p>
 <ul>
 <li>TD learning is a combination of Monte Carlo ideas and dynamic programming (DP) ideas.</li>
 <li>Like Monte Carlo methods, TD methods can learn directly from raw experience without a model of the environment’s dynamics.</li>
-<li>Like DP, TD methods update estimates without waiting for a final outcome.</li>
-<li>Whereas Monte Carlo methods must wait until the end of the episode to determine the increment to <span class="math inline">\(V(St)\)</span></li>
+<li>Like DP, TD methods update estimates based in part on other learned estimates, without waiting for a final outcome.</li>
+<li>Whereas Monte Carlo methods must wait until the end of the episode to determine the increment to <span class="math inline">\(V(St)\)</span> (only then is <span class="math inline">\(G_t\)</span> known), TD methods need to wait only until the next time step.</li>
 </ul>
-<p>The simplest TD method updates <span class="math inline">\(v_(S_t)\)</span> as follow:</p>
+<p>The simplest TD method makes the update:</p>
 <p><span class="math display">\[
 v(S_t) \leftarrow v(S_t) + \alpha \big[r_{t+1} + \gamma v(S_{t+1})-v(S_t)  \big]
 \]</span></p>
+<p>immediately on transition to <span class="math inline">\(S_{t+1}\)</span> and receiving <span class="math inline">\(R_{t+1}\)</span>. In effect, the target for the Monte Carlo update is <span class="math inline">\(G_t\)</span>, whereas the target for the TD update is <span class="math inline">\(R_{t+1} + \gamma V(S_{t+1})\)</span>. This TD method is called TD(0), or <em>one-step</em> TD.</p>
 </section>
 <section id="td-prediction" class="slide level2">
 <h2>TD Prediction</h2>
@@ -634,7 +629,7 @@ Step size <span class="math inline">\(\alpha \in (0, 1]\)</span></p>
 </section>
 <section id="sarsa-on-policy-td-control" class="slide level2 smaller">
 <h2>Sarsa: On-policy TD Control</h2>
-<p>We consider transitions from state–action pair to state–action pair, and learn the values of state–action pairs.</p>
+<p>we consider transitions from state–action pair to state–action pair, and learn the values of state–action pairs.</p>
 <p><span class="math display">\[
 Q(S_t, A_t) \leftarrow Q(S_t, A_t) + \alpha \big[R_{t+1}+\gamma Q(S_{t+1}, A_{t+1})-Q(S_t, A_t) \big]
 \]</span></p>
@@ -661,8 +656,13 @@ Step size <span class="math inline">\(\alpha \in (0, 1]\)</span>, small <span cl
 </div>
 </div>
 </div>
+</section></section>
+<section>
+<section id="lets-code-2" class="title-slide slide level1 center">
+<h1>Let’s code</h1>
+
 </section>
-<section id="q-learning-off-policy-td-control" class="slide level2 smaller-font">
+<section id="q-learning-off-policy-td-control" class="slide level2 smaller">
 <h2>Q-learning: Off-policy TD Control</h2>
 <p><em>Q-learning</em> is defined by</p>
 <p><span class="math display">\[
@@ -693,8 +693,32 @@ except that <span class="math inline">\(Q(\text{terminal}, \cdot) = 0\)</span></
 </div>
 </section></section>
 <section>
-<section id="lets-code-2" class="title-slide slide level1 center">
+<section id="lets-code-3" class="title-slide slide level1 center">
 <h1>Let’s code</h1>
+
+</section>
+<section id="recommended-materials" class="slide level2">
+<h2>Recommended materials</h2>
+<h3 id="readings">Readings:</h3>
+<ul>
+<li><a href="http://www.incompleteideas.net/book/the-book-2nd.html">Reinforcement Learning: An Introduction</a> by Richard S. Sutton and Andrew G. Barto</li>
+<li><a href="https://castle.princeton.edu/rlso/">Reinforcement Learning and Stochastic Optimization</a> by Warren B. Powell</li>
+</ul>
+<h3 id="tutoriols">Tutoriols:</h3>
+<iframe data-external="1" src="https://www.youtube.com/embed/0MNVhXEX9to" title="Reinforcement Learning: Machine Learning Meets Control Theory" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+<iframe data-external="1" src="https://www.youtube.com/embed/i7q8bISGwMQ" title="Reinforcement Learning Series: Overview of Methods" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+<iframe data-external="1" src="https://www.youtube.com/embed/sJIFUTITfBc" title="Model Based Reinforcement Learning: Policy Iteration, Value Iteration, and Dynamic Programming" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+<iframe data-external="1" src="https://www.youtube.com/embed/0iqz4tcKN58" title="Q-Learning: Model Free Reinforcement Learning and Temporal Difference Learning" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+<iframe data-external="1" src="https://www.youtube.com/embed/wDVteayWWvU" title="Overview of Deep Reinforcement Learning Methods" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+</section></section>
+<section id="any-questions-or-thoughts" class="title-slide slide level1 center">
+<h1>Any questions or thoughts?</h1>
+
+</section>
+
+<section>
+<section id="categories-of-rl-methods" class="title-slide slide level1 center">
+<h1>Categories of RL methods</h1>
 
 </section>
 <section id="model-based-vs-model-free-methods" class="slide level2 smaller">
@@ -737,26 +761,9 @@ except that <span class="math inline">\(Q(\text{terminal}, \cdot) = 0\)</span></
 </ul>
 </div>
 </div></div>
-</section>
-<section id="recommended-materials" class="slide level2">
-<h2>Recommended materials</h2>
-<h3 id="readings">Readings:</h3>
-<ul>
-<li><a href="http://www.incompleteideas.net/book/the-book-2nd.html">Reinforcement Learning: An Introduction</a> by Richard S. Sutton and Andrew G. Barto</li>
-<li><a href="https://castle.princeton.edu/rlso/">Reinforcement Learning and Stochastic Optimization</a> by Warren B. Powell</li>
-</ul>
-<h3 id="tutoriols-by-steve-brunton">Tutoriols by <code>Steve Brunton</code>:</h3>
-<iframe data-external="1" src="https://www.youtube.com/embed/0MNVhXEX9to" title="Reinforcement Learning: Machine Learning Meets Control Theory" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
-<iframe data-external="1" src="https://www.youtube.com/embed/i7q8bISGwMQ" title="Reinforcement Learning Series: Overview of Methods" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
-<iframe data-external="1" src="https://www.youtube.com/embed/sJIFUTITfBc" title="Model Based Reinforcement Learning: Policy Iteration, Value Iteration, and Dynamic Programming" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
-<iframe data-external="1" src="https://www.youtube.com/embed/0iqz4tcKN58" title="Q-Learning: Model Free Reinforcement Learning and Temporal Difference Learning" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
-<iframe data-external="1" src="https://www.youtube.com/embed/wDVteayWWvU" title="Overview of Deep Reinforcement Learning Methods" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+
 </section></section>
-<section id="any-questions-or-thoughts" class="title-slide slide level1 center">
-<h1>Any questions or thoughts?</h1>
-
-
-</section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
@@ -940,7 +947,7 @@ except that <span class="math inline">\(Q(\text{terminal}, \cdot) = 0\)</span></
         // specified using percentage units.
         width: 1600,
 
-        height: 800,
+        height: 900,
 
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
