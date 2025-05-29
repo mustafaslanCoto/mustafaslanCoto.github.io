@@ -5171,5 +5171,26 @@
     "title": "HOME",
     "section": "Test Underbrace",
     "text": "Test Underbrace\n\\[\nV_\\pi(S_t) = \\max_{a_t \\in A_t} \\left( \\underbrace{r_{t+1}(S_t, a_t)}_{\\text{immediate contribution}} +\\\n\\underbrace{\\gamma \\mathbb{E}[V_{t+1}(S_{t+1}) \\mid S_t, a_t]}_{\\text{future contributions}}\n\\right)\n\\] 7. Test in a Clean Environment Try building your slides on a different machine or in a fresh Quarto project to rule out local configuration issues.\nSummary Table Solution How to Apply Use MathJax v2 Set mathjax to MathJax v2 CDN in YAML Use KaTeX Set katex: true in YAML Remove custom CSS/fonts Comment out custom styles in your project Update Quarto and browser Use latest versions Use image of the equation Export from LaTeX and embed as image If you try these and still have issues, please let me know your Quarto version and browser, or share your full YAML and a minimal reproducible example. I’m happy to help you debug further!\nRelated What specific troubleshooting steps have you already tried Could there be a compatibility issue with your browser or device Are there any error messages or warnings appearing during rendering Have you tested your slides on different computers or browsers Is there a way to share your code for more targeted help"
+  },
+  {
+    "objectID": "workshops/rl/RL_presentation.html#exercise-solve-the-car-rental-problem",
+    "href": "workshops/rl/RL_presentation.html#exercise-solve-the-car-rental-problem",
+    "title": "HOME",
+    "section": "Exercise: Solve the Car Rental Problem",
+    "text": "Exercise: Solve the Car Rental Problem\n\n\nBooking Process:\n\nExclusively 1-day rentals, must booked the day before.\nBookings arrive randomly in two batches (Morning, Afternoon) of previous day\nEach batch has one of the four possible demand (# Large requests, # Small requests)\n\nBooking Controls:\n\nAccept a booking request\nReject a booking request\nUpgrade: Small car can be met by the large car offered at £30\n\n\nDemand Forecast\n\n\n(# Large requests, # Small Requests)\n(0,0)\n(0,1)\n(1,0)\n(1,1)\n\n\n\n\nArrival Probability\n3%\n10%\n20%\n67%\n\n\n\n\nRental Rate\n\n\nSmall Car\nLarge car\n\n\n\n\n£30\n£40"
+  },
+  {
+    "objectID": "workshops/rl/RL_presentation.html#a-working-example-car-rental-booking-control",
+    "href": "workshops/rl/RL_presentation.html#a-working-example-car-rental-booking-control",
+    "title": "HOME",
+    "section": "A Working Example: Car Rental Booking Control",
+    "text": "A Working Example: Car Rental Booking Control\nGoal: Find a booking control policy that maximises the firm’s expected revenues\nWhat is the value of \\(v_1(1,1)\\)"
+  },
+  {
+    "objectID": "workshops/rl/RL_presentation.html#what-if",
+    "href": "workshops/rl/RL_presentation.html#what-if",
+    "title": "HOME",
+    "section": "What if…",
+    "text": "What if…\n\n\n\nCars can be rented for more than one day\nLonger booking periods\nMore types of cars\nLarger fleet\nA network of rental stations\nAdvanced booking\n\n\n\nThe Bellman equation could not be solved anymore.\n\nCurse of Dimensionality\n\nThat is where we need Approximate Dynamic Programming and Reinforcement Learning\n\nTo obtain good policies without the need to solve the Bellman equation directly"
   }
 ]

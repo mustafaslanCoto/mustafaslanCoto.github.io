@@ -165,6 +165,81 @@ $$
 a_t^*(S_t) = \arg\max_{a_t \in A_t} \left(r_{t+1}(S_t, a_t) + \gamma [V_{t+1}(S_{t+1}) \mid S_t, a_t] \right),
 $$
 
+## Exercise: Solve the Car Rental Problem {.smaller}
+
+:::: columns
+::: {.column width="70%"}
+**Booking Process:**
+
+-  Exclusively 1-day rentals, must booked the day before. 
+
+-  Bookings arrive randomly in two batches (Morning, Afternoon) of previous day
+
+-  Each batch has one of the four possible demand (# Large requests, # Small requests)
+
+**Booking Controls:**
+
+-  Accept a booking request
+-  Reject a booking request
+-  Upgrade: Small car can be met by the large car offered at £30
+
+
+
+| (# Large requests, # Small Requests) | (0,0) | (0,1) | (1,0) | (1,1) |
+|--------------------------------------|-------|-------|-------|-------|
+| Arrival Probability                  | 3%    | 10%   | 20%   | 67%   |
+: Demand Forecast
+
+| Small Car | Large car |
+|-------|-------|
+| £30    | £40   |
+: Rental Rate
+:::
+
+::: {.column width="30%"}
+![](images_rl/large_car.png){fig-align="center"}
+![](images_rl/small_car.webp){fig-align="center"}
+:::
+::::
+
+## A Working Example: Car Rental Booking Control
+
+**`Goal: Find a booking control policy that maximises the firm’s expected revenues`**
+
+
+#### What is the value of $v_1(1,1)$
+
+![](images_rl/car_rent.png){fig-align="center"}
+
+
+## What if...
+
+:::: columns
+::: {.column width="50%" .fragment}
+-   Cars can be rented for more than one day
+
+-   Longer booking periods
+
+-   More types of cars
+
+-   Larger fleet
+
+-   A network of rental stations
+
+-   Advanced booking
+:::
+
+::: {.column width="50%" .fragment}
+-   `The Bellman equation could not be solved anymore.`
+    -   Curse of Dimensionality
+
+-   That is where we need Approximate Dynamic Programming and Reinforcement Learning
+    -   To obtain good policies without the need to solve the Bellman equation directly
+:::
+::::
+
+
+
 
 # Dynamic Programming
 

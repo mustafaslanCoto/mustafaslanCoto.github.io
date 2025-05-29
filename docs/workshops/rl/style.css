@@ -78,3 +78,22 @@
 .center-text {
   text-align: center;
 }
+
+table, th, td {
+  border: 2px solid #4682b4;
+  border-collapse: collapse;
+  padding: 6px 12px;
+  margin-left: 0;  
+}
+
+/* Style the caption (table title) */
+caption {
+  border: 2px solid #4682b4;
+  border-bottom: none;
+  padding: 6px 12px;
+  font-weight: bold;
+  font-size: 1.1em;
+  caption-side: top;
+  background-color: #f0f8ff;
+}
+
