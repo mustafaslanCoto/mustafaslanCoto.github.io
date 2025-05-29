@@ -177,6 +177,17 @@ Mustafa Aslan, PhD Researcher <br> Data Lab for Social Good Research Lab <br> Ca
 29 May 2025
 </p>
 </div>
+<style>
+table {
+  margin-left: 0 !important;
+}
+caption, .table-caption {
+  text-align: center !important;
+}
+th, td {
+  text-align: left !important;
+}
+</style>
 </section>
 <section id="outline" class="slide level2">
 <h2>Outline</h2>
@@ -330,6 +341,93 @@ V_\pi(S_t) = \max_{a_t \in A_t} \left(r_{t+1}(S_t, a_t) +\
 <p><span class="math display">\[
 a_t^*(S_t) = \arg\max_{a_t \in A_t} \left(r_{t+1}(S_t, a_t) + \gamma [V_{t+1}(S_{t+1}) \mid S_t, a_t] \right),
 \]</span></p>
+</section>
+<section id="exercise-solve-the-car-rental-problem" class="slide level2 smaller">
+<h2>Exercise: Solve the Car Rental Problem</h2>
+<div class="columns">
+<div class="column" style="width:70%;">
+<p><strong>Booking Process:</strong></p>
+<ul>
+<li><p>Exclusively 1-day rentals, must booked the day before.</p></li>
+<li><p>Bookings arrive randomly in two batches (Morning, Afternoon) of previous day</p></li>
+<li><p>Each batch has one of the four possible demand (# Large requests, # Small requests)</p></li>
+</ul>
+<p><strong>Booking Controls:</strong></p>
+<ul>
+<li>Accept a booking request</li>
+<li>Reject a booking request</li>
+<li>Upgrade: Small car can be met by the large car offered at £30</li>
+</ul>
+<table class="caption-top">
+<caption>Demand Forecast</caption>
+<thead>
+<tr class="header">
+<th>(# Large requests, # Small Requests)</th>
+<th>(0,0)</th>
+<th>(0,1)</th>
+<th>(1,0)</th>
+<th>(1,1)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Arrival Probability</td>
+<td>3%</td>
+<td>10%</td>
+<td>20%</td>
+<td>67%</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top">
+<caption>Rental Rate</caption>
+<thead>
+<tr class="header">
+<th>Small Car</th>
+<th>Large car</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>£30</td>
+<td>£40</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:30%;">
+<p><img data-src="images_rl/large_car.png" class="quarto-figure quarto-figure-center"> <img data-src="images_rl/small_car.webp" class="quarto-figure quarto-figure-center"></p>
+</div></div>
+</section>
+<section id="a-working-example-car-rental-booking-control" class="slide level2">
+<h2>A Working Example: Car Rental Booking Control</h2>
+<p><strong><code>Goal: Find a booking control policy that maximises the firm’s expected revenues</code></strong></p>
+<h4 id="what-is-the-value-of-v_111">What is the value of <span class="math inline">\(v_1(1,1)\)</span></h4>
+
+<img data-src="images_rl/car_rent.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="what-if" class="slide level2">
+<h2>What if…</h2>
+<div class="columns">
+<div class="column fragment" style="width:50%;">
+<ul>
+<li><p>Cars can be rented for more than one day</p></li>
+<li><p>Longer booking periods</p></li>
+<li><p>More types of cars</p></li>
+<li><p>Larger fleet</p></li>
+<li><p>A network of rental stations</p></li>
+<li><p>Advanced booking</p></li>
+</ul>
+</div><div class="column fragment" style="width:50%;">
+<ul>
+<li><code>The Bellman equation could not be solved anymore.</code>
+<ul>
+<li>Curse of Dimensionality</li>
+</ul></li>
+<li>That is where we need Approximate Dynamic Programming and Reinforcement Learning
+<ul>
+<li>To obtain good policies without the need to solve the Bellman equation directly</li>
+</ul></li>
+</ul>
+</div></div>
 </section></section>
 <section>
 <section id="dynamic-programming" class="title-slide slide level1 center">
