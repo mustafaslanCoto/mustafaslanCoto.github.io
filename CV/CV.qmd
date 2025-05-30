@@ -1,7 +1,6 @@
 ---
-title: Data Scientist | Mathematical Modeller
-author: Mustafa Aslan
-jobtitle: "Data Scientist • Mathematical Modeller"
+title: PhD Researcher | Data Scientist & Mathematical Modeller
+jobtitle: "PhD Researcher • Data Scientist"
 format:
   html: default
   quarto-cv-pdf:

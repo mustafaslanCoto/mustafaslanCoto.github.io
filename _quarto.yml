@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "HOME"
+  title: "MUSTAFA ASLAN"
   open-graph: true
   page-footer: "Made with ❤️ and Quarto"
   navbar:

@@ -336,5 +336,14 @@
   },
   "workshops/rl/xx.qmd": {
     "xx.html": "9f9d4c72"
+  },
+  "workshops/rl/temp/rl_python_revenue_max.ipynb": {
+    "rl_python_revenue_max.html": "6e1af424"
+  },
+  "workshops/rl/temp/RL_presentation_v0.qmd": {
+    "RL_presentation_v0.html": "ed2c4997"
+  },
+  "workshops/rl/note.qmd": {
+    "note.html": "ce01cddc"
   }
 }

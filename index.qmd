@@ -1,8 +1,9 @@
 ---
-title: "Mustafa Aslan"
-subtitle: "Researcher | Data Scientist | Educator"
+title: "Researcher & Data Scientist"
+subtitle: "[Cardiff University](https://www.cardiff.ac.uk/)"
 image: images/profil_photo.jpg
 card-style: "summary"
+css: home.css
 about:
     template: trestles
     image-shape: round

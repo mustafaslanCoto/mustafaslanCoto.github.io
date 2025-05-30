@@ -163,9 +163,3 @@ p a:hover, p a:focus {
   color: #00A0DC !important;
   text-decoration: none; /* Optional: underline on hover */
 }
-
-.subtitle {
-  text-align: center;
-  font-size: 1.3em;
-}
-
