@@ -3,7 +3,7 @@
 /* Force social buttons to use your custom colors */
 .btn-outline-primary,
 .btn-outline-primary:visited {
-  background-color: #fff !important;
+  background-color: #f7f7f7 !important;
   color: #b23a53 !important;
   border: 1px solid #b23a53 !important;
   box-shadow: none !important;
@@ -13,7 +13,7 @@
 .btn-outline-primary:focus,
 .btn-outline-primary:active {
   background-color: #0077B5 !important;
-  color: #fff !important;
+  color: #f7f7f7 !important;
   border: 1px solid #0077B5 !important;
   text-decoration: none !important;
 }
@@ -33,7 +33,7 @@
 .btn-outline-primary:hover svg,
 .btn-outline-primary:focus svg,
 .btn-outline-primary:active svg {
-  color: #fff !important;
+  color: #f7f7f7 !important;
   fill: #0077B5 !important;
 }
 
@@ -42,10 +42,11 @@
 
 /* Style Quarto about page social buttons */
 .about-link {
-  background-color: #fff !important;
+  background-color:#f7f7f7 !important;
   color: #b23a53 !important;
-  border: 1px solid #b23a53 !important;
-  border-radius: 5px;
+  /* border: 1px solid #b23a53 !important; */
+  border: none !important;
+  /* border-radius: 5px; */
   padding: 6px 18px;
   margin: 3px;
   display: inline-block;
@@ -58,14 +59,15 @@
 .about-link .bi, .about-link .fa, .about-link svg {
   color: #b23a53 !important;
   fill: #b23a53 !important;
+  font-size: 3em;      /* Increase icon size */
   margin-right: 5px;
 }
 
 /* Hover effect */
 .about-link:hover, .about-link:focus {
-  border-color: #0077B5 !important;
+  /* border-color: #0077B5 !important; */
   color: #0077B5 !important;
-  background-color: #fff !important;
+  background-color: #f7f7f7 !important;
   text-decoration: none !important;
 }
 
@@ -96,6 +98,11 @@ p a, p a:visited {
 p a:hover, p a:focus {
   color: #0077B5 !important;
   text-decoration: underline !important; /* Or 'none' if you never want underline */
+}
+
+
+.navbar {
+  background-color:	#f7f7f7 !important; /* Replace with your preferred color */
 }
 
 /* Target Quarto/Bootstrap navigation links */
@@ -162,4 +169,13 @@ p a:hover, p a:focus {
 .navbar .navbar-brand:focus {
   color: #00A0DC !important;
   text-decoration: none; /* Optional: underline on hover */
+}
+
+body {
+  background-color:	#f7f7f7 /* Example: a light grey. Change to any color you like */
+}
+
+
+.nav-footer {
+    background-color: #f7f7f7 !important;
 }
