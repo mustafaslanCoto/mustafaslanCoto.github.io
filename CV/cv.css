@@ -100,13 +100,13 @@ from: https://github.com/quarto-dev/quarto-cli/discussions/2538#discussioncommen
 }
 
 a {
-  color: #b23a53;
+  color: #20808D;
   text-decoration: none;
 }
 
 a:hover {
   text-decoration: underline;
-  color: #0077B5;  /* slight color change on hover */
+  color: #20B8CD;  /* slight color change on hover */
 }
 
 .cv-header {
