@@ -1,28 +1,33 @@
+/* background-color: #FBFAF4 */
+/* button colors and links: #20808D */
+/* hover color for buttons and links: #20B8CD */
+/* navbar hover color: #1FB8CD */
+
 /* For all button-like links */
 /* --- Custom Button Colors --- */
 /* Force social buttons to use your custom colors */
 .btn-outline-primary,
 .btn-outline-primary:visited {
-  background-color: #f7f7f7 !important;
-  color: #b23a53 !important;
-  border: 1px solid #b23a53 !important;
+  background-color: #FBFAF4 !important;
+  color: #20808D !important;
+  border: 1px solid #20808D !important;
   box-shadow: none !important;
 }
 
 .btn-outline-primary:hover,
 .btn-outline-primary:focus,
 .btn-outline-primary:active {
-  background-color: #0077B5 !important;
-  color: #f7f7f7 !important;
-  border: 1px solid #0077B5 !important;
+  background-color: #20B8CD !important;
+  color: #FBFAF4 !important;
+  border: 1px solid #20B8CD !important;
   text-decoration: none !important;
 }
 
 /* Force icons inside buttons to match text color */
 .btn-outline-primary i,
 .btn-outline-primary svg {
-  color: #b23a53 !important;
-  fill: #b23a53 !important;
+  color: #20808D !important;
+  fill: #20808D !important;
 }
 
 
@@ -33,8 +38,8 @@
 .btn-outline-primary:hover svg,
 .btn-outline-primary:focus svg,
 .btn-outline-primary:active svg {
-  color: #f7f7f7 !important;
-  fill: #0077B5 !important;
+  color: #FBFAF4 !important;
+  fill:#20B8CD !important;
 }
 
 
@@ -42,8 +47,8 @@
 
 /* Style Quarto about page social buttons */
 .about-link {
-  background-color:#f7f7f7 !important;
-  color: #b23a53 !important;
+  background-color:#FBFAF4 !important;
+  color: #20808D !important;
   /* border: 1px solid #b23a53 !important; */
   border: none !important;
   /* border-radius: 5px; */
@@ -57,8 +62,8 @@
 
 /* Style the icon inside the button */
 .about-link .bi, .about-link .fa, .about-link svg {
-  color: #b23a53 !important;
-  fill: #b23a53 !important;
+  color: #20808D !important;
+  fill: #20808D !important;
   font-size: 3em;      /* Increase icon size */
   margin-right: 5px;
 }
@@ -66,8 +71,8 @@
 /* Hover effect */
 .about-link:hover, .about-link:focus {
   /* border-color: #0077B5 !important; */
-  color: #0077B5 !important;
-  background-color: #f7f7f7 !important;
+  color: #20B8CD !important;
+  background-color: #FBFAF4 !important;
   text-decoration: none !important;
 }
 
@@ -81,8 +86,8 @@
 .about-link:focus .fa,
 .about-link:hover svg,
 .about-link:focus svg {
-  color: #0077B5 !important;
-  fill: #0077B5 !important;
+  color: #20B8CD !important;
+  fill: #20B8CD !important;
 }
 
 
@@ -90,50 +95,83 @@
 
 /* Only style links inside paragraphs */
 p a, p a:visited {
-  color: #b23a53 !important;
+  color: #20808D !important;
   text-decoration: none !important;
 }
 
 /* Optional: Add underline on hover for clarity, or keep it off */
 p a:hover, p a:focus {
-  color: #0077B5 !important;
+  color:#20B8CD !important;
   text-decoration: underline !important; /* Or 'none' if you never want underline */
 }
 
 
 .navbar {
-  background-color:	#f7f7f7 !important; /* Replace with your preferred color */
+  background-color:	#FBFAF4 !important; /* Replace with your preferred color */
 }
-
-/* Target Quarto/Bootstrap navigation links */
-.navbar .nav-link,
-.navbar-nav .nav-link {
-  transition: color 0.2s;
-}
-
 
 
 /* Navbar text links */
 .navbar .nav-link,
 .navbar-nav .nav-link {
   transition: color 0.2s, text-decoration 0.2s;
+  /* color: #ffffff !important; Default color for navbar text links */
 }
+
 
 /* Hover effect for navbar text links */
 .navbar .nav-link:hover,
 .navbar-nav .nav-link:hover,
 .navbar .nav-link:focus,
 .navbar-nav .nav-link:focus {
-  color: #00A0DC !important;
+  color: #1FB8CD !important;
   text-decoration: none !important; /* Optional: underline on hover */
+}
+
+/* Hover effect for navbar tools (icons) - Multiple selectors to cover different structures */
+.navbar .navbar-nav .nav-item .nav-link i:hover,
+.navbar-nav .nav-item .nav-link:hover i,
+.navbar .navbar-nav .nav-item .nav-link:focus i,
+.navbar-nav .nav-item .nav-link:focus i {
+  color: #1FB8CD !important;
+}
+
+/* Target tools section specifically */
+.navbar-nav .navbar-tools .nav-item .nav-link:hover,
+.navbar-tools .nav-item .nav-link:hover,
+.navbar-tools .nav-link:hover {
+  color: #1FB8CD !important;
+}
+
+/* Target Bootstrap icons specifically */
+.navbar .bi:hover,
+.navbar-nav .bi:hover,
+.navbar-tools .bi:hover {
+  color: #1FB8CD !important;
 }
 
 
 
+/* Target all possible tool link structures for tools */
+.navbar .navbar-nav .nav-item .nav-link[href^="mailto:"]:hover,
+.navbar .navbar-nav .nav-item .nav-link[href*="github"]:hover,
+.navbar .navbar-nav .nav-item .nav-link[href*="linkedin"]:hover,
+.navbar-tools .nav-item .nav-link:hover,
+.navbar-tools a:hover {
+  color: #1FB8CD !important;
+}
+
+/* Fallback - target any anchor with these specific hrefs */
+a[href^="mailto:"]:hover,
+a[href*="github.com"]:hover,
+a[href*="linkedin.com"]:hover {
+  color: #1FB8CD !important;
+}
+
 
 /* Highlight the active navbar link */
 .navbar .navbar-nav .nav-link.active {
-  color: #b23a53 !important;
+  color: #20808D !important;
   font-weight: bold;
   /* Optional: add underline or background for more emphasis */
   /* text-decoration: underline; */
@@ -144,7 +182,7 @@ p a:hover, p a:focus {
 .toc-active .nav-link.active,
 #TOC .nav-link.active,
 #TOC .toc-active > .nav-link {
-  color: #b23a53 !important;
+  color: #20808D !important;
   font-weight: bold;
   /* Optional: add underline or background */
   /* text-decoration: underline; */
@@ -153,7 +191,7 @@ p a:hover, p a:focus {
 
 #TOC a:hover,
 #TOC a:focus {
-  color: #0077B5 !important;
+  color:#20B8CD !important;
   text-decoration: none; 
 }
 
@@ -167,15 +205,15 @@ p a:hover, p a:focus {
 /* Hover effect for Home link */
 .navbar .navbar-brand:hover,
 .navbar .navbar-brand:focus {
-  color: #00A0DC !important;
+  color: #1FB8CD !important;
   text-decoration: none; /* Optional: underline on hover */
 }
 
 body {
-  background-color:	#f7f7f7 /* Example: a light grey. Change to any color you like */
+  background-color: #FBFAF4 /* Example: a light grey. Change to any color you like */
 }
 
 
 .nav-footer {
-    background-color: #f7f7f7 !important;
+    background-color: #FBFAF4 !important;
 }
