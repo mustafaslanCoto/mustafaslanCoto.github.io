@@ -5416,5 +5416,12 @@
     "title": "What is reinforcement learning",
     "section": "Recommended materials",
     "text": "Recommended materials\n\nReadings:\n\nReinforcement Learning: An Introduction by Richard S. Sutton and Andrew G. Barto\nReinforcement Learning and Stochastic Optimization by Warren B. Powell\n\n\n\nTutoriols:"
+  },
+  {
+    "objectID": "index.html#about",
+    "href": "index.html#about",
+    "title": "Researcher & Data Scientist",
+    "section": "",
+    "text": "I am currently pursuing a PhD at Cardiff Business School, where I specialise in developing AI&machine learning models for healthcare management. My research involves developing and refining advanced statistical&machine learning techniques to analyse complex datasets, aiming to enhance decision-making processes in real-world applications. In addition to my PhD work, I manage the Learning Labs workshop series, providing training on machine learning, statistics, reinforcement learning and forecasting methodologies using Python. I am also responsible for organizing seminars for the Data Lab for Social Good, delivering sessions on AI, machine learning, forecasting, mathematical modeling, and optimization techniques."
   }
 ]

@@ -53,7 +53,7 @@
   /* border: none !important; */
   border-radius: 5px;
   padding: 1px 4px !important;  
-  margin: 1px;
+  margin: 1px !important;
   display: inline-block;
   font-weight: 500;
   font-size: 18px !important; 
@@ -65,8 +65,15 @@
 .about-link .bi, .about-link .fa, .about-link svg {
   color: #20808D !important;
   fill: #20808D !important;
-  font-size: 22px;  
-  margin-right: 1px; /* Add space between icon and text */
+  font-size: 24px;  
+  margin-right: 1px !important; /* Add space between icon and text */
+}
+
+/* Additional selectors to target the social buttons container and spacing */
+.about-links {
+  display: flex !important;
+  gap: 10px !important; /* Control space between buttons */
+  flex-wrap: wrap !important;
 }
 
 

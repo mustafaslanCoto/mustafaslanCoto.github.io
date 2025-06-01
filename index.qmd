@@ -9,13 +9,13 @@ about:
     image-shape: round
     links:
         - icon: envelope
-          # text: e-mail
+          text: e-mail
           href: mailto:aslanm@cardiff.ac.uk
         - icon: github
-          # text: Github
+          text: Github
           href: https://github.com/mustafaslanCoto
         - icon: linkedin
-          # text: LinkedIn
+          text: LinkedIn
           href: https://www.linkedin.com/in/aslanmu/
 ---
 
