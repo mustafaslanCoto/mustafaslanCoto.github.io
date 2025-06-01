@@ -226,3 +226,8 @@ body {
 .nav-footer {
     background-color: #FBFAF4 !important;
 }
+
+
+.sidebar nav[role="doc-toc"] ul > li > a.active {
+  border-left: 1px solid #20808D !important; /* Replace with your color */
+}

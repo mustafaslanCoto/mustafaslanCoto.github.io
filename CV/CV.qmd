@@ -15,7 +15,7 @@ format:
         \usepackage{fontawesome5}
         \usepackage{xcolor}
         \usepackage{hyperref}
-        \definecolor{mycolor}{HTML}{004471}
+        \definecolor{mycolor}{HTML}{20808D}
         \let\oldhref\href
         \renewcommand{\href}[2]{\oldhref{#1}{\textmd{#2}}}
 # date: last-modified
