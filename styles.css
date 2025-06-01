@@ -49,13 +49,14 @@
 .about-link {
   background-color:#FBFAF4 !important;
   color: #20808D !important;
-  /* border: 1px solid #b23a53 !important; */
-  border: none !important;
-  /* border-radius: 5px; */
-  padding: 6px 18px;
-  margin: 3px;
+  border: 1px solid #20808D !important;
+  /* border: none !important; */
+  border-radius: 5px;
+  padding: 1px 4px !important;  
+  margin: 1px;
   display: inline-block;
   font-weight: 500;
+  font-size: 18px !important; 
   text-decoration: none !important;
   transition: border-color 0.2s, color 0.2s;
 }
@@ -64,13 +65,14 @@
 .about-link .bi, .about-link .fa, .about-link svg {
   color: #20808D !important;
   fill: #20808D !important;
-  font-size: 3em;      /* Increase icon size */
-  margin-right: 5px;
+  font-size: 22px;  
+  margin-right: 1px; /* Add space between icon and text */
 }
+
 
 /* Hover effect */
 .about-link:hover, .about-link:focus {
-  /* border-color: #0077B5 !important; */
+  border-color: #20B8CD !important;
   color: #20B8CD !important;
   background-color: #FBFAF4 !important;
   text-decoration: none !important;
@@ -115,7 +117,7 @@ p a:hover, p a:focus {
 .navbar .nav-link,
 .navbar-nav .nav-link {
   transition: color 0.2s, text-decoration 0.2s;
-  /* color: #ffffff !important; Default color for navbar text links */
+  /* color: #091717 !important; */
 }
 
 
