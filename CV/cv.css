@@ -144,3 +144,17 @@ a:hover {
   font-size: 1.5em;
   text-align: center;
 }
+
+/* Increase size of the entire format link (icon + text) */
+.format-links a {
+  font-size: 1.8em !important;      /* Increase overall size */
+  display: flex;
+  align-items: center;
+}
+
+/* Make the icon itself larger and add spacing */
+.format-links a svg,
+.format-links a i {
+  font-size: 1.8em !important;      /* Make the icon even bigger if needed */
+  margin-right: 8px;                /* Space between icon and text */
+}
