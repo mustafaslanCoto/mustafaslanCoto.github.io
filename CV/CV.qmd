@@ -35,6 +35,11 @@ nocite: '@*'
 validate-yaml: false
 bullets: true
 css: cv.css
+format-links:
+  - html
+  - format: quarto-cv-pdf
+    text: PDF
+    icon: file-pdf
 ---
 
 <!-- ```{=html}
