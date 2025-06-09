@@ -71,7 +71,17 @@ format-links:
 **BSc in Business Administration**\
 [**Middle East Technical University, Ankara, Turkey**]{.cvinstitution} \hfill [*Oct 2011 --- Aug 2015*]{.cvdate}
 
-## **WORK EXPERINCES**
+## **TEACHING** {style="page-break-before: always"}
+
+\sectionline
+
+[**Training sessions for [Data Lab for Social Good Research Group](https://www.cardiff.ac.uk/research/explore/research-units/data-lab-for-social-good) members**]{.cvinstitution}
+
+-   Introduction to Python and Quarto on Visual Studio Code \hfill [*Mar 2025*]{.cvdate}
+
+-   Introduction to Dynamic Programming and Reinforcement Learning \hfill [*May 2025*]{.cvdate}
+
+## **WORK EXPERIENCES**
 
 \sectionline
 
@@ -144,6 +154,8 @@ format-links:
     -   Dive into deep learning (Zhang, 2022)
 
 ## **Scholarships & Grants**
+
+\sectionline
 
 -   Welsh Graduate School for the Social Sciences (WGSSS) Studentship Award \hfill [*Aug 2024*]{.cvdate}
 -   NATCOR Bursaries / EURO Funding for Stochastic Modelling \hfill [*Mar 2025*]{.cvdate}
