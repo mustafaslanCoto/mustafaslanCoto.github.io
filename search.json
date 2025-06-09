@@ -11,14 +11,14 @@
     "href": "CV/CV.html",
     "title": "PhD Researcher | Data Scientist & Mathematical Modeller",
     "section": "",
-    "text": "PhD in Probabilistic Machine Learning in Healthcare Management\nCardiff University, Cardiff, UK Oct 2024 — Present.\n\nRecipient of WGSSS‑ESRC Studentship Award\nProject focused on enhancing discharge care coordination in healthcare and social care using a probabilistic data-driven modelling approach\n\nSupervisors: Prof Bahman Rostami‑Tabar, Dr. Jeremy Dixon\n\n\nMSc in Financial Mathematics\nMiddle East Technical University, Ankara, Turkey Oct 2017 — Aug 2021\n\nDissertation: Effects of Exchange Rate Volatility and Firm-Specific Features on the Rates of Returns of the Manufacturing Firms Listed in Borsa İstanbul: A CAPM Approach\n\nStatistical&Machine learning techniques used: Markov Switching GARCH Models, ARIMA, Panel Data Econometrics, Principal Component Analysis\n\n\nBSc in Business Administration\nMiddle East Technical University, Ankara, Turkey Oct 2011 — Aug 2015"
+    "text": "PhD in Probabilistic Modeling for Healthcare Management and Operations\nCardiff University, Cardiff, UK Oct 2024 — Present.\n\nRecipient of WGSSS‑ESRC Studentship Award\nProject focused on enhancing discharge planning process using probabilistic modelling\n\nSupervisors: Prof Bahman Rostami‑Tabar, Dr. Jeremy Dixon\n\n\nMSc in Financial Mathematics\nMiddle East Technical University, Ankara, Turkey Oct 2017 — Aug 2021\n\nDissertation: Effects of Exchange Rate Volatility and Firm-Specific Features on the Rates of Returns of the Manufacturing Firms Listed in Borsa İstanbul: A CAPM Approach\n\nStatistical&Machine learning techniques used: Markov Switching GARCH Models, ARIMA, Panel Data Econometrics, Principal Component Analysis\n\n\nBSc in Business Administration\nMiddle East Technical University, Ankara, Turkey Oct 2011 — Aug 2015"
   },
   {
     "objectID": "CV/CV.html#education",
     "href": "CV/CV.html#education",
     "title": "PhD Researcher | Data Scientist & Mathematical Modeller",
     "section": "",
-    "text": "PhD in Probabilistic Machine Learning in Healthcare Management\nCardiff University, Cardiff, UK Oct 2024 — Present.\n\nRecipient of WGSSS‑ESRC Studentship Award\nProject focused on enhancing discharge care coordination in healthcare and social care using a probabilistic data-driven modelling approach\n\nSupervisors: Prof Bahman Rostami‑Tabar, Dr. Jeremy Dixon\n\n\nMSc in Financial Mathematics\nMiddle East Technical University, Ankara, Turkey Oct 2017 — Aug 2021\n\nDissertation: Effects of Exchange Rate Volatility and Firm-Specific Features on the Rates of Returns of the Manufacturing Firms Listed in Borsa İstanbul: A CAPM Approach\n\nStatistical&Machine learning techniques used: Markov Switching GARCH Models, ARIMA, Panel Data Econometrics, Principal Component Analysis\n\n\nBSc in Business Administration\nMiddle East Technical University, Ankara, Turkey Oct 2011 — Aug 2015"
+    "text": "PhD in Probabilistic Modeling for Healthcare Management and Operations\nCardiff University, Cardiff, UK Oct 2024 — Present.\n\nRecipient of WGSSS‑ESRC Studentship Award\nProject focused on enhancing discharge planning process using probabilistic modelling\n\nSupervisors: Prof Bahman Rostami‑Tabar, Dr. Jeremy Dixon\n\n\nMSc in Financial Mathematics\nMiddle East Technical University, Ankara, Turkey Oct 2017 — Aug 2021\n\nDissertation: Effects of Exchange Rate Volatility and Firm-Specific Features on the Rates of Returns of the Manufacturing Firms Listed in Borsa İstanbul: A CAPM Approach\n\nStatistical&Machine learning techniques used: Markov Switching GARCH Models, ARIMA, Panel Data Econometrics, Principal Component Analysis\n\n\nBSc in Business Administration\nMiddle East Technical University, Ankara, Turkey Oct 2011 — Aug 2015"
   },
   {
     "objectID": "CV/CV.html#work-experinces",
@@ -32,21 +32,28 @@
     "href": "CV/CV.html#research-interests",
     "title": "PhD Researcher | Data Scientist & Mathematical Modeller",
     "section": "RESEARCH INTERESTS",
-    "text": "RESEARCH INTERESTS\n\nData-driven decision making\nMachine learning\nReinforcement learning and stocastic optimization in decision making\nTime series forecasting\nProbabilistic forecasting\nConformal prediction for time series forecasting"
+    "text": "RESEARCH INTERESTS\n\nHealthcare analytics\nData-driven decision making\nStatistical learning and Machine learning\nReinforcement learning and stochastic optimization in decision making\nTime series forecasting\nProbabilistic forecasting\nConformal prediction"
   },
   {
     "objectID": "CV/CV.html#skills-expertise",
     "href": "CV/CV.html#skills-expertise",
     "title": "PhD Researcher | Data Scientist & Mathematical Modeller",
     "section": "SKILLS & EXPERTISE",
-    "text": "SKILLS & EXPERTISE\nExpertise: Mathematical and Statistical Modeling, Machine Learning, Time Series Analysis and Forecasting, Stocastic Optimization and Reinforecement Learning, Statistical and Explanatory Data Analysis\nProgramming: Python SQL\nReporting: Quarto Advanced Excel QlikView SAS\nLanguages English (Fluent), Kurdish (Native), Turkish (Native)"
+    "text": "SKILLS & EXPERTISE\nExpertise: Mathematical and Statistical Modeling, Machine Learning, Time Series Analysis and Forecasting, Stochastic Optimization and Reinforcement Learning, Statistical and Explanatory Data Analysis, web scraping in Python\nProgramming: Python SQL\nReporting: Quarto Advanced Excel QlikView SAS\nLanguages English (Fluent), Kurdish (Native), Turkish (Native)"
   },
   {
     "objectID": "CV/CV.html#professional-development",
     "href": "CV/CV.html#professional-development",
     "title": "PhD Researcher | Data Scientist & Mathematical Modeller",
     "section": "PROFESSIONAL DEVELOPMENT",
-    "text": "PROFESSIONAL DEVELOPMENT\n\nCertification:\n\nData Science: Machine Learning, HarvardX (edX)\n\nBooks (some of my go-to books):\n\nForecasting: Principles and Practice (Hyndman et al, 2021)\nIntroduction to Statistical Learning with Applications in R (Tibshirani et al, 2019)\nThe Elements of Statistical Learning (Tibshirani et al, 2008)\nProbabilistic Machine Learning: An Introduction (Murphy. 2022)\nReinforcement Learning: An Introduction (Barto et al, 2018)\nReinforcement Learning and Stochastic Optimization (Powell, 2022)\nTime Series Forecasting in Python (Peixeiro, 2022)\nA Student’s Guide to Bayesian Statistics (Lambert, 2018)\nDive into deep learning (Zhang, 2022)"
+    "text": "PROFESSIONAL DEVELOPMENT\n\nCertification:\n\nData Science: Machine Learning, HarvardX (edX)\n\nBooks (some of my go-to books):\n\nForecasting: Principles and Practice (Hyndman et al, 2021)\nIntroduction to Statistical Learning with Applications in R (Tibshirani et al, 2019)\nThe Elements of Statistical Learning (Tibshirani et al, 2008)\nProbabilistic Machine Learning: An Introduction (Murphy. 2022)\nReinforcement Learning: An Introduction (Barto et al, 2018)\nReinforcement Learning and Stochastic Optimization (Powell, 2022)\nA Student’s Guide to Bayesian Statistics (Lambert, 2018)\nDive into deep learning (Zhang, 2022)"
+  },
+  {
+    "objectID": "CV/CV.html#scholarships-grants",
+    "href": "CV/CV.html#scholarships-grants",
+    "title": "PhD Researcher | Data Scientist & Mathematical Modeller",
+    "section": "Scholarships & Grants",
+    "text": "Scholarships & Grants\n\nWelsh Graduate School for the Social Sciences (WGSSS) Studentship Award Aug 2024\nNATCOR Bursaries / EURO Funding for Stochastic Modelling Mar 2025"
   },
   {
     "objectID": "CV/CV.html#references",
