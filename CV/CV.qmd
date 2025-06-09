@@ -55,11 +55,11 @@ format-links:
 
 \sectionline
 
-**PhD in Probabilistic Machine Learning in Healthcare Management**\
+**PhD in Probabilistic Modeling for Healthcare Management and Operations**\
 [**Cardiff University, Cardiff, UK**]{.cvinstitution} \hfill [*Oct 2024 --- Present*]{.cvdate}.
 
 -   Recipient of WGSSS‑ESRC Studentship Award
--   Project focused on enhancing discharge care coordination in healthcare and social care using a probabilistic data-driven modelling approach
+-   Project focused on enhancing discharge planning process using probabilistic modelling
     -   Supervisors: [Prof Bahman Rostami‑Tabar](https://www.bahmanrt.com/), [Dr. Jeremy Dixon](https://profiles.cardiff.ac.uk/staff/dixonj7)
 
 **MSc in Financial Mathematics**\
@@ -110,18 +110,19 @@ format-links:
 
 \sectionline
 
+-   Healthcare analytics
 -   Data-driven decision making
--   Machine learning
--   Reinforcement learning and stocastic optimization in decision making
+-   Statistical learning and Machine learning
+-   Reinforcement learning and stochastic optimization in decision making
 -   Time series forecasting
 -   Probabilistic forecasting
--   Conformal prediction for time series forecasting
+-   Conformal prediction
 
 ## **SKILLS & EXPERTISE** {style="page-break-before: always"}
 
 \sectionline
 
-**Expertise:** Mathematical and Statistical Modeling, Machine Learning, Time Series Analysis and Forecasting, Stocastic Optimization and Reinforecement Learning, Statistical and Explanatory Data Analysis\
+**Expertise:** Mathematical and Statistical Modeling, Machine Learning, Time Series Analysis and Forecasting, Stochastic Optimization and Reinforcement Learning, Statistical and Explanatory Data Analysis, web scraping in Python\
 **Programming:** ![](images/python.jpeg){width="15"}Python ![](images/sql.png){width="28"}SQL\
 **Reporting:** ![](images/quarto.png){width="40" height="10"}Quarto ![](images/excel.png){width="22" height="15"}Advanced Excel ![](images/qlick.png){width="23" height="10"}QlikView ![](images/sas.png){width="26"}SAS\
 **Languages** English (Fluent), Kurdish (Native), Turkish (Native)
@@ -139,9 +140,13 @@ format-links:
     -   Probabilistic Machine Learning: An Introduction (Murphy. 2022)
     -   Reinforcement Learning: An Introduction (Barto et al, 2018)
     -   Reinforcement Learning and Stochastic Optimization (Powell, 2022)
-    -   Time Series Forecasting in Python (Peixeiro, 2022)
     -   A Student’s Guide to Bayesian Statistics (Lambert, 2018)
     -   Dive into deep learning (Zhang, 2022)
+
+## **Scholarships & Grants**
+
+-   Welsh Graduate School for the Social Sciences (WGSSS) Studentship Award \hfill [*Aug 2024*]{.cvdate}
+-   NATCOR Bursaries / EURO Funding for Stochastic Modelling \hfill [*Mar 2025*]{.cvdate}
 
 ::: print-only
 ## **References** {.unlisted}
