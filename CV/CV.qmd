@@ -18,6 +18,10 @@ format:
         \definecolor{mycolor}{HTML}{20808D}
         \let\oldhref\href
         \renewcommand{\href}[2]{\oldhref{#1}{\textmd{#2}}}
+        \usepackage{xcolor}
+        \definecolor{mybgcolor}{HTML}{FBFAF4}
+        \usepackage{pagecolor}
+        \pagecolor{mybgcolor}
 # date: last-modified
 address: "Cardiff Business School, Colum Drive, Cardiff CF10 3EU, UK"
 linkedin: aslanmu
@@ -136,6 +140,7 @@ format-links:
 **Programming:** ![](images/python.jpeg){width="15"}Python ![](images/sql.png){width="28"}SQL\
 **Reporting:** ![](images/quarto.png){width="40" height="10"}Quarto ![](images/excel.png){width="22" height="15"}Advanced Excel ![](images/qlick.png){width="23" height="10"}QlikView ![](images/sas.png){width="26"}SAS\
 **Languages** English (Fluent), Kurdish (Native), Turkish (Native)
+
 
 ## **PROFESSIONAL DEVELOPMENT** {style="page-break-before: always"}
 
