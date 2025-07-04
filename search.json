@@ -1,87 +1,52 @@
 [
   {
-    "objectID": "bins/dist.html",
-    "href": "bins/dist.html",
-    "title": "my dist",
+    "objectID": "bins/CV/CV.html",
+    "href": "bins/CV/CV.html",
+    "title": "Curriculum Vitae",
     "section": "",
-    "text": "asdasdasda\n\\[\nf_x = \\int\n\\]\n\nimport pandas as pd\nimport numpy as np"
+    "text": "PhD in Probabilistic Machine Learning in Healthcare Management\nCardiff University, Cardiff, UK Oct 2024 — Present\nPhD in Probabilistic Machine Learning in Healthcare Management\n\n\nRecipient of WGSSS‑ESRC Studentship Award\nProject focused on enhancing discharge care coordination in healthcare and social care using a probabilistic data-driven modelling approach\n\nSupervisors: Prof Bahman Rostami‑Tabar, Dr. Jeremy Dixon\n\n\nMSc in Financial Mathematics\nMiddle East Technical University, Ankara, Turkey Oct 2017 — Aug 2021\n\nDissertation: Effects of Exchange Rate Volatility and Firm-Specific Features on the Rates of Returns of the Manufacturing Firms Listed in Borsa İstanbul: A CAPM Approach\n\nStatistical&Machine learning techniques used: Markov Switching GARCH Models, ARIMA, Panel Data Econometrics, Principal Component Analysis\n\n\nBSc in Business Administration\nMiddle East Technical University, Turkey Oct 2011 — Aug 2015"
   },
   {
-    "objectID": "CV/CV.html",
-    "href": "CV/CV.html",
-    "title": "PhD Researcher | Data Scientist & Mathematical Modeller",
+    "objectID": "bins/CV/CV.html#education",
+    "href": "bins/CV/CV.html#education",
+    "title": "Curriculum Vitae",
     "section": "",
-    "text": "PhD in Probabilistic Modeling for Healthcare Management and Operations\nCardiff University, Cardiff, UK Oct 2024 — Present.\n\nRecipient of WGSSS‑ESRC Studentship Award\nProject focused on enhancing discharge planning process using probabilistic modelling\n\nSupervisors: Prof Bahman Rostami‑Tabar, Dr. Jeremy Dixon\n\n\nMSc in Financial Mathematics\nMiddle East Technical University, Ankara, Turkey Oct 2017 — Aug 2021\n\nDissertation: Effects of Exchange Rate Volatility and Firm-Specific Features on the Rates of Returns of the Manufacturing Firms Listed in Borsa İstanbul: A CAPM Approach\n\nStatistical&Machine learning techniques used: Markov Switching GARCH Models, ARIMA, Panel Data Econometrics, Principal Component Analysis\n\n\nBSc in Business Administration\nMiddle East Technical University, Ankara, Turkey Oct 2011 — Aug 2015"
+    "text": "PhD in Probabilistic Machine Learning in Healthcare Management\nCardiff University, Cardiff, UK Oct 2024 — Present\nPhD in Probabilistic Machine Learning in Healthcare Management\n\n\nRecipient of WGSSS‑ESRC Studentship Award\nProject focused on enhancing discharge care coordination in healthcare and social care using a probabilistic data-driven modelling approach\n\nSupervisors: Prof Bahman Rostami‑Tabar, Dr. Jeremy Dixon\n\n\nMSc in Financial Mathematics\nMiddle East Technical University, Ankara, Turkey Oct 2017 — Aug 2021\n\nDissertation: Effects of Exchange Rate Volatility and Firm-Specific Features on the Rates of Returns of the Manufacturing Firms Listed in Borsa İstanbul: A CAPM Approach\n\nStatistical&Machine learning techniques used: Markov Switching GARCH Models, ARIMA, Panel Data Econometrics, Principal Component Analysis\n\n\nBSc in Business Administration\nMiddle East Technical University, Turkey Oct 2011 — Aug 2015"
   },
   {
-    "objectID": "CV/CV.html#education",
-    "href": "CV/CV.html#education",
-    "title": "PhD Researcher | Data Scientist & Mathematical Modeller",
-    "section": "",
-    "text": "PhD in Probabilistic Modeling for Healthcare Management and Operations\nCardiff University, Cardiff, UK Oct 2024 — Present.\n\nRecipient of WGSSS‑ESRC Studentship Award\nProject focused on enhancing discharge planning process using probabilistic modelling\n\nSupervisors: Prof Bahman Rostami‑Tabar, Dr. Jeremy Dixon\n\n\nMSc in Financial Mathematics\nMiddle East Technical University, Ankara, Turkey Oct 2017 — Aug 2021\n\nDissertation: Effects of Exchange Rate Volatility and Firm-Specific Features on the Rates of Returns of the Manufacturing Firms Listed in Borsa İstanbul: A CAPM Approach\n\nStatistical&Machine learning techniques used: Markov Switching GARCH Models, ARIMA, Panel Data Econometrics, Principal Component Analysis\n\n\nBSc in Business Administration\nMiddle East Technical University, Ankara, Turkey Oct 2011 — Aug 2015"
+    "objectID": "bins/CV/CV.html#work-experince",
+    "href": "bins/CV/CV.html#work-experince",
+    "title": "Curriculum Vitae",
+    "section": "WORK EXPERINCE",
+    "text": "WORK EXPERINCE\nReporting and Data Analytics Executive\nAKBANK (a leading bank in Turkey), Istanbul Jun 2022 — Sep 2024\n\nApplied time-series forecasting and machine learning techniques, including ARIMA, Bayesian Time Series, Prophet, ANN, LSTM, Random Forest, LightGBM and XGBoost, to historical data for making long-horizon forecasts of daily customer call volume. The best model achieved over 94% accuracy (1-MAPE) in forecasting all days of the next month.\nImplemented machine learning models (e.g., XGBoost, LightGBM, CatBoost) to predict customer behavior with an over recall rate of 70% and an accuracy rate of 85%, enabling fewer customer complaints and increase sales by 14%.\nAnalyzing large amounts of data to identify trends and find patterns, signals and hidden stories within customer calls data.\nApplied machine learning techniques (Z-score, IsolationForest) to detect anomalies.\nApplied unsupervised machine learning techniques (DBSCAN, Gaussian mixture, K-means) to cluster customers.\nHyperparameter tuning for machine learning models using Hyperopt, Optuna and KerasTuner.\n\nResearch Associate\nThe Economic Policy Research Foundation of Turkey (Think Tank), Ankara Jan 2022 — Apr 2024\n\nDetermined areas of research to increase knowledge in the particular field.\nUtilizing inferential statistics such as hypothesis testing (e.g., t-test, ANOVA test, population proportion test), confidence intervals, correlation analysis and regression analysis to make inferences and draw conclusions about data.\nDeveloped statistical models (regression analysis, panel data modeling) for regional development projects to contribute to data-driven decisions.\n\nSenior Process Development Analyst\nETI GIDA Inc (a major FMCG player in Turkey), Eskisehir Jun 2019 — Jan 2022\n\nInteracted with internal customers to understand business needs and translate into requirements and project scope.\nAssessed the impact of current business processes on users and stakeholders and evaluated potential areas for improvement.\nMaintained strong working knowledge of ERP (SAP), CRM and business intelligence tools and operational features.\n\nInternal Auditor Ankara, Turkey\nTurk Telekom Inc. (the telecom giant of Turkey), Ankara Nov 2015 — Jun 2019\n\nPerformed strategic planning, execution and finalization of audits using data analytics and critical thinking skills.\nInvestigated discrepancies discovered during the auditing process.\nRecommended new methods to improve internal controls and operating efficiency."
   },
   {
-    "objectID": "CV/CV.html#teaching",
-    "href": "CV/CV.html#teaching",
-    "title": "PhD Researcher | Data Scientist & Mathematical Modeller",
-    "section": "TEACHING",
-    "text": "TEACHING\nTraining sessions for Data Lab for Social Good Research Group members\n\nIntroduction to Python and Quarto on Visual Studio Code Mar 2025\nIntroduction to Dynamic Programming and Reinforcement Learning May 2025"
-  },
-  {
-    "objectID": "CV/CV.html#work-experiences",
-    "href": "CV/CV.html#work-experiences",
-    "title": "PhD Researcher | Data Scientist & Mathematical Modeller",
-    "section": "WORK EXPERIENCES",
-    "text": "WORK EXPERIENCES\nReporting and Data Analytics Executive\nAKBANK (a leading bank in Turkey), Istanbul Jun 2022 — Sep 2024\n\nApplied time-series forecasting and machine learning techniques, including ARIMA, Bayesian Time Series, Prophet, ANN, LSTM, Random Forest, LightGBM and XGBoost, to historical data for making long-horizon forecasts of daily customer call volume. The best model achieved over 94% accuracy (1-MAPE) in forecasting all days of the next month.\nImplemented machine learning models (e.g., XGBoost, LightGBM, CatBoost) to predict customer behavior with an over recall rate of 70% and an accuracy rate of 85%, enabling fewer customer complaints and increase sales by 14%.\nAnalyzing large amounts of data to identify trends and find patterns, signals and hidden stories within customer calls data.\nApplied machine learning techniques (Z-score, IsolationForest) to detect anomalies.\nApplied unsupervised machine learning techniques (DBSCAN, Gaussian mixture, K-means) to cluster customers.\nHyperparameter tuning for machine learning models using Hyperopt, Optuna and KerasTuner.\n\nResearch Associate\nThe Economic Policy Research Foundation of Turkey (Think Tank), Ankara Jan 2022 — Apr 2024\n\nDetermined areas of research to increase knowledge in the particular field.\nUtilizing inferential statistics such as hypothesis testing (e.g., t-test, ANOVA test, population proportion test), confidence intervals, correlation analysis and regression analysis to make inferences and draw conclusions about data.\nDeveloped statistical models (regression analysis, panel data modeling) for regional development projects to contribute to data-driven decisions.\n\nSenior Process Development Analyst\nETI GIDA Inc (a major FMCG player in Turkey), Eskisehir Jun 2019 — Jan 2022\n\nInteracted with internal customers to understand business needs and translate into requirements and project scope.\nAssessed the impact of current business processes on users and stakeholders and evaluated potential areas for improvement.\nMaintained strong working knowledge of ERP (SAP), CRM and business intelligence tools and operational features.\n\nInternal Auditor\nTurk Telekom Inc. (the telecom giant of Turkey), Ankara Nov 2015 — Jun 2019\n\nPerformed strategic planning, execution and finalization of audits using data analytics and critical thinking skills.\nInvestigated discrepancies discovered during the auditing process.\nRecommended new methods to improve internal controls and operating efficiency."
-  },
-  {
-    "objectID": "CV/CV.html#research-interests",
-    "href": "CV/CV.html#research-interests",
-    "title": "PhD Researcher | Data Scientist & Mathematical Modeller",
+    "objectID": "bins/CV/CV.html#research-interests",
+    "href": "bins/CV/CV.html#research-interests",
+    "title": "Curriculum Vitae",
     "section": "RESEARCH INTERESTS",
-    "text": "RESEARCH INTERESTS\n\nHealthcare analytics\nData-driven decision making\nStatistical learning and Machine learning\nReinforcement learning and stochastic optimization in decision making\nTime series forecasting\nProbabilistic forecasting\nConformal prediction"
+    "text": "RESEARCH INTERESTS\n\nData-driven decision making\nMachine learning\nReinforcement learning and stocastic optimization in decision making\nTime series forecasting\nProbabilistic forecasting\nConformal prediction for time series forecasting"
   },
   {
-    "objectID": "CV/CV.html#skills-expertise",
-    "href": "CV/CV.html#skills-expertise",
-    "title": "PhD Researcher | Data Scientist & Mathematical Modeller",
+    "objectID": "bins/CV/CV.html#skills-expertise",
+    "href": "bins/CV/CV.html#skills-expertise",
+    "title": "Curriculum Vitae",
     "section": "SKILLS & EXPERTISE",
-    "text": "SKILLS & EXPERTISE\nExpertise: Mathematical and Statistical Modeling, Machine Learning, Time Series Analysis and Forecasting, Stochastic Optimization and Reinforcement Learning, Statistical and Explanatory Data Analysis, web scraping in Python\nProgramming: Python SQL\nReporting: Quarto Advanced Excel QlikView SAS\nLanguages English (Fluent), Kurdish (Native), Turkish (Native)"
+    "text": "SKILLS & EXPERTISE\nExpertise: Mathematical and Statistical Modeling, Machine Learning, Time Series Analysis and Forecasting, Stocastic Optimization and Reinforecement Learning, Statistical and Explanatory Data Analysis\nProgramming: Python, SQL\nReporting: Quarto, Advanced Excel, QlikView, SAS\nLanguages English (Fluent), Kurdish (Native), Turkish (Native)"
   },
   {
-    "objectID": "CV/CV.html#professional-development",
-    "href": "CV/CV.html#professional-development",
-    "title": "PhD Researcher | Data Scientist & Mathematical Modeller",
+    "objectID": "bins/CV/CV.html#professional-development",
+    "href": "bins/CV/CV.html#professional-development",
+    "title": "Curriculum Vitae",
     "section": "PROFESSIONAL DEVELOPMENT",
-    "text": "PROFESSIONAL DEVELOPMENT\n\nCertification:\n\nData Science: Machine Learning, HarvardX (edX)\n\nBooks (some of my go-to books):\n\nForecasting: Principles and Practice (Hyndman et al, 2021)\nIntroduction to Statistical Learning with Applications in R (Tibshirani et al, 2019)\nThe Elements of Statistical Learning (Tibshirani et al, 2008)\nProbabilistic Machine Learning: An Introduction (Murphy. 2022)\nReinforcement Learning: An Introduction (Barto et al, 2018)\nReinforcement Learning and Stochastic Optimization (Powell, 2022)\nA Student’s Guide to Bayesian Statistics (Lambert, 2018)\nDive into deep learning (Zhang, 2022)"
+    "text": "PROFESSIONAL DEVELOPMENT\n\nCertification:\n\nData Science: Machine Learning, HarvardX (edX)\n\nBooks (some of my go-to books):\n\nForecasting: Principles and Practice (Hyndman et al, 2021)\nIntroduction to Statistical Learning with Applications in R (Tibshirani et al, 2019)\nThe Elements of Statistical Learning (Tibshirani et al, 2008)\nProbabilistic Machine Learning: An Introduction (Murphy. 2022)\nReinforcement Learning: An Introduction (Barto et al, 2018)\nReinforcement Learning and Stochastic Optimization (Powell, 2022)\nTime Series Forecasting in Python (Peixeiro, 2022)\nA Student’s Guide to Bayesian Statistics (Lambert, 2018)\nDive into deep learning (Zhang, 2022)"
   },
   {
-    "objectID": "CV/CV.html#scholarships-grants",
-    "href": "CV/CV.html#scholarships-grants",
-    "title": "PhD Researcher | Data Scientist & Mathematical Modeller",
-    "section": "Scholarships & Grants",
-    "text": "Scholarships & Grants\n\nWelsh Graduate School for the Social Sciences (WGSSS) Studentship Award Aug 2024\nNATCOR Bursaries / EURO Funding for Stochastic Modelling Mar 2025"
-  },
-  {
-    "objectID": "CV/CV.html#references",
-    "href": "CV/CV.html#references",
-    "title": "PhD Researcher | Data Scientist & Mathematical Modeller",
+    "objectID": "bins/CV/CV.html#references",
+    "href": "bins/CV/CV.html#references",
+    "title": "Curriculum Vitae",
     "section": "References",
     "text": "References\nAvailable upon request"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Researcher & Data Scientist",
-    "section": "",
-    "text": "I am currently pursuing a PhD at Cardiff Business School, where I specialise in developing AI&machine learning models for healthcare management. My research involves developing and refining advanced statistical&machine learning techniques to analyse complex datasets, aiming to enhance decision-making processes in real-world applications. In addition to my PhD work, I manage the Learning Labs workshop series, providing training on machine learning, statistics, reinforcement learning and forecasting methodologies using Python. I am also responsible for organizing seminars for the Data Lab for Social Good, delivering sessions on AI, machine learning, forecasting, mathematical modeling, and optimization techniques."
-  },
-  {
-    "objectID": "workshops/index.html",
-    "href": "workshops/index.html",
-    "title": "MUSTAFA ASLAN",
-    "section": "",
-    "text": "Introduction to Reinforcement Learning\n\n\nWorkshop\n\n\n\n\n\nMay 22, 2025\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nBasics of Python and Introduction to Quarto in Visual Studio Code\n\n\nWorkshop\n\n\n\n\n\nMar 3, 2025\n\n\nMustafa Aslan\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "workshops/trainings/py_index.html",
@@ -89,6 +54,97 @@
     "title": "Basics of Python and Introduction to Quarto in Visual Studio Code",
     "section": "",
     "text": "Slides\nDate: Mar 3 2025 11:00 AM – 13:00 PM\nEvent: Data Lab for Social Good Training Session\nLocation: Aberconway Building Meeting Room, Cardiff University, UK"
+  },
+  {
+    "objectID": "workshops/intro_python/intro_to_python_part_3.html#outline",
+    "href": "workshops/intro_python/intro_to_python_part_3.html#outline",
+    "title": "MUSTAFA ASLAN",
+    "section": "Outline",
+    "text": "Outline\n\nIntroduction to VS\nInstalling and Importing Libraries in Python\nGetting Help in Python\nIntroduction to Quarto"
+  },
+  {
+    "objectID": "workshops/intro_python/intro_to_python_part_3.html#introduction-to-vs-code-1",
+    "href": "workshops/intro_python/intro_to_python_part_3.html#introduction-to-vs-code-1",
+    "title": "MUSTAFA ASLAN",
+    "section": "Introduction to VS Code",
+    "text": "Introduction to VS Code\n\n\nWhat is VS Code\n\nA free, and open-source code editor developed by Microsoft.\nSupports multiple programming languages and frameworks.\n\n\nKey Features\n\nIntegrated Terminal: Access a terminal directly in VS Code for running commands.\nExtensions: Add functionality for specific languages, tools, or frameworks (e.g., Quarto, Python, R).\nSource Control: Built-in Git integration for version control.\nDebugging: Powerful debugging tools for various languages.\nCustomizable Interface: Themes, layout, and key bindings to suit user preferences."
+  },
+  {
+    "objectID": "workshops/intro_python/intro_to_python_part_3.html#what-is-library",
+    "href": "workshops/intro_python/intro_to_python_part_3.html#what-is-library",
+    "title": "MUSTAFA ASLAN",
+    "section": "What is library?",
+    "text": "What is library?\n\nA collection of pre-written code that contains functions and modules that developers can use to solve programming tasks\nPython libraries cover libraries for a wide range of tasks, including:\n\npandas and numpy for data analysis, cleaning, exploration, and efficient numerical computations.\nscikit-learn, TensorFlow for machine learning tasks such as prediction, clustering, and forecasting.\nstatsforecast, darts and skforecast for forecasting tasks"
+  },
+  {
+    "objectID": "workshops/intro_python/intro_to_python_part_3.html#what-is-library-1",
+    "href": "workshops/intro_python/intro_to_python_part_3.html#what-is-library-1",
+    "title": "MUSTAFA ASLAN",
+    "section": "What is library?",
+    "text": "What is library?\n\n\nWhat is PIP?\n\nPIP is a package manager for Python packages or modules\nPIP is used to install and manage Python libraries\n\n\nInstalling a Library\n\n\nOpen a terminal or command prompt.\n\n\nUse the command pip install &lt;library-name&gt;.\n\n\nExample: pip install numpy\n\n\nAlternatively, run the following code in a notebook to install libraries directly: python       !pip install numpy"
+  },
+  {
+    "objectID": "workshops/intro_python/intro_to_python_part_3.html#importing-libraries-or-modules",
+    "href": "workshops/intro_python/intro_to_python_part_3.html#importing-libraries-or-modules",
+    "title": "MUSTAFA ASLAN",
+    "section": "Importing libraries or modules",
+    "text": "Importing libraries or modules\n\nOnce a library is installed, you need to import it into your Python script:\n\nExample:\nimport numpy\n\nUse as to create an alias for convenience (e.g., import pandas as pd or import numpy as np).\nUse from … import … to call specific functions from libraries or modules :\n\nExample:\nfrom math import sqrt\nprint(sqrt(16))  # Output: 4.0"
+  },
+  {
+    "objectID": "workshops/intro_python/intro_to_python_part_3.html#namespaces",
+    "href": "workshops/intro_python/intro_to_python_part_3.html#namespaces",
+    "title": "MUSTAFA ASLAN",
+    "section": "Namespaces",
+    "text": "Namespaces\n\n\n\nA namespace is a system that has a unique name for each and every object in Python.\nAn object might be a variable or a method.\nSome functions like print(), id() are always present, these are built-in namespaces.\nWhen a user creates a module, a global namespace gets created, later the creation of local functions creates the local namespace.\n\n\nExample:\nx = \"global\"\n\ndef outer_function():\n    # Enclosing namespace\n    x = \"enclosing\"\n    \n    def inner_function():\n        # Local namespace\n        x = \"local\"\n        print(\"Inner:\", x)  # Prints: Inner: local\n\n    inner_function()\n    print(\"Outer:\", x)  # Prints: Outer: enclosing\n\nouter_function()\nprint(\"Global:\", x)  # Prints: Global: global"
+  },
+  {
+    "objectID": "workshops/intro_python/intro_to_python_part_3.html#using-built-in-help-functions",
+    "href": "workshops/intro_python/intro_to_python_part_3.html#using-built-in-help-functions",
+    "title": "MUSTAFA ASLAN",
+    "section": "Using built-in help functions",
+    "text": "Using built-in help functions\n\nPython provides built-in tools to explore libraries and and functions\nSome of them are:\n\nhelp(): Displays documentation for an object.\ndir(): Lists the attributes and methods of an object\ntype(): Displays the type of the object"
+  },
+  {
+    "objectID": "workshops/intro_python/intro_to_python_part_3.html#using-built-in-help-functions-1",
+    "href": "workshops/intro_python/intro_to_python_part_3.html#using-built-in-help-functions-1",
+    "title": "MUSTAFA ASLAN",
+    "section": "Using built-in help functions",
+    "text": "Using built-in help functions\nExamples:\n\n\nExample -1:\n\nprint(help(len))\n# output:\n\nHelp on built-in function len in module builtins:\n\nlen(obj, /)\n    Return the number of items in a container.\n\nNone\n\n\n\nExample -2:\n\nprint(dir(list))\n# output:\n\n['__add__', '__class__', '__class_getitem__', '__contains__', '__delattr__', '__delitem__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getstate__', '__gt__', '__hash__', '__iadd__', '__imul__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__reversed__', '__rmul__', '__setattr__', '__setitem__', '__sizeof__', '__str__', '__subclasshook__', 'append', 'clear', 'copy', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']\n\n\n\nExample -3:\n\nx = \"cardiff\"\ny = 5\nz = [1,2,3,4,5]\n\nprint(type(x))\nprint(type(y))\nprint(type(z))\n# output:\n\n&lt;class 'str'&gt;\n&lt;class 'int'&gt;\n&lt;class 'list'&gt;"
+  },
+  {
+    "objectID": "workshops/intro_python/intro_to_python_part_3.html#three-main-tasks-using-quarto",
+    "href": "workshops/intro_python/intro_to_python_part_3.html#three-main-tasks-using-quarto",
+    "title": "MUSTAFA ASLAN",
+    "section": "Three Main Tasks Using Quarto",
+    "text": "Three Main Tasks Using Quarto\nQuarto help us publish reproducible, production quality articles, presentations, dashboards, websites, blogs, and books in HTML, PDF, MS Word, ePub, and more.\n\nWriting: Combine Markdown, code, and visualizations in .qmd files.\nRender: Generate output formats like HTML, PDF, or slides.\nPublish: Share documents or host on platforms like GitHub."
+  },
+  {
+    "objectID": "workshops/intro_python/intro_to_python_part_3.html#how-to-use-quarto-in-vs-code",
+    "href": "workshops/intro_python/intro_to_python_part_3.html#how-to-use-quarto-in-vs-code",
+    "title": "MUSTAFA ASLAN",
+    "section": "How to Use Quarto in VS Code",
+    "text": "How to Use Quarto in VS Code\n\n\n1. Install the Quarto Extension\n\nOpen VS Code.\nGo to the Extensions view by clicking on the Extensions icon in the Activity Bar on the side of the window or press Ctrl+Shift+X.\nSearch for “Quarto”.\nInstall the Quarto extension on you vs code\n\n\n2. Create a Quarto Document\n\nGo to File &gt; New File.\nSave the file with a .qmd extension (e.g., example.qmd).\nStart writing your Quarto content.\n\n\n3. Render a Quarto Document\n\nTo render and preview, execute the Quarto: “Preview” command.\nIf you want to preview a different format, use the Quarto: Preview Format command and select the format you want to render to (e.g., HTML, PDF, DOCX).\nQuarto will render the document, and the output file will be saved in the same directory."
+  },
+  {
+    "objectID": "workshops/intro_python/intro_to_python_part_3.html#example--1",
+    "href": "workshops/intro_python/intro_to_python_part_3.html#example--1",
+    "title": "MUSTAFA ASLAN",
+    "section": "Example -1",
+    "text": "Example -1\nHere’s an example of creating a bar plot using Seaborn package with a sample dataset:\n\n\n# Import required libraries\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Sample data\ndata = {\n    \"Category\": [\"A\", \"B\", \"C\", \"D\", \"E\"],\n    \"Values\": [23, 45, 56, 78, 12]\n}\n\n# Convert to a DataFrame\nimport pandas as pd\ndf = pd.DataFrame(data).sort_values(by = \"Values\", ascending=False)\n\n# Create a bar plot\nsns.barplot(x=\"Category\", y=\"Values\", data=df, palette=\"viridis\")\n\n# Add a title and labels\nplt.title(\"Sample Bar Plot\")\nplt.xlabel(\"Category\")\nplt.ylabel(\"Values\")\n# Show the plot\nplt.show()"
+  },
+  {
+    "objectID": "workshops/intro_python/intro_to_python_part_3.html#example--2",
+    "href": "workshops/intro_python/intro_to_python_part_3.html#example--2",
+    "title": "MUSTAFA ASLAN",
+    "section": "Example -2",
+    "text": "Example -2\nAn example of creating a line graph using plotly package\n\nimport plotly.express as px\n\ndf = px.data.gapminder().query(\"country=='Canada'\")\nfig = px.line(df, x=\"year\", y=\"lifeExp\", title='Life expectancy in Canada')\nfig.show()"
+  },
+  {
+    "objectID": "workshops/intro_python/intro_to_python_part_3.html#exploring-python-documentation-and-community-forums",
+    "href": "workshops/intro_python/intro_to_python_part_3.html#exploring-python-documentation-and-community-forums",
+    "title": "MUSTAFA ASLAN",
+    "section": "Exploring Python documentation and community forums",
+    "text": "Exploring Python documentation and community forums\n\n\nWebsites\n\nw3schools\ndatacamp\ncodeacademy\nlearnpython\n\n\nForums\n\nStack Overflow\nReal Python"
   },
   {
     "objectID": "workshops/rl/notes_ides.html",
@@ -110,160 +166,6 @@
     "title": "The difference between on-policy and off-policy",
     "section": "Notes",
     "text": "Notes\n\nReinforcement learning is a framework for learning how to interact with environment from experience.\nAgent takes actions to interact with environment\nThe big challange in RL Design a policy of what actions to take given a state s to maximize a future reward\nQ(s,a) tells us what is the quality of being in state s and taking action a. Then once I find myself in a state s, I just have to look across all of the actions and pick the one that gives the best quality. If I do that in future I will maximize my value."
-  },
-  {
-    "objectID": "workshops/rl/temp/rl_python_revenue_max.html",
-    "href": "workshops/rl/temp/rl_python_revenue_max.html",
-    "title": "A backward dynamic programming algorithm.",
-    "section": "",
-    "text": "Scenario:\nAn NGO sells a single handcrafted backpack produced by under-represented artisan groups. Each month, over a 120-month horizon, they reach one of four audience-size tiers—40, 60, 80, or 100 customers—and choose a campaign label (marketing message) highlighting a different artisan community. Each label yields a unit profit per customer as follows:\n\n\n\n\n\n\n\n\nLabel\nArtisan Group Highlighted\nProfit/Customer (£)\n\n\n\n\nEcoNomad\nWomen-led cooperatives\n15\n\n\nTrailBlazer\nDisability-led artisan studios\n9\n\n\nClassicCarry\nMinority-owned craft collectives\n12\n\n\n\nTheir goal is to maximize total expected profit over the 120 months by selecting the best label each month.\n\nR = [15, 9, 12]\n\n\nimport numpy as np\n\ndef create__trans_prob(num_states, num_actions):\n    \"\"\"\n    Create a transition probability matrix for a reinforcement learning problem.\n    \n    Parameters:\n    - num_states: Number of states in the environment.\n    - num_actions: Number of actions available in the environment.\n    \n    Returns:\n    - P: Transition probability matrix of shape (num_states, num_actions, num_states) using Dirichlet.\n    \"\"\"\n    alpha = np.ones(num_states)  # Dirichlet distribution parameter\n    P = np.zeros((num_states, num_actions, num_states))\n    for s in range(num_states):\n        for a in range(num_actions):\n            P[s, a, :] = np.random.dirichlet(alpha)  # transition probabilities for each state-action pair\n    return P\n\n\n# initialize value function values\n\nimport numpy as np\n\ndef create__trans_prob(num_states, num_actions):\n    \"\"\"\n    Create a transition probability matrix for a reinforcement learning problem.\n    \n    Parameters:\n    - num_states: Number of states in the environment.\n    - num_actions: Number of actions available in the environment.\n    \n    Returns:\n    - P: Transition probability matrix of shape (num_states, num_actions, num_states) using Dirichlet.\n    \"\"\"\n    alpha = np.ones(num_states)  # Dirichlet distribution parameter\n    P = np.zeros((num_states, num_actions, num_states))\n    for s in range(num_states):\n        for a in range(num_actions):\n            P[s, a, :] = np.random.dirichlet(alpha)  # transition probabilities for each state-action pair\n    return P\n\n\ndef backward_dynamic_programming(T, states, actions, R, P):\n    \"\"\"\n    Perform backward dynamic programming to compute the value function and action values.\n    Parameters:\n    - T: Number of time steps.\n    - states: List of states in the environment.\n    - actions: Actions available in the environment.\n    - P: Transition probability matrix of shape (num_states, num_actions, num_states).\n    \n    Returns:\n    - V: Value function for each state at each time step.\n    - A: Best action for each state at each time step.\n    \"\"\"\n\n    num_states = len(states)  # number of states\n    num_actions = len(actions)  # number of actions\n\n    V = np.zeros((T+1, num_states)) # initial value function for 80 time steps and 4 states\n    A = np.zeros((T, num_states)) # action values for 80 time steps and 4 states\n\n    for t in reversed(range(T)):\n        for i in range(num_states): # loop over states\n            # initialize best value and action\n            best_val = -np.inf  \n            best_action = None \n            # loop over actions to find the best action for the current state\n            for a in range(num_actions): # loop over actions\n                q_ia = 0 # initialize action value\n                # calculate the action value q(s, a) using the Bellman equation\n                for j in range(num_states): # loop over next states\n                    # r = np.random.normal(50, 40) # sample a reward from a normal distribution\n                    r = R[a]*states[i]  # reward based on the action and state\n                    q_ia = + r + 0.1*P[i][a][j]*V[t+1, j]  # reward + discounted value of next state\n                if q_ia &gt; best_val: # if the action value is better than the best value found so far\n                    best_val = q_ia # update best value\n                    best_action = a # update best action\n            V[t][i] = best_val # store the best value for the current state at time t\n            A[t][i] = best_action # store the best action for the current state at time t\n    return V, A            \n\n\n\nT = 120\nstates = list(range(40, 61))  # example states\nactions = [0, 1, 2]  # example actions\nnum_states = len(states)  # number of states\nnum_actions = len(actions)  # number of actions\nR = [15, 9, 12]  # rewards for each action\nP = create__trans_prob(num_states, num_actions) # create transition probability matrix\nVs, As = backward_dynamic_programming(T, states, actions, R, P)  # perform backward dynamic programming\n\n\nVs.shape\n\n(121, 21)\n\n\n\nimport pandas as pd\npd.DataFrame(Vs, columns=states, index=range(T+1)).iloc[:, 0:3].plot()\n\n\n\n\n\n\n\n\nConsider a network of two products: product 1 (bags) has 10 units in inventory, while product 2 (raincoats) has 20 units in inventory. Customers may buy product 1, product 2, or both products. The price is £15 for product 1, £20 for product 2, and £30 if a customer wants to buy both products 1 and 2. The products can be sold over a time horizon of T = 90 periods. The arrival probabilities in each time period are constant over time: λ₁ = 0.2, λ₂ = 0.15, and λ₃ = 0.1. With a probability of λ₀ = 0.55, there will be no arrival in a given period. The objective of the NGO manager is to decide, whenever a shopping request arrives, whether to accept the demand such that the total expected profit is maximized.\n\nimport numpy as np\n\ndef backward_dp_two_products(T, Imax, Jmax, lambdas, prices):\n    \"\"\"\n    Backward dynamic programming for 2‐product booking control.\n    \n    Args:\n        T       : int, horizon (e.g. 90)\n        Imax    : int, max bags inventory (e.g. 10)\n        Jmax    : int, max raincoats inventory (e.g. 20)\n        lambdas : list of arrival probabilities [λ0, λ1, λ2, ...]\n        prices   : dict, prices for each product\n                 {1: price_bag, 2: price_raincoat, 3: price_both}\n        \n    Returns:\n        V      : np.array shape (T+1, Imax+1, Jmax+1)\n                 value function\n        policy : np.array shape (T, Imax+1, Jmax+1, 4)\n                 policy[t,i,j,k] = 0 (reject) or 1 (accept) for arrival k\n    \"\"\"\n    V = np.zeros((T+1, Imax+1, Jmax+1))\n    policy = np.zeros((T, Imax+1, Jmax+1, 3), dtype=int)\n    \n    for t in range(T-1, -1, -1):\n        for i in range(Imax+1):\n            for j in range(Jmax+1):\n                # calculate the value function for each state (i, j) at time t following the Bellman equation\n                reward = 0\n                for p in range(2):\n                    if i == 0 | j == 0 # No capacity to accept this booking\n                        reject = V[t+1, i, j]\n                        policy[t, i, j, p] = 0  # Reject\n                    else:\n\n\n                          \n\n    \n    \n    return V, policy\n\n# --- Usage ---\nT = 90\nImax, Jmax = 10, 20\nlambdas = [0.55, 0.2, 0.15, 0.1]\nfares = {1:15, 2:20, 3:30}\n\nV, policy = backward_dp_two_products(T, Imax, Jmax, lambdas, fares)\n\n\nlist(range(1, 2))\n\n[0, 1]"
-  },
-  {
-    "objectID": "workshops/rl/rl.html",
-    "href": "workshops/rl/rl.html",
-    "title": "1. Python implementation of the Value Iteration algorithm",
-    "section": "",
-    "text": "import numpy as np\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\ndef value_iteration(env, gamma=0.99, theta=1e-6):\n    \"\"\"\n    Performs value iteration to compute an optimal policy.\n\n    Args:\n        env: An environment that provides:\n            - env.states: a list of all states\n            - env.actions(s): a list of actions available in state s\n            - env.transitions(s, a): a list of (probability, next_state, reward) tuples\n            - env.is_terminal(s): a function to check if a state is terminal\n        gamma: Discount factor.\n        theta: Small threshold for convergence.\n\n    Returns:\n        A tuple (V, pi) where:\n            - V is a dict of state -&gt; value\n            - pi is a dict of state -&gt; optimal action\n    \"\"\"\n    V = {s: 0.0 for s in env.states}\n    history = {s: [0] for s in env.states}\n    for s in env.states:\n        if env.is_terminal(s):\n            V[s] = 0.0  # terminal states have zero value\n\n    while True:\n        delta = 0\n        for s in env.states:\n            if env.is_terminal(s):\n                continue\n            v = V[s]\n            action_values = []\n            for a in env.actions(s):\n                q = sum(\n                    prob * (reward + gamma * V[next_state])\n                    for prob, next_state, reward in env.transitions(s, a)\n                )\n                action_values.append(q)\n            V[s] = max(action_values)\n            history[s].append(V[s])\n            delta = max(delta, abs(v - V[s]))\n        if delta &lt; theta:\n            break\n\n    # Derive the policy\n    policy = {}\n    for s in env.states:\n        if env.is_terminal(s):\n            policy[s] = None\n            continue\n        best_action = max(\n            env.actions(s),\n            key=lambda a: sum(\n                prob * (reward + gamma * V[next_state])\n                for prob, next_state, reward in env.transitions(s, a)\n            )\n        )\n        policy[s] = best_action\n\n    return V, policy, history"
-  },
-  {
-    "objectID": "workshops/rl/rl.html#example-usage--environment-for-diabetes-care",
-    "href": "workshops/rl/rl.html#example-usage--environment-for-diabetes-care",
-    "title": "1. Python implementation of the Value Iteration algorithm",
-    "section": "1.1 Example usage- Environment for Diabetes Care",
-    "text": "1.1 Example usage- Environment for Diabetes Care\n\nThis environment simulates a diabetes care scenario with different states and actions.\nThe states represent the health status of a patient, and the actions represent different care strategies.\nThe transitions define the probabilities of moving from one state to another based on the action taken.\nThe rewards are based on the health outcomes of the actions taken.\n\n\n\nclass DiabetesCareEnv:\n    def __init__(self):\n        # all possible states\n        self.states = [\"stable\", \"moderate\", \"critical\", \"dead\"] \n        self._terminal_states = {\"dead\"}\n\n    def is_terminal(self, s):\n        return s in self._terminal_states\n\n    def actions(self, s):\n        if s == \"dead\":\n            return []\n        return [\"lifestyle\", \"medicate\", \"intensive_care\"]\n\n    def transitions(self, s, a):\n        \"\"\"\n        Returns a list of (probability, next_state, reward) tuples.\n        Each action from a state leads to all possible states.\n        \"\"\"\n\n        if s == \"stable\":\n            if a == \"lifestyle\":\n                return [\n                    (0.80, \"stable\", 8),\n                    (0.10, \"moderate\", 0),\n                    (0.05, \"critical\", -10),\n                    (0.05, \"dead\", -100),\n                ]\n            elif a == \"medicate\":\n                return [\n                    (0.85, \"stable\", 6),\n                    (0.10, \"moderate\", -3),\n                    (0.03, \"critical\", -10),\n                    (0.02, \"dead\", -100),\n                ]\n            elif a == \"intensive_care\":\n                return [\n                    (0.90, \"stable\", -5),\n                    (0.05, \"moderate\", -8),\n                    (0.03, \"critical\", -15),\n                    (0.02, \"dead\", -100),\n                ]\n\n        elif s == \"moderate\":\n            if a == \"lifestyle\":\n                return [\n                    (0.50, \"stable\", 5),\n                    (0.30, \"moderate\", -1),\n                    (0.15, \"critical\", -6),\n                    (0.05, \"dead\", -50),\n                ]\n            elif a == \"medicate\":\n                return [\n                    (0.60, \"stable\", 6),\n                    (0.25, \"moderate\", 0),\n                    (0.10, \"critical\", -5),\n                    (0.05, \"dead\", -50),\n                ]\n            elif a == \"intensive_care\":\n                return [\n                    (0.70, \"stable\", 3),\n                    (0.20, \"moderate\", -2),\n                    (0.05, \"critical\", -10),\n                    (0.05, \"dead\", -80),\n                ]\n\n        elif s == \"critical\":\n            if a == \"lifestyle\":\n                return [\n                    (0.05, \"stable\", 2),\n                    (0.10, \"moderate\", -3),\n                    (0.50, \"critical\", -12),\n                    (0.35, \"dead\", -100),\n                ]\n            elif a == \"medicate\":\n                return [\n                    (0.10, \"stable\", 3),\n                    (0.30, \"moderate\", -2),\n                    (0.50, \"critical\", -8),\n                    (0.20, \"dead\", -100),\n                ]\n            elif a == \"intensive_care\":\n                return [\n                    (0.30, \"stable\", 5),\n                    (0.30, \"moderate\", 0),\n                    (0.30, \"critical\", -3),\n                    (0.10, \"dead\", -90),\n                ]\n\n        elif s == \"dead\":\n            return [(1.0, \"dead\", 0)]\n\n        return []\n\n\nenv = DiabetesCareEnv()\nV, policy, hist = value_iteration(env, gamma=0.95, theta=1e-4)\n\nfor state in env.states:\n    print(f\"State: {state:10s} | Value: {V[state]:6.2f} | Best Action: {policy[state]}\")\n\nState: stable     | Value:  22.73 | Best Action: medicate\nState: moderate   | Value:  18.36 | Best Action: medicate\nState: critical   | Value:   4.63 | Best Action: intensive_care\nState: dead       | Value:   0.00 | Best Action: None\n\n\n\nplt.figure(figsize=(12, 8))\nfor state in env.states:\n    if state == \"dead\":\n        continue\n    plt.plot(hist[state], label=state)\nplt.title(\"Value Iteration Convergence\")\nplt.xlabel(\"Iterations\")\nplt.ylabel(\"Value\")\nplt.legend()\nplt.grid()\nplt.show()"
-  },
-  {
-    "objectID": "workshops/rl/rl.html#interpretation",
-    "href": "workshops/rl/rl.html#interpretation",
-    "title": "1. Python implementation of the Value Iteration algorithm",
-    "section": "1.2 Interpretation",
-    "text": "1.2 Interpretation\n\n\\(\\pi(s)\\) = lifestyle: Suggests conservative management is best.\n\\(\\pi(s)\\) = medicate: Indicates medical intervention is effective and worth the cost.\n\\(\\pi(s)\\) = intensive_care: Signals high urgency; aggressive action justified.\n\n\ninterp = {\n    'state': ['stable', 'moderate', 'critical', 'dead'],\n    'best_action': ['lifestyle', 'medicate', 'intensive_care', \"none\"],\n    'interpretation': [\n        'Encourage self-care',\n        'Best to intervene with medication',\n        'Aggressive care needed to avoid death.',\n        'No further action needed.'\n    ]}\ninterp_df = pd.DataFrame(interp)\ninterp_df\n\n\n\n\n\n\n\n\nstate\nbest_action\ninterpretation\n\n\n\n\n0\nstable\nlifestyle\nEncourage self-care\n\n\n1\nmoderate\nmedicate\nBest to intervene with medication\n\n\n2\ncritical\nintensive_care\nAggressive care needed to avoid death.\n\n\n3\ndead\nnone\nNo further action needed."
-  },
-  {
-    "objectID": "learn/distributions/dists_notebook.html",
-    "href": "learn/distributions/dists_notebook.html",
-    "title": "Random Variables",
-    "section": "",
-    "text": "For a discrete random variable \\(X\\), we define the probability mass function \\(p(\\alpha)\\) of \\(X\\) by\n\\[\np(\\alpha) = P(X = \\alpha)\n\\]\nThe probability mass function \\(p(\\alpha)\\) is positive for at most a countable number of values of \\(a\\). That is, if \\(X\\) must assume one of the values \\(x_1, x_2,\\dots ,\\) then\n\\[\np(x_i) \\geq 0 \\text{ for } i = 1, 2, \\dots\n\\]\nand\n\\[\n\\sum_{i=1}^{\\infty} p(x_i) = 1\n\\]\nThe cumulative distribution function \\(F(x)\\) can be expressed in terms of \\(p(\\alpha)\\) by\n\\[\nF(\\alpha) = P(X \\leq \\alpha) = \\sum_{x_i \\leq \\alpha} p(x_i)\n\\]\n\n\nIf \\(X\\) is a discrete random variable having a probability mass function \\(p(x)\\), then the expected value of \\(X\\) is defined by\n\\[\nE(X) = \\sum_{x_i} x_i p(x_i)\n\\]\n\n\n\nA Bernoulli random variable is a discrete random variable that takes the value 1 with probability \\(p\\) and the value 0 with probability \\(1-p\\). The probability mass function of a Bernoulli random variable \\(X\\) is given by \\[\np(x) = \\begin{cases}\n1-p & \\text{if } x = 0 \\\\\np & \\text{if } x = 1\n\\end{cases}\n\\]\nThe expected value of a Bernoulli random variable is given by \\[\nE(X) = 0 \\cdot (1-p) + 1 \\cdot p = p\n\\]\nThe variance of a Bernoulli random variable is given by \\[\nVar(X) = E(X^2) - (E(X))^2 = p - p^2 = p(1-p)\n\\]\n\n# Necessary packages\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n# from scipy.stats import poisson\n\n\ndef bernoulli(p):\n    \"\"\"\n    Bernoulli distribution with parameter p.\n    \"\"\"\n    return np.random.binomial(1, p)\ndef binomial(n, p):\n    \"\"\"\n    Binomial distribution with parameters n and p.\n    \"\"\"\n    return np.random.binomial(n, p)\ndef geometric(p):\n    \"\"\"\n    Geometric distribution with parameter p.\n    \"\"\"\n    return np.random.geometric(p)\ndef negative_binomial(n, p):\n    \"\"\"\n    Negative binomial distribution with parameters n and p.\n    \"\"\"\n    return np.random.negative_binomial(n, p)\n\n\n\n\nSuppose that \\(n\\) independent trials, each of which results in a “success” with probability \\(p\\) and in a “failure” with probability \\(1−p\\), are to be performed. If \\(X\\) represents the number of successes that occur in the \\(n\\) trials, then \\(X\\) is said to be a binomial random variable with parameters \\(n, p\\). The probability mass function of a binomial random variable having parameters \\((n, p)\\) is given by\n\\[\np(x) = \\binom{n}{x} p^x (1-p)^{n-x}, \\quad x = 0, 1, \\dots, n\n\\]\nwhere \\(\\binom{n}{x} = \\frac{n!}{x!(n-x)!}\\) is the binomial coefficient, which counts the number of ways to choose \\(x\\) successes from \\(n\\) trials.\n\n\nIf \\(X\\) is a binomial random variable with parameters \\(n\\) and \\(p\\), then the expected value of \\(X\\) is given by \\[\nE(X) = np\n\\] ### Variance of a Binomial Random Variable If \\(X\\) is a binomial random variable with parameters \\(n\\) and \\(p\\), then the variance of \\(X\\) is given by \\[\nVar(X) = np(1-p)\n\\]\n\n\n\n\nA random variable \\(X\\) taking on one of the values \\(0, 1, 2, \\dots,\\) is said to be a Poisson random variable with parameter \\(\\lambda\\), if for some \\(\\lambda &gt; 0\\),\n\\[\np(i) = P \\{ X = i \\} = e^{-\\lambda} \\frac{\\lambda^i}{i!}, \\quad i = 0, 1, \\ldots\n\\]\n\n\nIf \\(X\\) is a Poisson random variable with parameter \\(\\lambda\\), then the expected value of \\(X\\) is given by\n\\[\nE(X) = \\sum_{i=0}^{\\infty} i e^{-\\lambda} \\frac{\\lambda^i}{i!}\n= e^{-\\lambda} \\sum_{i=1}^{\\infty} \\frac{\\lambda^i}{(i-1)!}\n= e^{-\\lambda} \\lambda \\sum_{i=0}^{\\infty} \\frac{\\lambda^i}{i!}\n= e^{-\\lambda} \\lambda e^{\\lambda}\n= \\lambda\n\\]\nwhere we have used the identity \\(\\sum_{i=0}^{\\infty} \\frac{\\lambda^i}{i!} = e^{\\lambda}\\).\n\ndef poisson(m, k):\n    \"\"\"\n    Calculate the Poisson probability of observing k events in an interval\n    given the average rate of occurrence n.\n\n    :param m: Average rate of occurrence (lambda)\n    :param k: Number of events\n    :return: Probability of observing k events\n    \"\"\"\n    from math import exp, factorial\n\n    return (m ** k) * exp(-m) / factorial(k)\n\n\n# Example usage\nx = np.arange(0, 20) # Average rate of occurrence\nlambdas = [1, 3, 5, 7, 10, 12,15] # Different values of lambda\n\n           \nplt.figure(figsize=(8, 6))\n\nfor lam in lambdas:\n    pmf = [poisson(lam, k) for k in x]\n    # Using scipy's poisson distribution for comparison\n    # pmf_scy = poisson.pmf(x, lam)\n    plt.plot(x, pmf, marker='o', label=f'λ = {lam}')\n\nplt.xlabel('Number of events (k)')\nplt.ylabel('Probability')\nplt.title('Poisson Distribution')\nplt.grid(axis=  \"y\" , linestyle='--')\nplt.legend()\nplt.show()"
-  },
-  {
-    "objectID": "learn/distributions/dists_notebook.html#bernoulli-random-variable",
-    "href": "learn/distributions/dists_notebook.html#bernoulli-random-variable",
-    "title": "Random Variables",
-    "section": "",
-    "text": "A Bernoulli random variable is a discrete random variable that takes the value 1 with probability \\(p\\) and the value 0 with probability \\(1-p\\). The probability mass function of a Bernoulli random variable \\(X\\) is given by \\[\np(x) = \\begin{cases}\n1-p & \\text{if } x = 0 \\\\\np & \\text{if } x = 1\n\\end{cases}\n\\]\nThe expected value of a Bernoulli random variable is given by \\[\nE(X) = 0 \\cdot (1-p) + 1 \\cdot p = p\n\\]\nThe variance of a Bernoulli random variable is given by \\[\nVar(X) = E(X^2) - (E(X))^2 = p - p^2 = p(1-p)\n\\]\n\n# Necessary packages\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n# from scipy.stats import poisson\n\n\ndef bernoulli(p):\n    \"\"\"\n    Bernoulli distribution with parameter p.\n    \"\"\"\n    return np.random.binomial(1, p)\ndef binomial(n, p):\n    \"\"\"\n    Binomial distribution with parameters n and p.\n    \"\"\"\n    return np.random.binomial(n, p)\ndef geometric(p):\n    \"\"\"\n    Geometric distribution with parameter p.\n    \"\"\"\n    return np.random.geometric(p)\ndef negative_binomial(n, p):\n    \"\"\"\n    Negative binomial distribution with parameters n and p.\n    \"\"\"\n    return np.random.negative_binomial(n, p)"
-  },
-  {
-    "objectID": "learn/distributions/dists_notebook.html#binomial-random-variable",
-    "href": "learn/distributions/dists_notebook.html#binomial-random-variable",
-    "title": "Random Variables",
-    "section": "",
-    "text": "Suppose that \\(n\\) independent trials, each of which results in a “success” with probability \\(p\\) and in a “failure” with probability \\(1−p\\), are to be performed. If \\(X\\) represents the number of successes that occur in the \\(n\\) trials, then \\(X\\) is said to be a binomial random variable with parameters \\(n, p\\). The probability mass function of a binomial random variable having parameters \\((n, p)\\) is given by\n\\[\np(x) = \\binom{n}{x} p^x (1-p)^{n-x}, \\quad x = 0, 1, \\dots, n\n\\]\nwhere \\(\\binom{n}{x} = \\frac{n!}{x!(n-x)!}\\) is the binomial coefficient, which counts the number of ways to choose \\(x\\) successes from \\(n\\) trials.\n\n\nIf \\(X\\) is a binomial random variable with parameters \\(n\\) and \\(p\\), then the expected value of \\(X\\) is given by \\[\nE(X) = np\n\\] ### Variance of a Binomial Random Variable If \\(X\\) is a binomial random variable with parameters \\(n\\) and \\(p\\), then the variance of \\(X\\) is given by \\[\nVar(X) = np(1-p)\n\\]"
-  },
-  {
-    "objectID": "learn/distributions/dists_notebook.html#the-poisson-random-variable",
-    "href": "learn/distributions/dists_notebook.html#the-poisson-random-variable",
-    "title": "Random Variables",
-    "section": "",
-    "text": "A random variable \\(X\\) taking on one of the values \\(0, 1, 2, \\dots,\\) is said to be a Poisson random variable with parameter \\(\\lambda\\), if for some \\(\\lambda &gt; 0\\),\n\\[\np(i) = P \\{ X = i \\} = e^{-\\lambda} \\frac{\\lambda^i}{i!}, \\quad i = 0, 1, \\ldots\n\\]\n\n\nIf \\(X\\) is a Poisson random variable with parameter \\(\\lambda\\), then the expected value of \\(X\\) is given by\n\\[\nE(X) = \\sum_{i=0}^{\\infty} i e^{-\\lambda} \\frac{\\lambda^i}{i!}\n= e^{-\\lambda} \\sum_{i=1}^{\\infty} \\frac{\\lambda^i}{(i-1)!}\n= e^{-\\lambda} \\lambda \\sum_{i=0}^{\\infty} \\frac{\\lambda^i}{i!}\n= e^{-\\lambda} \\lambda e^{\\lambda}\n= \\lambda\n\\]\nwhere we have used the identity \\(\\sum_{i=0}^{\\infty} \\frac{\\lambda^i}{i!} = e^{\\lambda}\\).\n\ndef poisson(m, k):\n    \"\"\"\n    Calculate the Poisson probability of observing k events in an interval\n    given the average rate of occurrence n.\n\n    :param m: Average rate of occurrence (lambda)\n    :param k: Number of events\n    :return: Probability of observing k events\n    \"\"\"\n    from math import exp, factorial\n\n    return (m ** k) * exp(-m) / factorial(k)\n\n\n# Example usage\nx = np.arange(0, 20) # Average rate of occurrence\nlambdas = [1, 3, 5, 7, 10, 12,15] # Different values of lambda\n\n           \nplt.figure(figsize=(8, 6))\n\nfor lam in lambdas:\n    pmf = [poisson(lam, k) for k in x]\n    # Using scipy's poisson distribution for comparison\n    # pmf_scy = poisson.pmf(x, lam)\n    plt.plot(x, pmf, marker='o', label=f'λ = {lam}')\n\nplt.xlabel('Number of events (k)')\nplt.ylabel('Probability')\nplt.title('Poisson Distribution')\nplt.grid(axis=  \"y\" , linestyle='--')\nplt.legend()\nplt.show()"
-  },
-  {
-    "objectID": "learn/distributions/dists_notebook.html#exponential-random-variables",
-    "href": "learn/distributions/dists_notebook.html#exponential-random-variables",
-    "title": "Random Variables",
-    "section": "2.1 Exponential Random Variables",
-    "text": "2.1 Exponential Random Variables\nA continuous random variable whose probability density function is given, for some \\(\\lambda &gt; 0\\), by: \\[\nf(x) = \\begin{cases}\n\\lambda e^{-\\lambda x} & x \\geq 0 \\\\\n0 & x &lt; 0\n\\end{cases}\n\\]\nis said to be an exponential random variable with parameter \\(\\lambda\\), which is the mean of the distribution. The cumulative distribution function is given by\n\\[\nF(\\alpha) =  \\int_0^\\alpha \\lambda e^{-\\lambda x} \\, dx, = 1-e^{-\\lambda \\alpha}  \\quad \\alpha \\geq 0\n\\]\nNote that \\(F(\\infty) = \\int_0^\\infty \\lambda e^{-\\lambda x} \\, dx = 1\\).\n\nExpectation of an Exponential Random Variable\nIf \\(X\\) is an exponential random variable with parameter \\(\\lambda\\), then the expected value of \\(X\\) is given by \\[\nE(X) = \\int_0^\\infty x \\lambda e^{-\\lambda x} \\, dx\n\\]\nIntegration by parts (\\(dv = \\lambda e^{-\\lambda x}, u = x\\)) yields \\[\nE(X) = \\left[ -\\frac{x}{\\lambda} e^{-\\lambda x} \\right]_0^\\infty + \\frac{1}{\\lambda} \\int_0^\\infty e^{-\\lambda x} \\, dx\n= 0 + \\frac{1}{\\lambda} \\cdot \\frac{1}{\\lambda} = \\frac{1}{\\lambda}\n\\]\n\ndef exponential(x, m):\n    \"\"\"\n    Calculate the Exponential probability density function (PDF) for a given x and rate parameter m.\n\n    :param x: Value at which to evaluate the PDF\n    :param m: Rate parameter (1/lambda)\n    :return: Probability density at x\n    \"\"\"\n    from math import exp\n\n    return m * exp(-m * x) if x &gt;= 0 else 0\n\n\nx = np.linspace(0, 10, 50)\nlamdas = [0.1, 0.5, 1, 3, 5] # Different values of lambda\n\nplt.figure(figsize=(8, 6))# Plotting the Exponential distribution\nfor lam in lamdas:\n    pdf = [exponential(i, lam) for i in x]\n    plt.plot(x, pdf, marker='o', label=f'λ = {lam}')\nplt.xlabel('x')\nplt.ylabel('Probability Density')\nplt.title('Exponential Distribution')\nplt.grid(axis=  \"y\" , linestyle='--')\nplt.legend()\nplt.show()"
-  },
-  {
-    "objectID": "learn/distributions/dists_notebook.html#gamma-random-variables",
-    "href": "learn/distributions/dists_notebook.html#gamma-random-variables",
-    "title": "Random Variables",
-    "section": "2.2 Gamma Random Variables",
-    "text": "2.2 Gamma Random Variables\nA continuous random variable whose density is given by: \\[\nf(x) = \\begin{cases}\n\\frac{\\lambda e^{- \\lambda x} {(\\lambda x)}^{\\alpha-1}}{\\Gamma (\\alpha)} & x \\geq 0 \\\\\n0 & x &lt; 0\n\\end{cases}\n\\]\nfor some \\(\\lambda&gt;0\\) and \\(\\alpha&gt;0\\) is said to be a gamma random variable with parameters \\(\\alpha, \\lambda\\).\nThe quantity \\(\\Gamma (\\alpha)\\) is called the gamma function and is defined by\n\\[\n\\Gamma (\\alpha) = \\int_0^\\infty e^{-x} x^{\\alpha-1} \\, dx = (\\alpha-1)!\n\\]\n\nExpectation of a Gamma Random Variable\nIf \\(X\\) is a gamma random variable with parameters \\(\\alpha\\) and \\(\\lambda\\), then the expected value of \\(X\\) is given by \\[\nE(X) = \\int_0^\\infty x \\frac{\\lambda e^{- \\lambda x} {(\\lambda x)}^{\\alpha-1}}{\\Gamma (\\alpha)} \\, dx\n= \\frac{1}{\\lambda} \\int_0^\\infty e^{-x} x^{\\alpha} \\, dx\n= \\frac{1}{\\lambda} \\cdot \\Gamma (\\alpha + 1)\n= \\frac{1}{\\lambda} \\cdot \\alpha \\Gamma (\\alpha)\n= \\frac{\\alpha}{\\lambda}\n\\]\n\ndef gamma(x, alpha, lamd):\n    \"\"\"\n    Calculate the Gamma probability density function (PDF) for a given x, shape parameter alpha, and scale parameter lamd.\n\n    :param x: Value at which to evaluate the PDF\n    :param alpha: Shape parameter (alpha)\n    :param lamd: Scale parameter (lamda)\n    :return: Probability density at x\n    \"\"\"\n    from math import exp, factorial\n\n    return (lamd*exp(-lamd*x)*((lamd*x)**(alpha-1)))/factorial(alpha) if x &gt;= 0 else 0\n\n\nx = np.linspace(0, 10, 50) # Range of x values for the gamma distribution\nalpha_values = [3, 2] # Different values of alpha (shape parameter)\nlambdas = [1.5,  2] # Different values of lambda (scale parameter)\nplt.figure(figsize=(8, 6)) # Plotting the Gamma distribution\nfor alpha in alpha_values:\n    for lam in lambdas:\n        pdf = [gamma(i, alpha, lam) for i in x]\n        plt.plot(x, pdf, marker='o', label=f'α = {alpha}, λ = {lam}')\nplt.xlabel('x')\nplt.ylabel('Probability Density')\nplt.title('Gamma Distribution')\nplt.grid(axis=  \"y\" , linestyle='--')\nplt.legend()\nplt.show()"
-  },
-  {
-    "objectID": "learn/distributions/dists_notebook.html#normal-random-variables",
-    "href": "learn/distributions/dists_notebook.html#normal-random-variables",
-    "title": "Random Variables",
-    "section": "2.3 Normal Random Variables",
-    "text": "2.3 Normal Random Variables\nWe say that \\(X\\) is a normal random variable (or simply that \\(X\\) is normally distributed) with parameters \\(\\mu\\) and \\(\\sigma ^2\\) if the density of X is given by\n\\[\nf(x) = \\frac{1}{\\sqrt{2\\pi}\\sigma} e^{-(x-\\mu)/ 2\\sigma^2} \\quad -\\infty &lt; x &lt; \\infty\n\\]\nThis density function is a bell-shaped curve that is symmetric around \\(\\mu\\).\nThe mean of the normal distribution is \\(\\mu\\) and the variance is \\(\\sigma^2\\). The cumulative distribution function is given by\n\\[\nF_X(\\alpha) = P(X \\leq \\alpha) = \\int_{-\\infty}^ \\alpha \\frac{1}{\\sqrt{2\\pi}\\sigma} e^{-(x-\\mu)/ 2\\sigma^2} \\, dx\n\\]\n\nExpectation of a Normal Random Variable\nIf \\(X\\) is a normal random variable with parameters \\(\\mu\\) and \\(\\sigma^2\\), then the expected value of \\(X\\) is given by \\[\nE(X) = \\int_{-\\infty}^\\infty x \\frac{1}{\\sqrt{2\\pi}\\sigma} e^{-(x-\\mu)/ 2\\sigma^2} \\, dx\n= \\mu \\int_{-\\infty}^\\infty \\frac{1}{\\sqrt{2\\pi}\\sigma} e^{-(x-\\mu)/ 2\\sigma^2} \\, dx\n= \\mu \\cdot 1\n= \\mu\n\\]\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\n\n\ndef normal(x, mu, sigma):\n    \"\"\"\n    Calculate the Normal probability density function (PDF) for a given x, mean mu, and standard deviation sigma.\n\n    :param x: Value at which to evaluate the PDF\n    :param mu: Mean of the distribution\n    :param sigma: Standard deviation of the distribution\n    :return: Probability density at x\n    \"\"\"\n    from math import exp, pi\n\n    return (1 / (sigma * (2 * pi) ** 0.5)) * exp(-0.5 * ((x - mu) / sigma) ** 2)\n    \n\n\n# Example usage\nmu =50 # Mean of the distribution\nstd_devs = [5, 10, 20] # Different standard deviations\n\n# X range for plotting\nx = np.linspace(0, 100, 100) \n\n# Plot each distribution\nfor sigma in std_devs:\n    # y = norm.pdf(x, loc=mu, scale=sigma)\n    y = [normal(i, mu, sigma) for i in x]\n    plt.plot(x, y, label=f'std = {sigma}')\n\nplt.title('Normal Distributions with Different Standard Deviations')\nplt.xlabel('Value')\nplt.ylabel('Density')\nplt.legend()\nplt.grid(True)\nplt.show()"
-  },
-  {
-    "objectID": "learn/distributions/dists_notebook.html#expectation-of-a-function-of-a-random-variable",
-    "href": "learn/distributions/dists_notebook.html#expectation-of-a-function-of-a-random-variable",
-    "title": "Random Variables",
-    "section": "Expectation of a Function of a Random Variable",
-    "text": "Expectation of a Function of a Random Variable\n\nIn Discrete Case\nIf \\(X\\) is a discrete random variable having a probability mass function \\(p(x)\\), and \\(g(x)\\) is a function of \\(x\\), then the expected value of \\(g(X)\\) is defined by \\[\nE(g(X)) = \\sum_{x_i} g(x_i) p(x_i)\n\\] ### In Continuous Case If \\(X\\) is a continuous random variable having a probability density function \\(f(x)\\), and \\(g(x)\\) is a function of \\(x\\), then the expected value of \\(g(X)\\) is defined by \\[\nE(g(X)) = \\int_{-\\infty}^{\\infty} g(x) f(x) \\, dx\n\\]"
-  },
-  {
-    "objectID": "learn/distributions/dists_notebook.html#independent-random-variables",
-    "href": "learn/distributions/dists_notebook.html#independent-random-variables",
-    "title": "Random Variables",
-    "section": "Independent Random Variables",
-    "text": "Independent Random Variables\nThe random variables \\(X\\) and \\(Y\\) are said to be independent if, for all \\(a, b,\\) \\[\nP(X \\leq a, Y \\leq b) = P(X \\leq a) P(Y \\leq b)\n\\]\nIn terms of the joint cumulative distribution function, this means that \\[\nF(a,b) = F_X(a) F_Y(b)\n\\]\nWhen \\(X\\) and \\(Y\\) are discrete random variables, the independence condition can be expressed as \\[\np(x,y) = p_X(x) p_Y(y)\n\\]\nWhen \\(X\\) and \\(Y\\) are joint continuous, the independence reduces to \\[\nf(x,y) = f_X(x) f_Y(y)\n\\]\n\nProof for discrete case\nSuppose that the joint probability mass function \\(p(x,y)\\), then\n\\[\n\\begin{align*}\nP(X \\leq a, Y \\leq b) &= \\sum_{y \\leq b} \\sum_{x \\leq a} p(x,y) \\\\\n&= \\sum_{y \\leq b} \\sum_{x \\leq a} p_X(x) p_Y(y) \\\\\n&= \\left( \\sum_{x \\leq a} p_X(x) \\right) \\left( \\sum_{y \\leq b} p_Y(y) \\right) \\\\\n&= P(X \\leq a) P(Y \\leq b)\n\\end{align*}\n\\]\nand so \\(X\\) and \\(Y\\) are independent.\n\n\nProof for continuous case\nSuppose that the joint probability density function \\(f(x,y)\\), then \\[\n\\begin{align*}\nP(X \\leq a, Y \\leq b) &= \\int_{-\\infty}^a \\int_{-\\infty}^b f(x,y) \\, dx \\, dy \\\\\n&= \\int_{-\\infty}^a \\int_{-\\infty}^b f_X(x) f_Y(y) \\, dx \\, dy \\\\\n&= \\left( \\int_{-\\infty}^a f_X(x) \\, dx \\right) \\left( \\int_{-\\infty}^b f_Y(y) \\, dy \\right) \\\\\n&= P(X \\leq a) P(Y \\leq b)\n\\end{align*}\n\\]"
-  },
-  {
-    "objectID": "learn/distributions/dists_notebook.html#covariance-and-variance-of-sums-of-random-variables",
-    "href": "learn/distributions/dists_notebook.html#covariance-and-variance-of-sums-of-random-variables",
-    "title": "Random Variables",
-    "section": "Covariance and Variance of Sums of Random Variables",
-    "text": "Covariance and Variance of Sums of Random Variables\nThe covariance of any two random variables \\(X\\) and \\(Y\\), denoted by \\(Cov(X,Y)\\), is defined by \\[\nCov(X,Y) = E[(X - E(X))(Y - E(Y))] = E(XY) - E(X)E(Y)\n\\] The variance of a random variable \\(X\\), denoted by \\(Var(X)\\), is defined by \\[\nVar(X) = E[(X - E(X))^2] = E(X^2) - (E(X))^2\n\\]"
-  },
-  {
-    "objectID": "learn/distributions/dists_notebook.html#moment-generating-functions",
-    "href": "learn/distributions/dists_notebook.html#moment-generating-functions",
-    "title": "Random Variables",
-    "section": "Moment Generating Functions",
-    "text": "Moment Generating Functions"
-  },
-  {
-    "objectID": "learn/prob_stats/cond_index.html",
-    "href": "learn/prob_stats/cond_index.html",
-    "title": "Conditional Probability and Conditional Expectation",
-    "section": "",
-    "text": "Slides"
-  },
-  {
-    "objectID": "learn/index.html",
-    "href": "learn/index.html",
-    "title": "MUSTAFA ASLAN",
-    "section": "",
-    "text": "Conditional Probability and Conditional Expectation\n\n\nlearning material\n\n\n\n\n\nApr 30, 2025\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nRandom Variables\n\n\nlearning material\n\n\n\n\n\nApr 30, 2025\n\n\nMustafa Aslan\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "learn/prob_stats/dists_index.html",
-    "href": "learn/prob_stats/dists_index.html",
-    "title": "Random Variables",
-    "section": "",
-    "text": "Slides"
-  },
-  {
-    "objectID": "learn/cond_dists/cond_dist_notebook.html",
-    "href": "learn/cond_dists/cond_dist_notebook.html",
-    "title": "Conditional Probability and Conditional Expectation",
-    "section": "",
-    "text": "For any two events \\(E\\) and \\(F\\), the conditional probability of \\(E\\) given \\(F\\) is defined, as long as \\(P(F) &gt; 0\\), by\n\\[\nP(E|F) = \\frac{P(E  F)}{P(F)}.\n\\]\nHence, if \\(X\\) and \\(Y\\) are discrete random variables, then it is natural to define the conditional probability mass function of \\(X\\) given that \\(Y = y\\), by\n\\[\n\\begin{align*}\np_{X|Y}(x|y) &= P(X = x | Y = y) \\\\\n&= \\frac{P(X = x, Y = y)}{P(Y = y)} \\\\\n&= \\frac{p(x,y)}{p_Y(y)}.\n\\end{align*}\n\\]\nSimilarly, the conditional probability distribution function of \\(X\\) given that \\(Y=y\\) is defined, for all \\(y\\) such that \\(P(Y = y) &gt; 0\\), by\n\\[\n\\begin{align*}\nF_{X|Y}(x|y) &= P(X \\leq x | Y = y) \\\\\n&= \\sum_{a \\leq x} P_{X | Y}(a | y) \\\\\n\\end{align*}\n\\]\nThe conditional expectation of \\(X\\) given that \\(Y = y\\) is defined by \\[\nE[X | Y = y] = \\sum_{x} x P(X = x | Y = y) = \\sum_{x} x p_{X|Y}(x|y).\n\\]"
-  },
-  {
-    "objectID": "learn/cond_dists/cond_dist_notebook.html#the-discrete-case",
-    "href": "learn/cond_dists/cond_dist_notebook.html#the-discrete-case",
-    "title": "Conditional Probability and Conditional Expectation",
-    "section": "",
-    "text": "For any two events \\(E\\) and \\(F\\), the conditional probability of \\(E\\) given \\(F\\) is defined, as long as \\(P(F) &gt; 0\\), by\n\\[\nP(E|F) = \\frac{P(E  F)}{P(F)}.\n\\]\nHence, if \\(X\\) and \\(Y\\) are discrete random variables, then it is natural to define the conditional probability mass function of \\(X\\) given that \\(Y = y\\), by\n\\[\n\\begin{align*}\np_{X|Y}(x|y) &= P(X = x | Y = y) \\\\\n&= \\frac{P(X = x, Y = y)}{P(Y = y)} \\\\\n&= \\frac{p(x,y)}{p_Y(y)}.\n\\end{align*}\n\\]\nSimilarly, the conditional probability distribution function of \\(X\\) given that \\(Y=y\\) is defined, for all \\(y\\) such that \\(P(Y = y) &gt; 0\\), by\n\\[\n\\begin{align*}\nF_{X|Y}(x|y) &= P(X \\leq x | Y = y) \\\\\n&= \\sum_{a \\leq x} P_{X | Y}(a | y) \\\\\n\\end{align*}\n\\]\nThe conditional expectation of \\(X\\) given that \\(Y = y\\) is defined by \\[\nE[X | Y = y] = \\sum_{x} x P(X = x | Y = y) = \\sum_{x} x p_{X|Y}(x|y).\n\\]"
-  },
-  {
-    "objectID": "learn/cond_dists/cond_dist_notebook.html#the-continuous-case",
-    "href": "learn/cond_dists/cond_dist_notebook.html#the-continuous-case",
-    "title": "Conditional Probability and Conditional Expectation",
-    "section": "The Continuous Case",
-    "text": "The Continuous Case\nIf \\(X\\) and \\(Y\\) have a joint probability density function \\(f(x, y)\\), then the conditional probability density function of \\(X\\), given that \\(Y = y\\), is defined for all values of \\(y\\) such that \\(f_Y(y) &gt; 0\\), by\n\\[\n\\begin{align*}\nf_{X|Y}(x|y) &= \\frac{f(x,y)}{f_Y(y)} \\\\\n&= \\frac{f(x,y)}{\\int_{-\\infty}^{\\infty} f(x,y) dx}.\n\\end{align*}\n\\] The conditional distribution function of \\(X\\) given that \\(Y = y\\) is defined by \\[\n\\begin{align*}\nF_{X|Y}(x|y) &= P(X \\leq x | Y = y) \\\\\n&= \\int_{-\\infty}^{x} f_{X|Y}(a|y) da \\\\\n&= \\int_{-\\infty}^{x} \\frac{f(a,y)}{f_Y(y)} da \\\\\n&= \\frac{1}{f_Y(y)} \\int_{-\\infty}^{x} f(a,y) da.\n\\end{align*}\n\\]\nThe conditional expectation of \\(X\\) given that \\(Y = y\\) is defined or all values of \\(y\\) such that \\(f_Y(y) &gt; 0\\), by \\[\n\\begin{align*}\nE[X | Y = y] &= \\int_{-\\infty}^{\\infty} x f_{X|Y}(x|y) dx \\\\\n&= \\int_{-\\infty}^{\\infty} x \\frac{f(x,y)}{f_Y(y)} dx \\\\\n&= \\frac{1}{f_Y(y)} \\int_{-\\infty}^{\\infty} x f(x,y) dx.\n\\end{align*}\n\\]"
-  },
-  {
-    "objectID": "learn/cond_dists/cond_dist_notebook.html#computing-expectations-by-conditioning",
-    "href": "learn/cond_dists/cond_dist_notebook.html#computing-expectations-by-conditioning",
-    "title": "Conditional Probability and Conditional Expectation",
-    "section": "Computing Expectations by Conditioning",
-    "text": "Computing Expectations by Conditioning\nLet us denote by \\(E[X|Y]\\) that function of the random variable \\(Y\\) whose value at \\(Y = y\\) is \\(E[X|Y = y]\\). Note that \\(E[X|Y]\\) is itself a random variable. An extremely important important property of conditional expectation is that for all random variables \\(X\\) and \\(Y\\) \\[\nE[X] = E[E[X|Y]]\n\\]\nIf \\(Y\\) is a discrete random variable, then \\[\nE[X] = \\sum_{y} E[X|Y = y] P(Y = y)\n\\]\nIf \\(Y\\) is continuous with density \\(f_Y(y)\\), then \\[\nE[X] = \\int_{-\\infty}^{\\infty} E[X|Y = y] f_Y(y) dy\n\\]"
   },
   {
     "objectID": "workshops/rl/temp/RL_presentation_v0.html#agenda",
@@ -467,13 +369,6 @@
     "title": "MUSTAFA ASLAN",
     "section": "Recommended materials",
     "text": "Recommended materials\nReadings:\n\nReinforcement Learning: An Introduction by Richard S. Sutton and Andrew G. Barto\nReinforcement Learning and Stochastic Optimization by Warren B. Powell\n\nTutoriols:"
-  },
-  {
-    "objectID": "workshops/rl/note.html",
-    "href": "workshops/rl/note.html",
-    "title": "Notes for presentation",
-    "section": "",
-    "text": "page 2 - Model-Free Adaptation: Learns optimal behavior directly from experience, without needing an explicit model of the environment.\n\nLong-Term Planning: Optimizes decisions over long time horizons by balancing immediate vs. future rewards.\n\nScalable to Complex Tasks\nCan handle very large state-action spaces via function approximation (e.g., neural networks).\n\nInteractive Settings\nIdeal when you have an agent interacting with an environment (games, robotics, resource allocation).\n\nData-Driven Policies\nAutomatically refines its policy as more data becomes available, making it robust to non-stationarity."
   },
   {
     "objectID": "workshops/rl/RL_presentation.html#outline",
@@ -686,123 +581,200 @@
     "text": "Recommended materials\nReadings:\n\nReinforcement Learning: An Introduction by Richard S. Sutton and Andrew G. Barto\nReinforcement Learning and Stochastic Optimization by Warren B. Powell\n\nTutoriols by Steve Brunton:"
   },
   {
-    "objectID": "workshops/trainings/rl_index.html",
-    "href": "workshops/trainings/rl_index.html",
-    "title": "Introduction to Reinforcement Learning",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Researcher & Data Scientist",
     "section": "",
-    "text": "Slides  Code\nDate: May 29, 2025 10:00 AM – 13:00 PM\nEvent: Data Lab for Social Good Training Session\nLocation: Aberconway Building Meeting Room, Cardiff University, UK"
+    "text": "I am currently pursuing a PhD at Cardiff Business School, where I specialise in developing AI&machine learning models for healthcare management. My research involves developing and refining advanced statistical&machine learning techniques to analyse complex datasets, aiming to enhance decision-making processes in real-world applications. In addition to my PhD work, I manage the Learning Labs workshop series, providing training on machine learning, statistics, reinforcement learning and forecasting methodologies using Python. I am also responsible for organizing seminars for the Data Lab for Social Good, delivering sessions on AI, machine learning, forecasting, mathematical modeling, and optimization techniques."
   },
   {
-    "objectID": "workshops/trainings/rl_index.html#who-is-the-course-for",
-    "href": "workshops/trainings/rl_index.html#who-is-the-course-for",
-    "title": "Introduction to Reinforcement Learning",
-    "section": "Who is the course for?",
-    "text": "Who is the course for?\nThis course is designed for researchers and postgraduate students who want to apply Reinforcement Learning (RL) to real-world decision-making in interdisciplinary settings, including supply chains, healthcare, and operational contexts across diverse industries. It is especially relevant for those working on problems involving sequential decision-making under uncertainty.\nYou don’t need prior RL knowledge, but you should be comfortable with basic probability and Python programming."
+    "objectID": "CV/CV.html",
+    "href": "CV/CV.html",
+    "title": "PhD Researcher | Data Scientist & Mathematical Modeller",
+    "section": "",
+    "text": "PhD in Probabilistic Modeling for Healthcare Management and Operations\nCardiff University, Cardiff, UK Oct 2024 — Present.\n\nRecipient of WGSSS‑ESRC Studentship Award\nProject focused on enhancing discharge planning process using probabilistic modelling\n\nSupervisors: Prof Bahman Rostami‑Tabar, Dr. Jeremy Dixon\n\n\nMSc in Financial Mathematics\nMiddle East Technical University, Ankara, Turkey Oct 2017 — Aug 2021\n\nDissertation: Effects of Exchange Rate Volatility and Firm-Specific Features on the Rates of Returns of the Manufacturing Firms Listed in Borsa İstanbul: A CAPM Approach\n\nStatistical&Machine learning techniques used: Markov Switching GARCH Models, ARIMA, Panel Data Econometrics, Principal Component Analysis\n\n\nBSc in Business Administration\nMiddle East Technical University, Ankara, Turkey Oct 2011 — Aug 2015"
   },
   {
-    "objectID": "workshops/trainings/rl_index.html#learning-objectives",
-    "href": "workshops/trainings/rl_index.html#learning-objectives",
-    "title": "Introduction to Reinforcement Learning",
-    "section": "Learning Objectives",
-    "text": "Learning Objectives\nBy the end of this workshop, participants will be able to:\n\nUnderstand the core ideas of RL in the context of healthcare decision-making\nModel sequential sequential decisions using Markov Decision Processes (MDPs)\nApply key RL algorithms (Monte Carlo, SARSA, Q-learning) to learn optimal policies from experience\nInterpret learned policies and value functions in a healthcare context (e.g. when to treat, when to wait)\nLink RL insights to practical policy decisions like cost control, clinical risk, or stockout mitigation"
+    "objectID": "CV/CV.html#education",
+    "href": "CV/CV.html#education",
+    "title": "PhD Researcher | Data Scientist & Mathematical Modeller",
+    "section": "",
+    "text": "PhD in Probabilistic Modeling for Healthcare Management and Operations\nCardiff University, Cardiff, UK Oct 2024 — Present.\n\nRecipient of WGSSS‑ESRC Studentship Award\nProject focused on enhancing discharge planning process using probabilistic modelling\n\nSupervisors: Prof Bahman Rostami‑Tabar, Dr. Jeremy Dixon\n\n\nMSc in Financial Mathematics\nMiddle East Technical University, Ankara, Turkey Oct 2017 — Aug 2021\n\nDissertation: Effects of Exchange Rate Volatility and Firm-Specific Features on the Rates of Returns of the Manufacturing Firms Listed in Borsa İstanbul: A CAPM Approach\n\nStatistical&Machine learning techniques used: Markov Switching GARCH Models, ARIMA, Panel Data Econometrics, Principal Component Analysis\n\n\nBSc in Business Administration\nMiddle East Technical University, Ankara, Turkey Oct 2011 — Aug 2015"
   },
   {
-    "objectID": "workshops/trainings/rl_index.html#prerequisites",
-    "href": "workshops/trainings/rl_index.html#prerequisites",
-    "title": "Introduction to Reinforcement Learning",
-    "section": "Prerequisites",
-    "text": "Prerequisites\n\nFamiliarity with basic probability and statistics (e.g., expected value, random variables)\nSome experience with Python, particularly with lists, dictionaries, and basic control flow\nNo prior knowledge of RL or advanced machine learning is required"
+    "objectID": "CV/CV.html#teaching",
+    "href": "CV/CV.html#teaching",
+    "title": "PhD Researcher | Data Scientist & Mathematical Modeller",
+    "section": "TEACHING",
+    "text": "TEACHING\nTraining sessions for Data Lab for Social Good Research Group members\n\nIntroduction to Python and Quarto on Visual Studio Code Mar 2025\nIntroduction to Dynamic Programming and Reinforcement Learning May 2025"
   },
   {
-    "objectID": "workshops/intro_python/intro_to_python_part_3.html#outline",
-    "href": "workshops/intro_python/intro_to_python_part_3.html#outline",
+    "objectID": "CV/CV.html#work-experiences",
+    "href": "CV/CV.html#work-experiences",
+    "title": "PhD Researcher | Data Scientist & Mathematical Modeller",
+    "section": "WORK EXPERIENCES",
+    "text": "WORK EXPERIENCES\nReporting and Data Analytics Executive\nAKBANK (a leading bank in Turkey), Istanbul Jun 2022 — Sep 2024\n\nApplied time-series forecasting and machine learning techniques, including ARIMA, Bayesian Time Series, Prophet, ANN, LSTM, Random Forest, LightGBM and XGBoost, to historical data for making long-horizon forecasts of daily customer call volume. The best model achieved over 94% accuracy (1-MAPE) in forecasting all days of the next month.\nImplemented machine learning models (e.g., XGBoost, LightGBM, CatBoost) to predict customer behavior with an over recall rate of 70% and an accuracy rate of 85%, enabling fewer customer complaints and increase sales by 14%.\nAnalyzing large amounts of data to identify trends and find patterns, signals and hidden stories within customer calls data.\nApplied machine learning techniques (Z-score, IsolationForest) to detect anomalies.\nApplied unsupervised machine learning techniques (DBSCAN, Gaussian mixture, K-means) to cluster customers.\nHyperparameter tuning for machine learning models using Hyperopt, Optuna and KerasTuner.\n\nResearch Associate\nThe Economic Policy Research Foundation of Turkey (Think Tank), Ankara Jan 2022 — Apr 2024\n\nDetermined areas of research to increase knowledge in the particular field.\nUtilizing inferential statistics such as hypothesis testing (e.g., t-test, ANOVA test, population proportion test), confidence intervals, correlation analysis and regression analysis to make inferences and draw conclusions about data.\nDeveloped statistical models (regression analysis, panel data modeling) for regional development projects to contribute to data-driven decisions.\n\nSenior Process Development Analyst\nETI GIDA Inc (a major FMCG player in Turkey), Eskisehir Jun 2019 — Jan 2022\n\nInteracted with internal customers to understand business needs and translate into requirements and project scope.\nAssessed the impact of current business processes on users and stakeholders and evaluated potential areas for improvement.\nMaintained strong working knowledge of ERP (SAP), CRM and business intelligence tools and operational features.\n\nInternal Auditor\nTurk Telekom Inc. (the telecom giant of Turkey), Ankara Nov 2015 — Jun 2019\n\nPerformed strategic planning, execution and finalization of audits using data analytics and critical thinking skills.\nInvestigated discrepancies discovered during the auditing process.\nRecommended new methods to improve internal controls and operating efficiency."
+  },
+  {
+    "objectID": "CV/CV.html#research-interests",
+    "href": "CV/CV.html#research-interests",
+    "title": "PhD Researcher | Data Scientist & Mathematical Modeller",
+    "section": "RESEARCH INTERESTS",
+    "text": "RESEARCH INTERESTS\n\nHealthcare analytics\nData-driven decision making\nStatistical learning and Machine learning\nReinforcement learning and stochastic optimization in decision making\nTime series forecasting\nProbabilistic forecasting\nConformal prediction"
+  },
+  {
+    "objectID": "CV/CV.html#skills-expertise",
+    "href": "CV/CV.html#skills-expertise",
+    "title": "PhD Researcher | Data Scientist & Mathematical Modeller",
+    "section": "SKILLS & EXPERTISE",
+    "text": "SKILLS & EXPERTISE\nExpertise: Mathematical and Statistical Modeling, Machine Learning, Time Series Analysis and Forecasting, Stochastic Optimization and Reinforcement Learning, Statistical and Explanatory Data Analysis, web scraping in Python\nProgramming: Python SQL\nReporting: Quarto Advanced Excel QlikView SAS\nLanguages English (Fluent), Kurdish (Native), Turkish (Native)"
+  },
+  {
+    "objectID": "CV/CV.html#professional-development",
+    "href": "CV/CV.html#professional-development",
+    "title": "PhD Researcher | Data Scientist & Mathematical Modeller",
+    "section": "PROFESSIONAL DEVELOPMENT",
+    "text": "PROFESSIONAL DEVELOPMENT\n\nCertification:\n\nData Science: Machine Learning, HarvardX (edX)\n\nBooks (some of my go-to books):\n\nForecasting: Principles and Practice (Hyndman et al, 2021)\nIntroduction to Statistical Learning with Applications in R (Tibshirani et al, 2019)\nThe Elements of Statistical Learning (Tibshirani et al, 2008)\nProbabilistic Machine Learning: An Introduction (Murphy. 2022)\nReinforcement Learning: An Introduction (Barto et al, 2018)\nReinforcement Learning and Stochastic Optimization (Powell, 2022)\nA Student’s Guide to Bayesian Statistics (Lambert, 2018)\nDive into deep learning (Zhang, 2022)"
+  },
+  {
+    "objectID": "CV/CV.html#scholarships-grants",
+    "href": "CV/CV.html#scholarships-grants",
+    "title": "PhD Researcher | Data Scientist & Mathematical Modeller",
+    "section": "Scholarships & Grants",
+    "text": "Scholarships & Grants\n\nWelsh Graduate School for the Social Sciences (WGSSS) Studentship Award Aug 2024\nNATCOR Bursaries / EURO Funding for Stochastic Modelling Mar 2025"
+  },
+  {
+    "objectID": "CV/CV.html#references",
+    "href": "CV/CV.html#references",
+    "title": "PhD Researcher | Data Scientist & Mathematical Modeller",
+    "section": "References",
+    "text": "References\nAvailable upon request"
+  },
+  {
+    "objectID": "learn/index.html",
+    "href": "learn/index.html",
     "title": "MUSTAFA ASLAN",
-    "section": "Outline",
-    "text": "Outline\n\nIntroduction to VS\nInstalling and Importing Libraries in Python\nGetting Help in Python\nIntroduction to Quarto"
+    "section": "",
+    "text": "Conditional Probability and Conditional Expectation\n\n\nlearning material\n\n\n\n\n\nApr 30, 2025\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nRandom Variables\n\n\nlearning material\n\n\n\n\n\nApr 30, 2025\n\n\nMustafa Aslan\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "workshops/intro_python/intro_to_python_part_3.html#introduction-to-vs-code-1",
-    "href": "workshops/intro_python/intro_to_python_part_3.html#introduction-to-vs-code-1",
-    "title": "MUSTAFA ASLAN",
-    "section": "Introduction to VS Code",
-    "text": "Introduction to VS Code\n\n\nWhat is VS Code\n\nA free, and open-source code editor developed by Microsoft.\nSupports multiple programming languages and frameworks.\n\n\nKey Features\n\nIntegrated Terminal: Access a terminal directly in VS Code for running commands.\nExtensions: Add functionality for specific languages, tools, or frameworks (e.g., Quarto, Python, R).\nSource Control: Built-in Git integration for version control.\nDebugging: Powerful debugging tools for various languages.\nCustomizable Interface: Themes, layout, and key bindings to suit user preferences."
+    "objectID": "learn/prob_stats/cond_index.html",
+    "href": "learn/prob_stats/cond_index.html",
+    "title": "Conditional Probability and Conditional Expectation",
+    "section": "",
+    "text": "Slides"
   },
   {
-    "objectID": "workshops/intro_python/intro_to_python_part_3.html#what-is-library",
-    "href": "workshops/intro_python/intro_to_python_part_3.html#what-is-library",
-    "title": "MUSTAFA ASLAN",
-    "section": "What is library?",
-    "text": "What is library?\n\nA collection of pre-written code that contains functions and modules that developers can use to solve programming tasks\nPython libraries cover libraries for a wide range of tasks, including:\n\npandas and numpy for data analysis, cleaning, exploration, and efficient numerical computations.\nscikit-learn, TensorFlow for machine learning tasks such as prediction, clustering, and forecasting.\nstatsforecast, darts and skforecast for forecasting tasks"
+    "objectID": "learn/distributions/dists_notebook.html",
+    "href": "learn/distributions/dists_notebook.html",
+    "title": "Random Variables",
+    "section": "",
+    "text": "For a discrete random variable \\(X\\), we define the probability mass function \\(p(\\alpha)\\) of \\(X\\) by\n\\[\np(\\alpha) = P(X = \\alpha)\n\\]\nThe probability mass function \\(p(\\alpha)\\) is positive for at most a countable number of values of \\(a\\). That is, if \\(X\\) must assume one of the values \\(x_1, x_2,\\dots ,\\) then\n\\[\np(x_i) \\geq 0 \\text{ for } i = 1, 2, \\dots\n\\]\nand\n\\[\n\\sum_{i=1}^{\\infty} p(x_i) = 1\n\\]\nThe cumulative distribution function \\(F(x)\\) can be expressed in terms of \\(p(\\alpha)\\) by\n\\[\nF(\\alpha) = P(X \\leq \\alpha) = \\sum_{x_i \\leq \\alpha} p(x_i)\n\\]\n\n\nIf \\(X\\) is a discrete random variable having a probability mass function \\(p(x)\\), then the expected value of \\(X\\) is defined by\n\\[\nE(X) = \\sum_{x_i} x_i p(x_i)\n\\]\n\n\n\nA Bernoulli random variable is a discrete random variable that takes the value 1 with probability \\(p\\) and the value 0 with probability \\(1-p\\). The probability mass function of a Bernoulli random variable \\(X\\) is given by \\[\np(x) = \\begin{cases}\n1-p & \\text{if } x = 0 \\\\\np & \\text{if } x = 1\n\\end{cases}\n\\]\nThe expected value of a Bernoulli random variable is given by \\[\nE(X) = 0 \\cdot (1-p) + 1 \\cdot p = p\n\\]\nThe variance of a Bernoulli random variable is given by \\[\nVar(X) = E(X^2) - (E(X))^2 = p - p^2 = p(1-p)\n\\]\n\n# Necessary packages\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n# from scipy.stats import poisson\n\n\ndef bernoulli(p):\n    \"\"\"\n    Bernoulli distribution with parameter p.\n    \"\"\"\n    return np.random.binomial(1, p)\ndef binomial(n, p):\n    \"\"\"\n    Binomial distribution with parameters n and p.\n    \"\"\"\n    return np.random.binomial(n, p)\ndef geometric(p):\n    \"\"\"\n    Geometric distribution with parameter p.\n    \"\"\"\n    return np.random.geometric(p)\ndef negative_binomial(n, p):\n    \"\"\"\n    Negative binomial distribution with parameters n and p.\n    \"\"\"\n    return np.random.negative_binomial(n, p)\n\n\n\n\nSuppose that \\(n\\) independent trials, each of which results in a “success” with probability \\(p\\) and in a “failure” with probability \\(1−p\\), are to be performed. If \\(X\\) represents the number of successes that occur in the \\(n\\) trials, then \\(X\\) is said to be a binomial random variable with parameters \\(n, p\\). The probability mass function of a binomial random variable having parameters \\((n, p)\\) is given by\n\\[\np(x) = \\binom{n}{x} p^x (1-p)^{n-x}, \\quad x = 0, 1, \\dots, n\n\\]\nwhere \\(\\binom{n}{x} = \\frac{n!}{x!(n-x)!}\\) is the binomial coefficient, which counts the number of ways to choose \\(x\\) successes from \\(n\\) trials.\n\n\nIf \\(X\\) is a binomial random variable with parameters \\(n\\) and \\(p\\), then the expected value of \\(X\\) is given by \\[\nE(X) = np\n\\] ### Variance of a Binomial Random Variable If \\(X\\) is a binomial random variable with parameters \\(n\\) and \\(p\\), then the variance of \\(X\\) is given by \\[\nVar(X) = np(1-p)\n\\]\n\n\n\n\nA random variable \\(X\\) taking on one of the values \\(0, 1, 2, \\dots,\\) is said to be a Poisson random variable with parameter \\(\\lambda\\), if for some \\(\\lambda &gt; 0\\),\n\\[\np(i) = P \\{ X = i \\} = e^{-\\lambda} \\frac{\\lambda^i}{i!}, \\quad i = 0, 1, \\ldots\n\\]\n\n\nIf \\(X\\) is a Poisson random variable with parameter \\(\\lambda\\), then the expected value of \\(X\\) is given by\n\\[\nE(X) = \\sum_{i=0}^{\\infty} i e^{-\\lambda} \\frac{\\lambda^i}{i!}\n= e^{-\\lambda} \\sum_{i=1}^{\\infty} \\frac{\\lambda^i}{(i-1)!}\n= e^{-\\lambda} \\lambda \\sum_{i=0}^{\\infty} \\frac{\\lambda^i}{i!}\n= e^{-\\lambda} \\lambda e^{\\lambda}\n= \\lambda\n\\]\nwhere we have used the identity \\(\\sum_{i=0}^{\\infty} \\frac{\\lambda^i}{i!} = e^{\\lambda}\\).\n\ndef poisson(m, k):\n    \"\"\"\n    Calculate the Poisson probability of observing k events in an interval\n    given the average rate of occurrence n.\n\n    :param m: Average rate of occurrence (lambda)\n    :param k: Number of events\n    :return: Probability of observing k events\n    \"\"\"\n    from math import exp, factorial\n\n    return (m ** k) * exp(-m) / factorial(k)\n\n\n# Example usage\nx = np.arange(0, 20) # Average rate of occurrence\nlambdas = [1, 3, 5, 7, 10, 12,15] # Different values of lambda\n\n           \nplt.figure(figsize=(8, 6))\n\nfor lam in lambdas:\n    pmf = [poisson(lam, k) for k in x]\n    # Using scipy's poisson distribution for comparison\n    # pmf_scy = poisson.pmf(x, lam)\n    plt.plot(x, pmf, marker='o', label=f'λ = {lam}')\n\nplt.xlabel('Number of events (k)')\nplt.ylabel('Probability')\nplt.title('Poisson Distribution')\nplt.grid(axis=  \"y\" , linestyle='--')\nplt.legend()\nplt.show()"
   },
   {
-    "objectID": "workshops/intro_python/intro_to_python_part_3.html#what-is-library-1",
-    "href": "workshops/intro_python/intro_to_python_part_3.html#what-is-library-1",
-    "title": "MUSTAFA ASLAN",
-    "section": "What is library?",
-    "text": "What is library?\n\n\nWhat is PIP?\n\nPIP is a package manager for Python packages or modules\nPIP is used to install and manage Python libraries\n\n\nInstalling a Library\n\n\nOpen a terminal or command prompt.\n\n\nUse the command pip install &lt;library-name&gt;.\n\n\nExample: pip install numpy\n\n\nAlternatively, run the following code in a notebook to install libraries directly: python       !pip install numpy"
+    "objectID": "learn/distributions/dists_notebook.html#bernoulli-random-variable",
+    "href": "learn/distributions/dists_notebook.html#bernoulli-random-variable",
+    "title": "Random Variables",
+    "section": "",
+    "text": "A Bernoulli random variable is a discrete random variable that takes the value 1 with probability \\(p\\) and the value 0 with probability \\(1-p\\). The probability mass function of a Bernoulli random variable \\(X\\) is given by \\[\np(x) = \\begin{cases}\n1-p & \\text{if } x = 0 \\\\\np & \\text{if } x = 1\n\\end{cases}\n\\]\nThe expected value of a Bernoulli random variable is given by \\[\nE(X) = 0 \\cdot (1-p) + 1 \\cdot p = p\n\\]\nThe variance of a Bernoulli random variable is given by \\[\nVar(X) = E(X^2) - (E(X))^2 = p - p^2 = p(1-p)\n\\]\n\n# Necessary packages\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n# from scipy.stats import poisson\n\n\ndef bernoulli(p):\n    \"\"\"\n    Bernoulli distribution with parameter p.\n    \"\"\"\n    return np.random.binomial(1, p)\ndef binomial(n, p):\n    \"\"\"\n    Binomial distribution with parameters n and p.\n    \"\"\"\n    return np.random.binomial(n, p)\ndef geometric(p):\n    \"\"\"\n    Geometric distribution with parameter p.\n    \"\"\"\n    return np.random.geometric(p)\ndef negative_binomial(n, p):\n    \"\"\"\n    Negative binomial distribution with parameters n and p.\n    \"\"\"\n    return np.random.negative_binomial(n, p)"
   },
   {
-    "objectID": "workshops/intro_python/intro_to_python_part_3.html#importing-libraries-or-modules",
-    "href": "workshops/intro_python/intro_to_python_part_3.html#importing-libraries-or-modules",
-    "title": "MUSTAFA ASLAN",
-    "section": "Importing libraries or modules",
-    "text": "Importing libraries or modules\n\nOnce a library is installed, you need to import it into your Python script:\n\nExample:\nimport numpy\n\nUse as to create an alias for convenience (e.g., import pandas as pd or import numpy as np).\nUse from … import … to call specific functions from libraries or modules :\n\nExample:\nfrom math import sqrt\nprint(sqrt(16))  # Output: 4.0"
+    "objectID": "learn/distributions/dists_notebook.html#binomial-random-variable",
+    "href": "learn/distributions/dists_notebook.html#binomial-random-variable",
+    "title": "Random Variables",
+    "section": "",
+    "text": "Suppose that \\(n\\) independent trials, each of which results in a “success” with probability \\(p\\) and in a “failure” with probability \\(1−p\\), are to be performed. If \\(X\\) represents the number of successes that occur in the \\(n\\) trials, then \\(X\\) is said to be a binomial random variable with parameters \\(n, p\\). The probability mass function of a binomial random variable having parameters \\((n, p)\\) is given by\n\\[\np(x) = \\binom{n}{x} p^x (1-p)^{n-x}, \\quad x = 0, 1, \\dots, n\n\\]\nwhere \\(\\binom{n}{x} = \\frac{n!}{x!(n-x)!}\\) is the binomial coefficient, which counts the number of ways to choose \\(x\\) successes from \\(n\\) trials.\n\n\nIf \\(X\\) is a binomial random variable with parameters \\(n\\) and \\(p\\), then the expected value of \\(X\\) is given by \\[\nE(X) = np\n\\] ### Variance of a Binomial Random Variable If \\(X\\) is a binomial random variable with parameters \\(n\\) and \\(p\\), then the variance of \\(X\\) is given by \\[\nVar(X) = np(1-p)\n\\]"
   },
   {
-    "objectID": "workshops/intro_python/intro_to_python_part_3.html#namespaces",
-    "href": "workshops/intro_python/intro_to_python_part_3.html#namespaces",
-    "title": "MUSTAFA ASLAN",
-    "section": "Namespaces",
-    "text": "Namespaces\n\n\n\nA namespace is a system that has a unique name for each and every object in Python.\nAn object might be a variable or a method.\nSome functions like print(), id() are always present, these are built-in namespaces.\nWhen a user creates a module, a global namespace gets created, later the creation of local functions creates the local namespace.\n\n\nExample:\nx = \"global\"\n\ndef outer_function():\n    # Enclosing namespace\n    x = \"enclosing\"\n    \n    def inner_function():\n        # Local namespace\n        x = \"local\"\n        print(\"Inner:\", x)  # Prints: Inner: local\n\n    inner_function()\n    print(\"Outer:\", x)  # Prints: Outer: enclosing\n\nouter_function()\nprint(\"Global:\", x)  # Prints: Global: global"
+    "objectID": "learn/distributions/dists_notebook.html#the-poisson-random-variable",
+    "href": "learn/distributions/dists_notebook.html#the-poisson-random-variable",
+    "title": "Random Variables",
+    "section": "",
+    "text": "A random variable \\(X\\) taking on one of the values \\(0, 1, 2, \\dots,\\) is said to be a Poisson random variable with parameter \\(\\lambda\\), if for some \\(\\lambda &gt; 0\\),\n\\[\np(i) = P \\{ X = i \\} = e^{-\\lambda} \\frac{\\lambda^i}{i!}, \\quad i = 0, 1, \\ldots\n\\]\n\n\nIf \\(X\\) is a Poisson random variable with parameter \\(\\lambda\\), then the expected value of \\(X\\) is given by\n\\[\nE(X) = \\sum_{i=0}^{\\infty} i e^{-\\lambda} \\frac{\\lambda^i}{i!}\n= e^{-\\lambda} \\sum_{i=1}^{\\infty} \\frac{\\lambda^i}{(i-1)!}\n= e^{-\\lambda} \\lambda \\sum_{i=0}^{\\infty} \\frac{\\lambda^i}{i!}\n= e^{-\\lambda} \\lambda e^{\\lambda}\n= \\lambda\n\\]\nwhere we have used the identity \\(\\sum_{i=0}^{\\infty} \\frac{\\lambda^i}{i!} = e^{\\lambda}\\).\n\ndef poisson(m, k):\n    \"\"\"\n    Calculate the Poisson probability of observing k events in an interval\n    given the average rate of occurrence n.\n\n    :param m: Average rate of occurrence (lambda)\n    :param k: Number of events\n    :return: Probability of observing k events\n    \"\"\"\n    from math import exp, factorial\n\n    return (m ** k) * exp(-m) / factorial(k)\n\n\n# Example usage\nx = np.arange(0, 20) # Average rate of occurrence\nlambdas = [1, 3, 5, 7, 10, 12,15] # Different values of lambda\n\n           \nplt.figure(figsize=(8, 6))\n\nfor lam in lambdas:\n    pmf = [poisson(lam, k) for k in x]\n    # Using scipy's poisson distribution for comparison\n    # pmf_scy = poisson.pmf(x, lam)\n    plt.plot(x, pmf, marker='o', label=f'λ = {lam}')\n\nplt.xlabel('Number of events (k)')\nplt.ylabel('Probability')\nplt.title('Poisson Distribution')\nplt.grid(axis=  \"y\" , linestyle='--')\nplt.legend()\nplt.show()"
   },
   {
-    "objectID": "workshops/intro_python/intro_to_python_part_3.html#using-built-in-help-functions",
-    "href": "workshops/intro_python/intro_to_python_part_3.html#using-built-in-help-functions",
-    "title": "MUSTAFA ASLAN",
-    "section": "Using built-in help functions",
-    "text": "Using built-in help functions\n\nPython provides built-in tools to explore libraries and and functions\nSome of them are:\n\nhelp(): Displays documentation for an object.\ndir(): Lists the attributes and methods of an object\ntype(): Displays the type of the object"
+    "objectID": "learn/distributions/dists_notebook.html#exponential-random-variables",
+    "href": "learn/distributions/dists_notebook.html#exponential-random-variables",
+    "title": "Random Variables",
+    "section": "2.1 Exponential Random Variables",
+    "text": "2.1 Exponential Random Variables\nA continuous random variable whose probability density function is given, for some \\(\\lambda &gt; 0\\), by: \\[\nf(x) = \\begin{cases}\n\\lambda e^{-\\lambda x} & x \\geq 0 \\\\\n0 & x &lt; 0\n\\end{cases}\n\\]\nis said to be an exponential random variable with parameter \\(\\lambda\\), which is the mean of the distribution. The cumulative distribution function is given by\n\\[\nF(\\alpha) =  \\int_0^\\alpha \\lambda e^{-\\lambda x} \\, dx, = 1-e^{-\\lambda \\alpha}  \\quad \\alpha \\geq 0\n\\]\nNote that \\(F(\\infty) = \\int_0^\\infty \\lambda e^{-\\lambda x} \\, dx = 1\\).\n\nExpectation of an Exponential Random Variable\nIf \\(X\\) is an exponential random variable with parameter \\(\\lambda\\), then the expected value of \\(X\\) is given by \\[\nE(X) = \\int_0^\\infty x \\lambda e^{-\\lambda x} \\, dx\n\\]\nIntegration by parts (\\(dv = \\lambda e^{-\\lambda x}, u = x\\)) yields \\[\nE(X) = \\left[ -\\frac{x}{\\lambda} e^{-\\lambda x} \\right]_0^\\infty + \\frac{1}{\\lambda} \\int_0^\\infty e^{-\\lambda x} \\, dx\n= 0 + \\frac{1}{\\lambda} \\cdot \\frac{1}{\\lambda} = \\frac{1}{\\lambda}\n\\]\n\ndef exponential(x, m):\n    \"\"\"\n    Calculate the Exponential probability density function (PDF) for a given x and rate parameter m.\n\n    :param x: Value at which to evaluate the PDF\n    :param m: Rate parameter (1/lambda)\n    :return: Probability density at x\n    \"\"\"\n    from math import exp\n\n    return m * exp(-m * x) if x &gt;= 0 else 0\n\n\nx = np.linspace(0, 10, 50)\nlamdas = [0.1, 0.5, 1, 3, 5] # Different values of lambda\n\nplt.figure(figsize=(8, 6))# Plotting the Exponential distribution\nfor lam in lamdas:\n    pdf = [exponential(i, lam) for i in x]\n    plt.plot(x, pdf, marker='o', label=f'λ = {lam}')\nplt.xlabel('x')\nplt.ylabel('Probability Density')\nplt.title('Exponential Distribution')\nplt.grid(axis=  \"y\" , linestyle='--')\nplt.legend()\nplt.show()"
   },
   {
-    "objectID": "workshops/intro_python/intro_to_python_part_3.html#using-built-in-help-functions-1",
-    "href": "workshops/intro_python/intro_to_python_part_3.html#using-built-in-help-functions-1",
-    "title": "MUSTAFA ASLAN",
-    "section": "Using built-in help functions",
-    "text": "Using built-in help functions\nExamples:\n\n\nExample -1:\n\nprint(help(len))\n# output:\n\nHelp on built-in function len in module builtins:\n\nlen(obj, /)\n    Return the number of items in a container.\n\nNone\n\n\n\nExample -2:\n\nprint(dir(list))\n# output:\n\n['__add__', '__class__', '__class_getitem__', '__contains__', '__delattr__', '__delitem__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getstate__', '__gt__', '__hash__', '__iadd__', '__imul__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__reversed__', '__rmul__', '__setattr__', '__setitem__', '__sizeof__', '__str__', '__subclasshook__', 'append', 'clear', 'copy', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']\n\n\n\nExample -3:\n\nx = \"cardiff\"\ny = 5\nz = [1,2,3,4,5]\n\nprint(type(x))\nprint(type(y))\nprint(type(z))\n# output:\n\n&lt;class 'str'&gt;\n&lt;class 'int'&gt;\n&lt;class 'list'&gt;"
+    "objectID": "learn/distributions/dists_notebook.html#gamma-random-variables",
+    "href": "learn/distributions/dists_notebook.html#gamma-random-variables",
+    "title": "Random Variables",
+    "section": "2.2 Gamma Random Variables",
+    "text": "2.2 Gamma Random Variables\nA continuous random variable whose density is given by: \\[\nf(x) = \\begin{cases}\n\\frac{\\lambda e^{- \\lambda x} {(\\lambda x)}^{\\alpha-1}}{\\Gamma (\\alpha)} & x \\geq 0 \\\\\n0 & x &lt; 0\n\\end{cases}\n\\]\nfor some \\(\\lambda&gt;0\\) and \\(\\alpha&gt;0\\) is said to be a gamma random variable with parameters \\(\\alpha, \\lambda\\).\nThe quantity \\(\\Gamma (\\alpha)\\) is called the gamma function and is defined by\n\\[\n\\Gamma (\\alpha) = \\int_0^\\infty e^{-x} x^{\\alpha-1} \\, dx = (\\alpha-1)!\n\\]\n\nExpectation of a Gamma Random Variable\nIf \\(X\\) is a gamma random variable with parameters \\(\\alpha\\) and \\(\\lambda\\), then the expected value of \\(X\\) is given by \\[\nE(X) = \\int_0^\\infty x \\frac{\\lambda e^{- \\lambda x} {(\\lambda x)}^{\\alpha-1}}{\\Gamma (\\alpha)} \\, dx\n= \\frac{1}{\\lambda} \\int_0^\\infty e^{-x} x^{\\alpha} \\, dx\n= \\frac{1}{\\lambda} \\cdot \\Gamma (\\alpha + 1)\n= \\frac{1}{\\lambda} \\cdot \\alpha \\Gamma (\\alpha)\n= \\frac{\\alpha}{\\lambda}\n\\]\n\ndef gamma(x, alpha, lamd):\n    \"\"\"\n    Calculate the Gamma probability density function (PDF) for a given x, shape parameter alpha, and scale parameter lamd.\n\n    :param x: Value at which to evaluate the PDF\n    :param alpha: Shape parameter (alpha)\n    :param lamd: Scale parameter (lamda)\n    :return: Probability density at x\n    \"\"\"\n    from math import exp, factorial\n\n    return (lamd*exp(-lamd*x)*((lamd*x)**(alpha-1)))/factorial(alpha) if x &gt;= 0 else 0\n\n\nx = np.linspace(0, 10, 50) # Range of x values for the gamma distribution\nalpha_values = [3, 2] # Different values of alpha (shape parameter)\nlambdas = [1.5,  2] # Different values of lambda (scale parameter)\nplt.figure(figsize=(8, 6)) # Plotting the Gamma distribution\nfor alpha in alpha_values:\n    for lam in lambdas:\n        pdf = [gamma(i, alpha, lam) for i in x]\n        plt.plot(x, pdf, marker='o', label=f'α = {alpha}, λ = {lam}')\nplt.xlabel('x')\nplt.ylabel('Probability Density')\nplt.title('Gamma Distribution')\nplt.grid(axis=  \"y\" , linestyle='--')\nplt.legend()\nplt.show()"
   },
   {
-    "objectID": "workshops/intro_python/intro_to_python_part_3.html#three-main-tasks-using-quarto",
-    "href": "workshops/intro_python/intro_to_python_part_3.html#three-main-tasks-using-quarto",
-    "title": "MUSTAFA ASLAN",
-    "section": "Three Main Tasks Using Quarto",
-    "text": "Three Main Tasks Using Quarto\nQuarto help us publish reproducible, production quality articles, presentations, dashboards, websites, blogs, and books in HTML, PDF, MS Word, ePub, and more.\n\nWriting: Combine Markdown, code, and visualizations in .qmd files.\nRender: Generate output formats like HTML, PDF, or slides.\nPublish: Share documents or host on platforms like GitHub."
+    "objectID": "learn/distributions/dists_notebook.html#normal-random-variables",
+    "href": "learn/distributions/dists_notebook.html#normal-random-variables",
+    "title": "Random Variables",
+    "section": "2.3 Normal Random Variables",
+    "text": "2.3 Normal Random Variables\nWe say that \\(X\\) is a normal random variable (or simply that \\(X\\) is normally distributed) with parameters \\(\\mu\\) and \\(\\sigma ^2\\) if the density of X is given by\n\\[\nf(x) = \\frac{1}{\\sqrt{2\\pi}\\sigma} e^{-(x-\\mu)/ 2\\sigma^2} \\quad -\\infty &lt; x &lt; \\infty\n\\]\nThis density function is a bell-shaped curve that is symmetric around \\(\\mu\\).\nThe mean of the normal distribution is \\(\\mu\\) and the variance is \\(\\sigma^2\\). The cumulative distribution function is given by\n\\[\nF_X(\\alpha) = P(X \\leq \\alpha) = \\int_{-\\infty}^ \\alpha \\frac{1}{\\sqrt{2\\pi}\\sigma} e^{-(x-\\mu)/ 2\\sigma^2} \\, dx\n\\]\n\nExpectation of a Normal Random Variable\nIf \\(X\\) is a normal random variable with parameters \\(\\mu\\) and \\(\\sigma^2\\), then the expected value of \\(X\\) is given by \\[\nE(X) = \\int_{-\\infty}^\\infty x \\frac{1}{\\sqrt{2\\pi}\\sigma} e^{-(x-\\mu)/ 2\\sigma^2} \\, dx\n= \\mu \\int_{-\\infty}^\\infty \\frac{1}{\\sqrt{2\\pi}\\sigma} e^{-(x-\\mu)/ 2\\sigma^2} \\, dx\n= \\mu \\cdot 1\n= \\mu\n\\]\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\n\n\ndef normal(x, mu, sigma):\n    \"\"\"\n    Calculate the Normal probability density function (PDF) for a given x, mean mu, and standard deviation sigma.\n\n    :param x: Value at which to evaluate the PDF\n    :param mu: Mean of the distribution\n    :param sigma: Standard deviation of the distribution\n    :return: Probability density at x\n    \"\"\"\n    from math import exp, pi\n\n    return (1 / (sigma * (2 * pi) ** 0.5)) * exp(-0.5 * ((x - mu) / sigma) ** 2)\n    \n\n\n# Example usage\nmu =50 # Mean of the distribution\nstd_devs = [5, 10, 20] # Different standard deviations\n\n# X range for plotting\nx = np.linspace(0, 100, 100) \n\n# Plot each distribution\nfor sigma in std_devs:\n    # y = norm.pdf(x, loc=mu, scale=sigma)\n    y = [normal(i, mu, sigma) for i in x]\n    plt.plot(x, y, label=f'std = {sigma}')\n\nplt.title('Normal Distributions with Different Standard Deviations')\nplt.xlabel('Value')\nplt.ylabel('Density')\nplt.legend()\nplt.grid(True)\nplt.show()"
   },
   {
-    "objectID": "workshops/intro_python/intro_to_python_part_3.html#how-to-use-quarto-in-vs-code",
-    "href": "workshops/intro_python/intro_to_python_part_3.html#how-to-use-quarto-in-vs-code",
-    "title": "MUSTAFA ASLAN",
-    "section": "How to Use Quarto in VS Code",
-    "text": "How to Use Quarto in VS Code\n\n\n1. Install the Quarto Extension\n\nOpen VS Code.\nGo to the Extensions view by clicking on the Extensions icon in the Activity Bar on the side of the window or press Ctrl+Shift+X.\nSearch for “Quarto”.\nInstall the Quarto extension on you vs code\n\n\n2. Create a Quarto Document\n\nGo to File &gt; New File.\nSave the file with a .qmd extension (e.g., example.qmd).\nStart writing your Quarto content.\n\n\n3. Render a Quarto Document\n\nTo render and preview, execute the Quarto: “Preview” command.\nIf you want to preview a different format, use the Quarto: Preview Format command and select the format you want to render to (e.g., HTML, PDF, DOCX).\nQuarto will render the document, and the output file will be saved in the same directory."
+    "objectID": "learn/distributions/dists_notebook.html#expectation-of-a-function-of-a-random-variable",
+    "href": "learn/distributions/dists_notebook.html#expectation-of-a-function-of-a-random-variable",
+    "title": "Random Variables",
+    "section": "Expectation of a Function of a Random Variable",
+    "text": "Expectation of a Function of a Random Variable\n\nIn Discrete Case\nIf \\(X\\) is a discrete random variable having a probability mass function \\(p(x)\\), and \\(g(x)\\) is a function of \\(x\\), then the expected value of \\(g(X)\\) is defined by \\[\nE(g(X)) = \\sum_{x_i} g(x_i) p(x_i)\n\\] ### In Continuous Case If \\(X\\) is a continuous random variable having a probability density function \\(f(x)\\), and \\(g(x)\\) is a function of \\(x\\), then the expected value of \\(g(X)\\) is defined by \\[\nE(g(X)) = \\int_{-\\infty}^{\\infty} g(x) f(x) \\, dx\n\\]"
   },
   {
-    "objectID": "workshops/intro_python/intro_to_python_part_3.html#example--1",
-    "href": "workshops/intro_python/intro_to_python_part_3.html#example--1",
-    "title": "MUSTAFA ASLAN",
-    "section": "Example -1",
-    "text": "Example -1\nHere’s an example of creating a bar plot using Seaborn package with a sample dataset:\n\n\n# Import required libraries\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Sample data\ndata = {\n    \"Category\": [\"A\", \"B\", \"C\", \"D\", \"E\"],\n    \"Values\": [23, 45, 56, 78, 12]\n}\n\n# Convert to a DataFrame\nimport pandas as pd\ndf = pd.DataFrame(data).sort_values(by = \"Values\", ascending=False)\n\n# Create a bar plot\nsns.barplot(x=\"Category\", y=\"Values\", data=df, palette=\"viridis\")\n\n# Add a title and labels\nplt.title(\"Sample Bar Plot\")\nplt.xlabel(\"Category\")\nplt.ylabel(\"Values\")\n# Show the plot\nplt.show()"
+    "objectID": "learn/distributions/dists_notebook.html#independent-random-variables",
+    "href": "learn/distributions/dists_notebook.html#independent-random-variables",
+    "title": "Random Variables",
+    "section": "Independent Random Variables",
+    "text": "Independent Random Variables\nThe random variables \\(X\\) and \\(Y\\) are said to be independent if, for all \\(a, b,\\) \\[\nP(X \\leq a, Y \\leq b) = P(X \\leq a) P(Y \\leq b)\n\\]\nIn terms of the joint cumulative distribution function, this means that \\[\nF(a,b) = F_X(a) F_Y(b)\n\\]\nWhen \\(X\\) and \\(Y\\) are discrete random variables, the independence condition can be expressed as \\[\np(x,y) = p_X(x) p_Y(y)\n\\]\nWhen \\(X\\) and \\(Y\\) are joint continuous, the independence reduces to \\[\nf(x,y) = f_X(x) f_Y(y)\n\\]\n\nProof for discrete case\nSuppose that the joint probability mass function \\(p(x,y)\\), then\n\\[\n\\begin{align*}\nP(X \\leq a, Y \\leq b) &= \\sum_{y \\leq b} \\sum_{x \\leq a} p(x,y) \\\\\n&= \\sum_{y \\leq b} \\sum_{x \\leq a} p_X(x) p_Y(y) \\\\\n&= \\left( \\sum_{x \\leq a} p_X(x) \\right) \\left( \\sum_{y \\leq b} p_Y(y) \\right) \\\\\n&= P(X \\leq a) P(Y \\leq b)\n\\end{align*}\n\\]\nand so \\(X\\) and \\(Y\\) are independent.\n\n\nProof for continuous case\nSuppose that the joint probability density function \\(f(x,y)\\), then \\[\n\\begin{align*}\nP(X \\leq a, Y \\leq b) &= \\int_{-\\infty}^a \\int_{-\\infty}^b f(x,y) \\, dx \\, dy \\\\\n&= \\int_{-\\infty}^a \\int_{-\\infty}^b f_X(x) f_Y(y) \\, dx \\, dy \\\\\n&= \\left( \\int_{-\\infty}^a f_X(x) \\, dx \\right) \\left( \\int_{-\\infty}^b f_Y(y) \\, dy \\right) \\\\\n&= P(X \\leq a) P(Y \\leq b)\n\\end{align*}\n\\]"
   },
   {
-    "objectID": "workshops/intro_python/intro_to_python_part_3.html#example--2",
-    "href": "workshops/intro_python/intro_to_python_part_3.html#example--2",
-    "title": "MUSTAFA ASLAN",
-    "section": "Example -2",
-    "text": "Example -2\nAn example of creating a line graph using plotly package\n\nimport plotly.express as px\n\ndf = px.data.gapminder().query(\"country=='Canada'\")\nfig = px.line(df, x=\"year\", y=\"lifeExp\", title='Life expectancy in Canada')\nfig.show()"
+    "objectID": "learn/distributions/dists_notebook.html#covariance-and-variance-of-sums-of-random-variables",
+    "href": "learn/distributions/dists_notebook.html#covariance-and-variance-of-sums-of-random-variables",
+    "title": "Random Variables",
+    "section": "Covariance and Variance of Sums of Random Variables",
+    "text": "Covariance and Variance of Sums of Random Variables\nThe covariance of any two random variables \\(X\\) and \\(Y\\), denoted by \\(Cov(X,Y)\\), is defined by \\[\nCov(X,Y) = E[(X - E(X))(Y - E(Y))] = E(XY) - E(X)E(Y)\n\\] The variance of a random variable \\(X\\), denoted by \\(Var(X)\\), is defined by \\[\nVar(X) = E[(X - E(X))^2] = E(X^2) - (E(X))^2\n\\]"
   },
   {
-    "objectID": "workshops/intro_python/intro_to_python_part_3.html#exploring-python-documentation-and-community-forums",
-    "href": "workshops/intro_python/intro_to_python_part_3.html#exploring-python-documentation-and-community-forums",
-    "title": "MUSTAFA ASLAN",
-    "section": "Exploring Python documentation and community forums",
-    "text": "Exploring Python documentation and community forums\n\n\nWebsites\n\nw3schools\ndatacamp\ncodeacademy\nlearnpython\n\n\nForums\n\nStack Overflow\nReal Python"
+    "objectID": "learn/distributions/dists_notebook.html#moment-generating-functions",
+    "href": "learn/distributions/dists_notebook.html#moment-generating-functions",
+    "title": "Random Variables",
+    "section": "Moment Generating Functions",
+    "text": "Moment Generating Functions"
+  },
+  {
+    "objectID": "learn/prob_stats/dists_index.html",
+    "href": "learn/prob_stats/dists_index.html",
+    "title": "Random Variables",
+    "section": "",
+    "text": "Slides"
+  },
+  {
+    "objectID": "learn/cond_dists/cond_dist_notebook.html",
+    "href": "learn/cond_dists/cond_dist_notebook.html",
+    "title": "Conditional Probability and Conditional Expectation",
+    "section": "",
+    "text": "For any two events \\(E\\) and \\(F\\), the conditional probability of \\(E\\) given \\(F\\) is defined, as long as \\(P(F) &gt; 0\\), by\n\\[\nP(E|F) = \\frac{P(E  F)}{P(F)}.\n\\]\nHence, if \\(X\\) and \\(Y\\) are discrete random variables, then it is natural to define the conditional probability mass function of \\(X\\) given that \\(Y = y\\), by\n\\[\n\\begin{align*}\np_{X|Y}(x|y) &= P(X = x | Y = y) \\\\\n&= \\frac{P(X = x, Y = y)}{P(Y = y)} \\\\\n&= \\frac{p(x,y)}{p_Y(y)}.\n\\end{align*}\n\\]\nSimilarly, the conditional probability distribution function of \\(X\\) given that \\(Y=y\\) is defined, for all \\(y\\) such that \\(P(Y = y) &gt; 0\\), by\n\\[\n\\begin{align*}\nF_{X|Y}(x|y) &= P(X \\leq x | Y = y) \\\\\n&= \\sum_{a \\leq x} P_{X | Y}(a | y) \\\\\n\\end{align*}\n\\]\nThe conditional expectation of \\(X\\) given that \\(Y = y\\) is defined by \\[\nE[X | Y = y] = \\sum_{x} x P(X = x | Y = y) = \\sum_{x} x p_{X|Y}(x|y).\n\\]"
+  },
+  {
+    "objectID": "learn/cond_dists/cond_dist_notebook.html#the-discrete-case",
+    "href": "learn/cond_dists/cond_dist_notebook.html#the-discrete-case",
+    "title": "Conditional Probability and Conditional Expectation",
+    "section": "",
+    "text": "For any two events \\(E\\) and \\(F\\), the conditional probability of \\(E\\) given \\(F\\) is defined, as long as \\(P(F) &gt; 0\\), by\n\\[\nP(E|F) = \\frac{P(E  F)}{P(F)}.\n\\]\nHence, if \\(X\\) and \\(Y\\) are discrete random variables, then it is natural to define the conditional probability mass function of \\(X\\) given that \\(Y = y\\), by\n\\[\n\\begin{align*}\np_{X|Y}(x|y) &= P(X = x | Y = y) \\\\\n&= \\frac{P(X = x, Y = y)}{P(Y = y)} \\\\\n&= \\frac{p(x,y)}{p_Y(y)}.\n\\end{align*}\n\\]\nSimilarly, the conditional probability distribution function of \\(X\\) given that \\(Y=y\\) is defined, for all \\(y\\) such that \\(P(Y = y) &gt; 0\\), by\n\\[\n\\begin{align*}\nF_{X|Y}(x|y) &= P(X \\leq x | Y = y) \\\\\n&= \\sum_{a \\leq x} P_{X | Y}(a | y) \\\\\n\\end{align*}\n\\]\nThe conditional expectation of \\(X\\) given that \\(Y = y\\) is defined by \\[\nE[X | Y = y] = \\sum_{x} x P(X = x | Y = y) = \\sum_{x} x p_{X|Y}(x|y).\n\\]"
+  },
+  {
+    "objectID": "learn/cond_dists/cond_dist_notebook.html#the-continuous-case",
+    "href": "learn/cond_dists/cond_dist_notebook.html#the-continuous-case",
+    "title": "Conditional Probability and Conditional Expectation",
+    "section": "The Continuous Case",
+    "text": "The Continuous Case\nIf \\(X\\) and \\(Y\\) have a joint probability density function \\(f(x, y)\\), then the conditional probability density function of \\(X\\), given that \\(Y = y\\), is defined for all values of \\(y\\) such that \\(f_Y(y) &gt; 0\\), by\n\\[\n\\begin{align*}\nf_{X|Y}(x|y) &= \\frac{f(x,y)}{f_Y(y)} \\\\\n&= \\frac{f(x,y)}{\\int_{-\\infty}^{\\infty} f(x,y) dx}.\n\\end{align*}\n\\] The conditional distribution function of \\(X\\) given that \\(Y = y\\) is defined by \\[\n\\begin{align*}\nF_{X|Y}(x|y) &= P(X \\leq x | Y = y) \\\\\n&= \\int_{-\\infty}^{x} f_{X|Y}(a|y) da \\\\\n&= \\int_{-\\infty}^{x} \\frac{f(a,y)}{f_Y(y)} da \\\\\n&= \\frac{1}{f_Y(y)} \\int_{-\\infty}^{x} f(a,y) da.\n\\end{align*}\n\\]\nThe conditional expectation of \\(X\\) given that \\(Y = y\\) is defined or all values of \\(y\\) such that \\(f_Y(y) &gt; 0\\), by \\[\n\\begin{align*}\nE[X | Y = y] &= \\int_{-\\infty}^{\\infty} x f_{X|Y}(x|y) dx \\\\\n&= \\int_{-\\infty}^{\\infty} x \\frac{f(x,y)}{f_Y(y)} dx \\\\\n&= \\frac{1}{f_Y(y)} \\int_{-\\infty}^{\\infty} x f(x,y) dx.\n\\end{align*}\n\\]"
+  },
+  {
+    "objectID": "learn/cond_dists/cond_dist_notebook.html#computing-expectations-by-conditioning",
+    "href": "learn/cond_dists/cond_dist_notebook.html#computing-expectations-by-conditioning",
+    "title": "Conditional Probability and Conditional Expectation",
+    "section": "Computing Expectations by Conditioning",
+    "text": "Computing Expectations by Conditioning\nLet us denote by \\(E[X|Y]\\) that function of the random variable \\(Y\\) whose value at \\(Y = y\\) is \\(E[X|Y = y]\\). Note that \\(E[X|Y]\\) is itself a random variable. An extremely important important property of conditional expectation is that for all random variables \\(X\\) and \\(Y\\) \\[\nE[X] = E[E[X|Y]]\n\\]\nIf \\(Y\\) is a discrete random variable, then \\[\nE[X] = \\sum_{y} E[X|Y = y] P(Y = y)\n\\]\nIf \\(Y\\) is continuous with density \\(f_Y(y)\\), then \\[\nE[X] = \\int_{-\\infty}^{\\infty} E[X|Y = y] f_Y(y) dy\n\\]"
   },
   {
     "objectID": "CV/LICENSE.html",
@@ -833,52 +805,80 @@
     "text": "If you develop a new program, and you want it to be of the greatest possible use to the public, the best way to achieve this is to make it free software which everyone can redistribute and change under these terms.\nTo do so, attach the following notices to the program. It is safest to attach them to the start of each source file to most effectively state the exclusion of warranty; and each file should have at least the “copyright” line and a pointer to where the full notice is found.\n&lt;one line to give the program's name and a brief idea of what it does.&gt;\nCopyright (C) &lt;year&gt;  &lt;name of author&gt;\n\nThis program is free software: you can redistribute it and/or modify\nit under the terms of the GNU General Public License as published by\nthe Free Software Foundation, either version 3 of the License, or\n(at your option) any later version.\n\nThis program is distributed in the hope that it will be useful,\nbut WITHOUT ANY WARRANTY; without even the implied warranty of\nMERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\nGNU General Public License for more details.\n\nYou should have received a copy of the GNU General Public License\nalong with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.\nAlso add information on how to contact you by electronic and paper mail.\nIf the program does terminal interaction, make it output a short notice like this when it starts in an interactive mode:\n&lt;program&gt;  Copyright (C) &lt;year&gt;  &lt;name of author&gt;\nThis program comes with ABSOLUTELY NO WARRANTY; for details type 'show w'.\nThis is free software, and you are welcome to redistribute it\nunder certain conditions; type 'show c' for details.\nThe hypothetical commands show w and show c should show the appropriate parts of the General Public License. Of course, your program’s commands might be different; for a GUI interface, you would use an “about box”.\nYou should also get your employer (if you work as a programmer) or school, if any, to sign a “copyright disclaimer” for the program, if necessary. For more information on this, and how to apply and follow the GNU GPL, see &lt;http://www.gnu.org/licenses/&gt;.\nThe GNU General Public License does not permit incorporating your program into proprietary programs. If your program is a subroutine library, you may consider it more useful to permit linking proprietary applications with the library. If this is what you want to do, use the GNU Lesser General Public License instead of this License. But first, please read &lt;http://www.gnu.org/philosophy/why-not-lgpl.html&gt;."
   },
   {
-    "objectID": "bins/CV/CV.html",
-    "href": "bins/CV/CV.html",
-    "title": "Curriculum Vitae",
+    "objectID": "workshops/rl/rl.html",
+    "href": "workshops/rl/rl.html",
+    "title": "1. Python implementation of the Value Iteration algorithm",
     "section": "",
-    "text": "PhD in Probabilistic Machine Learning in Healthcare Management\nCardiff University, Cardiff, UK Oct 2024 — Present\nPhD in Probabilistic Machine Learning in Healthcare Management\n\n\nRecipient of WGSSS‑ESRC Studentship Award\nProject focused on enhancing discharge care coordination in healthcare and social care using a probabilistic data-driven modelling approach\n\nSupervisors: Prof Bahman Rostami‑Tabar, Dr. Jeremy Dixon\n\n\nMSc in Financial Mathematics\nMiddle East Technical University, Ankara, Turkey Oct 2017 — Aug 2021\n\nDissertation: Effects of Exchange Rate Volatility and Firm-Specific Features on the Rates of Returns of the Manufacturing Firms Listed in Borsa İstanbul: A CAPM Approach\n\nStatistical&Machine learning techniques used: Markov Switching GARCH Models, ARIMA, Panel Data Econometrics, Principal Component Analysis\n\n\nBSc in Business Administration\nMiddle East Technical University, Turkey Oct 2011 — Aug 2015"
+    "text": "import numpy as np\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\ndef value_iteration(env, gamma=0.99, theta=1e-6):\n    \"\"\"\n    Performs value iteration to compute an optimal policy.\n\n    Args:\n        env: An environment that provides:\n            - env.states: a list of all states\n            - env.actions(s): a list of actions available in state s\n            - env.transitions(s, a): a list of (probability, next_state, reward) tuples\n            - env.is_terminal(s): a function to check if a state is terminal\n        gamma: Discount factor.\n        theta: Small threshold for convergence.\n\n    Returns:\n        A tuple (V, pi) where:\n            - V is a dict of state -&gt; value\n            - pi is a dict of state -&gt; optimal action\n    \"\"\"\n    V = {s: 0.0 for s in env.states}\n    history = {s: [0] for s in env.states}\n    for s in env.states:\n        if env.is_terminal(s):\n            V[s] = 0.0  # terminal states have zero value\n\n    while True:\n        delta = 0\n        for s in env.states:\n            if env.is_terminal(s):\n                continue\n            v = V[s]\n            action_values = []\n            for a in env.actions(s):\n                q = sum(\n                    prob * (reward + gamma * V[next_state])\n                    for prob, next_state, reward in env.transitions(s, a)\n                )\n                action_values.append(q)\n            V[s] = max(action_values)\n            history[s].append(V[s])\n            delta = max(delta, abs(v - V[s]))\n        if delta &lt; theta:\n            break\n\n    # Derive the policy\n    policy = {}\n    for s in env.states:\n        if env.is_terminal(s):\n            policy[s] = None\n            continue\n        best_action = max(\n            env.actions(s),\n            key=lambda a: sum(\n                prob * (reward + gamma * V[next_state])\n                for prob, next_state, reward in env.transitions(s, a)\n            )\n        )\n        policy[s] = best_action\n\n    return V, policy, history"
   },
   {
-    "objectID": "bins/CV/CV.html#education",
-    "href": "bins/CV/CV.html#education",
-    "title": "Curriculum Vitae",
+    "objectID": "workshops/rl/rl.html#example-usage--environment-for-diabetes-care",
+    "href": "workshops/rl/rl.html#example-usage--environment-for-diabetes-care",
+    "title": "1. Python implementation of the Value Iteration algorithm",
+    "section": "1.1 Example usage- Environment for Diabetes Care",
+    "text": "1.1 Example usage- Environment for Diabetes Care\n\nThis environment simulates a diabetes care scenario with different states and actions.\nThe states represent the health status of a patient, and the actions represent different care strategies.\nThe transitions define the probabilities of moving from one state to another based on the action taken.\nThe rewards are based on the health outcomes of the actions taken.\n\n\n\nclass DiabetesCareEnv:\n    def __init__(self):\n        # all possible states\n        self.states = [\"stable\", \"moderate\", \"critical\", \"dead\"] \n        self._terminal_states = {\"dead\"}\n\n    def is_terminal(self, s):\n        return s in self._terminal_states\n\n    def actions(self, s):\n        if s == \"dead\":\n            return []\n        return [\"lifestyle\", \"medicate\", \"intensive_care\"]\n\n    def transitions(self, s, a):\n        \"\"\"\n        Returns a list of (probability, next_state, reward) tuples.\n        Each action from a state leads to all possible states.\n        \"\"\"\n\n        if s == \"stable\":\n            if a == \"lifestyle\":\n                return [\n                    (0.80, \"stable\", 8),\n                    (0.10, \"moderate\", 0),\n                    (0.05, \"critical\", -10),\n                    (0.05, \"dead\", -100),\n                ]\n            elif a == \"medicate\":\n                return [\n                    (0.85, \"stable\", 6),\n                    (0.10, \"moderate\", -3),\n                    (0.03, \"critical\", -10),\n                    (0.02, \"dead\", -100),\n                ]\n            elif a == \"intensive_care\":\n                return [\n                    (0.90, \"stable\", -5),\n                    (0.05, \"moderate\", -8),\n                    (0.03, \"critical\", -15),\n                    (0.02, \"dead\", -100),\n                ]\n\n        elif s == \"moderate\":\n            if a == \"lifestyle\":\n                return [\n                    (0.50, \"stable\", 5),\n                    (0.30, \"moderate\", -1),\n                    (0.15, \"critical\", -6),\n                    (0.05, \"dead\", -50),\n                ]\n            elif a == \"medicate\":\n                return [\n                    (0.60, \"stable\", 6),\n                    (0.25, \"moderate\", 0),\n                    (0.10, \"critical\", -5),\n                    (0.05, \"dead\", -50),\n                ]\n            elif a == \"intensive_care\":\n                return [\n                    (0.70, \"stable\", 3),\n                    (0.20, \"moderate\", -2),\n                    (0.05, \"critical\", -10),\n                    (0.05, \"dead\", -80),\n                ]\n\n        elif s == \"critical\":\n            if a == \"lifestyle\":\n                return [\n                    (0.05, \"stable\", 2),\n                    (0.10, \"moderate\", -3),\n                    (0.50, \"critical\", -12),\n                    (0.35, \"dead\", -100),\n                ]\n            elif a == \"medicate\":\n                return [\n                    (0.10, \"stable\", 3),\n                    (0.30, \"moderate\", -2),\n                    (0.50, \"critical\", -8),\n                    (0.20, \"dead\", -100),\n                ]\n            elif a == \"intensive_care\":\n                return [\n                    (0.30, \"stable\", 5),\n                    (0.30, \"moderate\", 0),\n                    (0.30, \"critical\", -3),\n                    (0.10, \"dead\", -90),\n                ]\n\n        elif s == \"dead\":\n            return [(1.0, \"dead\", 0)]\n\n        return []\n\n\nenv = DiabetesCareEnv()\nV, policy, hist = value_iteration(env, gamma=0.95, theta=1e-4)\n\nfor state in env.states:\n    print(f\"State: {state:10s} | Value: {V[state]:6.2f} | Best Action: {policy[state]}\")\n\nState: stable     | Value:  22.73 | Best Action: medicate\nState: moderate   | Value:  18.36 | Best Action: medicate\nState: critical   | Value:   4.63 | Best Action: intensive_care\nState: dead       | Value:   0.00 | Best Action: None\n\n\n\nplt.figure(figsize=(12, 8))\nfor state in env.states:\n    if state == \"dead\":\n        continue\n    plt.plot(hist[state], label=state)\nplt.title(\"Value Iteration Convergence\")\nplt.xlabel(\"Iterations\")\nplt.ylabel(\"Value\")\nplt.legend()\nplt.grid()\nplt.show()"
+  },
+  {
+    "objectID": "workshops/rl/rl.html#interpretation",
+    "href": "workshops/rl/rl.html#interpretation",
+    "title": "1. Python implementation of the Value Iteration algorithm",
+    "section": "1.2 Interpretation",
+    "text": "1.2 Interpretation\n\n\\(\\pi(s)\\) = lifestyle: Suggests conservative management is best.\n\\(\\pi(s)\\) = medicate: Indicates medical intervention is effective and worth the cost.\n\\(\\pi(s)\\) = intensive_care: Signals high urgency; aggressive action justified.\n\n\ninterp = {\n    'state': ['stable', 'moderate', 'critical', 'dead'],\n    'best_action': ['lifestyle', 'medicate', 'intensive_care', \"none\"],\n    'interpretation': [\n        'Encourage self-care',\n        'Best to intervene with medication',\n        'Aggressive care needed to avoid death.',\n        'No further action needed.'\n    ]}\ninterp_df = pd.DataFrame(interp)\ninterp_df\n\n\n\n\n\n\n\n\nstate\nbest_action\ninterpretation\n\n\n\n\n0\nstable\nlifestyle\nEncourage self-care\n\n\n1\nmoderate\nmedicate\nBest to intervene with medication\n\n\n2\ncritical\nintensive_care\nAggressive care needed to avoid death.\n\n\n3\ndead\nnone\nNo further action needed."
+  },
+  {
+    "objectID": "workshops/rl/temp/rl_python_revenue_max.html",
+    "href": "workshops/rl/temp/rl_python_revenue_max.html",
+    "title": "A backward dynamic programming algorithm.",
     "section": "",
-    "text": "PhD in Probabilistic Machine Learning in Healthcare Management\nCardiff University, Cardiff, UK Oct 2024 — Present\nPhD in Probabilistic Machine Learning in Healthcare Management\n\n\nRecipient of WGSSS‑ESRC Studentship Award\nProject focused on enhancing discharge care coordination in healthcare and social care using a probabilistic data-driven modelling approach\n\nSupervisors: Prof Bahman Rostami‑Tabar, Dr. Jeremy Dixon\n\n\nMSc in Financial Mathematics\nMiddle East Technical University, Ankara, Turkey Oct 2017 — Aug 2021\n\nDissertation: Effects of Exchange Rate Volatility and Firm-Specific Features on the Rates of Returns of the Manufacturing Firms Listed in Borsa İstanbul: A CAPM Approach\n\nStatistical&Machine learning techniques used: Markov Switching GARCH Models, ARIMA, Panel Data Econometrics, Principal Component Analysis\n\n\nBSc in Business Administration\nMiddle East Technical University, Turkey Oct 2011 — Aug 2015"
+    "text": "Scenario:\nAn NGO sells a single handcrafted backpack produced by under-represented artisan groups. Each month, over a 120-month horizon, they reach one of four audience-size tiers—40, 60, 80, or 100 customers—and choose a campaign label (marketing message) highlighting a different artisan community. Each label yields a unit profit per customer as follows:\n\n\n\n\n\n\n\n\nLabel\nArtisan Group Highlighted\nProfit/Customer (£)\n\n\n\n\nEcoNomad\nWomen-led cooperatives\n15\n\n\nTrailBlazer\nDisability-led artisan studios\n9\n\n\nClassicCarry\nMinority-owned craft collectives\n12\n\n\n\nTheir goal is to maximize total expected profit over the 120 months by selecting the best label each month.\n\nR = [15, 9, 12]\n\n\nimport numpy as np\n\ndef create__trans_prob(num_states, num_actions):\n    \"\"\"\n    Create a transition probability matrix for a reinforcement learning problem.\n    \n    Parameters:\n    - num_states: Number of states in the environment.\n    - num_actions: Number of actions available in the environment.\n    \n    Returns:\n    - P: Transition probability matrix of shape (num_states, num_actions, num_states) using Dirichlet.\n    \"\"\"\n    alpha = np.ones(num_states)  # Dirichlet distribution parameter\n    P = np.zeros((num_states, num_actions, num_states))\n    for s in range(num_states):\n        for a in range(num_actions):\n            P[s, a, :] = np.random.dirichlet(alpha)  # transition probabilities for each state-action pair\n    return P\n\n\n# initialize value function values\n\nimport numpy as np\n\ndef create__trans_prob(num_states, num_actions):\n    \"\"\"\n    Create a transition probability matrix for a reinforcement learning problem.\n    \n    Parameters:\n    - num_states: Number of states in the environment.\n    - num_actions: Number of actions available in the environment.\n    \n    Returns:\n    - P: Transition probability matrix of shape (num_states, num_actions, num_states) using Dirichlet.\n    \"\"\"\n    alpha = np.ones(num_states)  # Dirichlet distribution parameter\n    P = np.zeros((num_states, num_actions, num_states))\n    for s in range(num_states):\n        for a in range(num_actions):\n            P[s, a, :] = np.random.dirichlet(alpha)  # transition probabilities for each state-action pair\n    return P\n\n\ndef backward_dynamic_programming(T, states, actions, R, P):\n    \"\"\"\n    Perform backward dynamic programming to compute the value function and action values.\n    Parameters:\n    - T: Number of time steps.\n    - states: List of states in the environment.\n    - actions: Actions available in the environment.\n    - P: Transition probability matrix of shape (num_states, num_actions, num_states).\n    \n    Returns:\n    - V: Value function for each state at each time step.\n    - A: Best action for each state at each time step.\n    \"\"\"\n\n    num_states = len(states)  # number of states\n    num_actions = len(actions)  # number of actions\n\n    V = np.zeros((T+1, num_states)) # initial value function for 80 time steps and 4 states\n    A = np.zeros((T, num_states)) # action values for 80 time steps and 4 states\n\n    for t in reversed(range(T)):\n        for i in range(num_states): # loop over states\n            # initialize best value and action\n            best_val = -np.inf  \n            best_action = None \n            # loop over actions to find the best action for the current state\n            for a in range(num_actions): # loop over actions\n                q_ia = 0 # initialize action value\n                # calculate the action value q(s, a) using the Bellman equation\n                for j in range(num_states): # loop over next states\n                    # r = np.random.normal(50, 40) # sample a reward from a normal distribution\n                    r = R[a]*states[i]  # reward based on the action and state\n                    q_ia = + r + 0.1*P[i][a][j]*V[t+1, j]  # reward + discounted value of next state\n                if q_ia &gt; best_val: # if the action value is better than the best value found so far\n                    best_val = q_ia # update best value\n                    best_action = a # update best action\n            V[t][i] = best_val # store the best value for the current state at time t\n            A[t][i] = best_action # store the best action for the current state at time t\n    return V, A            \n\n\n\nT = 120\nstates = list(range(40, 61))  # example states\nactions = [0, 1, 2]  # example actions\nnum_states = len(states)  # number of states\nnum_actions = len(actions)  # number of actions\nR = [15, 9, 12]  # rewards for each action\nP = create__trans_prob(num_states, num_actions) # create transition probability matrix\nVs, As = backward_dynamic_programming(T, states, actions, R, P)  # perform backward dynamic programming\n\n\nVs.shape\n\n(121, 21)\n\n\n\nimport pandas as pd\npd.DataFrame(Vs, columns=states, index=range(T+1)).iloc[:, 0:3].plot()\n\n\n\n\n\n\n\n\nConsider a network of two products: product 1 (bags) has 10 units in inventory, while product 2 (raincoats) has 20 units in inventory. Customers may buy product 1, product 2, or both products. The price is £15 for product 1, £20 for product 2, and £30 if a customer wants to buy both products 1 and 2. The products can be sold over a time horizon of T = 90 periods. The arrival probabilities in each time period are constant over time: λ₁ = 0.2, λ₂ = 0.15, and λ₃ = 0.1. With a probability of λ₀ = 0.55, there will be no arrival in a given period. The objective of the NGO manager is to decide, whenever a shopping request arrives, whether to accept the demand such that the total expected profit is maximized.\n\nimport numpy as np\n\ndef backward_dp_two_products(T, Imax, Jmax, lambdas, prices):\n    \"\"\"\n    Backward dynamic programming for 2‐product booking control.\n    \n    Args:\n        T       : int, horizon (e.g. 90)\n        Imax    : int, max bags inventory (e.g. 10)\n        Jmax    : int, max raincoats inventory (e.g. 20)\n        lambdas : list of arrival probabilities [λ0, λ1, λ2, ...]\n        prices   : dict, prices for each product\n                 {1: price_bag, 2: price_raincoat, 3: price_both}\n        \n    Returns:\n        V      : np.array shape (T+1, Imax+1, Jmax+1)\n                 value function\n        policy : np.array shape (T, Imax+1, Jmax+1, 4)\n                 policy[t,i,j,k] = 0 (reject) or 1 (accept) for arrival k\n    \"\"\"\n    V = np.zeros((T+1, Imax+1, Jmax+1))\n    policy = np.zeros((T, Imax+1, Jmax+1, 3), dtype=int)\n    \n    for t in range(T-1, -1, -1):\n        for i in range(Imax+1):\n            for j in range(Jmax+1):\n                # calculate the value function for each state (i, j) at time t following the Bellman equation\n                reward = 0\n                for p in range(2):\n                    if i == 0 | j == 0 # No capacity to accept this booking\n                        reject = V[t+1, i, j]\n                        policy[t, i, j, p] = 0  # Reject\n                    else:\n\n\n                          \n\n    \n    \n    return V, policy\n\n# --- Usage ---\nT = 90\nImax, Jmax = 10, 20\nlambdas = [0.55, 0.2, 0.15, 0.1]\nfares = {1:15, 2:20, 3:30}\n\nV, policy = backward_dp_two_products(T, Imax, Jmax, lambdas, fares)\n\n\nlist(range(1, 2))\n\n[0, 1]"
   },
   {
-    "objectID": "bins/CV/CV.html#work-experince",
-    "href": "bins/CV/CV.html#work-experince",
-    "title": "Curriculum Vitae",
-    "section": "WORK EXPERINCE",
-    "text": "WORK EXPERINCE\nReporting and Data Analytics Executive\nAKBANK (a leading bank in Turkey), Istanbul Jun 2022 — Sep 2024\n\nApplied time-series forecasting and machine learning techniques, including ARIMA, Bayesian Time Series, Prophet, ANN, LSTM, Random Forest, LightGBM and XGBoost, to historical data for making long-horizon forecasts of daily customer call volume. The best model achieved over 94% accuracy (1-MAPE) in forecasting all days of the next month.\nImplemented machine learning models (e.g., XGBoost, LightGBM, CatBoost) to predict customer behavior with an over recall rate of 70% and an accuracy rate of 85%, enabling fewer customer complaints and increase sales by 14%.\nAnalyzing large amounts of data to identify trends and find patterns, signals and hidden stories within customer calls data.\nApplied machine learning techniques (Z-score, IsolationForest) to detect anomalies.\nApplied unsupervised machine learning techniques (DBSCAN, Gaussian mixture, K-means) to cluster customers.\nHyperparameter tuning for machine learning models using Hyperopt, Optuna and KerasTuner.\n\nResearch Associate\nThe Economic Policy Research Foundation of Turkey (Think Tank), Ankara Jan 2022 — Apr 2024\n\nDetermined areas of research to increase knowledge in the particular field.\nUtilizing inferential statistics such as hypothesis testing (e.g., t-test, ANOVA test, population proportion test), confidence intervals, correlation analysis and regression analysis to make inferences and draw conclusions about data.\nDeveloped statistical models (regression analysis, panel data modeling) for regional development projects to contribute to data-driven decisions.\n\nSenior Process Development Analyst\nETI GIDA Inc (a major FMCG player in Turkey), Eskisehir Jun 2019 — Jan 2022\n\nInteracted with internal customers to understand business needs and translate into requirements and project scope.\nAssessed the impact of current business processes on users and stakeholders and evaluated potential areas for improvement.\nMaintained strong working knowledge of ERP (SAP), CRM and business intelligence tools and operational features.\n\nInternal Auditor Ankara, Turkey\nTurk Telekom Inc. (the telecom giant of Turkey), Ankara Nov 2015 — Jun 2019\n\nPerformed strategic planning, execution and finalization of audits using data analytics and critical thinking skills.\nInvestigated discrepancies discovered during the auditing process.\nRecommended new methods to improve internal controls and operating efficiency."
+    "objectID": "workshops/rl/note.html",
+    "href": "workshops/rl/note.html",
+    "title": "Notes for presentation",
+    "section": "",
+    "text": "page 2 - Model-Free Adaptation: Learns optimal behavior directly from experience, without needing an explicit model of the environment.\n\nLong-Term Planning: Optimizes decisions over long time horizons by balancing immediate vs. future rewards.\n\nScalable to Complex Tasks\nCan handle very large state-action spaces via function approximation (e.g., neural networks).\n\nInteractive Settings\nIdeal when you have an agent interacting with an environment (games, robotics, resource allocation).\n\nData-Driven Policies\nAutomatically refines its policy as more data becomes available, making it robust to non-stationarity."
   },
   {
-    "objectID": "bins/CV/CV.html#research-interests",
-    "href": "bins/CV/CV.html#research-interests",
-    "title": "Curriculum Vitae",
-    "section": "RESEARCH INTERESTS",
-    "text": "RESEARCH INTERESTS\n\nData-driven decision making\nMachine learning\nReinforcement learning and stocastic optimization in decision making\nTime series forecasting\nProbabilistic forecasting\nConformal prediction for time series forecasting"
+    "objectID": "workshops/index.html",
+    "href": "workshops/index.html",
+    "title": "MUSTAFA ASLAN",
+    "section": "",
+    "text": "Introduction to Reinforcement Learning\n\n\nWorkshop\n\n\n\n\n\nMay 22, 2025\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nBasics of Python and Introduction to Quarto in Visual Studio Code\n\n\nWorkshop\n\n\n\n\n\nMar 3, 2025\n\n\nMustafa Aslan\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "bins/CV/CV.html#skills-expertise",
-    "href": "bins/CV/CV.html#skills-expertise",
-    "title": "Curriculum Vitae",
-    "section": "SKILLS & EXPERTISE",
-    "text": "SKILLS & EXPERTISE\nExpertise: Mathematical and Statistical Modeling, Machine Learning, Time Series Analysis and Forecasting, Stocastic Optimization and Reinforecement Learning, Statistical and Explanatory Data Analysis\nProgramming: Python, SQL\nReporting: Quarto, Advanced Excel, QlikView, SAS\nLanguages English (Fluent), Kurdish (Native), Turkish (Native)"
+    "objectID": "workshops/trainings/rl_index.html",
+    "href": "workshops/trainings/rl_index.html",
+    "title": "Introduction to Reinforcement Learning",
+    "section": "",
+    "text": "Slides  Code\nDate: May 29, 2025 10:00 AM – 13:00 PM\nEvent: Data Lab for Social Good Training Session\nLocation: Aberconway Building Meeting Room, Cardiff University, UK"
   },
   {
-    "objectID": "bins/CV/CV.html#professional-development",
-    "href": "bins/CV/CV.html#professional-development",
-    "title": "Curriculum Vitae",
-    "section": "PROFESSIONAL DEVELOPMENT",
-    "text": "PROFESSIONAL DEVELOPMENT\n\nCertification:\n\nData Science: Machine Learning, HarvardX (edX)\n\nBooks (some of my go-to books):\n\nForecasting: Principles and Practice (Hyndman et al, 2021)\nIntroduction to Statistical Learning with Applications in R (Tibshirani et al, 2019)\nThe Elements of Statistical Learning (Tibshirani et al, 2008)\nProbabilistic Machine Learning: An Introduction (Murphy. 2022)\nReinforcement Learning: An Introduction (Barto et al, 2018)\nReinforcement Learning and Stochastic Optimization (Powell, 2022)\nTime Series Forecasting in Python (Peixeiro, 2022)\nA Student’s Guide to Bayesian Statistics (Lambert, 2018)\nDive into deep learning (Zhang, 2022)"
+    "objectID": "workshops/trainings/rl_index.html#who-is-the-course-for",
+    "href": "workshops/trainings/rl_index.html#who-is-the-course-for",
+    "title": "Introduction to Reinforcement Learning",
+    "section": "Who is the course for?",
+    "text": "Who is the course for?\nThis course is designed for researchers and postgraduate students who want to apply Reinforcement Learning (RL) to real-world decision-making in interdisciplinary settings, including supply chains, healthcare, and operational contexts across diverse industries. It is especially relevant for those working on problems involving sequential decision-making under uncertainty.\nYou don’t need prior RL knowledge, but you should be comfortable with basic probability and Python programming."
   },
   {
-    "objectID": "bins/CV/CV.html#references",
-    "href": "bins/CV/CV.html#references",
-    "title": "Curriculum Vitae",
-    "section": "References",
-    "text": "References\nAvailable upon request"
+    "objectID": "workshops/trainings/rl_index.html#learning-objectives",
+    "href": "workshops/trainings/rl_index.html#learning-objectives",
+    "title": "Introduction to Reinforcement Learning",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBy the end of this workshop, participants will be able to:\n\nUnderstand the core ideas of RL in the context of healthcare decision-making\nModel sequential sequential decisions using Markov Decision Processes (MDPs)\nApply key RL algorithms (Monte Carlo, SARSA, Q-learning) to learn optimal policies from experience\nInterpret learned policies and value functions in a healthcare context (e.g. when to treat, when to wait)\nLink RL insights to practical policy decisions like cost control, clinical risk, or stockout mitigation"
+  },
+  {
+    "objectID": "workshops/trainings/rl_index.html#prerequisites",
+    "href": "workshops/trainings/rl_index.html#prerequisites",
+    "title": "Introduction to Reinforcement Learning",
+    "section": "Prerequisites",
+    "text": "Prerequisites\n\nFamiliarity with basic probability and statistics (e.g., expected value, random variables)\nSome experience with Python, particularly with lists, dictionaries, and basic control flow\nNo prior knowledge of RL or advanced machine learning is required"
+  },
+  {
+    "objectID": "bins/dist.html",
+    "href": "bins/dist.html",
+    "title": "my dist",
+    "section": "",
+    "text": "asdasdasda\n\\[\nf_x = \\int\n\\]\n\nimport pandas as pd\nimport numpy as np"
   }
 ]
