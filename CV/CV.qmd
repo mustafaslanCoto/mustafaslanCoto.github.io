@@ -1,5 +1,6 @@
 ---
 title: PhD Researcher | Data Scientist & Mathematical Modeller
+author: Mustafa Aslan
 jobtitle: "PhD Researcher • Data Scientist"
 format:
   html: default
