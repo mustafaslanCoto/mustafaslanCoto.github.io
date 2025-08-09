@@ -6,9 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Mustafa">
+<meta name="author" content="Mustafa Aslan">
+<meta name="dcterms.date" content="2025-08-09">
+<meta name="description" content="A comprehensive guide to Monte Carlo integration techniques, including examples and Python implementations.">
 
-<title>my dist – MUSTAFA ASLAN</title>
+<title>Monte Carlo Integration – MUSTAFA ASLAN</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -59,23 +61,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-4df3b0c4fafa0f66eafcead0ee6cff11.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-4df3b0c4fafa0f66eafcead0ee6cff11.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -134,10 +136,13 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../styles.css">
-<meta property="og:title" content="my dist – MUSTAFA ASLAN">
-<meta property="og:description" content="">
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Monte Carlo Integration – MUSTAFA ASLAN">
+<meta property="og:description" content="A comprehensive guide to Monte Carlo integration techniques, including examples and Python implementations.">
+<meta property="og:image" content="https://mustafaslanCoto.github.io/learn/monte_carlo/mc_notebook_files/figure-html/cell-3-output-1.png">
 <meta property="og:site_name" content="MUSTAFA ASLAN">
+<meta property="og:image:height" content="547">
+<meta property="og:image:width" content="855">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -147,7 +152,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">MUSTAFA ASLAN</span>
     </a>
   </div>
@@ -158,15 +163,15 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../learn/index.html"> 
+    <a class="nav-link" href="../../learn/index.html"> 
 <span class="menu-text">LEARN</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../workshops/index.html"> 
+    <a class="nav-link" href="../../workshops/index.html"> 
 <span class="menu-text">WORKSHOPS</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../CV/CV.html"> 
+    <a class="nav-link" href="../../CV/CV.html"> 
 <span class="menu-text">CV</span></a>
   </li>  
 </ul>
@@ -183,28 +188,59 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#basic-monte-carlo-integration" id="toc-basic-monte-carlo-integration" class="nav-link active" data-scroll-target="#basic-monte-carlo-integration">Basic Monte Carlo Integration</a>
+  <ul class="collapse">
+  <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1">Example 1</a></li>
+  <li><a href="#example-2" id="toc-example-2" class="nav-link" data-scroll-target="#example-2">Example 2</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">my dist</h1>
+<h1 class="title">Monte Carlo Integration</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">learning</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    A comprehensive guide to Monte Carlo integration techniques, including examples and Python implementations.
+  </div>
 </div>
 
-
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Mustafa Aslan <a href="mailto:aslanm@cardiff.ac.uk" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Cardiff University, UK
+          </p>
+      </div>
+  </div>
 
 <div class="quarto-title-meta">
 
+      
     <div>
-    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-             <p>Mustafa </p>
-          </div>
+      <p class="date">August 9, 2025</p>
+    </div>
   </div>
-    
   
     
   </div>
@@ -214,16 +250,177 @@ window.Quarto = {
 </header>
 
 
-<p>asdasdasda</p>
+<p>Monte Carlo integration is a statistical technique that allows us to approximate complex integrals using random sampling. The basic idea is to use random points in the domain of the integrand to estimate the average value of the function, which can then be scaled by the volume of the domain to obtain an estimate of the integral.</p>
+<p>The steps for performing Monte Carlo integration are as follows:</p>
+<ol type="1">
+<li>Define the integral you want to compute, including the domain of integration and the integrand function.</li>
+<li>Generate a set of random points within the domain.</li>
+<li>Evaluate the integrand at each of these points.</li>
+<li>Compute the average value of the integrand evaluations.</li>
+<li>Scale the average by the volume of the domain to obtain the final estimate of the integral.</li>
+</ol>
+<p>Monte Carlo integration is particularly useful for high-dimensional integrals or when the integrand is difficult to evaluate analytically. It can also be applied to problems in physics, finance, and other fields where uncertainty and randomness play a significant role.</p>
+<section id="basic-monte-carlo-integration" class="level2">
+<h2 class="anchored" data-anchor-id="basic-monte-carlo-integration">Basic Monte Carlo Integration</h2>
+<p>Suppose we want to evaluate the integral</p>
 <p><span class="math display">\[
-f_x = \int
+I = \int_0^1 h(x) \, dx
 \]</span></p>
-<div id="1807e362" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>for some function <span class="math inline">\(h(x)\)</span>.</p>
+<p>If <span class="math inline">\(h\)</span> is complicated there may be no known closed form expression for <span class="math inline">\(I\)</span>. In such cases, we can use Monte Carlo integration to obtain an approximate value for the integral.</p>
+<p>Let us begin by writing</p>
+<p><span class="math display">\[
+I = \int_a^b h(x) \, dx = \int_a^b w(x)f(x) \, dx
+\]</span></p>
+<p>where <span class="math inline">\(w(x) = h(x)(b-a)\)</span> and <span class="math inline">\(f(x) = 1/(b-a)\)</span>. Notice that <span class="math inline">\(f\)</span> is the probability density for a uniform random variable over <span class="math inline">\((a, b)\)</span>. Hence</p>
+<p><span class="math display">\[
+I = \int_a^b w(x)f(x) \, dx = \mathbb{E}_f[w(X)]
+\]</span></p>
+<p>where <span class="math inline">\(X\)</span> is a random variable uniformly distributed over <span class="math inline">\((a, b)\)</span>.</p>
+<p>If we generate <span class="math inline">\(N\)</span> independent samples <span class="math inline">\(X_1, X_2, \ldots, X_N\)</span> from the distribution of <span class="math inline">\(X\)</span>, we can approximate the integral using the sample average, which satisfies law of large numbers:</p>
+<p><span class="math display">\[
+\hat{I} \approx \frac{1}{N} \sum_{i=1}^N w(X_i)
+\]</span></p>
+<p>This gives us a <strong><em>Monte Carlo estimate of the integral</em></strong>.</p>
+<p>We can also compute the standard error of the estimate:</p>
+<p><span class="math display">\[
+\text{SE} = \frac{1}{\sqrt{N}} \sigma_w
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+\sigma_w = \sqrt{\frac{1}{N-1} \sum_{i=1}^N (w(X_i) - \hat{I})^2}
+\]</span></p>
+<section id="example-1" class="level3">
+<h3 class="anchored" data-anchor-id="example-1">Example 1</h3>
+<p>Let <span class="math inline">\(h(x) = x^3\)</span>. We want to estimate the integral</p>
+<p><span class="math display">\[
+I = \int_0^1 x^3 \, dx
+\]</span></p>
+<p>Using the Monte Carlo method, we can approximate this integral by generating random samples from the uniform distribution over <span class="math inline">\((0, 1)\)</span> which is <span class="math inline">\((a, b)\)</span> in the formula.</p>
+<p>The goal is the compute <span class="math display">\[
+\hat{I} = \int_0^1 x^3 \, dx
+\]</span></p>
+<p><strong>Analytical answer</strong>: <span class="math inline">\(I = 1/4\)</span> (easy to compute)</p>
+<p><strong>Monte Carlo estimate</strong>:</p>
+<ul>
+<li>Simulation steps</li>
+</ul>
+<ol type="1">
+<li>Generate <span class="math inline">\(10,000\)</span> random samples <span class="math inline">\(X_1, X_2, \ldots, X_{10,000}\)</span> from the uniform distribution over <span class="math inline">\((0, 1)\)</span>.</li>
+<li>Compute for each sample <span class="math inline">\(X_i\)</span> the value <span class="math inline">\(h(X_i) = X_i^3\)</span>.</li>
+<li>Estimate the integral as the average of these values: <span class="math display">\[
+\hat{I} \approx \frac{1}{10,000} \sum_{i=1}^{10,000} (X_i^3)
+\]</span></li>
+</ol>
+<p>We get <span class="math inline">\(\hat{I} \approx 0.243\)</span>.</p>
+<p>Monte Carlo method generates an answer that is close to the analytical solution, which is <span class="math inline">\(0.25\)</span>, but not exact. The accuracy of the Monte Carlo estimate improves with more samples.</p>
+<section id="python-implementation" class="level4">
+<h4 class="anchored" data-anchor-id="python-implementation">Python implementation</h4>
+<div id="a8925db3" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># python implementation</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">42</span>) <span class="co"># for reproducibility</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate for N = 100 and increase by 50 untill 10000 to see the convergence to the true value which is 0.25</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>history_ex1 <span class="op">=</span> []</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> N <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">100</span>, <span class="dv">10001</span>, <span class="dv">50</span>):</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    X <span class="op">=</span> np.random.uniform(<span class="dv">0</span>, <span class="dv">1</span>, N)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    H <span class="op">=</span> X<span class="op">**</span><span class="dv">3</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    I_hat <span class="op">=</span> np.mean(H)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    history_ex1.append([N, I_hat])</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>history_ex1 <span class="op">=</span> np.array(history_ex1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="a030c42e" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#plot history against number of samples to observe convergence</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>plt.plot(history_ex1[:, <span class="dv">0</span>], history_ex1[:, <span class="dv">1</span>], label<span class="op">=</span><span class="st">'Monte Carlo Estimate'</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>plt.axhline(y<span class="op">=</span><span class="fl">0.25</span>, color<span class="op">=</span><span class="st">'r'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, label<span class="op">=</span><span class="st">'True Value'</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Number of Samples (N)'</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Estimated Integral'</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Monte Carlo Integration Convergence'</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="mc_notebook_files/figure-html/cell-3-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="example-2" class="level3">
+<h3 class="anchored" data-anchor-id="example-2">Example 2</h3>
+<p>Let</p>
+<p><span class="math display">\[
+f(x) = \frac{1}{\sqrt{2\pi}} e^{-x^2/2}
+\]</span></p>
+<p>be the standard Normal pdf. Suppose we want to compute the cdf at some point <span class="math inline">\(x\)</span>:</p>
+<p><span class="math display">\[
+I = \int_{-\infty}^x f(s) ds = \Phi(x).
+\]</span></p>
+<p>Write</p>
+<p><span class="math display">\[
+I = \int h(s) f(s) ds
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+h(s) = \begin{cases}
+1 &amp; s &lt; x \\
+0 &amp; s \geq x
+\end{cases}
+\]</span></p>
+<p>Now we generate <span class="math inline">\(X_1, \ldots, X_N \sim N(0,1)\)</span> and set</p>
+<p><span class="math display">\[
+\hat{I} = \frac{1}{N} \sum_i h(X_i) = \frac{\text{number of observations } \leq x}{N}.
+\]</span></p>
+<p>For example, with <span class="math inline">\(x = 2\)</span>, the true answer is <span class="math inline">\(\Phi(2) = .9772\)</span> and the Monte Carlo estimate with <span class="math inline">\(N = 10,\!000\)</span> yields <span class="math inline">\(.9751\)</span>. Using <span class="math inline">\(N = 100,\!000\)</span> we get <span class="math inline">\(.9771\)</span>.</p>
+<div id="a7495c40" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python implementation</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># True value</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>I_true <span class="op">=</span> norm.cdf(x)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate for N = 100 and increase by 50 untill 10000 to see the convergence to the true value which is 0.9772</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>history_ex2 <span class="op">=</span> []</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> N <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">100</span>, <span class="dv">10001</span>, <span class="dv">50</span>):</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    X <span class="op">=</span> np.random.normal(<span class="dv">0</span>, <span class="dv">1</span>, N)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    h <span class="op">=</span> (X <span class="op">&lt;</span> x).astype(<span class="bu">int</span>)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    I_hat <span class="op">=</span> np.mean(h)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    history_ex2.append([N, I_hat])</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>history_ex2 <span class="op">=</span> np.array(history_ex2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="0cabfe93" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#plot history against number of samples to observe convergence</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>plt.plot(history_ex2[:, <span class="dv">0</span>], history_ex2[:, <span class="dv">1</span>], label<span class="op">=</span><span class="st">'Monte Carlo Estimate'</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>plt.axhline(y<span class="op">=</span>I_true, color<span class="op">=</span><span class="st">'r'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, label<span class="op">=</span><span class="st">'True Value'</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Number of Samples (N)'</span>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Estimated Integral'</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Monte Carlo Integration Convergence'</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="mc_notebook_files/figure-html/cell-5-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
 </div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
