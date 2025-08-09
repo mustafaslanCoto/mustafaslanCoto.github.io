@@ -345,5 +345,8 @@
   },
   "workshops/rl/note.qmd": {
     "note.html": "ce01cddc"
+  },
+  "learn/prob_stats/mc_integration.qmd": {
+    "mc_integration.html": "fb0b803d"
   }
 }
