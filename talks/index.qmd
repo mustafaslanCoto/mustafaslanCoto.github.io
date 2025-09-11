@@ -1,0 +1,7 @@
+---
+listing: 
+  - id: conferences
+    contents: talks
+    type: default
+    sort: date desc
+---

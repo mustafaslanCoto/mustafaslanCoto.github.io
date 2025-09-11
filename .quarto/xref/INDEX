@@ -348,5 +348,8 @@
   },
   "learn/prob_stats/mc_integration.qmd": {
     "mc_integration.html": "fb0b803d"
+  },
+  "talks/wgsss/slides.qmd": {
+    "slides.html": "a4fcbd4a"
   }
 }
