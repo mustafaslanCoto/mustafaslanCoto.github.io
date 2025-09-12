@@ -19,4 +19,4 @@ link-external-newwindow: true
 
 **Date:** Sep 12 2025 11:00 AM – 13:00 PM\
 **Event:** Welsh Graduate School of Social Sciences Annual Conference\
-**Location:** Aberconway Building Meeting Room, Swansea University, UK
+**Location:** School of Management, Swansea University, UK

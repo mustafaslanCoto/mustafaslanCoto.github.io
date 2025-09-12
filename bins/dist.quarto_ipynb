@@ -16,7 +16,7 @@
         "f_x = \\int\n",
         "$$"
       ],
-      "id": "90152b13"
+      "id": "0ea619b6"
     },
     {
       "cell_type": "code",
@@ -25,7 +25,7 @@
         "import pandas as pd\n",
         "import numpy as np"
       ],
-      "id": "afe6d9af",
+      "id": "af2642ef",
       "execution_count": null,
       "outputs": []
     }

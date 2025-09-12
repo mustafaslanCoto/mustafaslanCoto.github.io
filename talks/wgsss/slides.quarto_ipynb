@@ -165,7 +165,7 @@
         "\n",
         "- Spike after COVID-19 pandemic"
       ],
-      "id": "32a6790b"
+      "id": "19eb782e"
     },
     {
       "cell_type": "code",
@@ -277,7 +277,7 @@
         "with open('model_params/best_hmm_ets_tks.pkl', 'rb') as f:\n",
         "    best_hmm_ets_tks = pickle.load(f)"
       ],
-      "id": "c83731d7",
+      "id": "5eea3aec",
       "execution_count": null,
       "outputs": []
     },
@@ -314,7 +314,7 @@
         "plt.tight_layout(pad=2.0)\n",
         "plt.show()"
       ],
-      "id": "28c41a1a",
+      "id": "023f787f",
       "execution_count": null,
       "outputs": []
     },
@@ -329,7 +329,7 @@
         "\n",
         "### Day of the week seasonality\n"
       ],
-      "id": "b277e58f"
+      "id": "b3fd63a2"
     },
     {
       "cell_type": "code",
@@ -370,7 +370,7 @@
         "plt.tight_layout()\n",
         "plt.show()"
       ],
-      "id": "f0d052eb",
+      "id": "680e3399",
       "execution_count": null,
       "outputs": []
     },
@@ -384,7 +384,7 @@
         "\n",
         "### Monthly seasonality"
       ],
-      "id": "dbecdd98"
+      "id": "b91025a8"
     },
     {
       "cell_type": "code",
@@ -429,7 +429,7 @@
         "plt.tight_layout()\n",
         "plt.show()"
       ],
-      "id": "24f5e5e3",
+      "id": "871b33ad",
       "execution_count": null,
       "outputs": []
     },
@@ -441,7 +441,7 @@
         "\n",
         "## Effect of holidays"
       ],
-      "id": "27b62116"
+      "id": "27657835"
     },
     {
       "cell_type": "code",
@@ -513,7 +513,7 @@
         "axes.set_ylabel(\"Occupancy\", fontsize=14)\n",
         "plt.show()"
       ],
-      "id": "e91711dc",
+      "id": "353fcd2d",
       "execution_count": null,
       "outputs": []
     },
@@ -952,7 +952,7 @@
         "Original series: $y_t, y_{t-1}, y_{t-2}, y_{t-3}, \\ldots$ \\\n",
         "Differenced series: $y_t - y_{t-1}, y_{t-1} - y_{t-2}, y_{t-2} - y_{t-3}, \\ldots$"
       ],
-      "id": "f3a25524"
+      "id": "274ef3bc"
     },
     {
       "cell_type": "code",
@@ -1056,7 +1056,7 @@
         "plt.tight_layout()\n",
         "plt.show()"
       ],
-      "id": "efee42cc",
+      "id": "d3070a56",
       "execution_count": null,
       "outputs": []
     },
@@ -1068,7 +1068,7 @@
         "\n",
         "### Information from ACF and PACF plots after differencing"
       ],
-      "id": "aaeaa89d"
+      "id": "6bba506b"
     },
     {
       "cell_type": "code",
@@ -1086,7 +1086,7 @@
         "plt.tight_layout(pad=2)\n",
         "plt.show()"
       ],
-      "id": "831ee702",
+      "id": "35db5122",
       "execution_count": null,
       "outputs": []
     },
@@ -1098,7 +1098,7 @@
         "\n",
         "### Alternative approach to make the series stationary and keep the dependence structure"
       ],
-      "id": "618880e9"
+      "id": "b41bfa11"
     },
     {
       "cell_type": "code",
@@ -1118,7 +1118,7 @@
         "plt.legend(loc='upper right')\n",
         "plt.show()"
       ],
-      "id": "57d23bb6",
+      "id": "cbb95d72",
       "execution_count": null,
       "outputs": []
     },
@@ -1129,7 +1129,7 @@
         "## An important assumption to model: Stationarity\n",
         "### Information from ACF and PACF plots after detrending"
       ],
-      "id": "24f42289"
+      "id": "278cc13f"
     },
     {
       "cell_type": "code",
@@ -1147,7 +1147,7 @@
         "plt.tight_layout(pad=2)\n",
         "plt.show()"
       ],
-      "id": "6d377135",
+      "id": "e7e010cf",
       "execution_count": null,
       "outputs": []
     },
@@ -1161,7 +1161,7 @@
         "\n",
         "Rolling-origin cross-validation is used to evaluate model performance over time"
       ],
-      "id": "2ce17e00"
+      "id": "6a4639c0"
     },
     {
       "cell_type": "code",
@@ -1287,7 +1287,7 @@
         "plt.title(\"Rolling Origin Time Series Cross-Validation\", fontsize=16)\n",
         "plt.show()"
       ],
-      "id": "65f124c8",
+      "id": "d485e2b2",
       "execution_count": null,
       "outputs": []
     },
@@ -1303,7 +1303,7 @@
         "\n",
         "::: {layout-ncol=2}"
       ],
-      "id": "08d6e3c9"
+      "id": "bd7714e5"
     },
     {
       "cell_type": "code",
@@ -1333,7 +1333,7 @@
         "                            numeric_highlights = {\"SRMSE\": {\"condition\": \"less\", \"threshold\": 0.275, \"style\": \"font-weight: bold; background-color: None;\"}},\n",
         ")"
       ],
-      "id": "e59a9a4a",
+      "id": "f6a3a190",
       "execution_count": null,
       "outputs": []
     },
@@ -1351,7 +1351,7 @@
         "                            numeric_highlights = {\"SRMSE\": {\"condition\": \"less\", \"threshold\": 0.275, \"style\": \"font-weight: bold; background-color: None;\"}},\n",
         ")"
       ],
-      "id": "1989ddad",
+      "id": "f295b993",
       "execution_count": null,
       "outputs": []
     },
@@ -1369,7 +1369,7 @@
         "                            numeric_highlights = {\"SRMSE\": {\"condition\": \"less\", \"threshold\": 0.275, \"style\": \"font-weight: bold; background-color: None;\"}},\n",
         ")"
       ],
-      "id": "e1e2b0d8",
+      "id": "e5f7ce94",
       "execution_count": null,
       "outputs": []
     },
@@ -1387,7 +1387,7 @@
         "                            numeric_highlights = {\"SRMSE\": {\"condition\": \"less\", \"threshold\": 0.275, \"style\": \"font-weight: bold; background-color: None;\"}},\n",
         ")"
       ],
-      "id": "e7552c64",
+      "id": "9fe41e8b",
       "execution_count": null,
       "outputs": []
     },
@@ -1405,7 +1405,7 @@
         "                            numeric_highlights = {\"SRMSE\": {\"condition\": \"less\", \"threshold\": 0.275, \"style\": \"font-weight: bold; background-color: None;\"}},\n",
         ")"
       ],
-      "id": "f1964e03",
+      "id": "e7436d69",
       "execution_count": null,
       "outputs": []
     },
@@ -1423,7 +1423,7 @@
         "                            numeric_highlights = {\"SRMSE\": {\"condition\": \"less\", \"threshold\": 0.275, \"style\": \"font-weight: bold; background-color: None;\"}},\n",
         ")"
       ],
-      "id": "29c67527",
+      "id": "297e1c96",
       "execution_count": null,
       "outputs": []
     },
@@ -1437,7 +1437,7 @@
         "\n",
         "## Forecast Distributions (Quantile scores)"
       ],
-      "id": "984f53cd"
+      "id": "27e1a1ab"
     },
     {
       "cell_type": "code",
@@ -1477,7 +1477,7 @@
         "plt.grid()\n",
         "plt.show()"
       ],
-      "id": "87d7ad7a",
+      "id": "142c12c0",
       "execution_count": null,
       "outputs": []
     },
@@ -1487,7 +1487,7 @@
       "source": [
         "## Forecast Distributions (Quantile scores)"
       ],
-      "id": "1ca37edc"
+      "id": "0a91173a"
     },
     {
       "cell_type": "code",
@@ -1522,7 +1522,7 @@
         "plt.axvspan(0.45, 0.85, color='green', alpha=0.08)\n",
         "plt.show()"
       ],
-      "id": "7e84ee9e",
+      "id": "fe3460f0",
       "execution_count": null,
       "outputs": []
     },
@@ -1532,7 +1532,7 @@
       "source": [
         "## Forecast distributions (Quantile scores for 45% to 85%)"
       ],
-      "id": "58f91616"
+      "id": "379b61b2"
     },
     {
       "cell_type": "code",
@@ -1567,7 +1567,7 @@
         "plt.grid()\n",
         "plt.show()"
       ],
-      "id": "f3d2a3ea",
+      "id": "a06c953e",
       "execution_count": null,
       "outputs": []
     },
@@ -1579,7 +1579,7 @@
         "\n",
         "## Forecast distributions by each horizon"
       ],
-      "id": "ff86e9ae"
+      "id": "bcdb71dc"
     },
     {
       "cell_type": "code",
@@ -1609,7 +1609,7 @@
         "plt.ylabel(\"Value\")\n",
         "plt.show()"
       ],
-      "id": "a2237ffd",
+      "id": "017635cb",
       "execution_count": null,
       "outputs": []
     },
@@ -1625,7 +1625,7 @@
         "\n",
         "::: {.column width=\"70%\"}"
       ],
-      "id": "f0b53472"
+      "id": "3b2f03de"
     },
     {
       "cell_type": "code",
@@ -1680,7 +1680,7 @@
         "plt.setp(ax1.get_xticklabels(), rotation=30, ha=\"right\")  # <--- Add this line\n",
         "plt.show()"
       ],
-      "id": "22cece65",
+      "id": "f8f1b28b",
       "execution_count": null,
       "outputs": []
     },
@@ -1693,7 +1693,7 @@
         "\n",
         "### Transition probabilities"
       ],
-      "id": "6878dfdd"
+      "id": "f3b5819d"
     },
     {
       "cell_type": "code",
@@ -1704,7 +1704,7 @@
         "tp.columns = [\"State 0\", \"State 1\"]\n",
         "tp"
       ],
-      "id": "8fae56a4",
+      "id": "3854f1fb",
       "execution_count": null,
       "outputs": []
     },
@@ -1717,7 +1717,7 @@
         "\n",
         "### Standard Deviations"
       ],
-      "id": "8a0a13e8"
+      "id": "fab96cb3"
     },
     {
       "cell_type": "code",
@@ -1729,7 +1729,7 @@
         "stds.columns = [\"State 0\", \"State 1\"]\n",
         "stds"
       ],
-      "id": "02ff94a3",
+      "id": "5541d50c",
       "execution_count": null,
       "outputs": []
     },
@@ -1781,7 +1781,7 @@
         "  Thank you\n",
         "</div> -->"
       ],
-      "id": "8fff0068"
+      "id": "9b86b700"
     }
   ],
   "metadata": {

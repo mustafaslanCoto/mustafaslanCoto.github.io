@@ -2,7 +2,8 @@
   "listingMap": {
     "talks/index.qmd": [
       "stats",
-      "so_rl"
+      "so_rl",
+      "talks"
     ],
     "workshops/index.qmd": [
       "so_rl",

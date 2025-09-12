@@ -351,5 +351,14 @@
   },
   "talks/wgsss/slides.qmd": {
     "slides.html": "a4fcbd4a"
+  },
+  "talks/presentations/wgsss.qmd": {
+    "wgsss.html": "12b10d29"
+  },
+  "learn/monte_carlo/mc_notebook.ipynb": {
+    "mc_notebook.html": "943c1096"
+  },
+  "talks/wgsss/occupancy_nb.ipynb": {
+    "occupancy_nb.html": "680543bf"
   }
 }
