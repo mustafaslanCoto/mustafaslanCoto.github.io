@@ -15,5 +15,6 @@ lightgbm
 catboost
 cubist
 sktime
+openpyxl
 
 git+https://github.com/mustafaslanCoto/peshbeen.git
