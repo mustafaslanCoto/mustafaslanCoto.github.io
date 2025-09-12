@@ -13,5 +13,9 @@
       "/workshops/trainings/rl_index.html",
       "/workshops/trainings/py_index.html"
     ]
+  },
+  {
+    "listing": "/talks/index.html",
+    "items": []
   }
 ]
