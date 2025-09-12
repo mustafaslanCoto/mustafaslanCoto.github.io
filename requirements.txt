@@ -13,4 +13,4 @@ tqdm
 xgboost
 lightgbm
 catboost
-git+https://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@github.com/mustafaslanCoto/peshbeen.git
+git+https://github.com/mustafaslanCoto/peshbeen.git
