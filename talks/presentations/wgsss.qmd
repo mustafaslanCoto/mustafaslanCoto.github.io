@@ -1,0 +1,22 @@
+---
+title: "Forecasting hospital bed occupancy: An Autoregressive Markov Switching Approach"
+description: "Talk"
+author: "Mustafa Aslan"
+date: "2025-09-12"
+# image: "../images/vs_py.webp"
+categories:
+  - Conference
+  - Talk
+link-external-newwindow: true
+---
+
+
+<!-- ![](../images/vs_py.webp){fig-align="center"} -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+[<i class="fas fa-bookmark"></i> Slides](../wgsss/slides.qmd){.btn .btn-sm .btn-outline-primary}
+
+**Date:** Sep 12 2025 11:00 AM – 13:00 PM\
+**Event:** Welsh Graduate School of Social Sciences Annual Conference\
+**Location:** Aberconway Building Meeting Room, Swansea University, UK
