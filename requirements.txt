@@ -13,3 +13,5 @@ tqdm
 xgboost
 lightgbm
 catboost
+cubist
+git+https://github.com/mustafaslanCoto/peshbeen.git
