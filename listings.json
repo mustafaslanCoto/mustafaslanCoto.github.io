@@ -1,11 +1,7 @@
 [
   {
-    "listing": "/learn/index.html",
-    "items": [
-      "/learn/prob_stats/mc_integration.html",
-      "/learn/prob_stats/cond_index.html",
-      "/learn/prob_stats/dists_index.html"
-    ]
+    "listing": "/talks/index.html",
+    "items": []
   },
   {
     "listing": "/workshops/index.html",
@@ -15,7 +11,11 @@
     ]
   },
   {
-    "listing": "/talks/index.html",
-    "items": []
+    "listing": "/learn/index.html",
+    "items": [
+      "/learn/prob_stats/mc_integration.html",
+      "/learn/prob_stats/cond_index.html",
+      "/learn/prob_stats/dists_index.html"
+    ]
   }
 ]
