@@ -14,7 +14,7 @@ website:
       - text: WORKSHOPS
         href: workshops/index.qmd
 
-      - href: talks/talks.qmd
+      - href: talks/index.qmd
         text: TALKS
 
       - href: CV/CV.qmd
