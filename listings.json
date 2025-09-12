@@ -1,7 +1,9 @@
 [
   {
     "listing": "/talks/index.html",
-    "items": []
+    "items": [
+      "/talks/presentations/wgsss.html"
+    ]
   },
   {
     "listing": "/workshops/index.html",

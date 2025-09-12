@@ -72,20 +72,20 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-presentations .list');
+    const listingTargetEl = window.document.querySelector('#listing-talks .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
     }
 
     const options = {
-      valueNames: [{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: [],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-presentations'] = new List('listing-presentations', options);
+    window['quarto-listings']['listing-talks'] = new List('listing-talks', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -194,9 +194,33 @@ window.Quarto = {
 
 
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-presentations">
+<div class="quarto-listing quarto-listing-container-default" id="listing-talks">
 <div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="Q29uZmVyZW5jZSUyQ1RhbGs=" data-listing-date-sort="1757635200000" data-listing-file-modified-sort="1757685570795" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="32">
+<div class="thumbnail"><a href="../talks/presentations/wgsss.html" class="no-external">
 
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../talks/presentations/wgsss.html" class="no-external">Forecasting hospital bed occupancy: An Autoregressive Markov Switching Approach</a>
+</h3>
+<div class="delink listing-description"><a href="../talks/presentations/wgsss.html" class="no-external">
+<p>Talk</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="../talks/presentations/wgsss.html" class="no-external">
+<div class="listing-date">
+Sep 12, 2025
+</div>
+<div class="listing-author">
+Mustafa Aslan
+</div>
+</a>
+</div>
+</div>
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
 </div></main> <!-- /main -->
