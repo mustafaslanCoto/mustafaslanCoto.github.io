@@ -16,5 +16,7 @@ catboost
 cubist
 sktime
 openpyxl
+ruptures
+pickle
 
 git+https://github.com/mustafaslanCoto/peshbeen.git
