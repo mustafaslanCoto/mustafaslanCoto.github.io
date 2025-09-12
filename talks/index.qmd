@@ -1,6 +1,6 @@
 ---
 listing: 
-  - id: conferences
+  - id: presentations
     contents: talks
     type: default
     sort: date desc
