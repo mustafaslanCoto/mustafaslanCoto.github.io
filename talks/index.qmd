@@ -1,7 +1,7 @@
 ---
 listing: 
-  - id: presentations
-    contents: talks
+  - id: talks
+    contents: presentations
     type: default
     sort: date desc
 ---
