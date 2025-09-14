@@ -3,7 +3,8 @@
     "talks/index.qmd": [
       "stats",
       "so_rl",
-      "talks"
+      "talks",
+      "presentations"
     ],
     "workshops/index.qmd": [
       "so_rl",

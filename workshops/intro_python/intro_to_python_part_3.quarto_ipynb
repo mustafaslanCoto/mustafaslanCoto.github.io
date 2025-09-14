@@ -228,7 +228,7 @@
         "\n",
         "Example -1:"
       ],
-      "id": "368320d1"
+      "id": "8245feb4"
     },
     {
       "cell_type": "code",
@@ -238,7 +238,7 @@
         "print(help(len))\n",
         "# output:"
       ],
-      "id": "92ba2efb",
+      "id": "c38ec199",
       "execution_count": null,
       "outputs": []
     },
@@ -251,7 +251,7 @@
         "::: {.column width=\"33%\" .fragment style=\"font-size: 60%;\"}\n",
         "Example -2:"
       ],
-      "id": "5e2c9d47"
+      "id": "031b0337"
     },
     {
       "cell_type": "code",
@@ -261,7 +261,7 @@
         "print(dir(list))\n",
         "# output:"
       ],
-      "id": "51e7ed3f",
+      "id": "e18aa34d",
       "execution_count": null,
       "outputs": []
     },
@@ -274,7 +274,7 @@
         "::: {.column width=\"33%\" .fragment style=\"font-size: 60%;\"}\n",
         "Example -3:"
       ],
-      "id": "345367a4"
+      "id": "a1631847"
     },
     {
       "cell_type": "code",
@@ -290,7 +290,7 @@
         "print(type(z))\n",
         "# output:"
       ],
-      "id": "8321cb05",
+      "id": "7290745d",
       "execution_count": null,
       "outputs": []
     },
@@ -376,7 +376,7 @@
         "\n",
         "::: {.column width=\"50%\"}"
       ],
-      "id": "91440bac"
+      "id": "f398a97e"
     },
     {
       "cell_type": "code",
@@ -408,7 +408,7 @@
         "# Show the plot\n",
         "plt.show()"
       ],
-      "id": "e1884688",
+      "id": "1705ddc0",
       "execution_count": null,
       "outputs": []
     },
@@ -424,7 +424,7 @@
         "\n",
         "An example of creating a line graph using plotly package"
       ],
-      "id": "5906e921"
+      "id": "eee0277d"
     },
     {
       "cell_type": "code",
@@ -439,7 +439,7 @@
         "fig = px.line(df, x=\"year\", y=\"lifeExp\", title='Life expectancy in Canada')\n",
         "fig.show()"
       ],
-      "id": "90fa0e26",
+      "id": "24071128",
       "execution_count": null,
       "outputs": []
     },
@@ -471,7 +471,7 @@
         "\n",
         "# THANK YOU !!!"
       ],
-      "id": "eed91c69"
+      "id": "f17c7328"
     }
   ],
   "metadata": {
