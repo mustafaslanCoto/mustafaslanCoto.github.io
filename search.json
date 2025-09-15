@@ -1012,7 +1012,7 @@
     "href": "talks/wgsss/slides.html#current-systemic-issues-in-patient-flow",
     "title": "MUSTAFA ASLAN",
     "section": "Current Systemic Issues in Patient Flow",
-    "text": "Current Systemic Issues in Patient Flow\n\n\n\nInefficient bed management leads to delays in admissions, transfers, and discharges, resulting in longer wait times and reduced patient satisfaction. \n\n\n\nUnpredictable occupancy levels can result in redundant staffing and resource allocation, driving up costs, or in understaffing, which compromises patient care.\n\n\n\nSpikes in occupancy level drive overtime, sickness, and staff burnout.\n\n\n\nLack of analytical solutions that can capture the complexity and uncertainty of patient flow and bed availability limits proactive decision-making."
+    "text": "Current Systemic Issues in Patient Flow\n\n\n\n\n\nUnpredictable occupancy levels can result in redundant staffing and resource allocation, driving up costs, or in understaffing, which compromises patient care.\n\n\n\nSpikes in occupancy level drive overtime, sickness, and staff burnout.\n\n\n\nLack of analytical solutions that can capture the complexity and uncertainty of patient flow and bed availability limits proactive decision-making."
   },
   {
     "objectID": "talks/wgsss/slides.html#why-is-it-important",
@@ -1138,7 +1138,49 @@
     "href": "talks/wgsss/slides.html#probabilistic-forecasting-using-conformal-prediction",
     "title": "MUSTAFA ASLAN",
     "section": "Probabilistic Forecasting using Conformal Prediction",
-    "text": "Probabilistic Forecasting using Conformal Prediction\nConformal Prediction for Time Series\n\nA distribution-free method for constructing prediction intervals\nA way to quantify the uncertainty of point forecasts by generating prediction intervals\n\n\nSteps to Generate Prediction Intervals\n\n\n\n\n\nPoint Forecasting:\n\n\n\nGenerate point forecasts \\(\\hat{y}_{t+h}\\) for the desired forecast horizon \\(h\\) using rolling-origin cross-validation on a calibration set of 500 observations per horizon.\n\n\n\n\nResidual Calculation\n\n\n\\[\nr_{t+h} = y_{t+h} - \\hat{y}_{t+h}\n\\]\nwhere \\(y_{t+h}\\) are the actual observed values and \\(\\hat{y}_{t+h}\\) are the point forecasts for \\(t+h\\).\n\n\n\nNonconformity Scores\n\n\n\\[\nA_{t+h} = |r_{t+h}|\n\\]\n\n\n\n\nQuantile Calculation\n\n\n\\[\nq_{1-\\alpha}^{(h)} = \\text{Quantile}_{1-\\alpha}(\\{A_{t-n+h}\\}_{t=t-n}^{n})\n\\]\nwhere \\(n\\) is the size of the calibration set and \\(1 - \\alpha\\) is the desired coverage level\n\n\n\nPrediction Intervals\n\n\n\\[\n\\left[\\hat{y}_{t+h} - q_{1-\\alpha}^{(h)}, \\hat{y}_{t+h} + q_{1-\\alpha}^{(h)}\\right]\n\\]\n\n\n\nDistribution Approximation\n\n\n\\[\ny_{t+h}^{(i)} = \\hat{y}_{t+h} + r_, \\quad r_i \\in \\{r_1, r_2, \\ldots, r_n\\}\n\\]"
+    "text": "Probabilistic Forecasting using Conformal Prediction\nConformal Prediction for Time Series\n\nA distribution-free method for constructing prediction intervals\nA way to quantify the uncertainty of point forecasts by generating prediction intervals\n\n\nSteps to Generate Prediction Intervals"
+  },
+  {
+    "objectID": "talks/wgsss/slides.html#point-forecasting",
+    "href": "talks/wgsss/slides.html#point-forecasting",
+    "title": "MUSTAFA ASLAN",
+    "section": "1. Point Forecasting:",
+    "text": "1. Point Forecasting:\n\nGenerate point forecasts \\(\\hat{y}_{t+h}\\) for the desired forecast horizon \\(h\\) using rolling-origin cross-validation on a calibration set of 500 observations per horizon."
+  },
+  {
+    "objectID": "talks/wgsss/slides.html#residual-calculation",
+    "href": "talks/wgsss/slides.html#residual-calculation",
+    "title": "MUSTAFA ASLAN",
+    "section": "2. Residual Calculation",
+    "text": "2. Residual Calculation\n\\[\nr_{t+h} = y_{t+h} - \\hat{y}_{t+h}\n\\]\nwhere \\(y_{t+h}\\) are the actual observed values and \\(\\hat{y}_{t+h}\\) are the point forecasts for \\(t+h\\)."
+  },
+  {
+    "objectID": "talks/wgsss/slides.html#nonconformity-scores",
+    "href": "talks/wgsss/slides.html#nonconformity-scores",
+    "title": "MUSTAFA ASLAN",
+    "section": "3. Nonconformity Scores",
+    "text": "3. Nonconformity Scores\n\\[\nA_{t+h} = |r_{t+h}|\n\\]"
+  },
+  {
+    "objectID": "talks/wgsss/slides.html#quantile-calculation",
+    "href": "talks/wgsss/slides.html#quantile-calculation",
+    "title": "MUSTAFA ASLAN",
+    "section": "4. Quantile Calculation",
+    "text": "4. Quantile Calculation\n\\[\nq_{1-\\alpha}^{(h)} = \\text{Quantile}_{1-\\alpha}(\\{A_{t-n+h}\\}_{t=t-n}^{n})\n\\]\nwhere \\(n\\) is the size of the calibration set and \\(1 - \\alpha\\) is the desired coverage level"
+  },
+  {
+    "objectID": "talks/wgsss/slides.html#prediction-intervals",
+    "href": "talks/wgsss/slides.html#prediction-intervals",
+    "title": "MUSTAFA ASLAN",
+    "section": "5. Prediction Intervals",
+    "text": "5. Prediction Intervals\n\\[\n\\left[\\hat{y}_{t+h} - q_{1-\\alpha}^{(h)}, \\hat{y}_{t+h} + q_{1-\\alpha}^{(h)}\\right]\n\\]"
+  },
+  {
+    "objectID": "talks/wgsss/slides.html#distribution-approximation",
+    "href": "talks/wgsss/slides.html#distribution-approximation",
+    "title": "MUSTAFA ASLAN",
+    "section": "6. Distribution Approximation",
+    "text": "6. Distribution Approximation\n\\[\ny_{t+h}^{(i)} = \\hat{y}_{t+h} + r_{t+h}^{(i)}, \\quad r_{t+h}^{(i)} \\in \\{r_{t+h}^{(1)}, r_{t+h}^{(2)}, \\ldots, r_{t+h}^{(n)}\\}\n\\]"
   },
   {
     "objectID": "talks/wgsss/slides.html#forecasting-metrics",
