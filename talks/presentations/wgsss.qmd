@@ -5,8 +5,12 @@ author: "Mustafa Aslan"
 date: "2025-09-16"
 image: "../images/title_page.png"
 categories:
-  - Conference
-  - Talk
+  - Healthcare Management
+  - Hospital Bed Occupancy
+  - Python
+  - Time Series Forecasting
+  - Machine Learning
+  - Regime Switching Hidden Markov Model
 link-external-newwindow: true
 ---
 
