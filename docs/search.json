@@ -5457,14 +5457,14 @@
     "href": "talks/wgsss/slides.html#outline",
     "title": "MUSTAFA ASLAN",
     "section": "Outline",
-    "text": "Outline\n\nThe Problem\nWhy is this important?\nQuestions to address\nData\nModeling framework\nExperimental design\nKey findings\nNext Steps"
+    "text": "Outline\n\nThe problem\nData and preliminary analysis\nExperiment design and Modelling framework\nResults\nKey findings\nNext steps"
   },
   {
     "objectID": "talks/wgsss/slides.html#current-systemic-issues-in-patient-flow",
     "href": "talks/wgsss/slides.html#current-systemic-issues-in-patient-flow",
     "title": "MUSTAFA ASLAN",
     "section": "Current Systemic Issues in Patient Flow",
-    "text": "Current Systemic Issues in Patient Flow\n\n\n\n\n\nUnexpected surges lead to overcrowding, delayed admissions, and compromised patient care quality\nInefficient bed management results in prolonged patient stays and increased healthcare costs\nHigh variability in patient flow complicates resource allocation\nUnexpected occupancy spikes lead to staff burnout and reduced morale\nPatients waiting 12+ hours for mental health beds due to poor coordination"
+    "text": "Current Systemic Issues in Patient Flow\n\n\n\n\n\nUnpredictable occupancy levels can result in redundant staffing and resource allocation, driving up costs, or in understaffing, which compromises patient care.\n\n\n\nSpikes in occupancy level drive overtime, sickness, and staff burnout.\n\n\n\nLack of analytical solutions that can capture the complexity and uncertainty of patient flow and bed availability limits proactive decision-making."
   },
   {
     "objectID": "talks/wgsss/slides.html#the-critical-impact-of-hospital-bed-management",
@@ -5660,7 +5660,7 @@
     "href": "talks/wgsss/slides.html#model-explainability",
     "title": "MUSTAFA ASLAN",
     "section": "Model Explainability",
-    "text": "Model Explainability\n\n\n\n\n\n\n\n\n\n\n\n\nTransition probabilities\n\n\n\n\n\n\n\n\n\nState 0\nState 1\n\n\n\n\nState 0\n0.666\n0.334\n\n\nState 1\n0.487\n0.513\n\n\n\n\n\n\n\n \nStandard Deviations\n\n\n\n\n\n\n\n\n\nState 0\nState 1\n\n\n\n\nstandard deviations\n1.39\n0.01"
+    "text": "Model Explainability\n\n\n\n\n\n\n\n\n\n\n\n\nTransition probabilities\n\n\n\n\n\nT. Matrix\nState 0\nState 1\n\n\n\n\nState 0\n0.666\n0.334\n\n\nState 1\n0.487\n0.513\n\n\n\n\n\n \nStandard Deviations\n\n\n\n\n\nStd. Dev.\nState 0\nState 1\n\n\n\n\nsd\n1.393\n0.006"
   },
   {
     "objectID": "talks/wgsss/slides.html#learning-outcomes-from-the-current-experiments",
@@ -5871,5 +5871,75 @@
     "title": "Add date features to data",
     "section": "Decomposition",
     "text": "Decomposition\n\noccup_train_clean\n\n\ndecomposition = MSTL(occup_train_clean[\"ward_1\"], periods=[7, 365]).fit()  # 7=day, 365=year\nfig, ax = plt.subplots(5, 1, figsize=(30, 20))\ndecomposition.resid['2024':].plot(title='Residuals of MSTL Decomposition for ward_0', ax=ax[0])\ndecomposition.trend['2024':].plot(title='Trend of MSTL Decomposition for ward_0', ax=ax[1])\ndecomposition.seasonal['2024':].iloc[:, 0].plot(title='Seasonal 1 of MSTL Decomposition for ward_0', ax=ax[2])\ndecomposition.seasonal['2024':].iloc[:, 1].plot(title='Seasonal 2 of MSTL Decomposition for ward_0', ax=ax[3])\ndecomposition.observed['2024':].plot(title='Observed of MSTL Decomposition for ward_0', ax=ax[4])\n# increase distance between subplots\nplt.subplots_adjust(hspace=1)\nplt.show()"
+  },
+  {
+    "objectID": "talks/wgsss/slides.html#why-is-it-important",
+    "href": "talks/wgsss/slides.html#why-is-it-important",
+    "title": "MUSTAFA ASLAN",
+    "section": "Why is it important?",
+    "text": "Why is it important?\n\n\nWhy is an efficient bed management system crucial?\n\nHospital beds are one of most costly healthcare resources.\n\nNHS rates for acute mental health beds are generally between £760 and £850 per day in 2025\n\nBed shortages force some patients to wait in corridors, impacting care quality and safety.\nBed shortages increase staff pressure, burnout, and operational costs.\n\n\n\nWhy a reliable forecasting approach is needed?\n\nMental health demand is volatile and influenced by unpredictable crisis, by seasonality, epidemics, and unforeseen events.\nA reliable forecasting approach enables timely staffing, resource allocation, and improved patient care.\nAnticipating demand allows decision-makers to balance scarce resources while improving patient flow and safety.\nRobust forecasts enhance resilience to unexpected surges and reduce staff burnout."
+  },
+  {
+    "objectID": "talks/wgsss/slides.html#what-do-we-forecast",
+    "href": "talks/wgsss/slides.html#what-do-we-forecast",
+    "title": "MUSTAFA ASLAN",
+    "section": "What do we forecast?",
+    "text": "What do we forecast?\n\nDaily hospital bed occupancy for 7 wards in a UK hospital.\nForecast horizon: 30 days ahead, supporting medium-term planning for bed allocation and staffing, generated at the end of each month for the following month.\nFocus on probabilistic forecasting to capture uncertainty, offering prediction intervals rather than single-point estimates using a reliable model."
+  },
+  {
+    "objectID": "talks/wgsss/slides.html#regime-switching-autoregressive-hidden-markov-model-rs-arhmm",
+    "href": "talks/wgsss/slides.html#regime-switching-autoregressive-hidden-markov-model-rs-arhmm",
+    "title": "MUSTAFA ASLAN",
+    "section": "Regime-Switching AutoRegressive Hidden Markov Model (RS-ARHMM)",
+    "text": "Regime-Switching AutoRegressive Hidden Markov Model (RS-ARHMM)\nLet \\(y_t\\) be the observed value at time \\(t\\), modeled as a function of its \\(p\\) lagged values, the regime-specific parameters associated with the hidden state \\(s_t\\), and exogenous variables \\(\\mathbf{X}_t = (X_{t1}, \\ldots, X_{tM})\\).\nThe RS-ARHMM can be expressed as follows:\n\\[\ny_t^{(s)} = \\beta_{0}^{(s)} + \\sum_{i=1}^{p} \\beta_{i}^{(s)} \\, y_{t-i} + \\sum_{j=1}^{M} \\beta_{p+j}^{(s)} \\, X_{tj} + \\epsilon_t^{(s)},\n\\]\nwhere:\n\n\\(\\beta_{i}^{(s)}\\) are the coefficients for the lagged values for regime \\(s\\),\n\\(\\beta_{p+j}^{(s)}\\) are the coefficients for the exogenous variables for regime \\(s\\),\n\\(M\\) is the number of exogenous variables,\n\\(\\epsilon_t^{(s)}\\) is the error term for regime \\(s\\).\n\nThe Markov property: \\[\nP(s_t = k \\mid s_{1:t-1}) = P(s_t = k \\mid s_{t-1}), \\quad \\forall t \\geq 2.\n\\]\nA HMM has the following components:\n\n\\(S\\): The set of regimes, \\(\\mathbb{S} = \\{S_1, S_2, \\ldots, S_K\\}\\).\n\\(P\\): The transition probability matrix\n\\(p_{ij} = P(s_t = S_j \\mid s_{t-1} = S_i)\\) is the probability of transitioning from regime \\(S_i\\) to regime \\(S_j\\), s.t. \\(\\sum_{j=1}^{K} p_{ij} = 1\\).\n\nTransition matrix \\(P\\) is defined as:\n\\[\nP = \\begin{pmatrix}\np_{11} & \\cdots & p_{1K} \\\\\n\\vdots & \\ddots & \\vdots \\\\\np_{K1} & \\cdots & p_{KK}\n\\end{pmatrix}\n\\]"
+  },
+  {
+    "objectID": "talks/wgsss/slides.html#modeling-framework",
+    "href": "talks/wgsss/slides.html#modeling-framework",
+    "title": "MUSTAFA ASLAN",
+    "section": "Modeling Framework",
+    "text": "Modeling Framework\nForecasting with RS-ARHMM\nTo forecast \\(h\\) steps ahead, we employ a systematic three-stage approach that combines state prediction with regime-specific observation modeling.\n\nState Prediction: We predict the most probable state sequence for the next \\(h\\) time steps using the transition matrix \\(\\mathbf{P}\\). The probability of being in state \\(S_j\\) at time \\(T+h\\) is computed recursively as:\n\n\\[\nP(s_{T+h} = S_j) = \\sum_{i=1}^{K} P(s_{T+h-1} = S_i) \\, p_{ij}\n\\]\nThe initial state distribution \\(P(s_{T+1} = S_j)\\) for the first step is estimated from the last estimated state probabilities obtained from the forward algorithm at time \\(T\\).\n\nRegime-specific forecasts: For each predicted regime, we utilize the corresponding regression model to forecast the observation at that time step, incorporating both lagged values and exogenous variables. The predicted observation \\(\\hat{y}_{T+h}\\) for state \\(s_{T+h}\\) is computed as:\n\n\\[\n\\hat{y}_{T+h}^{s_{T+h}} = \\beta_{0}^{(s_{T+h})} + \\sum_{i=1}^{p} \\beta_{i}^{(s_{T+h})} \\, y_{T+h-i} + \\sum_{j=1}^{M} \\beta_{p+j}^{(s_{T+h})} \\, X_{T+h,j}\n\\]\nFor multi-step forecasting, we use the predicted observations as inputs for subsequent predictions. \\(y_{T+h-i}\\) are the actual observed values for \\(i \\leq h\\) and the previously predicted values for \\(i &gt; h\\).\n\nFinal Forecast Computation: The final forecast for each time step is a weighted average of the forecasts from each regime, weighted by the predicted regime probabilities:\n\n\\[\n\\hat{y}_{T+h} = \\sum_{j=1}^{K} P(s_{T+h} = S_j) \\, \\hat{y}_{T+h}^{(S_j)}\n\\]"
+  },
+  {
+    "objectID": "talks/wgsss/slides.html#rs-arhmm-parameter-estimation",
+    "href": "talks/wgsss/slides.html#rs-arhmm-parameter-estimation",
+    "title": "MUSTAFA ASLAN",
+    "section": "RS-ARHMM Parameter Estimation",
+    "text": "RS-ARHMM Parameter Estimation\n\n\n\n\n\nEM (Expectation-Maximization) Algorithm\n\n\n\nIteratively estimates parameters \\(\\Theta = \\{\\beta^{(s)}, \\sigma^{2(s)}, P, \\pi\\}\\) to maximize likelihood.\nAlternates between two steps:\n\nE-Step: Estimate regime probabilities given current \\(\\Theta\\).\nM-Step: Update \\(\\Theta\\) using these probabilities.\n\n\n\n\n\n\n\n\n\n1. E-Step\n\n\n\nState probability:\n\\[\n\\gamma_t(i) = P(s_t = S_i \\mid y_{1:T}, \\Theta^{(k)})\n\\]\nTransition probability:\n\\[\n\\xi_t(i,j) = P(s_t = S_i, s_{t+1} = S_j \\mid y_{1:T}, \\Theta^{(k)})\n\\]\nComputed via Forward-Backward algorithm:\n\nForward:\n\n\\(\\alpha_t(i) = P(y_{1:t}, s_t = S_i \\mid \\Theta) = \\sum_{j=1}^{K} \\alpha_{t-1}(j) p_{ji} o_i(y_t)\\)\n\nBackward:\n\n\\(b_t(i) = P(y_{t+1:T} \\mid s_t = S_i, \\Theta) = \\sum_{j=1}^{K} p_{ij} o_j(y_{t+1}) b_{t+1}(j)\\)\n\nEmission (observation) likelihood:\n\\[\no_i(y_t) = \\frac{1}{\\sqrt{2\\pi \\sigma_i^2}} \\exp\\left( -\\frac{(y_t - \\mu_{i,t})^2}{2\\sigma_i^2} \\right)\n\\]\nwhere \\(\\mu_{i,t}\\) is AR + exogenous mean for state \\(i\\).\n\n\n\n\n\n\n\n2. M-Step\n\n\nUpdate parameters using weighted averages with \\(\\gamma_t(i)\\):\n\nTransition matrix:\n\\[\np_{ij}^{(k+1)} = \\frac{\\sum_{t=1}^{T-1} \\xi_t(i,j)}{\\sum_{t=1}^{T-1} \\gamma_t(i)}\n\\]\nInitial state:\n\\[\n\\pi_i^{(k+1)} = \\gamma_1(i)\n\\]\nRegression (AR/exog) coefficients:\n\\[\n\\beta^{(i,k+1)} = (\\mathbf{X}^T \\mathbf{W}_i \\mathbf{X})^{-1} \\mathbf{X}^T \\mathbf{W}_i \\mathbf{y}\n\\]\n\nWhere \\(\\mathbf{W}_i = \\text{diag}(\\gamma_1(i),\\dots,\\gamma_T(i))\\)\n\nVariance:\n\\[\n\\sigma_i^{2(k+1)} = \\frac{\\sum_{t=1}^T \\gamma_t(i)(y_t-\\mu_{i,t})^2}{\\sum_{t=1}^T \\gamma_t(i)}\n\\]\n\n\n\n\n\n\n\n\nRepeat E-M Steps until convergence:\n\n\n\\[|\\ell(\\Theta^{(k+1)}) - \\ell(\\Theta^{(k)})| &lt; \\epsilon\\]"
+  },
+  {
+    "objectID": "talks/wgsss/slides.html#why-rs-arhmm",
+    "href": "talks/wgsss/slides.html#why-rs-arhmm",
+    "title": "MUSTAFA ASLAN",
+    "section": "Why RS-ARHMM?",
+    "text": "Why RS-ARHMM?\n\nCaptures regime changes in highly volatile time series data (e.g., healthcare), integrating them into the forecasting process, making it more accurate and reliable predictions.\nTraditional statistical and modern machine learning models fail to account for such regime shifts.\nModels complex dependencies and non-linear relationships with reduced risk of overfitting and less reliance on extensive hyperparameter tuning.\nProduces interpretable results through regime-specific parameters.\nProvides reliable forecasts that incorporate uncertainty arising from regime changes."
+  },
+  {
+    "objectID": "talks/wgsss/slides.html#feature-engineering",
+    "href": "talks/wgsss/slides.html#feature-engineering",
+    "title": "MUSTAFA ASLAN",
+    "section": "Feature engineering",
+    "text": "Feature engineering\n\nTime-based features: Extracted day and month from timestamps to capture temporal patterns.\nPublic holidays: Created binary indicators for public holidays to account for their impact on hospital occupancy.\nLagged features: Created lagged versions of key variables to incorporate past information into the models.\nFourier terms: Added Fourier series terms for linear models to capture seasonality in the data.\nRolling window features: Computed rolling means and standard deviations to see if improving the model’s performance."
+  },
+  {
+    "objectID": "talks/wgsss/slides.html#training-and-validation-setup",
+    "href": "talks/wgsss/slides.html#training-and-validation-setup",
+    "title": "MUSTAFA ASLAN",
+    "section": "Training and validation setup",
+    "text": "Training and validation setup\n\nThe last 360 days of data are reserved as the test set to evaluate model performance\nThe remaining data is used for:\n\ntraining and validation\nhyperparameter tuning through rolling-origin cross-validation with a fixed window size of 30 days and step size of 13 days to capture yearly seasonality.\nGenerate probabilistic forecasts using conformal prediction using optimized models on the training data.\n\nThe train-test split ensures that the models are evaluated on unseen data, providing a realistic assessment of their forecasting capabilities."
+  },
+  {
+    "objectID": "talks/wgsss/slides.html#cross-validation-setup",
+    "href": "talks/wgsss/slides.html#cross-validation-setup",
+    "title": "MUSTAFA ASLAN",
+    "section": "Cross validation setup",
+    "text": "Cross validation setup\nRolling-origin cross-validation is used to evaluate model performance over time"
+  },
+  {
+    "objectID": "talks/wgsss/slides.html#next-steps-1",
+    "href": "talks/wgsss/slides.html#next-steps-1",
+    "title": "MUSTAFA ASLAN",
+    "section": "Next steps",
+    "text": "Next steps\n\nExtend the AR-HMM to a multivariate framework (VAR-HMM) to jointly model multiple wards, capturing interdependencies and shared patterns in bed occupancy across different wards.\nDevelop an optimization framework that utilizes the probabilistic forecasts from the AR-HMM and VAR-HMM models to optimize bed allocation and resource management.\nTest the models in real-world scenarios, collaborating with hospital staff to refine the models based on practical feedback and operational needs."
   }
 ]
