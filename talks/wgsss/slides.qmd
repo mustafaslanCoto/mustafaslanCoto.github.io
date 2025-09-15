@@ -562,8 +562,8 @@ df_diff.dropna(inplace=True)
 
 # plot original differenced series in two plots in one graph
 fig, axs = plt.subplots(2, 1, figsize=(18, 9))
-axs[0].plot(df_diff.index, df_diff['ward_0'], label='Original Differenced Series', color='C0', alpha=0.9)
-axs[0].set_title('Original Differenced Series for ward_0')
+axs[0].plot(df_diff.index, df_diff['ward_0'], label='Original Series', color='C0', alpha=0.9)
+axs[0].set_title('Original Series for ward_0')
 axs[0].legend(loc = 'lower right')
 axs[1].plot(df_diff.index, df_diff['ward_0_diff'], label='Differenced Series', color='C1', alpha=0.9)
 axs[1].set_title('Differenced Series for ward_0 occupancy')
@@ -600,10 +600,10 @@ plt.show()
 
 # plot original differenced series in two plots in one graph
 plt.figure(figsize=(22, 11))
-plt.plot(df_diff.index[-500:], df_diff['ward_0'][-500:], label='Original Differenced Series', color='C0', alpha=0.9)
+plt.plot(df_diff.index[-500:], df_diff['ward_0'][-500:], label='Original Series', color='C0', alpha=0.9)
 plt.plot(df_diff.index[-500:], df_diff['ward_0_fitted_ets_trend'][-500:], label='Fitted ETS Trend', color='C1', alpha=0.9)
 plt.plot(df_diff.index[-500:], df_diff['ward_0_detrended'][-500:], label='Detrended Series', color='C2', alpha=0.9)
-plt.title('Original Differenced Series vs Detrended Series for ward_0')
+plt.title('Original Series vs Detrended Series for ward_0')
 plt.legend(loc='upper right')
 plt.show()
 
