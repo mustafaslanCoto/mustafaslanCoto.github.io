@@ -166,7 +166,7 @@
         "- **Forecast horizon:** 30 days ahead, supporting medium-term planning for bed allocation and staffing, generated at the end of each month for the following month.\n",
         "- Focus on **probabilistic forecasting** to capture uncertainty, offering prediction intervals rather than single-point estimates using a reliable model."
       ],
-      "id": "c8dc1cba"
+      "id": "80b65af6"
     },
     {
       "cell_type": "code",
@@ -204,7 +204,7 @@
         "plt.tight_layout()\n",
         "plt.show()"
       ],
-      "id": "b1409dfd",
+      "id": "b2e9f50b",
       "execution_count": null,
       "outputs": []
     },
@@ -241,7 +241,7 @@
         "\n",
         "- Spike after COVID-19 pandemic"
       ],
-      "id": "e1698f91"
+      "id": "ad927a81"
     },
     {
       "cell_type": "code",
@@ -353,7 +353,7 @@
         "with open('model_params/best_hmm_ets_tks.pkl', 'rb') as f:\n",
         "    best_hmm_ets_tks = pickle.load(f)"
       ],
-      "id": "96b36891",
+      "id": "47b36cad",
       "execution_count": null,
       "outputs": []
     },
@@ -391,7 +391,7 @@
         "plt.tight_layout(pad=2.0)\n",
         "plt.show()"
       ],
-      "id": "3e33f1f2",
+      "id": "9db01bdf",
       "execution_count": null,
       "outputs": []
     },
@@ -406,7 +406,7 @@
         "\n",
         "### Day of the week seasonality\n"
       ],
-      "id": "dc80096c"
+      "id": "2d5ca65c"
     },
     {
       "cell_type": "code",
@@ -452,7 +452,7 @@
         "plt.tight_layout()\n",
         "plt.show()"
       ],
-      "id": "223e102c",
+      "id": "631e6925",
       "execution_count": null,
       "outputs": []
     },
@@ -466,7 +466,7 @@
         "\n",
         "### Monthly seasonality"
       ],
-      "id": "efade40c"
+      "id": "f9d22760"
     },
     {
       "cell_type": "code",
@@ -515,7 +515,7 @@
         "plt.tight_layout()\n",
         "plt.show()"
       ],
-      "id": "81a5bfe4",
+      "id": "79d48f6d",
       "execution_count": null,
       "outputs": []
     },
@@ -527,7 +527,7 @@
         "\n",
         "## Effect of holidays"
       ],
-      "id": "4e1d6a5f"
+      "id": "6ab60306"
     },
     {
       "cell_type": "code",
@@ -597,7 +597,7 @@
         "axes.set_ylabel(\"Occupancy\", fontsize=16)\n",
         "plt.show()"
       ],
-      "id": "376f1056",
+      "id": "a110bbe3",
       "execution_count": null,
       "outputs": []
     },
@@ -616,7 +616,7 @@
         "Original series: $y_t, y_{t-1}, y_{t-2}, y_{t-3}, \\ldots$ \\\n",
         "Differenced series: $y_t - y_{t-1}, y_{t-1} - y_{t-2}, y_{t-2} - y_{t-3}, \\ldots$"
       ],
-      "id": "0f68d73e"
+      "id": "1928ba97"
     },
     {
       "cell_type": "code",
@@ -720,7 +720,7 @@
         "plt.tight_layout()\n",
         "plt.show()"
       ],
-      "id": "bf6ec870",
+      "id": "1f066fe7",
       "execution_count": null,
       "outputs": []
     },
@@ -732,7 +732,7 @@
         "\n",
         "### Information from ACF and PACF plots after differencing"
       ],
-      "id": "7ab01bf6"
+      "id": "b713c980"
     },
     {
       "cell_type": "code",
@@ -750,7 +750,7 @@
         "plt.tight_layout(pad=2)\n",
         "plt.show()"
       ],
-      "id": "4147f2ef",
+      "id": "0fa8a5b1",
       "execution_count": null,
       "outputs": []
     },
@@ -762,7 +762,7 @@
         "\n",
         "### Alternative approach to make the series stationary and keep the dependence structure"
       ],
-      "id": "15521c3c"
+      "id": "47fc3de2"
     },
     {
       "cell_type": "code",
@@ -782,7 +782,7 @@
         "plt.legend(loc='upper right')\n",
         "plt.show()"
       ],
-      "id": "c4647ecb",
+      "id": "6a2acf9d",
       "execution_count": null,
       "outputs": []
     },
@@ -793,7 +793,7 @@
         "## An important assumption to model: Stationarity\n",
         "### Information from ACF and PACF plots after detrending"
       ],
-      "id": "9387ed65"
+      "id": "bcc89153"
     },
     {
       "cell_type": "code",
@@ -811,7 +811,7 @@
         "plt.tight_layout(pad=2)\n",
         "plt.show()"
       ],
-      "id": "d3c93b1e",
+      "id": "62b5fd04",
       "execution_count": null,
       "outputs": []
     },
@@ -1147,7 +1147,7 @@
         "\n",
         "Rolling-origin cross-validation is used to evaluate model performance over time"
       ],
-      "id": "853ff141"
+      "id": "2b710842"
     },
     {
       "cell_type": "code",
@@ -1279,7 +1279,7 @@
         "plt.title(\"Rolling Origin Time Series Cross-Validation\", fontsize=18)\n",
         "plt.show()"
       ],
-      "id": "b1ba4c65",
+      "id": "6564d933",
       "execution_count": null,
       "outputs": []
     },
@@ -1293,7 +1293,7 @@
         "\n",
         "::: {layout-ncol=2}"
       ],
-      "id": "c44c2327"
+      "id": "a56397df"
     },
     {
       "cell_type": "code",
@@ -1323,7 +1323,7 @@
         "                            numeric_highlights = {\"SRMSE\": {\"condition\": \"less\", \"threshold\": 0.275, \"style\": \"font-weight: bold; background-color: None;\"}},\n",
         ")"
       ],
-      "id": "7716d4fb",
+      "id": "2cea8cf6",
       "execution_count": null,
       "outputs": []
     },
@@ -1341,7 +1341,7 @@
         "                            numeric_highlights = {\"SRMSE\": {\"condition\": \"less\", \"threshold\": 0.34, \"style\": \"font-weight: bold; background-color: None;\"}},\n",
         ")"
       ],
-      "id": "dc4ff931",
+      "id": "6ad92f7e",
       "execution_count": null,
       "outputs": []
     },
@@ -1359,7 +1359,7 @@
         "                            numeric_highlights = {\"SRMSE\": {\"condition\": \"less\", \"threshold\": 0.275, \"style\": \"font-weight: bold; background-color: None;\"}},\n",
         ")"
       ],
-      "id": "63862f12",
+      "id": "f750b236",
       "execution_count": null,
       "outputs": []
     },
@@ -1377,7 +1377,7 @@
         "                            numeric_highlights = {\"SRMSE\": {\"condition\": \"less\", \"threshold\": 0.23, \"style\": \"font-weight: bold; background-color: None;\"}},\n",
         ")"
       ],
-      "id": "5cdb91fd",
+      "id": "5d40c9f6",
       "execution_count": null,
       "outputs": []
     },
@@ -1395,7 +1395,7 @@
         "                            numeric_highlights = {\"SRMSE\": {\"condition\": \"less\", \"threshold\": 0.3, \"style\": \"font-weight: bold; background-color: None;\"}},\n",
         ")"
       ],
-      "id": "a384fd88",
+      "id": "eaa74859",
       "execution_count": null,
       "outputs": []
     },
@@ -1413,7 +1413,7 @@
         "                            numeric_highlights = {\"SRMSE\": {\"condition\": \"less\", \"threshold\": 0.332, \"style\": \"font-weight: bold; background-color: None;\"}},\n",
         ")"
       ],
-      "id": "73ca9005",
+      "id": "65c263ac",
       "execution_count": null,
       "outputs": []
     },
@@ -1427,7 +1427,7 @@
         "\n",
         "## Forecast Distributions (Quantile scores)"
       ],
-      "id": "324bc5d0"
+      "id": "d0c8db57"
     },
     {
       "cell_type": "code",
@@ -1468,7 +1468,7 @@
         "plt.grid()\n",
         "plt.show()"
       ],
-      "id": "c719eca5",
+      "id": "494756a6",
       "execution_count": null,
       "outputs": []
     },
@@ -1478,7 +1478,7 @@
       "source": [
         "## Forecast Distributions (Quantile scores)"
       ],
-      "id": "bcbf9f6b"
+      "id": "e274f732"
     },
     {
       "cell_type": "code",
@@ -1514,7 +1514,7 @@
         "plt.axvspan(0.45, 0.85, color='green', alpha=0.08)\n",
         "plt.show()"
       ],
-      "id": "12984eb0",
+      "id": "a48360ce",
       "execution_count": null,
       "outputs": []
     },
@@ -1524,7 +1524,7 @@
       "source": [
         "## Forecast distributions (Quantile scores for 45% to 85%)"
       ],
-      "id": "fab1dac2"
+      "id": "6cc95961"
     },
     {
       "cell_type": "code",
@@ -1560,7 +1560,7 @@
         "plt.grid()\n",
         "plt.show()"
       ],
-      "id": "23f7dbcd",
+      "id": "7ae7df39",
       "execution_count": null,
       "outputs": []
     },
@@ -1576,7 +1576,7 @@
         "\n",
         "::: {.column width=\"70%\"}"
       ],
-      "id": "8df86e66"
+      "id": "4f3cff04"
     },
     {
       "cell_type": "code",
@@ -1620,8 +1620,8 @@
         "ax2.stackplot(my_series.index[-60:],\n",
         "              state_probs_train[0][-60:], \n",
         "              state_probs_train[1][-60:],\n",
-        "              labels=['State 0', 'State 1', 'State 2'], \n",
-        "              alpha=0.25, colors=['C2','C3', 'C4'])\n",
+        "              labels=['Regime 1', 'Regime 2'], \n",
+        "              alpha=0.25, colors=['C2','C3'])\n",
         "\n",
         "ax2.set_ylabel(\"State Probability\", fontsize=20)\n",
         "ax2.set_ylim(0, 1)\n",
@@ -1631,7 +1631,7 @@
         "plt.setp(ax1.get_xticklabels(), rotation=30, ha=\"right\")  # <--- Add this line\n",
         "plt.show()"
       ],
-      "id": "ff24dce2",
+      "id": "40b9575c",
       "execution_count": null,
       "outputs": []
     },
@@ -1644,7 +1644,7 @@
         "\n",
         "### Transition probabilities"
       ],
-      "id": "0bd961f4"
+      "id": "a0e380f6"
     },
     {
       "cell_type": "code",
@@ -1652,8 +1652,8 @@
       "source": [
         "from IPython.display import display, Markdown\n",
         "tp = pd.DataFrame(hm_model.A).round(3)\n",
-        "tp.index = [\"State 0\", \"State 1\"]\n",
-        "tp.columns = [\"State 0\", \"State 1\"]\n",
+        "tp.index = [\"Regime 1\", \"Regime 2\"]\n",
+        "tp.columns = [\"Regime 1\", \"Regime 2\"]\n",
         "tp.reset_index(inplace=True)\n",
         "tp.rename(columns={\"index\": \"T. Matrix\"}, inplace=True)\n",
         "\n",
@@ -1661,7 +1661,7 @@
         "\n",
         "display(Markdown(tp.to_markdown(index=False)))"
       ],
-      "id": "5e015d18",
+      "id": "3706abca",
       "execution_count": null,
       "outputs": []
     },
@@ -1674,7 +1674,7 @@
         "\n",
         "### Standard Deviations"
       ],
-      "id": "6bfbb4d5"
+      "id": "3532765f"
     },
     {
       "cell_type": "code",
@@ -1683,12 +1683,12 @@
         "stds = pd.DataFrame(hm_model.stds).round(3).T\n",
         "# change row name to standard deviation\n",
         "stds = stds.rename(index={0: \"sd\"})\n",
-        "stds.columns = [\"State 0\", \"State 1\"]\n",
+        "stds.columns = [\"Regime 1\", \"Regime 2\"]\n",
         "stds.reset_index(inplace=True)\n",
         "stds.rename(columns={\"index\": \"Std. Dev.\"}, inplace=True)\n",
         "display(Markdown(stds.to_markdown(index=False)))"
       ],
-      "id": "d04b504f",
+      "id": "a6138f65",
       "execution_count": null,
       "outputs": []
     },
@@ -1726,7 +1726,7 @@
         "\n",
         "![](images/follow_us.png){fig-align=\"center\"}"
       ],
-      "id": "a36cd6c3"
+      "id": "7c64292e"
     }
   ],
   "metadata": {

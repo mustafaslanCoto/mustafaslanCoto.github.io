@@ -1331,8 +1331,8 @@ ax2 = ax1.twinx()
 ax2.stackplot(my_series.index[-60:],
               state_probs_train[0][-60:], 
               state_probs_train[1][-60:],
-              labels=['State 0', 'State 1', 'State 2'], 
-              alpha=0.25, colors=['C2','C3', 'C4'])
+              labels=['Regime 1', 'Regime 2'], 
+              alpha=0.25, colors=['C2','C3'])
 
 ax2.set_ylabel("State Probability", fontsize=20)
 ax2.set_ylim(0, 1)
@@ -1352,8 +1352,8 @@ plt.show()
 ```{python}
 from IPython.display import display, Markdown
 tp = pd.DataFrame(hm_model.A).round(3)
-tp.index = ["State 0", "State 1"]
-tp.columns = ["State 0", "State 1"]
+tp.index = ["Regime 1", "Regime 2"]
+tp.columns = ["Regime 1", "Regime 2"]
 tp.reset_index(inplace=True)
 tp.rename(columns={"index": "T. Matrix"}, inplace=True)
 
@@ -1371,7 +1371,7 @@ display(Markdown(tp.to_markdown(index=False)))
 stds = pd.DataFrame(hm_model.stds).round(3).T
 # change row name to standard deviation
 stds = stds.rename(index={0: "sd"})
-stds.columns = ["State 0", "State 1"]
+stds.columns = ["Regime 1", "Regime 2"]
 stds.reset_index(inplace=True)
 stds.rename(columns={"index": "Std. Dev."}, inplace=True)
 display(Markdown(stds.to_markdown(index=False)))
