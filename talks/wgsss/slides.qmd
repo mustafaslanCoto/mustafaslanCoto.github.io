@@ -832,12 +832,17 @@ $$|\ell(\Theta^{(k+1)}) - \ell(\Theta^{(k)})| < \epsilon$$
 ::: {.fragment}
 1. **Point Forecasting**:
 
+----
+
 - Generate point forecasts $\hat{y}_{t+h}$ for the desired forecast horizon $h$ using rolling-origin cross-validation on a `calibration set` of 500 observations per horizon.
 
 :::
 
 ::: {.fragment}
 2. **Residual Calculation**
+
+----
+
 $$
 r_{t+h} = y_{t+h} - \hat{y}_{t+h}
 $$
@@ -848,6 +853,9 @@ where $y_{t+h}$ are the actual observed values and $\hat{y}_{t+h}$ are the point
 
 ::: {.fragment}
 3. **Nonconformity Scores**
+
+----
+
 $$
 A_{t+h} = |r_{t+h}|
 $$
@@ -860,6 +868,8 @@ $$
 ::: {.fragment}
 4. **Quantile Calculation**
 
+----
+
 $$
 q_{1-\alpha}^{(h)} = \text{Quantile}_{1-\alpha}(\{A_{t-n+h}\}_{t=t-n}^{n})
 $$
@@ -870,6 +880,9 @@ where $n$ is the size of the calibration set and $1 - \alpha$ is the desired cov
 
 ::: {.fragment}
 5. **Prediction Intervals**
+
+----
+
 $$
 \left[\hat{y}_{t+h} - q_{1-\alpha}^{(h)}, \hat{y}_{t+h} + q_{1-\alpha}^{(h)}\right]
 $$
@@ -878,6 +891,8 @@ $$
 
 ::: {.fragment}
 6. **Distribution Approximation**
+
+----
 
 $$
 y_{t+h}^{(i)} = \hat{y}_{t+h} + r_, \quad r_i \in \{r_1, r_2, \ldots, r_n\}
