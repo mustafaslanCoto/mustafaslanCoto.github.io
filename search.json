@@ -1012,7 +1012,7 @@
     "href": "talks/wgsss/slides.html#current-systemic-issues-in-patient-flow",
     "title": "MUSTAFA ASLAN",
     "section": "Current Systemic Issues in Patient Flow",
-    "text": "Current Systemic Issues in Patient Flow\n\n\n\n\n\nUnpredictable occupancy levels can result in redundant staffing and resource allocation, driving up costs, or in understaffing, which compromises patient care.\n\n\n\nSpikes in occupancy level drive overtime, sickness, and staff burnout.\n\n\n\nLack of analytical solutions that can capture the complexity and uncertainty of patient flow and bed availability limits proactive decision-making."
+    "text": "Current Systemic Issues in Patient Flow\n\n\n\nInefficient bed management leads to delays in admissions, transfers, and discharges, resulting in longer wait times and reduced patient satisfaction. \n\n\n\nUnpredictable occupancy levels can result in redundant staffing and resource allocation, driving up costs, or in understaffing, which compromises patient care.\n\n\n\nSpikes in occupancy level drive overtime, sickness, and staff burnout.\n\n\n\nLack of analytical solutions that can capture the complexity and uncertainty of patient flow and bed availability limits proactive decision-making."
   },
   {
     "objectID": "talks/wgsss/slides.html#why-is-it-important",
@@ -1138,7 +1138,7 @@
     "href": "talks/wgsss/slides.html#probabilistic-forecasting-using-conformal-prediction",
     "title": "MUSTAFA ASLAN",
     "section": "Probabilistic Forecasting using Conformal Prediction",
-    "text": "Probabilistic Forecasting using Conformal Prediction\nConformal Prediction for Time Series\n\nConformal prediction is a distribution-free, finite-sample valid method for constructing prediction intervals\nIt provides a way to quantify the uncertainty of point forecasts by generating prediction intervals that are guaranteed to contain the true future values with a specified probability.\n\n\nSteps to Generate Prediction Intervals\n\n\n\n\n\nPoint Forecasting:\n\n\nGenerate point forecasts \\(\\hat{y}_{t+h}\\) for the desired forecast horizon \\(h\\) using rolling-origin cross-validation on a calibration set of 500 observations per horizon, derived from the last 500 days of training data.\n\n\n\n\nResidual Calculation: Compute the residuals from the calibration data set: \\[\nr_{t+h} = y_{t+h} - \\hat{y}_{t+h}\n\\]\n\nwhere \\(y_{t+h}\\) are the actual observed values and \\(\\hat{y}_{t+h}\\) are the point forecasts for \\(t+h\\).\n\n\n\nNonconformity Scores: Calculate the nonconformity scores associated with the residuals of each forecast horizon. Nonconformity scores are calculated as the absolute values of the residuals: \\[\nA_{t+h} = |r_{t+h}|\n\\]\n\n\n\n\n\nQuantile Calculation: For a desired confidence level \\(1 - \\alpha\\), compute the \\((1 - \\alpha)\\)-quantile of the nonconformity scores:\n\n\\[\nq_{1-\\alpha}^{(h)} = \\text{Quantile}_{1-\\alpha}(\\{A_{t-n+h}\\}_{t=t-n}^{n})\n\\]\nwhere \\(n\\) is the size of the calibration set.\n\n\n\nPrediction Intervals: Construct the prediction intervals for the forecast horizon \\(h\\) as: \\[\n\\left[\\hat{y}_{t+h} - q_{1-\\alpha}^{(h)}, \\hat{y}_{t+h} + q_{1-\\alpha}^{(h)}\\right]\n\\]\n\n\n\n\nDistribution Approximation: For each forecast horizon, generate a distribution of possible future values by adding residuals calculated from calibration set to the point forecasts.\n\n\\[\ny_{t+h}^{(i)} = \\hat{y}_{t+h} + r_, \\quad r_i \\in \\{r_1, r_2, \\ldots, r_n\\}\n\\]\nwhere \\(n\\) is the number of residuals in the calibration set and \\(i = 1, 2, \\ldots, n\\)."
+    "text": "Probabilistic Forecasting using Conformal Prediction\nConformal Prediction for Time Series\n\nA distribution-free method for constructing prediction intervals\nA way to quantify the uncertainty of point forecasts by generating prediction intervals\n\n\nSteps to Generate Prediction Intervals\n\n\n\n\n\nPoint Forecasting:\n\n\nGenerate point forecasts \\(\\hat{y}_{t+h}\\) for the desired forecast horizon \\(h\\) using rolling-origin cross-validation on a calibration set of 500 observations per horizon.\n\n\n\n\nResidual Calculation \\[\nr_{t+h} = y_{t+h} - \\hat{y}_{t+h}\n\\]\n\nwhere \\(y_{t+h}\\) are the actual observed values and \\(\\hat{y}_{t+h}\\) are the point forecasts for \\(t+h\\).\n\n\n\nNonconformity Scores \\[\nA_{t+h} = |r_{t+h}|\n\\]\n\n\n\n\n\nQuantile Calculation\n\n\\[\nq_{1-\\alpha}^{(h)} = \\text{Quantile}_{1-\\alpha}(\\{A_{t-n+h}\\}_{t=t-n}^{n})\n\\]\nwhere \\(n\\) is the size of the calibration set and \\(1 - \\alpha\\) is the desired coverage level\n\n\n\nPrediction Intervals \\[\n\\left[\\hat{y}_{t+h} - q_{1-\\alpha}^{(h)}, \\hat{y}_{t+h} + q_{1-\\alpha}^{(h)}\\right]\n\\]\n\n\n\n\nDistribution Approximation\n\n\\[\ny_{t+h}^{(i)} = \\hat{y}_{t+h} + r_, \\quad r_i \\in \\{r_1, r_2, \\ldots, r_n\\}\n\\]"
   },
   {
     "objectID": "talks/wgsss/slides.html#forecasting-metrics",
@@ -1152,14 +1152,7 @@
     "href": "talks/wgsss/slides.html#feature-engineering",
     "title": "MUSTAFA ASLAN",
     "section": "Feature engineering",
-    "text": "Feature engineering\n\nTime-based features: Extracted day and month from timestamps to capture temporal patterns.\nPublic holidays: Created binary indicators for public holidays to account for their impact on hospital occupancy.\nLagged features: Created lagged versions of key variables to incorporate past information into the models.\nFourier terms: Added Fourier series terms for linear models to capture seasonality in the data.\nRolling window features: Computed rolling means and standard deviations to see if improving the model’s performance."
-  },
-  {
-    "objectID": "talks/wgsss/slides.html#training-and-validation-setup",
-    "href": "talks/wgsss/slides.html#training-and-validation-setup",
-    "title": "MUSTAFA ASLAN",
-    "section": "Training and validation setup",
-    "text": "Training and validation setup\n\nThe last 360 days of data are reserved as the test set to evaluate model performance\nThe remaining data is used for:\n\ntraining and validation\nhyperparameter tuning through rolling-origin cross-validation with a fixed window size of 30 days and step size of 13 days to capture yearly seasonality.\nGenerate probabilistic forecasts using conformal prediction using optimized models on the training data.\n\nThe train-test split ensures that the models are evaluated on unseen data, providing a realistic assessment of their forecasting capabilities."
+    "text": "Feature engineering\n\nTime-based features\n\n\n\nPublic holidays\n\n\n\nLagged features\n\n\n\nFourier terms\n\n\n\nRolling window features"
   },
   {
     "objectID": "talks/wgsss/slides.html#cross-validation-setup",
@@ -1197,11 +1190,11 @@
     "text": "Forecast distributions (Quantile scores for 45% to 85%)"
   },
   {
-    "objectID": "talks/wgsss/slides.html#model-explainability",
-    "href": "talks/wgsss/slides.html#model-explainability",
+    "objectID": "talks/wgsss/slides.html#models-explainability",
+    "href": "talks/wgsss/slides.html#models-explainability",
     "title": "MUSTAFA ASLAN",
-    "section": "Model Explainability",
-    "text": "Model Explainability\n\n\n\n\n\n\n\n\n\n\n\n\nTransition probabilities\n\n\n\n\n\nT. Matrix\nRegime 1\nRegime 2\n\n\n\n\nRegime 1\n0.666\n0.334\n\n\nRegime 2\n0.487\n0.513\n\n\n\n\n\n \nStandard Deviations\n\n\n\n\n\nStd. Dev.\nRegime 1\nRegime 2\n\n\n\n\nsd\n1.393\n0.006"
+    "section": "Model’s Explainability",
+    "text": "Model’s Explainability\n\n\n\n\n\n\n\n\n\n\n\n\nTransition probabilities\n\n\n\n\n\nT. Matrix\nRegime 1\nRegime 2\n\n\n\n\nRegime 1\n0.666\n0.334\n\n\nRegime 2\n0.487\n0.513\n\n\n\n\n\n \nStandard Deviations\n\n\n\n\n\nStd. Dev.\nRegime 1\nRegime 2\n\n\n\n\nsd\n1.393\n0.006"
   },
   {
     "objectID": "talks/wgsss/slides.html#learning-outcomes-from-the-current-experiments",
