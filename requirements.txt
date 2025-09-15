@@ -17,4 +17,5 @@ cubist
 sktime
 openpyxl
 ruptures
+tabulate
 git+https://github.com/mustafaslanCoto/peshbeen.git
