@@ -172,7 +172,7 @@
 </div>
 <br> <br> <br> <br> <br> <br> <br>
 <h1>
-Hospital Bed Occupancy Forecasting: A Autoregressive Regression Hidden Markov Model
+Hospital Bed Occupancy Forecasting: A Regime-Switching AutoRegressive Hidden Markov Model Approach
 </h1>
 <div class="title-block">
 <br> <br> <br> <br> <br> <br>
@@ -186,20 +186,15 @@ Mustafa Aslan, Cardiff University, UK <br> Lead supervisor: Prof.&nbsp;Bahman Ro
 16 Sep 2025
 </p>
 </div>
-<!-- ::: {.slide background-image="images/machine_learning.jpg" background-size="cover" background-opacity="0.06"}
-::: -->
 </section>
 <section id="outline" class="slide level2">
 <h2>Outline</h2>
 <ul>
-<li>The Problem</li>
-<li>Why is this important?</li>
-<li>Questions to address</li>
-<li>Data</li>
-<li>Modeling framework</li>
-<li>Experimental design</li>
-<li>Key findings</li>
-<li>Next Steps</li>
+<li><p>The problem</p></li>
+<li><p>Data and preliminary analysis</p></li>
+<li><p>Experiment design and Modelling framework</p></li>
+<li><p>Key findings</p></li>
+<li><p>Next steps</p></li>
 </ul>
 </section>
 <section>
@@ -214,32 +209,58 @@ Mustafa Aslan, Cardiff University, UK <br> Lead supervisor: Prof.&nbsp;Bahman Ro
 <p><img data-src="images/late_shift.png" style="width:100.0%"></p>
 </div><div class="column" style="width:50%;">
 <ul>
-<li>Unexpected surges lead to overcrowding, delayed admissions, and compromised patient care quality</li>
-<li>Inefficient bed management results in prolonged patient stays and increased healthcare costs</li>
-<li>High variability in patient flow complicates resource allocation</li>
-<li>Unexpected occupancy spikes lead to <strong>staff burnout and reduced morale</strong></li>
-<li>Patients waiting <strong>12+</strong> hours for mental health beds due to poor coordination <!-- - Current planning methods are reactive rather than predictive --></li>
+<li>Unpredictable occupancy levels can result in redundant staffing and resource allocation, driving up costs, or in understaffing, which compromises patient care.</li>
+</ul>
+<p><br></p>
+<ul>
+<li>Spikes in occupancy level drive overtime, sickness, and <strong>staff burnout</strong>.</li>
+</ul>
+<p><br></p>
+<ul>
+<li>Lack of analytical solutions that can capture the complexity and uncertainty of patient flow and bed availability limits proactive decision-making.</li>
 </ul>
 </div></div>
-</section></section>
-<section>
-<section id="why-is-this-important" class="title-slide slide level1 center">
-<h1>Why is this important?</h1>
-
 </section>
-<section id="the-critical-impact-of-hospital-bed-management" class="slide level2">
-<h2>The Critical Impact of Hospital Bed Management</h2>
+<section id="why-is-it-important" class="slide level2">
+<h2>Why is it important?</h2>
+<div class="columns">
+<div class="column fragment" style="width:50%;">
+<h3 id="why-is-an-efficient-bed-management-system-crucial">Why is an efficient bed management system crucial?</h3>
 <ul>
-<li><p><strong>Patient Care</strong>: Overcrowding and delays can compromise patient care quality and safety.</p></li>
-<li><p><strong>Resource Optimization</strong>: Efficient bed management can reduce costs and improve hospital operations.</p></li>
-<li><p><strong>Staff Well-being</strong>: Reducing unexpected workload can help prevent staff burnout and improve morale.</p></li>
-<li><p><strong>System Efficiency</strong>: Better coordination can reduce wait times and improve overall healthcare delivery.</p></li>
+<li>Hospital beds are one of most costly healthcare resources.
+<ul>
+<li>NHS rates for acute mental health beds are generally between £760 and £850 per day in 2025</li>
+</ul></li>
+<li>Bed shortages force some patients to wait in corridors, impacting care quality and safety.</li>
+<li>Bed shortages increase staff pressure, burnout, and operational costs.</li>
 </ul>
-</section></section>
-<section>
-<section id="questions-to-address" class="title-slide slide level1 center">
-<h1>Questions to address</h1>
-
+<p><img data-src="images/bed_shortages.jpg" style="width:100.0%"></p>
+</div><div class="column fragment" style="width:50%;">
+<h3 id="why-a-reliable-forecasting-approach-is-needed">Why a reliable forecasting approach is needed?</h3>
+<ul>
+<li>Mental health demand is volatile and influenced by unpredictable crisis, by seasonality, epidemics, and unforeseen events.</li>
+<li>A reliable forecasting approach enables timely staffing, resource allocation, and improved patient care.</li>
+<li>Anticipating demand allows decision-makers to balance scarce resources while improving patient flow and safety.</li>
+<li>Robust forecasts enhance resilience to unexpected surges and reduce staff burnout.</li>
+</ul>
+</div></div>
+</section>
+<section id="what-do-we-forecast" class="slide level2">
+<h2>What do we forecast?</h2>
+<ul>
+<li>Daily hospital bed occupancy for 7 wards in a UK hospital.</li>
+<li><strong>Forecast horizon:</strong> 30 days ahead, supporting medium-term planning for bed allocation and staffing, generated at the end of each month for the following month.</li>
+<li>Focus on <strong>probabilistic forecasting</strong> to capture uncertainty, offering prediction intervals rather than single-point estimates using a reliable model.</li>
+</ul>
+<div id="dda5efa9" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="1">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="slides_files/figure-revealjs/cell-2-output-1.png" class="quarto-figure quarto-figure-center" width="1331" height="566"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="key-research-questions" class="slide level2">
 <h2>Key Research Questions</h2>
@@ -248,10 +269,13 @@ Mustafa Aslan, Cardiff University, UK <br> Lead supervisor: Prof.&nbsp;Bahman Ro
 <li><p>How can probabilistic forecasting models be developed to account for the inherent uncertainty in patient flow and bed availability?</p></li>
 <li><p>What are the hidden factors influencing bed occupancy, and how can they be incorporated into forecasting models?</p></li>
 </ul>
+</section>
+<section class="slide level2">
+
 </section></section>
 <section>
-<section id="data" class="title-slide slide level1 center">
-<h1>Data</h1>
+<section id="data-and-preliminary-analysis" class="title-slide slide level1 center">
+<h1>Data and preliminary analysis</h1>
 
 </section>
 <section id="dataset" class="slide level2">
@@ -269,11 +293,11 @@ Mustafa Aslan, Cardiff University, UK <br> Lead supervisor: Prof.&nbsp;Bahman Ro
 <li><p>Strong upward trend in occupancy over time</p></li>
 <li><p>Spike after COVID-19 pandemic</p></li>
 </ul>
-<div id="eb35b524" class="cell" data-fig-width="100%" data-execution_count="2">
+<div id="34a94669" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="slides_files/figure-revealjs/cell-3-output-1.png" class="quarto-figure quarto-figure-center" width="2035" height="980"></p>
+<p><img data-src="slides_files/figure-revealjs/cell-4-output-1.png" class="quarto-figure quarto-figure-center" width="2035" height="980"></p>
 </figure>
 </div>
 </div>
@@ -282,11 +306,11 @@ Mustafa Aslan, Cardiff University, UK <br> Lead supervisor: Prof.&nbsp;Bahman Ro
 <section id="seasonal-patterns" class="slide level2">
 <h2>Seasonal patterns</h2>
 <h3 id="day-of-the-week-seasonality">Day of the week seasonality</h3>
-<div id="3c297845" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="3">
+<div id="f94322b5" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="slides_files/figure-revealjs/cell-4-output-1.png" class="quarto-figure quarto-figure-center" width="2080" height="1024"></p>
+<p><img data-src="slides_files/figure-revealjs/cell-5-output-1.png" class="quarto-figure quarto-figure-center" width="2077" height="1024"></p>
 </figure>
 </div>
 </div>
@@ -295,11 +319,11 @@ Mustafa Aslan, Cardiff University, UK <br> Lead supervisor: Prof.&nbsp;Bahman Ro
 <section id="seasonal-patterns-1" class="slide level2">
 <h2>Seasonal patterns</h2>
 <h3 id="monthly-seasonality">Monthly seasonality</h3>
-<div id="2589114d" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="4">
+<div id="4a5335a3" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="slides_files/figure-revealjs/cell-5-output-1.png" class="quarto-figure quarto-figure-center" width="2079" height="1022"></p>
+<p><img data-src="slides_files/figure-revealjs/cell-6-output-1.png" class="quarto-figure quarto-figure-center" width="2079" height="1022"></p>
 </figure>
 </div>
 </div>
@@ -307,28 +331,75 @@ Mustafa Aslan, Cardiff University, UK <br> Lead supervisor: Prof.&nbsp;Bahman Ro
 </section>
 <section id="effect-of-holidays" class="slide level2">
 <h2>Effect of holidays</h2>
-<div id="1e21f3ec" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="5">
+<div id="b58a863e" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="slides_files/figure-revealjs/cell-6-output-1.png" class="quarto-figure quarto-figure-center" width="1214" height="623"></p>
+<p><img data-src="slides_files/figure-revealjs/cell-7-output-1.png" class="quarto-figure quarto-figure-center" width="1214" height="623"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="modeling-framework" class="title-slide slide level1 center">
-<h1>Modeling Framework</h1>
-
+<section id="key-insights-from-data-analysis" class="slide level2">
+<h2>Key insights from data analysis</h2>
+<h3 id="an-important-assumption-to-model-stationarity">An important assumption to model: Stationarity</h3>
+<p>One approach to make the series stationary is to take the first <code>difference</code> of the series.</p>
+<p>Original series: <span class="math inline">\(y_t, y_{t-1}, y_{t-2}, y_{t-3}, \ldots\)</span><br>
+Differenced series: <span class="math inline">\(y_t - y_{t-1}, y_{t-1} - y_{t-2}, y_{t-2} - y_{t-3}, \ldots\)</span></p>
+<div id="f3594f58" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="7">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="slides_files/figure-revealjs/cell-8-output-1.png" class="quarto-figure quarto-figure-center" width="2079" height="1024"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
-<section id="autoregressive-regression-markov-switching-hidden-markov-model-ar-mshmm" class="slide level2 smaller">
-<h2>Autoregressive Regression Markov Switching Hidden Markov Model (AR-MSHMM)</h2>
+<section id="key-insights-from-data-analysis-1" class="slide level2">
+<h2>Key insights from data analysis</h2>
+<h3 id="information-from-acf-and-pacf-plots-after-differencing">Information from ACF and PACF plots after differencing</h3>
+<div id="4c2d7792" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="8">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="slides_files/figure-revealjs/cell-9-output-1.png" class="quarto-figure quarto-figure-center" width="2035" height="980"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="key-insights-from-data-analysis-2" class="slide level2">
+<h2>Key insights from data analysis</h2>
+<h3 id="alternative-approach-to-make-the-series-stationary-and-keep-the-dependence-structure">Alternative approach to make the series stationary and keep the dependence structure</h3>
+<div id="0f535d22" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="9">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="slides_files/figure-revealjs/cell-10-output-1.png" class="quarto-figure quarto-figure-center" width="1705" height="897"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="an-important-assumption-to-model-stationarity-1" class="slide level2">
+<h2>An important assumption to model: Stationarity</h2>
+<h3 id="information-from-acf-and-pacf-plots-after-detrending">Information from ACF and PACF plots after detrending</h3>
+<div id="13f2da54" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="10">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="slides_files/figure-revealjs/cell-11-output-1.png" class="quarto-figure quarto-figure-center" width="2035" height="980"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="regime-switching-autoregressive-hidden-markov-model-rs-arhmm" class="slide level2 smaller">
+<h2>Regime-Switching AutoRegressive Hidden Markov Model (RS-ARHMM)</h2>
 <p>Let <span class="math inline">\(y_t\)</span> be the observed value at time <span class="math inline">\(t\)</span>, modeled as a function of its <span class="math inline">\(p\)</span> lagged values, the regime-specific parameters associated with the hidden state <span class="math inline">\(s_t\)</span>, and exogenous variables <span class="math inline">\(\mathbf{X}_t = (X_{t1}, \ldots, X_{tM})\)</span>.</p>
-<p>The <strong>AR-MSHMM</strong> can be expressed as follows:</p>
+<p>The <strong>RS-ARHMM</strong> can be expressed as follows:</p>
 <p><span class="math display">\[
 y_t^{(s)} = \beta_{0}^{(s)} + \sum_{i=1}^{p} \beta_{i}^{(s)} \, y_{t-i} + \sum_{j=1}^{M} \beta_{p+j}^{(s)} \, X_{tj} + \epsilon_t^{(s)},
 \]</span></p>
@@ -357,181 +428,9 @@ p_{K1} &amp; \cdots &amp; p_{KK}
 \end{pmatrix}
 \]</span></p>
 </section>
-<section id="modeling-framework-1" class="slide level2">
+<section id="modeling-framework" class="slide level2 smaller">
 <h2>Modeling Framework</h2>
-<p><br></p>
-<h3 id="parameter-estimation-of-ar-mshmm">Parameter Estimation of AR-MSHMM</h3>
-<p>The model parameters <span class="math inline">\(\Theta = \{\beta^{(s)}, \sigma^{2(s)}, P, \pi\}\)</span> are estimated using the <strong>Expectation-Maximization (EM)</strong> algorithm.</p>
-<ul>
-<li><p>The <strong>Expectation-Maximization (EM)</strong> algorithm is utilized to <code>estimate</code> the parameters,<span class="math inline">\(\Theta = \{\beta^{(s)}, \sigma^{2(s)}, P, \pi\}\)</span>.</p></li>
-<li><p>The <strong>Baum-Welch algorithm</strong> is used to <code>update</code> the parameters to maximize the likelihood of the observed data.</p></li>
-</ul>
-<p><br></p>
-<h3 id="em-algorithm-framework">EM Algorithm Framework</h3>
-<p>The EM algorithm consists of two main steps that are iterated <code>until convergence</code>:</p>
-<ul>
-<li><strong>E-step (Expectation)</strong>: Calculate the expected value of the complete-data likelihood given the current parameter estimates</li>
-<li><strong>M-step (Maximization)</strong>: Update parameter estimates by maximizing the expected log-likelihood computed in the E-step</li>
-</ul>
-</section>
-<section id="modeling-framework-2" class="slide level2">
-<h2>Modeling Framework</h2>
-<h3 id="e-step-state-probability-computation">E-step: State Probability Computation</h3>
-<p>The probability of being in regime <span class="math inline">\(S_i\)</span> at time <span class="math inline">\(t\)</span>, given the <code>observed data</code> and <code>current parameter estimates</code>, is computed as:</p>
-<p><span class="math display">\[
-\gamma_t(i) = P(s_t = S_i \mid y_{1:T}, \Theta^{(k)}) = \frac{\alpha_t(i) b_t(i)}{\sum_{j=1}^{K} \alpha_t(j) b_t(j)}
-\]</span></p>
-<p>where:</p>
-<ul>
-<li><span class="math inline">\(\Theta^{(k)}\)</span> represents the parameter estimates at iteration <span class="math inline">\(k\)</span></li>
-<li><span class="math inline">\(\alpha_t(i)\)</span> and <span class="math inline">\(b_t(i)\)</span> are the forward and backward variables, respectively</li>
-</ul>
-<p>Additionally, we compute the probability of transitioning from state <span class="math inline">\(S_i\)</span> at time <span class="math inline">\(t\)</span> to state <span class="math inline">\(S_j\)</span> at time <span class="math inline">\(t+1\)</span>:</p>
-<p><span id="eq-xi"><span class="math display">\[
-\xi_t(i,j) = P(s_t = S_i, s_{t+1} = S_j \mid y_{1:T}, \Theta^{(k)}) = \frac{\alpha_t(i) p_{ij} b_j(y_{t+1}) \beta_{t+1}(j)}{\sum_{i=1}^{K} \sum_{j=1}^{K} \alpha_t(i) p_{ij} b_j(y_{t+1}) \beta_{t+1}(j)}
-\tag{1}\]</span></span></p>
-</section>
-<section id="modeling-framework-3" class="slide level2">
-<h2>Modeling Framework</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
-<div class="fragment">
-<div class="callout callout-note no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Forward and Backward Variables</strong></p>
-</div>
-<div class="callout-content">
-<p><strong>Forward Variable</strong> <span class="math inline">\(\alpha_t(i)\)</span>: The joint probability of observing the sequence <span class="math inline">\(y_{1:t}\)</span> and being in state <span class="math inline">\(S_i\)</span> at time <span class="math inline">\(t\)</span>:</p>
-<p><strong>Recursive computation for Forward variable:</strong> <span id="eq-forward-recursive"><span class="math display">\[
-\alpha_t(i) = P(y_{1:t}, s_t = S_i \mid \Theta) = \left[\sum_{j=1}^{K} \alpha_{t-1}(j) p_{ji}\right] o_i(y_t)
-\tag{2}\]</span></span></p>
-<p>with initialization: <span class="math inline">\(\alpha_1(i) = \pi_i o_i(y_1)\)</span></p>
-<p><strong>Backward Variable</strong> <span class="math inline">\(b_t(i)\)</span>: The conditional probability of observing the future sequence <span class="math inline">\(y_{t+1:T}\)</span> given that the system is in state <span class="math inline">\(S_i\)</span> at time <span class="math inline">\(t\)</span>:</p>
-<p><strong>Recursive computation for Backward variable:</strong> <span id="eq-backward-recursive"><span class="math display">\[
-b_t(i) = P(y_{t+1:T} \mid s_t = S_i, \Theta) = \sum_{j=1}^{K} p_{ij} o_j(y_{t+1}) b_{t+1}(j)
-\tag{3}\]</span></span></p>
-<p>with initialization: <span class="math inline">\(b_T(i) = 1\)</span> for all <span class="math inline">\(i\)</span></p>
-</div>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:40%;">
-<div class="fragment">
-<div class="callout callout-note no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Emission Probabilities (Observation Likelihoods)</strong></p>
-</div>
-<div class="callout-content">
-<p>The emission probability, <span class="math inline">\(o_i(y_t)\)</span>: the likelihood of observing <span class="math inline">\(y_t\)</span> given state <span class="math inline">\(S_i\)</span>.</p>
-<p>For the AR-MSHMM, this is modeled as a Gaussian distribution:</p>
-<p><span id="eq-emission"><span class="math display">\[
-o_i(y_t) = \frac{1}{\sqrt{2\pi \sigma_i^2}} \exp\left(-\frac{(y_t - \mu_{i,t})^2}{2\sigma_i^2}\right)
-\tag{4}\]</span></span></p>
-<p>where the state-specific conditional mean <span class="math inline">\(\mu_{i,t}\)</span> is given by the autoregressive specification:</p>
-<p><span class="math display">\[
-\mu_{i,t} = \beta_0^{(i)} + \sum_{k=1}^{p} \beta_k^{(i)} y_{t-k} + \sum_{j=1}^{M} \beta_{p+j}^{(i)} X_{t,j}
-\]</span></p>
-</div>
-</div>
-</div>
-</div>
-</div></div>
-</section>
-<section id="modeling-framework-4" class="slide level2">
-<h2>Modeling Framework</h2>
-<h3 id="m-step-parameter-updates">M-step: Parameter Updates</h3>
-<div class="columns">
-<div class="column" style="width:60%;">
-<div class="fragment">
-<div class="callout callout-note no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Transition Probabilities</strong></p>
-</div>
-<div class="callout-content">
-<p><span class="math display">\[
-p_{ij}^{(k+1)} = \frac{\sum_{t=1}^{T-1} \xi_t(i,j)}{\sum_{t=1}^{T-1} \gamma_t(i)}
-\]</span></p>
-</div>
-</div>
-</div>
-</div>
-<div class="fragment">
-<div class="callout callout-note no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Initial State Probabilities</strong></p>
-</div>
-<div class="callout-content">
-<p><span class="math display">\[
-\pi_i^{(k+1)} = \gamma_1(i)
-\]</span></p>
-</div>
-</div>
-</div>
-</div>
-<div class="fragment">
-<div class="callout callout-note no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Regression Coefficients</strong></p>
-</div>
-<div class="callout-content">
-<p>For each state <span class="math inline">\(i\)</span>, the coefficients are updated using weighted least squares: <span class="math display">\[
-\theta^{(i,k+1)} = \left(\mathbf{X}^T \mathbf{W}_i \mathbf{X}\right)^{-1} \mathbf{X}^T \mathbf{W}_i \mathbf{y}
-\]</span></p>
-<p>where <span class="math inline">\(\mathbf{X}\)</span> is the design matrix containing lagged values and exogenous variables</p>
-<p><span class="math inline">\(\mathbf{X}\)</span> is defined as: <span class="math display">\[
-\mathbf{X} = \begin{pmatrix}
-1 &amp; y_0 &amp; y_{-1} &amp; \cdots &amp; y_{-p+1} &amp; X_{1,1} &amp; \cdots &amp; X_{1,M} \\
-1 &amp; y_1 &amp; y_0 &amp; \cdots &amp; y_{-p+2} &amp; X_{2,1} &amp; \cdots &amp; X_{2,M} \\
-\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
-1 &amp; y_{T-1} &amp; y_{T-2} &amp; \cdots &amp; y_{T-p} &amp; X_{T,1} &amp; \cdots &amp; X_{T,M}
-\end{pmatrix}
-\]</span></p>
-<p>and <span class="math inline">\(\mathbf{W}_i\)</span> is a diagonal matrix with weights <span class="math inline">\(\gamma_t(i)\)</span> for <span class="math inline">\(t = 1, \ldots, T\)</span> <span class="math display">\[
-\mathbf{W}_i = \text{diag}(\gamma_1(i), \gamma_2(i), \ldots, \gamma_T(i))
-\]</span></p>
-</div>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:40%;">
-<div class="fragment">
-<div class="callout callout-note no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Variance Parameters</strong></p>
-</div>
-<div class="callout-content">
-<p><span class="math display">\[
-\sigma_i^{2(k+1)} = \frac{\sum_{t=1}^{T} \gamma_t(i) (y_t - \mu_{i,t})^2}{\sum_{t=1}^{T} \gamma_t(i)}
-\]</span></p>
-</div>
-</div>
-</div>
-</div>
-<div class="fragment">
-<div class="callout callout-note no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Convergence Criterion</strong></p>
-</div>
-<div class="callout-content">
-<p>The EM algorithm continues until the change in log-likelihood between successive iterations falls below a predetermined threshold: <span class="math display">\[
-|\ell(\Theta^{(k+1)}) - \ell(\Theta^{(k)})| &lt; \epsilon
-\]</span> where <span class="math inline">\(\epsilon\)</span> is typically set to <span class="math inline">\(10^{-3}\)</span> or <span class="math inline">\(10^{-4}\)</span>.</p>
-</div>
-</div>
-</div>
-</div>
-</div></div>
-</section>
-<section id="modeling-framework-5" class="slide level2 smaller">
-<h2>Modeling Framework</h2>
-<h3 id="forecasting-with-ar-rhmm">Forecasting with AR-RHMM</h3>
+<h3 id="forecasting-with-rs-arhmm">Forecasting with RS-ARHMM</h3>
 <p>To forecast <span class="math inline">\(h\)</span> steps ahead, we employ a systematic three-stage approach that combines state prediction with regime-specific observation modeling.</p>
 <ol type="1">
 <li><strong>State Prediction</strong>: We predict the most probable state sequence for the next <span class="math inline">\(h\)</span> time steps using the transition matrix <span class="math inline">\(\mathbf{P}\)</span>. The probability of being in state <span class="math inline">\(S_j\)</span> at time <span class="math inline">\(T+h\)</span> is computed recursively as:</li>
@@ -553,6 +452,117 @@ P(s_{T+h} = S_j) = \sum_{i=1}^{K} P(s_{T+h-1} = S_i) \, p_{ij}
 <p><span class="math display">\[
 \hat{y}_{T+h} = \sum_{j=1}^{K} P(s_{T+h} = S_j) \, \hat{y}_{T+h}^{(S_j)}
 \]</span></p>
+</section>
+<section id="rs-arhmm-parameter-estimation" class="slide level2">
+<h2>RS-ARHMM Parameter Estimation</h2>
+<div class="columns">
+<div class="column fragment" style="width:30%;">
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong><code>EM (Expectation-Maximization) Algorithm</code></strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><p>Iteratively estimates parameters <span class="math inline">\(\Theta = \{\beta^{(s)}, \sigma^{2(s)}, P, \pi\}\)</span> to maximize likelihood.</p></li>
+<li><p>Alternates between two steps:</p>
+<ul>
+<li><strong>E-Step:</strong> Estimate regime probabilities given current <span class="math inline">\(\Theta\)</span>.</li>
+<li><strong>M-Step:</strong> Update <span class="math inline">\(\Theta\)</span> using these probabilities.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+</div><div class="column fragment" style="width:35%;">
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>1. E-Step</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><p><strong>State probability:</strong><br>
+<span class="math display">\[
+\gamma_t(i) = P(s_t = S_i \mid y_{1:T}, \Theta^{(k)})
+\]</span></p></li>
+<li><p><strong>Transition probability:</strong><br>
+<span class="math display">\[
+\xi_t(i,j) = P(s_t = S_i, s_{t+1} = S_j \mid y_{1:T}, \Theta^{(k)})
+\]</span></p></li>
+<li><p>Computed via <strong>Forward-Backward algorithm</strong>:</p>
+<ul>
+<li>Forward:</li>
+</ul>
+<p><span class="math inline">\(\alpha_t(i) = P(y_{1:t}, s_t = S_i \mid \Theta) = \sum_{j=1}^{K} \alpha_{t-1}(j) p_{ji} o_i(y_t)\)</span></p>
+<ul>
+<li>Backward:</li>
+</ul>
+<p><span class="math inline">\(b_t(i) = P(y_{t+1:T} \mid s_t = S_i, \Theta) = \sum_{j=1}^{K} p_{ij} o_j(y_{t+1}) b_{t+1}(j)\)</span></p></li>
+</ul>
+<p><strong>Emission (observation) likelihood:</strong><br>
+<span class="math display">\[
+o_i(y_t) = \frac{1}{\sqrt{2\pi \sigma_i^2}} \exp\left( -\frac{(y_t - \mu_{i,t})^2}{2\sigma_i^2} \right)
+\]</span></p>
+<p>where <span class="math inline">\(\mu_{i,t}\)</span> is AR + exogenous mean for state <span class="math inline">\(i\)</span>.</p>
+</div>
+</div>
+</div>
+</div><div class="column fragment" style="width:35%;">
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>2. M-Step</strong></p>
+</div>
+<div class="callout-content">
+<p>Update parameters using weighted averages with <span class="math inline">\(\gamma_t(i)\)</span>:</p>
+<ul>
+<li><p><strong>Transition matrix:</strong><br>
+<span class="math display">\[
+p_{ij}^{(k+1)} = \frac{\sum_{t=1}^{T-1} \xi_t(i,j)}{\sum_{t=1}^{T-1} \gamma_t(i)}
+\]</span></p></li>
+<li><p><strong>Initial state:</strong><br>
+<span class="math display">\[
+\pi_i^{(k+1)} = \gamma_1(i)
+\]</span></p></li>
+<li><p><strong>Regression (AR/exog) coefficients:</strong><br>
+<span class="math display">\[
+\beta^{(i,k+1)} = (\mathbf{X}^T \mathbf{W}_i \mathbf{X})^{-1} \mathbf{X}^T \mathbf{W}_i \mathbf{y}
+\]</span></p></li>
+</ul>
+<p>Where <span class="math inline">\(\mathbf{W}_i = \text{diag}(\gamma_1(i),\dots,\gamma_T(i))\)</span></p>
+<ul>
+<li><strong>Variance:</strong><br>
+<span class="math display">\[
+\sigma_i^{2(k+1)} = \frac{\sum_{t=1}^T \gamma_t(i)(y_t-\mu_{i,t})^2}{\sum_{t=1}^T \gamma_t(i)}
+\]</span></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Repeat E-M Steps until convergence:</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="math display">\[|\ell(\Theta^{(k+1)}) - \ell(\Theta^{(k)})| &lt; \epsilon\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="why-rs-arhmm" class="slide level2">
+<h2>Why RS-ARHMM?</h2>
+<ul>
+<li class="fragment"><p><strong>Captures regime changes</strong> in highly volatile time series data (e.g., healthcare), integrating them into the forecasting process, making it more accurate and reliable predictions.</p></li>
+<li class="fragment"><p><strong>Traditional statistical and modern machine learning models</strong> fail to account for such regime shifts.</p></li>
+<li class="fragment"><p><strong>Models complex dependencies and non-linear relationships</strong> with reduced risk of overfitting and less reliance on extensive hyperparameter tuning.</p></li>
+<li class="fragment"><p><strong>Produces interpretable results</strong> through regime-specific parameters.</p></li>
+<li class="fragment"><p><strong>Provides reliable forecasts</strong> that incorporate uncertainty arising from regime changes.</p></li>
+</ul>
 </section>
 <section id="benchmark-models" class="slide level2">
 <h2>Benchmark models</h2>
@@ -658,20 +668,8 @@ QL_{\alpha} = 2 \sum_{t=1}^{h} \left[\alpha (y_t - \hat{y}_t^{(\alpha)}) \mathbb
 </ul>
 </div></div>
 </section>
-<section id="experimental-design" class="slide level2 smaller">
-<h2>Experimental design</h2>
-<div class="columns">
-<h3 id="preliminary-data-analysis-and-data-preparation">Preliminary data analysis and data preparation</h3>
-<div class="column fragment">
-<ul>
-<li>Missing values imputed using linear interpolation for wards with 0 occupancy level to run models</li>
-<li>Data visualization: Plotted time series to identify trends, seasonality, and anomalies.</li>
-<li>Stationarity tests: Augmented Dickey-Fuller (ADF) and Kwiatkowski-Phillips-Schmidt-Shin (KPSS) tests to assess stationarity of the time series data.</li>
-<li>Seasonal decomposition: Decomposed the time series into trend, seasonal, and residual components to understand underlying patterns.</li>
-<li>Correlation analysis, ACF and PACF plots: Analyzed autocorrelation and partial autocorrelation functions to determine appropriate lag orders for autoregressive models.</li>
-</ul>
-</div><div class="column fragment">
-<h3 id="feature-engineering">Feature engineering</h3>
+<section id="feature-engineering" class="slide level2">
+<h2>Feature engineering</h2>
 <ul>
 <li>Time-based features: Extracted day and month from timestamps to capture temporal patterns.</li>
 <li>Public holidays: Created binary indicators for public holidays to account for their impact on hospital occupancy.</li>
@@ -679,8 +677,9 @@ QL_{\alpha} = 2 \sum_{t=1}^{h} \left[\alpha (y_t - \hat{y}_t^{(\alpha)}) \mathbb
 <li>Fourier terms: Added Fourier series terms for linear models to capture seasonality in the data.</li>
 <li>Rolling window features: Computed rolling means and standard deviations to see if improving the model’s performance.</li>
 </ul>
-</div><div class="column fragment">
-<h3 id="split-the-data-into-train-and-test-data">Split the data into train and test data</h3>
+</section>
+<section id="training-and-validation-setup" class="slide level2">
+<h2>Training and validation setup</h2>
 <ul>
 <li>The last 360 days of data are reserved as the test set to evaluate model performance</li>
 <li>The remaining data is used for:
@@ -691,86 +690,19 @@ QL_{\alpha} = 2 \sum_{t=1}^{h} \left[\alpha (y_t - \hat{y}_t^{(\alpha)}) \mathbb
 </ul></li>
 <li><code>The train-test split ensures that the models are evaluated on unseen data, providing a realistic assessment of their forecasting capabilities.</code></li>
 </ul>
-</div><div class="column fragment">
-<h3 id="model-evaluation">Model evaluation</h3>
-<ul>
-<li>Cross-validation: Employed rolling-origin cross-validation on test set to assess model performance over multiple forecast origins and horizons. (30-day window, 13-day step size)</li>
-<li>Point forecasting metrics: Mean Absolute Error (MAE) and Scaled Root Mean Squared Error (SRMSE) to evaluate the accuracy of point forecasts.</li>
-<li>Probabilistic forecasting metrics: Quantile Loss (QL) to assess the quality of probabilistic forecasts.</li>
-<li>Model comparison: Compared the performance of the AR-RHMM with benchmark statistical and machine learning models to determine its effectiveness in forecasting hospital bed occupancy.</li>
-</ul>
-</div></div>
 </section>
-<section id="key-insights-from-data-analysis" class="slide level2">
-<h2>Key insights from data analysis</h2>
-<h3 id="an-important-assumption-to-model-stationarity">An important assumption to model: Stationarity</h3>
-<p>One approach to make the series stationary is to take the first <code>difference</code> of the series.</p>
-<p>Original series: <span class="math inline">\(y_t, y_{t-1}, y_{t-2}, y_{t-3}, \ldots\)</span><br>
-Differenced series: <span class="math inline">\(y_t - y_{t-1}, y_{t-1} - y_{t-2}, y_{t-2} - y_{t-3}, \ldots\)</span></p>
-<div id="1aba24b3" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="6">
-<div class="cell-output cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="slides_files/figure-revealjs/cell-7-output-1.png" class="quarto-figure quarto-figure-center" width="2079" height="1024"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="key-insights-from-data-analysis-1" class="slide level2">
-<h2>Key insights from data analysis</h2>
-<h3 id="information-from-acf-and-pacf-plots-after-differencing">Information from ACF and PACF plots after differencing</h3>
-<div id="d0032f60" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="7">
-<div class="cell-output cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="slides_files/figure-revealjs/cell-8-output-1.png" class="quarto-figure quarto-figure-center" width="2035" height="980"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="key-insights-from-data-analysis-2" class="slide level2">
-<h2>Key insights from data analysis</h2>
-<h3 id="alternative-approach-to-make-the-series-stationary-and-keep-the-dependence-structure">Alternative approach to make the series stationary and keep the dependence structure</h3>
-<div id="6dd17325" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="8">
-<div class="cell-output cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="slides_files/figure-revealjs/cell-9-output-1.png" class="quarto-figure quarto-figure-center" width="1705" height="897"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="an-important-assumption-to-model-stationarity-1" class="slide level2">
-<h2>An important assumption to model: Stationarity</h2>
-<h3 id="information-from-acf-and-pacf-plots-after-detrending">Information from ACF and PACF plots after detrending</h3>
-<div id="165c1d50" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="9">
-<div class="cell-output cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="slides_files/figure-revealjs/cell-10-output-1.png" class="quarto-figure quarto-figure-center" width="2035" height="980"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="validation-setup" class="slide level2">
-<h2>Validation setup</h2>
+<section id="cross-validation-setup" class="slide level2">
+<h2>Cross validation setup</h2>
 <p>Rolling-origin cross-validation is used to evaluate model performance over time</p>
-<div id="3fa60192" class="cell" data-execution_count="10">
+<div id="164050e3" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="slides_files/figure-revealjs/cell-11-output-1.png" width="1066" height="554"></p>
+<p><img data-src="slides_files/figure-revealjs/cell-12-output-1.png" width="1066" height="554"></p>
 </figure>
 </div>
 </div>
 </div>
-</section>
-<section class="slide level2">
-
 </section></section>
 <section>
 <section id="results" class="title-slide slide level1 center">
@@ -781,157 +713,157 @@ Differenced series: <span class="math inline">\(y_t - y_{t-1}, y_{t-1} - y_{t-2}
 <h2>Point Forecast results</h2>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
-<div id="ce4d9194" class="cell quarto-layout-cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="11" style="flex-basis: 50.0%;justify-content: center;">
+<div id="de49ded6" class="cell quarto-layout-cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="12" style="flex-basis: 50.0%;justify-content: center;">
 <div class="cell-output cell-output-display">
 <style type="text/css">
-#T_06c60 table {
+#T_f9c93 table {
   width: 100%;
   border-collapse: collapse;
 }
-#T_06c60 th {
+#T_f9c93 th {
   background-color: #20808D;
   text-align: left;
   color: #FBFAF4;
   font-size: 30px;
   min-width: 80px;
 }
-#T_06c60 td {
+#T_f9c93 td {
   font-size: 25px;
   text-align: left;
 }
-#T_06c60_row0_col1 {
+#T_f9c93_row0_col1 {
   font-weight: bold;
   background-color: None;
 }
 </style>
 
-<table id="T_06c60" class="caption-top">
+<table id="T_f9c93" class="caption-top">
 <thead>
 <tr class="header">
-<th id="T_06c60_level0_col0" class="col_heading level0 col0" style="text-align: left;" data-quarto-table-cell-role="th">ward_0</th>
-<th id="T_06c60_level0_col1" class="col_heading level0 col1" style="text-align: left;" data-quarto-table-cell-role="th">SRMSE</th>
-<th id="T_06c60_level0_col2" class="col_heading level0 col2" style="text-align: left;" data-quarto-table-cell-role="th">RMSE</th>
-<th id="T_06c60_level0_col3" class="col_heading level0 col3" style="text-align: left;" data-quarto-table-cell-role="th">MAE</th>
+<th id="T_f9c93_level0_col0" class="col_heading level0 col0" style="text-align: left;" data-quarto-table-cell-role="th">ward_0</th>
+<th id="T_f9c93_level0_col1" class="col_heading level0 col1" style="text-align: left;" data-quarto-table-cell-role="th">SRMSE</th>
+<th id="T_f9c93_level0_col2" class="col_heading level0 col2" style="text-align: left;" data-quarto-table-cell-role="th">RMSE</th>
+<th id="T_f9c93_level0_col3" class="col_heading level0 col3" style="text-align: left;" data-quarto-table-cell-role="th">MAE</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_06c60_row0_col0" class="data row0 col0" style="text-align: left;">HMM</td>
-<td id="T_06c60_row0_col1" class="data row0 col1" style="text-align: left;">0.271</td>
-<td id="T_06c60_row0_col2" class="data row0 col2" style="text-align: left;">3.208</td>
-<td id="T_06c60_row0_col3" class="data row0 col3" style="text-align: left;">2.757</td>
+<td id="T_f9c93_row0_col0" class="data row0 col0" style="text-align: left;">HMM</td>
+<td id="T_f9c93_row0_col1" class="data row0 col1" style="text-align: left;">0.271</td>
+<td id="T_f9c93_row0_col2" class="data row0 col2" style="text-align: left;">3.208</td>
+<td id="T_f9c93_row0_col3" class="data row0 col3" style="text-align: left;">2.757</td>
 </tr>
 <tr class="even">
-<td id="T_06c60_row1_col0" class="data row1 col0" style="text-align: left;">linearRegression</td>
-<td id="T_06c60_row1_col1" class="data row1 col1" style="text-align: left;">0.275</td>
-<td id="T_06c60_row1_col2" class="data row1 col2" style="text-align: left;">3.258</td>
-<td id="T_06c60_row1_col3" class="data row1 col3" style="text-align: left;">2.804</td>
+<td id="T_f9c93_row1_col0" class="data row1 col0" style="text-align: left;">linearRegression</td>
+<td id="T_f9c93_row1_col1" class="data row1 col1" style="text-align: left;">0.275</td>
+<td id="T_f9c93_row1_col2" class="data row1 col2" style="text-align: left;">3.258</td>
+<td id="T_f9c93_row1_col3" class="data row1 col3" style="text-align: left;">2.804</td>
 </tr>
 <tr class="odd">
-<td id="T_06c60_row2_col0" class="data row2 col0" style="text-align: left;">Lasso</td>
-<td id="T_06c60_row2_col1" class="data row2 col1" style="text-align: left;">0.276</td>
-<td id="T_06c60_row2_col2" class="data row2 col2" style="text-align: left;">3.268</td>
-<td id="T_06c60_row2_col3" class="data row2 col3" style="text-align: left;">2.832</td>
+<td id="T_f9c93_row2_col0" class="data row2 col0" style="text-align: left;">Lasso</td>
+<td id="T_f9c93_row2_col1" class="data row2 col1" style="text-align: left;">0.276</td>
+<td id="T_f9c93_row2_col2" class="data row2 col2" style="text-align: left;">3.268</td>
+<td id="T_f9c93_row2_col3" class="data row2 col3" style="text-align: left;">2.832</td>
 </tr>
 <tr class="even">
-<td id="T_06c60_row3_col0" class="data row3 col0" style="text-align: left;">RandomForest</td>
-<td id="T_06c60_row3_col1" class="data row3 col1" style="text-align: left;">0.284</td>
-<td id="T_06c60_row3_col2" class="data row3 col2" style="text-align: left;">3.365</td>
-<td id="T_06c60_row3_col3" class="data row3 col3" style="text-align: left;">2.885</td>
+<td id="T_f9c93_row3_col0" class="data row3 col0" style="text-align: left;">RandomForest</td>
+<td id="T_f9c93_row3_col1" class="data row3 col1" style="text-align: left;">0.284</td>
+<td id="T_f9c93_row3_col2" class="data row3 col2" style="text-align: left;">3.365</td>
+<td id="T_f9c93_row3_col3" class="data row3 col3" style="text-align: left;">2.885</td>
 </tr>
 <tr class="odd">
-<td id="T_06c60_row4_col0" class="data row4 col0" style="text-align: left;">LightGBM</td>
-<td id="T_06c60_row4_col1" class="data row4 col1" style="text-align: left;">0.284</td>
-<td id="T_06c60_row4_col2" class="data row4 col2" style="text-align: left;">3.364</td>
-<td id="T_06c60_row4_col3" class="data row4 col3" style="text-align: left;">2.905</td>
+<td id="T_f9c93_row4_col0" class="data row4 col0" style="text-align: left;">LightGBM</td>
+<td id="T_f9c93_row4_col1" class="data row4 col1" style="text-align: left;">0.284</td>
+<td id="T_f9c93_row4_col2" class="data row4 col2" style="text-align: left;">3.364</td>
+<td id="T_f9c93_row4_col3" class="data row4 col3" style="text-align: left;">2.905</td>
 </tr>
 <tr class="even">
-<td id="T_06c60_row5_col0" class="data row5 col0" style="text-align: left;">XGBoost</td>
-<td id="T_06c60_row5_col1" class="data row5 col1" style="text-align: left;">0.290</td>
-<td id="T_06c60_row5_col2" class="data row5 col2" style="text-align: left;">3.433</td>
-<td id="T_06c60_row5_col3" class="data row5 col3" style="text-align: left;">2.996</td>
+<td id="T_f9c93_row5_col0" class="data row5 col0" style="text-align: left;">XGBoost</td>
+<td id="T_f9c93_row5_col1" class="data row5 col1" style="text-align: left;">0.290</td>
+<td id="T_f9c93_row5_col2" class="data row5 col2" style="text-align: left;">3.433</td>
+<td id="T_f9c93_row5_col3" class="data row5 col3" style="text-align: left;">2.996</td>
 </tr>
 <tr class="odd">
-<td id="T_06c60_row6_col0" class="data row6 col0" style="text-align: left;">ets</td>
-<td id="T_06c60_row6_col1" class="data row6 col1" style="text-align: left;">0.310</td>
-<td id="T_06c60_row6_col2" class="data row6 col2" style="text-align: left;">3.679</td>
-<td id="T_06c60_row6_col3" class="data row6 col3" style="text-align: left;">3.168</td>
+<td id="T_f9c93_row6_col0" class="data row6 col0" style="text-align: left;">ets</td>
+<td id="T_f9c93_row6_col1" class="data row6 col1" style="text-align: left;">0.310</td>
+<td id="T_f9c93_row6_col2" class="data row6 col2" style="text-align: left;">3.679</td>
+<td id="T_f9c93_row6_col3" class="data row6 col3" style="text-align: left;">3.168</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<div id="9561dab6" class="cell quarto-layout-cell" data-execution_count="12" style="flex-basis: 50.0%;justify-content: center;">
+<div id="253b0d5e" class="cell quarto-layout-cell" data-execution_count="13" style="flex-basis: 50.0%;justify-content: center;">
 <div class="cell-output cell-output-display">
 <style type="text/css">
-#T_fad13 table {
+#T_80b77 table {
   width: 100%;
   border-collapse: collapse;
 }
-#T_fad13 th {
+#T_80b77 th {
   background-color: #20808D;
   text-align: left;
   color: #FBFAF4;
   font-size: 30px;
   min-width: 80px;
 }
-#T_fad13 td {
+#T_80b77 td {
   font-size: 25px;
   text-align: left;
 }
 </style>
 
-<table id="T_fad13" class="caption-top">
+<table id="T_80b77" class="caption-top">
 <thead>
 <tr class="header">
-<th id="T_fad13_level0_col0" class="col_heading level0 col0" style="text-align: left;" data-quarto-table-cell-role="th">ward_1</th>
-<th id="T_fad13_level0_col1" class="col_heading level0 col1" style="text-align: left;" data-quarto-table-cell-role="th">SRMSE</th>
-<th id="T_fad13_level0_col2" class="col_heading level0 col2" style="text-align: left;" data-quarto-table-cell-role="th">RMSE</th>
-<th id="T_fad13_level0_col3" class="col_heading level0 col3" style="text-align: left;" data-quarto-table-cell-role="th">MAE</th>
+<th id="T_80b77_level0_col0" class="col_heading level0 col0" style="text-align: left;" data-quarto-table-cell-role="th">ward_1</th>
+<th id="T_80b77_level0_col1" class="col_heading level0 col1" style="text-align: left;" data-quarto-table-cell-role="th">SRMSE</th>
+<th id="T_80b77_level0_col2" class="col_heading level0 col2" style="text-align: left;" data-quarto-table-cell-role="th">RMSE</th>
+<th id="T_80b77_level0_col3" class="col_heading level0 col3" style="text-align: left;" data-quarto-table-cell-role="th">MAE</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_fad13_row0_col0" class="data row0 col0" style="text-align: left;">ets</td>
-<td id="T_fad13_row0_col1" class="data row0 col1" style="text-align: left;">0.340</td>
-<td id="T_fad13_row0_col2" class="data row0 col2" style="text-align: left;">3.646</td>
-<td id="T_fad13_row0_col3" class="data row0 col3" style="text-align: left;">3.169</td>
+<td id="T_80b77_row0_col0" class="data row0 col0" style="text-align: left;">ets</td>
+<td id="T_80b77_row0_col1" class="data row0 col1" style="text-align: left;">0.340</td>
+<td id="T_80b77_row0_col2" class="data row0 col2" style="text-align: left;">3.646</td>
+<td id="T_80b77_row0_col3" class="data row0 col3" style="text-align: left;">3.169</td>
 </tr>
 <tr class="even">
-<td id="T_fad13_row1_col0" class="data row1 col0" style="text-align: left;">Lasso</td>
-<td id="T_fad13_row1_col1" class="data row1 col1" style="text-align: left;">0.346</td>
-<td id="T_fad13_row1_col2" class="data row1 col2" style="text-align: left;">3.701</td>
-<td id="T_fad13_row1_col3" class="data row1 col3" style="text-align: left;">3.220</td>
+<td id="T_80b77_row1_col0" class="data row1 col0" style="text-align: left;">Lasso</td>
+<td id="T_80b77_row1_col1" class="data row1 col1" style="text-align: left;">0.346</td>
+<td id="T_80b77_row1_col2" class="data row1 col2" style="text-align: left;">3.701</td>
+<td id="T_80b77_row1_col3" class="data row1 col3" style="text-align: left;">3.220</td>
 </tr>
 <tr class="odd">
-<td id="T_fad13_row2_col0" class="data row2 col0" style="text-align: left;">RandomForest</td>
-<td id="T_fad13_row2_col1" class="data row2 col1" style="text-align: left;">0.347</td>
-<td id="T_fad13_row2_col2" class="data row2 col2" style="text-align: left;">3.707</td>
-<td id="T_fad13_row2_col3" class="data row2 col3" style="text-align: left;">3.229</td>
+<td id="T_80b77_row2_col0" class="data row2 col0" style="text-align: left;">RandomForest</td>
+<td id="T_80b77_row2_col1" class="data row2 col1" style="text-align: left;">0.347</td>
+<td id="T_80b77_row2_col2" class="data row2 col2" style="text-align: left;">3.707</td>
+<td id="T_80b77_row2_col3" class="data row2 col3" style="text-align: left;">3.229</td>
 </tr>
 <tr class="even">
-<td id="T_fad13_row3_col0" class="data row3 col0" style="text-align: left;">linearRegression</td>
-<td id="T_fad13_row3_col1" class="data row3 col1" style="text-align: left;">0.347</td>
-<td id="T_fad13_row3_col2" class="data row3 col2" style="text-align: left;">3.711</td>
-<td id="T_fad13_row3_col3" class="data row3 col3" style="text-align: left;">3.233</td>
+<td id="T_80b77_row3_col0" class="data row3 col0" style="text-align: left;">linearRegression</td>
+<td id="T_80b77_row3_col1" class="data row3 col1" style="text-align: left;">0.347</td>
+<td id="T_80b77_row3_col2" class="data row3 col2" style="text-align: left;">3.711</td>
+<td id="T_80b77_row3_col3" class="data row3 col3" style="text-align: left;">3.233</td>
 </tr>
 <tr class="odd">
-<td id="T_fad13_row4_col0" class="data row4 col0" style="text-align: left;">HMM</td>
-<td id="T_fad13_row4_col1" class="data row4 col1" style="text-align: left;">0.347</td>
-<td id="T_fad13_row4_col2" class="data row4 col2" style="text-align: left;">3.712</td>
-<td id="T_fad13_row4_col3" class="data row4 col3" style="text-align: left;">3.231</td>
+<td id="T_80b77_row4_col0" class="data row4 col0" style="text-align: left;">HMM</td>
+<td id="T_80b77_row4_col1" class="data row4 col1" style="text-align: left;">0.347</td>
+<td id="T_80b77_row4_col2" class="data row4 col2" style="text-align: left;">3.712</td>
+<td id="T_80b77_row4_col3" class="data row4 col3" style="text-align: left;">3.231</td>
 </tr>
 <tr class="even">
-<td id="T_fad13_row5_col0" class="data row5 col0" style="text-align: left;">LightGBM</td>
-<td id="T_fad13_row5_col1" class="data row5 col1" style="text-align: left;">0.348</td>
-<td id="T_fad13_row5_col2" class="data row5 col2" style="text-align: left;">3.720</td>
-<td id="T_fad13_row5_col3" class="data row5 col3" style="text-align: left;">3.241</td>
+<td id="T_80b77_row5_col0" class="data row5 col0" style="text-align: left;">LightGBM</td>
+<td id="T_80b77_row5_col1" class="data row5 col1" style="text-align: left;">0.348</td>
+<td id="T_80b77_row5_col2" class="data row5 col2" style="text-align: left;">3.720</td>
+<td id="T_80b77_row5_col3" class="data row5 col3" style="text-align: left;">3.241</td>
 </tr>
 <tr class="odd">
-<td id="T_fad13_row6_col0" class="data row6 col0" style="text-align: left;">XGBoost</td>
-<td id="T_fad13_row6_col1" class="data row6 col1" style="text-align: left;">0.353</td>
-<td id="T_fad13_row6_col2" class="data row6 col2" style="text-align: left;">3.770</td>
-<td id="T_fad13_row6_col3" class="data row6 col3" style="text-align: left;">3.277</td>
+<td id="T_80b77_row6_col0" class="data row6 col0" style="text-align: left;">XGBoost</td>
+<td id="T_80b77_row6_col1" class="data row6 col1" style="text-align: left;">0.353</td>
+<td id="T_80b77_row6_col2" class="data row6 col2" style="text-align: left;">3.770</td>
+<td id="T_80b77_row6_col3" class="data row6 col3" style="text-align: left;">3.277</td>
 </tr>
 </tbody>
 </table>
@@ -939,161 +871,161 @@ Differenced series: <span class="math inline">\(y_t - y_{t-1}, y_{t-1} - y_{t-2}
 </div>
 </div>
 <div class="quarto-layout-row">
-<div id="02f104dd" class="cell quarto-layout-cell" data-execution_count="13" style="flex-basis: 50.0%;justify-content: center;">
+<div id="a7c7e56e" class="cell quarto-layout-cell" data-execution_count="14" style="flex-basis: 50.0%;justify-content: center;">
 <div class="cell-output cell-output-display">
 <style type="text/css">
-#T_175be table {
+#T_7d37d table {
   width: 100%;
   border-collapse: collapse;
 }
-#T_175be th {
+#T_7d37d th {
   background-color: #20808D;
   text-align: left;
   color: #FBFAF4;
   font-size: 30px;
   min-width: 80px;
 }
-#T_175be td {
+#T_7d37d td {
   font-size: 25px;
   text-align: left;
 }
-#T_175be_row0_col1, #T_175be_row1_col1 {
+#T_7d37d_row0_col1, #T_7d37d_row1_col1 {
   font-weight: bold;
   background-color: None;
 }
 </style>
 
-<table id="T_175be" class="caption-top">
+<table id="T_7d37d" class="caption-top">
 <thead>
 <tr class="header">
-<th id="T_175be_level0_col0" class="col_heading level0 col0" style="text-align: left;" data-quarto-table-cell-role="th">ward_2</th>
-<th id="T_175be_level0_col1" class="col_heading level0 col1" style="text-align: left;" data-quarto-table-cell-role="th">SRMSE</th>
-<th id="T_175be_level0_col2" class="col_heading level0 col2" style="text-align: left;" data-quarto-table-cell-role="th">RMSE</th>
-<th id="T_175be_level0_col3" class="col_heading level0 col3" style="text-align: left;" data-quarto-table-cell-role="th">MAE</th>
+<th id="T_7d37d_level0_col0" class="col_heading level0 col0" style="text-align: left;" data-quarto-table-cell-role="th">ward_2</th>
+<th id="T_7d37d_level0_col1" class="col_heading level0 col1" style="text-align: left;" data-quarto-table-cell-role="th">SRMSE</th>
+<th id="T_7d37d_level0_col2" class="col_heading level0 col2" style="text-align: left;" data-quarto-table-cell-role="th">RMSE</th>
+<th id="T_7d37d_level0_col3" class="col_heading level0 col3" style="text-align: left;" data-quarto-table-cell-role="th">MAE</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_175be_row0_col0" class="data row0 col0" style="text-align: left;">HMM</td>
-<td id="T_175be_row0_col1" class="data row0 col1" style="text-align: left;">0.271</td>
-<td id="T_175be_row0_col2" class="data row0 col2" style="text-align: left;">2.843</td>
-<td id="T_175be_row0_col3" class="data row0 col3" style="text-align: left;">2.406</td>
+<td id="T_7d37d_row0_col0" class="data row0 col0" style="text-align: left;">HMM</td>
+<td id="T_7d37d_row0_col1" class="data row0 col1" style="text-align: left;">0.271</td>
+<td id="T_7d37d_row0_col2" class="data row0 col2" style="text-align: left;">2.843</td>
+<td id="T_7d37d_row0_col3" class="data row0 col3" style="text-align: left;">2.406</td>
 </tr>
 <tr class="even">
-<td id="T_175be_row1_col0" class="data row1 col0" style="text-align: left;">linearRegression</td>
-<td id="T_175be_row1_col1" class="data row1 col1" style="text-align: left;">0.273</td>
-<td id="T_175be_row1_col2" class="data row1 col2" style="text-align: left;">2.862</td>
-<td id="T_175be_row1_col3" class="data row1 col3" style="text-align: left;">2.426</td>
+<td id="T_7d37d_row1_col0" class="data row1 col0" style="text-align: left;">linearRegression</td>
+<td id="T_7d37d_row1_col1" class="data row1 col1" style="text-align: left;">0.273</td>
+<td id="T_7d37d_row1_col2" class="data row1 col2" style="text-align: left;">2.862</td>
+<td id="T_7d37d_row1_col3" class="data row1 col3" style="text-align: left;">2.426</td>
 </tr>
 <tr class="odd">
-<td id="T_175be_row2_col0" class="data row2 col0" style="text-align: left;">Lasso</td>
-<td id="T_175be_row2_col1" class="data row2 col1" style="text-align: left;">0.284</td>
-<td id="T_175be_row2_col2" class="data row2 col2" style="text-align: left;">2.975</td>
-<td id="T_175be_row2_col3" class="data row2 col3" style="text-align: left;">2.538</td>
+<td id="T_7d37d_row2_col0" class="data row2 col0" style="text-align: left;">Lasso</td>
+<td id="T_7d37d_row2_col1" class="data row2 col1" style="text-align: left;">0.284</td>
+<td id="T_7d37d_row2_col2" class="data row2 col2" style="text-align: left;">2.975</td>
+<td id="T_7d37d_row2_col3" class="data row2 col3" style="text-align: left;">2.538</td>
 </tr>
 <tr class="even">
-<td id="T_175be_row3_col0" class="data row3 col0" style="text-align: left;">LightGBM</td>
-<td id="T_175be_row3_col1" class="data row3 col1" style="text-align: left;">0.285</td>
-<td id="T_175be_row3_col2" class="data row3 col2" style="text-align: left;">2.983</td>
-<td id="T_175be_row3_col3" class="data row3 col3" style="text-align: left;">2.544</td>
+<td id="T_7d37d_row3_col0" class="data row3 col0" style="text-align: left;">LightGBM</td>
+<td id="T_7d37d_row3_col1" class="data row3 col1" style="text-align: left;">0.285</td>
+<td id="T_7d37d_row3_col2" class="data row3 col2" style="text-align: left;">2.983</td>
+<td id="T_7d37d_row3_col3" class="data row3 col3" style="text-align: left;">2.544</td>
 </tr>
 <tr class="odd">
-<td id="T_175be_row4_col0" class="data row4 col0" style="text-align: left;">XGBoost</td>
-<td id="T_175be_row4_col1" class="data row4 col1" style="text-align: left;">0.290</td>
-<td id="T_175be_row4_col2" class="data row4 col2" style="text-align: left;">3.036</td>
-<td id="T_175be_row4_col3" class="data row4 col3" style="text-align: left;">2.605</td>
+<td id="T_7d37d_row4_col0" class="data row4 col0" style="text-align: left;">XGBoost</td>
+<td id="T_7d37d_row4_col1" class="data row4 col1" style="text-align: left;">0.290</td>
+<td id="T_7d37d_row4_col2" class="data row4 col2" style="text-align: left;">3.036</td>
+<td id="T_7d37d_row4_col3" class="data row4 col3" style="text-align: left;">2.605</td>
 </tr>
 <tr class="even">
-<td id="T_175be_row5_col0" class="data row5 col0" style="text-align: left;">RandomForest</td>
-<td id="T_175be_row5_col1" class="data row5 col1" style="text-align: left;">0.300</td>
-<td id="T_175be_row5_col2" class="data row5 col2" style="text-align: left;">3.141</td>
-<td id="T_175be_row5_col3" class="data row5 col3" style="text-align: left;">2.723</td>
+<td id="T_7d37d_row5_col0" class="data row5 col0" style="text-align: left;">RandomForest</td>
+<td id="T_7d37d_row5_col1" class="data row5 col1" style="text-align: left;">0.300</td>
+<td id="T_7d37d_row5_col2" class="data row5 col2" style="text-align: left;">3.141</td>
+<td id="T_7d37d_row5_col3" class="data row5 col3" style="text-align: left;">2.723</td>
 </tr>
 <tr class="odd">
-<td id="T_175be_row6_col0" class="data row6 col0" style="text-align: left;">ets</td>
-<td id="T_175be_row6_col1" class="data row6 col1" style="text-align: left;">0.306</td>
-<td id="T_175be_row6_col2" class="data row6 col2" style="text-align: left;">3.210</td>
-<td id="T_175be_row6_col3" class="data row6 col3" style="text-align: left;">2.800</td>
+<td id="T_7d37d_row6_col0" class="data row6 col0" style="text-align: left;">ets</td>
+<td id="T_7d37d_row6_col1" class="data row6 col1" style="text-align: left;">0.306</td>
+<td id="T_7d37d_row6_col2" class="data row6 col2" style="text-align: left;">3.210</td>
+<td id="T_7d37d_row6_col3" class="data row6 col3" style="text-align: left;">2.800</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<div id="b2438f68" class="cell quarto-layout-cell" data-execution_count="14" style="flex-basis: 50.0%;justify-content: center;">
+<div id="086a8a45" class="cell quarto-layout-cell" data-execution_count="15" style="flex-basis: 50.0%;justify-content: center;">
 <div class="cell-output cell-output-display">
 <style type="text/css">
-#T_6b796 table {
+#T_47223 table {
   width: 100%;
   border-collapse: collapse;
 }
-#T_6b796 th {
+#T_47223 th {
   background-color: #20808D;
   text-align: left;
   color: #FBFAF4;
   font-size: 30px;
   min-width: 80px;
 }
-#T_6b796 td {
+#T_47223 td {
   font-size: 25px;
   text-align: left;
 }
-#T_6b796_row0_col1, #T_6b796_row1_col1, #T_6b796_row2_col1, #T_6b796_row3_col1, #T_6b796_row4_col1, #T_6b796_row5_col1 {
+#T_47223_row0_col1, #T_47223_row1_col1, #T_47223_row2_col1, #T_47223_row3_col1, #T_47223_row4_col1, #T_47223_row5_col1 {
   font-weight: bold;
   background-color: None;
 }
 </style>
 
-<table id="T_6b796" class="caption-top">
+<table id="T_47223" class="caption-top">
 <thead>
 <tr class="header">
-<th id="T_6b796_level0_col0" class="col_heading level0 col0" style="text-align: left;" data-quarto-table-cell-role="th">ward_3</th>
-<th id="T_6b796_level0_col1" class="col_heading level0 col1" style="text-align: left;" data-quarto-table-cell-role="th">SRMSE</th>
-<th id="T_6b796_level0_col2" class="col_heading level0 col2" style="text-align: left;" data-quarto-table-cell-role="th">RMSE</th>
-<th id="T_6b796_level0_col3" class="col_heading level0 col3" style="text-align: left;" data-quarto-table-cell-role="th">MAE</th>
+<th id="T_47223_level0_col0" class="col_heading level0 col0" style="text-align: left;" data-quarto-table-cell-role="th">ward_3</th>
+<th id="T_47223_level0_col1" class="col_heading level0 col1" style="text-align: left;" data-quarto-table-cell-role="th">SRMSE</th>
+<th id="T_47223_level0_col2" class="col_heading level0 col2" style="text-align: left;" data-quarto-table-cell-role="th">RMSE</th>
+<th id="T_47223_level0_col3" class="col_heading level0 col3" style="text-align: left;" data-quarto-table-cell-role="th">MAE</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_6b796_row0_col0" class="data row0 col0" style="text-align: left;">Lasso</td>
-<td id="T_6b796_row0_col1" class="data row0 col1" style="text-align: left;">0.228</td>
-<td id="T_6b796_row0_col2" class="data row0 col2" style="text-align: left;">1.992</td>
-<td id="T_6b796_row0_col3" class="data row0 col3" style="text-align: left;">1.664</td>
+<td id="T_47223_row0_col0" class="data row0 col0" style="text-align: left;">Lasso</td>
+<td id="T_47223_row0_col1" class="data row0 col1" style="text-align: left;">0.228</td>
+<td id="T_47223_row0_col2" class="data row0 col2" style="text-align: left;">1.992</td>
+<td id="T_47223_row0_col3" class="data row0 col3" style="text-align: left;">1.664</td>
 </tr>
 <tr class="even">
-<td id="T_6b796_row1_col0" class="data row1 col0" style="text-align: left;">LightGBM</td>
-<td id="T_6b796_row1_col1" class="data row1 col1" style="text-align: left;">0.230</td>
-<td id="T_6b796_row1_col2" class="data row1 col2" style="text-align: left;">2.009</td>
-<td id="T_6b796_row1_col3" class="data row1 col3" style="text-align: left;">1.700</td>
+<td id="T_47223_row1_col0" class="data row1 col0" style="text-align: left;">LightGBM</td>
+<td id="T_47223_row1_col1" class="data row1 col1" style="text-align: left;">0.230</td>
+<td id="T_47223_row1_col2" class="data row1 col2" style="text-align: left;">2.009</td>
+<td id="T_47223_row1_col3" class="data row1 col3" style="text-align: left;">1.700</td>
 </tr>
 <tr class="odd">
-<td id="T_6b796_row2_col0" class="data row2 col0" style="text-align: left;">linearRegression</td>
-<td id="T_6b796_row2_col1" class="data row2 col1" style="text-align: left;">0.234</td>
-<td id="T_6b796_row2_col2" class="data row2 col2" style="text-align: left;">2.044</td>
-<td id="T_6b796_row2_col3" class="data row2 col3" style="text-align: left;">1.724</td>
+<td id="T_47223_row2_col0" class="data row2 col0" style="text-align: left;">linearRegression</td>
+<td id="T_47223_row2_col1" class="data row2 col1" style="text-align: left;">0.234</td>
+<td id="T_47223_row2_col2" class="data row2 col2" style="text-align: left;">2.044</td>
+<td id="T_47223_row2_col3" class="data row2 col3" style="text-align: left;">1.724</td>
 </tr>
 <tr class="even">
-<td id="T_6b796_row3_col0" class="data row3 col0" style="text-align: left;">RandomForest</td>
-<td id="T_6b796_row3_col1" class="data row3 col1" style="text-align: left;">0.235</td>
-<td id="T_6b796_row3_col2" class="data row3 col2" style="text-align: left;">2.058</td>
-<td id="T_6b796_row3_col3" class="data row3 col3" style="text-align: left;">1.730</td>
+<td id="T_47223_row3_col0" class="data row3 col0" style="text-align: left;">RandomForest</td>
+<td id="T_47223_row3_col1" class="data row3 col1" style="text-align: left;">0.235</td>
+<td id="T_47223_row3_col2" class="data row3 col2" style="text-align: left;">2.058</td>
+<td id="T_47223_row3_col3" class="data row3 col3" style="text-align: left;">1.730</td>
 </tr>
 <tr class="odd">
-<td id="T_6b796_row4_col0" class="data row4 col0" style="text-align: left;">HMM</td>
-<td id="T_6b796_row4_col1" class="data row4 col1" style="text-align: left;">0.238</td>
-<td id="T_6b796_row4_col2" class="data row4 col2" style="text-align: left;">2.078</td>
-<td id="T_6b796_row4_col3" class="data row4 col3" style="text-align: left;">1.749</td>
+<td id="T_47223_row4_col0" class="data row4 col0" style="text-align: left;">HMM</td>
+<td id="T_47223_row4_col1" class="data row4 col1" style="text-align: left;">0.238</td>
+<td id="T_47223_row4_col2" class="data row4 col2" style="text-align: left;">2.078</td>
+<td id="T_47223_row4_col3" class="data row4 col3" style="text-align: left;">1.749</td>
 </tr>
 <tr class="even">
-<td id="T_6b796_row5_col0" class="data row5 col0" style="text-align: left;">XGBoost</td>
-<td id="T_6b796_row5_col1" class="data row5 col1" style="text-align: left;">0.240</td>
-<td id="T_6b796_row5_col2" class="data row5 col2" style="text-align: left;">2.098</td>
-<td id="T_6b796_row5_col3" class="data row5 col3" style="text-align: left;">1.776</td>
+<td id="T_47223_row5_col0" class="data row5 col0" style="text-align: left;">XGBoost</td>
+<td id="T_47223_row5_col1" class="data row5 col1" style="text-align: left;">0.240</td>
+<td id="T_47223_row5_col2" class="data row5 col2" style="text-align: left;">2.098</td>
+<td id="T_47223_row5_col3" class="data row5 col3" style="text-align: left;">1.776</td>
 </tr>
 <tr class="odd">
-<td id="T_6b796_row6_col0" class="data row6 col0" style="text-align: left;">ets</td>
-<td id="T_6b796_row6_col1" class="data row6 col1" style="text-align: left;">0.283</td>
-<td id="T_6b796_row6_col2" class="data row6 col2" style="text-align: left;">2.475</td>
-<td id="T_6b796_row6_col3" class="data row6 col3" style="text-align: left;">2.133</td>
+<td id="T_47223_row6_col0" class="data row6 col0" style="text-align: left;">ets</td>
+<td id="T_47223_row6_col1" class="data row6 col1" style="text-align: left;">0.283</td>
+<td id="T_47223_row6_col2" class="data row6 col2" style="text-align: left;">2.475</td>
+<td id="T_47223_row6_col3" class="data row6 col3" style="text-align: left;">2.133</td>
 </tr>
 </tbody>
 </table>
@@ -1101,153 +1033,153 @@ Differenced series: <span class="math inline">\(y_t - y_{t-1}, y_{t-1} - y_{t-2}
 </div>
 </div>
 <div class="quarto-layout-row">
-<div id="76dceecd" class="cell quarto-layout-cell" data-execution_count="15" style="flex-basis: 50.0%;justify-content: center;">
+<div id="7633e49b" class="cell quarto-layout-cell" data-execution_count="16" style="flex-basis: 50.0%;justify-content: center;">
 <div class="cell-output cell-output-display">
 <style type="text/css">
-#T_96fd5 table {
+#T_54a98 table {
   width: 100%;
   border-collapse: collapse;
 }
-#T_96fd5 th {
+#T_54a98 th {
   background-color: #20808D;
   text-align: left;
   color: #FBFAF4;
   font-size: 30px;
   min-width: 80px;
 }
-#T_96fd5 td {
+#T_54a98 td {
   font-size: 25px;
   text-align: left;
 }
 </style>
 
-<table id="T_96fd5" class="caption-top">
+<table id="T_54a98" class="caption-top">
 <thead>
 <tr class="header">
-<th id="T_96fd5_level0_col0" class="col_heading level0 col0" style="text-align: left;" data-quarto-table-cell-role="th">ward_4</th>
-<th id="T_96fd5_level0_col1" class="col_heading level0 col1" style="text-align: left;" data-quarto-table-cell-role="th">SRMSE</th>
-<th id="T_96fd5_level0_col2" class="col_heading level0 col2" style="text-align: left;" data-quarto-table-cell-role="th">RMSE</th>
-<th id="T_96fd5_level0_col3" class="col_heading level0 col3" style="text-align: left;" data-quarto-table-cell-role="th">MAE</th>
+<th id="T_54a98_level0_col0" class="col_heading level0 col0" style="text-align: left;" data-quarto-table-cell-role="th">ward_4</th>
+<th id="T_54a98_level0_col1" class="col_heading level0 col1" style="text-align: left;" data-quarto-table-cell-role="th">SRMSE</th>
+<th id="T_54a98_level0_col2" class="col_heading level0 col2" style="text-align: left;" data-quarto-table-cell-role="th">RMSE</th>
+<th id="T_54a98_level0_col3" class="col_heading level0 col3" style="text-align: left;" data-quarto-table-cell-role="th">MAE</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_96fd5_row0_col0" class="data row0 col0" style="text-align: left;">Lasso</td>
-<td id="T_96fd5_row0_col1" class="data row0 col1" style="text-align: left;">0.293</td>
-<td id="T_96fd5_row0_col2" class="data row0 col2" style="text-align: left;">2.320</td>
-<td id="T_96fd5_row0_col3" class="data row0 col3" style="text-align: left;">1.999</td>
+<td id="T_54a98_row0_col0" class="data row0 col0" style="text-align: left;">Lasso</td>
+<td id="T_54a98_row0_col1" class="data row0 col1" style="text-align: left;">0.293</td>
+<td id="T_54a98_row0_col2" class="data row0 col2" style="text-align: left;">2.320</td>
+<td id="T_54a98_row0_col3" class="data row0 col3" style="text-align: left;">1.999</td>
 </tr>
 <tr class="even">
-<td id="T_96fd5_row1_col0" class="data row1 col0" style="text-align: left;">linearRegression</td>
-<td id="T_96fd5_row1_col1" class="data row1 col1" style="text-align: left;">0.312</td>
-<td id="T_96fd5_row1_col2" class="data row1 col2" style="text-align: left;">2.470</td>
-<td id="T_96fd5_row1_col3" class="data row1 col3" style="text-align: left;">2.135</td>
+<td id="T_54a98_row1_col0" class="data row1 col0" style="text-align: left;">linearRegression</td>
+<td id="T_54a98_row1_col1" class="data row1 col1" style="text-align: left;">0.312</td>
+<td id="T_54a98_row1_col2" class="data row1 col2" style="text-align: left;">2.470</td>
+<td id="T_54a98_row1_col3" class="data row1 col3" style="text-align: left;">2.135</td>
 </tr>
 <tr class="odd">
-<td id="T_96fd5_row2_col0" class="data row2 col0" style="text-align: left;">HMM</td>
-<td id="T_96fd5_row2_col1" class="data row2 col1" style="text-align: left;">0.320</td>
-<td id="T_96fd5_row2_col2" class="data row2 col2" style="text-align: left;">2.532</td>
-<td id="T_96fd5_row2_col3" class="data row2 col3" style="text-align: left;">2.211</td>
+<td id="T_54a98_row2_col0" class="data row2 col0" style="text-align: left;">HMM</td>
+<td id="T_54a98_row2_col1" class="data row2 col1" style="text-align: left;">0.320</td>
+<td id="T_54a98_row2_col2" class="data row2 col2" style="text-align: left;">2.532</td>
+<td id="T_54a98_row2_col3" class="data row2 col3" style="text-align: left;">2.211</td>
 </tr>
 <tr class="even">
-<td id="T_96fd5_row3_col0" class="data row3 col0" style="text-align: left;">ets</td>
-<td id="T_96fd5_row3_col1" class="data row3 col1" style="text-align: left;">0.328</td>
-<td id="T_96fd5_row3_col2" class="data row3 col2" style="text-align: left;">2.592</td>
-<td id="T_96fd5_row3_col3" class="data row3 col3" style="text-align: left;">2.244</td>
+<td id="T_54a98_row3_col0" class="data row3 col0" style="text-align: left;">ets</td>
+<td id="T_54a98_row3_col1" class="data row3 col1" style="text-align: left;">0.328</td>
+<td id="T_54a98_row3_col2" class="data row3 col2" style="text-align: left;">2.592</td>
+<td id="T_54a98_row3_col3" class="data row3 col3" style="text-align: left;">2.244</td>
 </tr>
 <tr class="odd">
-<td id="T_96fd5_row4_col0" class="data row4 col0" style="text-align: left;">XGBoost</td>
-<td id="T_96fd5_row4_col1" class="data row4 col1" style="text-align: left;">0.336</td>
-<td id="T_96fd5_row4_col2" class="data row4 col2" style="text-align: left;">2.660</td>
-<td id="T_96fd5_row4_col3" class="data row4 col3" style="text-align: left;">2.314</td>
+<td id="T_54a98_row4_col0" class="data row4 col0" style="text-align: left;">XGBoost</td>
+<td id="T_54a98_row4_col1" class="data row4 col1" style="text-align: left;">0.336</td>
+<td id="T_54a98_row4_col2" class="data row4 col2" style="text-align: left;">2.660</td>
+<td id="T_54a98_row4_col3" class="data row4 col3" style="text-align: left;">2.314</td>
 </tr>
 <tr class="even">
-<td id="T_96fd5_row5_col0" class="data row5 col0" style="text-align: left;">RandomForest</td>
-<td id="T_96fd5_row5_col1" class="data row5 col1" style="text-align: left;">0.357</td>
-<td id="T_96fd5_row5_col2" class="data row5 col2" style="text-align: left;">2.825</td>
-<td id="T_96fd5_row5_col3" class="data row5 col3" style="text-align: left;">2.486</td>
+<td id="T_54a98_row5_col0" class="data row5 col0" style="text-align: left;">RandomForest</td>
+<td id="T_54a98_row5_col1" class="data row5 col1" style="text-align: left;">0.357</td>
+<td id="T_54a98_row5_col2" class="data row5 col2" style="text-align: left;">2.825</td>
+<td id="T_54a98_row5_col3" class="data row5 col3" style="text-align: left;">2.486</td>
 </tr>
 <tr class="odd">
-<td id="T_96fd5_row6_col0" class="data row6 col0" style="text-align: left;">LightGBM</td>
-<td id="T_96fd5_row6_col1" class="data row6 col1" style="text-align: left;">0.423</td>
-<td id="T_96fd5_row6_col2" class="data row6 col2" style="text-align: left;">3.344</td>
-<td id="T_96fd5_row6_col3" class="data row6 col3" style="text-align: left;">2.946</td>
+<td id="T_54a98_row6_col0" class="data row6 col0" style="text-align: left;">LightGBM</td>
+<td id="T_54a98_row6_col1" class="data row6 col1" style="text-align: left;">0.423</td>
+<td id="T_54a98_row6_col2" class="data row6 col2" style="text-align: left;">3.344</td>
+<td id="T_54a98_row6_col3" class="data row6 col3" style="text-align: left;">2.946</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<div id="3267fdc3" class="cell quarto-layout-cell" data-execution_count="16" style="flex-basis: 50.0%;justify-content: center;">
+<div id="87e32d64" class="cell quarto-layout-cell" data-execution_count="17" style="flex-basis: 50.0%;justify-content: center;">
 <div class="cell-output cell-output-display">
 <style type="text/css">
-#T_0bbf5 table {
+#T_ecbbd table {
   width: 100%;
   border-collapse: collapse;
 }
-#T_0bbf5 th {
+#T_ecbbd th {
   background-color: #20808D;
   text-align: left;
   color: #FBFAF4;
   font-size: 30px;
   min-width: 80px;
 }
-#T_0bbf5 td {
+#T_ecbbd td {
   font-size: 25px;
   text-align: left;
 }
 </style>
 
-<table id="T_0bbf5" class="caption-top">
+<table id="T_ecbbd" class="caption-top">
 <thead>
 <tr class="header">
-<th id="T_0bbf5_level0_col0" class="col_heading level0 col0" style="text-align: left;" data-quarto-table-cell-role="th">ward_5</th>
-<th id="T_0bbf5_level0_col1" class="col_heading level0 col1" style="text-align: left;" data-quarto-table-cell-role="th">SRMSE</th>
-<th id="T_0bbf5_level0_col2" class="col_heading level0 col2" style="text-align: left;" data-quarto-table-cell-role="th">RMSE</th>
-<th id="T_0bbf5_level0_col3" class="col_heading level0 col3" style="text-align: left;" data-quarto-table-cell-role="th">MAE</th>
+<th id="T_ecbbd_level0_col0" class="col_heading level0 col0" style="text-align: left;" data-quarto-table-cell-role="th">ward_5</th>
+<th id="T_ecbbd_level0_col1" class="col_heading level0 col1" style="text-align: left;" data-quarto-table-cell-role="th">SRMSE</th>
+<th id="T_ecbbd_level0_col2" class="col_heading level0 col2" style="text-align: left;" data-quarto-table-cell-role="th">RMSE</th>
+<th id="T_ecbbd_level0_col3" class="col_heading level0 col3" style="text-align: left;" data-quarto-table-cell-role="th">MAE</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_0bbf5_row0_col0" class="data row0 col0" style="text-align: left;">HMM</td>
-<td id="T_0bbf5_row0_col1" class="data row0 col1" style="text-align: left;">0.331</td>
-<td id="T_0bbf5_row0_col2" class="data row0 col2" style="text-align: left;">2.500</td>
-<td id="T_0bbf5_row0_col3" class="data row0 col3" style="text-align: left;">2.122</td>
+<td id="T_ecbbd_row0_col0" class="data row0 col0" style="text-align: left;">HMM</td>
+<td id="T_ecbbd_row0_col1" class="data row0 col1" style="text-align: left;">0.331</td>
+<td id="T_ecbbd_row0_col2" class="data row0 col2" style="text-align: left;">2.500</td>
+<td id="T_ecbbd_row0_col3" class="data row0 col3" style="text-align: left;">2.122</td>
 </tr>
 <tr class="even">
-<td id="T_0bbf5_row1_col0" class="data row1 col0" style="text-align: left;">RandomForest</td>
-<td id="T_0bbf5_row1_col1" class="data row1 col1" style="text-align: left;">0.331</td>
-<td id="T_0bbf5_row1_col2" class="data row1 col2" style="text-align: left;">2.503</td>
-<td id="T_0bbf5_row1_col3" class="data row1 col3" style="text-align: left;">2.129</td>
+<td id="T_ecbbd_row1_col0" class="data row1 col0" style="text-align: left;">RandomForest</td>
+<td id="T_ecbbd_row1_col1" class="data row1 col1" style="text-align: left;">0.331</td>
+<td id="T_ecbbd_row1_col2" class="data row1 col2" style="text-align: left;">2.503</td>
+<td id="T_ecbbd_row1_col3" class="data row1 col3" style="text-align: left;">2.129</td>
 </tr>
 <tr class="odd">
-<td id="T_0bbf5_row2_col0" class="data row2 col0" style="text-align: left;">LightGBM</td>
-<td id="T_0bbf5_row2_col1" class="data row2 col1" style="text-align: left;">0.332</td>
-<td id="T_0bbf5_row2_col2" class="data row2 col2" style="text-align: left;">2.511</td>
-<td id="T_0bbf5_row2_col3" class="data row2 col3" style="text-align: left;">2.143</td>
+<td id="T_ecbbd_row2_col0" class="data row2 col0" style="text-align: left;">LightGBM</td>
+<td id="T_ecbbd_row2_col1" class="data row2 col1" style="text-align: left;">0.332</td>
+<td id="T_ecbbd_row2_col2" class="data row2 col2" style="text-align: left;">2.511</td>
+<td id="T_ecbbd_row2_col3" class="data row2 col3" style="text-align: left;">2.143</td>
 </tr>
 <tr class="even">
-<td id="T_0bbf5_row3_col0" class="data row3 col0" style="text-align: left;">XGBoost</td>
-<td id="T_0bbf5_row3_col1" class="data row3 col1" style="text-align: left;">0.332</td>
-<td id="T_0bbf5_row3_col2" class="data row3 col2" style="text-align: left;">2.512</td>
-<td id="T_0bbf5_row3_col3" class="data row3 col3" style="text-align: left;">2.144</td>
+<td id="T_ecbbd_row3_col0" class="data row3 col0" style="text-align: left;">XGBoost</td>
+<td id="T_ecbbd_row3_col1" class="data row3 col1" style="text-align: left;">0.332</td>
+<td id="T_ecbbd_row3_col2" class="data row3 col2" style="text-align: left;">2.512</td>
+<td id="T_ecbbd_row3_col3" class="data row3 col3" style="text-align: left;">2.144</td>
 </tr>
 <tr class="odd">
-<td id="T_0bbf5_row4_col0" class="data row4 col0" style="text-align: left;">Lasso</td>
-<td id="T_0bbf5_row4_col1" class="data row4 col1" style="text-align: left;">0.333</td>
-<td id="T_0bbf5_row4_col2" class="data row4 col2" style="text-align: left;">2.517</td>
-<td id="T_0bbf5_row4_col3" class="data row4 col3" style="text-align: left;">2.144</td>
+<td id="T_ecbbd_row4_col0" class="data row4 col0" style="text-align: left;">Lasso</td>
+<td id="T_ecbbd_row4_col1" class="data row4 col1" style="text-align: left;">0.333</td>
+<td id="T_ecbbd_row4_col2" class="data row4 col2" style="text-align: left;">2.517</td>
+<td id="T_ecbbd_row4_col3" class="data row4 col3" style="text-align: left;">2.144</td>
 </tr>
 <tr class="even">
-<td id="T_0bbf5_row5_col0" class="data row5 col0" style="text-align: left;">linearRegression</td>
-<td id="T_0bbf5_row5_col1" class="data row5 col1" style="text-align: left;">0.335</td>
-<td id="T_0bbf5_row5_col2" class="data row5 col2" style="text-align: left;">2.532</td>
-<td id="T_0bbf5_row5_col3" class="data row5 col3" style="text-align: left;">2.156</td>
+<td id="T_ecbbd_row5_col0" class="data row5 col0" style="text-align: left;">linearRegression</td>
+<td id="T_ecbbd_row5_col1" class="data row5 col1" style="text-align: left;">0.335</td>
+<td id="T_ecbbd_row5_col2" class="data row5 col2" style="text-align: left;">2.532</td>
+<td id="T_ecbbd_row5_col3" class="data row5 col3" style="text-align: left;">2.156</td>
 </tr>
 <tr class="odd">
-<td id="T_0bbf5_row6_col0" class="data row6 col0" style="text-align: left;">ets</td>
-<td id="T_0bbf5_row6_col1" class="data row6 col1" style="text-align: left;">0.344</td>
-<td id="T_0bbf5_row6_col2" class="data row6 col2" style="text-align: left;">2.603</td>
-<td id="T_0bbf5_row6_col3" class="data row6 col3" style="text-align: left;">2.235</td>
+<td id="T_ecbbd_row6_col0" class="data row6 col0" style="text-align: left;">ets</td>
+<td id="T_ecbbd_row6_col1" class="data row6 col1" style="text-align: left;">0.344</td>
+<td id="T_ecbbd_row6_col2" class="data row6 col2" style="text-align: left;">2.603</td>
+<td id="T_ecbbd_row6_col3" class="data row6 col3" style="text-align: left;">2.235</td>
 </tr>
 </tbody>
 </table>
@@ -1258,19 +1190,7 @@ Differenced series: <span class="math inline">\(y_t - y_{t-1}, y_{t-1} - y_{t-2}
 </section>
 <section id="forecast-distributions-quantile-scores" class="slide level2">
 <h2>Forecast Distributions (Quantile scores)</h2>
-<div id="4ae98329" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="17">
-<div class="cell-output cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="slides_files/figure-revealjs/cell-18-output-1.png" class="quarto-figure quarto-figure-center" width="1439" height="807"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="forecast-distributions-quantile-scores-1" class="slide level2">
-<h2>Forecast Distributions (Quantile scores)</h2>
-<div id="f1130043" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="18">
+<div id="ca6a84f9" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="18">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1280,9 +1200,9 @@ Differenced series: <span class="math inline">\(y_t - y_{t-1}, y_{t-1} - y_{t-2}
 </div>
 </div>
 </section>
-<section id="forecast-distributions-quantile-scores-for-45-to-85" class="slide level2">
-<h2>Forecast distributions (Quantile scores for 45% to 85%)</h2>
-<div id="82d94138" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="19">
+<section id="forecast-distributions-quantile-scores-1" class="slide level2">
+<h2>Forecast Distributions (Quantile scores)</h2>
+<div id="4b942d77" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="19">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1292,13 +1212,13 @@ Differenced series: <span class="math inline">\(y_t - y_{t-1}, y_{t-1} - y_{t-2}
 </div>
 </div>
 </section>
-<section id="forecast-distributions-by-each-horizon" class="slide level2">
-<h2>Forecast distributions by each horizon</h2>
-<div id="06924091" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="20">
+<section id="forecast-distributions-quantile-scores-for-45-to-85" class="slide level2">
+<h2>Forecast distributions (Quantile scores for 45% to 85%)</h2>
+<div id="7eb81418" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="20">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="slides_files/figure-revealjs/cell-21-output-1.png" class="quarto-figure quarto-figure-center" width="1730" height="916"></p>
+<p><img data-src="slides_files/figure-revealjs/cell-21-output-1.png" class="quarto-figure quarto-figure-center" width="1439" height="807"></p>
 </figure>
 </div>
 </div>
@@ -1308,7 +1228,7 @@ Differenced series: <span class="math inline">\(y_t - y_{t-1}, y_{t-1} - y_{t-2}
 <h2>Model Explainability</h2>
 <div class="columns">
 <div class="column" style="width:70%;">
-<div id="bdf28f05" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="21">
+<div id="25404271" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="21">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1318,8 +1238,8 @@ Differenced series: <span class="math inline">\(y_t - y_{t-1}, y_{t-1} - y_{t-2}
 </div>
 </div>
 </div><div class="column" style="width:30%;">
-<h3 id="transition-probabilities-1">Transition probabilities</h3>
-<div id="10ced55a" class="cell" data-execution_count="22">
+<h3 id="transition-probabilities">Transition probabilities</h3>
+<div id="f401f3f3" class="cell" data-execution_count="22">
 <div class="cell-output cell-output-display" data-execution_count="22">
 <div>
 <style scoped="">
@@ -1363,7 +1283,7 @@ Differenced series: <span class="math inline">\(y_t - y_{t-1}, y_{t-1} - y_{t-2}
 </div>
 <p><br> <br></p>
 <h3 id="standard-deviations">Standard Deviations</h3>
-<div id="31fc3583" class="cell" data-execution_count="23">
+<div id="13c8d029" class="cell" data-execution_count="23">
 <div class="cell-output cell-output-display" data-execution_count="23">
 <div>
 <style scoped="">
@@ -1401,9 +1321,6 @@ Differenced series: <span class="math inline">\(y_t - y_{t-1}, y_{t-1} - y_{t-2}
 </div>
 </div>
 </div></div>
-</section>
-<section class="slide level2">
-
 </section></section>
 <section>
 <section id="key-findings" class="title-slide slide level1 center">
@@ -1417,17 +1334,13 @@ Differenced series: <span class="math inline">\(y_t - y_{t-1}, y_{t-1} - y_{t-2}
 <li><p>The model is more reliable for probabilistic forecasting since it accounts for regime changes and provides a distribution of possible future values, making it suitable for decision-making in hospital resource management.</p></li>
 <li><p>The model performs consistently well interms of <code>probabilistic forecasting</code> since the model is probabilistic in nature and captures regime changes.</p></li>
 </ul>
+</section></section>
+<section>
+<section id="next-steps" class="title-slide slide level1 center">
+<h1>Next steps</h1>
+
 </section>
-<section id="why-ar-rhmm" class="slide level2">
-<h2>Why AR-RHMM?</h2>
-<ul>
-<li>Captures regime changes in occupancy patterns (patterns of variability in hospital occupancy levels)</li>
-<li>Models complex dependencies and non-linear relationships without less risk of overfitting and less need for extensive hyperparameter tuning</li>
-<li>Produces interpretable results through regime-specific parameters</li>
-<li>Provides reliable forecasts incorporating uncertainty coming from regime changes</li>
-</ul>
-</section>
-<section id="next-steps" class="slide level2">
+<section id="next-steps-1" class="slide level2">
 <h2>Next steps</h2>
 <ul>
 <li><p>Extend the AR-HMM to a multivariate framework (VAR-HMM) to jointly model multiple wards, capturing interdependencies and shared patterns in bed occupancy across different wards.</p></li>

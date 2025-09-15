@@ -1005,21 +1005,28 @@
     "href": "talks/wgsss/slides.html#outline",
     "title": "MUSTAFA ASLAN",
     "section": "Outline",
-    "text": "Outline\n\nThe Problem\nWhy is this important?\nQuestions to address\nData\nModeling framework\nExperimental design\nKey findings\nNext Steps"
+    "text": "Outline\n\nThe problem\nData and preliminary analysis\nExperiment design and Modelling framework\nKey findings\nNext steps"
   },
   {
     "objectID": "talks/wgsss/slides.html#current-systemic-issues-in-patient-flow",
     "href": "talks/wgsss/slides.html#current-systemic-issues-in-patient-flow",
     "title": "MUSTAFA ASLAN",
     "section": "Current Systemic Issues in Patient Flow",
-    "text": "Current Systemic Issues in Patient Flow\n\n\n\n\n\nUnexpected surges lead to overcrowding, delayed admissions, and compromised patient care quality\nInefficient bed management results in prolonged patient stays and increased healthcare costs\nHigh variability in patient flow complicates resource allocation\nUnexpected occupancy spikes lead to staff burnout and reduced morale\nPatients waiting 12+ hours for mental health beds due to poor coordination"
+    "text": "Current Systemic Issues in Patient Flow\n\n\n\n\n\nUnpredictable occupancy levels can result in redundant staffing and resource allocation, driving up costs, or in understaffing, which compromises patient care.\n\n\n\nSpikes in occupancy level drive overtime, sickness, and staff burnout.\n\n\n\nLack of analytical solutions that can capture the complexity and uncertainty of patient flow and bed availability limits proactive decision-making."
   },
   {
-    "objectID": "talks/wgsss/slides.html#the-critical-impact-of-hospital-bed-management",
-    "href": "talks/wgsss/slides.html#the-critical-impact-of-hospital-bed-management",
+    "objectID": "talks/wgsss/slides.html#why-is-it-important",
+    "href": "talks/wgsss/slides.html#why-is-it-important",
     "title": "MUSTAFA ASLAN",
-    "section": "The Critical Impact of Hospital Bed Management",
-    "text": "The Critical Impact of Hospital Bed Management\n\nPatient Care: Overcrowding and delays can compromise patient care quality and safety.\nResource Optimization: Efficient bed management can reduce costs and improve hospital operations.\nStaff Well-being: Reducing unexpected workload can help prevent staff burnout and improve morale.\nSystem Efficiency: Better coordination can reduce wait times and improve overall healthcare delivery."
+    "section": "Why is it important?",
+    "text": "Why is it important?\n\n\nWhy is an efficient bed management system crucial?\n\nHospital beds are one of most costly healthcare resources.\n\nNHS rates for acute mental health beds are generally between £760 and £850 per day in 2025\n\nBed shortages force some patients to wait in corridors, impacting care quality and safety.\nBed shortages increase staff pressure, burnout, and operational costs.\n\n\n\nWhy a reliable forecasting approach is needed?\n\nMental health demand is volatile and influenced by unpredictable crisis, by seasonality, epidemics, and unforeseen events.\nA reliable forecasting approach enables timely staffing, resource allocation, and improved patient care.\nAnticipating demand allows decision-makers to balance scarce resources while improving patient flow and safety.\nRobust forecasts enhance resilience to unexpected surges and reduce staff burnout."
+  },
+  {
+    "objectID": "talks/wgsss/slides.html#what-do-we-forecast",
+    "href": "talks/wgsss/slides.html#what-do-we-forecast",
+    "title": "MUSTAFA ASLAN",
+    "section": "What do we forecast?",
+    "text": "What do we forecast?\n\nDaily hospital bed occupancy for 7 wards in a UK hospital.\nForecast horizon: 30 days ahead, supporting medium-term planning for bed allocation and staffing, generated at the end of each month for the following month.\nFocus on probabilistic forecasting to capture uncertainty, offering prediction intervals rather than single-point estimates using a reliable model."
   },
   {
     "objectID": "talks/wgsss/slides.html#key-research-questions",
@@ -1064,76 +1071,6 @@
     "text": "Effect of holidays"
   },
   {
-    "objectID": "talks/wgsss/slides.html#autoregressive-regression-markov-switching-hidden-markov-model-ar-mshmm",
-    "href": "talks/wgsss/slides.html#autoregressive-regression-markov-switching-hidden-markov-model-ar-mshmm",
-    "title": "MUSTAFA ASLAN",
-    "section": "Autoregressive Regression Markov Switching Hidden Markov Model (AR-MSHMM)",
-    "text": "Autoregressive Regression Markov Switching Hidden Markov Model (AR-MSHMM)\nLet \\(y_t\\) be the observed value at time \\(t\\), modeled as a function of its \\(p\\) lagged values, the regime-specific parameters associated with the hidden state \\(s_t\\), and exogenous variables \\(\\mathbf{X}_t = (X_{t1}, \\ldots, X_{tM})\\).\nThe AR-MSHMM can be expressed as follows:\n\\[\ny_t^{(s)} = \\beta_{0}^{(s)} + \\sum_{i=1}^{p} \\beta_{i}^{(s)} \\, y_{t-i} + \\sum_{j=1}^{M} \\beta_{p+j}^{(s)} \\, X_{tj} + \\epsilon_t^{(s)},\n\\]\nwhere:\n\n\\(\\beta_{i}^{(s)}\\) are the coefficients for the lagged values for regime \\(s\\),\n\\(\\beta_{p+j}^{(s)}\\) are the coefficients for the exogenous variables for regime \\(s\\),\n\\(M\\) is the number of exogenous variables,\n\\(\\epsilon_t^{(s)}\\) is the error term for regime \\(s\\).\n\nThe Markov property: \\[\nP(s_t = k \\mid s_{1:t-1}) = P(s_t = k \\mid s_{t-1}), \\quad \\forall t \\geq 2.\n\\]\nA HMM has the following components:\n\n\\(S\\): The set of regimes, \\(\\mathbb{S} = \\{S_1, S_2, \\ldots, S_K\\}\\).\n\\(P\\): The transition probability matrix\n\\(p_{ij} = P(s_t = S_j \\mid s_{t-1} = S_i)\\) is the probability of transitioning from regime \\(S_i\\) to regime \\(S_j\\), s.t. \\(\\sum_{j=1}^{K} p_{ij} = 1\\).\n\nTransition matrix \\(P\\) is defined as:\n\\[\nP = \\begin{pmatrix}\np_{11} & \\cdots & p_{1K} \\\\\n\\vdots & \\ddots & \\vdots \\\\\np_{K1} & \\cdots & p_{KK}\n\\end{pmatrix}\n\\]"
-  },
-  {
-    "objectID": "talks/wgsss/slides.html#modeling-framework-1",
-    "href": "talks/wgsss/slides.html#modeling-framework-1",
-    "title": "MUSTAFA ASLAN",
-    "section": "Modeling Framework",
-    "text": "Modeling Framework\n\nParameter Estimation of AR-MSHMM\nThe model parameters \\(\\Theta = \\{\\beta^{(s)}, \\sigma^{2(s)}, P, \\pi\\}\\) are estimated using the Expectation-Maximization (EM) algorithm.\n\nThe Expectation-Maximization (EM) algorithm is utilized to estimate the parameters,\\(\\Theta = \\{\\beta^{(s)}, \\sigma^{2(s)}, P, \\pi\\}\\).\nThe Baum-Welch algorithm is used to update the parameters to maximize the likelihood of the observed data.\n\n\nEM Algorithm Framework\nThe EM algorithm consists of two main steps that are iterated until convergence:\n\nE-step (Expectation): Calculate the expected value of the complete-data likelihood given the current parameter estimates\nM-step (Maximization): Update parameter estimates by maximizing the expected log-likelihood computed in the E-step"
-  },
-  {
-    "objectID": "talks/wgsss/slides.html#modeling-framework-2",
-    "href": "talks/wgsss/slides.html#modeling-framework-2",
-    "title": "MUSTAFA ASLAN",
-    "section": "Modeling Framework",
-    "text": "Modeling Framework\nE-step: State Probability Computation\nThe probability of being in regime \\(S_i\\) at time \\(t\\), given the observed data and current parameter estimates, is computed as:\n\\[\n\\gamma_t(i) = P(s_t = S_i \\mid y_{1:T}, \\Theta^{(k)}) = \\frac{\\alpha_t(i) b_t(i)}{\\sum_{j=1}^{K} \\alpha_t(j) b_t(j)}\n\\]\nwhere:\n\n\\(\\Theta^{(k)}\\) represents the parameter estimates at iteration \\(k\\)\n\\(\\alpha_t(i)\\) and \\(b_t(i)\\) are the forward and backward variables, respectively\n\nAdditionally, we compute the probability of transitioning from state \\(S_i\\) at time \\(t\\) to state \\(S_j\\) at time \\(t+1\\):\n\\[\n\\xi_t(i,j) = P(s_t = S_i, s_{t+1} = S_j \\mid y_{1:T}, \\Theta^{(k)}) = \\frac{\\alpha_t(i) p_{ij} b_j(y_{t+1}) \\beta_{t+1}(j)}{\\sum_{i=1}^{K} \\sum_{j=1}^{K} \\alpha_t(i) p_{ij} b_j(y_{t+1}) \\beta_{t+1}(j)}\n\\tag{1}\\]"
-  },
-  {
-    "objectID": "talks/wgsss/slides.html#modeling-framework-3",
-    "href": "talks/wgsss/slides.html#modeling-framework-3",
-    "title": "MUSTAFA ASLAN",
-    "section": "Modeling Framework",
-    "text": "Modeling Framework\n\n\n\n\n\n\nForward and Backward Variables\n\n\nForward Variable \\(\\alpha_t(i)\\): The joint probability of observing the sequence \\(y_{1:t}\\) and being in state \\(S_i\\) at time \\(t\\):\nRecursive computation for Forward variable: \\[\n\\alpha_t(i) = P(y_{1:t}, s_t = S_i \\mid \\Theta) = \\left[\\sum_{j=1}^{K} \\alpha_{t-1}(j) p_{ji}\\right] o_i(y_t)\n\\tag{2}\\]\nwith initialization: \\(\\alpha_1(i) = \\pi_i o_i(y_1)\\)\nBackward Variable \\(b_t(i)\\): The conditional probability of observing the future sequence \\(y_{t+1:T}\\) given that the system is in state \\(S_i\\) at time \\(t\\):\nRecursive computation for Backward variable: \\[\nb_t(i) = P(y_{t+1:T} \\mid s_t = S_i, \\Theta) = \\sum_{j=1}^{K} p_{ij} o_j(y_{t+1}) b_{t+1}(j)\n\\tag{3}\\]\nwith initialization: \\(b_T(i) = 1\\) for all \\(i\\)\n\n\n\n\n\n\n\n\n\nEmission Probabilities (Observation Likelihoods)\n\n\nThe emission probability, \\(o_i(y_t)\\): the likelihood of observing \\(y_t\\) given state \\(S_i\\).\nFor the AR-MSHMM, this is modeled as a Gaussian distribution:\n\\[\no_i(y_t) = \\frac{1}{\\sqrt{2\\pi \\sigma_i^2}} \\exp\\left(-\\frac{(y_t - \\mu_{i,t})^2}{2\\sigma_i^2}\\right)\n\\tag{4}\\]\nwhere the state-specific conditional mean \\(\\mu_{i,t}\\) is given by the autoregressive specification:\n\\[\n\\mu_{i,t} = \\beta_0^{(i)} + \\sum_{k=1}^{p} \\beta_k^{(i)} y_{t-k} + \\sum_{j=1}^{M} \\beta_{p+j}^{(i)} X_{t,j}\n\\]"
-  },
-  {
-    "objectID": "talks/wgsss/slides.html#modeling-framework-4",
-    "href": "talks/wgsss/slides.html#modeling-framework-4",
-    "title": "MUSTAFA ASLAN",
-    "section": "Modeling Framework",
-    "text": "Modeling Framework\nM-step: Parameter Updates\n\n\n\n\n\n\nTransition Probabilities\n\n\n\\[\np_{ij}^{(k+1)} = \\frac{\\sum_{t=1}^{T-1} \\xi_t(i,j)}{\\sum_{t=1}^{T-1} \\gamma_t(i)}\n\\]\n\n\n\n\n\n\n\n\nInitial State Probabilities\n\n\n\\[\n\\pi_i^{(k+1)} = \\gamma_1(i)\n\\]\n\n\n\n\n\n\n\n\nRegression Coefficients\n\n\nFor each state \\(i\\), the coefficients are updated using weighted least squares: \\[\n\\theta^{(i,k+1)} = \\left(\\mathbf{X}^T \\mathbf{W}_i \\mathbf{X}\\right)^{-1} \\mathbf{X}^T \\mathbf{W}_i \\mathbf{y}\n\\]\nwhere \\(\\mathbf{X}\\) is the design matrix containing lagged values and exogenous variables\n\\(\\mathbf{X}\\) is defined as: \\[\n\\mathbf{X} = \\begin{pmatrix}\n1 & y_0 & y_{-1} & \\cdots & y_{-p+1} & X_{1,1} & \\cdots & X_{1,M} \\\\\n1 & y_1 & y_0 & \\cdots & y_{-p+2} & X_{2,1} & \\cdots & X_{2,M} \\\\\n\\vdots & \\vdots & \\vdots & \\ddots & \\vdots & \\vdots & \\ddots & \\vdots \\\\\n1 & y_{T-1} & y_{T-2} & \\cdots & y_{T-p} & X_{T,1} & \\cdots & X_{T,M}\n\\end{pmatrix}\n\\]\nand \\(\\mathbf{W}_i\\) is a diagonal matrix with weights \\(\\gamma_t(i)\\) for \\(t = 1, \\ldots, T\\) \\[\n\\mathbf{W}_i = \\text{diag}(\\gamma_1(i), \\gamma_2(i), \\ldots, \\gamma_T(i))\n\\]\n\n\n\n\n\n\n\n\n\nVariance Parameters\n\n\n\\[\n\\sigma_i^{2(k+1)} = \\frac{\\sum_{t=1}^{T} \\gamma_t(i) (y_t - \\mu_{i,t})^2}{\\sum_{t=1}^{T} \\gamma_t(i)}\n\\]\n\n\n\n\n\n\n\n\nConvergence Criterion\n\n\nThe EM algorithm continues until the change in log-likelihood between successive iterations falls below a predetermined threshold: \\[\n|\\ell(\\Theta^{(k+1)}) - \\ell(\\Theta^{(k)})| &lt; \\epsilon\n\\] where \\(\\epsilon\\) is typically set to \\(10^{-3}\\) or \\(10^{-4}\\)."
-  },
-  {
-    "objectID": "talks/wgsss/slides.html#modeling-framework-5",
-    "href": "talks/wgsss/slides.html#modeling-framework-5",
-    "title": "MUSTAFA ASLAN",
-    "section": "Modeling Framework",
-    "text": "Modeling Framework\nForecasting with AR-RHMM\nTo forecast \\(h\\) steps ahead, we employ a systematic three-stage approach that combines state prediction with regime-specific observation modeling.\n\nState Prediction: We predict the most probable state sequence for the next \\(h\\) time steps using the transition matrix \\(\\mathbf{P}\\). The probability of being in state \\(S_j\\) at time \\(T+h\\) is computed recursively as:\n\n\\[\nP(s_{T+h} = S_j) = \\sum_{i=1}^{K} P(s_{T+h-1} = S_i) \\, p_{ij}\n\\]\nThe initial state distribution \\(P(s_{T+1} = S_j)\\) for the first step is estimated from the last estimated state probabilities obtained from the forward algorithm at time \\(T\\).\n\nRegime-specific forecasts: For each predicted regime, we utilize the corresponding regression model to forecast the observation at that time step, incorporating both lagged values and exogenous variables. The predicted observation \\(\\hat{y}_{T+h}\\) for state \\(s_{T+h}\\) is computed as:\n\n\\[\n\\hat{y}_{T+h}^{s_{T+h}} = \\beta_{0}^{(s_{T+h})} + \\sum_{i=1}^{p} \\beta_{i}^{(s_{T+h})} \\, y_{T+h-i} + \\sum_{j=1}^{M} \\beta_{p+j}^{(s_{T+h})} \\, X_{T+h,j}\n\\]\nFor multi-step forecasting, we use the predicted observations as inputs for subsequent predictions. \\(y_{T+h-i}\\) are the actual observed values for \\(i \\leq h\\) and the previously predicted values for \\(i &gt; h\\).\n\nFinal Forecast Computation: The final forecast for each time step is a weighted average of the forecasts from each regime, weighted by the predicted regime probabilities:\n\n\\[\n\\hat{y}_{T+h} = \\sum_{j=1}^{K} P(s_{T+h} = S_j) \\, \\hat{y}_{T+h}^{(S_j)}\n\\]"
-  },
-  {
-    "objectID": "talks/wgsss/slides.html#benchmark-models",
-    "href": "talks/wgsss/slides.html#benchmark-models",
-    "title": "MUSTAFA ASLAN",
-    "section": "Benchmark models",
-    "text": "Benchmark models\nStatistical models:\n\nExponential Smoothing (ETS): A state space time series model capturing level, trend, and seasonality.\nLinear Regression: A statistical model that estimates the linear relationship between predictors and a response variable.\nLasso Regression: A regression method with L1 regularization, useful for variable selection and preventing overfitting.\n\nMachine Learning models:\n\nXGBoost: An optimized gradient boosting library designed to be highly efficient and flexible. It uses level-wise tree growth, building trees level by level horizontally.\nLightGBM: A gradient boosting framework that uses tree-based learning algorithms, known for its speed and efficiency. It uses leaf-wise tree growth.\nRandom Forest: An ensemble learning method that builds multiple decision trees and merges them together to get a more accurate and stable prediction."
-  },
-  {
-    "objectID": "talks/wgsss/slides.html#probabilistic-forecasting-using-conformal-prediction",
-    "href": "talks/wgsss/slides.html#probabilistic-forecasting-using-conformal-prediction",
-    "title": "MUSTAFA ASLAN",
-    "section": "Probabilistic Forecasting using Conformal Prediction",
-    "text": "Probabilistic Forecasting using Conformal Prediction\nConformal Prediction for Time Series\n\nConformal prediction is a distribution-free, finite-sample valid method for constructing prediction intervals\nIt provides a way to quantify the uncertainty of point forecasts by generating prediction intervals that are guaranteed to contain the true future values with a specified probability.\n\n\nSteps to Generate Prediction Intervals\n\n\n\n\n\nPoint Forecasting:\n\n\nGenerate point forecasts \\(\\hat{y}_{t+h}\\) for the desired forecast horizon \\(h\\) using rolling-origin cross-validation on a calibration set of 500 observations per horizon, derived from the last 500 days of training data.\n\n\n\n\nResidual Calculation: Compute the residuals from the calibration data set: \\[\nr_{t+h} = y_{t+h} - \\hat{y}_{t+h}\n\\]\n\nwhere \\(y_{t+h}\\) are the actual observed values and \\(\\hat{y}_{t+h}\\) are the point forecasts for \\(t+h\\).\n\n\n\nNonconformity Scores: Calculate the nonconformity scores associated with the residuals of each forecast horizon. Nonconformity scores are calculated as the absolute values of the residuals: \\[\nA_{t+h} = |r_{t+h}|\n\\]\n\n\n\n\n\nQuantile Calculation: For a desired confidence level \\(1 - \\alpha\\), compute the \\((1 - \\alpha)\\)-quantile of the nonconformity scores:\n\n\\[\nq_{1-\\alpha}^{(h)} = \\text{Quantile}_{1-\\alpha}(\\{A_{t-n+h}\\}_{t=t-n}^{n})\n\\]\nwhere \\(n\\) is the size of the calibration set.\n\n\n\nPrediction Intervals: Construct the prediction intervals for the forecast horizon \\(h\\) as: \\[\n\\left[\\hat{y}_{t+h} - q_{1-\\alpha}^{(h)}, \\hat{y}_{t+h} + q_{1-\\alpha}^{(h)}\\right]\n\\]\n\n\n\n\nDistribution Approximation: For each forecast horizon, generate a distribution of possible future values by adding residuals calculated from calibration set to the point forecasts.\n\n\\[\ny_{t+h}^{(i)} = \\hat{y}_{t+h} + r_, \\quad r_i \\in \\{r_1, r_2, \\ldots, r_n\\}\n\\]\nwhere \\(n\\) is the number of residuals in the calibration set and \\(i = 1, 2, \\ldots, n\\)."
-  },
-  {
-    "objectID": "talks/wgsss/slides.html#forecasting-metrics",
-    "href": "talks/wgsss/slides.html#forecasting-metrics",
-    "title": "MUSTAFA ASLAN",
-    "section": "Forecasting metrics",
-    "text": "Forecasting metrics\n\n\nPoint Forecasting Metrics\n\nScaled Root Mean Squared Error (SRMSE) \\[\nSRMSE = \\frac{\\sqrt{\\frac{1}{h} \\sum_{t\n=n+1}^{n+h} (y_t - \\hat{y}_t)^2}}{\\frac{1}{n-1} \\sum_{t=2}^{n} y_t}\n\\]\nRoot Mean Squared Error (RMSE) \\[\nRMSE = \\sqrt{\\frac{1}{n} \\sum_{t=1}^{n} (y_t - \\hat{y}_t)^2}\n\\]\nMean Absolute Error (MAE) \\[\nMAE = \\frac{1}{n} \\sum_{t=1}^{n} |y_t - \\hat{y}_t|\n\\]\n\n\nProbabilistic Forecasting Metrics\n\nQunatile Loss (QL) \\[\nQL_{\\alpha} = 2 \\sum_{t=1}^{h} \\left[\\alpha (y_t - \\hat{y}_t^{(\\alpha)}) \\mathbb{1}_{\\{y_t &gt; \\hat{y}_t^{(\\alpha)}\\}} + (1 - \\alpha) (\\hat{y}_t^{(\\alpha)} - y_t) \\mathbb{1}_{\\{y_t \\leq \\hat{y}_t^{(\\alpha)}\\}}\\right]\n\\]"
-  },
-  {
-    "objectID": "talks/wgsss/slides.html#experimental-design",
-    "href": "talks/wgsss/slides.html#experimental-design",
-    "title": "MUSTAFA ASLAN",
-    "section": "Experimental design",
-    "text": "Experimental design\n\nPreliminary data analysis and data preparation\n\n\nMissing values imputed using linear interpolation for wards with 0 occupancy level to run models\nData visualization: Plotted time series to identify trends, seasonality, and anomalies.\nStationarity tests: Augmented Dickey-Fuller (ADF) and Kwiatkowski-Phillips-Schmidt-Shin (KPSS) tests to assess stationarity of the time series data.\nSeasonal decomposition: Decomposed the time series into trend, seasonal, and residual components to understand underlying patterns.\nCorrelation analysis, ACF and PACF plots: Analyzed autocorrelation and partial autocorrelation functions to determine appropriate lag orders for autoregressive models.\n\n\nFeature engineering\n\nTime-based features: Extracted day and month from timestamps to capture temporal patterns.\nPublic holidays: Created binary indicators for public holidays to account for their impact on hospital occupancy.\nLagged features: Created lagged versions of key variables to incorporate past information into the models.\nFourier terms: Added Fourier series terms for linear models to capture seasonality in the data.\nRolling window features: Computed rolling means and standard deviations to see if improving the model’s performance.\n\n\nSplit the data into train and test data\n\nThe last 360 days of data are reserved as the test set to evaluate model performance\nThe remaining data is used for:\n\ntraining and validation\nhyperparameter tuning through rolling-origin cross-validation with a fixed window size of 30 days and step size of 13 days to capture yearly seasonality.\nGenerate probabilistic forecasts using conformal prediction using optimized models on the training data.\n\nThe train-test split ensures that the models are evaluated on unseen data, providing a realistic assessment of their forecasting capabilities.\n\n\nModel evaluation\n\nCross-validation: Employed rolling-origin cross-validation on test set to assess model performance over multiple forecast origins and horizons. (30-day window, 13-day step size)\nPoint forecasting metrics: Mean Absolute Error (MAE) and Scaled Root Mean Squared Error (SRMSE) to evaluate the accuracy of point forecasts.\nProbabilistic forecasting metrics: Quantile Loss (QL) to assess the quality of probabilistic forecasts.\nModel comparison: Compared the performance of the AR-RHMM with benchmark statistical and machine learning models to determine its effectiveness in forecasting hospital bed occupancy."
-  },
-  {
     "objectID": "talks/wgsss/slides.html#key-insights-from-data-analysis",
     "href": "talks/wgsss/slides.html#key-insights-from-data-analysis",
     "title": "MUSTAFA ASLAN",
@@ -1162,11 +1099,74 @@
     "text": "An important assumption to model: Stationarity\nInformation from ACF and PACF plots after detrending"
   },
   {
-    "objectID": "talks/wgsss/slides.html#validation-setup",
-    "href": "talks/wgsss/slides.html#validation-setup",
+    "objectID": "talks/wgsss/slides.html#regime-switching-autoregressive-hidden-markov-model-rs-arhmm",
+    "href": "talks/wgsss/slides.html#regime-switching-autoregressive-hidden-markov-model-rs-arhmm",
     "title": "MUSTAFA ASLAN",
-    "section": "Validation setup",
-    "text": "Validation setup\nRolling-origin cross-validation is used to evaluate model performance over time"
+    "section": "Regime-Switching AutoRegressive Hidden Markov Model (RS-ARHMM)",
+    "text": "Regime-Switching AutoRegressive Hidden Markov Model (RS-ARHMM)\nLet \\(y_t\\) be the observed value at time \\(t\\), modeled as a function of its \\(p\\) lagged values, the regime-specific parameters associated with the hidden state \\(s_t\\), and exogenous variables \\(\\mathbf{X}_t = (X_{t1}, \\ldots, X_{tM})\\).\nThe RS-ARHMM can be expressed as follows:\n\\[\ny_t^{(s)} = \\beta_{0}^{(s)} + \\sum_{i=1}^{p} \\beta_{i}^{(s)} \\, y_{t-i} + \\sum_{j=1}^{M} \\beta_{p+j}^{(s)} \\, X_{tj} + \\epsilon_t^{(s)},\n\\]\nwhere:\n\n\\(\\beta_{i}^{(s)}\\) are the coefficients for the lagged values for regime \\(s\\),\n\\(\\beta_{p+j}^{(s)}\\) are the coefficients for the exogenous variables for regime \\(s\\),\n\\(M\\) is the number of exogenous variables,\n\\(\\epsilon_t^{(s)}\\) is the error term for regime \\(s\\).\n\nThe Markov property: \\[\nP(s_t = k \\mid s_{1:t-1}) = P(s_t = k \\mid s_{t-1}), \\quad \\forall t \\geq 2.\n\\]\nA HMM has the following components:\n\n\\(S\\): The set of regimes, \\(\\mathbb{S} = \\{S_1, S_2, \\ldots, S_K\\}\\).\n\\(P\\): The transition probability matrix\n\\(p_{ij} = P(s_t = S_j \\mid s_{t-1} = S_i)\\) is the probability of transitioning from regime \\(S_i\\) to regime \\(S_j\\), s.t. \\(\\sum_{j=1}^{K} p_{ij} = 1\\).\n\nTransition matrix \\(P\\) is defined as:\n\\[\nP = \\begin{pmatrix}\np_{11} & \\cdots & p_{1K} \\\\\n\\vdots & \\ddots & \\vdots \\\\\np_{K1} & \\cdots & p_{KK}\n\\end{pmatrix}\n\\]"
+  },
+  {
+    "objectID": "talks/wgsss/slides.html#modeling-framework",
+    "href": "talks/wgsss/slides.html#modeling-framework",
+    "title": "MUSTAFA ASLAN",
+    "section": "Modeling Framework",
+    "text": "Modeling Framework\nForecasting with RS-ARHMM\nTo forecast \\(h\\) steps ahead, we employ a systematic three-stage approach that combines state prediction with regime-specific observation modeling.\n\nState Prediction: We predict the most probable state sequence for the next \\(h\\) time steps using the transition matrix \\(\\mathbf{P}\\). The probability of being in state \\(S_j\\) at time \\(T+h\\) is computed recursively as:\n\n\\[\nP(s_{T+h} = S_j) = \\sum_{i=1}^{K} P(s_{T+h-1} = S_i) \\, p_{ij}\n\\]\nThe initial state distribution \\(P(s_{T+1} = S_j)\\) for the first step is estimated from the last estimated state probabilities obtained from the forward algorithm at time \\(T\\).\n\nRegime-specific forecasts: For each predicted regime, we utilize the corresponding regression model to forecast the observation at that time step, incorporating both lagged values and exogenous variables. The predicted observation \\(\\hat{y}_{T+h}\\) for state \\(s_{T+h}\\) is computed as:\n\n\\[\n\\hat{y}_{T+h}^{s_{T+h}} = \\beta_{0}^{(s_{T+h})} + \\sum_{i=1}^{p} \\beta_{i}^{(s_{T+h})} \\, y_{T+h-i} + \\sum_{j=1}^{M} \\beta_{p+j}^{(s_{T+h})} \\, X_{T+h,j}\n\\]\nFor multi-step forecasting, we use the predicted observations as inputs for subsequent predictions. \\(y_{T+h-i}\\) are the actual observed values for \\(i \\leq h\\) and the previously predicted values for \\(i &gt; h\\).\n\nFinal Forecast Computation: The final forecast for each time step is a weighted average of the forecasts from each regime, weighted by the predicted regime probabilities:\n\n\\[\n\\hat{y}_{T+h} = \\sum_{j=1}^{K} P(s_{T+h} = S_j) \\, \\hat{y}_{T+h}^{(S_j)}\n\\]"
+  },
+  {
+    "objectID": "talks/wgsss/slides.html#rs-arhmm-parameter-estimation",
+    "href": "talks/wgsss/slides.html#rs-arhmm-parameter-estimation",
+    "title": "MUSTAFA ASLAN",
+    "section": "RS-ARHMM Parameter Estimation",
+    "text": "RS-ARHMM Parameter Estimation\n\n\n\n\n\nEM (Expectation-Maximization) Algorithm\n\n\n\nIteratively estimates parameters \\(\\Theta = \\{\\beta^{(s)}, \\sigma^{2(s)}, P, \\pi\\}\\) to maximize likelihood.\nAlternates between two steps:\n\nE-Step: Estimate regime probabilities given current \\(\\Theta\\).\nM-Step: Update \\(\\Theta\\) using these probabilities.\n\n\n\n\n\n\n\n\n\n1. E-Step\n\n\n\nState probability:\n\\[\n\\gamma_t(i) = P(s_t = S_i \\mid y_{1:T}, \\Theta^{(k)})\n\\]\nTransition probability:\n\\[\n\\xi_t(i,j) = P(s_t = S_i, s_{t+1} = S_j \\mid y_{1:T}, \\Theta^{(k)})\n\\]\nComputed via Forward-Backward algorithm:\n\nForward:\n\n\\(\\alpha_t(i) = P(y_{1:t}, s_t = S_i \\mid \\Theta) = \\sum_{j=1}^{K} \\alpha_{t-1}(j) p_{ji} o_i(y_t)\\)\n\nBackward:\n\n\\(b_t(i) = P(y_{t+1:T} \\mid s_t = S_i, \\Theta) = \\sum_{j=1}^{K} p_{ij} o_j(y_{t+1}) b_{t+1}(j)\\)\n\nEmission (observation) likelihood:\n\\[\no_i(y_t) = \\frac{1}{\\sqrt{2\\pi \\sigma_i^2}} \\exp\\left( -\\frac{(y_t - \\mu_{i,t})^2}{2\\sigma_i^2} \\right)\n\\]\nwhere \\(\\mu_{i,t}\\) is AR + exogenous mean for state \\(i\\).\n\n\n\n\n\n\n\n2. M-Step\n\n\nUpdate parameters using weighted averages with \\(\\gamma_t(i)\\):\n\nTransition matrix:\n\\[\np_{ij}^{(k+1)} = \\frac{\\sum_{t=1}^{T-1} \\xi_t(i,j)}{\\sum_{t=1}^{T-1} \\gamma_t(i)}\n\\]\nInitial state:\n\\[\n\\pi_i^{(k+1)} = \\gamma_1(i)\n\\]\nRegression (AR/exog) coefficients:\n\\[\n\\beta^{(i,k+1)} = (\\mathbf{X}^T \\mathbf{W}_i \\mathbf{X})^{-1} \\mathbf{X}^T \\mathbf{W}_i \\mathbf{y}\n\\]\n\nWhere \\(\\mathbf{W}_i = \\text{diag}(\\gamma_1(i),\\dots,\\gamma_T(i))\\)\n\nVariance:\n\\[\n\\sigma_i^{2(k+1)} = \\frac{\\sum_{t=1}^T \\gamma_t(i)(y_t-\\mu_{i,t})^2}{\\sum_{t=1}^T \\gamma_t(i)}\n\\]\n\n\n\n\n\n\n\n\nRepeat E-M Steps until convergence:\n\n\n\\[|\\ell(\\Theta^{(k+1)}) - \\ell(\\Theta^{(k)})| &lt; \\epsilon\\]"
+  },
+  {
+    "objectID": "talks/wgsss/slides.html#why-rs-arhmm",
+    "href": "talks/wgsss/slides.html#why-rs-arhmm",
+    "title": "MUSTAFA ASLAN",
+    "section": "Why RS-ARHMM?",
+    "text": "Why RS-ARHMM?\n\nCaptures regime changes in highly volatile time series data (e.g., healthcare), integrating them into the forecasting process, making it more accurate and reliable predictions.\nTraditional statistical and modern machine learning models fail to account for such regime shifts.\nModels complex dependencies and non-linear relationships with reduced risk of overfitting and less reliance on extensive hyperparameter tuning.\nProduces interpretable results through regime-specific parameters.\nProvides reliable forecasts that incorporate uncertainty arising from regime changes."
+  },
+  {
+    "objectID": "talks/wgsss/slides.html#benchmark-models",
+    "href": "talks/wgsss/slides.html#benchmark-models",
+    "title": "MUSTAFA ASLAN",
+    "section": "Benchmark models",
+    "text": "Benchmark models\nStatistical models:\n\nExponential Smoothing (ETS): A state space time series model capturing level, trend, and seasonality.\nLinear Regression: A statistical model that estimates the linear relationship between predictors and a response variable.\nLasso Regression: A regression method with L1 regularization, useful for variable selection and preventing overfitting.\n\nMachine Learning models:\n\nXGBoost: An optimized gradient boosting library designed to be highly efficient and flexible. It uses level-wise tree growth, building trees level by level horizontally.\nLightGBM: A gradient boosting framework that uses tree-based learning algorithms, known for its speed and efficiency. It uses leaf-wise tree growth.\nRandom Forest: An ensemble learning method that builds multiple decision trees and merges them together to get a more accurate and stable prediction."
+  },
+  {
+    "objectID": "talks/wgsss/slides.html#probabilistic-forecasting-using-conformal-prediction",
+    "href": "talks/wgsss/slides.html#probabilistic-forecasting-using-conformal-prediction",
+    "title": "MUSTAFA ASLAN",
+    "section": "Probabilistic Forecasting using Conformal Prediction",
+    "text": "Probabilistic Forecasting using Conformal Prediction\nConformal Prediction for Time Series\n\nConformal prediction is a distribution-free, finite-sample valid method for constructing prediction intervals\nIt provides a way to quantify the uncertainty of point forecasts by generating prediction intervals that are guaranteed to contain the true future values with a specified probability.\n\n\nSteps to Generate Prediction Intervals\n\n\n\n\n\nPoint Forecasting:\n\n\nGenerate point forecasts \\(\\hat{y}_{t+h}\\) for the desired forecast horizon \\(h\\) using rolling-origin cross-validation on a calibration set of 500 observations per horizon, derived from the last 500 days of training data.\n\n\n\n\nResidual Calculation: Compute the residuals from the calibration data set: \\[\nr_{t+h} = y_{t+h} - \\hat{y}_{t+h}\n\\]\n\nwhere \\(y_{t+h}\\) are the actual observed values and \\(\\hat{y}_{t+h}\\) are the point forecasts for \\(t+h\\).\n\n\n\nNonconformity Scores: Calculate the nonconformity scores associated with the residuals of each forecast horizon. Nonconformity scores are calculated as the absolute values of the residuals: \\[\nA_{t+h} = |r_{t+h}|\n\\]\n\n\n\n\n\nQuantile Calculation: For a desired confidence level \\(1 - \\alpha\\), compute the \\((1 - \\alpha)\\)-quantile of the nonconformity scores:\n\n\\[\nq_{1-\\alpha}^{(h)} = \\text{Quantile}_{1-\\alpha}(\\{A_{t-n+h}\\}_{t=t-n}^{n})\n\\]\nwhere \\(n\\) is the size of the calibration set.\n\n\n\nPrediction Intervals: Construct the prediction intervals for the forecast horizon \\(h\\) as: \\[\n\\left[\\hat{y}_{t+h} - q_{1-\\alpha}^{(h)}, \\hat{y}_{t+h} + q_{1-\\alpha}^{(h)}\\right]\n\\]\n\n\n\n\nDistribution Approximation: For each forecast horizon, generate a distribution of possible future values by adding residuals calculated from calibration set to the point forecasts.\n\n\\[\ny_{t+h}^{(i)} = \\hat{y}_{t+h} + r_, \\quad r_i \\in \\{r_1, r_2, \\ldots, r_n\\}\n\\]\nwhere \\(n\\) is the number of residuals in the calibration set and \\(i = 1, 2, \\ldots, n\\)."
+  },
+  {
+    "objectID": "talks/wgsss/slides.html#forecasting-metrics",
+    "href": "talks/wgsss/slides.html#forecasting-metrics",
+    "title": "MUSTAFA ASLAN",
+    "section": "Forecasting metrics",
+    "text": "Forecasting metrics\n\n\nPoint Forecasting Metrics\n\nScaled Root Mean Squared Error (SRMSE) \\[\nSRMSE = \\frac{\\sqrt{\\frac{1}{h} \\sum_{t\n=n+1}^{n+h} (y_t - \\hat{y}_t)^2}}{\\frac{1}{n-1} \\sum_{t=2}^{n} y_t}\n\\]\nRoot Mean Squared Error (RMSE) \\[\nRMSE = \\sqrt{\\frac{1}{n} \\sum_{t=1}^{n} (y_t - \\hat{y}_t)^2}\n\\]\nMean Absolute Error (MAE) \\[\nMAE = \\frac{1}{n} \\sum_{t=1}^{n} |y_t - \\hat{y}_t|\n\\]\n\n\nProbabilistic Forecasting Metrics\n\nQunatile Loss (QL) \\[\nQL_{\\alpha} = 2 \\sum_{t=1}^{h} \\left[\\alpha (y_t - \\hat{y}_t^{(\\alpha)}) \\mathbb{1}_{\\{y_t &gt; \\hat{y}_t^{(\\alpha)}\\}} + (1 - \\alpha) (\\hat{y}_t^{(\\alpha)} - y_t) \\mathbb{1}_{\\{y_t \\leq \\hat{y}_t^{(\\alpha)}\\}}\\right]\n\\]"
+  },
+  {
+    "objectID": "talks/wgsss/slides.html#feature-engineering",
+    "href": "talks/wgsss/slides.html#feature-engineering",
+    "title": "MUSTAFA ASLAN",
+    "section": "Feature engineering",
+    "text": "Feature engineering\n\nTime-based features: Extracted day and month from timestamps to capture temporal patterns.\nPublic holidays: Created binary indicators for public holidays to account for their impact on hospital occupancy.\nLagged features: Created lagged versions of key variables to incorporate past information into the models.\nFourier terms: Added Fourier series terms for linear models to capture seasonality in the data.\nRolling window features: Computed rolling means and standard deviations to see if improving the model’s performance."
+  },
+  {
+    "objectID": "talks/wgsss/slides.html#training-and-validation-setup",
+    "href": "talks/wgsss/slides.html#training-and-validation-setup",
+    "title": "MUSTAFA ASLAN",
+    "section": "Training and validation setup",
+    "text": "Training and validation setup\n\nThe last 360 days of data are reserved as the test set to evaluate model performance\nThe remaining data is used for:\n\ntraining and validation\nhyperparameter tuning through rolling-origin cross-validation with a fixed window size of 30 days and step size of 13 days to capture yearly seasonality.\nGenerate probabilistic forecasts using conformal prediction using optimized models on the training data.\n\nThe train-test split ensures that the models are evaluated on unseen data, providing a realistic assessment of their forecasting capabilities."
+  },
+  {
+    "objectID": "talks/wgsss/slides.html#cross-validation-setup",
+    "href": "talks/wgsss/slides.html#cross-validation-setup",
+    "title": "MUSTAFA ASLAN",
+    "section": "Cross validation setup",
+    "text": "Cross validation setup\nRolling-origin cross-validation is used to evaluate model performance over time"
   },
   {
     "objectID": "talks/wgsss/slides.html#point-forecast-results",
@@ -1197,13 +1197,6 @@
     "text": "Forecast distributions (Quantile scores for 45% to 85%)"
   },
   {
-    "objectID": "talks/wgsss/slides.html#forecast-distributions-by-each-horizon",
-    "href": "talks/wgsss/slides.html#forecast-distributions-by-each-horizon",
-    "title": "MUSTAFA ASLAN",
-    "section": "Forecast distributions by each horizon",
-    "text": "Forecast distributions by each horizon"
-  },
-  {
     "objectID": "talks/wgsss/slides.html#model-explainability",
     "href": "talks/wgsss/slides.html#model-explainability",
     "title": "MUSTAFA ASLAN",
@@ -1218,15 +1211,8 @@
     "text": "Learning outcomes from the current experiments\n\nAlthough AR-RHMM may not always outperform all benchmark models in point forecasting metrics, there is a significant improvement in probabilistic forecasting, particularly in quantile loss across 40% and 85% quantiles.\nThe model is more reliable for probabilistic forecasting since it accounts for regime changes and provides a distribution of possible future values, making it suitable for decision-making in hospital resource management.\nThe model performs consistently well interms of probabilistic forecasting since the model is probabilistic in nature and captures regime changes."
   },
   {
-    "objectID": "talks/wgsss/slides.html#why-ar-rhmm",
-    "href": "talks/wgsss/slides.html#why-ar-rhmm",
-    "title": "MUSTAFA ASLAN",
-    "section": "Why AR-RHMM?",
-    "text": "Why AR-RHMM?\n\nCaptures regime changes in occupancy patterns (patterns of variability in hospital occupancy levels)\nModels complex dependencies and non-linear relationships without less risk of overfitting and less need for extensive hyperparameter tuning\nProduces interpretable results through regime-specific parameters\nProvides reliable forecasts incorporating uncertainty coming from regime changes"
-  },
-  {
-    "objectID": "talks/wgsss/slides.html#next-steps",
-    "href": "talks/wgsss/slides.html#next-steps",
+    "objectID": "talks/wgsss/slides.html#next-steps-1",
+    "href": "talks/wgsss/slides.html#next-steps-1",
     "title": "MUSTAFA ASLAN",
     "section": "Next steps",
     "text": "Next steps\n\nExtend the AR-HMM to a multivariate framework (VAR-HMM) to jointly model multiple wards, capturing interdependencies and shared patterns in bed occupancy across different wards.\nDevelop an optimization framework that utilizes the probabilistic forecasts from the AR-HMM and VAR-HMM models to optimize bed allocation and resource management.\nTest the models in real-world scenarios, collaborating with hospital staff to refine the models based on practical feedback and operational needs."
