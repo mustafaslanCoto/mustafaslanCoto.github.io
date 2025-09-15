@@ -1073,8 +1073,8 @@ axp.axvline(2065, ymin=0.30, ymax=0.38,
 axp.text(2052, 3,
         "step size=13", color="C2", fontsize=14, ha="left")
 
-axp.set_xticklabels(fontsize=16)
-axp.set_yticklabels(fontsize=16)
+axp.tick_params(axis='x', labelsize=16)
+axp.tick_params(axis='y', labelsize=16)
 
 plt.title("Rolling Origin Time Series Cross-Validation", fontsize=18)
 plt.show()
