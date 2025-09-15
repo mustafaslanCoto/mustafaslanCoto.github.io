@@ -206,9 +206,9 @@ Mustafa Aslan, Cardiff University, UK <br> Lead supervisor: Prof.&nbsp;Bahman Ro
 <section id="current-systemic-issues-in-patient-flow" class="slide level2">
 <h2>Current Systemic Issues in Patient Flow</h2>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column fragment" style="width:50%;">
 <p><img data-src="images/late_shift.png" style="width:100.0%"></p>
-</div><div class="column" style="width:50%;">
+</div><div class="column fragment" style="width:50%;">
 <ul>
 <li>Unpredictable occupancy levels can result in redundant staffing and resource allocation, driving up costs, or in understaffing, which compromises patient care.</li>
 </ul>
@@ -505,69 +505,72 @@ p_{ij}^{(k+1)} = \frac{\sum_{t=1}^{T-1} \xi_t(i,j)}{\sum_{t=1}^{T-1} \gamma_t(i)
 <li><code>Random Forest</code>: An ensemble learning method that builds multiple decision trees and merges them together to get a more accurate and stable prediction.</li>
 </ul>
 </section>
-<section id="probabilistic-forecasting-using-conformal-prediction" class="slide level2 smaller">
+<section id="probabilistic-forecasting-using-conformal-prediction" class="slide level2">
 <h2>Probabilistic Forecasting using Conformal Prediction</h2>
 <h3 id="conformal-prediction-for-time-series">Conformal Prediction for Time Series</h3>
 <ul>
-<li>Conformal prediction is a distribution-free, finite-sample valid method for constructing prediction intervals</li>
-<li>It provides a way to quantify the uncertainty of point forecasts by generating prediction intervals that are guaranteed to contain the true future values with a specified probability.</li>
+<li>A distribution-free method for constructing prediction intervals</li>
+<li>A way to quantify the uncertainty of point forecasts by generating prediction intervals</li>
 </ul>
 <div class="fragment">
 <h3 id="steps-to-generate-prediction-intervals">Steps to Generate Prediction Intervals</h3>
 </div>
+</section>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="fragment">
-<ol type="1">
-<li><strong>Point Forecasting</strong>:</li>
-</ol>
+<section id="point-forecasting" class="slide level2">
+<h2>1. <strong>Point Forecasting</strong>:</h2>
 <ul>
-<li>Generate point forecasts <span class="math inline">\(\hat{y}_{t+h}\)</span> for the desired forecast horizon <span class="math inline">\(h\)</span> using rolling-origin cross-validation on a <code>calibration set</code> of 500 observations per horizon, derived from the last 500 days of training data.</li>
+<li>Generate point forecasts <span class="math inline">\(\hat{y}_{t+h}\)</span> for the desired forecast horizon <span class="math inline">\(h\)</span> using rolling-origin cross-validation on a <code>calibration set</code> of 500 observations per horizon.</li>
 </ul>
+</section>
 </div>
 <div class="fragment">
-<ol start="2" type="1">
-<li><strong>Residual Calculation</strong>: Compute the residuals from the calibration data set: <span class="math display">\[
+<section id="residual-calculation" class="slide level2">
+<h2>2. <strong>Residual Calculation</strong></h2>
+<p><span class="math display">\[
 r_{t+h} = y_{t+h} - \hat{y}_{t+h}
-\]</span></li>
-</ol>
+\]</span></p>
 <p>where <span class="math inline">\(y_{t+h}\)</span> are the actual observed values and <span class="math inline">\(\hat{y}_{t+h}\)</span> are the point forecasts for <span class="math inline">\(t+h\)</span>.</p>
+</section>
 </div>
 <div class="fragment">
-<ol start="3" type="1">
-<li><strong>Nonconformity Scores</strong>: Calculate the nonconformity scores associated with the residuals of each forecast horizon. Nonconformity scores are calculated as the absolute values of the residuals: <span class="math display">\[
+<section id="nonconformity-scores" class="slide level2">
+<h2>3. <strong>Nonconformity Scores</strong></h2>
+<p><span class="math display">\[
 A_{t+h} = |r_{t+h}|
-\]</span></li>
-</ol>
+\]</span></p>
+</section>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="fragment">
-<ol start="4" type="1">
-<li><strong>Quantile Calculation</strong>: For a desired confidence level <span class="math inline">\(1 - \alpha\)</span>, compute the <span class="math inline">\((1 - \alpha)\)</span>-quantile of the nonconformity scores:</li>
-</ol>
+<section id="quantile-calculation" class="slide level2">
+<h2>4. <strong>Quantile Calculation</strong></h2>
 <p><span class="math display">\[
 q_{1-\alpha}^{(h)} = \text{Quantile}_{1-\alpha}(\{A_{t-n+h}\}_{t=t-n}^{n})
 \]</span></p>
-<p>where <span class="math inline">\(n\)</span> is the size of the calibration set.</p>
-</div>
-<div class="fragment">
-<ol start="5" type="1">
-<li><strong>Prediction Intervals</strong>: Construct the prediction intervals for the forecast horizon <span class="math inline">\(h\)</span> as: <span class="math display">\[
-\left[\hat{y}_{t+h} - q_{1-\alpha}^{(h)}, \hat{y}_{t+h} + q_{1-\alpha}^{(h)}\right]
-\]</span></li>
-</ol>
-</div>
-<div class="fragment">
-<ol start="6" type="1">
-<li><strong>Distribution Approximation</strong>: For each forecast horizon, generate a distribution of possible future values by adding residuals calculated from calibration set to the point forecasts.</li>
-</ol>
-<p><span class="math display">\[
-y_{t+h}^{(i)} = \hat{y}_{t+h} + r_, \quad r_i \in \{r_1, r_2, \ldots, r_n\}
-\]</span></p>
-<p>where <span class="math inline">\(n\)</span> is the number of residuals in the calibration set and <span class="math inline">\(i = 1, 2, \ldots, n\)</span>.</p>
-</div>
-</div></div>
+<p>where <span class="math inline">\(n\)</span> is the size of the calibration set and <span class="math inline">\(1 - \alpha\)</span> is the desired coverage level</p>
 </section>
+</div>
+<div class="fragment">
+<section id="prediction-intervals" class="slide level2">
+<h2>5. <strong>Prediction Intervals</strong></h2>
+<p><span class="math display">\[
+\left[\hat{y}_{t+h} - q_{1-\alpha}^{(h)}, \hat{y}_{t+h} + q_{1-\alpha}^{(h)}\right]
+\]</span></p>
+</section>
+</div>
+<div class="fragment">
+<section id="distribution-approximation" class="slide level2">
+<h2>6. <strong>Distribution Approximation</strong></h2>
+<p><span class="math display">\[
+y_{t+h}^{(i)} = \hat{y}_{t+h} + r_{t+h}^{(i)}, \quad r_{t+h}^{(i)} \in \{r_{t+h}^{(1)}, r_{t+h}^{(2)}, \ldots, r_{t+h}^{(n)}\}
+\]</span></p>
+</section>
+</div>
+</div>
+</div>
 <section id="forecasting-metrics" class="slide level2">
 <h2>Forecasting metrics</h2>
 <div class="columns">
@@ -593,24 +596,23 @@ QL_{\alpha} = 2 \sum_{t=1}^{h} \left[\alpha (y_t - \hat{y}_t^{(\alpha)}) \mathbb
 <section id="feature-engineering" class="slide level2">
 <h2>Feature engineering</h2>
 <ul>
-<li>Time-based features: Extracted day and month from timestamps to capture temporal patterns.</li>
-<li>Public holidays: Created binary indicators for public holidays to account for their impact on hospital occupancy.</li>
-<li>Lagged features: Created lagged versions of key variables to incorporate past information into the models.</li>
-<li>Fourier terms: Added Fourier series terms for linear models to capture seasonality in the data.</li>
-<li>Rolling window features: Computed rolling means and standard deviations to see if improving the model’s performance.</li>
+<li>Time-based features</li>
 </ul>
-</section>
-<section id="training-and-validation-setup" class="slide level2">
-<h2>Training and validation setup</h2>
+<p><br></p>
 <ul>
-<li>The last 360 days of data are reserved as the test set to evaluate model performance</li>
-<li>The remaining data is used for:
+<li>Public holidays</li>
+</ul>
+<p><br></p>
 <ul>
-<li>training and validation</li>
-<li>hyperparameter tuning through rolling-origin cross-validation with a fixed window size of 30 days and step size of 13 days to capture yearly seasonality.</li>
-<li>Generate probabilistic forecasts using conformal prediction using optimized models on the training data.</li>
-</ul></li>
-<li><code>The train-test split ensures that the models are evaluated on unseen data, providing a realistic assessment of their forecasting capabilities.</code></li>
+<li>Lagged features</li>
+</ul>
+<p><br></p>
+<ul>
+<li>Fourier terms</li>
+</ul>
+<p><br></p>
+<ul>
+<li>Rolling window features</li>
 </ul>
 </section>
 <section id="cross-validation-setup" class="slide level2">
@@ -627,291 +629,145 @@ QL_{\alpha} = 2 \sum_{t=1}^{h} \left[\alpha (y_t - \hat{y}_t^{(\alpha)}) \mathbb
 <h2>Point Forecast results</h2>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
-<div id="bca098dc" class="cell quarto-layout-cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="12" style="flex-basis: 50.0%;justify-content: center;">
+<div id="4f2b262c" class="cell quarto-layout-cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="12" style="flex-basis: 50.0%;justify-content: center;">
 <div class="cell-output cell-output-display">
 <style type="text/css">
-#T_fa3bf table {
+#T_c5c47 table {
   width: 100%;
   border-collapse: collapse;
 }
-#T_fa3bf th {
+#T_c5c47 th {
   background-color: #20808D;
   text-align: left;
   color: #FBFAF4;
   font-size: 30px;
   min-width: 80px;
 }
-#T_fa3bf td {
+#T_c5c47 td {
   font-size: 25px;
   text-align: left;
 }
-#T_fa3bf_row0_col0, #T_fa3bf_row0_col1, #T_fa3bf_row0_col2 {
+#T_c5c47_row0_col0, #T_c5c47_row0_col1, #T_c5c47_row0_col2 {
   font-weight: bold;
   background-color: None;
 }
 </style>
 
-<table id="T_fa3bf" class="caption-top" data-quarto-postprocess="true">
+<table id="T_c5c47" class="caption-top" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
-<th id="T_fa3bf_level0_col0" class="col_heading level0 col0" style="text-align: left;" data-quarto-table-cell-role="th">ward_0</th>
-<th id="T_fa3bf_level0_col1" class="col_heading level0 col1" style="text-align: left;" data-quarto-table-cell-role="th">RMSE</th>
-<th id="T_fa3bf_level0_col2" class="col_heading level0 col2" style="text-align: left;" data-quarto-table-cell-role="th">MAE</th>
+<th id="T_c5c47_level0_col0" class="col_heading level0 col0" style="text-align: left;" data-quarto-table-cell-role="th">ward_0</th>
+<th id="T_c5c47_level0_col1" class="col_heading level0 col1" style="text-align: left;" data-quarto-table-cell-role="th">RMSE</th>
+<th id="T_c5c47_level0_col2" class="col_heading level0 col2" style="text-align: left;" data-quarto-table-cell-role="th">MAE</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_fa3bf_row0_col0" class="data row0 col0" style="text-align: left;">HMM</td>
-<td id="T_fa3bf_row0_col1" class="data row0 col1" style="text-align: left;">3.208</td>
-<td id="T_fa3bf_row0_col2" class="data row0 col2" style="text-align: left;">2.757</td>
+<td id="T_c5c47_row0_col0" class="data row0 col0" style="text-align: left;">HMM</td>
+<td id="T_c5c47_row0_col1" class="data row0 col1" style="text-align: left;">3.208</td>
+<td id="T_c5c47_row0_col2" class="data row0 col2" style="text-align: left;">2.757</td>
 </tr>
 <tr class="even">
-<td id="T_fa3bf_row1_col0" class="data row1 col0" style="text-align: left;">linearRegression</td>
-<td id="T_fa3bf_row1_col1" class="data row1 col1" style="text-align: left;">3.258</td>
-<td id="T_fa3bf_row1_col2" class="data row1 col2" style="text-align: left;">2.804</td>
+<td id="T_c5c47_row1_col0" class="data row1 col0" style="text-align: left;">linearRegression</td>
+<td id="T_c5c47_row1_col1" class="data row1 col1" style="text-align: left;">3.258</td>
+<td id="T_c5c47_row1_col2" class="data row1 col2" style="text-align: left;">2.804</td>
 </tr>
 <tr class="odd">
-<td id="T_fa3bf_row2_col0" class="data row2 col0" style="text-align: left;">Lasso</td>
-<td id="T_fa3bf_row2_col1" class="data row2 col1" style="text-align: left;">3.268</td>
-<td id="T_fa3bf_row2_col2" class="data row2 col2" style="text-align: left;">2.832</td>
+<td id="T_c5c47_row2_col0" class="data row2 col0" style="text-align: left;">Lasso</td>
+<td id="T_c5c47_row2_col1" class="data row2 col1" style="text-align: left;">3.268</td>
+<td id="T_c5c47_row2_col2" class="data row2 col2" style="text-align: left;">2.832</td>
 </tr>
 <tr class="even">
-<td id="T_fa3bf_row3_col0" class="data row3 col0" style="text-align: left;">RandomForest</td>
-<td id="T_fa3bf_row3_col1" class="data row3 col1" style="text-align: left;">3.365</td>
-<td id="T_fa3bf_row3_col2" class="data row3 col2" style="text-align: left;">2.885</td>
+<td id="T_c5c47_row3_col0" class="data row3 col0" style="text-align: left;">RandomForest</td>
+<td id="T_c5c47_row3_col1" class="data row3 col1" style="text-align: left;">3.365</td>
+<td id="T_c5c47_row3_col2" class="data row3 col2" style="text-align: left;">2.885</td>
 </tr>
 <tr class="odd">
-<td id="T_fa3bf_row4_col0" class="data row4 col0" style="text-align: left;">LightGBM</td>
-<td id="T_fa3bf_row4_col1" class="data row4 col1" style="text-align: left;">3.364</td>
-<td id="T_fa3bf_row4_col2" class="data row4 col2" style="text-align: left;">2.905</td>
+<td id="T_c5c47_row4_col0" class="data row4 col0" style="text-align: left;">LightGBM</td>
+<td id="T_c5c47_row4_col1" class="data row4 col1" style="text-align: left;">3.364</td>
+<td id="T_c5c47_row4_col2" class="data row4 col2" style="text-align: left;">2.905</td>
 </tr>
 <tr class="even">
-<td id="T_fa3bf_row5_col0" class="data row5 col0" style="text-align: left;">XGBoost</td>
-<td id="T_fa3bf_row5_col1" class="data row5 col1" style="text-align: left;">3.433</td>
-<td id="T_fa3bf_row5_col2" class="data row5 col2" style="text-align: left;">2.996</td>
+<td id="T_c5c47_row5_col0" class="data row5 col0" style="text-align: left;">XGBoost</td>
+<td id="T_c5c47_row5_col1" class="data row5 col1" style="text-align: left;">3.433</td>
+<td id="T_c5c47_row5_col2" class="data row5 col2" style="text-align: left;">2.996</td>
 </tr>
 <tr class="odd">
-<td id="T_fa3bf_row6_col0" class="data row6 col0" style="text-align: left;">ets</td>
-<td id="T_fa3bf_row6_col1" class="data row6 col1" style="text-align: left;">3.679</td>
-<td id="T_fa3bf_row6_col2" class="data row6 col2" style="text-align: left;">3.168</td>
+<td id="T_c5c47_row6_col0" class="data row6 col0" style="text-align: left;">ets</td>
+<td id="T_c5c47_row6_col1" class="data row6 col1" style="text-align: left;">3.679</td>
+<td id="T_c5c47_row6_col2" class="data row6 col2" style="text-align: left;">3.168</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<div id="5d7697e6" class="cell quarto-layout-cell" data-execution_count="13" style="flex-basis: 50.0%;justify-content: center;">
+<div id="1576f7d5" class="cell quarto-layout-cell" data-execution_count="13" style="flex-basis: 50.0%;justify-content: center;">
 <div class="cell-output cell-output-display">
 <style type="text/css">
-#T_b114f table {
+#T_e5d80 table {
   width: 100%;
   border-collapse: collapse;
 }
-#T_b114f th {
+#T_e5d80 th {
   background-color: #20808D;
   text-align: left;
   color: #FBFAF4;
   font-size: 30px;
   min-width: 80px;
 }
-#T_b114f td {
+#T_e5d80 td {
   font-size: 25px;
   text-align: left;
 }
-#T_b114f_row0_col0, #T_b114f_row0_col1, #T_b114f_row0_col2 {
+#T_e5d80_row0_col0, #T_e5d80_row0_col1, #T_e5d80_row0_col2 {
   font-weight: bold;
   background-color: None;
 }
 </style>
 
-<table id="T_b114f" class="caption-top" data-quarto-postprocess="true">
+<table id="T_e5d80" class="caption-top" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
-<th id="T_b114f_level0_col0" class="col_heading level0 col0" style="text-align: left;" data-quarto-table-cell-role="th">ward_1</th>
-<th id="T_b114f_level0_col1" class="col_heading level0 col1" style="text-align: left;" data-quarto-table-cell-role="th">RMSE</th>
-<th id="T_b114f_level0_col2" class="col_heading level0 col2" style="text-align: left;" data-quarto-table-cell-role="th">MAE</th>
+<th id="T_e5d80_level0_col0" class="col_heading level0 col0" style="text-align: left;" data-quarto-table-cell-role="th">ward_1</th>
+<th id="T_e5d80_level0_col1" class="col_heading level0 col1" style="text-align: left;" data-quarto-table-cell-role="th">RMSE</th>
+<th id="T_e5d80_level0_col2" class="col_heading level0 col2" style="text-align: left;" data-quarto-table-cell-role="th">MAE</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_b114f_row0_col0" class="data row0 col0" style="text-align: left;">ets</td>
-<td id="T_b114f_row0_col1" class="data row0 col1" style="text-align: left;">3.646</td>
-<td id="T_b114f_row0_col2" class="data row0 col2" style="text-align: left;">3.169</td>
+<td id="T_e5d80_row0_col0" class="data row0 col0" style="text-align: left;">ets</td>
+<td id="T_e5d80_row0_col1" class="data row0 col1" style="text-align: left;">3.646</td>
+<td id="T_e5d80_row0_col2" class="data row0 col2" style="text-align: left;">3.169</td>
 </tr>
 <tr class="even">
-<td id="T_b114f_row1_col0" class="data row1 col0" style="text-align: left;">Lasso</td>
-<td id="T_b114f_row1_col1" class="data row1 col1" style="text-align: left;">3.701</td>
-<td id="T_b114f_row1_col2" class="data row1 col2" style="text-align: left;">3.220</td>
+<td id="T_e5d80_row1_col0" class="data row1 col0" style="text-align: left;">Lasso</td>
+<td id="T_e5d80_row1_col1" class="data row1 col1" style="text-align: left;">3.701</td>
+<td id="T_e5d80_row1_col2" class="data row1 col2" style="text-align: left;">3.220</td>
 </tr>
 <tr class="odd">
-<td id="T_b114f_row2_col0" class="data row2 col0" style="text-align: left;">RandomForest</td>
-<td id="T_b114f_row2_col1" class="data row2 col1" style="text-align: left;">3.707</td>
-<td id="T_b114f_row2_col2" class="data row2 col2" style="text-align: left;">3.229</td>
+<td id="T_e5d80_row2_col0" class="data row2 col0" style="text-align: left;">RandomForest</td>
+<td id="T_e5d80_row2_col1" class="data row2 col1" style="text-align: left;">3.707</td>
+<td id="T_e5d80_row2_col2" class="data row2 col2" style="text-align: left;">3.229</td>
 </tr>
 <tr class="even">
-<td id="T_b114f_row3_col0" class="data row3 col0" style="text-align: left;">linearRegression</td>
-<td id="T_b114f_row3_col1" class="data row3 col1" style="text-align: left;">3.711</td>
-<td id="T_b114f_row3_col2" class="data row3 col2" style="text-align: left;">3.233</td>
+<td id="T_e5d80_row3_col0" class="data row3 col0" style="text-align: left;">linearRegression</td>
+<td id="T_e5d80_row3_col1" class="data row3 col1" style="text-align: left;">3.711</td>
+<td id="T_e5d80_row3_col2" class="data row3 col2" style="text-align: left;">3.233</td>
 </tr>
 <tr class="odd">
-<td id="T_b114f_row4_col0" class="data row4 col0" style="text-align: left;">HMM</td>
-<td id="T_b114f_row4_col1" class="data row4 col1" style="text-align: left;">3.712</td>
-<td id="T_b114f_row4_col2" class="data row4 col2" style="text-align: left;">3.231</td>
+<td id="T_e5d80_row4_col0" class="data row4 col0" style="text-align: left;">HMM</td>
+<td id="T_e5d80_row4_col1" class="data row4 col1" style="text-align: left;">3.712</td>
+<td id="T_e5d80_row4_col2" class="data row4 col2" style="text-align: left;">3.231</td>
 </tr>
 <tr class="even">
-<td id="T_b114f_row5_col0" class="data row5 col0" style="text-align: left;">LightGBM</td>
-<td id="T_b114f_row5_col1" class="data row5 col1" style="text-align: left;">3.720</td>
-<td id="T_b114f_row5_col2" class="data row5 col2" style="text-align: left;">3.241</td>
+<td id="T_e5d80_row5_col0" class="data row5 col0" style="text-align: left;">LightGBM</td>
+<td id="T_e5d80_row5_col1" class="data row5 col1" style="text-align: left;">3.720</td>
+<td id="T_e5d80_row5_col2" class="data row5 col2" style="text-align: left;">3.241</td>
 </tr>
 <tr class="odd">
-<td id="T_b114f_row6_col0" class="data row6 col0" style="text-align: left;">XGBoost</td>
-<td id="T_b114f_row6_col1" class="data row6 col1" style="text-align: left;">3.770</td>
-<td id="T_b114f_row6_col2" class="data row6 col2" style="text-align: left;">3.277</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-<div class="quarto-layout-row">
-<div id="6823d992" class="cell quarto-layout-cell" data-execution_count="14" style="flex-basis: 50.0%;justify-content: center;">
-<div class="cell-output cell-output-display">
-<style type="text/css">
-#T_0491d table {
-  width: 100%;
-  border-collapse: collapse;
-}
-#T_0491d th {
-  background-color: #20808D;
-  text-align: left;
-  color: #FBFAF4;
-  font-size: 30px;
-  min-width: 80px;
-}
-#T_0491d td {
-  font-size: 25px;
-  text-align: left;
-}
-#T_0491d_row0_col0, #T_0491d_row0_col1, #T_0491d_row0_col2 {
-  font-weight: bold;
-  background-color: None;
-}
-</style>
-
-<table id="T_0491d" class="caption-top" data-quarto-postprocess="true">
-<thead>
-<tr class="header">
-<th id="T_0491d_level0_col0" class="col_heading level0 col0" style="text-align: left;" data-quarto-table-cell-role="th">ward_2</th>
-<th id="T_0491d_level0_col1" class="col_heading level0 col1" style="text-align: left;" data-quarto-table-cell-role="th">RMSE</th>
-<th id="T_0491d_level0_col2" class="col_heading level0 col2" style="text-align: left;" data-quarto-table-cell-role="th">MAE</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td id="T_0491d_row0_col0" class="data row0 col0" style="text-align: left;">HMM</td>
-<td id="T_0491d_row0_col1" class="data row0 col1" style="text-align: left;">2.843</td>
-<td id="T_0491d_row0_col2" class="data row0 col2" style="text-align: left;">2.406</td>
-</tr>
-<tr class="even">
-<td id="T_0491d_row1_col0" class="data row1 col0" style="text-align: left;">linearRegression</td>
-<td id="T_0491d_row1_col1" class="data row1 col1" style="text-align: left;">2.862</td>
-<td id="T_0491d_row1_col2" class="data row1 col2" style="text-align: left;">2.426</td>
-</tr>
-<tr class="odd">
-<td id="T_0491d_row2_col0" class="data row2 col0" style="text-align: left;">Lasso</td>
-<td id="T_0491d_row2_col1" class="data row2 col1" style="text-align: left;">2.975</td>
-<td id="T_0491d_row2_col2" class="data row2 col2" style="text-align: left;">2.538</td>
-</tr>
-<tr class="even">
-<td id="T_0491d_row3_col0" class="data row3 col0" style="text-align: left;">LightGBM</td>
-<td id="T_0491d_row3_col1" class="data row3 col1" style="text-align: left;">2.983</td>
-<td id="T_0491d_row3_col2" class="data row3 col2" style="text-align: left;">2.544</td>
-</tr>
-<tr class="odd">
-<td id="T_0491d_row4_col0" class="data row4 col0" style="text-align: left;">XGBoost</td>
-<td id="T_0491d_row4_col1" class="data row4 col1" style="text-align: left;">3.036</td>
-<td id="T_0491d_row4_col2" class="data row4 col2" style="text-align: left;">2.605</td>
-</tr>
-<tr class="even">
-<td id="T_0491d_row5_col0" class="data row5 col0" style="text-align: left;">RandomForest</td>
-<td id="T_0491d_row5_col1" class="data row5 col1" style="text-align: left;">3.141</td>
-<td id="T_0491d_row5_col2" class="data row5 col2" style="text-align: left;">2.723</td>
-</tr>
-<tr class="odd">
-<td id="T_0491d_row6_col0" class="data row6 col0" style="text-align: left;">ets</td>
-<td id="T_0491d_row6_col1" class="data row6 col1" style="text-align: left;">3.210</td>
-<td id="T_0491d_row6_col2" class="data row6 col2" style="text-align: left;">2.800</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div id="f97ba959" class="cell quarto-layout-cell" data-execution_count="15" style="flex-basis: 50.0%;justify-content: center;">
-<div class="cell-output cell-output-display">
-<style type="text/css">
-#T_ccdc2 table {
-  width: 100%;
-  border-collapse: collapse;
-}
-#T_ccdc2 th {
-  background-color: #20808D;
-  text-align: left;
-  color: #FBFAF4;
-  font-size: 30px;
-  min-width: 80px;
-}
-#T_ccdc2 td {
-  font-size: 25px;
-  text-align: left;
-}
-#T_ccdc2_row0_col0, #T_ccdc2_row0_col1, #T_ccdc2_row0_col2 {
-  font-weight: bold;
-  background-color: None;
-}
-</style>
-
-<table id="T_ccdc2" class="caption-top" data-quarto-postprocess="true">
-<thead>
-<tr class="header">
-<th id="T_ccdc2_level0_col0" class="col_heading level0 col0" style="text-align: left;" data-quarto-table-cell-role="th">ward_3</th>
-<th id="T_ccdc2_level0_col1" class="col_heading level0 col1" style="text-align: left;" data-quarto-table-cell-role="th">RMSE</th>
-<th id="T_ccdc2_level0_col2" class="col_heading level0 col2" style="text-align: left;" data-quarto-table-cell-role="th">MAE</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td id="T_ccdc2_row0_col0" class="data row0 col0" style="text-align: left;">Lasso</td>
-<td id="T_ccdc2_row0_col1" class="data row0 col1" style="text-align: left;">1.992</td>
-<td id="T_ccdc2_row0_col2" class="data row0 col2" style="text-align: left;">1.664</td>
-</tr>
-<tr class="even">
-<td id="T_ccdc2_row1_col0" class="data row1 col0" style="text-align: left;">LightGBM</td>
-<td id="T_ccdc2_row1_col1" class="data row1 col1" style="text-align: left;">2.009</td>
-<td id="T_ccdc2_row1_col2" class="data row1 col2" style="text-align: left;">1.700</td>
-</tr>
-<tr class="odd">
-<td id="T_ccdc2_row2_col0" class="data row2 col0" style="text-align: left;">linearRegression</td>
-<td id="T_ccdc2_row2_col1" class="data row2 col1" style="text-align: left;">2.044</td>
-<td id="T_ccdc2_row2_col2" class="data row2 col2" style="text-align: left;">1.724</td>
-</tr>
-<tr class="even">
-<td id="T_ccdc2_row3_col0" class="data row3 col0" style="text-align: left;">RandomForest</td>
-<td id="T_ccdc2_row3_col1" class="data row3 col1" style="text-align: left;">2.058</td>
-<td id="T_ccdc2_row3_col2" class="data row3 col2" style="text-align: left;">1.730</td>
-</tr>
-<tr class="odd">
-<td id="T_ccdc2_row4_col0" class="data row4 col0" style="text-align: left;">HMM</td>
-<td id="T_ccdc2_row4_col1" class="data row4 col1" style="text-align: left;">2.078</td>
-<td id="T_ccdc2_row4_col2" class="data row4 col2" style="text-align: left;">1.749</td>
-</tr>
-<tr class="even">
-<td id="T_ccdc2_row5_col0" class="data row5 col0" style="text-align: left;">XGBoost</td>
-<td id="T_ccdc2_row5_col1" class="data row5 col1" style="text-align: left;">2.098</td>
-<td id="T_ccdc2_row5_col2" class="data row5 col2" style="text-align: left;">1.776</td>
-</tr>
-<tr class="odd">
-<td id="T_ccdc2_row6_col0" class="data row6 col0" style="text-align: left;">ets</td>
-<td id="T_ccdc2_row6_col1" class="data row6 col1" style="text-align: left;">2.475</td>
-<td id="T_ccdc2_row6_col2" class="data row6 col2" style="text-align: left;">2.133</td>
+<td id="T_e5d80_row6_col0" class="data row6 col0" style="text-align: left;">XGBoost</td>
+<td id="T_e5d80_row6_col1" class="data row6 col1" style="text-align: left;">3.770</td>
+<td id="T_e5d80_row6_col2" class="data row6 col2" style="text-align: left;">3.277</td>
 </tr>
 </tbody>
 </table>
@@ -919,145 +775,291 @@ QL_{\alpha} = 2 \sum_{t=1}^{h} \left[\alpha (y_t - \hat{y}_t^{(\alpha)}) \mathbb
 </div>
 </div>
 <div class="quarto-layout-row">
-<div id="6f363506" class="cell quarto-layout-cell" data-execution_count="16" style="flex-basis: 50.0%;justify-content: center;">
+<div id="8d6496db" class="cell quarto-layout-cell" data-execution_count="14" style="flex-basis: 50.0%;justify-content: center;">
 <div class="cell-output cell-output-display">
 <style type="text/css">
-#T_c5cd4 table {
+#T_3d4c2 table {
   width: 100%;
   border-collapse: collapse;
 }
-#T_c5cd4 th {
+#T_3d4c2 th {
   background-color: #20808D;
   text-align: left;
   color: #FBFAF4;
   font-size: 30px;
   min-width: 80px;
 }
-#T_c5cd4 td {
+#T_3d4c2 td {
   font-size: 25px;
   text-align: left;
 }
-#T_c5cd4_row0_col0, #T_c5cd4_row0_col1, #T_c5cd4_row0_col2 {
+#T_3d4c2_row0_col0, #T_3d4c2_row0_col1, #T_3d4c2_row0_col2 {
   font-weight: bold;
   background-color: None;
 }
 </style>
 
-<table id="T_c5cd4" class="caption-top" data-quarto-postprocess="true">
+<table id="T_3d4c2" class="caption-top" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
-<th id="T_c5cd4_level0_col0" class="col_heading level0 col0" style="text-align: left;" data-quarto-table-cell-role="th">ward_4</th>
-<th id="T_c5cd4_level0_col1" class="col_heading level0 col1" style="text-align: left;" data-quarto-table-cell-role="th">RMSE</th>
-<th id="T_c5cd4_level0_col2" class="col_heading level0 col2" style="text-align: left;" data-quarto-table-cell-role="th">MAE</th>
+<th id="T_3d4c2_level0_col0" class="col_heading level0 col0" style="text-align: left;" data-quarto-table-cell-role="th">ward_2</th>
+<th id="T_3d4c2_level0_col1" class="col_heading level0 col1" style="text-align: left;" data-quarto-table-cell-role="th">RMSE</th>
+<th id="T_3d4c2_level0_col2" class="col_heading level0 col2" style="text-align: left;" data-quarto-table-cell-role="th">MAE</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_c5cd4_row0_col0" class="data row0 col0" style="text-align: left;">Lasso</td>
-<td id="T_c5cd4_row0_col1" class="data row0 col1" style="text-align: left;">2.320</td>
-<td id="T_c5cd4_row0_col2" class="data row0 col2" style="text-align: left;">1.999</td>
+<td id="T_3d4c2_row0_col0" class="data row0 col0" style="text-align: left;">HMM</td>
+<td id="T_3d4c2_row0_col1" class="data row0 col1" style="text-align: left;">2.843</td>
+<td id="T_3d4c2_row0_col2" class="data row0 col2" style="text-align: left;">2.406</td>
 </tr>
 <tr class="even">
-<td id="T_c5cd4_row1_col0" class="data row1 col0" style="text-align: left;">linearRegression</td>
-<td id="T_c5cd4_row1_col1" class="data row1 col1" style="text-align: left;">2.470</td>
-<td id="T_c5cd4_row1_col2" class="data row1 col2" style="text-align: left;">2.135</td>
+<td id="T_3d4c2_row1_col0" class="data row1 col0" style="text-align: left;">linearRegression</td>
+<td id="T_3d4c2_row1_col1" class="data row1 col1" style="text-align: left;">2.862</td>
+<td id="T_3d4c2_row1_col2" class="data row1 col2" style="text-align: left;">2.426</td>
 </tr>
 <tr class="odd">
-<td id="T_c5cd4_row2_col0" class="data row2 col0" style="text-align: left;">HMM</td>
-<td id="T_c5cd4_row2_col1" class="data row2 col1" style="text-align: left;">2.532</td>
-<td id="T_c5cd4_row2_col2" class="data row2 col2" style="text-align: left;">2.211</td>
+<td id="T_3d4c2_row2_col0" class="data row2 col0" style="text-align: left;">Lasso</td>
+<td id="T_3d4c2_row2_col1" class="data row2 col1" style="text-align: left;">2.975</td>
+<td id="T_3d4c2_row2_col2" class="data row2 col2" style="text-align: left;">2.538</td>
 </tr>
 <tr class="even">
-<td id="T_c5cd4_row3_col0" class="data row3 col0" style="text-align: left;">ets</td>
-<td id="T_c5cd4_row3_col1" class="data row3 col1" style="text-align: left;">2.592</td>
-<td id="T_c5cd4_row3_col2" class="data row3 col2" style="text-align: left;">2.244</td>
+<td id="T_3d4c2_row3_col0" class="data row3 col0" style="text-align: left;">LightGBM</td>
+<td id="T_3d4c2_row3_col1" class="data row3 col1" style="text-align: left;">2.983</td>
+<td id="T_3d4c2_row3_col2" class="data row3 col2" style="text-align: left;">2.544</td>
 </tr>
 <tr class="odd">
-<td id="T_c5cd4_row4_col0" class="data row4 col0" style="text-align: left;">XGBoost</td>
-<td id="T_c5cd4_row4_col1" class="data row4 col1" style="text-align: left;">2.660</td>
-<td id="T_c5cd4_row4_col2" class="data row4 col2" style="text-align: left;">2.314</td>
+<td id="T_3d4c2_row4_col0" class="data row4 col0" style="text-align: left;">XGBoost</td>
+<td id="T_3d4c2_row4_col1" class="data row4 col1" style="text-align: left;">3.036</td>
+<td id="T_3d4c2_row4_col2" class="data row4 col2" style="text-align: left;">2.605</td>
 </tr>
 <tr class="even">
-<td id="T_c5cd4_row5_col0" class="data row5 col0" style="text-align: left;">RandomForest</td>
-<td id="T_c5cd4_row5_col1" class="data row5 col1" style="text-align: left;">2.825</td>
-<td id="T_c5cd4_row5_col2" class="data row5 col2" style="text-align: left;">2.486</td>
+<td id="T_3d4c2_row5_col0" class="data row5 col0" style="text-align: left;">RandomForest</td>
+<td id="T_3d4c2_row5_col1" class="data row5 col1" style="text-align: left;">3.141</td>
+<td id="T_3d4c2_row5_col2" class="data row5 col2" style="text-align: left;">2.723</td>
 </tr>
 <tr class="odd">
-<td id="T_c5cd4_row6_col0" class="data row6 col0" style="text-align: left;">LightGBM</td>
-<td id="T_c5cd4_row6_col1" class="data row6 col1" style="text-align: left;">3.344</td>
-<td id="T_c5cd4_row6_col2" class="data row6 col2" style="text-align: left;">2.946</td>
+<td id="T_3d4c2_row6_col0" class="data row6 col0" style="text-align: left;">ets</td>
+<td id="T_3d4c2_row6_col1" class="data row6 col1" style="text-align: left;">3.210</td>
+<td id="T_3d4c2_row6_col2" class="data row6 col2" style="text-align: left;">2.800</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<div id="ab1a6f85" class="cell quarto-layout-cell" data-execution_count="17" style="flex-basis: 50.0%;justify-content: center;">
+<div id="91d99262" class="cell quarto-layout-cell" data-execution_count="15" style="flex-basis: 50.0%;justify-content: center;">
 <div class="cell-output cell-output-display">
 <style type="text/css">
-#T_3d6c7 table {
+#T_e0a1e table {
   width: 100%;
   border-collapse: collapse;
 }
-#T_3d6c7 th {
+#T_e0a1e th {
   background-color: #20808D;
   text-align: left;
   color: #FBFAF4;
   font-size: 30px;
   min-width: 80px;
 }
-#T_3d6c7 td {
+#T_e0a1e td {
   font-size: 25px;
   text-align: left;
 }
-#T_3d6c7_row0_col0, #T_3d6c7_row0_col1, #T_3d6c7_row0_col2 {
+#T_e0a1e_row0_col0, #T_e0a1e_row0_col1, #T_e0a1e_row0_col2 {
   font-weight: bold;
   background-color: None;
 }
 </style>
 
-<table id="T_3d6c7" class="caption-top" data-quarto-postprocess="true">
+<table id="T_e0a1e" class="caption-top" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
-<th id="T_3d6c7_level0_col0" class="col_heading level0 col0" style="text-align: left;" data-quarto-table-cell-role="th">ward_5</th>
-<th id="T_3d6c7_level0_col1" class="col_heading level0 col1" style="text-align: left;" data-quarto-table-cell-role="th">RMSE</th>
-<th id="T_3d6c7_level0_col2" class="col_heading level0 col2" style="text-align: left;" data-quarto-table-cell-role="th">MAE</th>
+<th id="T_e0a1e_level0_col0" class="col_heading level0 col0" style="text-align: left;" data-quarto-table-cell-role="th">ward_3</th>
+<th id="T_e0a1e_level0_col1" class="col_heading level0 col1" style="text-align: left;" data-quarto-table-cell-role="th">RMSE</th>
+<th id="T_e0a1e_level0_col2" class="col_heading level0 col2" style="text-align: left;" data-quarto-table-cell-role="th">MAE</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_3d6c7_row0_col0" class="data row0 col0" style="text-align: left;">HMM</td>
-<td id="T_3d6c7_row0_col1" class="data row0 col1" style="text-align: left;">2.500</td>
-<td id="T_3d6c7_row0_col2" class="data row0 col2" style="text-align: left;">2.122</td>
+<td id="T_e0a1e_row0_col0" class="data row0 col0" style="text-align: left;">Lasso</td>
+<td id="T_e0a1e_row0_col1" class="data row0 col1" style="text-align: left;">1.992</td>
+<td id="T_e0a1e_row0_col2" class="data row0 col2" style="text-align: left;">1.664</td>
 </tr>
 <tr class="even">
-<td id="T_3d6c7_row1_col0" class="data row1 col0" style="text-align: left;">RandomForest</td>
-<td id="T_3d6c7_row1_col1" class="data row1 col1" style="text-align: left;">2.503</td>
-<td id="T_3d6c7_row1_col2" class="data row1 col2" style="text-align: left;">2.129</td>
+<td id="T_e0a1e_row1_col0" class="data row1 col0" style="text-align: left;">LightGBM</td>
+<td id="T_e0a1e_row1_col1" class="data row1 col1" style="text-align: left;">2.009</td>
+<td id="T_e0a1e_row1_col2" class="data row1 col2" style="text-align: left;">1.700</td>
 </tr>
 <tr class="odd">
-<td id="T_3d6c7_row2_col0" class="data row2 col0" style="text-align: left;">LightGBM</td>
-<td id="T_3d6c7_row2_col1" class="data row2 col1" style="text-align: left;">2.511</td>
-<td id="T_3d6c7_row2_col2" class="data row2 col2" style="text-align: left;">2.143</td>
+<td id="T_e0a1e_row2_col0" class="data row2 col0" style="text-align: left;">linearRegression</td>
+<td id="T_e0a1e_row2_col1" class="data row2 col1" style="text-align: left;">2.044</td>
+<td id="T_e0a1e_row2_col2" class="data row2 col2" style="text-align: left;">1.724</td>
 </tr>
 <tr class="even">
-<td id="T_3d6c7_row3_col0" class="data row3 col0" style="text-align: left;">XGBoost</td>
-<td id="T_3d6c7_row3_col1" class="data row3 col1" style="text-align: left;">2.512</td>
-<td id="T_3d6c7_row3_col2" class="data row3 col2" style="text-align: left;">2.144</td>
+<td id="T_e0a1e_row3_col0" class="data row3 col0" style="text-align: left;">RandomForest</td>
+<td id="T_e0a1e_row3_col1" class="data row3 col1" style="text-align: left;">2.058</td>
+<td id="T_e0a1e_row3_col2" class="data row3 col2" style="text-align: left;">1.730</td>
 </tr>
 <tr class="odd">
-<td id="T_3d6c7_row4_col0" class="data row4 col0" style="text-align: left;">Lasso</td>
-<td id="T_3d6c7_row4_col1" class="data row4 col1" style="text-align: left;">2.517</td>
-<td id="T_3d6c7_row4_col2" class="data row4 col2" style="text-align: left;">2.144</td>
+<td id="T_e0a1e_row4_col0" class="data row4 col0" style="text-align: left;">HMM</td>
+<td id="T_e0a1e_row4_col1" class="data row4 col1" style="text-align: left;">2.078</td>
+<td id="T_e0a1e_row4_col2" class="data row4 col2" style="text-align: left;">1.749</td>
 </tr>
 <tr class="even">
-<td id="T_3d6c7_row5_col0" class="data row5 col0" style="text-align: left;">linearRegression</td>
-<td id="T_3d6c7_row5_col1" class="data row5 col1" style="text-align: left;">2.532</td>
-<td id="T_3d6c7_row5_col2" class="data row5 col2" style="text-align: left;">2.156</td>
+<td id="T_e0a1e_row5_col0" class="data row5 col0" style="text-align: left;">XGBoost</td>
+<td id="T_e0a1e_row5_col1" class="data row5 col1" style="text-align: left;">2.098</td>
+<td id="T_e0a1e_row5_col2" class="data row5 col2" style="text-align: left;">1.776</td>
 </tr>
 <tr class="odd">
-<td id="T_3d6c7_row6_col0" class="data row6 col0" style="text-align: left;">ets</td>
-<td id="T_3d6c7_row6_col1" class="data row6 col1" style="text-align: left;">2.603</td>
-<td id="T_3d6c7_row6_col2" class="data row6 col2" style="text-align: left;">2.235</td>
+<td id="T_e0a1e_row6_col0" class="data row6 col0" style="text-align: left;">ets</td>
+<td id="T_e0a1e_row6_col1" class="data row6 col1" style="text-align: left;">2.475</td>
+<td id="T_e0a1e_row6_col2" class="data row6 col2" style="text-align: left;">2.133</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div id="6710b2e5" class="cell quarto-layout-cell" data-execution_count="16" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell-output cell-output-display">
+<style type="text/css">
+#T_f4d7b table {
+  width: 100%;
+  border-collapse: collapse;
+}
+#T_f4d7b th {
+  background-color: #20808D;
+  text-align: left;
+  color: #FBFAF4;
+  font-size: 30px;
+  min-width: 80px;
+}
+#T_f4d7b td {
+  font-size: 25px;
+  text-align: left;
+}
+#T_f4d7b_row0_col0, #T_f4d7b_row0_col1, #T_f4d7b_row0_col2 {
+  font-weight: bold;
+  background-color: None;
+}
+</style>
+
+<table id="T_f4d7b" class="caption-top" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th id="T_f4d7b_level0_col0" class="col_heading level0 col0" style="text-align: left;" data-quarto-table-cell-role="th">ward_4</th>
+<th id="T_f4d7b_level0_col1" class="col_heading level0 col1" style="text-align: left;" data-quarto-table-cell-role="th">RMSE</th>
+<th id="T_f4d7b_level0_col2" class="col_heading level0 col2" style="text-align: left;" data-quarto-table-cell-role="th">MAE</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td id="T_f4d7b_row0_col0" class="data row0 col0" style="text-align: left;">Lasso</td>
+<td id="T_f4d7b_row0_col1" class="data row0 col1" style="text-align: left;">2.320</td>
+<td id="T_f4d7b_row0_col2" class="data row0 col2" style="text-align: left;">1.999</td>
+</tr>
+<tr class="even">
+<td id="T_f4d7b_row1_col0" class="data row1 col0" style="text-align: left;">linearRegression</td>
+<td id="T_f4d7b_row1_col1" class="data row1 col1" style="text-align: left;">2.470</td>
+<td id="T_f4d7b_row1_col2" class="data row1 col2" style="text-align: left;">2.135</td>
+</tr>
+<tr class="odd">
+<td id="T_f4d7b_row2_col0" class="data row2 col0" style="text-align: left;">HMM</td>
+<td id="T_f4d7b_row2_col1" class="data row2 col1" style="text-align: left;">2.532</td>
+<td id="T_f4d7b_row2_col2" class="data row2 col2" style="text-align: left;">2.211</td>
+</tr>
+<tr class="even">
+<td id="T_f4d7b_row3_col0" class="data row3 col0" style="text-align: left;">ets</td>
+<td id="T_f4d7b_row3_col1" class="data row3 col1" style="text-align: left;">2.592</td>
+<td id="T_f4d7b_row3_col2" class="data row3 col2" style="text-align: left;">2.244</td>
+</tr>
+<tr class="odd">
+<td id="T_f4d7b_row4_col0" class="data row4 col0" style="text-align: left;">XGBoost</td>
+<td id="T_f4d7b_row4_col1" class="data row4 col1" style="text-align: left;">2.660</td>
+<td id="T_f4d7b_row4_col2" class="data row4 col2" style="text-align: left;">2.314</td>
+</tr>
+<tr class="even">
+<td id="T_f4d7b_row5_col0" class="data row5 col0" style="text-align: left;">RandomForest</td>
+<td id="T_f4d7b_row5_col1" class="data row5 col1" style="text-align: left;">2.825</td>
+<td id="T_f4d7b_row5_col2" class="data row5 col2" style="text-align: left;">2.486</td>
+</tr>
+<tr class="odd">
+<td id="T_f4d7b_row6_col0" class="data row6 col0" style="text-align: left;">LightGBM</td>
+<td id="T_f4d7b_row6_col1" class="data row6 col1" style="text-align: left;">3.344</td>
+<td id="T_f4d7b_row6_col2" class="data row6 col2" style="text-align: left;">2.946</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="4af30800" class="cell quarto-layout-cell" data-execution_count="17" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell-output cell-output-display">
+<style type="text/css">
+#T_1a8e7 table {
+  width: 100%;
+  border-collapse: collapse;
+}
+#T_1a8e7 th {
+  background-color: #20808D;
+  text-align: left;
+  color: #FBFAF4;
+  font-size: 30px;
+  min-width: 80px;
+}
+#T_1a8e7 td {
+  font-size: 25px;
+  text-align: left;
+}
+#T_1a8e7_row0_col0, #T_1a8e7_row0_col1, #T_1a8e7_row0_col2 {
+  font-weight: bold;
+  background-color: None;
+}
+</style>
+
+<table id="T_1a8e7" class="caption-top" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th id="T_1a8e7_level0_col0" class="col_heading level0 col0" style="text-align: left;" data-quarto-table-cell-role="th">ward_5</th>
+<th id="T_1a8e7_level0_col1" class="col_heading level0 col1" style="text-align: left;" data-quarto-table-cell-role="th">RMSE</th>
+<th id="T_1a8e7_level0_col2" class="col_heading level0 col2" style="text-align: left;" data-quarto-table-cell-role="th">MAE</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td id="T_1a8e7_row0_col0" class="data row0 col0" style="text-align: left;">HMM</td>
+<td id="T_1a8e7_row0_col1" class="data row0 col1" style="text-align: left;">2.500</td>
+<td id="T_1a8e7_row0_col2" class="data row0 col2" style="text-align: left;">2.122</td>
+</tr>
+<tr class="even">
+<td id="T_1a8e7_row1_col0" class="data row1 col0" style="text-align: left;">RandomForest</td>
+<td id="T_1a8e7_row1_col1" class="data row1 col1" style="text-align: left;">2.503</td>
+<td id="T_1a8e7_row1_col2" class="data row1 col2" style="text-align: left;">2.129</td>
+</tr>
+<tr class="odd">
+<td id="T_1a8e7_row2_col0" class="data row2 col0" style="text-align: left;">LightGBM</td>
+<td id="T_1a8e7_row2_col1" class="data row2 col1" style="text-align: left;">2.511</td>
+<td id="T_1a8e7_row2_col2" class="data row2 col2" style="text-align: left;">2.143</td>
+</tr>
+<tr class="even">
+<td id="T_1a8e7_row3_col0" class="data row3 col0" style="text-align: left;">XGBoost</td>
+<td id="T_1a8e7_row3_col1" class="data row3 col1" style="text-align: left;">2.512</td>
+<td id="T_1a8e7_row3_col2" class="data row3 col2" style="text-align: left;">2.144</td>
+</tr>
+<tr class="odd">
+<td id="T_1a8e7_row4_col0" class="data row4 col0" style="text-align: left;">Lasso</td>
+<td id="T_1a8e7_row4_col1" class="data row4 col1" style="text-align: left;">2.517</td>
+<td id="T_1a8e7_row4_col2" class="data row4 col2" style="text-align: left;">2.144</td>
+</tr>
+<tr class="even">
+<td id="T_1a8e7_row5_col0" class="data row5 col0" style="text-align: left;">linearRegression</td>
+<td id="T_1a8e7_row5_col1" class="data row5 col1" style="text-align: left;">2.532</td>
+<td id="T_1a8e7_row5_col2" class="data row5 col2" style="text-align: left;">2.156</td>
+</tr>
+<tr class="odd">
+<td id="T_1a8e7_row6_col0" class="data row6 col0" style="text-align: left;">ets</td>
+<td id="T_1a8e7_row6_col1" class="data row6 col1" style="text-align: left;">2.603</td>
+<td id="T_1a8e7_row6_col2" class="data row6 col2" style="text-align: left;">2.235</td>
 </tr>
 </tbody>
 </table>
@@ -1078,11 +1080,11 @@ QL_{\alpha} = 2 \sum_{t=1}^{h} \left[\alpha (y_t - \hat{y}_t^{(\alpha)}) \mathbb
 <h2>Forecast distributions (Quantile scores for 45% to 85%)</h2>
 
 <img data-src="slides_files/figure-revealjs/cell-21-output-1.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="model-explainability" class="slide level2">
-<h2>Model Explainability</h2>
+<section id="models-explainability" class="slide level2">
+<h2>Model’s Explainability</h2>
 <div class="columns">
 <div class="column" style="width:70%;">
-<div id="999e0216" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="21">
+<div id="c4ad6396" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="21">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1093,7 +1095,7 @@ QL_{\alpha} = 2 \sum_{t=1}^{h} \left[\alpha (y_t - \hat{y}_t^{(\alpha)}) \mathbb
 </div>
 </div><div class="column" style="width:30%;">
 <h3 id="transition-probabilities">Transition probabilities</h3>
-<div id="a516b584" class="cell" data-execution_count="22">
+<div id="c39e0455" class="cell" data-execution_count="22">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="caption-top">
 <thead>
@@ -1120,7 +1122,7 @@ QL_{\alpha} = 2 \sum_{t=1}^{h} \left[\alpha (y_t - \hat{y}_t^{(\alpha)}) \mathbb
 </div>
 <p><br> <br></p>
 <h3 id="standard-deviations">Standard Deviations</h3>
-<div id="aa075971" class="cell" data-execution_count="23">
+<div id="f005d1b9" class="cell" data-execution_count="23">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="caption-top">
 <thead>
