@@ -684,7 +684,7 @@ P(s_{T+h} = S_j) = \sum_{i=1}^{K} P(s_{T+h-1} = S_i) \, p_{ij}
 $$
 
 
-**Regime-specific forecasts**: For each predicted regime, we utilize the corresponding regression model to forecast the observation at that time step. The predicted observation $\hat{y}_{T+h}$ for state $s_{T+h}$ is computed as:
+- **Regime-specific forecasts**: For each predicted regime, we utilize the corresponding regression model to forecast the observation at that time step. The predicted observation $\hat{y}_{T+h}$ for state $s_{T+h}$ is computed as:
 
 $$
 \hat{y}_{T+h}^{s_{T+h}} = \beta_{0}^{(s_{T+h})} + \sum_{i=1}^{p} \beta_{i}^{(s_{T+h})} \, y_{T+h-i} + \sum_{j=1}^{M} \beta_{p+j}^{(s_{T+h})} \, X_{T+h,j}
