@@ -814,12 +814,12 @@ $$|\ell(\Theta^{(k+1)}) - \ell(\Theta^{(k)})| < \epsilon$$
 
 ---
 
-## Probabilistic Forecasting using Conformal Prediction {.smaller}
+## Probabilistic Forecasting using Conformal Prediction
 
 ### Conformal Prediction for Time Series
 
-- Conformal prediction is a distribution-free, finite-sample valid method for constructing prediction intervals
-- It provides a way to quantify the uncertainty of point forecasts by generating prediction intervals that are guaranteed to contain the true future values with a specified probability.
+- A distribution-free method for constructing prediction intervals
+- A way to quantify the uncertainty of point forecasts by generating prediction intervals
 
 ::: {.fragment}
 ### Steps to Generate Prediction Intervals
@@ -831,21 +831,22 @@ $$|\ell(\Theta^{(k+1)}) - \ell(\Theta^{(k)})| < \epsilon$$
 ::: {.fragment}
 1. **Point Forecasting**:
 
-- Generate point forecasts $\hat{y}_{t+h}$ for the desired forecast horizon $h$ using rolling-origin cross-validation on a `calibration set` of 500 observations per horizon, derived from the last 500 days of training data.
+- Generate point forecasts $\hat{y}_{t+h}$ for the desired forecast horizon $h$ using rolling-origin cross-validation on a `calibration set` of 500 observations per horizon.
 
 :::
 
 ::: {.fragment}
-2. **Residual Calculation**: Compute the residuals from the calibration data set:
+2. **Residual Calculation**
 $$
 r_{t+h} = y_{t+h} - \hat{y}_{t+h}
 $$
 
 where $y_{t+h}$ are the actual observed values and $\hat{y}_{t+h}$ are the point forecasts for $t+h$.
+
 :::
 
 ::: {.fragment}
-3. **Nonconformity Scores**: Calculate the nonconformity scores associated with the residuals of each forecast horizon. Nonconformity scores are calculated as the absolute values of the residuals:
+3. **Nonconformity Scores**
 $$
 A_{t+h} = |r_{t+h}|
 $$
@@ -856,18 +857,18 @@ $$
 
 ::: {.column width="50%"}
 ::: {.fragment}
-4. **Quantile Calculation**: For a desired confidence level $1 - \alpha$, compute the $(1 - \alpha)$-quantile of the nonconformity scores:
+4. **Quantile Calculation**
 
 $$
 q_{1-\alpha}^{(h)} = \text{Quantile}_{1-\alpha}(\{A_{t-n+h}\}_{t=t-n}^{n})
 $$
 
-where $n$ is the size of the calibration set.
+where $n$ is the size of the calibration set and $1 - \alpha$ is the desired coverage level
 
 :::
 
 ::: {.fragment}
-5. **Prediction Intervals**: Construct the prediction intervals for the forecast horizon $h$ as:
+5. **Prediction Intervals**
 $$
 \left[\hat{y}_{t+h} - q_{1-\alpha}^{(h)}, \hat{y}_{t+h} + q_{1-\alpha}^{(h)}\right]
 $$
@@ -875,13 +876,12 @@ $$
 :::
 
 ::: {.fragment}
-6. **Distribution Approximation**: For each forecast horizon, generate a distribution of possible future values by adding residuals calculated from calibration set to the point forecasts.
+6. **Distribution Approximation**
 
 $$
 y_{t+h}^{(i)} = \hat{y}_{t+h} + r_, \quad r_i \in \{r_1, r_2, \ldots, r_n\}
 $$
 
-where $n$ is the number of residuals in the calibration set and $i = 1, 2, \ldots, n$.
 :::
 
 :::
@@ -919,23 +919,23 @@ $$
 
 ## Feature engineering
 
-- Time-based features: Extracted day and month from timestamps to capture temporal patterns.
-- Public holidays: Created binary indicators for public holidays to account for their impact on hospital occupancy.
-- Lagged features: Created lagged versions of key variables to incorporate past information into the models.
-- Fourier terms: Added Fourier series terms for linear models to capture seasonality in the data.
-- Rolling window features: Computed rolling means and standard deviations to see if improving the model's performance.
+- Time-based features
 
----
+<br>
 
-## Training and validation setup
-- The last 360 days of data are reserved as the test set to evaluate model performance
-- The remaining data is used for:
-    -   training and validation
-    -   hyperparameter tuning through rolling-origin cross-validation with a fixed window size of 30 days and step size of 13 days to capture yearly seasonality.
-    -   Generate probabilistic forecasts using conformal prediction using optimized models on the training data.
-- `The train-test split ensures that the models are evaluated on unseen data, providing a realistic assessment of their forecasting capabilities.`
+- Public holidays
 
----
+<br>
+
+- Lagged features
+
+<br>
+
+- Fourier terms
+
+<br>
+
+- Rolling window features
 
 
 ## Cross validation setup
@@ -1288,7 +1288,7 @@ plt.show()
 
 ---
 
-## Model Explainability
+## Model's Explainability
 
 :::: {.columns}
 
