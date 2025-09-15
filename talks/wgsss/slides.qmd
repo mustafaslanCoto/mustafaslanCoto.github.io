@@ -666,33 +666,28 @@ p_{K1} & \cdots & p_{KK}
 $$
 
 
-## Modeling Framework {.smaller}
+## Modeling Framework
 
 ### Forecasting with RS-ARHMM
 
-To forecast $h$ steps ahead, we employ a systematic three-stage approach that combines state prediction with regime-specific observation modeling.
 
-1. **State Prediction**: We predict the most probable state sequence for the next $h$ time steps using the transition matrix $\mathbf{P}$. The probability of being in state $S_j$ at time $T+h$ is computed recursively as:
+- **Forecast Computation**: The final forecast for each time step is a weighted average of the forecasts from each regime, `weighted by the predicted regime probabilities`:
+
+$$
+\hat{y}_{T+h} = \sum_{j=1}^{K} P(s_{T+h} = S_j) \, \hat{y}_{T+h}^{(S_j)}
+$$
+
+- **State Prediction**: We predict the most probable state sequence for the next $h$ time steps using the transition matrix $\mathbf{P}$. The probability of being in state $S_j$ at time $T+h$ is computed recursively as:
 
 $$
 P(s_{T+h} = S_j) = \sum_{i=1}^{K} P(s_{T+h-1} = S_i) \, p_{ij}
 $$
 
-The initial state distribution $P(s_{T+1} = S_j)$ for the first step is estimated from the last estimated state probabilities obtained from the forward algorithm at time $T$.
 
-2. **Regime-specific forecasts**: For each predicted regime, we utilize the corresponding regression model to forecast the observation at that time step, incorporating both lagged values and exogenous variables. The predicted observation $\hat{y}_{T+h}$ for state $s_{T+h}$ is computed as:
+**Regime-specific forecasts**: For each predicted regime, we utilize the corresponding regression model to forecast the observation at that time step. The predicted observation $\hat{y}_{T+h}$ for state $s_{T+h}$ is computed as:
 
 $$
 \hat{y}_{T+h}^{s_{T+h}} = \beta_{0}^{(s_{T+h})} + \sum_{i=1}^{p} \beta_{i}^{(s_{T+h})} \, y_{T+h-i} + \sum_{j=1}^{M} \beta_{p+j}^{(s_{T+h})} \, X_{T+h,j}
-$$
-
-
-For multi-step forecasting, we use the predicted observations as inputs for subsequent predictions. $y_{T+h-i}$ are the actual observed values for $i \leq h$ and the previously predicted values for $i > h$.
-
-3. **Final Forecast Computation**: The final forecast for each time step is a weighted average of the forecasts from each regime, weighted by the predicted regime probabilities:
-
-$$
-\hat{y}_{T+h} = \sum_{j=1}^{K} P(s_{T+h} = S_j) \, \hat{y}_{T+h}^{(S_j)}
 $$
 
 ---
