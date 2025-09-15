@@ -35,7 +35,6 @@ format:
 :::: {.columns}
 
 ::: {.column width="50%" .fragment}
- - Inefficient bed management leads to delays in admissions, transfers, and discharges, resulting in longer wait times and reduced patient satisfaction.
 ![](images/late_shift.png){width="100%"}
 :::
 
@@ -831,7 +830,6 @@ $$|\ell(\Theta^{(k+1)}) - \ell(\Theta^{(k)})| < \epsilon$$
 
 ::: {.fragment}
 1. **Point Forecasting**:
-
 ----
 
 - Generate point forecasts $\hat{y}_{t+h}$ for the desired forecast horizon $h$ using rolling-origin cross-validation on a `calibration set` of 500 observations per horizon.
@@ -840,7 +838,6 @@ $$|\ell(\Theta^{(k+1)}) - \ell(\Theta^{(k)})| < \epsilon$$
 
 ::: {.fragment}
 2. **Residual Calculation**
-
 ----
 
 $$
@@ -853,7 +850,6 @@ where $y_{t+h}$ are the actual observed values and $\hat{y}_{t+h}$ are the point
 
 ::: {.fragment}
 3. **Nonconformity Scores**
-
 ----
 
 $$
@@ -867,7 +863,6 @@ $$
 ::: {.column width="50%"}
 ::: {.fragment}
 4. **Quantile Calculation**
-
 ----
 
 $$
@@ -880,7 +875,6 @@ where $n$ is the size of the calibration set and $1 - \alpha$ is the desired cov
 
 ::: {.fragment}
 5. **Prediction Intervals**
-
 ----
 
 $$
@@ -891,11 +885,10 @@ $$
 
 ::: {.fragment}
 6. **Distribution Approximation**
-
 ----
 
 $$
-y_{t+h}^{(i)} = \hat{y}_{t+h} + r_, \quad r_i \in \{r_1, r_2, \ldots, r_n\}
+y_{t+h}^{(i)} = \hat{y}_{t+h} + r_{t+h}^{(i)}, \quad r_{t+h}^{(i)} \in \{r_{t+h}^{(1)}, r_{t+h}^{(2)}, \ldots, r_{t+h}^{(n)}\}
 $$
 
 :::
