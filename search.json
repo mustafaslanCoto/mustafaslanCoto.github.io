@@ -88,7 +88,7 @@
     "href": "talks/index.html",
     "title": "MUSTAFA ASLAN",
     "section": "",
-    "text": "Forecasting hospital bed occupancy: An Autoregressive Markov Switching Approach\n\n\nTalk\n\n\n\n\n\nSep 12, 2025\n\n\nMustafa Aslan\n\n\n\n\n\nNo matching items"
+    "text": "Forecasting hospital bed occupancy: An Autoregressive Markov Switching Approach\n\n\n5th Welsh Postgraduate Research Cluster Workshop in Economy, Enterprise and Productivity\n\n\n\n\n\nSep 16, 2025\n\n\nMustafa Aslan\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "talks/wgsss/occupancy_nb.html",
@@ -1005,7 +1005,7 @@
     "href": "talks/wgsss/slides.html#outline",
     "title": "MUSTAFA ASLAN",
     "section": "Outline",
-    "text": "Outline\n\nThe problem\nData and preliminary analysis\nExperiment design and Modelling framework\nKey findings\nNext steps"
+    "text": "Outline\n\nThe problem\nData and preliminary analysis\nExperiment design and Modelling framework\nResults\nKey findings\nNext steps"
   },
   {
     "objectID": "talks/wgsss/slides.html#current-systemic-issues-in-patient-flow",
@@ -1201,7 +1201,7 @@
     "href": "talks/wgsss/slides.html#model-explainability",
     "title": "MUSTAFA ASLAN",
     "section": "Model Explainability",
-    "text": "Model Explainability\n\n\n\n\n\n\n\n\n\n\n\n\nTransition probabilities\n\n\n\n\n\n\n\n\n\nState 0\nState 1\n\n\n\n\nState 0\n0.666\n0.334\n\n\nState 1\n0.487\n0.513\n\n\n\n\n\n\n\n \nStandard Deviations\n\n\n\n\n\n\n\n\n\nState 0\nState 1\n\n\n\n\nstandard deviations\n1.39\n0.01"
+    "text": "Model Explainability\n\n\n\n\n\n\n\n\n\n\n\n\nTransition probabilities\n\n\n\n\n\nT. Matrix\nState 0\nState 1\n\n\n\n\nState 0\n0.666\n0.334\n\n\nState 1\n0.487\n0.513\n\n\n\n\n\n \nStandard Deviations\n\n\n\n\n\nStd. Dev.\nState 0\nState 1\n\n\n\n\nsd\n1.393\n0.006"
   },
   {
     "objectID": "talks/wgsss/slides.html#learning-outcomes-from-the-current-experiments",
@@ -1222,7 +1222,7 @@
     "href": "talks/presentations/wgsss.html",
     "title": "Forecasting hospital bed occupancy: An Autoregressive Markov Switching Approach",
     "section": "",
-    "text": "Slides\nDate: Sep 12 2025 11:00 AM – 13:00 PM\nEvent: Welsh Graduate School of Social Sciences Annual Conference\nLocation: School of Management, Swansea University, UK"
+    "text": "Slides\nDate: Sep 16 2025 11:00 AM – 13:00 PM\nEvent: 5th Welsh Postgraduate Research Cluster Workshop\nLocation: School of Management, Swansea University, UK\nAt the 5th Welsh Postgraduate Research Cluster Workshop, we will present our research on forecasting hospital bed occupancy using a Regime Switching Autoregressive Hidden Markov Model (RS-ARHMM). This model is designed to capture the dynamic and often unpredictable nature of hospital bed occupancy, which is influenced by various factors that are even not directly observable.\nHospital bed occupancy is a critical metric for healthcare systems, directly impacting patient care quality and operational efficiency. Accurate forecasting of bed occupancy can aid in resource allocation, staffing, and overall hospital management. The presentation introduces a Regime Switching Autoregressive Hidden Markov Model (RS-ARHMM) to forecast hospital bed occupancy, capturing the dynamic nature of healthcare demand. The RS-ARHMM model combines the strengths of autoregressive models in handling time series data with the flexibility of Markov switching to account for regime changes in occupancy patterns. The model is applied to historical bed occupancy data from a hospital, demonstrating its ability to adapt to sudden changes in demand, such as seasonal variations and unexpected surges. Results indicate that the RS-ARHMM model outperforms both traditional and modern forecasting methods, providing more accurate and reliable predictions in terms of probabilistic forecasting methods. This approach offers a valuable tool for hospital administrators and policymakers to enhance staffing strategies and resource management, ultimately improving patient outcomes and operational efficiency."
   },
   {
     "objectID": "bins/dist.html",
