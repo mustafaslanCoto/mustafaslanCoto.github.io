@@ -1097,6 +1097,7 @@ ward_0.rename(columns={"index": "ward_0"}, inplace=True)
 table_styler(ward_0, cells_format=[('font-size', '25px'), ('text-align', 'left')],
               table_header=[('background-color', '#20808D'), ('text-align', 'left'),
                             ('color', '#FBFAF4'), ('font-size', '30px'), ('min-width', '80px')],
+                            highlight_cells = [(0, 'ward_0')],
                             numeric_highlights = {"RMSE": {"condition": "less", "threshold": 3.25, "style": "font-weight: bold; background-color: None;"},
                             "MAE": {"condition": "less", "threshold": 2.8, "style": "font-weight: bold; background-color: None;"}},
 )
@@ -1111,6 +1112,7 @@ ward_1.rename(columns={"index": "ward_1"}, inplace=True)
 table_styler(ward_1, cells_format=[('font-size', '25px'), ('text-align', 'left')],
               table_header=[('background-color', '#20808D'), ('text-align', 'left'),
                             ('color', '#FBFAF4'), ('font-size', '30px'), ('min-width', '80px')],
+                            highlight_cells = [(0, 'ward_1')],
                             numeric_highlights = {"RMSE": {"condition": "less", "threshold": 3.7, "style": "font-weight: bold; background-color: None;"},
                             "MAE": {"condition": "less", "threshold": 3.2, "style": "font-weight: bold; background-color: None;"}},
 )
@@ -1124,6 +1126,7 @@ ward_2.rename(columns={"index": "ward_2"}, inplace=True)
 table_styler(ward_2, cells_format=[('font-size', '25px'), ('text-align', 'left')],
               table_header=[('background-color', '#20808D'), ('text-align', 'left'),
                             ('color', '#FBFAF4'), ('font-size', '30px'), ('min-width', '80px')],
+                            highlight_cells = [(0, 'ward_2')],
                             numeric_highlights = {"RMSE": {"condition": "less", "threshold": 2.860, "style": "font-weight: bold; background-color: None;"},
                             "MAE": {"condition": "less", "threshold": 2.42, "style": "font-weight: bold; background-color: None;"}},
 )
@@ -1137,6 +1140,7 @@ ward_3.rename(columns={"index": "ward_3"}, inplace=True)
 table_styler(ward_3, cells_format=[('font-size', '25px'), ('text-align', 'left')],
               table_header=[('background-color', '#20808D'), ('text-align', 'left'),
                             ('color', '#FBFAF4'), ('font-size', '30px'), ('min-width', '80px')],
+                            highlight_cells = [(0, 'ward_3')],
                             numeric_highlights = {"RMSE": {"condition": "less", "threshold": 2, "style": "font-weight: bold; background-color: None;"},
                             "MAE": {"condition": "less", "threshold": 1.7, "style": "font-weight: bold; background-color: None;"}},
 )
@@ -1151,6 +1155,7 @@ ward_4.rename(columns={"index": "ward_4"}, inplace=True)
 table_styler(ward_4, cells_format=[('font-size', '25px'), ('text-align', 'left')],
               table_header=[('background-color', '#20808D'), ('text-align', 'left'),
                             ('color', '#FBFAF4'), ('font-size', '30px'), ('min-width', '80px')],
+                            highlight_cells = [(0, 'ward_4')],
                             numeric_highlights = {"RMSE": {"condition": "less", "threshold": 2.4, "style": "font-weight: bold; background-color: None;"},
                             "MAE": {"condition": "less", "threshold": 2.1, "style": "font-weight: bold; background-color: None;"}},
 )
@@ -1165,6 +1170,7 @@ ward_5.rename(columns={"index": "ward_5"}, inplace=True)
 table_styler(ward_5, cells_format=[('font-size', '25px'), ('text-align', 'left')],
               table_header=[('background-color', '#20808D'), ('text-align', 'left'),
                             ('color', '#FBFAF4'), ('font-size', '30px'), ('min-width', '80px')],
+                            highlight_cells = [(0, 'ward_5')],
                             numeric_highlights = {"RMSE": {"condition": "less", "threshold": 2.501, "style": "font-weight: bold; background-color: None;"},
                             "MAE": {"condition": "less", "threshold": 2.125, "style": "font-weight: bold; background-color: None;"}},
 )
