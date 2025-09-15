@@ -21,6 +21,8 @@ format:
 
 - Experiment design and Modelling framework
 
+- Results
+
 - Key findings
 
 - Next steps
@@ -1336,10 +1338,16 @@ plt.show()
 ### Transition probabilities
 
 ```{python}
+from IPython.display import display, Markdown
 tp = pd.DataFrame(hm_model.A).round(3)
 tp.index = ["State 0", "State 1"]
 tp.columns = ["State 0", "State 1"]
-tp
+tp.reset_index(inplace=True)
+tp.rename(columns={"index": "T. Matrix"}, inplace=True)
+
+# Assume 'df' is your DataFrame
+
+display(Markdown(tp.to_markdown(index=False)))
 ```
 
 <br>
@@ -1348,11 +1356,13 @@ tp
 ### Standard Deviations
 
 ```{python}
-stds = pd.DataFrame(hm_model.stds).round(2).T
+stds = pd.DataFrame(hm_model.stds).round(3).T
 # change row name to standard deviation
-stds = stds.rename(index={0: "standard deviations"})
+stds = stds.rename(index={0: "sd"})
 stds.columns = ["State 0", "State 1"]
-stds
+stds.reset_index(inplace=True)
+stds.rename(columns={"index": "Std. Dev."}, inplace=True)
+display(Markdown(stds.to_markdown(index=False)))
 ```
 
 :::
