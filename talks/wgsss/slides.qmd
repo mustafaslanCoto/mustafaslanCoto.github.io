@@ -400,7 +400,7 @@ plt.show()
 #| fig-align: center
 #| fig-height: 100%
 
-fig, axes = plt.subplots(figsize=(15, 7))
+fig, axes = plt.subplots(figsize=(22, 11))
 df = occup_train.loc[:"2022-07-31"]
 
 # Plot all days with small markers
@@ -557,7 +557,7 @@ for w in ward_cols_:
 df_diff.dropna(inplace=True)
 
 # plot original differenced series in two plots in one graph
-fig, axs = plt.subplots(2, 1, figsize=(22, 11))
+fig, axs = plt.subplots(2, 1, figsize=(18, 9))
 axs[0].plot(df_diff.index, df_diff['ward_0'], label='Original Differenced Series', color='C0', alpha=0.9)
 axs[0].set_title('Original Differenced Series for ward_0')
 axs[0].legend(loc = 'lower right')
@@ -950,6 +950,10 @@ $$
 Rolling-origin cross-validation is used to evaluate model performance over time
 
 ```{python}
+#| fig-width: 100%
+#| fig-align: center
+#| fig-height: 100%
+
 from matplotlib.patches import Patch
 
 def plot_cv_indices(cv, X, y, ax=None,
@@ -960,7 +964,7 @@ def plot_cv_indices(cv, X, y, ax=None,
     Shows the first_n splits, ellipsis, and last_n splits.
     """
     if ax is None:
-        fig, ax = plt.subplots(figsize=(12, 6))
+        fig, ax = plt.subplots(figsize=(22, 11))
 
     splits = list(cv.split(X))
     total_splits = len(splits)
@@ -1185,7 +1189,7 @@ with open('results/avg_of_qswards.pkl', 'rb') as f:
 
 # qs_table = qs.reset_index().rename(columns={"index": "Model"})
 
-plt.figure(figsize=(18, 9))
+plt.figure(figsize=(22, 11))
 markers = ['o', 's', 'D', '^', 'v', '<', '>', 'p', '*', 'h', 'X', 'd']
 my_qs = np.arange(0.05, 1.00, 0.05)
 for i, model in enumerate(qs.index.tolist()):
@@ -1215,7 +1219,7 @@ plt.show()
 #| fig-align: center
 #| fig-height: 100%
 
-plt.figure(figsize=(18, 9))
+plt.figure(figsize=(22, 11))
 markers = ['o', 's', 'D', '^', 'v', '<', '>', 'p', '*', 'h', 'X', 'd']
 my_qs = np.arange(0.05, 1.00, 0.05)
 for i, model in enumerate(qs.index.tolist()):
@@ -1248,7 +1252,7 @@ plt.show()
 #| fig-align: center
 #| fig-height: 100%
 
-plt.figure(figsize=(18, 9))
+plt.figure(figsize=(22, 11))
 markers = ['o', 's', 'D', '^', 'v', '<', '>', 'p', '*', 'h', 'X', 'd']
 qs_viz = qs.loc[:, "q0.45":"q0.85"]
 cut_qs = np.arange(0.45, 0.9, 0.05)
@@ -1304,7 +1308,7 @@ test_df = df_[train_size:train_size+30]
 import matplotlib.pyplot as plt
 my_series = fit_df[-2074:]["ward_0"]
 
-fig, ax1 = plt.subplots(figsize=(22, 11))
+fig, ax1 = plt.subplots(figsize=(22, 14))
 
 # Plot the time series
 ax1.plot(my_series.index[-60:], my_series.values[-60:], label="Occupancy", color="C0")
