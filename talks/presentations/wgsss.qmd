@@ -3,7 +3,7 @@ title: "Forecasting hospital bed occupancy: An Autoregressive Markov Switching A
 description: "Talk"
 author: "Mustafa Aslan"
 date: "2025-09-12"
-# image: "../images/vs_py.webp"
+image: "../images/title_page.png"
 categories:
   - Conference
   - Talk
@@ -11,7 +11,7 @@ link-external-newwindow: true
 ---
 
 
-<!-- ![](../images/vs_py.webp){fig-align="center"} -->
+![](../images/title_page.png){fig-align="center"}
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 

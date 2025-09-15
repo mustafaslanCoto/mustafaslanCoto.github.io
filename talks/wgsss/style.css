@@ -88,3 +88,14 @@ div.callout .callout-title {
 img {
     background-color: #FBFAF4; /* Replace with your desired hex color */
 }
+
+
+.left-border {
+  border-left: 2px solid rgba(0,0,0,0.12);  /* Only the left */
+  border-radius: 0;                         /* Remove any edge rounding */
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+  padding-left: 14px;                       /* Optional, or reduce/increase */
+  background: none;                         /* Ensure background hasn't changed */
+}
