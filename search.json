@@ -1201,7 +1201,7 @@
     "href": "talks/wgsss/slides.html#model-explainability",
     "title": "MUSTAFA ASLAN",
     "section": "Model Explainability",
-    "text": "Model Explainability\n\n\n\n\n\n\n\n\n\n\n\n\nTransition probabilities\n\n\n\n\n\nT. Matrix\nState 0\nState 1\n\n\n\n\nState 0\n0.666\n0.334\n\n\nState 1\n0.487\n0.513\n\n\n\n\n\n \nStandard Deviations\n\n\n\n\n\nStd. Dev.\nState 0\nState 1\n\n\n\n\nsd\n1.393\n0.006"
+    "text": "Model Explainability\n\n\n\n\n\n\n\n\n\n\n\n\nTransition probabilities\n\n\n\n\n\nT. Matrix\nRegime 1\nRegime 2\n\n\n\n\nRegime 1\n0.666\n0.334\n\n\nRegime 2\n0.487\n0.513\n\n\n\n\n\n \nStandard Deviations\n\n\n\n\n\nStd. Dev.\nRegime 1\nRegime 2\n\n\n\n\nsd\n1.393\n0.006"
   },
   {
     "objectID": "talks/wgsss/slides.html#learning-outcomes-from-the-current-experiments",
