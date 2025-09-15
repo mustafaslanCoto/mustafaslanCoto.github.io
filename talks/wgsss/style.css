@@ -113,6 +113,5 @@ img {
 .reveal .footer a:hover,
 .reveal .footer a:focus {
   color: #16606A !important; /* slightly darker on hover */
-  text-decoration: underline;
 }
 
