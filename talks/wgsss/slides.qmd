@@ -456,8 +456,8 @@ for idx, (date, row) in enumerate(holiday_data.iterrows()):
 
 axes.set_title("The effect of Public Holidays on Occupancy", fontsize=18)
 axes.set_xlabel("Date", fontsize=16)
-axes.set_xticks(fontsize=16)
-axes.set_xticklabels(fontsize=16)
+axes.tick_params(axis='x', labelsize=16)   # Sets fontsize for x-ticks
+axes.tick_params(axis='y', labelsize=16)   # Sets fontsize for y-ticks if needed
 axes.set_ylabel("Occupancy", fontsize=16)
 plt.show()
 ```
