@@ -34,11 +34,12 @@ format:
 
 :::: {.columns}
 
-::: {.column width="50%"}
+::: {.column width="50%" .fragment}
+ - Inefficient bed management leads to delays in admissions, transfers, and discharges, resulting in longer wait times and reduced patient satisfaction.
 ![](images/late_shift.png){width="100%"}
 :::
 
-::: {.column width="50%"}
+::: {.column width="50%" .fragment}
  - Unpredictable occupancy levels can result in redundant staffing and resource allocation, driving up costs, or in understaffing, which compromises patient care.
 
 <br>
