@@ -5,7 +5,7 @@ format:
     slide-number: c/t
     width: 2100
     height: 1200
-    footer: footer: "[Hospital Bed Occupancy Forecasting: A Regime-Switching AutoRegressive Hidden Markov Model Approach](https://mustafaslancoto.github.io/talks/presentations/wgsss.html)"
+    footer: "[Hospital Bed Occupancy Forecasting: A Regime-Switching AutoRegressive Hidden Markov Model Approach](https://mustafaslancoto.github.io/talks/presentations/wgsss.html)"
     margin: 0.06
     auto-stretch: true
     css: style.css
