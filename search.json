@@ -88,7 +88,7 @@
     "href": "talks/index.html",
     "title": "MUSTAFA ASLAN",
     "section": "",
-    "text": "Forecasting Mental Health Hospital Bed Occupancy: An Autoregressive Markov Switching Approach\n\n\n5th Welsh Postgraduate Research Cluster Workshop in Economy, Enterprise and Productivity\n\n\n\n\n\nSep 16, 2025\n\n\nMustafa Aslan\n\n\n\n\n\nNo matching items"
+    "text": "Forecasting Mental Health Hospital Bed Occupancy: A Regime-Switching AutoRegressive Hidden Markov Model Approach\n\n\n5th Welsh Postgraduate Research Cluster Workshop in Economy, Enterprise and Productivity\n\n\n\n\n\nSep 16, 2025\n\n\nMustafa Aslan\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "talks/wgsss/occupancy_nb.html",
@@ -1213,21 +1213,21 @@
   {
     "objectID": "talks/presentations/wgsss.html",
     "href": "talks/presentations/wgsss.html",
-    "title": "Forecasting Mental Health Hospital Bed Occupancy: An Autoregressive Markov Switching Approach",
+    "title": "Forecasting Mental Health Hospital Bed Occupancy: A Regime-Switching AutoRegressive Hidden Markov Model Approach",
     "section": "",
     "text": "Slides\nDate: Sep 16 2025 11:00 AM – 13:00 PM\nEvent: 5th Welsh Postgraduate Research Cluster Workshop\nLocation: School of Management, Swansea University, UK"
   },
   {
     "objectID": "talks/presentations/wgsss.html#context",
     "href": "talks/presentations/wgsss.html#context",
-    "title": "Forecasting Mental Health Hospital Bed Occupancy: An Autoregressive Markov Switching Approach",
+    "title": "Forecasting Mental Health Hospital Bed Occupancy: A Regime-Switching AutoRegressive Hidden Markov Model Approach",
     "section": "Context",
     "text": "Context\nAt the 5th Welsh Postgraduate Research Cluster Workshop, we will present our research on forecasting mental health hospital bed occupancy using a Regime Switching Autoregressive Hidden Markov Model (RS-ARHMM). This model is designed to capture the dynamic and often unpredictable nature of hospital bed occupancy, which is influenced by various factors that are even not directly observable."
   },
   {
     "objectID": "talks/presentations/wgsss.html#abstract",
     "href": "talks/presentations/wgsss.html#abstract",
-    "title": "Forecasting Mental Health Hospital Bed Occupancy: An Autoregressive Markov Switching Approach",
+    "title": "Forecasting Mental Health Hospital Bed Occupancy: A Regime-Switching AutoRegressive Hidden Markov Model Approach",
     "section": "Abstract",
     "text": "Abstract\nHospital bed occupancy is a critical metric for healthcare systems, directly impacting patient care quality and operational efficiency. Accurate forecasting of bed occupancy can aid in resource allocation, staffing, and overall hospital management. The presentation introduces a Regime Switching Autoregressive Hidden Markov Model (RS-ARHMM) to forecast hospital bed occupancy, capturing the dynamic nature of healthcare demand. The RS-ARHMM model combines the strengths of autoregressive models in handling time series data with the flexibility of Markov switching to account for regime changes in occupancy patterns. The model is applied to historical bed occupancy data from a mental health hospital, demonstrating its ability to adapt to sudden changes in demand. Results indicate that the RS-ARHMM model outperforms both traditional and modern forecasting methods, providing more accurate and reliable predictions in terms of probabilistic forecasting methods. This approach offers a valuable tool for hospital administrators and policymakers to enhance staffing strategies and resource management, ultimately improving patient outcomes and operational efficiency."
   },
