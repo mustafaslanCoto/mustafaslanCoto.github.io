@@ -86,6 +86,19 @@ $for(header-includes)$
 $header-includes$
 $endfor$
 
+% Set IBM Plex Sans as the document font when using XeLaTeX/LuaLaTeX.
+% Falls back to a sans-serif (Helvetica) when using pdfLaTeX.
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi>0
+  \usepackage{fontspec}
+  \defaultfontfeatures{Ligatures=TeX}
+  \setmainfont{IBM Plex Sans}[Ligatures=TeX]
+  \setsansfont{IBM Plex Sans}[Ligatures=TeX]
+\else
+  % pdfLaTeX fallback: use Helvetica-like sans-serif
+  \usepackage[scaled]{helvet}
+  \renewcommand{\familydefault}{\sfdefault}
+\fi
+
 % Now begins the stuff that I added.
 % ----------------------------------
 
