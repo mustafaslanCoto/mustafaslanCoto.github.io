@@ -91,8 +91,29 @@ $endfor$
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi>0
   \usepackage{fontspec}
   \defaultfontfeatures{Ligatures=TeX}
-  \setmainfont{IBM Plex Sans}[Ligatures=TeX]
-  \setsansfont{IBM Plex Sans}[Ligatures=TeX]
+  % Try to load bundled fonts from repo first (place font files in CV/fonts/)
+  \IfFileExists{CV/fonts/IBMPlexSans-Regular.ttf}{%
+    \setmainfont{IBM Plex Sans}[
+      Path=CV/fonts/,
+      UprightFont = *-Regular,
+      BoldFont    = *-Bold,
+      ItalicFont  = *-Italic,
+      BoldItalicFont = *-BoldItalic,
+      Ligatures=TeX
+    ]
+    \setsansfont{IBM Plex Sans}[
+      Path=CV/fonts/,
+      UprightFont = *-Regular,
+      BoldFont    = *-Bold,
+      ItalicFont  = *-Italic,
+      BoldItalicFont = *-BoldItalic,
+      Ligatures=TeX
+    ]
+  }{%
+    % Fallback to system-installed font name
+    \setmainfont{IBM Plex Sans}[Ligatures=TeX]
+    \setsansfont{IBM Plex Sans}[Ligatures=TeX]
+  }
 \else
   % pdfLaTeX fallback: use Helvetica-like sans-serif
   \usepackage[scaled]{helvet}
