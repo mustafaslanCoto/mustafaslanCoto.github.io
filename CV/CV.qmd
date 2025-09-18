@@ -3,13 +3,14 @@ title: PhD Researcher | Data Scientist & Mathematical Modeller
 author: Mustafa Aslan
 jobtitle: "PhD Researcher • Data Scientist"
 format:
-  html: default
   quarto-cv-pdf:
     linkcolor: "mycolor"
     urlcolor: "mycolor"
     citecolor: "mycolor"
+    fontsize: 11pt
     include-in-header:
       text: |
+        \usepackage{newtxtext}
         \usepackage{enumitem}
         \setlist[itemize,2]{label=\textopenbullet}
         \newcommand{\sectionline}{\vspace{-1.5em}\noindent\rule{\linewidth}{0.8pt}\vspace{-0.5em}}
