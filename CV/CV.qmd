@@ -56,7 +56,7 @@ format-links:
 \sectionline
 
 **PhD in Probabilistic Modeling for Healthcare Management and Operations**\
-[**Cardiff University, Cardiff, UK**]{.cvinstitution} \hfill [*Oct 2024 --- Present*]{.cvdate}.
+[**Cardiff University, Cardiff, UK**]{.cvinstitution} \hfill [*Oct 2024 --- Present*]{.cvdate}
 
 -   Recipient of WGSSS‑ESRC Studentship Award
 -   Project focused on enhancing discharge planning process using probabilistic modelling
