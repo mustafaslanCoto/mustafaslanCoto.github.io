@@ -5,7 +5,7 @@ jobtitle: "PhD Researcher • Data Scientist"
 format:
   html: default
   quarto-cv-pdf:
-    mainfont: "Arial"
+    mainfont: "TeX Gyre Heros"
     linkcolor: "mycolor"
     urlcolor: "mycolor"
     citecolor: "mycolor"
