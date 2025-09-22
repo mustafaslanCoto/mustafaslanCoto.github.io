@@ -88,7 +88,7 @@ format-links:
 **Reporting and Data Analytics Executive**\
 [**AKBANK (a leading bank in Turkey), Istanbul**]{.cvinstitution} \hfill [*Jun 2022 --- Sep 2024*]{.cvdate}
 
--   Applied time-series forecasting and machine learning techniques, including ARIMA, Bayesian Time Series, Prophet, ANN, LSTM, Random Forest, LightGBM and XGBoost, to historical data for making long-horizon forecasts of daily customer call volume. The best model achieved over 94% accuracy (1-MAPE) in forecasting all days of the next month.
+-   Applied time-series forecasting and machine learning techniques, including ARIMA, Bayesian Time Series, Prophet, ANN, LSTM, Random Forest, LightGBM and XGBoost, to historical data for making long-horizon forecasts of daily customer call volume. The winning model helped to allocate resources effectively, reducing customer wait times by 6%.
 -   Implemented machine learning models (e.g., XGBoost, LightGBM, CatBoost) to predict customer behavior with an over recall rate of 70% and an accuracy rate of 85%, enabling fewer customer complaints and increase sales by 14%.
 -   Analyzing large amounts of data to identify trends and find patterns, signals and hidden stories within customer calls data.
 -   Applied machine learning techniques (Z-score, IsolationForest) to detect anomalies.
