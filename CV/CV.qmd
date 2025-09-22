@@ -159,6 +159,7 @@ format-links:
 
 -   Welsh Graduate School for the Social Sciences (WGSSS) Studentship Award \hfill [*Aug 2024*]{.cvdate}
 -   NATCOR Bursaries / EURO Funding for Stochastic Modelling \hfill [*Mar 2025*]{.cvdate}
+-   The Best Presentation Award at the 5th Welsh Postgraduate Research Cluster Workshop \hfill [*Sep 2025*]{.cvdate}
 
 ::: print-only
 ## **References** {.unlisted}
