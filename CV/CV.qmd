@@ -5,13 +5,13 @@ jobtitle: "PhD Researcher • Data Scientist"
 format:
   html: default
   quarto-cv-pdf:
+    mainfont: "Arial"
     linkcolor: "mycolor"
     urlcolor: "mycolor"
     citecolor: "mycolor"
-    fontsize: 11pt
+    fontsize: 10pt
     include-in-header:
       text: |
-        \usepackage{newtxtext}
         \usepackage{enumitem}
         \setlist[itemize,2]{label=\textopenbullet}
         \newcommand{\sectionline}{\vspace{-1.5em}\noindent\rule{\linewidth}{0.8pt}\vspace{-0.5em}}
@@ -58,9 +58,9 @@ format-links:
 **PhD in Probabilistic Modeling for Healthcare Management and Operations**\
 [**Cardiff University, Cardiff, UK**]{.cvinstitution} \hfill [*Oct 2024 --- Present*]{.cvdate}
 
--   Recipient of WGSSS‑ESRC Studentship Award
+-   Recipient of WGSSS-ESRC Studentship Award
 -   Project focused on enhancing discharge planning process using probabilistic modelling
-    -   Supervisors: [Prof Bahman Rostami‑Tabar](https://www.bahmanrt.com/), [Dr. Jeremy Dixon](https://profiles.cardiff.ac.uk/staff/dixonj7)
+    -   Supervisors: [Prof Bahman Rostami-Tabar](https://www.bahmanrt.com/), [Dr. Jeremy Dixon](https://profiles.cardiff.ac.uk/staff/dixonj7)
 
 **MSc in Financial Mathematics**\
 [**Middle East Technical University, Ankara, Turkey**]{.cvinstitution} \hfill [*Oct 2017 --- Aug 2021*]{.cvdate}
