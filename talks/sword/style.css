@@ -1,0 +1,101 @@
+.smaller-font {
+  font-size: 0.9em;
+}
+
+.smallerx-font {
+  font-size: 0.35em;
+}
+
+.long-title1 {
+  font-size: 0.8em;
+}
+
+.long-title2 {
+  font-size: 0.7em;
+}
+
+
+#title-slide .quarto-title-author-name {
+  text-align: left !important;
+  font-size: 0.89em;
+}
+
+#title-slide .quarto-title-affiliation {
+  text-align: left !important;
+  font-size: 0.6em;
+}
+
+#title-slide .date {
+  text-align: left;
+  padding-left: 20px;
+}
+
+.reveal h1.title {
+  text-align: left !important;
+  font-size: 1.8em !important;
+}
+
+.reveal h1 {
+  font-size: 1.5em !important; /* Adjust size as needed */
+  padding-left: 20px;
+}
+.reveal h2 {
+  font-size: 1.3em !important;
+}
+.reveal h3 {
+  font-size: 1.1em !important;
+}
+
+.reveal .subtitle {
+  text-align: left !important;
+}
+.reveal {
+    background-color: #FBFAF4; /* Replace with your desired color */
+}
+
+
+
+/* Change callout background and sidebar color */
+div.callout {
+  border-left: 8px solid #20808D !important; /* Sidebar color */
+}
+
+div.callout .callout-title {
+  background-color: #BADFDE !important;
+  /* color: #fff !important;
+  /* border-radius: 0.5em 0.5em 0 0 */
+}
+
+/* 
+.reveal .slide-menu-button .fa-bars::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#20808D" class="bi bi-list" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/></svg>') !important;
+} */
+
+.reveal .slide-menu-button .fa-bars::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2320808D" class="bi bi-list" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/></svg>') !important;
+}
+
+/* Change the color of the progress bar itself */
+.reveal .progress span {
+  background: #20808D !important; /* Your chosen color */
+  height: 100% !important;
+}
+.reveal .progress {
+  height: 4px !important;
+}
+
+/* Set background color for all images */
+img {
+    background-color: #FBFAF4; /* Replace with your desired hex color */
+}
+
+
+.left-border {
+  border-left: 2px solid rgba(0,0,0,0.12);  /* Only the left */
+  border-radius: 0;                         /* Remove any edge rounding */
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+  padding-left: 14px;                       /* Optional, or reduce/increase */
+  background: none;                         /* Ensure background hasn't changed */
+}
