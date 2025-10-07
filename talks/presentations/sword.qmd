@@ -1,0 +1,34 @@
+---
+title: "Enhancing Discharge Care Planning: A Probabilistic Data-Driven Approach"
+description: "SWORD Network Event - Postgraduate OR Presentations"
+author: "Mustafa Aslan"
+date: "2025-10-09"
+image: "../images/sword_page.png"
+categories:
+  - Healthcare Management
+  - Discharge Planning
+  - Sequential Decision Analytics
+  - Python
+  - Time Series Forecasting
+  - Machine Learning
+link-external-newwindow: true
+---
+
+
+![](../images/sword_page.png){fig-align="center"}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+[<i class="fas fa-bookmark"></i> Slides](../sword/sword_slides.qmd){.btn .btn-sm .btn-outline-primary}
+
+**Date:** Oct 9 2025 18:15 PM\
+**Event:** SWORD network event\
+**Location:** School of Mathematics, Cardiff University, UK
+
+## Context
+
+At the `SWORD Network Event`, we will present our research on enhancing discharge care planning using a probabilistic data-driven approach. This approach is designed to capture the dynamic and often unpredictable nature of patient flow and resource utilization in healthcare settings.
+
+## Abstract
+
+Effective discharge planning is crucial for ensuring smooth transitions of care and optimizing hospital resource utilization. This presentation introduces a probabilistic data-driven approach to enhance discharge care planning, leveraging advanced analytics and machine learning techniques. By analyzing historical patient data, the proposed approach aims to identify patterns and trends that can inform more accurate predictions of patient discharge timing and resource needs. The model incorporates various factors, including patient demographics, clinical characteristics, and historical discharge patterns, to generate probabilistic forecasts that support clinical decision-making. Preliminary results demonstrate the potential of this approach to improve discharge planning processes, reduce hospital readmissions, and enhance overall patient outcomes. This work offers valuable insights for healthcare administrators and policymakers seeking to optimize discharge planning and resource allocation in hospital settings.
