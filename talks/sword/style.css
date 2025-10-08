@@ -99,3 +99,18 @@ img {
   padding-left: 14px;                       /* Optional, or reduce/increase */
   background: none;                         /* Ensure background hasn't changed */
 }
+
+/* Footer color overrides */
+.reveal .footer {
+  color: #20808D !important;
+}
+
+.reveal .footer a {
+  color: #20808D !important;
+  text-decoration: none;
+}
+
+.reveal .footer a:hover,
+.reveal .footer a:focus {
+  color: #16606A !important; /* slightly darker on hover */
+}
