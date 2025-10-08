@@ -337,128 +337,11 @@ p_{K1} &amp; \cdots &amp; p_{KK}
 \end{pmatrix}
 \]</span></p>
 </section>
-<section id="forecasting-with-rs-arhmm" class="slide level2">
-<h2>Forecasting with RS-ARHMM</h2>
-<ul>
-<li><strong>Forecast Computation</strong>: The final forecast for each time step is a weighted average of the forecasts from each regime, <code>weighted by the predicted regime probabilities</code>:</li>
-</ul>
-<p><span class="math display">\[
-\hat{y}_{T+h} = \sum_{j=1}^{K} P(s_{T+h} = S_j) \, \hat{y}_{T+h}^{(S_j)}
-\]</span></p>
-<ul>
-<li><strong>State Prediction</strong>: We predict the most probable state sequence for the next <span class="math inline">\(h\)</span> time steps using the transition matrix <span class="math inline">\(\mathbf{P}\)</span>. The probability of being in state <span class="math inline">\(S_j\)</span> at time <span class="math inline">\(T+h\)</span> is computed recursively as:</li>
-</ul>
-<p><span class="math display">\[
-P(s_{T+h} = S_j) = \sum_{i=1}^{K} P(s_{T+h-1} = S_i) \, p_{ij}
-\]</span></p>
-<ul>
-<li><strong>Regime-specific forecasts</strong>: For each predicted regime, we utilize the corresponding regression model to forecast the observation at that time step. The predicted observation <span class="math inline">\(\hat{y}_{T+h}\)</span> for state <span class="math inline">\(s_{T+h}\)</span> is computed as:</li>
-</ul>
-<p><span class="math display">\[
-\hat{y}_{T+h}^{s_{T+h}} = \beta_{0}^{(s_{T+h})} + \sum_{i=1}^{p} \beta_{i}^{(s_{T+h})} \, y_{T+h-i} + \sum_{j=1}^{M} \beta_{p+j}^{(s_{T+h})} \, X_{T+h,j}
-\]</span></p>
-</section>
-<section id="rs-arhmm-parameter-estimation" class="slide level2">
-<h2>RS-ARHMM Parameter Estimation</h2>
+<section id="benchmark-models-and-probabilistic-forecasting" class="slide level2">
+<h2>Benchmark models and Probabilistic Forecasting</h2>
 <div class="columns">
-<div class="column" style="width:30%;">
-<div class="callout callout-note no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong><code>EM (Expectation-Maximization) Algorithm</code></strong></p>
-</div>
-<div class="callout-content">
-<ul>
-<li><p>Iteratively estimates parameters <span class="math inline">\(\Theta = \{\beta^{(s)}, \sigma^{2(s)}, P, \pi\}\)</span> to maximize likelihood.</p></li>
-<li><p>Alternates between two steps:</p>
-<ul>
-<li><strong>E-Step:</strong> Estimate regime probabilities given current <span class="math inline">\(\Theta\)</span>.</li>
-<li><strong>M-Step:</strong> Update <span class="math inline">\(\Theta\)</span> using these probabilities.</li>
-</ul></li>
-</ul>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:35%;">
-<div class="callout callout-note no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>1. E-Step</strong></p>
-</div>
-<div class="callout-content">
-<ul>
-<li><p><strong>State probability:</strong><br>
-<span class="math display">\[
-\gamma_t(i) = P(s_t = S_i \mid y_{1:T}, \Theta^{(k)})
-\]</span></p></li>
-<li><p><strong>Transition probability:</strong><br>
-<span class="math display">\[
-\xi_t(i,j) = P(s_t = S_i, s_{t+1} = S_j \mid y_{1:T}, \Theta^{(k)})
-\]</span></p></li>
-<li><p>Computed via <strong>Forward-Backward algorithm</strong>:</p>
-<ul>
-<li>Forward:</li>
-</ul>
-<p><span class="math inline">\(\alpha_t(i) = P(y_{1:t}, s_t = S_i \mid \Theta) = \sum_{j=1}^{K} \alpha_{t-1}(j) p_{ji} o_i(y_t)\)</span></p>
-<ul>
-<li>Backward:</li>
-</ul>
-<p><span class="math inline">\(b_t(i) = P(y_{t+1:T} \mid s_t = S_i, \Theta) = \sum_{j=1}^{K} p_{ij} o_j(y_{t+1}) b_{t+1}(j)\)</span></p></li>
-</ul>
-<p><strong>Emission (observation) likelihood:</strong><br>
-<span class="math display">\[
-o_i(y_t) = \frac{1}{\sqrt{2\pi \sigma_i^2}} \exp\left( -\frac{(y_t - \mu_{i,t})^2}{2\sigma_i^2} \right)
-\]</span></p>
-<p>where <span class="math inline">\(\mu_{i,t}\)</span> is AR + exogenous mean for state <span class="math inline">\(i\)</span>.</p>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:35%;">
-<div class="callout callout-note no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>2. M-Step</strong></p>
-</div>
-<div class="callout-content">
-<p>Update parameters using weighted averages with <span class="math inline">\(\gamma_t(i)\)</span>:</p>
-<ul>
-<li><p><strong>Transition matrix:</strong><br>
-<span class="math display">\[
-p_{ij}^{(k+1)} = \frac{\sum_{t=1}^{T-1} \xi_t(i,j)}{\sum_{t=1}^{T-1} \gamma_t(i)}
-\]</span></p></li>
-<li><p><strong>Initial state:</strong><br>
-<span class="math display">\[
-\pi_i^{(k+1)} = \gamma_1(i)
-\]</span></p></li>
-<li><p><strong>Regression (AR/exog) coefficients:</strong><br>
-<span class="math display">\[
-\beta^{(i,k+1)} = (\mathbf{X}^T \mathbf{W}_i \mathbf{X})^{-1} \mathbf{X}^T \mathbf{W}_i \mathbf{y}
-\]</span></p></li>
-</ul>
-<p>Where <span class="math inline">\(\mathbf{W}_i = \text{diag}(\gamma_1(i),\dots,\gamma_T(i))\)</span></p>
-<ul>
-<li><strong>Variance:</strong><br>
-<span class="math display">\[
-\sigma_i^{2(k+1)} = \frac{\sum_{t=1}^T \gamma_t(i)(y_t-\mu_{i,t})^2}{\sum_{t=1}^T \gamma_t(i)}
-\]</span></li>
-</ul>
-</div>
-</div>
-</div>
-<div class="callout callout-note no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Repeat E-M Steps until convergence:</strong></p>
-</div>
-<div class="callout-content">
-<p><span class="math display">\[|\ell(\Theta^{(k+1)}) - \ell(\Theta^{(k)})| &lt; \epsilon\]</span></p>
-</div>
-</div>
-</div>
-</div></div>
-</section>
-<section id="benchmark-models" class="slide level2">
-<h2>Benchmark models</h2>
+<div class="column fragment" style="width:50%;">
+<h3 id="benchmark-models">Benchmark models</h3>
 <p><strong>Statistical models:</strong></p>
 <ul>
 <li><code>Exponential Smoothing (ETS)</code>: A state space time series model capturing level, trend, and seasonality.</li>
@@ -471,64 +354,13 @@ p_{ij}^{(k+1)} = \frac{\sum_{t=1}^{T-1} \xi_t(i,j)}{\sum_{t=1}^{T-1} \gamma_t(i)
 <li><code>LightGBM</code>: A gradient boosting framework that uses tree-based learning algorithms, known for its speed and efficiency. It uses leaf-wise tree growth.</li>
 <li><code>Random Forest</code>: An ensemble learning method that builds multiple decision trees and merges them together to get a more accurate and stable prediction.</li>
 </ul>
-</section>
-<section id="probabilistic-forecasting-using-conformal-prediction" class="slide level2">
-<h2>Probabilistic Forecasting using Conformal Prediction</h2>
-<h3 id="conformal-prediction-for-time-series">Conformal Prediction for Time Series</h3>
+</div><div class="column fragment" style="width:50%;">
+<h3 id="probabilistic-forecasting---conformal-prediction">Probabilistic Forecasting - Conformal Prediction</h3>
 <ul>
-<li>A distribution-free method for constructing prediction intervals</li>
-<li>A way to quantify the uncertainty of point forecasts by generating prediction intervals</li>
+<li><p>A distribution-free method for constructing prediction intervals</p></li>
+<li><p>A way to quantify the uncertainty of point forecasts by generating prediction intervals</p></li>
 </ul>
-<div class="callout callout-note no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Steps to Generate Prediction Intervals</strong></p>
-</div>
-<div class="callout-content">
-<div class="columns">
-<div class="column" style="width:50%;">
-<ol type="1">
-<li><strong>Point Forecasting</strong></li>
-</ol>
-<ul>
-<li>Generate point forecasts <span class="math inline">\(\hat{y}_{t+h}\)</span> for the desired forecast horizon <span class="math inline">\(h\)</span> using rolling-origin cross-validation on a <code>calibration set</code> of 500 observations per horizon.</li>
-</ul>
-<ol start="2" type="1">
-<li><strong>Residual Calculation</strong></li>
-</ol>
-<p><span class="math display">\[
-r_{t+h} = y_{t+h} - \hat{y}_{t+h}
-\]</span></p>
-<p>where <span class="math inline">\(y_{t+h}\)</span> are the actual observed values and <span class="math inline">\(\hat{y}_{t+h}\)</span> are the point forecasts for <span class="math inline">\(t+h\)</span>.</p>
-<ol start="3" type="1">
-<li><strong>Nonconformity Scores</strong> <span class="math display">\[
-A_{t+h} = |r_{t+h}|
-\]</span></li>
-</ol>
-</div><div class="column" style="width:50%;">
-<ol start="4" type="1">
-<li><strong>Quantile Calculation</strong></li>
-</ol>
-<p><span class="math display">\[
-q_{1-\alpha}^{(h)} = \text{Quantile}_{1-\alpha}(\{A_{t-n+h}\}_{t=t-n}^{n})
-\]</span></p>
-<p>where <span class="math inline">\(n\)</span> is the size of the calibration set and <span class="math inline">\(1 - \alpha\)</span> is the desired coverage level</p>
-<ol start="5" type="1">
-<li><strong>Prediction Intervals</strong></li>
-</ol>
-<p><span class="math display">\[
-\left[\hat{y}_{t+h} - q_{1-\alpha}^{(h)}, \hat{y}_{t+h} + q_{1-\alpha}^{(h)}\right]
-\]</span></p>
-<ol start="6" type="1">
-<li><strong>Distribution Approximation</strong></li>
-</ol>
-<p><span class="math display">\[
-y_{t+h}^{(i)} = \hat{y}_{t+h} + r_{t+h}^{(i)}, \quad r_{t+h}^{(i)} \in \{r_{t+h}^{(1)}, r_{t+h}^{(2)}, \ldots, r_{t+h}^{(n)}\}
-\]</span></p>
 </div></div>
-</div>
-</div>
-</div>
 </section>
 <section id="forecasting-metrics" class="slide level2">
 <h2>Forecasting metrics</h2>
@@ -554,7 +386,7 @@ QL_{\alpha} = 2 \sum_{t=1}^{h} \left[\alpha (y_t - \hat{y}_t^{(\alpha)}) \mathbb
 </section>
 <section id="forecast-distributions-quantile-scores" class="slide level2">
 <h2>Forecast Distributions (Quantile scores)</h2>
-<div id="7570db7d" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="1">
+<div id="eaf2ed6a" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
