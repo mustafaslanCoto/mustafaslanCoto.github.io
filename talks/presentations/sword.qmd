@@ -27,7 +27,7 @@ link-external-newwindow: true
 
 ## Context
 
-At the `[SWORD Network Event](https://www.theorsociety.com/ORS/Community/Regionals-List/South-Wales-OR-Network.aspx)`, we will present our research on enhancing discharge care planning using a probabilistic data-driven approach. This approach is designed to capture the dynamic and often unpredictable nature of patient flow and resource utilization in healthcare settings.
+At the [`SWORD Network Event`](https://www.theorsociety.com/ORS/Community/Regionals-List/South-Wales-OR-Network.aspx), we will present our research on enhancing discharge care planning using a probabilistic data-driven approach. This approach is designed to capture the dynamic and often unpredictable nature of patient flow and resource utilization in healthcare settings.
 
 ## Abstract
 

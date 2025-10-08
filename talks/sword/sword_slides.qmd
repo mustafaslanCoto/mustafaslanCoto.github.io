@@ -188,9 +188,9 @@ $$
 
 **Machine Learning models:**
 
-- `XGBoost`: An optimized gradient boosting library designed to be highly efficient and flexible. It uses level-wise tree growth, building trees level by level horizontally.
+- `XGBoost`: An optimized gradient boosting library designed to be highly efficient and flexible.
 - `LightGBM`: A gradient boosting framework that uses tree-based learning algorithms, known for its speed and efficiency. It uses leaf-wise tree growth.
-- `Random Forest`: An ensemble learning method that builds multiple decision trees and merges them together to get a more accurate and stable prediction.
+- `Random Forest`: An ensemble learning method that builds multiple decision trees and merges them together to get predictions.
 :::
 
 ::: {.column width="50%" .fragment}
