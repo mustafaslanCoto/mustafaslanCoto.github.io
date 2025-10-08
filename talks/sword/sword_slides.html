@@ -305,43 +305,52 @@ Mustafa Aslan, Cardiff University, UK <br> Lead supervisor: Prof.&nbsp;Bahman Ro
 <h2>Progress so far?</h2>
 
 <img data-src="plan_so_far.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
-<section id="regime-switching-autoregressive-hidden-markov-model-rs-arhmm" class="slide level2 smaller">
-<h2>Regime-Switching AutoRegressive Hidden Markov Model (RS-ARHMM)</h2>
+<section id="models" class="slide level2">
+<h2>Models</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="fragment">
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Regime-Switching AutoRegressive Hidden Markov Model (RS-ARHMM)</strong></p>
+</div>
+<div class="callout-content">
 <p>Let <span class="math inline">\(y_t\)</span> be the observed value at time <span class="math inline">\(t\)</span>, modeled as a function of its <span class="math inline">\(p\)</span> lagged values, the regime-specific parameters associated with the hidden state <span class="math inline">\(s_t\)</span>, and exogenous variables <span class="math inline">\(\mathbf{X}_t = (X_{t1}, \ldots, X_{tM})\)</span>.</p>
 <p>The <strong>RS-ARHMM</strong> can be expressed as follows:</p>
 <p><span class="math display">\[
 y_t^{(s)} = \beta_{0}^{(s)} + \sum_{i=1}^{p} \beta_{i}^{(s)} \, y_{t-i} + \sum_{j=1}^{M} \beta_{p+j}^{(s)} \, X_{tj} + \epsilon_t^{(s)},
 \]</span></p>
-<p>where:</p>
+<p><strong>Parameter estimation:</strong> <code>EM (Expectation-Maximization) Algorithm</code></p>
 <ul>
-<li><span class="math inline">\(\beta_{i}^{(s)}\)</span> are the coefficients for the lagged values for regime <span class="math inline">\(s\)</span>,</li>
-<li><span class="math inline">\(\beta_{p+j}^{(s)}\)</span> are the coefficients for the exogenous variables for regime <span class="math inline">\(s\)</span>,</li>
-<li><span class="math inline">\(M\)</span> is the number of exogenous variables,</li>
-<li><span class="math inline">\(\epsilon_t^{(s)}\)</span> is the error term for regime <span class="math inline">\(s\)</span>.</li>
-</ul>
-<p>The <strong>Markov property</strong>: <span class="math display">\[
-P(s_t = k \mid s_{1:t-1}) = P(s_t = k \mid s_{t-1}), \quad \forall t \geq 2.
-\]</span></p>
-<p>A HMM has the following components:</p>
+<li><p>Iteratively estimates parameters <span class="math inline">\(\Theta = \{\beta^{(s)}, \sigma^{2(s)}, P, \pi\}\)</span> to maximize likelihood.</p>
 <ul>
-<li><span class="math inline">\(S\)</span>: The set of regimes, <span class="math inline">\(\mathbb{S} = \{S_1, S_2, \ldots, S_K\}\)</span>.</li>
-<li><span class="math inline">\(P\)</span>: The transition probability matrix</li>
-<li><span class="math inline">\(p_{ij} = P(s_t = S_j \mid s_{t-1} = S_i)\)</span> is the probability of transitioning from regime <span class="math inline">\(S_i\)</span> to regime <span class="math inline">\(S_j\)</span>, s.t. <span class="math inline">\(\sum_{j=1}^{K} p_{ij} = 1\)</span>.</li>
-</ul>
-<p><strong>Transition matrix <span class="math inline">\(P\)</span></strong> is defined as:</p>
-<p><span class="math display">\[
+<li>Transition probabilities stored as: <span class="math display">\[
 P = \begin{pmatrix}
 p_{11} &amp; \cdots &amp; p_{1K} \\
 \vdots &amp; \ddots &amp; \vdots \\
 p_{K1} &amp; \cdots &amp; p_{KK}
 \end{pmatrix}
-\]</span></p>
-</section>
-<section id="benchmark-models-and-probabilistic-forecasting" class="slide level2">
-<h2>Benchmark models and Probabilistic Forecasting</h2>
-<div class="columns">
-<div class="column fragment" style="width:50%;">
-<h3 id="benchmark-models">Benchmark models</h3>
+\]</span></li>
+</ul></li>
+<li><p>Alternates between two steps:</p>
+<ul>
+<li><strong>E-Step:</strong> Estimate regime probabilities given current <span class="math inline">\(\Theta\)</span>.</li>
+<li><strong>M-Step:</strong> Update <span class="math inline">\(\Theta\)</span> using these probabilities.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:35%;">
+<div class="fragment">
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Benchmark models</strong></p>
+</div>
+<div class="callout-content">
 <p><strong>Statistical models:</strong></p>
 <ul>
 <li><code>Exponential Smoothing (ETS)</code>: A state space time series model capturing level, trend, and seasonality.</li>
@@ -354,39 +363,31 @@ p_{K1} &amp; \cdots &amp; p_{KK}
 <li><code>LightGBM</code>: A gradient boosting framework that uses tree-based learning algorithms, known for its speed and efficiency. It uses leaf-wise tree growth.</li>
 <li><code>Random Forest</code>: An ensemble learning method that builds multiple decision trees and merges them together to get predictions.</li>
 </ul>
-</div><div class="column fragment" style="width:50%;">
-<h3 id="probabilistic-forecasting---conformal-prediction">Probabilistic Forecasting - Conformal Prediction</h3>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:25%;">
+<div class="fragment">
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Probabilistic Forecasting - Conformal Prediction</strong></p>
+</div>
+<div class="callout-content">
 <ul>
 <li><p>A distribution-free method for constructing prediction intervals</p></li>
 <li><p>A way to quantify the uncertainty of point forecasts by generating prediction intervals</p></li>
 </ul>
-</div></div>
-</section>
-<section id="forecasting-metrics" class="slide level2">
-<h2>Forecasting metrics</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<h3 id="point-forecasting-metrics">Point Forecasting Metrics</h3>
-<ul>
-<li><p>Root Mean Squared Error (RMSE) <span class="math display">\[
-RMSE = \sqrt{\frac{1}{n} \sum_{t=1}^{n} (y_t - \hat{y}_t)^2}
-\]</span></p></li>
-<li><p>Mean Absolute Error (MAE) <span class="math display">\[
-MAE = \frac{1}{n} \sum_{t=1}^{n} |y_t - \hat{y}_t|
-\]</span></p></li>
-</ul>
-</div><div class="column" style="width:50%;">
-<h3 id="probabilistic-forecasting-metrics">Probabilistic Forecasting Metrics</h3>
-<ul>
-<li>Qunatile Loss (QL) <span class="math display">\[
-QL_{\alpha} = 2 \sum_{t=1}^{h} \left[\alpha (y_t - \hat{y}_t^{(\alpha)}) \mathbb{1}_{\{y_t &gt; \hat{y}_t^{(\alpha)}\}} + (1 - \alpha) (\hat{y}_t^{(\alpha)} - y_t) \mathbb{1}_{\{y_t \leq \hat{y}_t^{(\alpha)}\}}\right]
-\]</span></li>
-</ul>
+</div>
+</div>
+</div>
+</div>
 </div></div>
 </section>
 <section id="forecast-distributions-quantile-scores" class="slide level2">
 <h2>Forecast Distributions (Quantile scores)</h2>
-<div id="d33383cf" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="1">
+<div id="28303687" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -396,12 +397,8 @@ QL_{\alpha} = 2 \sum_{t=1}^{h} \left[\alpha (y_t - \hat{y}_t^{(\alpha)}) \mathbb
 </div>
 </div>
 </section>
-<section id="next-steps" class="slide level2">
-<h2>Next steps</h2>
-<ul>
-<li><p>Develop an optimization framework that utilizes the probabilistic forecasts from the AR-HMM and VAR-HMM models to optimize bed allocation and resource management.</p></li>
-<li><p>Test the models in real-world scenarios, collaborating with hospital staff to refine the models based on practical feedback and operational needs.</p></li>
-</ul>
+<section class="slide level2">
+
 </section>
 <section id="any-questions-or-thoughts" class="title-slide slide level1 center">
 <h1>Any questions or thoughts? 💬</h1>
