@@ -256,7 +256,7 @@
     "href": "talks/sword/sword_slides.html#benchmark-models-and-probabilistic-forecasting",
     "title": "MUSTAFA ASLAN",
     "section": "Benchmark models and Probabilistic Forecasting",
-    "text": "Benchmark models and Probabilistic Forecasting\n\n\nBenchmark models\nStatistical models:\n\nExponential Smoothing (ETS): A state space time series model capturing level, trend, and seasonality.\nLinear Regression: A statistical model that estimates the linear relationship between predictors and a response variable.\nLasso Regression: A regression method with L1 regularization, useful for variable selection and preventing overfitting.\n\nMachine Learning models:\n\nXGBoost: An optimized gradient boosting library designed to be highly efficient and flexible. It uses level-wise tree growth, building trees level by level horizontally.\nLightGBM: A gradient boosting framework that uses tree-based learning algorithms, known for its speed and efficiency. It uses leaf-wise tree growth.\nRandom Forest: An ensemble learning method that builds multiple decision trees and merges them together to get a more accurate and stable prediction.\n\n\nProbabilistic Forecasting - Conformal Prediction\n\nA distribution-free method for constructing prediction intervals\nA way to quantify the uncertainty of point forecasts by generating prediction intervals"
+    "text": "Benchmark models and Probabilistic Forecasting\n\n\nBenchmark models\nStatistical models:\n\nExponential Smoothing (ETS): A state space time series model capturing level, trend, and seasonality.\nLinear Regression: A statistical model that estimates the linear relationship between predictors and a response variable.\nLasso Regression: A regression method with L1 regularization, useful for variable selection and preventing overfitting.\n\nMachine Learning models:\n\nXGBoost: An optimized gradient boosting library designed to be highly efficient and flexible.\nLightGBM: A gradient boosting framework that uses tree-based learning algorithms, known for its speed and efficiency. It uses leaf-wise tree growth.\nRandom Forest: An ensemble learning method that builds multiple decision trees and merges them together to get predictions.\n\n\nProbabilistic Forecasting - Conformal Prediction\n\nA distribution-free method for constructing prediction intervals\nA way to quantify the uncertainty of point forecasts by generating prediction intervals"
   },
   {
     "objectID": "talks/sword/sword_slides.html#forecasting-metrics",
@@ -291,7 +291,7 @@
     "href": "talks/presentations/sword.html#context",
     "title": "Enhancing Discharge Care Planning: A Probabilistic Data-Driven Approach",
     "section": "Context",
-    "text": "Context\nAt the [SWORD Network Event](https://www.theorsociety.com/ORS/Community/Regionals-List/South-Wales-OR-Network.aspx), we will present our research on enhancing discharge care planning using a probabilistic data-driven approach. This approach is designed to capture the dynamic and often unpredictable nature of patient flow and resource utilization in healthcare settings."
+    "text": "Context\nAt the SWORD Network Event, we will present our research on enhancing discharge care planning using a probabilistic data-driven approach. This approach is designed to capture the dynamic and often unpredictable nature of patient flow and resource utilization in healthcare settings."
   },
   {
     "objectID": "talks/presentations/sword.html#abstract",
