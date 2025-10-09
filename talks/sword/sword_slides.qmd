@@ -311,6 +311,6 @@ plt.show()
 
 ---
 
-# Any questions or thoughts? 💬
+## Any questions or thoughts? 💬 {style="text-align: center;"}
 
 ![](images/follow_us.png){fig-align="center"}
