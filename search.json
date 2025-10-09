@@ -259,6 +259,13 @@
     "text": "Forecast Distributions (Quantile scores)"
   },
   {
+    "objectID": "talks/sword/sword_slides.html#any-questions-or-thoughts",
+    "href": "talks/sword/sword_slides.html#any-questions-or-thoughts",
+    "title": "MUSTAFA ASLAN",
+    "section": "Any questions or thoughts? 💬",
+    "text": "Any questions or thoughts? 💬"
+  },
+  {
     "objectID": "talks/presentations/sword.html",
     "href": "talks/presentations/sword.html",
     "title": "Enhancing Discharge Care Planning: A Probabilistic Data-Driven Approach",
@@ -270,14 +277,7 @@
     "href": "talks/presentations/sword.html#context",
     "title": "Enhancing Discharge Care Planning: A Probabilistic Data-Driven Approach",
     "section": "Context",
-    "text": "Context\nAt the SWORD Network Event, we will present our research on enhancing discharge care planning using a probabilistic data-driven approach. This approach is designed to capture the dynamic and often unpredictable nature of patient flow and resource utilization in healthcare settings."
-  },
-  {
-    "objectID": "talks/presentations/sword.html#abstract",
-    "href": "talks/presentations/sword.html#abstract",
-    "title": "Enhancing Discharge Care Planning: A Probabilistic Data-Driven Approach",
-    "section": "Abstract",
-    "text": "Abstract\nEffective discharge planning is crucial for ensuring smooth transitions of care and optimizing hospital resource utilization. This presentation introduces a probabilistic data-driven approach to enhance discharge care planning, leveraging advanced analytics and machine learning techniques. By analyzing historical patient data, the proposed approach aims to identify patterns and trends that can inform more accurate predictions of patient discharge timing and resource needs. The model incorporates various factors, including patient demographics, clinical characteristics, and historical discharge patterns, to generate probabilistic forecasts that support clinical decision-making. Preliminary results demonstrate the potential of this approach to improve discharge planning processes, reduce hospital readmissions, and enhance overall patient outcomes. This work offers valuable insights for healthcare administrators and policymakers seeking to optimize discharge planning and resource allocation in hospital settings."
+    "text": "Context\nAt the SWORD Network Event, we will present our PhD research on enhancing discharge care planning using a probabilistic data-driven approach. This research is designed to capture the dynamic and often unpredictable nature of patient flow and resource utilization in healthcare settings."
   },
   {
     "objectID": "bins/CV/CV.html",
