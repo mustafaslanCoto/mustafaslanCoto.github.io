@@ -366,5 +366,8 @@
   },
   "talks/sword/sword_slides.qmd": {
     "sword_slides.html": "36a146ce"
+  },
+  "test.qmd": {
+    "test.html": "2beab564"
   }
 }
