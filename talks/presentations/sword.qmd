@@ -27,8 +27,4 @@ link-external-newwindow: true
 
 ## Context
 
-At the [`SWORD Network Event`](https://www.theorsociety.com/ORS/Community/Regionals-List/South-Wales-OR-Network.aspx), we will present our research on enhancing discharge care planning using a probabilistic data-driven approach. This approach is designed to capture the dynamic and often unpredictable nature of patient flow and resource utilization in healthcare settings.
-
-## Abstract
-
-Effective discharge planning is crucial for ensuring smooth transitions of care and optimizing hospital resource utilization. This presentation introduces a probabilistic data-driven approach to enhance discharge care planning, leveraging advanced analytics and machine learning techniques. By analyzing historical patient data, the proposed approach aims to identify patterns and trends that can inform more accurate predictions of patient discharge timing and resource needs. The model incorporates various factors, including patient demographics, clinical characteristics, and historical discharge patterns, to generate probabilistic forecasts that support clinical decision-making. Preliminary results demonstrate the potential of this approach to improve discharge planning processes, reduce hospital readmissions, and enhance overall patient outcomes. This work offers valuable insights for healthcare administrators and policymakers seeking to optimize discharge planning and resource allocation in hospital settings.
+At the [`SWORD Network Event`](https://www.theorsociety.com/ORS/Community/Regionals-List/South-Wales-OR-Network.aspx), we will present our PhD research on enhancing discharge care planning using a probabilistic data-driven approach. This research is designed to capture the dynamic and often unpredictable nature of patient flow and resource utilization in healthcare settings.
