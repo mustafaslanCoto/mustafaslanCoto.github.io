@@ -27,5 +27,5 @@ I am currently pursuing a PhD at Cardiff Business School, where I specialise in 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 :::{.text-center}
-[<i class="fas fa-download"></i> Download CV](CV/CV_.pdf){.btn .btn-sm .btn-outline-primary .btn-download-cv}
+[<i class="fas fa-download"></i> Download CV](CV/CV_.pdf){.btn .btn-sm .btn-download-cv}
 :::

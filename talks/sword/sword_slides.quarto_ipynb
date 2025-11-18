@@ -287,7 +287,7 @@
         "\n",
         "## Forecast Distributions (Quantile scores)"
       ],
-      "id": "c50fec5d"
+      "id": "580c81d2"
     },
     {
       "cell_type": "code",
@@ -393,7 +393,7 @@
         "plt.axvspan(0.45, 0.85, color='green', alpha=0.08)\n",
         "plt.show()"
       ],
-      "id": "0915312f",
+      "id": "e6f9095f",
       "execution_count": null,
       "outputs": []
     },
@@ -407,7 +407,7 @@
         "\n",
         "![](images/follow_us.png){fig-align=\"center\"}"
       ],
-      "id": "672697cd"
+      "id": "9bbb38a1"
     }
   ],
   "metadata": {
