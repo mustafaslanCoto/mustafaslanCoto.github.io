@@ -5455,14 +5455,14 @@
   {
     "objectID": "talks/wgsss/slides.html#outline",
     "href": "talks/wgsss/slides.html#outline",
-    "title": "MUSTAFA ASLAN",
+    "title": "\nForecasting Mental Health Hospital Bed Occupancy: A Regime-Switching AutoRegressive Hidden Markov Model Approach\n",
     "section": "Outline",
     "text": "Outline\n\nThe problem\nData and preliminary analysis\nExperiment design and Modelling framework\nResults\nKey findings\nNext steps"
   },
   {
     "objectID": "talks/wgsss/slides.html#current-systemic-issues-in-patient-flow",
     "href": "talks/wgsss/slides.html#current-systemic-issues-in-patient-flow",
-    "title": "MUSTAFA ASLAN",
+    "title": "\nForecasting Mental Health Hospital Bed Occupancy: A Regime-Switching AutoRegressive Hidden Markov Model Approach\n",
     "section": "Current Systemic Issues in Patient Flow",
     "text": "Current Systemic Issues in Patient Flow\n\n\n\n\n\nUnpredictable occupancy levels can result in redundant staffing and resource allocation, driving up costs, or in understaffing, which compromises patient care.\n\n\n\nSpikes in occupancy level drive overtime, sickness, and staff burnout.\n\n\n\nLack of analytical solutions that can capture the complexity and uncertainty of patient flow and bed availability limits proactive decision-making."
   },
@@ -5476,42 +5476,42 @@
   {
     "objectID": "talks/wgsss/slides.html#key-research-questions",
     "href": "talks/wgsss/slides.html#key-research-questions",
-    "title": "MUSTAFA ASLAN",
+    "title": "\nForecasting Mental Health Hospital Bed Occupancy: A Regime-Switching AutoRegressive Hidden Markov Model Approach\n",
     "section": "Key Research Questions",
     "text": "Key Research Questions\n\nHow can we accurately forecast hospital bed occupancy to improve resource allocation and patient care?\nHow can probabilistic forecasting models be developed to account for the inherent uncertainty in patient flow and bed availability?\nWhat are the hidden factors influencing bed occupancy, and how can they be incorporated into forecasting models?"
   },
   {
     "objectID": "talks/wgsss/slides.html#dataset",
     "href": "talks/wgsss/slides.html#dataset",
-    "title": "MUSTAFA ASLAN",
+    "title": "\nForecasting Mental Health Hospital Bed Occupancy: A Regime-Switching AutoRegressive Hidden Markov Model Approach\n",
     "section": "Dataset",
     "text": "Dataset\nDaily hospital occupancy data from a UK hospital with 7 wards, spanning from July 2018 to April 2025. The dataset includes:\n\nDaily occupancy counts for each ward (daily number of patients staying in each ward)\nDate-related features: day of the week, month, year, day of the month, week of the year\nHoliday indicators"
   },
   {
     "objectID": "talks/wgsss/slides.html#data-characteristics",
     "href": "talks/wgsss/slides.html#data-characteristics",
-    "title": "MUSTAFA ASLAN",
+    "title": "\nForecasting Mental Health Hospital Bed Occupancy: A Regime-Switching AutoRegressive Hidden Markov Model Approach\n",
     "section": "Data characteristics",
     "text": "Data characteristics\n\nStrong upward trend in occupancy over time\nSpike after COVID-19 pandemic"
   },
   {
     "objectID": "talks/wgsss/slides.html#seasonal-patterns",
     "href": "talks/wgsss/slides.html#seasonal-patterns",
-    "title": "MUSTAFA ASLAN",
+    "title": "\nForecasting Mental Health Hospital Bed Occupancy: A Regime-Switching AutoRegressive Hidden Markov Model Approach\n",
     "section": "Seasonal patterns",
-    "text": "Seasonal patterns\nDay of the week seasonality"
+    "text": "Seasonal patterns\n\nDay of the week seasonality"
   },
   {
     "objectID": "talks/wgsss/slides.html#seasonal-patterns-1",
     "href": "talks/wgsss/slides.html#seasonal-patterns-1",
-    "title": "MUSTAFA ASLAN",
+    "title": "\nForecasting Mental Health Hospital Bed Occupancy: A Regime-Switching AutoRegressive Hidden Markov Model Approach\n",
     "section": "Seasonal patterns",
-    "text": "Seasonal patterns\nMonthly seasonality"
+    "text": "Seasonal patterns\n\nMonthly seasonality"
   },
   {
     "objectID": "talks/wgsss/slides.html#effect-of-holidays",
     "href": "talks/wgsss/slides.html#effect-of-holidays",
-    "title": "MUSTAFA ASLAN",
+    "title": "\nForecasting Mental Health Hospital Bed Occupancy: A Regime-Switching AutoRegressive Hidden Markov Model Approach\n",
     "section": "Effect of holidays",
     "text": "Effect of holidays"
   },
@@ -5560,23 +5560,23 @@
   {
     "objectID": "talks/wgsss/slides.html#benchmark-models",
     "href": "talks/wgsss/slides.html#benchmark-models",
-    "title": "MUSTAFA ASLAN",
+    "title": "\nForecasting Mental Health Hospital Bed Occupancy: A Regime-Switching AutoRegressive Hidden Markov Model Approach\n",
     "section": "Benchmark models",
     "text": "Benchmark models\nStatistical models:\n\nExponential Smoothing (ETS): A state space time series model capturing level, trend, and seasonality.\nLinear Regression: A statistical model that estimates the linear relationship between predictors and a response variable.\nLasso Regression: A regression method with L1 regularization, useful for variable selection and preventing overfitting.\n\nMachine Learning models:\n\nXGBoost: An optimized gradient boosting library designed to be highly efficient and flexible. It uses level-wise tree growth, building trees level by level horizontally.\nLightGBM: A gradient boosting framework that uses tree-based learning algorithms, known for its speed and efficiency. It uses leaf-wise tree growth.\nRandom Forest: An ensemble learning method that builds multiple decision trees and merges them together to get a more accurate and stable prediction."
   },
   {
     "objectID": "talks/wgsss/slides.html#probabilistic-forecasting-using-conformal-prediction",
     "href": "talks/wgsss/slides.html#probabilistic-forecasting-using-conformal-prediction",
-    "title": "MUSTAFA ASLAN",
+    "title": "\nForecasting Mental Health Hospital Bed Occupancy: A Regime-Switching AutoRegressive Hidden Markov Model Approach\n",
     "section": "Probabilistic Forecasting using Conformal Prediction",
-    "text": "Probabilistic Forecasting using Conformal Prediction\nConformal Prediction for Time Series\n\nA distribution-free method for constructing prediction intervals\nA way to quantify the uncertainty of point forecasts by generating prediction intervals\n\n\nSteps to Generate Prediction Intervals\n\n\n\n\n\nPoint Forecasting\n\n\nGenerate point forecasts \\(\\hat{y}_{t+h}\\) for the desired forecast horizon \\(h\\) using rolling-origin cross-validation on a calibration set of 500 observations per horizon.\n\n\n\n\nResidual Calculation\n\n\\[\nr_{t+h} = y_{t+h} - \\hat{y}_{t+h}\n\\]\nwhere \\(y_{t+h}\\) are the actual observed values and \\(\\hat{y}_{t+h}\\) are the point forecasts for \\(t+h\\).\n\n\n\nNonconformity Scores \\[\nA_{t+h} = |r_{t+h}|\n\\]\n\n\n\n\n\nQuantile Calculation\n\n\\[\nq_{1-\\alpha}^{(h)} = \\text{Quantile}_{1-\\alpha}(\\{A_{t-n+h}\\}_{t=t-n}^{n})\n\\]\nwhere \\(n\\) is the size of the calibration set and \\(1 - \\alpha\\) is the desired coverage level\n\n\n\nPrediction Intervals\n\n\\[\n\\left[\\hat{y}_{t+h} - q_{1-\\alpha}^{(h)}, \\hat{y}_{t+h} + q_{1-\\alpha}^{(h)}\\right]\n\\]\n\n\n\nDistribution Approximation\n\n\\[\ny_{t+h}^{(i)} = \\hat{y}_{t+h} + r_{t+h}^{(i)}, \\quad r_{t+h}^{(i)} \\in \\{r_{t+h}^{(1)}, r_{t+h}^{(2)}, \\ldots, r_{t+h}^{(n)}\\}\n\\]"
+    "text": "Probabilistic Forecasting using Conformal Prediction\n\nConformal Prediction for Time Series\n\nA distribution-free method for constructing prediction intervals\nA way to quantify the uncertainty of point forecasts by generating prediction intervals\n\n\n\n\nSteps to Generate Prediction Intervals\n\n\n\n\n\n\nPoint Forecasting\n\n\nGenerate point forecasts \\(\\hat{y}_{t+h}\\) for the desired forecast horizon \\(h\\) using rolling-origin cross-validation on a calibration set of 500 observations per horizon.\n\n\n\n\nResidual Calculation\n\n\\[\nr_{t+h} = y_{t+h} - \\hat{y}_{t+h}\n\\]\nwhere \\(y_{t+h}\\) are the actual observed values and \\(\\hat{y}_{t+h}\\) are the point forecasts for \\(t+h\\).\n\n\n\nNonconformity Scores \\[\nA_{t+h} = |r_{t+h}|\n\\]\n\n\n\n\n\nQuantile Calculation\n\n\\[\nq_{1-\\alpha}^{(h)} = \\text{Quantile}_{1-\\alpha}(\\{A_{t-n+h}\\}_{t=t-n}^{n})\n\\]\nwhere \\(n\\) is the size of the calibration set and \\(1 - \\alpha\\) is the desired coverage level\n\n\n\nPrediction Intervals\n\n\\[\n\\left[\\hat{y}_{t+h} - q_{1-\\alpha}^{(h)}, \\hat{y}_{t+h} + q_{1-\\alpha}^{(h)}\\right]\n\\]\n\n\n\nDistribution Approximation\n\n\\[\ny_{t+h}^{(i)} = \\hat{y}_{t+h} + r_{t+h}^{(i)}, \\quad r_{t+h}^{(i)} \\in \\{r_{t+h}^{(1)}, r_{t+h}^{(2)}, \\ldots, r_{t+h}^{(n)}\\}\n\\]"
   },
   {
     "objectID": "talks/wgsss/slides.html#forecasting-metrics",
     "href": "talks/wgsss/slides.html#forecasting-metrics",
-    "title": "MUSTAFA ASLAN",
+    "title": "\nForecasting Mental Health Hospital Bed Occupancy: A Regime-Switching AutoRegressive Hidden Markov Model Approach\n",
     "section": "Forecasting metrics",
-    "text": "Forecasting metrics\n\n\nPoint Forecasting Metrics\n\nRoot Mean Squared Error (RMSE) \\[\nRMSE = \\sqrt{\\frac{1}{n} \\sum_{t=1}^{n} (y_t - \\hat{y}_t)^2}\n\\]\nMean Absolute Error (MAE) \\[\nMAE = \\frac{1}{n} \\sum_{t=1}^{n} |y_t - \\hat{y}_t|\n\\]\n\n\nProbabilistic Forecasting Metrics\n\nQunatile Loss (QL) \\[\nQL_{\\alpha} = 2 \\sum_{t=1}^{h} \\left[\\alpha (y_t - \\hat{y}_t^{(\\alpha)}) \\mathbb{1}_{\\{y_t &gt; \\hat{y}_t^{(\\alpha)}\\}} + (1 - \\alpha) (\\hat{y}_t^{(\\alpha)} - y_t) \\mathbb{1}_{\\{y_t \\leq \\hat{y}_t^{(\\alpha)}\\}}\\right]\n\\]"
+    "text": "Forecasting metrics\n\n\n\nPoint Forecasting Metrics\n\nRoot Mean Squared Error (RMSE) \\[\nRMSE = \\sqrt{\\frac{1}{n} \\sum_{t=1}^{n} (y_t - \\hat{y}_t)^2}\n\\]\nMean Absolute Error (MAE) \\[\nMAE = \\frac{1}{n} \\sum_{t=1}^{n} |y_t - \\hat{y}_t|\n\\]\n\n\n\n\nProbabilistic Forecasting Metrics\n\nQunatile Loss (QL) \\[\nQL_{\\alpha} = 2 \\sum_{t=1}^{h} \\left[\\alpha (y_t - \\hat{y}_t^{(\\alpha)}) \\mathbb{1}_{\\{y_t &gt; \\hat{y}_t^{(\\alpha)}\\}} + (1 - \\alpha) (\\hat{y}_t^{(\\alpha)} - y_t) \\mathbb{1}_{\\{y_t \\leq \\hat{y}_t^{(\\alpha)}\\}}\\right]\n\\]"
   },
   {
     "objectID": "talks/wgsss/slides.html#experimental-design",
@@ -5588,30 +5588,30 @@
   {
     "objectID": "talks/wgsss/slides.html#key-insights-from-data-analysis",
     "href": "talks/wgsss/slides.html#key-insights-from-data-analysis",
-    "title": "MUSTAFA ASLAN",
+    "title": "\nForecasting Mental Health Hospital Bed Occupancy: A Regime-Switching AutoRegressive Hidden Markov Model Approach\n",
     "section": "Key insights from data analysis",
-    "text": "Key insights from data analysis\nAn important assumption to model: Stationarity\nOne approach to make the series stationary is to take the first difference of the series.\nOriginal series: \\(y_t, y_{t-1}, y_{t-2}, y_{t-3}, \\ldots\\)\nDifferenced series: \\(y_t - y_{t-1}, y_{t-1} - y_{t-2}, y_{t-2} - y_{t-3}, \\ldots\\)"
+    "text": "Key insights from data analysis\n\nAn important assumption to model: Stationarity\nOne approach to make the series stationary is to take the first difference of the series.\nOriginal series: \\(y_t, y_{t-1}, y_{t-2}, y_{t-3}, \\ldots\\)\nDifferenced series: \\(y_t - y_{t-1}, y_{t-1} - y_{t-2}, y_{t-2} - y_{t-3}, \\ldots\\)"
   },
   {
     "objectID": "talks/wgsss/slides.html#key-insights-from-data-analysis-1",
     "href": "talks/wgsss/slides.html#key-insights-from-data-analysis-1",
-    "title": "MUSTAFA ASLAN",
+    "title": "\nForecasting Mental Health Hospital Bed Occupancy: A Regime-Switching AutoRegressive Hidden Markov Model Approach\n",
     "section": "Key insights from data analysis",
-    "text": "Key insights from data analysis\nInformation from ACF and PACF plots after differencing"
+    "text": "Key insights from data analysis\n\nInformation from ACF and PACF plots after differencing"
   },
   {
     "objectID": "talks/wgsss/slides.html#key-insights-from-data-analysis-2",
     "href": "talks/wgsss/slides.html#key-insights-from-data-analysis-2",
-    "title": "MUSTAFA ASLAN",
+    "title": "\nForecasting Mental Health Hospital Bed Occupancy: A Regime-Switching AutoRegressive Hidden Markov Model Approach\n",
     "section": "Key insights from data analysis",
-    "text": "Key insights from data analysis\nAlternative approach to make the series stationary and keep the dependence structure"
+    "text": "Key insights from data analysis\n\nAlternative approach to make the series stationary and keep the dependence structure"
   },
   {
     "objectID": "talks/wgsss/slides.html#an-important-assumption-to-model-stationarity-1",
     "href": "talks/wgsss/slides.html#an-important-assumption-to-model-stationarity-1",
-    "title": "MUSTAFA ASLAN",
+    "title": "\nForecasting Mental Health Hospital Bed Occupancy: A Regime-Switching AutoRegressive Hidden Markov Model Approach\n",
     "section": "An important assumption to model: Stationarity",
-    "text": "An important assumption to model: Stationarity\nInformation from ACF and PACF plots after detrending"
+    "text": "An important assumption to model: Stationarity\n\nInformation from ACF and PACF plots after detrending"
   },
   {
     "objectID": "talks/wgsss/slides.html#validation-setup",
@@ -5623,28 +5623,28 @@
   {
     "objectID": "talks/wgsss/slides.html#point-forecast-results",
     "href": "talks/wgsss/slides.html#point-forecast-results",
-    "title": "MUSTAFA ASLAN",
+    "title": "\nForecasting Mental Health Hospital Bed Occupancy: A Regime-Switching AutoRegressive Hidden Markov Model Approach\n",
     "section": "Point Forecast results",
     "text": "Point Forecast results\n\n\n\n\n\n\n\n\n\nward_0\nRMSE\nMAE\n\n\n\n\nHMM\n3.208\n2.757\n\n\nlinearRegression\n3.258\n2.804\n\n\nLasso\n3.268\n2.832\n\n\nRandomForest\n3.365\n2.885\n\n\nLightGBM\n3.364\n2.905\n\n\nXGBoost\n3.433\n2.996\n\n\nets\n3.679\n3.168\n\n\n\n\n\n\n\n\n\n\n\n\nward_1\nRMSE\nMAE\n\n\n\n\nets\n3.646\n3.169\n\n\nLasso\n3.701\n3.220\n\n\nRandomForest\n3.707\n3.229\n\n\nlinearRegression\n3.711\n3.233\n\n\nHMM\n3.712\n3.231\n\n\nLightGBM\n3.720\n3.241\n\n\nXGBoost\n3.770\n3.277\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nward_2\nRMSE\nMAE\n\n\n\n\nHMM\n2.843\n2.406\n\n\nlinearRegression\n2.862\n2.426\n\n\nLasso\n2.975\n2.538\n\n\nLightGBM\n2.983\n2.544\n\n\nXGBoost\n3.036\n2.605\n\n\nRandomForest\n3.141\n2.723\n\n\nets\n3.210\n2.800\n\n\n\n\n\n\n\n\n\n\n\n\nward_3\nRMSE\nMAE\n\n\n\n\nLasso\n1.992\n1.664\n\n\nLightGBM\n2.009\n1.700\n\n\nlinearRegression\n2.044\n1.724\n\n\nRandomForest\n2.058\n1.730\n\n\nHMM\n2.078\n1.749\n\n\nXGBoost\n2.098\n1.776\n\n\nets\n2.475\n2.133\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nward_4\nRMSE\nMAE\n\n\n\n\nLasso\n2.320\n1.999\n\n\nlinearRegression\n2.470\n2.135\n\n\nHMM\n2.532\n2.211\n\n\nets\n2.592\n2.244\n\n\nXGBoost\n2.660\n2.314\n\n\nRandomForest\n2.825\n2.486\n\n\nLightGBM\n3.344\n2.946\n\n\n\n\n\n\n\n\n\n\n\n\nward_5\nRMSE\nMAE\n\n\n\n\nHMM\n2.500\n2.122\n\n\nRandomForest\n2.503\n2.129\n\n\nLightGBM\n2.511\n2.143\n\n\nXGBoost\n2.512\n2.144\n\n\nLasso\n2.517\n2.144\n\n\nlinearRegression\n2.532\n2.156\n\n\nets\n2.603\n2.235"
   },
   {
     "objectID": "talks/wgsss/slides.html#forecast-distributions-quantile-scores",
     "href": "talks/wgsss/slides.html#forecast-distributions-quantile-scores",
-    "title": "MUSTAFA ASLAN",
+    "title": "\nForecasting Mental Health Hospital Bed Occupancy: A Regime-Switching AutoRegressive Hidden Markov Model Approach\n",
     "section": "Forecast Distributions (Quantile scores)",
     "text": "Forecast Distributions (Quantile scores)"
   },
   {
     "objectID": "talks/wgsss/slides.html#forecast-distributions-quantile-scores-1",
     "href": "talks/wgsss/slides.html#forecast-distributions-quantile-scores-1",
-    "title": "MUSTAFA ASLAN",
+    "title": "\nForecasting Mental Health Hospital Bed Occupancy: A Regime-Switching AutoRegressive Hidden Markov Model Approach\n",
     "section": "Forecast Distributions (Quantile scores)",
     "text": "Forecast Distributions (Quantile scores)"
   },
   {
     "objectID": "talks/wgsss/slides.html#forecast-distributions-quantile-scores-for-45-to-85",
     "href": "talks/wgsss/slides.html#forecast-distributions-quantile-scores-for-45-to-85",
-    "title": "MUSTAFA ASLAN",
+    "title": "\nForecasting Mental Health Hospital Bed Occupancy: A Regime-Switching AutoRegressive Hidden Markov Model Approach\n",
     "section": "Forecast distributions (Quantile scores for 45% to 85%)",
     "text": "Forecast distributions (Quantile scores for 45% to 85%)"
   },
@@ -5665,7 +5665,7 @@
   {
     "objectID": "talks/wgsss/slides.html#learning-outcomes-from-the-current-experiments",
     "href": "talks/wgsss/slides.html#learning-outcomes-from-the-current-experiments",
-    "title": "MUSTAFA ASLAN",
+    "title": "\nForecasting Mental Health Hospital Bed Occupancy: A Regime-Switching AutoRegressive Hidden Markov Model Approach\n",
     "section": "Learning outcomes from the current experiments",
     "text": "Learning outcomes from the current experiments\n\nAlthough AR-RHMM may not always outperform all benchmark models in point forecasting metrics, there is a significant improvement in probabilistic forecasting, particularly in quantile loss across 40% and 85% quantiles.\nThe model is more reliable for probabilistic forecasting since it accounts for regime changes and provides a distribution of possible future values, making it suitable for decision-making in hospital resource management.\nThe model performs consistently well interms of probabilistic forecasting since the model is probabilistic in nature and captures regime changes."
   },
@@ -5875,49 +5875,49 @@
   {
     "objectID": "talks/wgsss/slides.html#why-is-it-important",
     "href": "talks/wgsss/slides.html#why-is-it-important",
-    "title": "MUSTAFA ASLAN",
+    "title": "\nForecasting Mental Health Hospital Bed Occupancy: A Regime-Switching AutoRegressive Hidden Markov Model Approach\n",
     "section": "Why is it important?",
-    "text": "Why is it important?\n\n\nWhy is an efficient bed management system crucial?\n\nHospital beds are one of most costly healthcare resources.\n\nNHS rates for acute mental health beds are generally between £760 and £850 per day in 2025\n\nBed shortages force some patients to wait in corridors, impacting care quality and safety.\nBed shortages increase staff pressure, burnout, and operational costs.\n\n\n\nWhy a reliable forecasting approach is needed?\n\nMental health demand is volatile and influenced by unpredictable crisis, by seasonality, epidemics, and unforeseen events.\nA reliable forecasting approach enables timely staffing, resource allocation, and improved patient care.\nAnticipating demand allows decision-makers to balance scarce resources while improving patient flow and safety.\nRobust forecasts enhance resilience to unexpected surges and reduce staff burnout."
+    "text": "Why is it important?\n\n\n\nWhy is an efficient bed management system crucial?\n\nHospital beds are one of most costly healthcare resources.\n\nNHS rates for acute mental health beds are generally between £760 and £850 per day in 2025\n\nBed shortages force some patients to wait in corridors, impacting care quality and safety.\nBed shortages increase staff pressure, burnout, and operational costs.\n\n\n\n\n\nWhy a reliable forecasting approach is needed?\n\nMental health demand is volatile and influenced by unpredictable crisis, by seasonality, epidemics, and unforeseen events.\nA reliable forecasting approach enables timely staffing, resource allocation, and improved patient care.\nAnticipating demand allows decision-makers to balance scarce resources while improving patient flow and safety.\nRobust forecasts enhance resilience to unexpected surges and reduce staff burnout."
   },
   {
     "objectID": "talks/wgsss/slides.html#what-do-we-forecast",
     "href": "talks/wgsss/slides.html#what-do-we-forecast",
-    "title": "MUSTAFA ASLAN",
+    "title": "\nForecasting Mental Health Hospital Bed Occupancy: A Regime-Switching AutoRegressive Hidden Markov Model Approach\n",
     "section": "What do we forecast?",
     "text": "What do we forecast?\n\nDaily hospital bed occupancy for 7 wards in a UK hospital.\nForecast horizon: 30 days ahead, supporting medium-term planning for bed allocation and staffing, generated at the end of each month for the following month.\nFocus on probabilistic forecasting to capture uncertainty, offering prediction intervals rather than single-point estimates using a reliable model."
   },
   {
     "objectID": "talks/wgsss/slides.html#regime-switching-autoregressive-hidden-markov-model-rs-arhmm",
     "href": "talks/wgsss/slides.html#regime-switching-autoregressive-hidden-markov-model-rs-arhmm",
-    "title": "MUSTAFA ASLAN",
+    "title": "\nForecasting Mental Health Hospital Bed Occupancy: A Regime-Switching AutoRegressive Hidden Markov Model Approach\n",
     "section": "Regime-Switching AutoRegressive Hidden Markov Model (RS-ARHMM)",
     "text": "Regime-Switching AutoRegressive Hidden Markov Model (RS-ARHMM)\nLet \\(y_t\\) be the observed value at time \\(t\\), modeled as a function of its \\(p\\) lagged values, the regime-specific parameters associated with the hidden state \\(s_t\\), and exogenous variables \\(\\mathbf{X}_t = (X_{t1}, \\ldots, X_{tM})\\).\nThe RS-ARHMM can be expressed as follows:\n\\[\ny_t^{(s)} = \\beta_{0}^{(s)} + \\sum_{i=1}^{p} \\beta_{i}^{(s)} \\, y_{t-i} + \\sum_{j=1}^{M} \\beta_{p+j}^{(s)} \\, X_{tj} + \\epsilon_t^{(s)},\n\\]\nwhere:\n\n\\(\\beta_{i}^{(s)}\\) are the coefficients for the lagged values for regime \\(s\\),\n\\(\\beta_{p+j}^{(s)}\\) are the coefficients for the exogenous variables for regime \\(s\\),\n\\(M\\) is the number of exogenous variables,\n\\(\\epsilon_t^{(s)}\\) is the error term for regime \\(s\\).\n\nThe Markov property: \\[\nP(s_t = k \\mid s_{1:t-1}) = P(s_t = k \\mid s_{t-1}), \\quad \\forall t \\geq 2.\n\\]\nA HMM has the following components:\n\n\\(S\\): The set of regimes, \\(\\mathbb{S} = \\{S_1, S_2, \\ldots, S_K\\}\\).\n\\(P\\): The transition probability matrix\n\\(p_{ij} = P(s_t = S_j \\mid s_{t-1} = S_i)\\) is the probability of transitioning from regime \\(S_i\\) to regime \\(S_j\\), s.t. \\(\\sum_{j=1}^{K} p_{ij} = 1\\).\n\nTransition matrix \\(P\\) is defined as:\n\\[\nP = \\begin{pmatrix}\np_{11} & \\cdots & p_{1K} \\\\\n\\vdots & \\ddots & \\vdots \\\\\np_{K1} & \\cdots & p_{KK}\n\\end{pmatrix}\n\\]"
   },
   {
     "objectID": "talks/wgsss/slides.html#modeling-framework",
     "href": "talks/wgsss/slides.html#modeling-framework",
-    "title": "MUSTAFA ASLAN",
+    "title": "\nForecasting Mental Health Hospital Bed Occupancy: A Regime-Switching AutoRegressive Hidden Markov Model Approach\n",
     "section": "Modeling Framework",
-    "text": "Modeling Framework\nForecasting with RS-ARHMM\n\nForecast Computation: The final forecast for each time step is a weighted average of the forecasts from each regime, weighted by the predicted regime probabilities:\n\n\\[\n\\hat{y}_{T+h} = \\sum_{j=1}^{K} P(s_{T+h} = S_j) \\, \\hat{y}_{T+h}^{(S_j)}\n\\]\n\nState Prediction: We predict the most probable state sequence for the next \\(h\\) time steps using the transition matrix \\(\\mathbf{P}\\). The probability of being in state \\(S_j\\) at time \\(T+h\\) is computed recursively as:\n\n\\[\nP(s_{T+h} = S_j) = \\sum_{i=1}^{K} P(s_{T+h-1} = S_i) \\, p_{ij}\n\\]\n\nRegime-specific forecasts: For each predicted regime, we utilize the corresponding regression model to forecast the observation at that time step. The predicted observation \\(\\hat{y}_{T+h}\\) for state \\(s_{T+h}\\) is computed as:\n\n\\[\n\\hat{y}_{T+h}^{s_{T+h}} = \\beta_{0}^{(s_{T+h})} + \\sum_{i=1}^{p} \\beta_{i}^{(s_{T+h})} \\, y_{T+h-i} + \\sum_{j=1}^{M} \\beta_{p+j}^{(s_{T+h})} \\, X_{T+h,j}\n\\]"
+    "text": "Modeling Framework\n\nForecasting with RS-ARHMM\n\nForecast Computation: The final forecast for each time step is a weighted average of the forecasts from each regime, weighted by the predicted regime probabilities:\n\n\\[\n\\hat{y}_{T+h} = \\sum_{j=1}^{K} P(s_{T+h} = S_j) \\, \\hat{y}_{T+h}^{(S_j)}\n\\]\n\nState Prediction: We predict the most probable state sequence for the next \\(h\\) time steps using the transition matrix \\(\\mathbf{P}\\). The probability of being in state \\(S_j\\) at time \\(T+h\\) is computed recursively as:\n\n\\[\nP(s_{T+h} = S_j) = \\sum_{i=1}^{K} P(s_{T+h-1} = S_i) \\, p_{ij}\n\\]\n\nRegime-specific forecasts: For each predicted regime, we utilize the corresponding regression model to forecast the observation at that time step. The predicted observation \\(\\hat{y}_{T+h}\\) for state \\(s_{T+h}\\) is computed as:\n\n\\[\n\\hat{y}_{T+h}^{s_{T+h}} = \\beta_{0}^{(s_{T+h})} + \\sum_{i=1}^{p} \\beta_{i}^{(s_{T+h})} \\, y_{T+h-i} + \\sum_{j=1}^{M} \\beta_{p+j}^{(s_{T+h})} \\, X_{T+h,j}\n\\]"
   },
   {
     "objectID": "talks/wgsss/slides.html#rs-arhmm-parameter-estimation",
     "href": "talks/wgsss/slides.html#rs-arhmm-parameter-estimation",
-    "title": "MUSTAFA ASLAN",
+    "title": "\nForecasting Mental Health Hospital Bed Occupancy: A Regime-Switching AutoRegressive Hidden Markov Model Approach\n",
     "section": "RS-ARHMM Parameter Estimation",
-    "text": "RS-ARHMM Parameter Estimation\n\n\n\n\n\nEM (Expectation-Maximization) Algorithm\n\n\n\nIteratively estimates parameters \\(\\Theta = \\{\\beta^{(s)}, \\sigma^{2(s)}, P, \\pi\\}\\) to maximize likelihood.\nAlternates between two steps:\n\nE-Step: Estimate regime probabilities given current \\(\\Theta\\).\nM-Step: Update \\(\\Theta\\) using these probabilities.\n\n\n\n\n\n\n\n\n\n1. E-Step\n\n\n\nState probability:\n\\[\n\\gamma_t(i) = P(s_t = S_i \\mid y_{1:T}, \\Theta^{(k)})\n\\]\nTransition probability:\n\\[\n\\xi_t(i,j) = P(s_t = S_i, s_{t+1} = S_j \\mid y_{1:T}, \\Theta^{(k)})\n\\]\nComputed via Forward-Backward algorithm:\n\nForward:\n\n\\(\\alpha_t(i) = P(y_{1:t}, s_t = S_i \\mid \\Theta) = \\sum_{j=1}^{K} \\alpha_{t-1}(j) p_{ji} o_i(y_t)\\)\n\nBackward:\n\n\\(b_t(i) = P(y_{t+1:T} \\mid s_t = S_i, \\Theta) = \\sum_{j=1}^{K} p_{ij} o_j(y_{t+1}) b_{t+1}(j)\\)\n\nEmission (observation) likelihood:\n\\[\no_i(y_t) = \\frac{1}{\\sqrt{2\\pi \\sigma_i^2}} \\exp\\left( -\\frac{(y_t - \\mu_{i,t})^2}{2\\sigma_i^2} \\right)\n\\]\nwhere \\(\\mu_{i,t}\\) is AR + exogenous mean for state \\(i\\).\n\n\n\n\n\n\n\n2. M-Step\n\n\nUpdate parameters using weighted averages with \\(\\gamma_t(i)\\):\n\nTransition matrix:\n\\[\np_{ij}^{(k+1)} = \\frac{\\sum_{t=1}^{T-1} \\xi_t(i,j)}{\\sum_{t=1}^{T-1} \\gamma_t(i)}\n\\]\nInitial state:\n\\[\n\\pi_i^{(k+1)} = \\gamma_1(i)\n\\]\nRegression (AR/exog) coefficients:\n\\[\n\\beta^{(i,k+1)} = (\\mathbf{X}^T \\mathbf{W}_i \\mathbf{X})^{-1} \\mathbf{X}^T \\mathbf{W}_i \\mathbf{y}\n\\]\n\nWhere \\(\\mathbf{W}_i = \\text{diag}(\\gamma_1(i),\\dots,\\gamma_T(i))\\)\n\nVariance:\n\\[\n\\sigma_i^{2(k+1)} = \\frac{\\sum_{t=1}^T \\gamma_t(i)(y_t-\\mu_{i,t})^2}{\\sum_{t=1}^T \\gamma_t(i)}\n\\]\n\n\n\n\n\n\n\n\nRepeat E-M Steps until convergence:\n\n\n\\[|\\ell(\\Theta^{(k+1)}) - \\ell(\\Theta^{(k)})| &lt; \\epsilon\\]"
+    "text": "RS-ARHMM Parameter Estimation\n\n\n\n\n\n\n\n\nEM (Expectation-Maximization) Algorithm\n\n\n\n\nIteratively estimates parameters \\(\\Theta = \\{\\beta^{(s)}, \\sigma^{2(s)}, P, \\pi\\}\\) to maximize likelihood.\nAlternates between two steps:\n\nE-Step: Estimate regime probabilities given current \\(\\Theta\\).\nM-Step: Update \\(\\Theta\\) using these probabilities.\n\n\n\n\n\n\n\n\n\n\n\n1. E-Step\n\n\n\n\nState probability:\n\\[\n\\gamma_t(i) = P(s_t = S_i \\mid y_{1:T}, \\Theta^{(k)})\n\\]\nTransition probability:\n\\[\n\\xi_t(i,j) = P(s_t = S_i, s_{t+1} = S_j \\mid y_{1:T}, \\Theta^{(k)})\n\\]\nComputed via Forward-Backward algorithm:\n\nForward:\n\n\\(\\alpha_t(i) = P(y_{1:t}, s_t = S_i \\mid \\Theta) = \\sum_{j=1}^{K} \\alpha_{t-1}(j) p_{ji} o_i(y_t)\\)\n\nBackward:\n\n\\(b_t(i) = P(y_{t+1:T} \\mid s_t = S_i, \\Theta) = \\sum_{j=1}^{K} p_{ij} o_j(y_{t+1}) b_{t+1}(j)\\)\n\nEmission (observation) likelihood:\n\\[\no_i(y_t) = \\frac{1}{\\sqrt{2\\pi \\sigma_i^2}} \\exp\\left( -\\frac{(y_t - \\mu_{i,t})^2}{2\\sigma_i^2} \\right)\n\\]\nwhere \\(\\mu_{i,t}\\) is AR + exogenous mean for state \\(i\\).\n\n\n\n\n\n\n\n\n\n2. M-Step\n\n\n\nUpdate parameters using weighted averages with \\(\\gamma_t(i)\\):\n\nTransition matrix:\n\\[\np_{ij}^{(k+1)} = \\frac{\\sum_{t=1}^{T-1} \\xi_t(i,j)}{\\sum_{t=1}^{T-1} \\gamma_t(i)}\n\\]\nInitial state:\n\\[\n\\pi_i^{(k+1)} = \\gamma_1(i)\n\\]\nRegression (AR/exog) coefficients:\n\\[\n\\beta^{(i,k+1)} = (\\mathbf{X}^T \\mathbf{W}_i \\mathbf{X})^{-1} \\mathbf{X}^T \\mathbf{W}_i \\mathbf{y}\n\\]\n\nWhere \\(\\mathbf{W}_i = \\text{diag}(\\gamma_1(i),\\dots,\\gamma_T(i))\\)\n\nVariance:\n\\[\n\\sigma_i^{2(k+1)} = \\frac{\\sum_{t=1}^T \\gamma_t(i)(y_t-\\mu_{i,t})^2}{\\sum_{t=1}^T \\gamma_t(i)}\n\\]\n\n\n\n\n\n\n\n\n\nRepeat E-M Steps until convergence:\n\n\n\n\\[|\\ell(\\Theta^{(k+1)}) - \\ell(\\Theta^{(k)})| &lt; \\epsilon\\]"
   },
   {
     "objectID": "talks/wgsss/slides.html#why-rs-arhmm",
     "href": "talks/wgsss/slides.html#why-rs-arhmm",
-    "title": "MUSTAFA ASLAN",
+    "title": "\nForecasting Mental Health Hospital Bed Occupancy: A Regime-Switching AutoRegressive Hidden Markov Model Approach\n",
     "section": "Why RS-ARHMM?",
-    "text": "Why RS-ARHMM?\n\nCaptures regime changes in highly volatile time series data (e.g., healthcare), integrating them into the forecasting process, making it more accurate and reliable predictions.\nTraditional statistical and modern machine learning models fail to account for such regime shifts.\nModels complex dependencies and non-linear relationships with reduced risk of overfitting and less reliance on extensive hyperparameter tuning.\nProduces interpretable results through regime-specific parameters.\nProvides reliable forecasts that incorporate uncertainty arising from regime changes."
+    "text": "Why RS-ARHMM?\n\n\nCaptures regime changes in highly volatile time series data (e.g., healthcare), integrating them into the forecasting process, making it more accurate and reliable predictions.\nTraditional statistical and modern machine learning models fail to account for such regime shifts.\nModels complex dependencies and non-linear relationships with reduced risk of overfitting and less reliance on extensive hyperparameter tuning.\nProduces interpretable results through regime-specific parameters.\nProvides reliable forecasts that incorporate uncertainty arising from regime changes."
   },
   {
     "objectID": "talks/wgsss/slides.html#feature-engineering",
     "href": "talks/wgsss/slides.html#feature-engineering",
-    "title": "MUSTAFA ASLAN",
+    "title": "\nForecasting Mental Health Hospital Bed Occupancy: A Regime-Switching AutoRegressive Hidden Markov Model Approach\n",
     "section": "Feature engineering",
     "text": "Feature engineering\n\nTime-based features\n\n\n\nPublic holidays\n\n\n\nLagged features\n\n\n\nFourier terms\n\n\n\nRolling window features"
   },
@@ -5931,126 +5931,126 @@
   {
     "objectID": "talks/wgsss/slides.html#cross-validation-setup",
     "href": "talks/wgsss/slides.html#cross-validation-setup",
-    "title": "MUSTAFA ASLAN",
+    "title": "\nForecasting Mental Health Hospital Bed Occupancy: A Regime-Switching AutoRegressive Hidden Markov Model Approach\n",
     "section": "Cross validation setup",
     "text": "Cross validation setup\nRolling-origin cross-validation is used to evaluate model performance over time"
   },
   {
     "objectID": "talks/wgsss/slides.html#next-steps-1",
     "href": "talks/wgsss/slides.html#next-steps-1",
-    "title": "MUSTAFA ASLAN",
+    "title": "\nForecasting Mental Health Hospital Bed Occupancy: A Regime-Switching AutoRegressive Hidden Markov Model Approach\n",
     "section": "Next steps",
     "text": "Next steps\n\nExtend the AR-HMM to a multivariate framework (VAR-HMM) to jointly model multiple wards, capturing interdependencies and shared patterns in bed occupancy across different wards.\nDevelop an optimization framework that utilizes the probabilistic forecasts from the AR-HMM and VAR-HMM models to optimize bed allocation and resource management.\nTest the models in real-world scenarios, collaborating with hospital staff to refine the models based on practical feedback and operational needs."
   },
   {
     "objectID": "talks/wgsss/slides.html#models-explainability",
     "href": "talks/wgsss/slides.html#models-explainability",
-    "title": "MUSTAFA ASLAN",
+    "title": "\nForecasting Mental Health Hospital Bed Occupancy: A Regime-Switching AutoRegressive Hidden Markov Model Approach\n",
     "section": "Model’s Explainability",
-    "text": "Model’s Explainability\n\n\n\n\n\n\n\n\n\n\n\n\nTransition probabilities\n\n\n\n\n\nT. Matrix\nRegime 1\nRegime 2\n\n\n\n\nRegime 1\n0.666\n0.334\n\n\nRegime 2\n0.487\n0.513\n\n\n\n\n\n \nStandard Deviations\n\n\n\n\n\nStd. Dev.\nRegime 1\nRegime 2\n\n\n\n\nsd\n1.393\n0.006"
+    "text": "Model’s Explainability\n\n\n\n\n\n\n\n\n\n\n\n\n\nTransition probabilities\n\n\n\n\n\nT. Matrix\nRegime 1\nRegime 2\n\n\n\n\nRegime 1\n0.666\n0.334\n\n\nRegime 2\n0.487\n0.513\n\n\n\n\n\n \n\n\nStandard Deviations\n\n\n\n\n\nStd. Dev.\nRegime 1\nRegime 2\n\n\n\n\nsd\n1.393\n0.006"
   },
   {
     "objectID": "talks/sword/sword_slides.html#outline",
     "href": "talks/sword/sword_slides.html#outline",
-    "title": "MUSTAFA ASLAN",
+    "title": "\nEnhancing Discharge Care Planning: A Probabilistic Data-Driven Approach\n",
     "section": "Outline",
     "text": "Outline\n\nWhat problem(s) does our research focus on?\nResearch Questions and How We Address Them\nMethodology & Approach\nProgress so far?"
   },
   {
     "objectID": "talks/sword/sword_slides.html#outline-1",
     "href": "talks/sword/sword_slides.html#outline-1",
-    "title": "MUSTAFA ASLAN",
+    "title": "\nEnhancing Discharge Care Planning: A Probabilistic Data-Driven Approach\n",
     "section": "Outline",
     "text": "Outline\n\nWhat problem(s) does our research focus on?\nResearch Questions and How We Address Them\nMethodology & Approach\nProgress so far?"
   },
   {
     "objectID": "talks/sword/sword_slides.html#what-problems-does-our-research-focus-on",
     "href": "talks/sword/sword_slides.html#what-problems-does-our-research-focus-on",
-    "title": "MUSTAFA ASLAN",
+    "title": "\nEnhancing Discharge Care Planning: A Probabilistic Data-Driven Approach\n",
     "section": "What problem(s) does our research focus on?",
     "text": "What problem(s) does our research focus on?\n\n\n\n\n\n\n\n\nProblem\n\nThe challenge of capacity management\n\nInefficient use of healthcare and social care resources\n\nInadequate discharge care coordination\n\nDifficulties with discharging medically fit patients in a timely manner\n\n\nWhy it matters\nPoorly managed discharge processes negatively affect both individuals and patient flow through hospitals, creating bottlenecks that increase pressure on all healthcare services.\nWho it impacts\nPatients, healthcare professionals, and the overall healthcare system."
   },
   {
     "objectID": "talks/sword/sword_slides.html#outline-2",
     "href": "talks/sword/sword_slides.html#outline-2",
-    "title": "MUSTAFA ASLAN",
+    "title": "\nEnhancing Discharge Care Planning: A Probabilistic Data-Driven Approach\n",
     "section": "Outline",
     "text": "Outline\n\nWhat problem(s) does our research focus on?\nResearch Questions and How We Address Them\nMethodology & Approach\nProgress so far?"
   },
   {
     "objectID": "talks/sword/sword_slides.html#research-questions-and-how-we-address-them",
     "href": "talks/sword/sword_slides.html#research-questions-and-how-we-address-them",
-    "title": "MUSTAFA ASLAN",
+    "title": "\nEnhancing Discharge Care Planning: A Probabilistic Data-Driven Approach\n",
     "section": "❓Research Questions and How We Address Them",
     "text": "❓Research Questions and How We Address Them"
   },
   {
     "objectID": "talks/sword/sword_slides.html#research-questions-and-how-we-address-them-1",
     "href": "talks/sword/sword_slides.html#research-questions-and-how-we-address-them-1",
-    "title": "MUSTAFA ASLAN",
+    "title": "\nEnhancing Discharge Care Planning: A Probabilistic Data-Driven Approach\n",
     "section": "❓Research Questions and How We Address Them",
     "text": "❓Research Questions and How We Address Them"
   },
   {
     "objectID": "talks/sword/sword_slides.html#research-questions-and-how-we-address-them-2",
     "href": "talks/sword/sword_slides.html#research-questions-and-how-we-address-them-2",
-    "title": "MUSTAFA ASLAN",
+    "title": "\nEnhancing Discharge Care Planning: A Probabilistic Data-Driven Approach\n",
     "section": "❓Research Questions and How We Address Them",
     "text": "❓Research Questions and How We Address Them"
   },
   {
     "objectID": "talks/sword/sword_slides.html#research-questions-and-how-we-address-them-3",
     "href": "talks/sword/sword_slides.html#research-questions-and-how-we-address-them-3",
-    "title": "MUSTAFA ASLAN",
+    "title": "\nEnhancing Discharge Care Planning: A Probabilistic Data-Driven Approach\n",
     "section": "❓Research Questions and How We Address Them",
     "text": "❓Research Questions and How We Address Them"
   },
   {
     "objectID": "talks/sword/sword_slides.html#outline-3",
     "href": "talks/sword/sword_slides.html#outline-3",
-    "title": "MUSTAFA ASLAN",
+    "title": "\nEnhancing Discharge Care Planning: A Probabilistic Data-Driven Approach\n",
     "section": "Outline",
     "text": "Outline\n\nWhat problem(s) does our research focus on?\nResearch Questions and How We Address Them\nMethodology & Approach\nProgress so far?"
   },
   {
     "objectID": "talks/sword/sword_slides.html#methodology-approach",
     "href": "talks/sword/sword_slides.html#methodology-approach",
-    "title": "MUSTAFA ASLAN",
+    "title": "\nEnhancing Discharge Care Planning: A Probabilistic Data-Driven Approach\n",
     "section": "🛠️ Methodology & Approach",
-    "text": "🛠️ Methodology & Approach\n\n\nData\n\nSAIL Databank\nPatient-level data sources\n\nModel Development\n\nMathematical modelling\nStocastic optimization and reinforcement learning methods\nMachine learning\nProbabilistic modelling\n\nValidation and Testing\n\nCross-Validation to test predictive models\nTest models in a real-world setting, possibly in collaboration with a hospital"
+    "text": "🛠️ Methodology & Approach\n\n\n\nData\n\nSAIL Databank\nPatient-level data sources\n\n\n\nModel Development\n\nMathematical modelling\nStocastic optimization and reinforcement learning methods\nMachine learning\nProbabilistic modelling\n\n\n\nValidation and Testing\n\nCross-Validation to test predictive models\nTest models in a real-world setting, possibly in collaboration with a hospital"
   },
   {
     "objectID": "talks/sword/sword_slides.html#outline-4",
     "href": "talks/sword/sword_slides.html#outline-4",
-    "title": "MUSTAFA ASLAN",
+    "title": "\nEnhancing Discharge Care Planning: A Probabilistic Data-Driven Approach\n",
     "section": "Outline",
     "text": "Outline\n\nWhat problem(s) does our research focus on?\nResearch Questions and How We Address Them\nMethodology & Approach\nProgress so far?"
   },
   {
     "objectID": "talks/sword/sword_slides.html#progress-so-far",
     "href": "talks/sword/sword_slides.html#progress-so-far",
-    "title": "MUSTAFA ASLAN",
+    "title": "\nEnhancing Discharge Care Planning: A Probabilistic Data-Driven Approach\n",
     "section": "Progress so far?",
     "text": "Progress so far?"
   },
   {
     "objectID": "talks/sword/sword_slides.html#models",
     "href": "talks/sword/sword_slides.html#models",
-    "title": "MUSTAFA ASLAN",
+    "title": "\nEnhancing Discharge Care Planning: A Probabilistic Data-Driven Approach\n",
     "section": "Models",
-    "text": "Models\n\n\n\n\n\n\nRegime-Switching AutoRegressive Hidden Markov Model (RS-ARHMM)\n\n\nLet \\(y_t\\) be the observed value at time \\(t\\), modeled as a function of its \\(p\\) lagged values, the regime-specific parameters associated with the hidden state \\(s_t\\), and exogenous variables \\(\\mathbf{X}_t = (X_{t1}, \\ldots, X_{tM})\\).\nThe RS-ARHMM can be expressed as follows:\n\\[\ny_t^{(s)} = \\beta_{0}^{(s)} + \\sum_{i=1}^{p} \\beta_{i}^{(s)} \\, y_{t-i} + \\sum_{j=1}^{M} \\beta_{p+j}^{(s)} \\, X_{tj} + \\epsilon_t^{(s)},\n\\]\nParameter estimation: EM (Expectation-Maximization) Algorithm\n\nIteratively estimates parameters \\(\\Theta = \\{\\beta^{(s)}, \\sigma^{2(s)}, P, \\pi\\}\\) to maximize likelihood.\n\nTransition probabilities stored as: \\[\nP = \\begin{pmatrix}\np_{11} & \\cdots & p_{1K} \\\\\n\\vdots & \\ddots & \\vdots \\\\\np_{K1} & \\cdots & p_{KK}\n\\end{pmatrix}\n\\]\n\nAlternates between two steps:\n\nE-Step: Estimate regime probabilities given current \\(\\Theta\\).\nM-Step: Update \\(\\Theta\\) using these probabilities.\n\n\n\n\n\n\n\n\n\n\n\nBenchmark models\n\n\nStatistical models:\n\nExponential Smoothing (ETS): A state space time series model capturing level, trend, and seasonality.\nLinear Regression: A statistical model that estimates the linear relationship between predictors and a response variable.\nLasso Regression: A regression method with L1 regularization, useful for variable selection and preventing overfitting.\n\nMachine Learning models:\n\nXGBoost: An optimized gradient boosting library designed to be highly efficient and flexible.\nLightGBM: A gradient boosting framework that uses tree-based learning algorithms, known for its speed and efficiency. It uses leaf-wise tree growth.\nRandom Forest: An ensemble learning method that builds multiple decision trees and merges them together to get predictions.\n\n\n\n\n\n\n\n\n\n\nProbabilistic Forecasting - Conformal Prediction\n\n\n\nA distribution-free method for constructing prediction intervals\nA way to quantify the uncertainty of point forecasts by generating prediction intervals"
+    "text": "Models\n\n\n\n\n\n\n\n\nRegime-Switching AutoRegressive Hidden Markov Model (RS-ARHMM)\n\n\n\nLet \\(y_t\\) be the observed value at time \\(t\\), modeled as a function of its \\(p\\) lagged values, the regime-specific parameters associated with the hidden state \\(s_t\\), and exogenous variables \\(\\mathbf{X}_t = (X_{t1}, \\ldots, X_{tM})\\).\nThe RS-ARHMM can be expressed as follows:\n\\[\ny_t^{(s)} = \\beta_{0}^{(s)} + \\sum_{i=1}^{p} \\beta_{i}^{(s)} \\, y_{t-i} + \\sum_{j=1}^{M} \\beta_{p+j}^{(s)} \\, X_{tj} + \\epsilon_t^{(s)},\n\\]\nParameter estimation: EM (Expectation-Maximization) Algorithm\n\nIteratively estimates parameters \\(\\Theta = \\{\\beta^{(s)}, \\sigma^{2(s)}, P, \\pi\\}\\) to maximize likelihood.\n\nTransition probabilities stored as: \\[\nP = \\begin{pmatrix}\np_{11} & \\cdots & p_{1K} \\\\\n\\vdots & \\ddots & \\vdots \\\\\np_{K1} & \\cdots & p_{KK}\n\\end{pmatrix}\n\\]\n\nAlternates between two steps:\n\nE-Step: Estimate regime probabilities given current \\(\\Theta\\).\nM-Step: Update \\(\\Theta\\) using these probabilities.\n\n\n\n\n\n\n\n\n\n\n\nBenchmark models\n\n\n\nStatistical models:\n\nExponential Smoothing (ETS): A state space time series model capturing level, trend, and seasonality.\nLinear Regression: A statistical model that estimates the linear relationship between predictors and a response variable.\nLasso Regression: A regression method with L1 regularization, useful for variable selection and preventing overfitting.\n\nMachine Learning models:\n\nXGBoost: An optimized gradient boosting library designed to be highly efficient and flexible.\nLightGBM: A gradient boosting framework that uses tree-based learning algorithms, known for its speed and efficiency. It uses leaf-wise tree growth.\nRandom Forest: An ensemble learning method that builds multiple decision trees and merges them together to get predictions.\n\n\n\n\n\n\n\n\n\n\nProbabilistic Forecasting - Conformal Prediction\n\n\n\n\nA distribution-free method for constructing prediction intervals\nA way to quantify the uncertainty of point forecasts by generating prediction intervals"
   },
   {
     "objectID": "talks/sword/sword_slides.html#forecast-distributions-quantile-scores",
     "href": "talks/sword/sword_slides.html#forecast-distributions-quantile-scores",
-    "title": "MUSTAFA ASLAN",
+    "title": "\nEnhancing Discharge Care Planning: A Probabilistic Data-Driven Approach\n",
     "section": "Forecast Distributions (Quantile scores)",
     "text": "Forecast Distributions (Quantile scores)"
   },
   {
     "objectID": "talks/sword/sword_slides.html#any-questions-or-thoughts",
     "href": "talks/sword/sword_slides.html#any-questions-or-thoughts",
-    "title": "MUSTAFA ASLAN",
+    "title": "\nEnhancing Discharge Care Planning: A Probabilistic Data-Driven Approach\n",
     "section": "Any questions or thoughts? 💬",
     "text": "Any questions or thoughts? 💬"
   },

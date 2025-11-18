@@ -166,7 +166,7 @@
         "- **Forecast horizon:** 30 days ahead, supporting medium-term planning for bed allocation and staffing, generated at the end of each month for the following month.\n",
         "- Focus on **probabilistic forecasting** to capture uncertainty, offering prediction intervals rather than single-point estimates using a reliable model."
       ],
-      "id": "f8f26161"
+      "id": "6a983d5c"
     },
     {
       "cell_type": "code",
@@ -204,7 +204,7 @@
         "plt.tight_layout()\n",
         "plt.show()"
       ],
-      "id": "a90f6a5b",
+      "id": "57a92183",
       "execution_count": null,
       "outputs": []
     },
@@ -241,7 +241,7 @@
         "\n",
         "- Spike after COVID-19 pandemic"
       ],
-      "id": "b96676cf"
+      "id": "5f786b58"
     },
     {
       "cell_type": "code",
@@ -353,7 +353,7 @@
         "with open('model_params/best_hmm_ets_tks.pkl', 'rb') as f:\n",
         "    best_hmm_ets_tks = pickle.load(f)"
       ],
-      "id": "abe3e786",
+      "id": "f4e3b559",
       "execution_count": null,
       "outputs": []
     },
@@ -391,7 +391,7 @@
         "plt.tight_layout(pad=2.0)\n",
         "plt.show()"
       ],
-      "id": "a6fa0634",
+      "id": "f5df3c81",
       "execution_count": null,
       "outputs": []
     },
@@ -406,7 +406,7 @@
         "\n",
         "### Day of the week seasonality\n"
       ],
-      "id": "f77fc562"
+      "id": "da27e278"
     },
     {
       "cell_type": "code",
@@ -452,7 +452,7 @@
         "plt.tight_layout()\n",
         "plt.show()"
       ],
-      "id": "b05f9b78",
+      "id": "80477981",
       "execution_count": null,
       "outputs": []
     },
@@ -466,7 +466,7 @@
         "\n",
         "### Monthly seasonality"
       ],
-      "id": "e5d8da70"
+      "id": "b4ffeeb1"
     },
     {
       "cell_type": "code",
@@ -515,7 +515,7 @@
         "plt.tight_layout()\n",
         "plt.show()"
       ],
-      "id": "9942a505",
+      "id": "55baa7cf",
       "execution_count": null,
       "outputs": []
     },
@@ -527,7 +527,7 @@
         "\n",
         "## Effect of holidays"
       ],
-      "id": "30fd03de"
+      "id": "7a0ebedf"
     },
     {
       "cell_type": "code",
@@ -597,7 +597,7 @@
         "axes.set_ylabel(\"Occupancy\", fontsize=16)\n",
         "plt.show()"
       ],
-      "id": "7676f608",
+      "id": "94dea388",
       "execution_count": null,
       "outputs": []
     },
@@ -616,7 +616,7 @@
         "Original series: $y_t, y_{t-1}, y_{t-2}, y_{t-3}, \\ldots$ \\\n",
         "Differenced series: $y_t - y_{t-1}, y_{t-1} - y_{t-2}, y_{t-2} - y_{t-3}, \\ldots$"
       ],
-      "id": "5f26b90f"
+      "id": "cf1fdcd0"
     },
     {
       "cell_type": "code",
@@ -720,7 +720,7 @@
         "plt.tight_layout()\n",
         "plt.show()"
       ],
-      "id": "a68e1422",
+      "id": "1f08baf3",
       "execution_count": null,
       "outputs": []
     },
@@ -732,7 +732,7 @@
         "\n",
         "### Information from ACF and PACF plots after differencing"
       ],
-      "id": "fa654b98"
+      "id": "e7231e22"
     },
     {
       "cell_type": "code",
@@ -750,7 +750,7 @@
         "plt.tight_layout(pad=2)\n",
         "plt.show()"
       ],
-      "id": "feeb772b",
+      "id": "632ce5fd",
       "execution_count": null,
       "outputs": []
     },
@@ -762,7 +762,7 @@
         "\n",
         "### Alternative approach to make the series stationary and keep the dependence structure"
       ],
-      "id": "f39a0c4e"
+      "id": "606901ae"
     },
     {
       "cell_type": "code",
@@ -782,7 +782,7 @@
         "plt.legend(loc='upper right')\n",
         "plt.show()"
       ],
-      "id": "a22fec35",
+      "id": "516fa3a8",
       "execution_count": null,
       "outputs": []
     },
@@ -793,7 +793,7 @@
         "## An important assumption to model: Stationarity\n",
         "### Information from ACF and PACF plots after detrending"
       ],
-      "id": "9d8defc1"
+      "id": "ddc8bb0a"
     },
     {
       "cell_type": "code",
@@ -811,7 +811,7 @@
         "plt.tight_layout(pad=2)\n",
         "plt.show()"
       ],
-      "id": "f85dfec0",
+      "id": "87aa7807",
       "execution_count": null,
       "outputs": []
     },
@@ -1139,7 +1139,7 @@
         "\n",
         "Rolling-origin cross-validation is used to evaluate model performance over time"
       ],
-      "id": "2892de1f"
+      "id": "749ec26c"
     },
     {
       "cell_type": "code",
@@ -1271,7 +1271,7 @@
         "plt.title(\"Rolling Origin Time Series Cross-Validation\", fontsize=18)\n",
         "plt.show()"
       ],
-      "id": "c1117eab",
+      "id": "07a5d21a",
       "execution_count": null,
       "outputs": []
     },
@@ -1285,7 +1285,7 @@
         "\n",
         "::: {layout-ncol=2}"
       ],
-      "id": "c9ed86c3"
+      "id": "881cc494"
     },
     {
       "cell_type": "code",
@@ -1317,7 +1317,7 @@
         "                            \"MAE\": {\"condition\": \"less\", \"threshold\": 2.8, \"style\": \"font-weight: bold; background-color: None;\"}},\n",
         ")"
       ],
-      "id": "e5ba4cdf",
+      "id": "758e9e67",
       "execution_count": null,
       "outputs": []
     },
@@ -1337,7 +1337,7 @@
         "                            \"MAE\": {\"condition\": \"less\", \"threshold\": 3.2, \"style\": \"font-weight: bold; background-color: None;\"}},\n",
         ")"
       ],
-      "id": "9e529f54",
+      "id": "008cfdf3",
       "execution_count": null,
       "outputs": []
     },
@@ -1357,7 +1357,7 @@
         "                            \"MAE\": {\"condition\": \"less\", \"threshold\": 2.42, \"style\": \"font-weight: bold; background-color: None;\"}},\n",
         ")"
       ],
-      "id": "cf8e1afe",
+      "id": "caf4a485",
       "execution_count": null,
       "outputs": []
     },
@@ -1377,7 +1377,7 @@
         "                            \"MAE\": {\"condition\": \"less\", \"threshold\": 1.7, \"style\": \"font-weight: bold; background-color: None;\"}},\n",
         ")"
       ],
-      "id": "7bf06646",
+      "id": "da3cb516",
       "execution_count": null,
       "outputs": []
     },
@@ -1397,7 +1397,7 @@
         "                            \"MAE\": {\"condition\": \"less\", \"threshold\": 2.1, \"style\": \"font-weight: bold; background-color: None;\"}},\n",
         ")"
       ],
-      "id": "802c3fde",
+      "id": "74acd8e5",
       "execution_count": null,
       "outputs": []
     },
@@ -1417,7 +1417,7 @@
         "                            \"MAE\": {\"condition\": \"less\", \"threshold\": 2.125, \"style\": \"font-weight: bold; background-color: None;\"}},\n",
         ")"
       ],
-      "id": "67ca52b8",
+      "id": "ea6c6c7d",
       "execution_count": null,
       "outputs": []
     },
@@ -1431,7 +1431,7 @@
         "\n",
         "## Forecast Distributions (Quantile scores)"
       ],
-      "id": "a0a4ea14"
+      "id": "62653eb8"
     },
     {
       "cell_type": "code",
@@ -1472,7 +1472,7 @@
         "plt.grid()\n",
         "plt.show()"
       ],
-      "id": "7435c3f4",
+      "id": "0ec22aab",
       "execution_count": null,
       "outputs": []
     },
@@ -1482,7 +1482,7 @@
       "source": [
         "## Forecast Distributions (Quantile scores)"
       ],
-      "id": "81cd8718"
+      "id": "f8e8b794"
     },
     {
       "cell_type": "code",
@@ -1518,7 +1518,7 @@
         "plt.axvspan(0.45, 0.85, color='green', alpha=0.08)\n",
         "plt.show()"
       ],
-      "id": "f95944a0",
+      "id": "0415551e",
       "execution_count": null,
       "outputs": []
     },
@@ -1528,7 +1528,7 @@
       "source": [
         "## Forecast distributions (Quantile scores for 45% to 85%)"
       ],
-      "id": "68c2e97d"
+      "id": "6258ece0"
     },
     {
       "cell_type": "code",
@@ -1564,7 +1564,7 @@
         "plt.grid()\n",
         "plt.show()"
       ],
-      "id": "7c15fd6a",
+      "id": "50afe510",
       "execution_count": null,
       "outputs": []
     },
@@ -1580,7 +1580,7 @@
         "\n",
         "::: {.column width=\"70%\"}"
       ],
-      "id": "ab93d8cf"
+      "id": "a77ada7a"
     },
     {
       "cell_type": "code",
@@ -1635,7 +1635,7 @@
         "plt.setp(ax1.get_xticklabels(), rotation=30, ha=\"right\")  # <--- Add this line\n",
         "plt.show()"
       ],
-      "id": "c2fec336",
+      "id": "07df46c2",
       "execution_count": null,
       "outputs": []
     },
@@ -1648,7 +1648,7 @@
         "\n",
         "### Transition probabilities"
       ],
-      "id": "96a6af04"
+      "id": "e9fd32ef"
     },
     {
       "cell_type": "code",
@@ -1665,7 +1665,7 @@
         "\n",
         "display(Markdown(tp.to_markdown(index=False)))"
       ],
-      "id": "9b2e0085",
+      "id": "8beb2785",
       "execution_count": null,
       "outputs": []
     },
@@ -1678,7 +1678,7 @@
         "\n",
         "### Standard Deviations"
       ],
-      "id": "9b55816f"
+      "id": "f07b4df4"
     },
     {
       "cell_type": "code",
@@ -1692,7 +1692,7 @@
         "stds.rename(columns={\"index\": \"Std. Dev.\"}, inplace=True)\n",
         "display(Markdown(stds.to_markdown(index=False)))"
       ],
-      "id": "14fabad0",
+      "id": "544790c8",
       "execution_count": null,
       "outputs": []
     },
@@ -1730,7 +1730,7 @@
         "\n",
         "![](images/follow_us.png){fig-align=\"center\"}"
       ],
-      "id": "74c5e132"
+      "id": "425adf73"
     }
   ],
   "metadata": {
