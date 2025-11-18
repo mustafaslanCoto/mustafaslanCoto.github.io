@@ -8,3 +8,29 @@
   text-align: left;
   margin-bottom: 0 !important;
 }
+
+.btn-download-cv {
+    background-color: #20808D !important;
+    color: #FBFAF4 !important;
+    border-color: #20808D !important;
+    border-radius: 8px !important;
+    font-weight: bold !important;
+    font-size: 16px !important;
+    padding: 8px 16px !important;
+}
+
+.btn-download-cv:hover {
+    background-color: #20B8CD !important;
+    color: #FBFAF4 !important;
+}
+
+/* Target the icon specifically */
+.btn-download-cv i {
+    color: #FBFAF4 !important;
+    font-size: 16px !important;
+    margin-right: 6px !important;
+}
+
+.btn-download-cv:hover i {
+    color: #FBFAF4 !important;
+}
