@@ -10,3 +10,13 @@ statsmodels
 plotly
 weasyprint
 tqdm
+xgboost
+lightgbm
+catboost
+cubist
+sktime
+openpyxl
+ruptures
+tabulate
+great_tables
+git+https://github.com/mustafaslanCoto/peshbeen.git

@@ -1,0 +1,18 @@
+---
+title: "Monte Carlo Integration"
+description: "learning material"
+author: "Mustafa Aslan"
+image: "../monte_carlo/mc_image.png"
+date: "2025-08-09"
+categories:
+  - Statistics
+  - Machine Learning
+  - Python
+link-external-newwindow: true
+---
+
+![](../monte_carlo/mc_image.png){fig-align="center"}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+[<i class="fas fa-bookmark"></i> Slides](../monte_carlo/mc_notebook.ipynb){.btn .btn-sm .btn-outline-primary}

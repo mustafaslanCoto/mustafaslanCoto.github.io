@@ -1,0 +1,316 @@
+---
+format:
+  revealjs:
+    theme: default
+    slide-number: c/t
+    footer: "[Enhancing Discharge Care Planning: A Probabilistic Data-Driven Approach](https://mustafaslancoto.github.io/talks/presentations/sword.html)"
+    width: 2100
+    height: 1200
+    margin: 0.06
+    auto-stretch: true
+    css: style.css
+---
+
+{{< include title-slide.html >}}
+
+## Outline
+
+-  What problem(s) does our research focus on?
+
+-  Research Questions and How We Address Them
+
+-  Methodology & Approach
+
+-  Progress so far?
+
+## Outline
+
+-  <span style="color: #944454;">**What problem(s) does our research focus on?**</span>
+
+-  Research Questions and How We Address Them
+
+-  Methodology & Approach
+
+-  Progress so far?
+
+## What problem(s) does our research focus on?
+
+::::: columns
+::: {.column width="50%"}
+![](images/disc_news2.png){fig-align="left" width="85%"}
+:::
+
+::: {.column width="50%"}
+**Problem**
+
+-   The challenge of capacity management
+    -   Inefficient use of healthcare and social care resources
+-   Inadequate discharge care coordination
+    -   Difficulties with discharging medically fit patients in a timely manner
+
+**Why it matters**
+
+Poorly managed discharge processes negatively affect both individuals and patient flow through hospitals, creating bottlenecks that increase pressure on all healthcare services.
+
+**Who it impacts**
+
+Patients, healthcare professionals, and the overall healthcare system.
+:::
+:::::
+
+## Outline
+
+-  What problem(s) does our research focus on?
+
+-  <span style="color: #944454;">**Research Questions and How We Address Them**</span>
+
+-  Methodology & Approach
+
+-  Progress so far?
+
+## ❓Research Questions and How We Address Them
+
+![](plan0.svg){fig-align="center" width="100%"}
+
+## ❓Research Questions and How We Address Them
+
+![](plan1.svg){fig-align="center" width="100%"}
+
+## ❓Research Questions and How We Address Them
+
+![](plan2.svg){fig-align="center" width="100%"}
+
+## ❓Research Questions and How We Address Them
+
+![](plan3.svg){fig-align="center" width="100%"}
+
+## Outline
+
+-  What problem(s) does our research focus on?
+
+-  Research Questions and How We Address Them
+
+-  <span style="color: #944454;">**Methodology & Approach**</span>
+
+-  Progress so far?
+
+## 🛠️ Methodology & Approach
+
+::::: {columns}
+::: {.column width="50%" style="font-size: 100%;"}
+### Data
+
+-   SAIL Databank
+-   Patient-level data sources
+
+### Model Development
+
+-   Mathematical modelling
+-   Stocastic optimization and reinforcement learning methods
+-   Machine learning
+-   Probabilistic modelling
+
+### Validation and Testing
+
+-   Cross-Validation to test predictive models
+-   Test models in a real-world setting, possibly in collaboration with a hospital
+:::
+
+::: {.column width="50%"}
+![](images/machine_learning.jpg){fig-align="center" width="100%"}
+:::
+:::::
+
+## Outline
+
+-  What problem(s) does our research focus on?
+
+-  Research Questions and How We Address Them
+
+-  Methodology & Approach
+
+-  <span style="color: #944454;">**Progress so far?**</span>
+
+## Progress so far?
+
+![](plan_so_far.svg){fig-align="center" width="100%"}
+
+
+
+## Models
+
+:::: {.columns}
+
+::: {.column width="40%"}
+::: {.callout-note icon="false" .fragment}
+## Regime-Switching AutoRegressive Hidden Markov Model (RS-ARHMM) {.smaller}
+
+Let $y_t$ be the observed value at time $t$, modeled as a function of its $p$ lagged values, the regime-specific parameters associated with the hidden state $s_t$, and exogenous variables $\mathbf{X}_t = (X_{t1}, \ldots, X_{tM})$.
+
+The **RS-ARHMM** can be expressed as follows:
+
+$$
+y_t^{(s)} = \beta_{0}^{(s)} + \sum_{i=1}^{p} \beta_{i}^{(s)} \, y_{t-i} + \sum_{j=1}^{M} \beta_{p+j}^{(s)} \, X_{tj} + \epsilon_t^{(s)},
+$$
+
+**Parameter estimation:** `EM (Expectation-Maximization) Algorithm`
+
+- Iteratively estimates parameters $\Theta = \{\beta^{(s)}, \sigma^{2(s)}, P, \pi\}$ to maximize likelihood.
+
+    - Transition probabilities stored as:
+$$
+P = \begin{pmatrix}
+p_{11} & \cdots & p_{1K} \\
+\vdots & \ddots & \vdots \\
+p_{K1} & \cdots & p_{KK}
+\end{pmatrix}
+$$
+
+- Alternates between two steps:
+  - **E-Step:** Estimate regime probabilities given current $\Theta$.
+  - **M-Step:** Update $\Theta$ using these probabilities.
+
+:::
+:::
+
+::: {.column width="35%"}
+::: {.callout-note icon="false" .fragment}
+## Benchmark models
+
+**Statistical models:**
+
+- `Exponential Smoothing (ETS)`: A state space time series model capturing level, trend, and seasonality.
+- `Linear Regression`: A statistical model that estimates the linear relationship between predictors and a response variable.
+- `Lasso Regression`: A regression method with *L1* regularization, useful for variable selection and preventing overfitting.
+
+**Machine Learning models:**
+
+- `XGBoost`: An optimized gradient boosting library designed to be highly efficient and flexible.
+- `LightGBM`: A gradient boosting framework that uses tree-based learning algorithms, known for its speed and efficiency. It uses leaf-wise tree growth.
+- `Random Forest`: An ensemble learning method that builds multiple decision trees and merges them together to get predictions.
+:::
+:::
+
+::: {.column width="25%"}
+::: {.callout-note icon="false" .fragment}
+
+### Probabilistic Forecasting - Conformal Prediction
+
+- A distribution-free method for constructing prediction intervals
+
+- A way to quantify the uncertainty of point forecasts by generating prediction intervals
+
+:::
+:::
+::::
+
+---
+
+## Forecast Distributions (Quantile scores)
+
+```{python .fragment}
+#| fig-width: 100%
+#| fig-align: center
+#| fig-height: 100%
+
+import sys
+import pickle
+sys.path.append("../..") 
+from project_utils import table_styler
+import glob
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import plotly.express as px
+import pandas as pd
+from sktime.transformations.series.boxcox import BoxCoxTransformer
+sns.set_context("talk")
+from statsmodels.tsa.seasonal import STL, MSTL
+from statsmodels.nonparametric.smoothers_lowess import lowess
+from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
+
+import pickle
+
+plt.rcParams['figure.facecolor'] = "#FBFAF4"
+plt.rcParams['axes.facecolor'] = "#FBFAF4"
+occup_raw = pd.read_excel("occupancy.xlsx", index_col="Date")
+# train-test split for both dataset and test size is 30 days for both datasets occupancy_hrs and occupancy_fourier
+train_size = len(occup_raw) - 360
+occup_train = occup_raw[:train_size]
+occup_test = occup_raw[train_size:]
+# filter the columns that contains "ward"
+ward_cols_ = [col for col in occup_raw.columns if "ward" in col]
+
+
+import pickle
+# Load from file
+# with open('results/hmm_conforms.pkl', 'rb') as f:
+#     hmm_conforms = pickle.load(f)
+
+
+# # Load from file
+# with open('results/lr_conforms.pkl', 'rb') as f:
+#     lr_conforms = pickle.load(f)
+
+# # Load from file
+# with open('results/ml_conforms.pkl', 'rb') as f:
+#     ml_conforms = pickle.load(f)
+
+
+# # Load from file
+# with open('results/ets_conforms.pkl', 'rb') as f:
+#     ets_conforms = pickle.load(f)
+
+# Load from file
+with open('model_params/hmm_best_forward_lags.pkl', 'rb') as f:
+    hmm_best_forward_lags = pickle.load(f)
+
+# Load from file
+with open('model_params/best_ward_ets_tk.pkl', 'rb') as f:
+    best_ward_ets_tk = pickle.load(f)
+# Load from file
+with open('model_params/best_ward_ets_forecastk.pkl', 'rb') as f:
+    best_ward_ets_forecastk = pickle.load(f)
+
+# Load from file
+with open('model_params/best_hmm_ets_tks.pkl', 'rb') as f:
+    best_hmm_ets_tks = pickle.load(f)
+
+with open('model_params/best_ward_ets_tk.pkl', 'rb') as f:
+    best_ward_ets_tk = pickle.load(f)
+
+# Load from file
+with open('results/avg_of_qswards.pkl', 'rb') as f:
+    qs = pickle.load(f)
+
+plt.figure(figsize=(24, 11))
+markers = ['o', 's', 'D', '^', 'v', '<', '>', 'p', '*', 'h', 'X', 'd']
+my_qs = np.arange(0.05, 1.00, 0.05)
+for i, model in enumerate(qs.index.tolist()):
+    # if model != "LR":
+        plt.plot(my_qs, qs.loc[model], label=model, linewidth=1.4, alpha=1, marker=markers[i % len(markers)], markersize=5)
+    # plt.plot(my_qs, avg_of_wards.loc[model], label=model, linewidth=3)
+    # plt.plot(my_qs, avg_ward.loc[model], label=model)
+plt.xlabel("Quantiles", fontdict={'fontsize': 16})
+plt.ylabel("Pinball Loss", fontdict={'fontsize': 16})
+plt.title("Pinball Loss across different quantiles (Average across all wards)", fontsize=24)
+plt.xticks(my_qs, [f"{q:.2f}" for q in my_qs], fontdict={'fontsize': 16}, rotation=90)
+plt.yticks(fontsize=16)
+plt.legend(
+    loc='upper center', 
+    bbox_to_anchor=(0.5, 0.1),  # (x, y) position, y<0 puts below the axis
+    ncol=len(qs.index),      # one column per model (horizontal)
+    frameon=False,  # no box around the legend
+    fontsize=20  # legend font size
+)
+plt.grid()
+# Highlight area between 0.45 and 0.85
+plt.axvspan(0.45, 0.85, color='green', alpha=0.08)
+plt.show()
+```
+
+---
+
+## Any questions or thoughts? 💬 {style="text-align: center;"}
+
+![](images/follow_us.png){fig-align="center"}

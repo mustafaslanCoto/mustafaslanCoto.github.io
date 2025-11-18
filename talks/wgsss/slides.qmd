@@ -1,0 +1,1412 @@
+---
+format:
+  revealjs:
+    theme: default
+    slide-number: c/t
+    width: 2100
+    height: 1200
+    footer: "[Forecasting Mental Health Hospital Bed Occupancy: A Regime-Switching AutoRegressive Hidden Markov Model Approach](https://mustafaslancoto.github.io/talks/presentations/wgsss.html)"
+    margin: 0.06
+    auto-stretch: true
+    css: style.css
+---
+
+{{< include title-slide.html >}}
+
+
+## Outline
+
+- The problem
+
+- Data and preliminary analysis
+
+- Experiment design and Modelling framework
+
+- Results
+
+- Key findings
+
+- Next steps
+
+# The Problem
+
+## Current Systemic Issues in Patient Flow
+
+:::: {.columns}
+
+::: {.column width="50%" .fragment}
+![](images/late_shift.png){width="100%"}
+:::
+
+::: {.column width="50%" .fragment}
+ - Unpredictable occupancy levels can result in redundant staffing and resource allocation, driving up costs, or in understaffing, which compromises patient care.
+
+<br>
+
+ - Spikes in occupancy level drive overtime, sickness, and **staff burnout**.
+
+ <br>
+
+ - Lack of analytical solutions that can capture the complexity and uncertainty of patient flow and bed availability limits proactive decision-making.
+ 
+:::
+::::
+
+---
+
+## Why is it important?
+
+:::: {.columns}
+::: {.column width="50%" .fragment}
+
+### Why is an efficient bed management system crucial?
+- Hospital beds are one of most costly healthcare resources.
+    - NHS rates for acute mental health beds are generally between £760 and £850 per day in 2025
+- Bed shortages force some patients to wait in corridors, impacting care quality and safety.
+- Bed shortages increase staff pressure, burnout, and operational costs.
+
+![](images/bed_shortages.jpg){width="100%"}
+
+:::
+
+::: {.column width="50%" .fragment}
+### Why a reliable forecasting approach is needed?
+
+- Mental health demand is volatile and influenced by unpredictable crisis, by seasonality, epidemics, and unforeseen events.
+- A reliable forecasting approach enables timely staffing, resource allocation, and improved patient care.
+- Anticipating demand allows decision-makers to balance scarce resources while improving patient flow and safety.
+- Robust forecasts enhance resilience to unexpected surges and reduce staff burnout.
+:::
+::::
+
+---
+
+## What do we forecast?
+
+- Daily hospital bed occupancy for 7 wards in a UK hospital.
+- **Forecast horizon:** 30 days ahead, supporting medium-term planning for bed allocation and staffing, generated at the end of each month for the following month.
+- Focus on **probabilistic forecasting** to capture uncertainty, offering prediction intervals rather than single-point estimates using a reliable model.
+
+```{python}
+
+#| fig-width: 100%
+#| fig-align: center
+#| fig-height: 100%
+
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+plt.rcParams['figure.facecolor'] = "#FBFAF4"
+plt.rcParams['axes.facecolor'] = "#FBFAF4"
+# Example data
+dates = pd.date_range('2025-06-01', periods=90)
+actuals = np.random.poisson(22, 60)
+forecast = np.linspace(22, 26, 30) + np.random.normal(0, 1, 30)
+actual_future = np.linspace(22, 26, 30) + np.random.normal(0, 1.8, 30)
+lower = forecast - 3
+upper = forecast + 3
+
+plt.figure(figsize=(18,8))
+plt.plot(dates[:60], actuals, label="Historical Data", color="C0")
+plt.plot(dates[60:], forecast, label="Point forecast", color="C1")
+plt.plot(dates[60:], actual_future, label="Actual Future", color="C2")
+plt.fill_between(dates[60:], lower, upper, color="C1", alpha=0.3, label="Prediction Interval")
+plt.xlabel("Date", fontdict={"fontsize": 16})
+plt.xticks(fontsize=16)
+plt.yticks(fontsize=16)
+plt.ylabel("Occupancy", fontdict={"fontsize": 16})
+plt.title("30-Day Bed Occupancy Forecast", fontdict={"fontsize": 18})
+plt.legend(fontsize=16)
+plt.tight_layout()
+plt.show()
+```
+
+---
+
+## Key Research Questions
+
+- How can we accurately forecast hospital bed occupancy to improve resource allocation and patient care?
+
+- How can probabilistic forecasting models be developed to account for the inherent uncertainty in patient flow and bed availability?
+
+- What are the hidden factors influencing bed occupancy, and how can they be incorporated into forecasting models?
+
+---
+
+# Data and preliminary analysis
+
+## Dataset
+
+ Daily hospital occupancy data from a UK hospital with 7 wards, spanning from July 2018 to April 2025. The dataset includes:
+
+- Daily occupancy counts for each ward (daily number of patients staying in each ward)
+- Date-related features: day of the week, month, year, day of the month, week of the year
+- Holiday indicators
+
+
+## Data characteristics
+
+- Strong upward trend in occupancy over time
+
+- Spike after COVID-19 pandemic
+
+```{python}
+# import libraries
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import plotly.express as px
+import pandas as pd
+# allow max rows to be displayed
+pd.set_option('display.max_columns', None)
+pd.set_option('display.max_rows', 50)
+# ignore warnings
+import warnings
+warnings.filterwarnings('ignore')
+from xgboost import XGBRegressor
+from lightgbm import LGBMRegressor
+from catboost import CatBoostRegressor
+from sklearn.linear_model import LinearRegression, Ridge, Lasso, ElasticNet
+from sklearn.model_selection import TimeSeriesSplit, KFold
+import pandas as pd
+from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error, root_mean_squared_error
+from sklearn.preprocessing import StandardScaler, MinMaxScaler
+from sklearn.pipeline import Pipeline       
+from sklearn.compose import ColumnTransformer
+from sklearn.impute import SimpleImputer
+from sklearn.ensemble import RandomForestRegressor, HistGradientBoostingRegressor, AdaBoostRegressor, GradientBoostingRegressor
+import numpy as np
+from cubist import Cubist
+from hyperopt import fmin, tpe, hp, Trials, STATUS_OK, space_eval
+from hyperopt.pyll import scope
+pd.set_option('display.max_rows', 150)
+import pickle # for saving and loading models
+from statsmodels.tsa.holtwinters import ExponentialSmoothing
+from statsmodels.tsa.seasonal import seasonal_decompose, MSTL
+from sklearn.tree import DecisionTreeRegressor
+
+from peshbeen.models import (ml_forecaster, ml_bidirect_forecaster, VARModel, MsHmmRegression, MsHmmVar)
+from peshbeen.model_selection import (cross_validate,  mv_cross_validate,
+                                      cv_tune, mv_cv_tune, prob_param_forecasts,
+                                      tune_ets, tune_sarima, ParametricTimeSeriesSplit,
+                                      forward_feature_selection, backward_feature_selection,
+                                      mv_forward_feature_selection, mv_backward_feature_selection,
+                                      hmm_forward_feature_selection, hmm_backward_feature_selection,
+                                      hmm_mv_forward_feature_selection, hmm_mv_backward_feature_selection,
+                                      hmm_cross_validate, hmm_mv_cross_validate, cv_lag_tune, 
+                                      cv_hmm_lag_tune)
+from peshbeen.statplots import (plot_ccf, plot_PACF_ACF)
+from peshbeen.stattools import (unit_root_test, cross_autocorrelation,
+                                lr_trend_model, forecast_trend, pacf_strength, ccf_strength)
+from peshbeen.transformations import (fourier_terms, rolling_quantile,
+                        rolling_mean, rolling_std, expanding_mean, expanding_std,
+                        expanding_quantile, expanding_ets, box_cox_transform,
+                        back_box_cox_transform,undiff_ts, seasonal_diff, invert_seasonal_diff,
+                        nzInterval, zeroCumulative, kfold_target_encoder, target_encoder_for_test)
+from peshbeen.metrics import (MAPE, MASE, MSE, MAE, RMSE, SMAPE, CFE, CFE_ABS, WMAPE, SRMSE, RMSSE, SMAE)
+# from peshbeen.prob_forecast import (ml_conformalizer, hmm_conformalizer, ets_conformalizer, bidirect_ts_conformalizer, var_conformalizer, bag_boost_aggr_conformalizer,
+#                                        bidirect_aggr_conformalizer, ets_aggr_conformalizer, s_arima_aggr_conformalizer,
+#                                        var_aggr_conformalizer, hmm_var_conformalizer)
+from sktime.transformations.series.boxcox import BoxCoxTransformer
+sns.set_context("talk")
+from statsmodels.tsa.seasonal import STL, MSTL
+from statsmodels.nonparametric.smoothers_lowess import lowess
+from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
+plt.rcParams['figure.facecolor'] = "#FBFAF4"
+plt.rcParams['axes.facecolor'] = "#FBFAF4"
+occup_raw = pd.read_excel("occupancy.xlsx", index_col="Date")
+# train-test split for both dataset and test size is 30 days for both datasets occupancy_hrs and occupancy_fourier
+train_size = len(occup_raw) - 360
+occup_train = occup_raw[:train_size]
+occup_test = occup_raw[train_size:]
+# filter the columns that contains "ward"
+ward_cols_ = [col for col in occup_raw.columns if "ward" in col]
+
+
+import pickle
+# # Load from file
+# with open('results/hmm_conforms.pkl', 'rb') as f:
+#     hmm_conforms = pickle.load(f)
+
+
+# # Load from file
+# with open('results/lr_conforms.pkl', 'rb') as f:
+#     lr_conforms = pickle.load(f)
+
+# # Load from file
+# with open('results/ml_conforms.pkl', 'rb') as f:
+#     ml_conforms = pickle.load(f)
+
+
+# # Load from file
+# with open('results/ets_conforms.pkl', 'rb') as f:
+#     ets_conforms = pickle.load(f)
+
+# Load from file
+with open('model_params/hmm_best_forward_lags.pkl', 'rb') as f:
+    hmm_best_forward_lags = pickle.load(f)
+
+# Load from file
+with open('model_params/best_ward_ets_tk.pkl', 'rb') as f:
+    best_ward_ets_tk = pickle.load(f)
+# Load from file
+with open('model_params/best_ward_ets_forecastk.pkl', 'rb') as f:
+    best_ward_ets_forecastk = pickle.load(f)
+
+# Load from file
+with open('model_params/best_hmm_ets_tks.pkl', 'rb') as f:
+    best_hmm_ets_tks = pickle.load(f)
+```
+
+
+
+```{python}
+
+#| fig-width: 100%
+#| fig-align: center
+#| fig-height: 100%
+
+n_plots = len(ward_cols_)
+# create a grid with enough slots (2 rows, 4 cols = 8 slots here) and a larger figure size
+covid_start = pd.to_datetime("2020-03-01")
+covid_end = pd.to_datetime("2022-03-31")
+fig, axes = plt.subplots(2, 4, figsize=(22, 11))
+axes = axes.flatten()  # flatten to index linearly
+for i, ward in enumerate(ward_cols_):
+   axes[i].plot(occup_raw.index, occup_raw[ward])
+   axes[i].set_title(ward, fontsize=20)
+   axes[i].set_xlabel("Date", fontsize=14)
+   axes[i].set_ylabel("Number of patients", fontsize=14)
+   axes[i].tick_params(axis='x', labelsize=12, rotation=45)
+   axes[i].tick_params(axis='y', labelsize=12)
+    # Highlight the COVID period
+   axes[i].axvspan(covid_start, covid_end, color='red', alpha=0.1, label='COVID period')
+    # Add legend only to the first subplot
+   if i == 0:
+     axes[i].legend(loc='upper left', fontsize=12)
+   # axes[i].legend(fontsize=12)
+# hide any unused subplots
+for j in range(i + 1, len(axes)):
+   fig.delaxes(axes[j])
+plt.tight_layout(pad=2.0)
+plt.show()
+
+```
+
+
+---
+
+
+## Seasonal patterns
+
+### Day of the week seasonality
+
+
+```{python}
+#| fig-width: 100%
+#| fig-align: center
+#| fig-height: 100%
+
+wards = [f"ward_{i}" for i in range(7)]  # e.g. 7 wards (0..6)
+n_plots = len(wards)
+
+# create a grid with enough slots (2 rows, 4 cols = 8 slots here)
+fig, axes = plt.subplots(2, 4, figsize=(22, 11))
+axes = axes.flatten()  # flatten to index linearly
+
+for ax, ward_col in zip(axes[:n_plots], wards):
+        # Plot each week's data (less transparent)
+        ward = occup_train.pivot_table(index="day_of_week", columns="week_of_year", values=ward_col, aggfunc='mean').reset_index()
+        mean = occup_train.groupby('day_of_week')[ward_col].mean()
+        for week in ward.columns[1:]:
+            ax.plot(ward.index, ward[week], alpha=0.2)  # Less transparent
+
+        # Plot average of all weeks (more transparent, thicker line)
+        ax.plot(mean.index, mean, color='black', linewidth=2, alpha=0.9, label='Weekly Average')  # More transparent
+
+        # Set x-ticks to weekday names in correct order
+        weekday_order = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+        ax.set_xticks(range(len(weekday_order)))
+        ax.set_xticklabels(weekday_order, rotation=30)
+        ax.set_xlabel("Day of Week", fontsize=12)
+        ax.tick_params(axis='x', labelsize=12)
+        ax.tick_params(axis='y', labelsize=12)
+        ax.set_ylabel("Occupancy", fontsize=12)
+        ax.set_title(f"Weekly Occupancy for ward {ward_col}", fontsize=12)
+        ax.legend(fontsize=12)
+
+# remove any unused axes (if grid has more slots than n_plots)
+for ax in axes[n_plots:]:
+    fig.delaxes(ax)
+
+plt.tight_layout()
+plt.show()
+```
+
+---
+
+## Seasonal patterns
+
+### Monthly seasonality
+
+```{python}
+#| fig-width: 100%
+#| fig-align: center
+#| fig-height: 100%
+
+# year_df = occup_train[occup_train["year"].isin([2019, 2020, 2021, 2022, 2023])]
+
+# choose how many wards to plot
+wards = [f"ward_{i}" for i in range(7)]  # e.g. 7 wards (0..6)
+n_plots = len(wards)
+
+# create a grid with enough slots (2 rows, 4 cols = 8 slots here)
+fig, axes = plt.subplots(2, 4, figsize=(22, 11))
+axes = axes.flatten()  # flatten to index linearly
+
+for ax, ward_col in zip(axes[:n_plots], wards):
+        # Plot each week's data (less transparent)
+        ward = occup_train.pivot_table(index="month", columns="day_of_month", values=ward_col, aggfunc='mean').reset_index()
+        mean = occup_train.groupby('month')[ward_col].mean()
+        for week in ward.columns[1:]:
+            ax.plot(ward.index, ward[week], alpha=0.2)  # Less transparent
+
+        # Plot average of all weeks (more transparent, thicker line)
+        ax.plot(mean.index, mean, color='black', linewidth=2, alpha=0.9, label='Monthly Average')  # More transparent
+        # Set x-ticks to month names in calendar order
+        month_order = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+        ax.set_xticks(range(len(month_order)))
+        ax.set_xticklabels(month_order, rotation=45)
+        ax.set_xlabel("Month", fontsize=9)
+        ax.tick_params(axis='both', labelsize=9)
+        ax.tick_params(axis='x', labelsize=10)
+        ax.tick_params(axis='y', labelsize=12)
+        ax.set_ylabel("Occupancy", fontsize=10)
+        ax.set_title(f"Monthly Occupancy for {ward_col}", fontsize=10)
+        ax.legend(loc='upper right', fontsize=10)
+
+# remove any unused axes (if grid has more slots than n_plots)
+for ax in axes[n_plots:]:
+    fig.delaxes(ax)
+
+plt.tight_layout()
+plt.show()
+```
+
+---
+
+## Effect of holidays
+
+```{python}
+#| fig-width: 100%
+#| fig-align: center
+#| fig-height: 100%
+
+fig, axes = plt.subplots(figsize=(24, 11))
+df = occup_train.loc[:"2022-07-31"]
+
+# Plot all days with small markers
+axes.scatter(df.index, df["ward_0"], s=16, color="C0", alpha=0.5, zorder=1)
+
+    
+# Get holiday data points and overlay larger markers
+holiday_data = df[df["holiday"] != "not_holiday"]
+sns.scatterplot(data=holiday_data, x=holiday_data.index, y="ward_0",
+                ax=axes, s=100, color="C1", edgecolor="white", linewidth=0.5,
+                label="Public Holidays", zorder=3)
+axes.legend(loc='upper left', fontsize=16)
+
+# Add date boxes for each holiday
+for idx, (date, row) in enumerate(holiday_data.iterrows()):
+    occupancy = row['ward_0']
+    
+    # Format the date string
+    # date_str = date.strftime('%Y-%m-%d')
+    date_str = row['holiday']
+    
+    # Calculate text position (slightly offset from the point)
+    x_offset = pd.Timedelta(days=30)  # Adjust this for horizontal spacing
+    y_offset = 0.5  # Adjust this for vertical spacing
+    
+    # Alternate positioning to avoid overlap
+    if idx % 2 == 0:
+        text_x = date + x_offset
+        text_y = occupancy + y_offset
+        ha = 'left'
+    else:
+        text_x = date - x_offset
+        text_y = occupancy - y_offset
+        ha = 'right'
+    
+    # Add the date box
+    bbox_props = dict(boxstyle="round,pad=0.3", facecolor='white', 
+                     edgecolor='C1', alpha=0.5, linewidth=0.5)
+    
+    axes.annotate(date_str, 
+                 xy=(date, occupancy),           # Point to annotate
+                 xytext=(text_x, text_y),        # Text position
+                 bbox=bbox_props,
+                 fontsize=12,
+                 rotation=50,
+                 ha=ha,
+                 va='center',
+                 arrowprops=dict(arrowstyle='->', 
+                               connectionstyle='arc3,rad=0.1',
+                               color='white', alpha=0.6))
+
+axes.set_title("The effect of Public Holidays on Occupancy", fontsize=18)
+axes.set_xlabel("Date", fontsize=16)
+axes.tick_params(axis='x', labelsize=16)   # Sets fontsize for x-ticks
+axes.tick_params(axis='y', labelsize=16)   # Sets fontsize for y-ticks if needed
+axes.set_ylabel("Occupancy", fontsize=16)
+plt.show()
+```
+
+---
+
+## Key insights from data analysis
+
+### An important assumption to model: Stationarity
+
+One approach to make the series stationary is to take the first `difference` of the series.
+
+Original series: $y_t, y_{t-1}, y_{t-2}, y_{t-3}, \ldots$ \
+Differenced series: $y_t - y_{t-1}, y_{t-1} - y_{t-2}, y_{t-2} - y_{t-3}, \ldots$
+
+```{python}
+#| fig-width: 100%
+#| fig-align: center
+#| fig-height: 100%
+# Load from file
+
+import pickle
+with open('model_params/best_ward_ets_tk.pkl', 'rb') as f:
+    best_ward_ets_tk = pickle.load(f)
+
+
+import ruptures as rpt
+
+def stl_data_input(series, period=7, seasonal=2999):
+    # Apply STL decomposition
+    res = STL(series.interpolate(method="linear").squeeze(), # Convert dataframe to a Series
+                                                        # to avoid error in Statsmodels
+            robust=True, period=period, seasonal=seasonal).fit()
+    
+    seasonal_component = res.seasonal
+    # residual_component = res.resid
+    # De-seasonlise original data
+    df_deseasonalised = series - seasonal_component
+
+    # # Perform linear interpolation on de-seasonalised data
+    df_deseasonalised_imputed = df_deseasonalised.interpolate(method="linear")
+
+    # # Randomly sample residuals (with replacement) and add back
+    # sampled_residuals = np.random.choice(residual_component, size=len(residual_component), replace=True)
+    # # Match DataFrame index
+    # sampled_residuals = pd.Series(sampled_residuals, index=series.index)
+
+    # # Add seasonal component back to get the final imputed time series
+    df_imputed = df_deseasonalised_imputed + seasonal_component
+
+    return df_imputed
+
+def data_prep_f(ward, fourier_k):
+    ward_train = occup_train_clean[[ward]+cat_col_f]
+    ward_test = occup_test[[ward]+cat_col_f]
+    ward_test[ward] = ward_test[ward].interpolate(method="linear")
+    ward_test["day_of_week"] = ward_test.index.day_name()
+    df_all = pd.concat([ward_train, ward_test], axis=0)
+    ft = fourier_terms(start_end_index=(df_all.index.min(), df_all.index.max()),
+                period=365.25, num_terms=fourier_k)
+    return df_all.merge(ft, left_index=True, right_index=True, how="left")
+
+def data_prep(ward):
+    ward_train = occup_train_clean[[ward]+cat_cols]
+    ward_test = occup_test[[ward]+cat_cols]
+    ward_test[ward] = ward_test[ward].interpolate(method="linear")
+    ward_test["day_of_week"] = ward_test.index.day_name()
+    ward_test["month"] = ward_test.index.month_name()
+    return pd.concat([ward_train, ward_test], axis=0)
+
+## first input nan values using STL
+for ward in ward_cols_:
+    occup_train[ward] = stl_data_input(occup_train[ward], period=None, seasonal=2999)
+
+## replace the outlier values between 965 and 1040 by interpolation
+occup_train_clean = occup_train.copy()
+occup_train_nan = occup_train.copy()
+occup_train_nan.iloc[965-1:1040+1, occup_train_nan.columns.get_loc('ward_0')] = np.nan
+occup_train_clean['ward_0'] = stl_data_input(occup_train_nan['ward_0'], period=None, seasonal=2999)
+
+occup_train_nan.iloc[815-1:945+1, occup_train_nan.columns.get_loc('ward_4')] = np.nan
+occup_train_clean['ward_4'] = stl_data_input(occup_train_nan['ward_4'], period=None, seasonal=2999)
+
+## replace the outlier values between 1215 and 1395 by interpolation
+occup_train_nan.iloc[915-1:970+1, occup_train_nan.columns.get_loc('ward_5')] = np.nan
+occup_train_nan.iloc[1215-1:1395+1, occup_train_nan.columns.get_loc('ward_5')] = np.nan
+occup_train_clean['ward_5'] = stl_data_input(occup_train_nan['ward_5'], period=None, seasonal=2999)
+
+occup_train_clean["day_of_week"] = occup_train_clean.index.day_name()
+occup_train_clean["month"] = occup_train_clean.index.month_name()
+occup_train_clean["is_holiday"] = np.where(occup_train_clean["is_holiday"] == 1, "holiday", "not holiday")
+cat_cols = ["day_of_week", "month", "is_holiday"]
+cat_col_f = ["day_of_week", "is_holiday"]
+
+df_diff = pd.DataFrame()
+for w in ward_cols_:
+    df_diff[f'{w}'] = occup_train_clean[w]
+    df_diff[f'{w}_diff'] = occup_train_clean[w].diff()
+    df_diff[f'{w}_fitted_ets_trend'] = ExponentialSmoothing(occup_train_clean[w], **best_ward_ets_tk[w][0][0]).fit(**best_ward_ets_tk[w][0][1]).fittedvalues
+    df_diff[f'{w}_detrended'] = df_diff[f'{w}'] - df_diff[f'{w}_fitted_ets_trend']
+df_diff.dropna(inplace=True)
+
+# plot original differenced series in two plots in one graph
+fig, axs = plt.subplots(2, 1, figsize=(18, 9))
+axs[0].plot(df_diff.index, df_diff['ward_0'], label='Original Series', color='C0', alpha=0.9)
+axs[0].set_title('Original Series for ward_0')
+axs[0].legend(loc = 'lower right')
+axs[1].plot(df_diff.index, df_diff['ward_0_diff'], label='Differenced Series', color='C1', alpha=0.9)
+axs[1].set_title('Differenced Series for ward_0 occupancy')
+axs[1].legend(loc = 'lower right')
+plt.tight_layout()
+plt.show()
+```
+
+## Key insights from data analysis
+
+### Information from ACF and PACF plots after differencing
+
+```{python}
+#| fig-width: 100%
+#| fig-align: center
+#| fig-height: 100%
+fig, axes = plt.subplots(2, 1, figsize=(22, 11))
+plot_acf(df_diff['ward_0_diff'], lags=40, ax=axes[0])
+plot_pacf(df_diff['ward_0_diff'], lags=40, ax=axes[1])
+axes[0].set_title('ACF of Differenced Series for ward_0 occupancy')
+axes[1].set_title('PACF of Differenced Series for ward_0 occupancy')
+plt.tight_layout(pad=2)
+plt.show()
+```
+
+## Key insights from data analysis
+
+### Alternative approach to make the series stationary and keep the dependence structure
+
+```{python}
+#| fig-width: 100%
+#| fig-align: center
+#| fig-height: 100%
+
+# plot original differenced series in two plots in one graph
+plt.figure(figsize=(22, 11))
+plt.plot(df_diff.index[-500:], df_diff['ward_0'][-500:], label='Original Series', color='C0', alpha=0.9)
+plt.plot(df_diff.index[-500:], df_diff['ward_0_fitted_ets_trend'][-500:], label='Fitted ETS Trend', color='C1', alpha=0.9)
+plt.plot(df_diff.index[-500:], df_diff['ward_0_detrended'][-500:], label='Detrended Series', color='C2', alpha=0.9)
+plt.title('Original Series vs Detrended Series for ward_0')
+plt.legend(loc='upper right')
+plt.show()
+
+```
+
+## An important assumption to model: Stationarity
+### Information from ACF and PACF plots after detrending
+
+```{python}
+#| fig-width: 100%
+#| fig-align: center
+#| fig-height: 100%
+fig, axes = plt.subplots(2, 1, figsize=(22, 11))
+plot_acf(df_diff['ward_0_detrended'], lags=40, ax=axes[0])
+plot_pacf(df_diff['ward_0_detrended'], lags=40, ax=axes[1])
+axes[0].set_title('ACF of Detrended Series for ward_0 occupancy')
+axes[1].set_title('PACF of Detrended Series for ward_0 occupancy')
+plt.tight_layout(pad=2)
+plt.show()
+```
+
+---
+
+## Regime-Switching AutoRegressive Hidden Markov Model (RS-ARHMM) {.smaller}
+
+Let $y_t$ be the observed value at time $t$, modeled as a function of its $p$ lagged values, the regime-specific parameters associated with the hidden state $s_t$, and exogenous variables $\mathbf{X}_t = (X_{t1}, \ldots, X_{tM})$.
+
+The **RS-ARHMM** can be expressed as follows:
+
+$$
+y_t^{(s)} = \beta_{0}^{(s)} + \sum_{i=1}^{p} \beta_{i}^{(s)} \, y_{t-i} + \sum_{j=1}^{M} \beta_{p+j}^{(s)} \, X_{tj} + \epsilon_t^{(s)},
+$$
+
+where:
+
+- $\beta_{i}^{(s)}$ are the coefficients for the lagged values for regime $s$,
+- $\beta_{p+j}^{(s)}$ are the coefficients for the exogenous variables for regime $s$,
+- $M$ is the number of exogenous variables,
+- $\epsilon_t^{(s)}$ is the error term for regime $s$.
+
+The **Markov property**:
+$$
+P(s_t = k \mid s_{1:t-1}) = P(s_t = k \mid s_{t-1}), \quad \forall t \geq 2.
+$$
+
+A HMM has the following components:
+
+- $S$: The set of regimes, $\mathbb{S} = \{S_1, S_2, \ldots, S_K\}$.
+- $P$: The transition probability matrix
+- $p_{ij} = P(s_t = S_j \mid s_{t-1} = S_i)$ is the probability of transitioning from regime $S_i$ to regime $S_j$, s.t. $\sum_{j=1}^{K} p_{ij} = 1$.
+
+**Transition matrix $P$** is defined as:
+
+$$
+P = \begin{pmatrix}
+p_{11} & \cdots & p_{1K} \\
+\vdots & \ddots & \vdots \\
+p_{K1} & \cdots & p_{KK}
+\end{pmatrix}
+$$
+
+
+## Modeling Framework
+
+### Forecasting with RS-ARHMM
+
+
+- **Forecast Computation**: The final forecast for each time step is a weighted average of the forecasts from each regime, `weighted by the predicted regime probabilities`:
+
+$$
+\hat{y}_{T+h} = \sum_{j=1}^{K} P(s_{T+h} = S_j) \, \hat{y}_{T+h}^{(S_j)}
+$$
+
+- **State Prediction**: We predict the most probable state sequence for the next $h$ time steps using the transition matrix $\mathbf{P}$. The probability of being in state $S_j$ at time $T+h$ is computed recursively as:
+
+$$
+P(s_{T+h} = S_j) = \sum_{i=1}^{K} P(s_{T+h-1} = S_i) \, p_{ij}
+$$
+
+
+- **Regime-specific forecasts**: For each predicted regime, we utilize the corresponding regression model to forecast the observation at that time step. The predicted observation $\hat{y}_{T+h}$ for state $s_{T+h}$ is computed as:
+
+$$
+\hat{y}_{T+h}^{s_{T+h}} = \beta_{0}^{(s_{T+h})} + \sum_{i=1}^{p} \beta_{i}^{(s_{T+h})} \, y_{T+h-i} + \sum_{j=1}^{M} \beta_{p+j}^{(s_{T+h})} \, X_{T+h,j}
+$$
+
+---
+
+## RS-ARHMM Parameter Estimation
+:::: {.columns}
+::: {.column width="30%" .fragment}
+
+
+::: {.callout-note icon="false"}
+## `EM (Expectation-Maximization) Algorithm`
+- Iteratively estimates parameters $\Theta = \{\beta^{(s)}, \sigma^{2(s)}, P, \pi\}$ to maximize likelihood.
+
+- Alternates between two steps:
+  - **E-Step:** Estimate regime probabilities given current $\Theta$.
+  - **M-Step:** Update $\Theta$ using these probabilities.
+:::
+:::
+
+::: {.column width="35%" .fragment}
+::: {.callout-note icon="false"}
+## 1. E-Step
+
+- **State probability:**  
+$$
+\gamma_t(i) = P(s_t = S_i \mid y_{1:T}, \Theta^{(k)})
+$$
+
+- **Transition probability:**  
+$$
+\xi_t(i,j) = P(s_t = S_i, s_{t+1} = S_j \mid y_{1:T}, \Theta^{(k)})
+$$
+
+- Computed via **Forward-Backward algorithm**:
+  
+  - Forward:
+  
+  $\alpha_t(i) = P(y_{1:t}, s_t = S_i \mid \Theta) = \sum_{j=1}^{K} \alpha_{t-1}(j) p_{ji} o_i(y_t)$
+  
+  - Backward:
+  
+  $b_t(i) = P(y_{t+1:T} \mid s_t = S_i, \Theta) = \sum_{j=1}^{K} p_{ij} o_j(y_{t+1}) b_{t+1}(j)$
+
+
+**Emission (observation) likelihood:**  
+$$
+o_i(y_t) = \frac{1}{\sqrt{2\pi \sigma_i^2}} \exp\left( -\frac{(y_t - \mu_{i,t})^2}{2\sigma_i^2} \right)
+$$
+
+where $\mu_{i,t}$ is AR + exogenous mean for state $i$.
+:::
+:::
+
+::: {.column width="35%" .fragment}
+::: {.callout-note icon="false"}
+## 2. M-Step
+
+
+Update parameters using weighted averages with $\gamma_t(i)$:
+
+- **Transition matrix:**  
+$$
+p_{ij}^{(k+1)} = \frac{\sum_{t=1}^{T-1} \xi_t(i,j)}{\sum_{t=1}^{T-1} \gamma_t(i)}
+$$
+
+- **Initial state:**  
+$$
+\pi_i^{(k+1)} = \gamma_1(i)
+$$
+
+- **Regression (AR/exog) coefficients:**  
+$$
+\beta^{(i,k+1)} = (\mathbf{X}^T \mathbf{W}_i \mathbf{X})^{-1} \mathbf{X}^T \mathbf{W}_i \mathbf{y}
+$$
+
+Where $\mathbf{W}_i = \text{diag}(\gamma_1(i),\dots,\gamma_T(i))$
+
+- **Variance:**  
+$$
+\sigma_i^{2(k+1)} = \frac{\sum_{t=1}^T \gamma_t(i)(y_t-\mu_{i,t})^2}{\sum_{t=1}^T \gamma_t(i)}
+$$
+
+:::
+
+::: {.callout-note icon="false" .fragment}
+## Repeat E-M Steps until convergence:
+$$|\ell(\Theta^{(k+1)}) - \ell(\Theta^{(k)})| < \epsilon$$
+
+:::
+:::
+::::
+
+---
+
+## Why RS-ARHMM?
+
+::: {.incremental}
+- **Captures regime changes** in highly volatile time series data (e.g., healthcare), integrating them into the forecasting process, making it more accurate and reliable predictions.
+
+- **Traditional statistical and modern machine learning models** fail to account for such regime shifts.
+
+- **Models complex dependencies and non-linear relationships** with reduced risk of overfitting and less reliance on extensive hyperparameter tuning.
+
+- **Produces interpretable results** through regime-specific parameters.
+
+- **Provides reliable forecasts** that incorporate uncertainty arising from regime changes.
+:::
+
+---
+
+## Benchmark models
+
+**Statistical models:**
+
+- `Exponential Smoothing (ETS)`: A state space time series model capturing level, trend, and seasonality.
+- `Linear Regression`: A statistical model that estimates the linear relationship between predictors and a response variable.
+- `Lasso Regression`: A regression method with *L1* regularization, useful for variable selection and preventing overfitting.
+
+**Machine Learning models:**
+
+- `XGBoost`: An optimized gradient boosting library designed to be highly efficient and flexible. It uses level-wise tree growth, building trees level by level horizontally.
+- `LightGBM`: A gradient boosting framework that uses tree-based learning algorithms, known for its speed and efficiency. It uses leaf-wise tree growth.
+- `Random Forest`: An ensemble learning method that builds multiple decision trees and merges them together to get a more accurate and stable prediction.
+
+---
+
+## Probabilistic Forecasting using Conformal Prediction
+
+### Conformal Prediction for Time Series
+
+- A distribution-free method for constructing prediction intervals
+- A way to quantify the uncertainty of point forecasts by generating prediction intervals
+
+::: {.fragment}
+### Steps to Generate Prediction Intervals
+:::
+
+:::: {.columns}
+::: {.column width="50%"}
+
+::: {.fragment}
+1. **Point Forecasting**
+
+- Generate point forecasts $\hat{y}_{t+h}$ for the desired forecast horizon $h$ using rolling-origin cross-validation on a `calibration set` of 500 observations per horizon.
+
+:::
+
+::: {.fragment}
+2. **Residual Calculation**
+
+$$
+r_{t+h} = y_{t+h} - \hat{y}_{t+h}
+$$
+
+where $y_{t+h}$ are the actual observed values and $\hat{y}_{t+h}$ are the point forecasts for $t+h$.
+
+:::
+
+::: {.fragment}
+3. **Nonconformity Scores**
+$$
+A_{t+h} = |r_{t+h}|
+$$
+
+:::
+
+:::
+
+::: {.column width="50%"}
+::: {.fragment}
+4. **Quantile Calculation**
+
+$$
+q_{1-\alpha}^{(h)} = \text{Quantile}_{1-\alpha}(\{A_{t-n+h}\}_{t=t-n}^{n})
+$$
+
+where $n$ is the size of the calibration set and $1 - \alpha$ is the desired coverage level
+
+:::
+
+::: {.fragment}
+5. **Prediction Intervals**
+
+$$
+\left[\hat{y}_{t+h} - q_{1-\alpha}^{(h)}, \hat{y}_{t+h} + q_{1-\alpha}^{(h)}\right]
+$$
+
+:::
+
+::: {.fragment}
+6. **Distribution Approximation**
+
+$$
+y_{t+h}^{(i)} = \hat{y}_{t+h} + r_{t+h}^{(i)}, \quad r_{t+h}^{(i)} \in \{r_{t+h}^{(1)}, r_{t+h}^{(2)}, \ldots, r_{t+h}^{(n)}\}
+$$
+
+:::
+
+:::
+::::
+
+---
+
+## Forecasting metrics
+
+:::: {.columns}
+::: {.column width="50%"}
+### Point Forecasting Metrics
+
+- Root Mean Squared Error (RMSE)
+$$
+RMSE = \sqrt{\frac{1}{n} \sum_{t=1}^{n} (y_t - \hat{y}_t)^2}
+$$
+
+- Mean Absolute Error (MAE)
+$$
+MAE = \frac{1}{n} \sum_{t=1}^{n} |y_t - \hat{y}_t|
+$$
+
+:::
+::: {.column width="50%"}
+### Probabilistic Forecasting Metrics
+- Qunatile Loss (QL)
+$$
+QL_{\alpha} = 2 \sum_{t=1}^{h} \left[\alpha (y_t - \hat{y}_t^{(\alpha)}) \mathbb{1}_{\{y_t > \hat{y}_t^{(\alpha)}\}} + (1 - \alpha) (\hat{y}_t^{(\alpha)} - y_t) \mathbb{1}_{\{y_t \leq \hat{y}_t^{(\alpha)}\}}\right]
+$$
+
+:::
+::::
+
+---
+
+## Feature engineering
+
+- Time-based features
+
+<br>
+
+- Public holidays
+
+<br>
+
+- Lagged features
+
+<br>
+
+- Fourier terms
+
+<br>
+
+- Rolling window features
+
+
+## Cross validation setup
+
+Rolling-origin cross-validation is used to evaluate model performance over time
+
+```{python}
+#| fig-width: 100%
+#| fig-align: center
+#| fig-height: 100%
+
+from matplotlib.patches import Patch
+
+def plot_cv_indices(cv, X, y, ax=None,
+                    train_tail=50, step_size=13,
+                    annotate=True, first_n=5, last_n=1):
+    """
+    Visualize cross-validation indices for any CV splitter.
+    Shows the first_n splits, ellipsis, and last_n splits.
+    """
+    if ax is None:
+        fig, ax = plt.subplots(figsize=(24, 11))
+
+    splits = list(cv.split(X))
+    total_splits = len(splits)
+
+    # Indices for splits to show: first_n at bottom, last_n at top
+    show_indices = list(range(first_n)) + list(range(total_splits - last_n, total_splits))
+    yticks = []
+    yticklabels = []
+    plot_ys = []
+
+    # Gather all x-values for shown splits
+    all_xs = []
+    for plot_idx, split_idx in enumerate(show_indices):
+        train, test = splits[split_idx]
+        tail_len = train_tail + split_idx * step_size
+        train_tail_idx = train[-tail_len:] if len(train) > tail_len else train
+        all_xs.extend(train_tail_idx)
+        all_xs.extend(test)
+
+    # Compute y-locations: first_n at bottom, last at top, ellipsis in between
+    for i in range(first_n):
+        yticks.append(i + 0.5)
+        yticklabels.append(f"Split {show_indices[i]+1}")
+        plot_ys.append(i + 0.5)
+    ellipsis_y = first_n + 0.5
+    yticks.append(ellipsis_y)
+    yticklabels.append("")
+    plot_ys.append(None)
+    yticks.append(first_n + 1.5)
+    yticklabels.append(f"Split {show_indices[-1]+1}")
+    plot_ys.append(first_n + 1.5)
+
+    # Plot the splits
+    for plot_idx, split_idx in enumerate(show_indices):
+        if plot_idx < first_n:
+            y_pos = plot_idx + 0.5
+        else:
+            y_pos = first_n + 1.5  # last split at top
+        train, test = splits[split_idx]
+        tail_len = train_tail + split_idx * step_size
+        train_tail_idx = train[-tail_len:] if len(train) > tail_len else train
+
+        ax.scatter(train_tail_idx, [y_pos] * len(train_tail_idx),
+                   c="C0", marker="s", s=50,
+                   label="Train (tail)" if plot_idx == 0 else "")
+        ax.scatter(test, [y_pos] * len(test),
+                   c="C1", marker="s", s=50,
+                   label="Test" if plot_idx == 0 else "")
+
+        if annotate:
+            ax.text(train_tail_idx[0], y_pos + 0.15,
+                    f"Train size ={len(train)}", color="C0", fontsize=14, ha="left")
+            ax.text(test[len(test)//2]+10, y_pos + 0.15,
+                    f"Test size ={len(test)}", color="C1", fontsize=14, ha="center")
+
+    # Add ellipsis at a representative x-position (center of shown data)
+    if all_xs:
+        ellipsis_x = 0.5 * (min(all_xs) + max(all_xs))
+    else:
+        ellipsis_x = 0
+    ax.text(ellipsis_x, ellipsis_y, "......", fontsize=32, ha="center", va="center", color="gray")
+
+    ax.set(
+        yticks=yticks,
+        yticklabels=yticklabels,
+        xlabel="Data size",
+        ylabel="CV iteration",
+        ylim=(0, yticks[-1] + 1),
+    )
+    # Tighten xlim to shown data (add small margin)
+    if all_xs:
+        margin = max(1, int(0.01 * (max(all_xs) - min(all_xs))))
+        ax.set_xlim(min(all_xs) - margin, max(all_xs) + margin)
+
+    handles = [
+        Patch(color='C0', label='Train'),
+        Patch(color='C1', label='Test'),
+    ]
+    ax.legend(handles=handles, loc="lower right")
+    return ax
+
+
+X = np.arange(2449)
+y = np.random.randint(0, 2, size=2449)
+tscv = ParametricTimeSeriesSplit(n_splits=30, test_size=30, step_size=13)
+axp = plot_cv_indices(cv=tscv, X=X, y=y)
+axp
+
+axp.axvline(2039, ymin=0.15, ymax=0.25,
+                    color="C2", linestyle="--", alpha=0.7, linewidth=1)
+axp.axvline(2052, ymin=0.15, ymax=0.25,
+                    color="C2", linestyle="--", alpha=0.7, linewidth=1)
+
+axp.text(2039, 2,
+        "step size=13", color="C2", fontsize=14, ha="left")
+
+axp.axvline(2052, ymin=0.30, ymax=0.38,
+                    color="C2", linestyle="--", alpha=0.7, linewidth=1)
+axp.axvline(2065, ymin=0.30, ymax=0.38,
+                    color="C2", linestyle="--", alpha=0.7, linewidth=1)
+
+axp.text(2052, 3,
+        "step size=13", color="C2", fontsize=14, ha="left")
+
+axp.tick_params(axis='x', labelsize=16)
+axp.tick_params(axis='y', labelsize=16)
+
+plt.title("Rolling Origin Time Series Cross-Validation", fontsize=18)
+plt.show()
+```
+
+
+# Results
+
+## Point Forecast results
+
+::: {layout-ncol=2}
+
+```{python}
+#| fig-width: 100%
+#| fig-align: center
+#| fig-height: 100%
+
+import sys
+sys.path.append("../..") 
+from project_utils import table_styler
+import glob
+
+# Load from file
+with open('results/all_model_points.pkl', 'rb') as f:
+    all_model_points = pickle.load(f)
+
+ward_0 = all_model_points["ward_0"][["RMSE", "MAE"]]
+ward_0.reset_index(inplace=True)
+ward_0.rename(columns={"index": "ward_0"}, inplace=True)
+
+table_styler(ward_0, cells_format=[('font-size', '25px'), ('text-align', 'left')],
+              table_header=[('background-color', '#20808D'), ('text-align', 'left'),
+                            ('color', '#FBFAF4'), ('font-size', '30px'), ('min-width', '80px')],
+                            highlight_cells = [(0, 'ward_0')],
+                            numeric_highlights = {"RMSE": {"condition": "less", "threshold": 3.25, "style": "font-weight: bold; background-color: None;"},
+                            "MAE": {"condition": "less", "threshold": 2.8, "style": "font-weight: bold; background-color: None;"}},
+)
+```
+
+
+```{python}
+ward_1 = all_model_points["ward_1"][["RMSE", "MAE"]]
+ward_1.reset_index(inplace=True)
+ward_1.rename(columns={"index": "ward_1"}, inplace=True)
+
+table_styler(ward_1, cells_format=[('font-size', '25px'), ('text-align', 'left')],
+              table_header=[('background-color', '#20808D'), ('text-align', 'left'),
+                            ('color', '#FBFAF4'), ('font-size', '30px'), ('min-width', '80px')],
+                            highlight_cells = [(0, 'ward_1')],
+                            numeric_highlights = {"RMSE": {"condition": "less", "threshold": 3.7, "style": "font-weight: bold; background-color: None;"},
+                            "MAE": {"condition": "less", "threshold": 3.2, "style": "font-weight: bold; background-color: None;"}},
+)
+```
+
+```{python}
+ward_2 = all_model_points["ward_2"][["RMSE", "MAE"]]
+ward_2.reset_index(inplace=True)
+ward_2.rename(columns={"index": "ward_2"}, inplace=True)
+
+table_styler(ward_2, cells_format=[('font-size', '25px'), ('text-align', 'left')],
+              table_header=[('background-color', '#20808D'), ('text-align', 'left'),
+                            ('color', '#FBFAF4'), ('font-size', '30px'), ('min-width', '80px')],
+                            highlight_cells = [(0, 'ward_2')],
+                            numeric_highlights = {"RMSE": {"condition": "less", "threshold": 2.860, "style": "font-weight: bold; background-color: None;"},
+                            "MAE": {"condition": "less", "threshold": 2.42, "style": "font-weight: bold; background-color: None;"}},
+)
+```
+
+```{python}
+ward_3 = all_model_points["ward_3"][["RMSE", "MAE"]]
+ward_3.reset_index(inplace=True)
+ward_3.rename(columns={"index": "ward_3"}, inplace=True)
+
+table_styler(ward_3, cells_format=[('font-size', '25px'), ('text-align', 'left')],
+              table_header=[('background-color', '#20808D'), ('text-align', 'left'),
+                            ('color', '#FBFAF4'), ('font-size', '30px'), ('min-width', '80px')],
+                            highlight_cells = [(0, 'ward_3')],
+                            numeric_highlights = {"RMSE": {"condition": "less", "threshold": 2, "style": "font-weight: bold; background-color: None;"},
+                            "MAE": {"condition": "less", "threshold": 1.7, "style": "font-weight: bold; background-color: None;"}},
+)
+
+```
+
+```{python}
+ward_4 = all_model_points["ward_4"][["RMSE", "MAE"]]
+ward_4.reset_index(inplace=True)
+ward_4.rename(columns={"index": "ward_4"}, inplace=True)
+
+table_styler(ward_4, cells_format=[('font-size', '25px'), ('text-align', 'left')],
+              table_header=[('background-color', '#20808D'), ('text-align', 'left'),
+                            ('color', '#FBFAF4'), ('font-size', '30px'), ('min-width', '80px')],
+                            highlight_cells = [(0, 'ward_4')],
+                            numeric_highlights = {"RMSE": {"condition": "less", "threshold": 2.4, "style": "font-weight: bold; background-color: None;"},
+                            "MAE": {"condition": "less", "threshold": 2.1, "style": "font-weight: bold; background-color: None;"}},
+)
+
+```
+
+```{python}
+ward_5 = all_model_points["ward_5"][["RMSE", "MAE"]]
+ward_5.reset_index(inplace=True)
+ward_5.rename(columns={"index": "ward_5"}, inplace=True)
+
+table_styler(ward_5, cells_format=[('font-size', '25px'), ('text-align', 'left')],
+              table_header=[('background-color', '#20808D'), ('text-align', 'left'),
+                            ('color', '#FBFAF4'), ('font-size', '30px'), ('min-width', '80px')],
+                            highlight_cells = [(0, 'ward_5')],
+                            numeric_highlights = {"RMSE": {"condition": "less", "threshold": 2.501, "style": "font-weight: bold; background-color: None;"},
+                            "MAE": {"condition": "less", "threshold": 2.125, "style": "font-weight: bold; background-color: None;"}},
+)
+
+```
+
+:::
+
+---
+
+## Forecast Distributions (Quantile scores)
+
+```{python .fragment}
+#| fig-width: 100%
+#| fig-align: center
+#| fig-height: 100%
+
+# Load from file
+with open('results/avg_of_qswards.pkl', 'rb') as f:
+    qs = pickle.load(f)
+
+
+# qs_table = qs.reset_index().rename(columns={"index": "Model"})
+
+plt.figure(figsize=(24, 11))
+markers = ['o', 's', 'D', '^', 'v', '<', '>', 'p', '*', 'h', 'X', 'd']
+my_qs = np.arange(0.05, 1.00, 0.05)
+for i, model in enumerate(qs.index.tolist()):
+    # if model != "LR":
+        plt.plot(my_qs, qs.loc[model], label=model, linewidth=1.4, alpha=1, marker=markers[i % len(markers)], markersize=5)
+    # plt.plot(my_qs, avg_of_wards.loc[model], label=model, linewidth=3)
+    # plt.plot(my_qs, avg_ward.loc[model], label=model)
+plt.xlabel("Quantiles", fontdict={'fontsize': 16})
+plt.ylabel("Pinball Loss", fontdict={'fontsize': 16})
+plt.title("Pinball Loss across different quantiles (Average across all wards)", fontsize=24)
+plt.xticks(my_qs, [f"{q:.2f}" for q in my_qs], fontdict={'fontsize': 16}, rotation=90)
+plt.yticks(fontsize=16)
+plt.legend(
+    loc='upper center', 
+    bbox_to_anchor=(0.5, 0.1),  # (x, y) position, y<0 puts below the axis
+    ncol=len(qs.index),      # one column per model (horizontal)
+    frameon=True,  # no box around the legend
+    fontsize=20  # legend font size
+)
+plt.grid()
+plt.show()
+```
+
+## Forecast Distributions (Quantile scores)
+
+```{python .fragment}
+#| fig-width: 100%
+#| fig-align: center
+#| fig-height: 100%
+
+plt.figure(figsize=(24, 11))
+markers = ['o', 's', 'D', '^', 'v', '<', '>', 'p', '*', 'h', 'X', 'd']
+my_qs = np.arange(0.05, 1.00, 0.05)
+for i, model in enumerate(qs.index.tolist()):
+    # if model != "LR":
+        plt.plot(my_qs, qs.loc[model], label=model, linewidth=1.4, alpha=1, marker=markers[i % len(markers)], markersize=5)
+    # plt.plot(my_qs, avg_of_wards.loc[model], label=model, linewidth=3)
+    # plt.plot(my_qs, avg_ward.loc[model], label=model)
+plt.xlabel("Quantiles", fontdict={'fontsize': 16})
+plt.ylabel("Pinball Loss", fontdict={'fontsize': 16})
+plt.title("Pinball Loss across different quantiles (Average across all wards)", fontsize=24)
+plt.xticks(my_qs, [f"{q:.2f}" for q in my_qs], fontdict={'fontsize': 16}, rotation=90)
+plt.yticks(fontsize=16)
+plt.legend(
+    loc='upper center', 
+    bbox_to_anchor=(0.5, 0.1),  # (x, y) position, y<0 puts below the axis
+    ncol=len(qs.index),      # one column per model (horizontal)
+    frameon=False,  # no box around the legend
+    fontsize=20  # legend font size
+)
+plt.grid()
+# Highlight area between 0.45 and 0.85
+plt.axvspan(0.45, 0.85, color='green', alpha=0.08)
+plt.show()
+```
+
+
+## Forecast distributions (Quantile scores for 45% to 85%)
+
+```{python .fragment}
+#| fig-width: 100%
+#| fig-align: center
+#| fig-height: 100%
+
+plt.figure(figsize=(22, 11))
+markers = ['o', 's', 'D', '^', 'v', '<', '>', 'p', '*', 'h', 'X', 'd']
+qs_viz = qs.loc[:, "q0.45":"q0.85"]
+cut_qs = np.arange(0.45, 0.9, 0.05)
+for i, model in enumerate(qs_viz.index.tolist()):
+    # if model != "LR":
+        plt.plot(cut_qs, qs_viz.loc[model], label=model, linewidth=1.4, alpha=1, marker=markers[i % len(markers)], markersize=5)
+    # plt.plot(my_qs, avg_of_wards.loc[model], label=model, linewidth=3)
+    # plt.plot(my_qs, avg_ward.loc[model], label=model)
+plt.xlabel("Quantiles", fontdict={'fontsize': 16})
+plt.ylabel("Pinball Loss", fontdict={'fontsize': 16})
+plt.title("Pinball Loss across different quantiles (Average across all wards)", fontsize=24)
+# plt.xticks(cut_qs, [f"{int(q*100)}%" for q in cut_qs])
+plt.xticks(cut_qs, [f"{q:.2f}" for q in cut_qs], fontdict={'fontsize': 16}, rotation=90)
+plt.yticks(fontsize=16)
+plt.legend(
+    loc='upper center', 
+    bbox_to_anchor=(0.5, 0.1),  # (x, y) position, y<0 puts below the axis
+    ncol=len(qs_viz.index),      # one column per model (horizontal)
+    frameon=True,  # no box around the legend
+    fontsize=20  # legend font size
+)
+plt.grid()
+plt.show()
+```
+
+---
+
+## Model's Explainability
+
+:::: {.columns}
+
+::: {.column width="70%"}
+```{python}
+
+#| fig-width: 100%
+#| fig-align: center
+#| fig-height: 100%
+
+# Load from file
+
+import pickle
+with open('quarto_result/hm_model.pkl', 'rb') as f:
+    hm_model = pickle.load(f)
+state_probs_train = hm_model.predict_proba()
+state_predict_train = hm_model.predict_states()
+
+df_ = data_prep(ward='ward_0')
+
+train_size = len(occup_train_clean)
+fit_df = df_[:train_size] # fit on train data only to avoid data leakage
+test_df = df_[train_size:train_size+30]
+
+
+import matplotlib.pyplot as plt
+my_series = fit_df[-2074:]["ward_0"]
+
+fig, ax1 = plt.subplots(figsize=(22, 10))
+
+# Plot the time series
+ax1.plot(my_series.index[-60:], my_series.values[-60:], label="Occupancy", color="C0")
+# ax1.plot(fit_df.index, fit_df["forecast"], label="Occupancy", color="C3", linestyle='--')
+# ax1.plot(vis_data.index, vis_data["Discharges"], label="Discharges", color="C1")
+ax1.set_ylabel("Occupancy level")
+ax1.set_xlabel("Date")
+ax1.legend(loc="upper left")
+
+# Overlay probabilities as stacked area
+ax2 = ax1.twinx()
+ax2.stackplot(my_series.index[-60:],
+              state_probs_train[0][-60:], 
+              state_probs_train[1][-60:],
+              labels=['Regime 1', 'Regime 2'], 
+              alpha=0.25, colors=['C2','C3'])
+
+ax2.set_ylabel("State Probability", fontsize=20)
+ax2.set_ylim(0, 1)
+ax2.legend(loc="upper right", fontsize=20)
+
+plt.title("Occupancy with Hidden State Probabilities", fontsize=24)
+plt.setp(ax1.get_xticklabels(), rotation=30, ha="right")  # <--- Add this line
+plt.show()
+
+```
+
+:::
+::: {.column width="30%"}
+
+### Transition probabilities
+
+```{python}
+from IPython.display import display, Markdown
+tp = pd.DataFrame(hm_model.A).round(3)
+tp.index = ["Regime 1", "Regime 2"]
+tp.columns = ["Regime 1", "Regime 2"]
+tp.reset_index(inplace=True)
+tp.rename(columns={"index": "T. Matrix"}, inplace=True)
+
+# Assume 'df' is your DataFrame
+
+display(Markdown(tp.to_markdown(index=False)))
+```
+
+<br>
+<br>
+
+### Standard Deviations
+
+```{python}
+stds = pd.DataFrame(hm_model.stds).round(3).T
+# change row name to standard deviation
+stds = stds.rename(index={0: "sd"})
+stds.columns = ["Regime 1", "Regime 2"]
+stds.reset_index(inplace=True)
+stds.rename(columns={"index": "Std. Dev."}, inplace=True)
+display(Markdown(stds.to_markdown(index=False)))
+```
+
+:::
+::::    
+
+
+# Key findings
+
+## Learning outcomes from the current experiments
+
+- Although AR-RHMM may not always outperform all benchmark models in point forecasting metrics, there is a significant improvement in probabilistic forecasting, particularly in quantile loss across 40% and 85% quantiles.
+
+- The model is more reliable for probabilistic forecasting since it accounts for regime changes and provides a distribution of possible future values, making it suitable for decision-making in hospital resource management.
+
+- The model performs consistently well interms of `probabilistic forecasting` since the model is probabilistic in nature and captures regime changes.
+
+# Next steps
+
+## Next steps
+
+- Extend the AR-HMM to a multivariate framework (VAR-HMM) to jointly model multiple wards, capturing interdependencies and shared patterns in bed occupancy across different wards.
+
+- Develop an optimization framework that utilizes the probabilistic forecasts from the AR-HMM and VAR-HMM models to optimize bed allocation and resource management.
+
+- Test the models in real-world scenarios, collaborating with hospital staff to refine the models based on practical feedback and operational needs.
+
+
+
+# Any questions or thoughts? 💬
+
+![](images/follow_us.png){fig-align="center"}

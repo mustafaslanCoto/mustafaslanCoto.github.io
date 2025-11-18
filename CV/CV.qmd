@@ -1,12 +1,15 @@
 ---
 title: PhD Researcher | Data Scientist & Mathematical Modeller
+author: Mustafa Aslan
 jobtitle: "PhD Researcher • Data Scientist"
 format:
   html: default
   quarto-cv-pdf:
+    mainfont: "TeX Gyre Heros"
     linkcolor: "mycolor"
     urlcolor: "mycolor"
     citecolor: "mycolor"
+    fontsize: 10pt
     include-in-header:
       text: |
         \usepackage{enumitem}
@@ -15,17 +18,17 @@ format:
         \usepackage{fontawesome5}
         \usepackage{xcolor}
         \usepackage{hyperref}
-        \definecolor{mycolor}{HTML}{004471}
+        \definecolor{mycolor}{HTML}{20808D}
         \let\oldhref\href
         \renewcommand{\href}[2]{\oldhref{#1}{\textmd{#2}}}
-# date: last-modified
+        \usepackage{xcolor}
+        \definecolor{mybgcolor}{HTML}{FBFAF4}
+        \usepackage{pagecolor}
+        \pagecolor{mybgcolor}
 address: "Cardiff Business School, Colum Drive, Cardiff CF10 3EU, UK"
 linkedin: aslanmu
 email: aslanm@cardiff.ac.uk
 fontsize: 11pt
-#fontfamily: ebgaramond-maths # default font LaTeX package https://tug.org/FontCatalogue/about.html
-#mainfont: Ubuntu # if you want to use a different locally installed font
-#CJKmainfont: Noto Sans CJK JP # locally installed Asian character font, must use with xelatex
 github: mustafaslanCoto # github account
 #osf: ymqui # osf five character id
 #twitter: twitter # twitter handle
@@ -35,14 +38,12 @@ nocite: '@*'
 validate-yaml: false
 bullets: true
 css: cv.css
+format-links:
+  - html
+  - format: quarto-cv-pdf
+    text: PDF
+    icon: file-pdf
 ---
-
-<!-- ```{=html}
-<!-- ::: print-only
-\begin{center}
-\faEnvelope\  \href{mailto:aslanm@cardiff.ac.uk}{aslanm@cardiff.ac.uk} \ \faGithub\  \href{https://github.com/mustafaslanCoto}{mustafaslanCoto} \ \faGlobe\  \href{https://mustafaslancoto.github.io}{mustafaslancoto.github.io} \ \faLinkedin\  \href{https://www.linkedin.com/in/mustafa-aslan-047b4780/}{LinkedIn}
-\end{center}
-::: -->
 
 \setlist[itemize,2]{label=\textopenbullet}
 
@@ -50,12 +51,12 @@ css: cv.css
 
 \sectionline
 
-**PhD in Probabilistic Machine Learning in Healthcare Management**\
-[**Cardiff University, Cardiff, UK**]{.cvinstitution} \hfill [*Oct 2024 --- Present*]{.cvdate}.
+**PhD in Probabilistic Modeling for Healthcare Management and Operations**\
+[**Cardiff University, Cardiff, UK**]{.cvinstitution} \hfill [*Oct 2024 --- Present*]{.cvdate}
 
--   Recipient of WGSSS‑ESRC Studentship Award
--   Project focused on enhancing discharge care coordination in healthcare and social care using a probabilistic data-driven modelling approach
-    -   Supervisors: [Prof Bahman Rostami‑Tabar](https://www.bahmanrt.com/), [Dr. Jeremy Dixon](https://profiles.cardiff.ac.uk/staff/dixonj7)
+-   Recipient of WGSSS-ESRC Studentship Award
+-   Project focused on enhancing discharge planning process using probabilistic modelling
+    -   Supervisors: [Prof Bahman Rostami-Tabar](https://www.bahmanrt.com/), [Dr. Jeremy Dixon](https://profiles.cardiff.ac.uk/staff/dixonj7)
 
 **MSc in Financial Mathematics**\
 [**Middle East Technical University, Ankara, Turkey**]{.cvinstitution} \hfill [*Oct 2017 --- Aug 2021*]{.cvdate}
@@ -66,14 +67,29 @@ css: cv.css
 **BSc in Business Administration**\
 [**Middle East Technical University, Ankara, Turkey**]{.cvinstitution} \hfill [*Oct 2011 --- Aug 2015*]{.cvdate}
 
-## **WORK EXPERINCES**
+## **TEACHING** {style="page-break-before: always"}
+
+\sectionline
+
+**Graduate Tutor in Business Data Analytics**\
+[**Cardiff University, Cardiff, UK**]{.cvinstitution} \hfill [*Oct 2025 --- Present*]{.cvdate}
+
+-  Designed lab work materials and lesson plans for MSc‑level courses on Business Data Analytics, utilizing Python and R programming.
+-  Conducted weekly lab sessions, guiding and assisting students through practical applications of data analysis techniques.
+
+[**Training sessions for [Data Lab for Social Good Research Group](https://www.cardiff.ac.uk/research/explore/research-units/data-lab-for-social-good) members**]{.cvinstitution}
+
+-   Introduction to Python and Quarto on Visual Studio Code \hfill [*Mar 2025*]{.cvdate}
+-   Introduction to Dynamic Programming and Reinforcement Learning \hfill [*May 2025*]{.cvdate}
+
+## **WORK EXPERIENCES**
 
 \sectionline
 
 **Reporting and Data Analytics Executive**\
 [**AKBANK (a leading bank in Turkey), Istanbul**]{.cvinstitution} \hfill [*Jun 2022 --- Sep 2024*]{.cvdate}
 
--   Applied time-series forecasting and machine learning techniques, including ARIMA, Bayesian Time Series, Prophet, ANN, LSTM, Random Forest, LightGBM and XGBoost, to historical data for making long-horizon forecasts of daily customer call volume. The best model achieved over 94% accuracy (1-MAPE) in forecasting all days of the next month.
+-   Applied time-series forecasting and machine learning techniques, including ARIMA, Bayesian Time Series, Prophet, ANN, LSTM, Random Forest, LightGBM and XGBoost, to historical data for making long-horizon forecasts of daily customer call volume. The winning model helped to allocate resources effectively, reducing customer wait times by 6%.
 -   Implemented machine learning models (e.g., XGBoost, LightGBM, CatBoost) to predict customer behavior with an over recall rate of 70% and an accuracy rate of 85%, enabling fewer customer complaints and increase sales by 14%.
 -   Analyzing large amounts of data to identify trends and find patterns, signals and hidden stories within customer calls data.
 -   Applied machine learning techniques (Z-score, IsolationForest) to detect anomalies.
@@ -105,21 +121,23 @@ css: cv.css
 
 \sectionline
 
+-   Healthcare analytics
 -   Data-driven decision making
--   Machine learning
--   Reinforcement learning and stocastic optimization in decision making
+-   Statistical learning and Machine learning
+-   Reinforcement learning and stochastic optimization in decision making
 -   Time series forecasting
 -   Probabilistic forecasting
--   Conformal prediction for time series forecasting
+-   Conformal prediction
 
 ## **SKILLS & EXPERTISE** {style="page-break-before: always"}
 
 \sectionline
 
-**Expertise:** Mathematical and Statistical Modeling, Machine Learning, Time Series Analysis and Forecasting, Stocastic Optimization and Reinforecement Learning, Statistical and Explanatory Data Analysis\
+**Expertise:** Mathematical and Statistical Modeling, Machine Learning, Time Series Analysis and Forecasting, Stochastic Optimization and Reinforcement Learning, Statistical and Explanatory Data Analysis, web scraping in Python\
 **Programming:** ![](images/python.jpeg){width="15"}Python ![](images/sql.png){width="28"}SQL\
 **Reporting:** ![](images/quarto.png){width="40" height="10"}Quarto ![](images/excel.png){width="22" height="15"}Advanced Excel ![](images/qlick.png){width="23" height="10"}QlikView ![](images/sas.png){width="26"}SAS\
 **Languages** English (Fluent), Kurdish (Native), Turkish (Native)
+
 
 ## **PROFESSIONAL DEVELOPMENT** {style="page-break-before: always"}
 
@@ -134,9 +152,16 @@ css: cv.css
     -   Probabilistic Machine Learning: An Introduction (Murphy. 2022)
     -   Reinforcement Learning: An Introduction (Barto et al, 2018)
     -   Reinforcement Learning and Stochastic Optimization (Powell, 2022)
-    -   Time Series Forecasting in Python (Peixeiro, 2022)
     -   A Student’s Guide to Bayesian Statistics (Lambert, 2018)
     -   Dive into deep learning (Zhang, 2022)
+
+## **Scholarships & Grants**
+
+\sectionline
+
+-   Welsh Graduate School for the Social Sciences (WGSSS) Studentship Award \hfill [*Aug 2024*]{.cvdate}
+-   NATCOR Bursaries / EURO Funding for Stochastic Modelling \hfill [*Mar 2025*]{.cvdate}
+-   The Best Presentation Award at the 5th Welsh Postgraduate Research Cluster Workshop \hfill [*Sep 2025*]{.cvdate}
 
 ::: print-only
 ## **References** {.unlisted}

@@ -1,34 +1,7 @@
 {
   "listingMap": {
     "talks/index.qmd": [
-      "stats",
-      "so_rl"
-    ],
-    "workshops/index.qmd": [
-      "so_rl",
-      "DL4SG/*.qmd",
-      "rl/*.qmd",
-      "trainings"
-    ],
-    "learn/index_lrn.qmd": [
-      "stats"
-    ],
-    "learn/index.qmd": [
-      "stats_ml/*.qmd",
-      "cond_dists/*.qmd",
-      "distributions/*.qmd",
-      "prob_stats"
-    ],
-    "learn/stats_ml/index.qmd": [
-      "epss_training/*.qmd",
-      "distributions/*.qmd",
-      "cond_dists/*.qmd"
-    ],
-    "workshops/DL4SG/index.qmd": [
-      "rl/*.qmd"
-    ],
-    "workshops/DL4SG/rl/index.qmd": [
-      "slides/*.ipynb"
+      "presentations"
     ]
   }
 }

@@ -1,7 +1,7 @@
 ---
 title: "Researcher & Data Scientist"
 subtitle: "[Cardiff University](https://www.cardiff.ac.uk/)"
-image: images/profil_photo.jpg
+image: images/pphoto.jpeg
 card-style: "summary"
 css: index.css
 about:
@@ -9,14 +9,23 @@ about:
     image-shape: round
     links:
         - icon: envelope
-          # text: e-mail
+          text: e-mail
           href: mailto:aslanm@cardiff.ac.uk
         - icon: github
-          # text: Github
+          text: Github
           href: https://github.com/mustafaslanCoto
         - icon: linkedin
-          # text: LinkedIn
+          text: LinkedIn
           href: https://www.linkedin.com/in/aslanmu/
 ---
 
+<br>
+
 I am currently pursuing a PhD at Cardiff Business School, where I specialise in developing AI&machine learning models for healthcare management. My research involves developing and refining advanced statistical&machine learning techniques to analyse complex datasets, aiming to enhance decision-making processes in real-world applications. In addition to my PhD work, I manage the Learning Labs workshop series, providing training on machine learning, statistics, reinforcement learning and forecasting methodologies using Python. I am also responsible for organizing seminars for the [Data Lab for Social Good](https://www.cardiff.ac.uk/research/explore/research-units/data-lab-for-social-good), delivering sessions on AI, machine learning, forecasting, mathematical modeling, and optimization techniques.
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+:::{.text-center}
+[<i class="fas fa-download"></i> Download CV](CV/CV_.pdf){.btn .btn-sm .btn-outline-primary .btn-download-cv}
+:::

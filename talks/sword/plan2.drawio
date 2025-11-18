@@ -1,0 +1,147 @@
+<mxfile host="65bd71144e">
+    <diagram id="nRn66sDih53P0WB61xkh" name="Page-1">
+        <mxGraphModel dx="1913" dy="1754" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="1" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="36" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FBFAF4;strokeColor=#20808D;strokeWidth=1;" parent="1" vertex="1">
+                    <mxGeometry x="800" y="30" width="380" height="530" as="geometry"/>
+                </mxCell>
+                <mxCell id="35" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#BADEDD;strokeColor=#20808D;strokeWidth=1;" parent="1" vertex="1">
+                    <mxGeometry x="250" y="30" width="520" height="530" as="geometry"/>
+                </mxCell>
+                <mxCell id="33" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=light-dark(#BADEDD,#20808D);strokeColor=#20808D;strokeWidth=1;" parent="1" vertex="1">
+                    <mxGeometry x="-290" y="30" width="510" height="530" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="" style="edgeStyle=none;html=1;" parent="1" source="2" target="3" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="&lt;font style=&quot;color: rgb(9, 23, 23); font-size: 18px;&quot;&gt;Preprocess historical occupancy level of each ward in a hospital&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FBFAF4;" parent="1" vertex="1">
+                    <mxGeometry x="-258.75" y="50" width="198.75" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="" style="edgeStyle=none;html=1;" parent="1" source="3" target="5" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="&lt;font style=&quot;color: rgb(9, 23, 23); font-size: 18px;&quot;&gt;Develop a reliable probabilistic forecasting model to capture high occupancy variability&lt;/font&gt;" style="whiteSpace=wrap;html=1;rounded=1;fillColor=#FBFAF4;" parent="1" vertex="1">
+                    <mxGeometry x="-263.75" y="180" width="203.75" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="" style="edgeStyle=none;html=1;" parent="1" source="5" target="7" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="&lt;font style=&quot;color: rgb(9, 23, 23); font-size: 18px;&quot;&gt;Train and fine-tune benchmark models to compare with proposed model&lt;/font&gt;" style="whiteSpace=wrap;html=1;rounded=1;fillColor=#FBFAF4;" parent="1" vertex="1">
+                    <mxGeometry x="-260" y="320" width="190" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" target="12" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="-80" y="485" as="sourcePoint"/>
+                        <mxPoint y="90" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="-30" y="485"/>
+                            <mxPoint x="-30" y="90"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="7" value="&lt;font style=&quot;color: rgb(9, 23, 23); font-size: 18px;&quot;&gt;Evaluate model performance through probailistic forecasting metrics&lt;/font&gt;" style="whiteSpace=wrap;html=1;rounded=1;fillColor=#FBFAF4;" parent="1" vertex="1">
+                    <mxGeometry x="-263.75" y="440" width="193.75" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="&lt;font style=&quot;color: rgb(9, 23, 23); font-size: 18px;&quot;&gt;Incorporate expert domain to validate to results&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FBFAF4;" parent="1" vertex="1">
+                    <mxGeometry y="370" width="200" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="51" value="" style="edgeStyle=none;html=1;" parent="1" source="12" target="50" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="&lt;font style=&quot;color: rgb(9, 23, 23); font-size: 18px;&quot;&gt;Chose the best model&lt;/font&gt;" style="whiteSpace=wrap;html=1;rounded=1;fillColor=#FBFAF4;" parent="1" vertex="1">
+                    <mxGeometry x="10" y="70" width="180" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="" style="edgeStyle=none;html=1;" parent="1" source="16" target="17" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="47" value="" style="edgeStyle=none;html=1;entryX=1;entryY=0.411;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="16" target="46" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="&lt;font style=&quot;color: rgb(9, 23, 23); font-size: 18px;&quot;&gt;Preprocess hospital patient flow, resource, and discharge data&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FBFAF4;" parent="1" vertex="1">
+                    <mxGeometry x="540" y="57.5" width="210" height="75" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="" style="edgeStyle=none;html=1;" parent="1" source="17" target="19" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="&lt;font style=&quot;font-size: 18px; color: rgb(9, 23, 23);&quot;&gt;Formulate a sequential decision model to optimize discharge timing&lt;/font&gt;" style="whiteSpace=wrap;html=1;rounded=1;fillColor=#FBFAF4;" parent="1" vertex="1">
+                    <mxGeometry x="530" y="210" width="230" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="&lt;font style=&quot;color: rgb(9, 23, 23); font-size: 18px;&quot;&gt;Run simulations under realistic constraints&lt;/font&gt;" style="whiteSpace=wrap;html=1;rounded=1;fillColor=#FBFAF4;" parent="1" vertex="1">
+                    <mxGeometry x="550" y="410" width="190" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="60" value="" style="edgeStyle=none;html=1;" parent="1" source="26" target="19" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="&lt;font style=&quot;color: rgb(9, 23, 23); font-size: 18px;&quot;&gt;Integrate quantiles of LOS predictions as input to model&lt;/font&gt;" style="whiteSpace=wrap;html=1;rounded=1;fillColor=#FBFAF4;" parent="1" vertex="1">
+                    <mxGeometry x="340" y="390" width="170" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" value="" style="edgeStyle=none;html=1;" parent="1" source="28" target="29" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="&lt;span&gt;&lt;font style=&quot;color: rgb(9, 23, 23); font-size: 18px;&quot;&gt;Preprocess and analyze patient level data and post-discharge data&lt;/font&gt;&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FBFAF4;" parent="1" vertex="1">
+                    <mxGeometry x="847" y="50" width="240" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" value="" style="edgeStyle=none;html=1;" parent="1" source="29" target="31" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="&lt;font style=&quot;color: rgb(9, 23, 23); font-size: 18px;&quot;&gt;Train and test explainable machine learning models using predictors on patients and post discharge data&lt;/font&gt;" style="whiteSpace=wrap;html=1;rounded=1;fillColor=#FBFAF4;" parent="1" vertex="1">
+                    <mxGeometry x="854" y="230" width="230" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" value="&lt;font style=&quot;color: rgb(9, 23, 23); font-size: 18px;&quot;&gt;Generate results to identify key patient and social features that impact social participation&amp;nbsp;&lt;/font&gt;" style="whiteSpace=wrap;html=1;rounded=1;fillColor=#FBFAF4;" parent="1" vertex="1">
+                    <mxGeometry x="847" y="420" width="240" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="34" value="&lt;font style=&quot;font-size: 24px; color: rgb(9, 23, 23);&quot;&gt;&lt;i style=&quot;&quot;&gt;&lt;b style=&quot;&quot;&gt;Work package 1 (focus of year 1)&lt;/b&gt;&lt;/i&gt;&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="-250" y="585" width="390" height="10" as="geometry"/>
+                </mxCell>
+                <mxCell id="37" value="&lt;i style=&quot;scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251);&quot;&gt;&lt;b style=&quot;scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251);&quot;&gt;&lt;font style=&quot;color: rgb(9, 23, 23); font-size: 24px;&quot;&gt;Work package 2 (focus for year 2)&lt;/font&gt;&lt;/b&gt;&lt;/i&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="309.5" y="575" width="401" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="45" value="" style="edgeStyle=none;html=1;" parent="1" source="43" target="17" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="43" value="&lt;font style=&quot;color: rgb(9, 23, 23); font-size: 18px;&quot;&gt;Incorporate expert domain to define constraints&lt;/font&gt;" style="whiteSpace=wrap;html=1;fillColor=#FBFAF4;rounded=1;" parent="1" vertex="1">
+                    <mxGeometry x="330" y="211.25" width="150" height="88.75" as="geometry"/>
+                </mxCell>
+                <mxCell id="64" style="edgeStyle=none;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;exitX=0.188;exitY=0.958;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="46" target="26" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="299" y="473"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="46" value="&lt;font style=&quot;color: rgb(9, 23, 23); font-size: 18px;&quot;&gt;Build a personalized, real-time length-of-stay forecasting system&lt;/font&gt;" style="whiteSpace=wrap;html=1;fillColor=#FBFAF4;rounded=1;" parent="1" vertex="1">
+                    <mxGeometry x="260" y="67.5" width="190" height="75" as="geometry"/>
+                </mxCell>
+                <mxCell id="52" value="" style="edgeStyle=none;html=1;" parent="1" source="50" target="10" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="50" value="&lt;font style=&quot;color: rgb(9, 23, 23); font-size: 18px;&quot;&gt;Design an optimization framework for&lt;span style=&quot;color: rgb(9, 23, 23);&quot;&gt;&amp;nbsp;resource allocation (staff scheduling)&amp;nbsp;&lt;/span&gt;integrating probabilistic forecasts&lt;/font&gt;" style="whiteSpace=wrap;html=1;fillColor=#FBFAF4;rounded=1;align=center;" parent="1" vertex="1">
+                    <mxGeometry y="190" width="200" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="65" value="&lt;i style=&quot;scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251);&quot;&gt;&lt;b style=&quot;scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251);&quot;&gt;&lt;font style=&quot;color: rgb(9, 23, 23); font-size: 24px;&quot;&gt;Work package 3 (focus for year 3)&lt;/font&gt;&lt;/b&gt;&lt;/i&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="790" y="580" width="388" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="69" value="&lt;font style=&quot;font-size: 24px; color: rgb(251, 250, 244);&quot;&gt;Q1: How can reliable probabilistic forecasts be used to help an efficient resource allocation and staffing in hospitals?&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;fillColor=#20808D;" parent="1" vertex="1">
+                    <mxGeometry x="-290" y="-70" width="510" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="71" value="&lt;font style=&quot;font-size: 24px; color: rgb(251, 250, 244);&quot;&gt;Q3: Can machine learning help understanding key factors affecting post-discharge social participation?&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;fillColor=#20808D;" parent="1" vertex="1">
+                    <mxGeometry x="800" y="-70" width="380" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="72" value="&lt;span style=&quot;font-size: 24px;&quot;&gt;&lt;font style=&quot;color: rgb(251, 250, 244);&quot;&gt;Q2: How can sequential decision algorithms be utlized to optimize patient-specific discharge time?&lt;/font&gt;&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;fillColor=#20808D;" parent="1" vertex="1">
+                    <mxGeometry x="250" y="-70" width="520" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="73" value="" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#20808D;shape=mxgraph.archimate3.goal;direction=south;" parent="1" vertex="1">
+                    <mxGeometry x="-20" y="170" width="40" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="77" value="" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#20808D;shape=mxgraph.archimate3.goal;" parent="1" vertex="1">
+                    <mxGeometry x="510" y="190" width="40" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="78" value="" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#20808D;shape=mxgraph.archimate3.goal;" parent="1" vertex="1">
+                    <mxGeometry x="827" y="400" width="40" height="40" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

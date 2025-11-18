@@ -2,9 +2,8 @@
   {
     "listing": "/talks/index.html",
     "items": [
-      "/talks/stats/cond_prob_main.html",
-      "/talks/stats/distributions_main.html",
-      "/talks/so_rl/rl_main.html"
+      "/talks/presentations/sword.html",
+      "/talks/presentations/wgsss.html"
     ]
   },
   {
@@ -24,6 +23,7 @@
   {
     "listing": "/learn/index.html",
     "items": [
+      "/learn/prob_stats/mc_integration.html",
       "/learn/prob_stats/cond_index.html",
       "/learn/prob_stats/dists_index.html"
     ]
