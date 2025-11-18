@@ -9,7 +9,7 @@
   margin-bottom: 0 !important;
 }
 
-.btn-download-cv {
+/* .btn-download-cv {
     background-color: #20808D !important;
     color: #FBFAF4 !important;
     border-color: #20808D !important;
@@ -25,7 +25,7 @@
 }
 
 /* Target the icon specifically */
-.btn-download-cv i {
+/* .btn-download-cv i {
     color: #FBFAF4 !important;
     font-size: 16px !important;
     margin-right: 6px !important;
@@ -33,4 +33,43 @@
 
 .btn-download-cv:hover i {
     color: #FBFAF4 !important;
+} */
+
+
+/* Make selectors more specific to override Bootstrap */
+/* Force all states to have the same styling */
+.btn-download-cv,
+.btn-download-cv:link,
+.btn-download-cv:visited,
+.btn-download-cv:hover,
+.btn-download-cv:active,
+.btn-download-cv:focus,
+.btn-download-cv:focus-visible {
+    background-color: #20808D !important;
+    color: #FBFAF4 !important;
+    border-color: #20808D !important;
+    border-radius: 8px !important;
+    font-weight: bold !important;
+    font-size: 16px !important;
+    padding: 8px 16px !important;
+    text-decoration: none !important;
+    outline: none !important;
+}
+
+/* Hover state with different background */
+.btn-download-cv:hover {
+    background-color: #20B8CD !important;
+}
+
+/* Force icon color in ALL states */
+.btn-download-cv i,
+.btn-download-cv:link i,
+.btn-download-cv:visited i,
+.btn-download-cv:hover i,
+.btn-download-cv:active i,
+.btn-download-cv:focus i,
+.btn-download-cv:focus-visible i {
+    color: #FBFAF4 !important;
+    font-size: 16px !important;
+    margin-right: 6px !important;
 }
