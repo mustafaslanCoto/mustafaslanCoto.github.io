@@ -59,6 +59,7 @@
 /* Hover state with different background */
 .btn-download-cv:hover {
     background-color: #20B8CD !important;
+    border-color: #20B8CD !important;
 }
 
 /* Force icon color in ALL states */
