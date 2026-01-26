@@ -1071,69 +1071,6 @@
     "text": "page 2 - Model-Free Adaptation: Learns optimal behavior directly from experience, without needing an explicit model of the environment.\n\nLong-Term Planning: Optimizes decisions over long time horizons by balancing immediate vs. future rewards.\n\nScalable to Complex Tasks\nCan handle very large state-action spaces via function approximation (e.g., neural networks).\n\nInteractive Settings\nIdeal when you have an agent interacting with an environment (games, robotics, resource allocation).\n\nData-Driven Policies\nAutomatically refines its policy as more data becomes available, making it robust to non-stationarity."
   },
   {
-    "objectID": "CV/CV.html",
-    "href": "CV/CV.html",
-    "title": "PhD Researcher | Data Scientist & Mathematical Modeller",
-    "section": "",
-    "text": "PhD in Probabilistic Modeling for Healthcare Management and Operations\nCardiff University, Cardiff, UK Oct 2024 — Present\n\nRecipient of WGSSS-ESRC Studentship Award\nProject focused on enhancing discharge planning process using probabilistic modelling\n\nSupervisors: Prof Bahman Rostami-Tabar, Dr. Jeremy Dixon\n\n\nMSc in Financial Mathematics\nMiddle East Technical University, Ankara, Turkey Oct 2017 — Aug 2021\n\nDissertation: Effects of Exchange Rate Volatility and Firm-Specific Features on the Rates of Returns of the Manufacturing Firms Listed in Borsa İstanbul: A CAPM Approach\n\nStatistical&Machine learning techniques used: Markov Switching GARCH Models, ARIMA, Panel Data Econometrics, Principal Component Analysis\n\n\nBSc in Business Administration\nMiddle East Technical University, Ankara, Turkey Oct 2011 — Aug 2015"
-  },
-  {
-    "objectID": "CV/CV.html#education",
-    "href": "CV/CV.html#education",
-    "title": "PhD Researcher | Data Scientist & Mathematical Modeller",
-    "section": "",
-    "text": "PhD in Probabilistic Modeling for Healthcare Management and Operations\nCardiff University, Cardiff, UK Oct 2024 — Present\n\nRecipient of WGSSS-ESRC Studentship Award\nProject focused on enhancing discharge planning process using probabilistic modelling\n\nSupervisors: Prof Bahman Rostami-Tabar, Dr. Jeremy Dixon\n\n\nMSc in Financial Mathematics\nMiddle East Technical University, Ankara, Turkey Oct 2017 — Aug 2021\n\nDissertation: Effects of Exchange Rate Volatility and Firm-Specific Features on the Rates of Returns of the Manufacturing Firms Listed in Borsa İstanbul: A CAPM Approach\n\nStatistical&Machine learning techniques used: Markov Switching GARCH Models, ARIMA, Panel Data Econometrics, Principal Component Analysis\n\n\nBSc in Business Administration\nMiddle East Technical University, Ankara, Turkey Oct 2011 — Aug 2015"
-  },
-  {
-    "objectID": "CV/CV.html#teaching",
-    "href": "CV/CV.html#teaching",
-    "title": "PhD Researcher | Data Scientist & Mathematical Modeller",
-    "section": "TEACHING",
-    "text": "TEACHING\nGraduate Tutor in Business Data Analytics\nCardiff University, Cardiff, UK Oct 2025 — Present\n\nDesigned lab work materials and lesson plans for MSc‑level courses on Business Data Analytics, utilizing Python and R programming.\nConducted weekly lab sessions, guiding and assisting students through practical applications of data analysis techniques.\n\nTraining sessions for Data Lab for Social Good Research Group members\n\nIntroduction to Python and Quarto on Visual Studio Code Mar 2025\nIntroduction to Dynamic Programming and Reinforcement Learning May 2025"
-  },
-  {
-    "objectID": "CV/CV.html#work-experiences",
-    "href": "CV/CV.html#work-experiences",
-    "title": "PhD Researcher | Data Scientist & Mathematical Modeller",
-    "section": "WORK EXPERIENCES",
-    "text": "WORK EXPERIENCES\nReporting and Data Analytics Executive\nAKBANK (a leading bank in Turkey), Istanbul Jun 2022 — Sep 2024\n\nApplied time-series forecasting and machine learning techniques, including ARIMA, Bayesian Time Series, Prophet, ANN, LSTM, Random Forest, LightGBM and XGBoost, to historical data for making long-horizon forecasts of daily customer call volume. The winning model helped to allocate resources effectively, reducing customer wait times by 6%.\nImplemented machine learning models (e.g., XGBoost, LightGBM, CatBoost) to predict customer behavior with an over recall rate of 70% and an accuracy rate of 85%, enabling fewer customer complaints and increase sales by 14%.\nAnalyzing large amounts of data to identify trends and find patterns, signals and hidden stories within customer calls data.\nApplied machine learning techniques (Z-score, IsolationForest) to detect anomalies.\nApplied unsupervised machine learning techniques (DBSCAN, Gaussian mixture, K-means) to cluster customers.\nHyperparameter tuning for machine learning models using Hyperopt, Optuna and KerasTuner.\n\nResearch Associate\nThe Economic Policy Research Foundation of Turkey (Think Tank), Ankara Jan 2022 — Apr 2024\n\nDetermined areas of research to increase knowledge in the particular field.\nUtilizing inferential statistics such as hypothesis testing (e.g., t-test, ANOVA test, population proportion test), confidence intervals, correlation analysis and regression analysis to make inferences and draw conclusions about data.\nDeveloped statistical models (regression analysis, panel data modeling) for regional development projects to contribute to data-driven decisions.\n\nSenior Process Development Analyst\nETI GIDA Inc (a major FMCG player in Turkey), Eskisehir Jun 2019 — Jan 2022\n\nInteracted with internal customers to understand business needs and translate into requirements and project scope.\nAssessed the impact of current business processes on users and stakeholders and evaluated potential areas for improvement.\nMaintained strong working knowledge of ERP (SAP), CRM and business intelligence tools and operational features.\n\nInternal Auditor\nTurk Telekom Inc. (the telecom giant of Turkey), Ankara Nov 2015 — Jun 2019\n\nPerformed strategic planning, execution and finalization of audits using data analytics and critical thinking skills.\nInvestigated discrepancies discovered during the auditing process.\nRecommended new methods to improve internal controls and operating efficiency."
-  },
-  {
-    "objectID": "CV/CV.html#research-interests",
-    "href": "CV/CV.html#research-interests",
-    "title": "PhD Researcher | Data Scientist & Mathematical Modeller",
-    "section": "RESEARCH INTERESTS",
-    "text": "RESEARCH INTERESTS\n\nHealthcare analytics\nData-driven decision making\nStatistical learning and Machine learning\nReinforcement learning and stochastic optimization in decision making\nTime series forecasting\nProbabilistic forecasting\nConformal prediction"
-  },
-  {
-    "objectID": "CV/CV.html#skills-expertise",
-    "href": "CV/CV.html#skills-expertise",
-    "title": "PhD Researcher | Data Scientist & Mathematical Modeller",
-    "section": "SKILLS & EXPERTISE",
-    "text": "SKILLS & EXPERTISE\nExpertise: Mathematical and Statistical Modeling, Machine Learning, Time Series Analysis and Forecasting, Stochastic Optimization and Reinforcement Learning, Statistical and Explanatory Data Analysis, web scraping in Python\nProgramming: Python SQL\nReporting: Quarto Advanced Excel QlikView SAS\nLanguages English (Fluent), Kurdish (Native), Turkish (Native)"
-  },
-  {
-    "objectID": "CV/CV.html#professional-development",
-    "href": "CV/CV.html#professional-development",
-    "title": "PhD Researcher | Data Scientist & Mathematical Modeller",
-    "section": "PROFESSIONAL DEVELOPMENT",
-    "text": "PROFESSIONAL DEVELOPMENT\n\nCertification:\n\nData Science: Machine Learning, HarvardX (edX)\n\nBooks (some of my go-to books):\n\nForecasting: Principles and Practice (Hyndman et al, 2021)\nIntroduction to Statistical Learning with Applications in R (Tibshirani et al, 2019)\nThe Elements of Statistical Learning (Tibshirani et al, 2008)\nProbabilistic Machine Learning: An Introduction (Murphy. 2022)\nReinforcement Learning: An Introduction (Barto et al, 2018)\nReinforcement Learning and Stochastic Optimization (Powell, 2022)\nA Student’s Guide to Bayesian Statistics (Lambert, 2018)\nDive into deep learning (Zhang, 2022)"
-  },
-  {
-    "objectID": "CV/CV.html#scholarships-grants",
-    "href": "CV/CV.html#scholarships-grants",
-    "title": "PhD Researcher | Data Scientist & Mathematical Modeller",
-    "section": "Scholarships & Grants",
-    "text": "Scholarships & Grants\n\nWelsh Graduate School for the Social Sciences (WGSSS) Studentship Award Aug 2024\nNATCOR Bursaries / EURO Funding for Stochastic Modelling Mar 2025\nThe Best Presentation Award at the 5th Welsh Postgraduate Research Cluster Workshop Sep 2025"
-  },
-  {
-    "objectID": "CV/CV.html#references",
-    "href": "CV/CV.html#references",
-    "title": "PhD Researcher | Data Scientist & Mathematical Modeller",
-    "section": "References",
-    "text": "References\nAvailable upon request"
-  },
-  {
     "objectID": "learn/index.html",
     "href": "learn/index.html",
     "title": "MUSTAFA ASLAN",
