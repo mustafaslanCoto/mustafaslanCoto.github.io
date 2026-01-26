@@ -16,9 +16,8 @@ website:
 
       - href: talks/index.qmd
         text: TALKS
-
-      - href: CV/CV.qmd
-        text: CV
+      # - href: CV/CV.qmd
+      #   text: CV
 
     tools:
       - icon: envelope

@@ -1,9 +1,9 @@
 ---
-title: PhD Researcher | Data Scientist & Mathematical Modeller
+title: PhD Researcher | Data Scientist
 author: Mustafa Aslan
 jobtitle: "PhD Researcher • Data Scientist"
 format:
-  html: default
+  # html: default
   quarto-cv-pdf:
     mainfont: "TeX Gyre Heros"
     linkcolor: "mycolor"
@@ -56,7 +56,7 @@ format-links:
 
 -   Recipient of WGSSS-ESRC Studentship Award
 -   Project focused on enhancing discharge planning process using probabilistic modelling
-    -   Supervisors: [Prof Bahman Rostami-Tabar](https://www.bahmanrt.com/), [Dr. Jeremy Dixon](https://profiles.cardiff.ac.uk/staff/dixonj7)
+    -   Supervisors: [Prof Bahman Rostami-Tabar](https://bahmanrostamitabar.github.io/), [Dr. Jeremy Dixon](https://profiles.cardiff.ac.uk/staff/dixonj7)
 
 **MSc in Financial Mathematics**\
 [**Middle East Technical University, Ankara, Turkey**]{.cvinstitution} \hfill [*Oct 2017 --- Aug 2021*]{.cvdate}
@@ -124,10 +124,9 @@ format-links:
 -   Healthcare analytics
 -   Data-driven decision making
 -   Statistical learning and Machine learning
--   Reinforcement learning and stochastic optimization in decision making
+-   Reinforcement learning and stochastic optimization
 -   Time series forecasting
 -   Probabilistic forecasting
--   Conformal prediction
 
 ## **SKILLS & EXPERTISE** {style="page-break-before: always"}
 
