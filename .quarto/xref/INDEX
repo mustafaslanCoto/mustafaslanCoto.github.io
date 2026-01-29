@@ -26,5 +26,17 @@
   "CV/CV.qmd": {
     "CV.html": "4f102704",
     "CV.tex": "caf1f6a5"
+  },
+  "workshops/index.qmd": {
+    "index.html": "8d91f1ce"
+  },
+  "learn/index.qmd": {
+    "index.html": "114a3382"
+  },
+  "learn/prob_stats/cond_index.qmd": {
+    "cond_index.html": "9d2264ca"
+  },
+  "learn/cond_dists/cond_dist_notebook.ipynb": {
+    "cond_dist_notebook.html": "8f738fe3"
   }
 }

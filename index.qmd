@@ -1,5 +1,5 @@
 ---
-title: "Researcher & Data Scientist"
+title: "PhD Researcher & Data Scientist"
 subtitle: "[Cardiff University](https://www.cardiff.ac.uk/)"
 image: images/pphoto.jpeg
 card-style: "summary"
@@ -17,12 +17,14 @@ about:
         - icon: linkedin
           text: LinkedIn
           href: https://www.linkedin.com/in/aslanmu/
+        - icon: mortarboard-fill
+          text: University
+          href: https://profiles.cardiff.ac.uk/staff/aslanm
 ---
 
-<br>
+I am a PhD researcher in the [Data Lab for Social Good Research Group](https://www.cardiff.ac.uk/research/explore/research-units/data-lab-for-social-good) at Cardiff University, UK. My research focuses on reducing delays and inefficiencies in hospital discharge processes and patient flow. Specifically, I work to improve discharge care coordination and operational effectiveness, including workforce planning and patient care delivery. To achieve this, I develop decision-making frameworks that integrate probabilistic predictive models with sequential optimization techniques. My work also leverages machine learning based causal inference methods to provide actionable insights for healthcare providers and administrators on the factors contributing to discharge delays and inefficiencies. In addition to my PhD work, I lead research seminars within the Data Lab for Social Good Research Group.
 
-I am currently pursuing a PhD at Cardiff Business School, where I specialise in developing AI&machine learning models for healthcare management. My research involves developing and refining advanced statistical&machine learning techniques to analyse complex datasets, aiming to enhance decision-making processes in real-world applications. In addition to my PhD work, I manage the Learning Labs workshop series, providing training on machine learning, statistics, reinforcement learning and forecasting methodologies using Python. I am also responsible for organizing seminars for the [Data Lab for Social Good](https://www.cardiff.ac.uk/research/explore/research-units/data-lab-for-social-good), delivering sessions on AI, machine learning, forecasting, mathematical modeling, and optimization techniques.
-
+I am passionate about mathematical modeling and uncertany quantification to address complex healthcare challenges under uncertainty. I particularly enjoy building these models from scratch in Python as reusable packages, with applications in healthcare operations and patient care delivery.
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 

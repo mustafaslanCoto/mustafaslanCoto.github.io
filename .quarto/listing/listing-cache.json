@@ -2,6 +2,12 @@
   "listingMap": {
     "talks/index.qmd": [
       "presentations"
+    ],
+    "workshops/index.qmd": [
+      "trainings"
+    ],
+    "learn/index.qmd": [
+      "prob_stats"
     ]
   }
 }
