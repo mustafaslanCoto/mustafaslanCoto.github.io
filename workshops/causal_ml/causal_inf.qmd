@@ -1,0 +1,1192 @@
+---
+format:
+  revealjs:
+    css: style.css
+    width: 1920
+    height: 1080
+    footer: "[Causal Inference with Machine Learning](https://mustafaslancoto.github.io/talks/)"
+    slide-number: c/t
+    html-math-method: mathjax
+    # margin: 0.1
+    # min-scale: 0.2
+    # max-scale: 2.0
+---
+
+{{< include title-slide.html >}}
+
+##
+
+<br>
+<br>
+
+[Outline]{.mimic-h2}
+
+:::{style="font-weight: bold;"}
+- Introduction to Linear Regression, Causal Inference, and Machine Learning
+- Regularization Techniques for Linear Regression in High-Dimensional Settings
+- Statistical Inference on Causal Effects in High Dimensional Linear Regression Models
+- Statistical Inference on Predictive and Causal Effects in Modern Nonlinear Regression Models
+:::
+
+##
+
+<br>
+<br>
+
+[Outline]{.mimic-h2}
+
+:::{style="font-weight: bold;"}
+- [Introduction to Linear Regression, Causal Inference, and Machine Learning]{style="color: #1A6872;"}
+- Regularization Techniques for Linear Regression in High-Dimensional Settings
+- Statistical Inference on Causal Effects in High Dimensional Linear Regression Models
+- Statistical Inference on Predictive and Causal Effects in Modern Nonlinear Regression Models
+:::
+
+
+## Foundations of Linear Regression
+
+Will be added
+
+## Overfitting: What happens when $p/n$ is large?
+
+:::: {.columns}
+::: {.column width="60%" .fragment}
+
+- When the number of predictors $p$ is large relative to the number of observations $n$, models can become overly complex and fit the noise in the training data rather than the underlying signal.
+
+- Consider an example where $p = n$ and all $X$ variables are independent standard normal random variables. In this case, we have
+
+$$
+\text{MSE}_{sample} = 0 \quad \text{and} \quad R^2_{sample} = 1
+$$
+
+::: {style="padding: 10px; margin: 10px 0; border-left: 1px solid #a0a0a0; text-align: center;"}
+[**WHY?**]{style="color: #1A6872;"}
+:::
+
+- Here we have extreme **overfitting**: the model perfectly fits the training data but fails to generalize.
+
+:::
+
+::: {.column width="40%" .fragment}
+
+::: {style="border-left: 1px solid #ccc; padding-left: 20px;"}
+
+[Overfitting Example]{.cust_title}
+
+:::
+
+::: {style="border-left: 1px solid #ccc; padding-left: 20px;"}
+
+```{python}
+#| fig-width: 100%
+#| fig-align: center
+#| fig-height: 50%
+
+# Simulate data to show overfitting when p = n and show in line plot how each scatter point is perfectly fit
+import numpy as np
+import matplotlib.pyplot as plt
+plt.rcParams['figure.facecolor'] = "#FBFAF4"
+plt.rcParams['axes.facecolor'] = "#FBFAF4"
+np.random.seed(0)
+n = 70
+p = 50
+X = np.random.randn(n, p)
+beta = np.random.randn(p)
+y = X @ beta + np.random.randn(n) * 0.1
+
+test_size = 20
+# keep last 20 points for testing
+X_train, y_train = X[:-test_size], y[:-test_size]
+X_test, y_test = X[-test_size:], y[-test_size:]
+# Fit linear model
+from sklearn.linear_model import LinearRegression
+model = LinearRegression().fit(X_train, y_train)
+y_pred = model.predict(X_train)
+plt.figure(figsize=(10,5))
+plt.scatter(range(len(y_train)), y_train, label='True y', s=50)
+plt.plot(range(len(y_train)), y_pred, color='red', label='Predicted y', linewidth=2)
+plt.xlabel('data point', fontsize=16)
+plt.xticks(fontsize=14)
+plt.ylabel('y value', fontsize=16)
+plt.yticks(fontsize=14)
+plt.legend(fontsize=16)
+plt.title(f'Train Set Performance: p = {p} and n = {n - test_size}', fontsize=18)
+plt.show()  
+```
+
+```{python}
+#| fig-width: 100%
+#| fig-align: center
+#| fig-height: 50%
+
+# plot performance on test set
+y_test_pred = model.predict(X_test)
+plt.figure(figsize=(10,5))
+plt.scatter(range(len(y_test)), y_test, label='True y', s=50)
+plt.plot(range(len(y_test)), y_test_pred, color='red', label='Predicted y', linewidth=2)
+plt.xlabel('data point', fontsize=16)
+plt.xticks(fontsize=14)
+plt.ylabel('y value', fontsize=16)
+plt.yticks(fontsize=14)
+plt.legend(fontsize=16)
+plt.title(f'Test Set Performance: p = {p} and n = {test_size}', fontsize=18)
+plt.show()  
+
+```
+
+:::
+
+:::
+::::
+
+## Inference about Predictive Effects or Association
+
+- Predictive effects describe how our (population best linear) predictions change when a value of [target regressor]{style="color: #B2582D;"} changes, holding all other regressors constant.
+
+- Specifically, we partition the vector of regressors $X$ into two parts: the target regressor of interest $D$ and the remaining regressors $W$ (also called control variables or covariates).
+
+$$
+X = (D, W'),
+$$
+
+- We can then write the best linear predictor of $Y$ given $X$ as
+
+$$
+Y =  \beta_1 D + \beta^{'}_2 W + \epsilon
+$$
+
+::: {style="padding: 10px; margin: 10px 0; border-left: 1px solid #ccc; text-align: left;"}
+[How does the predicted value of change if increases by a unit while remains
+unchanged?]{style="color: #1A6872;"}
+:::
+
+## {}
+
+- The predictive value of $Y$ changes by $\beta_1$ units when $D$ increases by one unit.
+
+<br>
+
+- Note that this interpretation is purely predictive and does not imply causality.
+
+<br>
+
+::: {style="padding: 10px; margin: 10px 0; text-align: center;"}
+[**WHY?**]{style="color: #1A6872;"}
+:::
+
+<br>
+
+- This is because we are holding all other regressors $W$ constant, which may not be realistic in practice.
+
+<br>
+
+
+- Example: In a wage regression, $D$ could be years of education, and $W$ could include experience, gender, and location. The coefficient on education ($\beta_1$) tells us how much more (or less) we predict someone will earn for each additional year of education, with the same experience, gender, and location.
+
+## Understanding $\beta_1$ via [“Partialling-Out”]{style="color: #1A6872;"}
+
+- "Partialling-out" is the process of isolating the effect of the target regressor $D$ on the outcome variable $Y$ by removing the influence of the control variables $W$.
+
+- Partialling-out operation is define as a procedure with three steps:
+
+  1. Regress $Y$ on $W$ and obtain the residuals $\tilde{Y}$.
+
+  $$
+  Y = \gamma^{'}_{YW} W + u \quad \Rightarrow \quad \tilde{Y} = Y - \hat{Y} = Y - \gamma^{'}_{YW} W
+  $$
+
+
+  2. Regress $D$ on $W$ and obtain the residuals $\tilde{D}$.
+
+  $$
+  D = \gamma^{'}_{DW} W + v \quad \Rightarrow \quad \tilde{D} = D - \hat{D} = D - \gamma^{'}_{DW} W
+  $$
+
+  3. Regress the residuals $\tilde{Y}$ on the residuals $\tilde{D}$ to estimate $\beta_1$.
+
+  $$
+  \tilde{Y} = \beta_1 \tilde{D} + \tilde{\epsilon}
+  $$
+
+
+## 
+
+We can also show partialling-out procedure by partialling-out operation to both sides of our regression equation
+
+$$
+Y =  \beta_1 D + \beta^{'}_2 W + \epsilon
+$$
+
+to get
+
+$$
+\tilde{Y} = \beta_1 \tilde{D} + \beta^{'}_2 \tilde{W} + \tilde{\epsilon}
+$$
+
+Which simplifies to
+
+$$
+\tilde{Y} = \beta_1 \tilde{D} + \epsilon
+$$
+
+::: {style="padding: 10px; margin: 10px 0; border-left: 1px solid #ccc; text-align: left;"}
+[**Why** does $\tilde{W}$ disappear in the partialled-out regression?]{style="color: #1A6872;"} \
+[**Why** $\tilde{\epsilon} = \epsilon$?]{style="color: #1A6872;"}
+::: 
+
+**Interpretation of $\beta_1$ in Partialling-Out**
+
+- $\beta_1$ can be interpreted as the effect of $D$ on $Y$ after removing the influence of $W$ as univariate linear regression of *residualized* $Y$ on *residualized* $D$.
+
+- Residuals are defined by partialling-out the linear effects of $W$ from both $Y$ and $D$.
+
+##
+
+::: {style="padding: 10px; margin: 10px 0; text-align: left; font-size: 1.4em; font-weight: bold;"}
+
+<br>
+<br>
+
+::: {.fragment}
+[When $p/n$ is large, using linear regression for partialling-out can lead to overfitting issues, resulting in biased estimates of $\beta_1$.]{style="color: #BF505C;"}
+:::
+
+<br>
+
+:::{.fragment}
+[To address this, we can use dimension reduction or regularization techniques, such as Lasso or Ridge regression, during the partialling-out steps.]{style="color: #707C36;"}
+:::
+
+:::
+
+##
+
+<br>
+<br>
+
+[Outline]{.mimic-h2}
+
+:::{style="font-weight: bold;"}
+- Introduction to Linear Regression, Causal Inference, and Machine Learning
+- [Regularization Techniques for Linear Regression in High-Dimensional Settings]{style="color: #1A6872;"}
+- Statistical Inference on Causal Effects in High Dimensional Linear Regression Models
+- Statistical Inference on Predictive and Causal Effects in Modern Nonlinear Regression Models
+:::
+
+## Linear Regression with High-Dimensional <br> Covariates
+
+:::: {.columns}
+::: {.column width="60%"}
+
+- A regression model
+
+$$
+Y = \beta^{'} X + \epsilon, \quad \epsilon \perp X,
+$$
+
+::: {style="margin-left: 1.5em;"}
+where $\beta^{'} X$ is the population best linear predictor of $Y$ given $X$.
+:::
+
+
+- The vector $X = (X_1, X_2, \ldots, X_p)$ represents the $p$ covariates ($p$ regressors).
+
+::: {style="padding: 10px; margin: 10px 0; text-align: center; font-size: 1.2em; font-weight: bold;"}
+
+[$p$ is large, possibly larger than $n$]{style="color: #1A6872;"}
+
+:::
+
+- This case where is very large is what we call a [high-dimensional]{style="color: #1A6872;"} setting.
+:::
+
+::: {.column width="40%"}
+![](images\high_dimens.png){width=1920px height=1250px fig-align="center" style="margin-top: -291px; margin-right: -251px;"}
+:::
+
+::::
+
+## Constructed Regressors
+
+- In high-dimensional settings, we often create new features from the original covariates to capture complex relationships.
+
+- if $W$ are raw covariates, we can create *technical (constructed) regressors* $X$ by including polynomial terms, interaction terms, or other transformations of $W$.
+
+$$
+X = P(W) = (P_1(W), P_2(W), \ldots, P_p(W))'
+$$
+
+[where the set of transformations $P(W)$ can be very large, leading to a high-dimensional feature space.]{style="margin-left: 50px;"}
+
+- Example transformations include squared terms ($W_i^2$), interaction terms ($W_i W_j$), and higher-order polynomials ($W_i^3$, etc.).
+
+##
+
+:::: {.columns}
+::: {.column width="50%"}
+
+<br>
+
+[Why Do We Need Constructed Regressors?]{.mimic-h2}
+
+- The main motivation for using constructed regressors is to built more flexible models that can capture non-linear relationships and interactions among the original covariates.
+
+- By expanding the feature space in prediction rules, $\beta^{'} X = \beta^{'} P(W)$, we can approximate complex functions of the original covariates $W$ more accurately.
+
+<br>
+
+::: {style="padding: 10px; margin: 10px 0; text-align: center; font-size: 1.2em; font-weight: bold;"}
+[$\beta^{'} P(W)$ are nonlinear in $W$ but still linear in parameters $\beta$.]{style="color: #1A6872;"}
+:::
+
+:::
+
+:::{.column width="50%"}
+::: {style="border-left: 1px solid #ccc; padding-left: 20px;"}
+
+```{python}
+import numpy as np
+import pandas as pd
+
+# simulate some data to show constructed regressors and show how they can capture nonlinear relationships in scatter plot 
+X = np.linspace(-3, 3, 100)
+# true relationship is quadratic
+y = 2 * X**2 + np.random.randn(100) * 2
+# create dataframe
+df = pd.DataFrame({'X': X, 'y': y})
+# create constructed regressors
+df['X_squared'] = df['X'] ** 2
+df['X_cubed'] = df['X'] ** 3
+import matplotlib.pyplot as plt
+plt.rcParams['figure.facecolor'] = "#FBFAF4"
+plt.rcParams['axes.facecolor'] = "#FBFAF4"
+plt.figure(figsize=(12,6))
+plt.scatter(df['X'], df['y'], label='True relationship', s=50)
+# fit linear regression with constructed regressors
+from sklearn.linear_model import LinearRegression
+# first create a modej just with X to show poor fit
+model_simple = LinearRegression().fit(df[['X']], df['y'])
+y_pred_simple = model_simple.predict(df[['X']])
+plt.plot(df['X'], y_pred_simple, color='#BF505C', label='Linear fit', linewidth=2)
+# now fit with constructed regressors
+model = LinearRegression().fit(df[['X', 'X_squared', 'X_cubed']], df['y'])
+y_pred = model.predict(df[['X', 'X_squared', 'X_cubed']])
+plt.xlabel('X', fontsize=16)
+plt.xticks(fontsize=14)
+plt.ylabel('y', fontsize=16)
+plt.yticks(fontsize=14)
+plt.legend(fontsize=16)
+plt.title('Simple Linear Regression with just $X$', fontsize=18)
+plt.text(-1, 12, r'$y = \beta_0 + \beta_1 X + \epsilon$', fontsize=14, bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5))
+plt.show()
+
+```
+
+```{python}
+# now show the plot for constructed regressors only
+plt.figure(figsize=(12,6))
+plt.scatter(df['X'], df['y'], label='True relationship', s=50)
+plt.plot(df['X'], y_pred, color='#707C36', label='Constructed Regressors fit', linewidth=2)
+plt.xlabel('X', fontsize=16)
+plt.xticks(fontsize=14)
+plt.ylabel('y', fontsize=16)
+plt.yticks(fontsize=14)
+plt.legend(fontsize=16)
+plt.title('Constructed Regressors with Nonlinear Terms', fontsize=18)
+plt.text(-1, 12, r'$y = \beta_0 + \beta_1 X + \beta_2 X^2 + \beta_3 X^3 + \epsilon$', fontsize=14, bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5))
+plt.show()
+```
+
+:::
+:::
+::::
+
+
+## Best Predictor
+
+- In the population, the best predictor of $Y$ given $W$ is
+
+$$
+g(W) = E[Y|W]
+$$
+
+[the conditional expectation of $Y$ given $W$. The function $g(W)$ is called the regression function of $Y$ on $W$.]{style="margin-left: 50px;"}
+
+- The conditional expectation funnction $g(W)$ solves the best prediction
+problem
+
+$$
+\min_{m(W)} E[(Y - m(W))^2].
+$$
+
+- Here we minimize the mean squared prediction error over all prediction rules $m(W)$.
+
+- $\beta^{'} P(W)$ is an approximation to best predictor $g(W)$
+
+- Using richer and more complex constructed regressors $P(W)$ allows us to better approximate the true regression function $g(W)$.
+
+## Motivation for Regularization
+
+<br>
+
+- Classical linear regression can perform poorly in high-dimensional settings due to [overfitting]{style="color: #BF505C;"}.
+
+<br>
+
+- This is especially apparent when $p \geq n$.
+
+<br>
+
+- Regularization techniques, such as Lasso and Ridge regression, help mitigate overfitting by adding a penalty term to the loss function.
+
+## Lasso Regression
+
+- Lasso (Least Absolute Shrinkage and Selection Operator) regression adds a penalty to the loss function
+
+- Lasso constructs the estimator $\hat{\beta}$ by solving the following penalized least squares problem:
+
+$$
+\min_{b \in \mathbb{R}^p} \left\{ \frac{1}{n} \sum_{i=1}^{n} (Y_i - b^{'} X_i)^2 + \lambda \sum_{j=1}^{p} |b_j| \right\}
+$$
+
+
+- The first term is the usual mean squared error, while the second term is called a [penalty term]{style="color: #BF505C;"}.
+
+- The tuning parameter $\lambda \geq 0$ controls the strength of the penalty.
+
+- Lasso performs both [variable selection and regularization]{style="color: #1A6872;"}, shrinking some coefficients to exactly zero, effectively selecting a simpler model.
+
+- As long as $\lambda > 0$, the introduction of the penalty term leads to a prediction rule that is less complex and less prone to overfitting compared to ordinary least squares.
+
+## How to Choose the Tuning Parameter $\lambda$?
+
+- The tuning parameter $\lambda$ in Lasso regression controls the trade-off between fitting the training data well and keeping the model simple.
+
+  - A larger $\lambda$ increases the penalty for large coefficients, leading to a sparser model with more coefficients set to zero.
+
+  - A smaller $\lambda$ allows the model to fit the training data more closely, potentially leading to overfitting if $p$ is large relative to $n$.
+
+- Common methods for selecting $\lambda$ include:
+
+  - A theoretically valid choice is
+
+$$
+\lambda = 2 c \hat{\sigma} \sqrt{n} \Phi^{-1}(1 - \alpha / (2p))
+$$
+
+::: {style="margin-left: 60px;"}
+where $\hat{\sigma}$ is an estimate of the standard deviation of the error term, $\Phi^{-1}$ is the inverse CDF of the standard normal distribution, and $c > 1$ is a constant, and $\alpha$ is a small significance level (e.g., 0.05).
+:::
+
+  - Cross-validation: Split the data into training and validation sets multiple times, fit the model for different values of $\lambda$, and choose the one that minimizes the average validation error.
+
+##
+
+<br>
+<br>
+
+::: {style="padding: 10px; margin: 10px 0; text-align: left; font-size: 1.4em; border-left: 4px solid #BF505C; font-weight: bold;" .fragment}
+
+[Lasso shrinks relevant regressors towards zero and *“underestimates”* the absolute
+value of the coefficients.]{style="color: #BF505C;"}
+
+:::
+
+<br>
+
+::: {style="padding: 10px; margin: 10px 0; text-align: left; font-size: 1.4em; border-left: 4px solid #BF505C; font-weight: bold;" .fragment}
+
+[Therefore, Lasso may not be ideal for inference about predictive effects or causal effects.]{style="color: #BF505C;"}
+:::
+
+
+## Example: Bias in Lasso Coefficients
+
+```{python}
+#| fig-width: 100%
+#| fig-align: center
+#| fig-height: 60%
+
+# Simulate high-dimensional data to show how lasso coeffcients are biased compared to true coefficients
+import numpy as np
+#simulate data
+np.random.seed(0)
+n = 100
+p = 50
+
+# true coefficients with some zeros
+beta_true = np.sort(np.random.randn(p))[::-1]
+beta_true[20:] = np.linspace(0.5, 0.001, 30)
+beta_true = np.sort(beta_true)[::-1]
+X = np.random.randn(n, p)
+y = X @ beta_true + np.random.randn(n) * 0.5 # add noise
+# Fit Lasso regression
+from sklearn.linear_model import Lasso
+lasso = Lasso(alpha=0.2).fit(X, y)
+beta_lasso = lasso.coef_
+import matplotlib.pyplot as plt
+plt.figure(figsize=(12,6))
+plt.plot(range(p), beta_true, marker='o', label='True Coefficients', linestyle='--')
+plt.plot(range(p), beta_lasso, marker='x', label='Lasso Coefficients', linestyle='-')
+plt.xlabel('Coefficient Index', fontsize=16)
+plt.xticks(fontsize=14)
+# add horizontal line at y=0
+plt.axhline(0, color='gray', linestyle='--', linewidth=1)
+plt.ylabel('Coefficient Value', fontsize=16)
+plt.yticks(fontsize=14)
+plt.legend(fontsize=16)
+plt.show()  
+```
+
+## Post-Lasso Estimation
+
+- To mitigate the bias introduced by Lasso, we can use a two-step procedure called Post-Lasso estimation.
+
+- The Post-Lasso estimator is obtained by:
+
+  1. First, use Lasso regression to select a subset of relevant regressors (those with non-zero coefficients).
+
+  2. Then, fit an ordinary least squares regression using only the selected regressors from the first step.
+
+  ::: {style="padding: 10px; margin: 10px 0; text-align: center;"}
+[**Does Post-Lasso, $\hat{\beta^{'}} X$, provide a good approximation to best linear prediction rule, $\beta^{'} X$ ?**]{style="color: #1A6872;"}
+:::
+
+- We will have $s$ selected regressors after Lasso, also called *effective dimension*
+
+- To estimate the Post-Lasso estimator, we need $n/s$ to be sufficiently large to avoid overfitting in the second step.
+
+## Ridge Regression
+
+- Ridge regression is another regularization technique that adds a penalty to the loss function based on the squared magnitude of the coefficients.
+- Ridge regression constructs the estimator $\hat{\beta}$ by solving the following penalized least squares problem:
+
+$$
+\min_{b \in \mathbb{R}^p} \left\{ \frac{1}{n} \sum_{i=1}^{n} (Y_i - b^{'} X_i)^2 + \lambda \sum_{j=1}^{p} b_j^2 \right\}
+$$
+
+- In contrast to Lasso, Ridge regression does not perform variable selection; instead, it shrinks all coefficients towards zero but none are set exactly to zero.
+
+## Elastic Net Regression
+
+- Elastic Net regression combines the penalties of both Lasso and Ridge regression.
+
+$$
+\min_{b \in \mathbb{R}^p} \left\{ \frac{1}{n} \sum_{i=1}^{n} (Y_i - b^{'} X_i)^2 + \lambda_1 \sum_{j=1}^{p} |b_j| + \lambda_2 \sum_{j=1}^{p} b_j^2 \right\}
+$$
+
+- $\lambda_1$ controls the Lasso penalty, while $\lambda_2$ controls the Ridge penalty.
+
+- Two tuning parameters could be selected via cross-validation or other hyperparameter optimization methods in machine learning, such as grid search or Bayesian optimization.
+
+##
+
+<br>
+<br>
+<br>
+
+
+[Choice of Regression Methods in Practice]{.mimic-h2}
+
+- The choice between Lasso, Ridge, and Elastic Net regression depends on the specific characteristics of the data and the goals of the analysis.
+
+- If we are interested in building the best prediction, we can tune each method via cross-validation and select the one with the lowest prediction error on test data.
+
+##
+
+<br>
+<br>
+
+[Outline]{.mimic-h2}
+
+:::{style="font-weight: bold;"}
+- Introduction to Linear Regression, Causal Inference, and Machine Learning
+- Regularization Techniques for Linear Regression in High-Dimensional Settings
+- [Statistical Inference on Causal Effects in High Dimensional Linear Regression Models]{style="color: #1A6872;"}
+- Statistical Inference on Predictive and Causal Effects in Modern Nonlinear Regression Models
+:::
+
+## Causal interpretation of predictive effects
+
+- Remember our regression model with target regressor $D$ and control variables $W$:
+
+$$
+Y =  \beta_1 D + \beta^{'}_2 W + \epsilon
+$$
+
+- If conditioning on $W$ is sufficient to control for confounding between $D$ and $Y$, then $\beta_1$ can be interpreted as the average causal effect of $D$ on $Y$.
+
+- Then, predictive effect of $D$ on $Y$ can answer the causal question:
+
+::: {style="padding: 10px; margin: 10px 0; border-left: 2px solid #1A6872; text-align: left;"}
+[What is the average change in $Y$ when we intervene to increase $D$ by one unit, holding $W$ constant?]{style="color: #1A6872;"}
+:::
+
+## Inference with Double Lasso
+
+The key step is application of Lasso regression for partialling-out in the presence of high-dimensional covariates. Consider the following regression model:
+
+$$
+Y = \alpha D + \beta^{'} W + \epsilon,
+$$
+
+where $D$ is the target regressor of interest and $W$ is a vector of $p$ control variables. After partialling-out $W$ from both $Y$ and $D$, we get
+$$
+\tilde{Y} = \alpha \tilde{D} + \epsilon, \quad E[\epsilon  \tilde{D}]=0,
+$$
+
+where $\tilde{Y}$ and $\tilde{D}$ are the residuals obtained from regressing $Y$ and $D$ on $W$, respectively.
+
+$$
+\tilde{Y} = Y - \gamma_{YW}^{'} W, \quad \gamma_{YW} = \arg\min_{\gamma \in \mathbb{R}^p} E[(Y - \gamma^{'} W)^2],
+$$
+
+$$
+\tilde{D} = D - \gamma_{DW}^{'} W, \quad \gamma_{DW} = \arg\min_{\gamma \in \mathbb{R}^p} E[(D - \gamma^{'} W)^2].
+$$
+
+## Double Lasso Estimation Procedure {.smaller}
+
+1. We run Lasso regressions of $Y$ on $W$ and $D$ on $W$:
+
+$$
+\hat{\gamma}_{YW} = \arg\min_{\gamma \in \mathbb{R}^p} \left\{ \frac{1}{n} \sum_{i=1}^{n} (Y_i - \gamma^{'} W_i)^2 + \lambda \sum_{j=1}^{p} |\gamma_j| \right\},
+$$
+
+$$
+\hat{\gamma}_{DW} = \arg\min_{\gamma \in \mathbb{R}^p} \left\{ \frac{1}{n} \sum_{i=1}^{n} (D_i - \gamma^{'} W_i)^2 + \lambda \sum_{j=1}^{p} |\gamma_j| \right\}.
+$$
+
+2. Compute the residuals $\tilde{Y}$ and $\tilde{D}$:
+
+
+$$
+\tilde{Y} = Y - \hat{\gamma}_{YW}^{'} W, \quad \tilde{D} = D - \hat{\gamma}_{DW}^{'} W.
+$$
+
+3. Finally, we run an ordinary least squares regression of $\tilde{Y}$ on $\tilde{D}$ to estimate $\alpha$:
+
+$$
+\begin{align}
+\hat{\alpha} &= \arg\min_{\alpha \in \mathbb{R}} \frac{1}{n} \sum_{i=1}^{n} ({\tilde{Y}}_i - \alpha {\tilde{D}}_i)^2  \\
+&= (E_n \tilde{D}^2)^{-1} E_n\tilde{D} \tilde{Y}.
+\end{align}
+$$
+
+## Uncertainty in $\hat{\alpha}$
+
+- To quantify the uncertainty of the Double Lasso estimator $\hat{\alpha}$, we can use the following formula for the standard deviation of $\hat{\alpha}$:
+
+$$
+V = (E_n \tilde{D}^2)^{-1} E_n (\tilde{D}^2 \hat{\epsilon}^2) (E_n \tilde{D}^2)^{-1},
+$$
+
+- The standard error of $\hat{\alpha}$ is then:
+
+$$
+\text{SE}(\hat{\alpha}) = \sqrt{V/n}.
+$$
+
+- This allows us to construct confidence intervals and perform hypothesis tests for the estimated causal effect $\hat{\alpha}$. For example, a 95% confidence interval for $\alpha$ can be constructed as:
+
+$$
+\left[\hat{\alpha} \pm 2 \times \sqrt{V/n} \right].
+$$
+
+
+## Example: A comparison of OLS and Double Lasso
+
+### Data
+
+- The outcome $Y$ is the realized annual growth rate of a country’s wealth (Gross
+Domestic Product per capita).
+
+- The target regressor $D$ is the initial level of the country’s wealth.
+
+- The control variables $W$ include [60 covariates]{style="color: #1A6872;"} that capture various aspects of the country's education levels, quality of institutions, trade openness, and political stability in the country
+
+- The sample consists of [$n = 90$ countries]{style="color: #1A6872;"}. Thus we are in a high-dimensional setting with $p/n = 60/90$, which is not small.
+
+- We expect the least squares to provide a poor and noisy estimate of $\alpha$ due to overfitting in the partialling-out step, while Double Lasso should provide a more reliable estimate.
+
+## Results
+
+| Method       | Estimate of $\alpha$ | Std. Error | 95% - CI |
+|--------------|----------------------|----------------|-------------------------|
+| OLS          | -0.009                | 0.030           | [-0.071, 0.052]            |
+| Double Lasso | -0.050                | 0.014           | [-0.078, -0.022]             |
+
+<br>
+
+- Least squares provides a rather noisy estimate of $\alpha$ with a large standard error, leading to a confidence interval that includes zero, suggesting no significant relationship between initial wealth and growth.
+
+- In contrast, Double Lasso provides a more precise estimate of $\alpha$ with a smaller standard error, resulting in a confidence interval that does not include zero, indicating a statistically significant negative relationship between initial wealth and growth.
+
+- The corresponding notebook of the empirical analysis can be found [here](https://mustafaslancoto.github.io/talks/)
+
+## Inference on Many Coefficients
+
+- If we are interested in more than one coefficient, we can repeat the Double Lasso procedure for each target regressor of interest.
+
+- Here we consider the model:
+$$
+Y = \sum_{j=1}^{p_1} \alpha_j D_j + \sum_{k=1}^{p_2} \beta_k W_k + \epsilon,
+$$
+
+&nbsp;&nbsp;&nbsp;&nbsp; where the number of target regressors $p_1$ can also be large, and the number of control variables $p_2$ can be large as well.
+
+## Motivation for Many Coefficients Inference
+
+- There can be multiple policy variables of interest that we want to analyze simultaneously, such as the effects of different education policies on student outcomes.
+
+- We can be interested in heterogeneous treatment effects across different subgroups, which requires estimating multiple coefficients for each subgroup.
+
+- We can be interested in nonlinear effects of policies
+
+## One by One Double Lasso
+
+- For each $j = 1, \ldots, p_1$, we can apply the one-by-one Double Lasso procedure to estimate $\alpha_j$ while treating the other $D_{-j}$ as part of the control variables.
+
+$$
+Y = \alpha_j D_j + \gamma_j{'} W_j + \epsilon, \quad W_j = ((D_{-j})^{'}, W^{'})^{'}
+$$
+
+- The double lasso provides a high quality estimate of $\hat{\alpha} = (\alpha_j)_{j=1}^{p_1}$ for each $j$ and we can construct confidence intervals for each $\alpha_j$.
+
+- This allows us to make inference on multiple coefficients simultaneously, even in high-dimensional settings where $p_1$ and $p_2$ are large relative to $n$.
+
+## Why Partialling-out works: Neyman Orthogonality
+
+- The key to the success of the Double Lasso procedure is the property of [Neyman orthogonality]{style="color: #1A6872;"}, which ensures that the estimation error from the first step (Lasso) does not bias the estimation of $\alpha$ in the second step.
+
+- Neyman orthogonality means that the moment condition used to estimate $\alpha$ is insensitive to small errors in the estimation of the nuisance parameters $\gamma_{YW}$ and $\gamma_{DW}$.
+
+$$
+\eta^{\circ} = (\gamma_{DW}^{'}, \gamma_{YW}^{'})^{'}.
+$$
+
+- The local insensitivity of target parameters to nuisance parameters Neyman
+orthogonality.
+
+$$
+\partial_{\eta} \alpha(\eta^{\circ}) = 0.
+$$
+
+- This property allows us to achieve $\sqrt{n}$-consistency and asymptotic normality of the Double Lasso estimator $\hat{\alpha}$, even when the nuisance parameters are estimated at slower rates due to high dimensionality.
+
+
+## Simulation Example: Neyman Orthogonality
+
+- We compare the performance of the naive and orthogonal methods in a computational
+experiment where we $p=n=100$ and we have $\beta_j = 1/j^2, (\gamma_{DW})_j = 1/j^2$
+
+$$
+Y = 1 D + \beta^{'} W + \epsilon_Y, \quad W \sim N(0, I), \quad \epsilon_Y \sim N(0, 1)
+$$
+
+$$
+D = \gamma_{DW}^{'} W + \tilde{D}, \quad \tilde{D} \sim N(0, 1)/4
+$$
+
+
+## Results
+
+We run 1000 simulations and compute the bias and standard deviation of the naive and orthogonal estimators. The results are as follows:
+
+##
+
+- The reason that the naive estimator does not perform well is that it only selects controls, $W_j$, that are strongly predictive of $Y$ and omitting weak predictors of $Y$ that could be strongly predictive of $D$ leads to omitted variable bias in the estimation of $\alpha$. This is called [ommitted variable bias]{style="color: #BF505C;"}.
+
+- In contrast, the orthogonal estimator is designed to be robust to such selection mistakes, which is why it performs much better in terms of bias and standard deviation.
+
+## Double Selection
+
+- An alternative to the Double Lasso procedure is the Double Selection method, which also uses Lasso for variable selection but in a slightly different way.
+
+- 1. Find controls that predict $Y$ by running a Lasso regression of $Y$ on $W$ and selecting the non-zero coefficients.
+- 2. Find controls that predict $D$ by running a Lasso regression of $D$ on $W$ and selecting the non-zero coefficients.
+- 3. Take the union of the selected controls from both steps and run an ordinary least squares regression of $Y$ on $D$ and the union of selected controls to estimate $\alpha
+
+- This procedure is approximately equivalent to the partialling out approach and also relies on the principle of Neyman orthogonality to achieve valid inference on $\alpha$.
+
+##
+
+<br>
+<br>
+
+[Outline]{.mimic-h2}
+
+:::{style="font-weight: bold;"}
+- Introduction to Linear Regression, Causal Inference, and Machine Learning
+- Regularization Techniques for Linear Regression in High-Dimensional Settings
+- Statistical Inference on Causal Effects in High Dimensional Linear Regression Models
+- [Statistical Inference on Predictive and Causal Effects in Modern Nonlinear Regression Models]{style="color: #1A6872;"}
+:::
+
+## Introduction
+
+- We recall our regression model with target regressor $D$ and control variables $W$, where we ask predictive effect question:
+
+How does the predicted value of outcome $Y$,
+
+$$
+E[Y|D, W],
+$$
+
+change if a regressor value $D$ increases by one init, while regressor values, $W$, remain unchanged
+
+## Double/debiased machine learning (DML) Inference in the Partially Linear Regression Model (PLM)
+
+- A partially linear regression model:
+
+$$
+Y = \alpha D + {\color{#707C36}{g(W)}} + \epsilon, \quad E[\epsilon|D,W] = 0,
+$$ {#eq-gx}
+
+&nbsp;&nbsp;&nbsp;&nbsp; where $Y$ is the outcome variable, $D$ is the treatment variable, $W$ is a vector of control variables.
+
+- The model allows a part of the regression function, $\color{#707C36}{g(W)}$, to be fully nonlinear
+
+- However, the model is not fully general, because it imposes additivity in $\color{#707C36}{g(W)}$ and $D$
+
+## Partialling-Out
+
+Applying partialling-out to @eq-gx, we obtain:
+
+$$
+\tilde{Y} = \alpha \tilde{D} + \epsilon,
+$$
+
+where $\tilde{Y}$ and $\tilde{D}$ are the residuals left after predicting $Y$ and $D$ using $W$.
+
+$$
+\tilde{Y} := Y - \ell(W) \quad \text{and} \quad \tilde{D} := D - m(W),
+$$
+= E[Y|W]
+
+where $\ell(W)$ and $m(W)$ are conditional expectation functions of $Y$ and $D$ given $W$, respectively.
+
+$$
+\ell(W) = E[Y|W], \quad m(W) = E[D|W].
+$$
+
+## DML Estimation Procedure
+
+1. Split the data into random folds: $\{1, \ldots, n\} = \cup_{k=1}^K I_k$. Compute ML estimators $\hat{\ell}_{k}$ and $\hat{m}_k$, leaving out the $k$-th fold of the data. Obtain the cross-fitted residuals for each fold $i \in I_k$:
+
+$$
+\tilde{Y}_i = Y_i - \hat{\ell}_k(W_i), \quad \tilde{D}_i = D_i - \hat{m}_k(W_i).
+$$
+
+2. Apply the ordinary least squares to $\tilde{Y}_i$ on $\tilde{D}_i$ to obtain the DML estimator $\hat{\alpha}$:
+
+$$
+\hat{\alpha} = E_n[(\tilde{Y}_i-\alpha \tilde{D}_i) \tilde{D}_i] =0.
+$$
+
+3. Construct confidence intervals for $\alpha$:
+
+$$
+\left[\hat{\alpha} \pm 2 \times \sqrt{V/n} \right],
+$$
+
+&nbsp;&nbsp;&nbsp;&nbsp; covers $\alpha$ in approximately 95% of repeated samples, where $V$ is the variance of the DML estimator $\hat{\alpha}$.
+
+## Selecting the Best ML Learners of $\hat{\ell}$ and $\hat{m}$
+
+- We can use cross-validation to select the best ML learners for estimating $\hat{\ell}$ and $\hat{m}$.
+
+$$
+\frac{1}{K} \sum_{k=1}^K ||\hat{\ell_k}- \ell||_{L^2}^2 \quad \text{and} \quad \frac{1}{K} \sum_{k=1}^K ||\hat{m_k}- m||_{L^2}^2
+$$
+
+- Rather than selecting a single best learner, we can also use residuals from multiple learners to form linear combinations of the residuals, which can potentially improve the estimation of $\alpha$.
+
+## Properties of DML
+
+- Here, nuisance parameters are $\ell$ and $m$, and the target parameter is $\alpha$.
+
+- Neyman orthogonality of the moment condition for $\alpha$ ensures that estimation errors in $\hat{\ell}$ and $\hat{m}$ do not bias the estimation of $\alpha$.
+
+- The DML algorithm uses cross-fitting to mitigate overfitting. Bias from overfitting could result from highly flexible ML methods such as boosting or neural networks.
+
+## Example: The Effect of Gun Ownership on Homicide Rates
+
+will be considered if add
+
+## DML Inference in the Interactive Regression Model (IRM)
+
+- Here, we relax the additivity assumption in the partially linear regression model.
+
+- We consider estimation of average treatment effects when treatment effects are fully heterogeneous and the treatment variable is binary.
+
+- We consider vectors, $W = (Y, D, X)$, where $Y$ is the outcome variable, $D \in \{0,1\}$ is a binary treatment variable or policy, and $X$ is a vector of control variables.
+
+$$
+Y = g(D, X) + \epsilon, \quad E[\epsilon|D,X] = 0,
+$$ {#eq-irm}
+
+$$
+D = m(X) + \tilde{D}, \quad E[\tilde{D}|X] = 0,
+$$ {#eq-irm-d}
+
+::: {style="padding: 10px; margin: 10px 0; border-left: 2px solid #1A6872; text-align: left;  color: #1A6872;"}
+Since $D$ is not additively separable in the @eq-irm, this model is more general than the partially linear regression model.
+:::
+
+## Average Predictive Effect (APE)
+
+- The average predictive effect (APE) of the binary treatment $D$ on the outcome $Y$ is defined as:
+
+$$
+\theta_0 = E[g(1, X) - g(0, X)]
+$$
+
+&nbsp;&nbsp;&nbsp;&nbsp; which represents the average predictive effect of switching the treatment from 0 to 1, averaging over the distribution of covariates $X$.
+
+- The confounding factors, $X$, affect the policy variable via the propensity score $m(X) = E[D|X]$ and affect the outcome variable via the regression function $g(D, X)$.
+
+## APE Estimation
+
+ATE will be based on the relation:
+
+$$
+\theta_{0} = \mathbb{E}[\varphi_{0}(W)],
+$$ {#eq-irm-ate}
+
+where
+
+$$
+\varphi_{0}(W) = g_{0}(1, X) - g_{0}(0, X) + \bigl(Y - g_{0}(D, X)\bigr) H_{0}
+$$
+
+and
+
+$$
+H_{0} = \frac{\mathbf{1}(D = 1)}{m_{0}(X)} - \frac{\mathbf{1}(D = 0)}{1 - m_{0}(X)}
+$$
+
+is the Horvitz-Thompson transformation.
+
+## DML Estimation Procedure for APEs/ATEs in IRM
+
+1. Split the data into random folds: $\{1, \ldots, n\} = \cup_{k=1}^K I_k$. Compute ML estimators $\hat{g}_{k}$ and $\hat{m}_k$, leaving out the $k$-th fold of the data, such that $\epsilon \le \hat{m}_k \le 1-\epsilon$ for some small $\epsilon > 0$. For each fold $i \in I_k$, compute:
+
+$$
+\hat{\varphi}(W_i) = \hat{g}_{k}(1, X_i) - \hat{g}_{k}(0, X_i) + \bigl(Y_i - \hat{g}_{k}(D_i, X_i)\bigr) \hat{H}_i,
+$$
+
+&nbsp;&nbsp;&nbsp;&nbsp; where $\hat{H}_i = \frac{\mathbf{1}(D_i = 1)}{\hat{m}_k(X_i)} - \frac{\mathbf{1}(D_i = 0)}{1 - \hat{m}_k(X_i)}$.
+
+2. Compute the estimator $\theta_0 = E_n[\hat{\varphi}(W_i)]$.
+
+3. Construct confidence intervals for $\theta_0$:
+
+$$
+\left[\hat{\theta} \pm 2 \times \sqrt{\hat{V}/n} \right],
+$$
+
+&nbsp;&nbsp;&nbsp;&nbsp; where $\hat{V} = E_n[(\hat{\varphi}(W_i) - \hat{\theta})^2]$.
+
+## Group Average Treatment Effects (GATEs)
+
+We may also be interested in estimating group average treatment effects (GATEs) for a subgroup:
+
+$$
+\theta_0(x) = E[g(1, X) - g(0, X)|G = 1],
+$$
+
+where $G$ is is a group indicator defined in terms of covariates $X$.
+
+For example, we might be interested in the impact of a vaccine on teenagers, so $G$ would be an indicator for $13 \leq \text{age} \leq 19$.
+
+DML estimation of GATEs can be done by modifying the estimation procedure for APEs/ATEs to focus on the subgroup defined by $G=1$.
+
+$$
+\hat{\theta}(x) = \mathbb{E}[\varphi_{0}(W) | G=1) =  \frac{E[\hat{\varphi}(W) G]}{\Pr(G=1)}.
+$$
+
+## Example: The effect of 401(k) Eligibility on Net Financial Assets
+
+- The data covers a short period a few years after the introduction of 401(k)’s when they were rapidly increasing in popularity.
+
+- The key problem in determining the effect of 401(k) eligibility is that working for a firm that offers access to a 401(k) plan is not randomly assigned.
+
+- Net financial assets are the outcome variable, $Y$, in the analysis. The treatment variable, $D$, is an indicator for being eligible to enroll in a 401(k) plan. The vector of raw covariates, $X$, consists of age, income, family size, years of education, and a married indicator etc.
+
+## Causal DAGs for the 401(K) Example {.smaller}
+
+::: {layout="[[1,1], [1]]"}
+```{dot}
+//| fig-height: 4
+digraph G {
+    bgcolor="#FBFAF4";
+    rankdir=LR;
+    node [shape=circle, width=0.5];
+    
+    D [label="D" color="#707C36"];
+    Y [label="Y" color="#2CA0AB"];
+    X [label="X"];
+    F [label="F" style="dashed"];
+
+    D -> Y;
+    X -> Y;
+    X -> D;
+    F -> D;
+    F -> X;
+}
+```
+
+```{dot}
+//| fig-height: 4
+digraph G {
+    bgcolor="#FBFAF4";
+    rankdir=LR;
+    node [shape=circle, width=0.5];
+    
+    D [label="D" color="#707C36"];
+    Y [label="Y" color="#2CA0AB"];
+    X [label="X"];
+    F [label="F" style="dashed"];
+
+    D -> Y;
+    X -> Y;
+    X -> D;
+    F -> D;
+    F -> X [dir=back];
+}
+```
+
+```{dot}
+//| fig-height: 4
+digraph G {
+    bgcolor="#FBFAF4";
+    rankdir=LR;
+    node [shape=circle, width=0.5];
+    
+    D [label="D" color="#707C36"];
+    Y [label="Y" color="#2CA0AB"];
+    X [label="X"];
+    F [label="F" style="dashed"];
+    U [label="U" style="dashed"];
+
+    D -> Y;
+    X -> Y;
+    X -> D;
+    F -> D;
+    U -> F;
+    U -> X;
+}
+```
+
+:::
+
+::: {style="margin-top: 10px; font-size: 0.8em; color"}
+Three Causal DAGs for analysis of the 401(K) example in which adjusting for covariates $X$ is sufficient to control for confounding between $D$ and $Y$.
+:::
+<!-- // ```{dot}
+// //| fig-width: 6
+// digraph G {
+//     bgcolor="#FBFAF4";
+//     rankdir=LR;
+//     node [shape=circle, width=0.8];
+    
+//     eP [label=<&epsilon;<sub>P</sub>>, style=dashed];
+//     P [label="P"];
+//     Y [label="Y"];
+//     eY [label=<&epsilon;<sub>Y</sub>>, style=dashed];
+//     X [label="X"];
+    
+//     eP -> P;
+//     P -> Y [label=<&delta;>];
+//     Y -> eY [dir=back];
+//     X -> P [label=<&nu;>];
+//     X -> Y [label=<&beta;>];
+// } -->
+
+## The Local Average Treatment Effect Model (LATE)
+
+Consider a structural Equation Model (SEM) where:
+
+$$
+\begin{aligned}
+Y &:= f_{Y}(D, X, A, \varepsilon_{Y}) \\
+D &:= f_{D}(Z, X, A, \varepsilon_{D}) \in \{0,1\}, \\
+Z &:= f_{Z}(X, \varepsilon_{Z}) \in \{0,1\}, \\
+X &:= \varepsilon_{X}, \quad A := \varepsilon_{A},
+\end{aligned}
+$$
+
+where all $\epsilon$ are all independent.
+
+- Suppose the instrument $Z$ is is an offer to participate in a training program and that the treatment $D$ is actual endogenous participation in the training program. Participation in the program may depend on unobservables, $A$, such as motivation, which also affects the outcome $Y$. The variable $X$ captures observed covariates such as age, education, and work experience.
+
+The model allows us to identify the local average treatment effect (LATE), defined as:
+
+$$
+\theta = E[Y(1) - Y(0)|D(1) > D(0)],
+$$
+
+where ${D(1) > D(0)}$ defines the compliance event, where switching the instrument, $Z$, from 0 to 1.
+
+##
+
+In the LATE model, $\theta$ can be identified by the ratio of two statistical parameters,
+
+$$
+\theta_0 = \theta_1 / \theta_2,
+$$ {#eq-late}
+
+where
+$$
+\theta_1 = E[E[Y|Z=1, X] - E[Y|Z=0, X]],
+$$
+
+and
+$$
+\theta_2 = E[E[D|Z=1, X] - E[D|Z=0, X]].
+$$
+
+
+
+@eq-late is equivalent to the below expression:
+
+$$
+\theta_0 = \frac{E[E[Y|Z=1, X] - E[Y|Z=0, X]]}{E[E[D|Z=1, X] - E[D|Z=0, X]]}.
+$$
+
+
+This parameter is the ratio of the average predictive effect of $Z$ on $Y$ to the average predictive effect of $Z$ on $D$.
+
+
+## DML Estimation for LATE
+
+Define regression functions:
+
+$$
+\begin{aligned}
+\mu_0(Z, X) &= E[Y|Z, X] \\
+m_0(Z, X) &= E[D|Z, X] \\
+p_0(X) &= E[Z|X].
+\end{aligned}
+$$
+
+Therefore, nuance parameters are $\eta = (\mu, m, p)$.
+
+The DML estimator of $\theta$ is given by:
+
+$$
+\psi(W; \theta, \eta) := \mu(1, X) - \mu(0, X) 
+    + H(p)\bigl(Y - \mu(Z, X)\bigr)
+    - \bigl(m(1, X) - m(0, X) + H(p)\bigl(D - m(Z, X)\bigr)\bigr)\theta,
+$$
+
+
+
+for $W = (Y, D, X, Z)$ and
+
+
+$$
+H(p) := \frac{Z}{p(X)} - \frac{1 - Z}{1 - p(X)} .
+$$

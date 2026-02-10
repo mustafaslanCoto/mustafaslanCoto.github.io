@@ -1,0 +1,246 @@
+---
+title: "Causal Inference"
+format:
+  revealjs:
+    css: style.css
+---
+
+## What is Causal Inference?
+
+Causal inference is the process of drawing conclusions about causal relationships based on the conditions of the occurrence of an effect. It goes beyond mere correlation to establish that one event is the result of the occurrence of another event.
+
+
+## Why is Causal Inference Important?
+
+- Helps in understanding the impact of interventions.
+- Essential for policy-making and decision-making.
+- Crucial in fields like medicine, economics, and social sciences. 
+
+
+
+## Bordered Box CSS
+
+::: {.border-box}
+$$
+y = mx + b
+$$
+:::
+
+## Diagram of Causal Relationships
+
+```{dot}
+//| fig-width: 6
+digraph G {
+    bgcolor="#FBFAF4";
+    rankdir=LR;
+    node [shape=circle, width=0.8];
+    
+    eP [label=<&epsilon;<sub>P</sub>>, style=dashed];
+    P [label="P"];
+    Y [label="Y"];
+    eY [label=<&epsilon;<sub>Y</sub>>, style=dashed];
+    X [label="X"];
+    
+    eP -> P;
+    P -> Y [label=<&delta;>];
+    Y -> eY [dir=back];
+    X -> P [label=<&nu;>];
+    X -> Y [label=<&beta;>];
+}
+```
+
+## Table Example
+
+
+```{python}
+#| output: asis
+from IPython.display import Markdown, HTML
+import pandas as pd
+import numpy as np
+
+# Your DataFrame with MultiIndex columns
+arrays = [
+    ["Baseline", "Baseline", "Version2", "Version2"],
+    ["F1",       "F2",       "F1",       "F2"],
+]
+tuples = list(zip(*arrays))
+cols = pd.MultiIndex.from_tuples(tuples, names=["Model", "Metric"])
+
+df = pd.DataFrame(
+    np.array([
+        [0.971, 0.967, 0.971, 0.967],
+        [0.780, 0.762, 0.800, 0.777],
+    ]),
+    index=pd.Index(["G", "H"], name="Dataset"),
+    columns=cols,
+)
+
+# Use to_markdown() for Markdown table (simplest)
+# print(df.to_markdown(index=True))
+
+# OR use to_html() for styled HTML table
+print(df.to_latex(index=True))
+
+
+```
+
+## Tabulate
+
+```{python}
+#| output: asis
+import pandas as pd
+from tabulate import tabulate
+
+
+# Create a sample DataFrame
+data = {
+    "Planet": ["Mars", "Jupiter", "Saturn"],
+    "Radius (km)": [3389, 69911, 58232],
+    "Moons": [2, 95, 146]
+}
+df = pd.DataFrame(data)
+
+# Convert to Markdown table
+print(tabulate(df, headers='keys', tablefmt='pipe', showindex=False))
+# df.style.hide(axis='index')
+```
+
+## latex table
+
+```{python}
+#| output: asis
+#| label: tbl-iris
+#| tbl-cap: "Iris Data"
+import pandas as pd
+
+#| output: asis
+from prettytable import PrettyTable
+table = PrettyTable()
+
+# 1. Prepare simple data (e.g., from your hospital ward metrics)
+data = {
+    "Model": ["AR-MSR", "LASSO", "XGB"],
+    "RMSE": [3.37, 3.79, 4.22],
+    "Overall": [3.45, 3.48, 3.51]
+}
+df = pd.DataFrame(data)
+
+# 2. Initialize and populate PrettyTable
+table = PrettyTable()
+table.field_names = df.columns.tolist()
+for index, row in df.iterrows():
+    table.add_divider()
+    table.add_row(row.tolist())
+# 3. Print the table in LaTeX format
+print(table.get_latex_string())
+```
+
+## Structuring the Causal Question
+
+    ::: {style="text-align: center; margin-top: 1em;"}
+    $$Y(d) = \underbrace{\alpha}_{\text{The Causal Effect}} d + \underbrace{U}_{\text{Idiosyncratic noise}}$$
+    :::
+
+    ::: {style="border: 2px solid #333; padding: 10px; margin: 20px 0; text-align: center;"}
+    **The Reality: $D$ is Endogenous**
+    :::
+
+    ::: {style="text-align: center;"}
+    $$Y = \underbrace{\alpha D}_{\text{Price / Treatment}} + \underbrace{g(W)}_{\text{The Environment / Confounding Factors}} + \epsilon$$
+    :::
+
+    ::: {.columns}
+    ::: {.column width="70%"}
+    ::: {style="font-size: 0.7em; margin-top: 20px; color: #555;"}
+    *Identifying the function $g(W)$ is the key to isolating $\alpha$.*
+    :::
+    :::
+
+    ::: {.column width="30%"}
+    ::: {style="font-size: 0.6em; border-left: 1px solid #ddd; padding-left: 15px;"}
+    Our journey is determining what $W$ is, and how to effectively ‘partial it out’ to isolate $\alpha$.
+    :::
+    :::
+    :::
+
+
+## optional
+
+## Structuring the Causal Question
+### The Causal Goal
+::: {style="text-align: center;"}
+
+$$
+Y(d) = \underset{\substack{\nearrow \\ \text{The Causal Effect}}}{\alpha d} + \underset{\substack{\uparrow \\ \text{Idiosyncratic noise}}}{U}
+$$
+:::
+
+::: {style="border: 1px solid #333; padding: 10px; margin: 30px 0; text-align: center;"}
+The Reality: $D$ is Endogenous
+:::
+
+
+## Structuring the Causal Question
+
+
+:::: {.columns}
+
+::: {.column width="80%"}
+
+<div style="text-align: center; margin-top: 1em;">
+  <p style="font-size: 1.1em; margin-bottom: 0.2em;">The Causal Goal</p>
+  <p style="font-size: 2em; margin: 0;">$Y(d) = \alpha d + U$</p>
+  
+  <div style="display: flex; justify-content: center; gap: 20px; margin-top: -10px;">
+    <div style="font-size: 0.6em; text-align: center;">
+      The Causal Effect we seek<br>
+      $\color{gray}{\xnearrow[\quad]{\text{  }}}$
+    </div>
+    <div style="font-size: 0.6em; text-align: center;">
+      <br>
+      $\color{gray}{\xnwarrow[\quad]{\text{  }}}$ Idiosyncratic noise
+    </div>
+  </div>
+</div>
+
+<div style="border: 1.5px solid #333; padding: 15px; margin: 40px auto; width: 90%; text-align: center; font-size: 1.2em;">
+  The Reality: $D$ is Endogenous
+</div>
+
+<div style="text-align: center;">
+  <p style="font-size: 2em; margin: 0;">$Y = \alpha D + g(W) + \epsilon$</p>
+  
+  <div style="display: flex; justify-content: center; gap: 10px; margin-top: -10px;">
+    <div style="font-size: 0.5em; text-align: center; width: 150px;">
+      Price / Treatment<br>
+      $\color{gray}{\xnearrow[\qquad]{\text{  }}}$
+    </div>
+    <div style="font-size: 0.5em; text-align: left; width: 300px;">
+      <br>
+      $\color{gray}{\xnwarrow[\qquad\qquad]{\text{  }}}$ **The Environment / Confounding Factors.**<br>Identifying this function is the key.
+    </div>
+  </div>
+</div>
+
+:::
+
+::: {.column width="20%" style="border-left: 1px solid #ddd; padding-left: 20px; font-size: 0.65em; height: 100%; display: flex; align-items: center;"}
+<div>
+Our journey is determining what $W$ is, and how to effectively ‘partial it out’ to isolate $\alpha$.
+</div>
+:::
+
+::::
+
+## sadasdas
+
+:::: {.columns}
+::: {.column width="50%" .fragment}
+![](images/gemini_well.png){.image-left}
+:::
+
+::: {.column width="50%" .fragment}
+- Here is some text next to the image.
+- More text explaining the image.
+:::
+::::

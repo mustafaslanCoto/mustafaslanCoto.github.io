@@ -1,0 +1,61 @@
+---
+title: "Causal Inference via Machine Learning"
+description: "Workshop"
+author: "Mustafa Aslan"
+date: "2026-02-13"
+# image: "../images/agent_env.png"
+categories:
+  - Machine Learning
+  - Causal Inference
+link-external-newwindow: true
+---
+
+
+<!-- ![](../images/agent_env.png){fig-align="center"} -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+[<i class="fas fa-bookmark"></i> Slides](../causal_ml/slides.qmd){.btn .btn-sm .btn-outline-primary}
+<!-- [<i class="fab fa-python"></i> Code](../rl/rl.ipynb){.btn .btn-sm .btn-outline-primary} -->
+
+
+**Date:** February 13, 2026 10:00 AM – 13:00 PM\
+**Event:** Data Lab for Social Good Training Session\
+**Location:** Aberconway Building Meeting Room, Cardiff University, UK
+
+## Who is the course for?
+This course is designed for data scientists, researchers, and practitioners interested in applying machine learning techniques to causal inference problems. It is suitable for those with a basic understanding of machine learning and statistics who want to deepen their knowledge of causal inference methods.
+
+## What will you learn?
+
+- The fundamentals of causal inference and its importance in data analysis.
+- How to use machine learning algorithms to estimate causal effects.
+- Practical applications of causal inference in various domains, such as healthcare, economics, and social sciences.
+- Hands-on experience with popular causal inference libraries and tools.
+
+## Course Outline
+
+1. **Introduction to Causal Inference**
+   - What is causal inference?
+   - Difference between correlation and causation
+   - Common challenges in causal inference
+2. **Causal Inference Methods**
+    - Propensity score matching
+    - Instrumental variables
+    - Difference-in-differences
+    - Regression discontinuity design
+3. **Machine Learning for Causal Inference**
+    - Causal trees and forests
+    - Double machine learning
+    - Causal inference with deep learning
+4. **Practical Applications**
+    - Case studies in healthcare, economics, and social sciences
+    - Hands-on exercises using real-world datasets
+5. **Tools and Libraries**
+    - Introduction to popular causal inference libraries (e.g., DoWhy, CausalML)
+    - Best practices for implementing causal inference in Python
+## Prerequisites 
+- Basic understanding of machine learning and statistics
+- Familiarity with Python programming
+- Prior experience with data analysis and modeling is beneficial but not required
+
