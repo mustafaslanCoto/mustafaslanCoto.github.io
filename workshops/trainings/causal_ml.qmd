@@ -3,19 +3,18 @@ title: "Causal Inference via Machine Learning"
 description: "Workshop"
 author: "Mustafa Aslan"
 date: "2026-02-13"
-# image: "../images/agent_env.png"
+image: "../images/endogeneity.webp"
 categories:
   - Machine Learning
   - Causal Inference
 link-external-newwindow: true
 ---
 
-
-<!-- ![](../images/agent_env.png){fig-align="center"} -->
+![](../images/endogeneity.webp){fig-align="center"}
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-[<i class="fas fa-bookmark"></i> Slides](../causal_ml/slides.qmd){.btn .btn-sm .btn-outline-primary}
+[<i class="fas fa-bookmark"></i> Slides](../causal_ml/causal_inf.qmd){.btn .btn-sm .btn-outline-primary}
 <!-- [<i class="fab fa-python"></i> Code](../rl/rl.ipynb){.btn .btn-sm .btn-outline-primary} -->
 
 
@@ -24,38 +23,38 @@ link-external-newwindow: true
 **Location:** Aberconway Building Meeting Room, Cardiff University, UK
 
 ## Who is the course for?
-This course is designed for data scientists, researchers, and practitioners interested in applying machine learning techniques to causal inference problems. It is suitable for those with a basic understanding of machine learning and statistics who want to deepen their knowledge of causal inference methods.
+
+- Researchers and practitioners interested in understanding causal relationships in observational data
+- Analysts working with high-dimensional datasets where traditional regression methods may fail
+- Anyone seeking to combine modern machine learning techniques with rigorous causal inference frameworks
+- Policy analysts and evaluators who need to estimate treatment effects from non-experimental data
+- Those familiar with basic statistics who want to advance to cutting-edge methods in econometrics and causal ML
 
 ## What will you learn?
 
-- The fundamentals of causal inference and its importance in data analysis.
-- How to use machine learning algorithms to estimate causal effects.
-- Practical applications of causal inference in various domains, such as healthcare, economics, and social sciences.
-- Hands-on experience with popular causal inference libraries and tools.
-
+- The fundamental distinction between correlation and causation, and why it matters for real-world decision-making
+- Core identification strategies: RCTs, IV, DiD, and their assumptions.
+- The Double Lasso method for valid causal inference when the number of control variables is large
+- Double/Debiased Machine Learning (DML) for estimating causal effects in partially linear and fully interactive models
+- How to estimate heterogeneous treatment effects and local average treatment effects (LATE) using modern ML methods
+- Practical implementation skills through hands-on examples with real datasets
 ## Course Outline
 
-1. **Introduction to Causal Inference**
-   - What is causal inference?
-   - Difference between correlation and causation
-   - Common challenges in causal inference
-2. **Causal Inference Methods**
-    - Propensity score matching
-    - Instrumental variables
-    - Difference-in-differences
-    - Regression discontinuity design
-3. **Machine Learning for Causal Inference**
-    - Causal trees and forests
-    - Double machine learning
-    - Causal inference with deep learning
-4. **Practical Applications**
-    - Case studies in healthcare, economics, and social sciences
-    - Hands-on exercises using real-world datasets
-5. **Tools and Libraries**
-    - Introduction to popular causal inference libraries (e.g., DoWhy, CausalML)
-    - Best practices for implementing causal inference in Python
-## Prerequisites 
-- Basic understanding of machine learning and statistics
-- Familiarity with Python programming
-- Prior experience with data analysis and modeling is beneficial but not required
+- Motivation and Conceptual Foundations
+- Identification
+- Randomised Controlled Trials (RCTs)
+- Introduction to Linear Regression
+- Regularization Techniques for Linear Regression in High-Dimensional Settings
+- Statistical Inference on Causal Effects in High Dimensional Linear Regression Models
+- Statistical Inference on Predictive and Causal Effects in Modern Nonlinear Regression Models
+
+## Prerequisites
+
+- Basic understanding of statistics and probability theory
+- Familiarity with linear regression and ordinary least squares (OLS)
+- Working knowledge of statistical concepts such as expected values, variance, and correlation
+- Basic programming skills (R)
+- Understanding of matrix notation and basic linear algebra
+- No prior knowledge of causal inference required – the course builds from foundational concepts
+Helpful but not required: exposure to econometrics, machine learning basics, or policy evaluation methods
 

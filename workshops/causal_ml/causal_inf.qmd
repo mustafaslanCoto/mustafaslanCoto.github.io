@@ -6,6 +6,8 @@ format:
     height: 1080
     footer: "[Causal Inference with Machine Learning](https://mustafaslancoto.github.io/talks/)"
     slide-number: c/t
+    preview-links: auto
+    # chalkboard: true
     html-math-method: mathjax
     # margin: 0.1
     # min-scale: 0.2
@@ -21,8 +23,11 @@ format:
 
 [Outline]{.mimic-h2}
 
-:::{style="font-weight: bold;"}
-- Introduction to Linear Regression, Causal Inference, and Machine Learning
+:::{style="font-weight: bold; font-size: 1.1em;"}
+- Motivation and Conceptual Foundations
+- Identification
+- Randomised Controlled Trials (RCTs)
+- Introduction to Linear Regression
 - Regularization Techniques for Linear Regression in High-Dimensional Settings
 - Statistical Inference on Causal Effects in High Dimensional Linear Regression Models
 - Statistical Inference on Predictive and Causal Effects in Modern Nonlinear Regression Models
@@ -35,8 +40,603 @@ format:
 
 [Outline]{.mimic-h2}
 
-:::{style="font-weight: bold;"}
-- [Introduction to Linear Regression, Causal Inference, and Machine Learning]{style="color: #1A6872;"}
+:::{style="font-weight: bold; font-size: 1.1em;"}
+- [Motivation and Conceptual Foundations]{style="color: #1A6872;"}
+- Identification
+- Randomised Controlled Trials (RCTs)
+- Introduction to Linear Regression
+- Regularization Techniques for Linear Regression in High-Dimensional Settings
+- Statistical Inference on Causal Effects in High Dimensional Linear Regression Models
+- Statistical Inference on Predictive and Causal Effects in Modern Nonlinear Regression Models
+:::
+
+
+## Let's start thinking causally
+
+### Everyday Conversations ...
+
+<br>
+
+**Person 1:** I was late to work today because my alarm didn't ring.
+
+<br>
+
+**Person 2:** Today, the 7:45 am bus did not come. Perhaps there was a driver shortage.
+
+<br>
+
+**Person 3:** My uncle got diagnosed with lung cancer because he was a chain smoker.
+
+
+## Can you identify the cause and effect variables?
+
+1. Functioning alarm ⇒ Work arrival
+2. Driver shortage ⇒ Cancelled buses
+3. Smoking ⇒ Lung cancer
+
+### So, our Research Questions would be:
+
+1. Does having a functioning alarm affect work arrival time?
+2. Does driver shortage impact bus disruptions?
+3. Does smoking lead to lung cancer?
+
+---
+
+## Can we make the Research Questions causal?
+
+1. To answer the questions, we need evidence.
+2. Evidence comes from real-life data.
+3. Data needs to be analysed using the correct methodology.
+4. *Correct methodology is developed when we know our end goal is for our research question to give a causal answer!*
+
+### Reframing the Research Questions:
+
+1. Does having a functioning alarm [causally]{style="color: #BF505C;"} affect the work arrival time?
+2. Does driver shortage [cause]{style="color: #BF505C;"} bus cancellations?
+3. Does smoking [cause]{style="color: #BF505C;"} lung cancer?
+
+---
+
+## Conceptual Foundation: Correlation vs Causation
+
+<br>
+<br>
+
+| Concept | Meaning |
+|--|---------|
+| **Association** | The connection between two variables that is mostly based on our presumptions and general observations. |
+| **Correlation** | A statistical term that indicates the degree to which two variables move in coordination with one another. |
+| **Causation** | It is a change in one variable that directly causes a change in another variable; it is a cause-and-effect relationship. |
+
+---
+
+## Counterfactual framework (Rubin's Causal Model)
+
+For every individual $i$ there are two Potential Outcomes:
+
+$$
+Y_{1i} = \text{outcome if treated}
+$$
+
+$$
+Y_{0i} = \text{outcome if not treated}
+$$
+
+where $d$ is the Treatment indicator (1 = *treated*, 0 = *control*).
+
+But we only ever observe one of them:
+
+$$
+Y_i = d_i Y_{1i} + (1 - d_i) Y_{0i}
+$$
+
+**Fundamental Problem of Causal Inference:**
+
+:::{style="padding: 10px; margin: 10px 0; border-left: 1px solid #1A6872; text-align: left; color: #1A6872;"}
+We never observe both $Y_1$ and $Y_0$ for the same person at the same time.
+:::
+
+
+## Using the Example Data
+
+:::: {.columns}
+::: {.column width="50%"}
+
+| Name | $d$ | $Y_0$ | $Y_1$ |
+|------|-----|-------|-------|
+| Andy | 1 | . | 10 |
+| Ben | 1 | . | 5 |
+| Chad | 1 | . | 16 |
+| Daniel | 1 | . | 3 |
+| Edith | 0 | 5 | . |
+| Frank | 0 | 7 | . |
+| George | 0 | 8 | . |
+| Hank | 0 | 10 | . |
+
+<br>
+<br>
+
+Source: Cunningham (2021), *Causal Inference: The Mixtape*
+:::
+
+::: {.column width="50%"}
+
+<br>
+<br>
+
+- If $d = 1$: we observe $Y_1$; $Y_0$ is missing (counterfactual).
+- If $d = 0$: we observe $Y_0$; $Y_1$ is missing.
+
+:::
+::::
+
+
+## Causal Effect and the Goal
+
+The individual treatment effect is:
+
+$$
+\tau_i = Y_{1i} - Y_{0i}
+$$
+
+But it is never observable for any single individual.
+
+**Therefore:** causal inference focuses on averages:
+
+$$
+ATE = E[Y_1 - Y_0]
+$$
+
+In data we estimate it using:
+
+$$
+ATE = E[Y | d = 1] - E[Y | d = 0]
+$$
+
+### Key Idea:
+Causal inference compares the outcome we observe with an outcome we cannot observe, and **statistical methods try to approximate the missing counterfactual**.
+
+##
+
+<br>
+<br>
+
+[Outline]{.mimic-h2}
+
+:::{style="font-weight: bold; font-size: 1.1em;"}
+- Motivation and Conceptual Foundations
+- [Identification]{style="color: #1A6872;"}
+- Randomised Controlled Trials (RCTs)
+- Instrumental Variables (IV) and Difference-in-Differences (DiD)
+- Introduction to Linear Regression
+- Regularization Techniques for Linear Regression in High-Dimensional Settings
+- Statistical Inference on Causal Effects in High Dimensional Linear Regression Models
+- Statistical Inference on Predictive and Causal Effects in Modern Nonlinear Regression Models
+:::
+
+
+## Identification
+
+### Goal:
+How to find the causal effect of treatment on the outcome?
+
+- **What gives the causal effect?** *Comparison with the Counterfactual*
+- **Why can't we see it directly?** *Potential outcomes problem*
+- **What design assumption makes it recoverable?** *Identification*
+
+:::{style="padding: 10px; margin: 10px 0; border-left: 1px solid #1A6872; text-align: left; color: #1A6872;"}
+"The issue of identification stemmed from the quest to know the attainability of economically meaningful relationships from statistical analysis of economic data" Duo 1993.
+:::
+
+## Identification Issues
+
+Can we just compare two individuals (one treated and one non-treated)? **No!**
+
+### Potential Identification Issues
+
+1. **Confounding (Omitted Variable Bias):** When variables affect both treatment and outcome, we can't separate causation from correlation.
+
+2. **Selection Bias:** The sample or treatment groups are non-randomly selected.
+
+3. **Reverse Causality:** Outcome affects treatment rather than treatment affecting outcome.
+
+4. **Measurement Error:** When treatment, outcome, or confounders are measured incorrectly.
+
+5. **Simultaneity:** It occurs when treatment and outcome influence each other at the same time.
+
+
+## Identification Issues
+
+6. **Model Misspecification:** Even if the causal structure is right, the statistical model can fail due to Wrong functional form, Omitted interactions and/or Nonlinearity ignored.
+
+7. **Sorting and Endogeneity:** Sorting happens when individuals self-select into treatment in a way that is related to their potential outcomes. We say treatment assignment is endogenous because it is not independent of potential outcomes.
+
+8. **Unobservable Heterogeneity:** When unit-specific unobserved characteristics drive both treatment and outcome.
+
+9. **Violation of SUTVA (Stable Unit Treatment Value Assumption):** SUTVA needs two assumptions-(A) *No Spillover*-Your result should not change because someone else got (or didn't get) the treatment, and (B) *Consistency*- The treatment we define is exactly the treatment people actually received.
+
+##
+
+<br>
+<br>
+
+[Outline]{.mimic-h2}
+
+:::{style="font-weight: bold; font-size: 1.1em;"}
+- Motivation and Conceptual Foundations
+- Identification
+- [Randomised Controlled Trials (RCTs)]{style="color: #1A6872;"}
+- Instrumental Variables (IV) and Difference-in-Differences (DiD)
+- Introduction to Linear Regression
+- Regularization Techniques for Linear Regression in High-Dimensional Settings
+- Statistical Inference on Causal Effects in High Dimensional Linear Regression Models
+- Statistical Inference on Predictive and Causal Effects in Modern Nonlinear Regression Models
+:::
+
+## Randomized Controlled Trials (RCT): Basic Setup
+
+**Potential outcomes framework:**
+$$Y_i(1), Y_i(0)$$
+
+**Treatment assignment:**
+$$
+T_i = \begin{cases}
+1 & \text{if unit } i \text{ receives treatment} \\
+0 & \text{if unit } i \text{ is control}
+\end{cases}
+$$
+
+**Observed outcome:**
+$$
+Y_i = T_i Y_i(1) + (1 - T_i) Y_i(0)
+$$
+
+**RCT key feature: Random assignment**
+$$
+T_i \perp (Y_i(1), Y_i(0))
+$$
+
+**Identification:**
+$$
+ATE = E[Y_i(1) - Y_i(0)] = E[Y_i | T_i = 1] - E[Y_i | T_i = 0]
+$$
+
+
+## RCT: Linear Regression Model
+
+In a randomized controlled trial, treatment $T_i$ is randomly assigned.
+
+### Linear model for estimating the treatment effect:
+
+$$
+Y_i = \alpha + \beta T_i + \gamma X_i + \varepsilon_i
+$$
+
+### Key feature of an RCT:
+
+$$
+\text{Cov}(T_i, \varepsilon_i) = 0
+$$
+
+because randomization ensures $T_i$ is independent of unobserved factors.
+
+### Interpretation:
+
+- $\beta$ measures the causal effect of treatment.
+- $X_i$ are optional controls to improve precision (not identification).
+
+**Key idea:** random assignment makes the treated and control groups comparable, so the coefficient on $T_i$ can be interpreted causally.
+
+---
+
+## RCT Validity Issues
+
+### Internal validity:
+Can we estimate a causal effect for the experimental sample?
+
+**Randomization ⇒ solves:**
+
+- Confounding
+- Selection bias
+- Reverse causality
+
+### External validity:
+Does the effect generalize?
+
+- Population differences
+- Institutional, geographic, or behavioral effects
+- Experimental setting vs real world
+
+
+## When RCTs Are Not Perfect: Non-compliance
+
+**Non-compliance:** people do not follow their assignment.
+
+### Examples:
+- Someone is assigned to the treatment but does not take it.
+- Someone in the control group somehow gets the treatment.
+
+### Intention-to-Treat (ITT):
+- Compare groups based on assignment, not on what they actually did.
+- This keeps the randomisation intact.
+
+---
+
+## When RCTs Are Not Perfect: Attrition
+
+**Attrition:** Some outcomes are missing.
+
+### Examples:
+- People drop out of the study.
+- Some participants cannot be reached later.
+
+### Why this is a problem:
+- The missing data may be related to the outcome.
+- This can break the original randomisation.
+
+### What researchers do:
+- Use the original assignment for estimation.
+- Check whether dropout looks random or systematic.
+
+##
+
+<br>
+<br>
+
+[Outline]{.mimic-h2}
+
+:::{style="font-weight: bold; font-size: 1.1em;"}
+- Motivation and Conceptual Foundations
+- Identification
+- Randomised Controlled Trials (RCTs)
+- [Instrumental Variables (IV) and Difference-in-Differences (DiD)]{style="color: #1A6872;"}
+- Introduction to Linear Regression
+- Regularization Techniques for Linear Regression in High-Dimensional Settings
+- Statistical Inference on Causal Effects in High Dimensional Linear Regression Models
+- Statistical Inference on Predictive and Causal Effects in Modern Nonlinear Regression Models
+:::
+
+
+## Natural Experiments: Idea and Motivation
+
+### Key idea:
+- Use naturally occurring variation that mimics random assignment.
+- Exploit policy changes, institutional rules, shocks, geography.
+
+### Goal:
+Identify causal effects when RCTs are infeasible.
+
+### Assumption: As-if random assignment
+$$
+T_i \perp (Y_i(1), Y_i(0)) \text{ within some subpopulation}
+$$
+
+### Examples:
+- Education reforms
+- Weather or natural shocks
+- Eligibility rules (cutoffs, policy thresholds)
+
+**Natural experiments motivate econometric tools:** IV, DiD, Matching, Regression discontinuity.
+
+
+## Instrumental Variables (IV)
+
+### When we use IV:
+- Treatment is not randomly assigned.
+- There is selection, omitted variables, or reverse causality.
+- We have something that pushes people into treatment.
+
+### Idea:
+Find a variable that affects treatment, but does not directly affect the outcome.
+
+### Example intuition:
+A policy, a rule, or an eligibility threshold that changes who receives the treatment, but does not change outcomes except through that treatment.
+
+### What IV does:
+- Creates as-if random variation in treatment.
+- Lets us focus on the group whose behavior is changed by the instrument.
+- Recovers a causal effect even when we can't control for everything.
+
+### Key message:
+IV solves endogeneity when we cannot observe or adjust for all confounders.
+
+---
+
+## IV with Continuous Instrument: Setup
+
+### Structural causal model:
+$$
+Y_i = \alpha + \beta T_i + \gamma X_i + \varepsilon_i
+$$
+
+### Problem:
+$$
+\text{Cov}(T_i, \varepsilon_i) \neq 0
+$$
+
+### Example sources of endogeneity:
+- omitted ability
+- selection into treatment
+- reverse causality
+
+We introduce an instrument $Z_i$ (continuous or multi-valued).
+
+---
+
+## IV with Continuous Instrument: 1st and 2nd Stage
+
+### First stage (predict treatment):
+$$
+T_i = \pi_0 + \pi_1 Z_i + \pi_2 X_i + u_i
+$$
+
+### Requirement:
+$$
+\pi_1 \neq 0 \text{ (instrument relevance)}
+$$
+
+### Reduced form (effect of instrument on outcome):
+$$
+Y_i = \rho_0 + \rho_1 Z_i + \rho_2 X_i + v_i
+$$
+
+### Second stage (2SLS):
+$$
+Y_i = \alpha + \beta \hat{T}_i + \gamma X_i + \varepsilon_i
+$$
+
+where $\hat{T}_i$ is the fitted value from the first stage.
+
+---
+
+## IV Identification for Continuous Z
+
+### Two core assumptions:
+
+1. **Relevance**
+$$
+\text{Cov}(Z_i, T_i) \neq 0
+$$
+
+2. **Exogeneity**
+$$
+Z_i \perp \varepsilon_i
+$$
+
+(no direct effect of $Z$ on $Y$)
+
+### What IV estimates:
+
+$$
+\beta = \frac{\text{Cov}(Z_i, Y_i)}{\text{Cov}(Z_i, T_i)}
+$$
+
+(the continuous IV analog of Wald)
+
+### Interpretation:
+causal effect of $T$ on $Y$ for compliers.
+
+---
+
+## Example: Continuous IV
+
+### Question:
+Does education increase wages?
+
+### Endogenous regressor:
+$$
+T = \text{years of education}
+$$
+
+### Continuous instrument:
+$$
+Z = \text{distance to nearest college}
+$$
+
+- **1st stage:** college proximity predicts schooling
+- **2nd stage:** predicted schooling explains wages
+
+### Why it works:
+proximity affects education but not wages directly.
+
+
+## Difference-in-Differences (DiD)
+
+**When we use DiD**
+
+- A policy or shock affects one group but not another.
+- We observe data before and after the change.
+
+**Idea**
+
+Compare how outcomes evolve over time in a treated group versus a similar control group.
+
+**Why it works**
+
+If both groups were on similar trends before the intervention, the change in the treatment group relative to the control group reflects the causal effect.
+
+**What DiD does well**
+- Handles unobserved factors that do not change over time.
+- Captures the impact of large reforms, laws, or shocks.
+- Works with repeated or panel data.
+
+**Key message**
+
+DiD isolates the effect of a treatment by comparing changes over time across groups.
+
+---
+
+## DiD: Linear Regression Setup
+
+Two groups (Treated/Control) and two periods (Before/After).
+
+$$
+Y_{it} = \alpha + \beta(T_{treat_i} \times P_{post_t}) + \lambda T_{treat_i} + \delta P_{post_t} + \varepsilon_{it}
+$$
+
+### DiD estimator:
+coefficient on the interaction term.
+
+$$
+\beta = \text{DiD}
+$$
+
+This captures the causal effect of treatment.
+
+---
+
+## DiD: Identification Conditions
+
+### Main assumption:
+
+**Parallel trends:** $(Y_{T, pre} - Y_{C, pre}) = (Y_{T, post} - Y_{C, post})$ in absence of treatment
+
+### Controls in regression allow:
+
+$$
+Y_{it} = \alpha + \beta(T_{treat_i} \times P_{post_t}) + \gamma X_{it} + \varepsilon_{it}
+$$
+
+### Why it works:
+- removes time-invariant unobservables
+- controls for common shocks
+
+---
+
+## DiD Example
+
+### Policy:
+Minimum wage increases only in Region A.
+
+### Model:
+$$
+Y_{it} = \alpha + \beta(\text{RegionA}_i \times \text{After}_t) + \varepsilon_{it}
+$$
+
+### Suppose:
+- Region A employment +5pp
+- Region B employment +1pp
+
+$$
+\text{DiD} = 5 - 1 = 4\text{pp}
+$$
+
+### Interpretation:
+The reform increased employment by 4pp.
+
+##
+
+<br>
+<br>
+
+[Outline]{.mimic-h2}
+
+:::{style="font-weight: bold; font-size: 1.1em;"}
+- Motivation and Conceptual Foundations
+- Identification
+- Randomised Controlled Trials (RCTs)
+- Instrumental Variables (IV) and Difference-in-Differences (DiD)
+- [Introduction to Linear Regression]{style="color: #1A6872;"}
 - Regularization Techniques for Linear Regression in High-Dimensional Settings
 - Statistical Inference on Causal Effects in High Dimensional Linear Regression Models
 - Statistical Inference on Predictive and Causal Effects in Modern Nonlinear Regression Models
@@ -45,13 +645,48 @@ format:
 
 ## Foundations of Linear Regression
 
-Will be added
+- A linear regression model is given by:
+$$
+Y = \beta^{'} X + \epsilon
+$$
+
+&nbsp;&nbsp;&nbsp; where $\mathbb{E}[\epsilon] = 0$.
+
+- We consider $Y$ as the outcome variable, $X = (X_1, X_2, \ldots, X_p)'$ as the vector of covariates, and $\beta$ as the vector of parameters.
+
+- Our goal is to construct the best linear predictor of $Y$ given $X$, which is the linear function of $X$ that minimizes the mean squared error (MSE):
+
+$$
+\beta = \arg\min_{\beta \in \mathbb{R}^p} E[(Y - \beta^{'} X)^2]
+$$
+
+
+## Goodness of Fit
+
+- The mean squared error (MSE) of the best linear predictor is given by:
+$$
+\text{MSE} = E[(Y - \beta^{'} X)^2]
+$$
+
+- The $R^2$ of the best linear predictor is defined as:
+$$
+R^2 = \frac{E[(\hat{\beta}^{'} X)^2]}{E[Y^2]} = 1 - \frac{E_n \epsilon^2}{E_n Y^2} \in [0, 1]
+$$
+
+**Interpretation:**
+
+
+:::{style="padding: 10px; margin: 10px 0; border-left: 2px solid #1A6872; text-align: left; color: #1A6872;"}
+- $R^2$ measures the proportion of variance in $Y$ that is explained by the linear predictor $\hat{\beta}^{'} X$.
+:::
+
 
 ## Overfitting: What happens when $p/n$ is large?
 
 :::: {.columns}
 ::: {.column width="60%" .fragment}
 
+:::{.fragment}
 - When the number of predictors $p$ is large relative to the number of observations $n$, models can become overly complex and fit the noise in the training data rather than the underlying signal.
 
 - Consider an example where $p = n$ and all $X$ variables are independent standard normal random variables. In this case, we have
@@ -60,11 +695,18 @@ $$
 \text{MSE}_{sample} = 0 \quad \text{and} \quad R^2_{sample} = 1
 $$
 
-::: {style="padding: 10px; margin: 10px 0; border-left: 1px solid #a0a0a0; text-align: center;"}
-[**WHY?**]{style="color: #1A6872;"}
 :::
 
+:::{.fragment}
+
+:::{style="padding: 10px; margin: 10px 0; border-left: 2px solid #1A6872; text-align: center; color: #1A6872;"}
+**WHY?**
+:::
+:::
+
+:::{.fragment}
 - Here we have extreme **overfitting**: the model perfectly fits the training data but fails to generalize.
+:::
 
 :::
 
@@ -103,15 +745,15 @@ X_test, y_test = X[-test_size:], y[-test_size:]
 from sklearn.linear_model import LinearRegression
 model = LinearRegression().fit(X_train, y_train)
 y_pred = model.predict(X_train)
-plt.figure(figsize=(10,5))
+plt.figure(figsize=(8,4))
 plt.scatter(range(len(y_train)), y_train, label='True y', s=50)
 plt.plot(range(len(y_train)), y_pred, color='red', label='Predicted y', linewidth=2)
 plt.xlabel('data point', fontsize=16)
 plt.xticks(fontsize=14)
 plt.ylabel('y value', fontsize=16)
 plt.yticks(fontsize=14)
-plt.legend(fontsize=16)
-plt.title(f'Train Set Performance: p = {p} and n = {n - test_size}', fontsize=18)
+plt.legend(fontsize=16, loc='lower left')
+plt.title(f'Train Set: p = {p} and n = {n - test_size}', fontsize=18)
 plt.show()  
 ```
 
@@ -122,15 +764,15 @@ plt.show()
 
 # plot performance on test set
 y_test_pred = model.predict(X_test)
-plt.figure(figsize=(10,5))
+plt.figure(figsize=(8,4))
 plt.scatter(range(len(y_test)), y_test, label='True y', s=50)
 plt.plot(range(len(y_test)), y_test_pred, color='red', label='Predicted y', linewidth=2)
 plt.xlabel('data point', fontsize=16)
 plt.xticks(fontsize=14)
 plt.ylabel('y value', fontsize=16)
 plt.yticks(fontsize=14)
-plt.legend(fontsize=16)
-plt.title(f'Test Set Performance: p = {p} and n = {test_size}', fontsize=18)
+plt.legend(fontsize=16, loc='lower left')
+plt.title(f'Test set', fontsize=18)
 plt.show()  
 
 ```
@@ -156,7 +798,7 @@ $$
 Y =  \beta_1 D + \beta^{'}_2 W + \epsilon
 $$
 
-::: {style="padding: 10px; margin: 10px 0; border-left: 1px solid #ccc; text-align: left;"}
+:::{style="padding: 10px; margin: 10px 0; border-left: 2px solid #1A6872; text-align: left; color: #1A6872;"}
 [How does the predicted value of change if increases by a unit while remains
 unchanged?]{style="color: #1A6872;"}
 :::
@@ -171,8 +813,8 @@ unchanged?]{style="color: #1A6872;"}
 
 <br>
 
-::: {style="padding: 10px; margin: 10px 0; text-align: center;"}
-[**WHY?**]{style="color: #1A6872;"}
+:::{style="padding: 10px; margin: 10px 0; border-left: 2px solid #1A6872; text-align: center; color: #1A6872;"}
+**WHY?**
 :::
 
 <br>
@@ -182,7 +824,7 @@ unchanged?]{style="color: #1A6872;"}
 <br>
 
 
-- Example: In a wage regression, $D$ could be years of education, and $W$ could include experience, gender, and location. The coefficient on education ($\beta_1$) tells us how much more (or less) we predict someone will earn for each additional year of education, with the same experience, gender, and location.
+- For example: In a wage regression, $D$ could be years of education, and $W$ could include experience, gender, and location. The coefficient on education ($\beta_1$) tells us how much more (or less) we predict someone will earn for each additional year of education, with the same experience, gender, and location.
 
 ## Understanding $\beta_1$ via [“Partialling-Out”]{style="color: #1A6872;"}
 
@@ -267,12 +909,17 @@ $$
 
 [Outline]{.mimic-h2}
 
-:::{style="font-weight: bold;"}
-- Introduction to Linear Regression, Causal Inference, and Machine Learning
+:::{style="font-weight: bold; font-size: 1.1em;"}
+- Motivation and Conceptual Foundations
+- Identification
+- Randomised Controlled Trials (RCTs)
+- Instrumental Variables (IV) and Difference-in-Differences (DiD)
+- Introduction to Linear Regression
 - [Regularization Techniques for Linear Regression in High-Dimensional Settings]{style="color: #1A6872;"}
 - Statistical Inference on Causal Effects in High Dimensional Linear Regression Models
 - Statistical Inference on Predictive and Causal Effects in Modern Nonlinear Regression Models
 :::
+
 
 ## Linear Regression with High-Dimensional <br> Covariates
 
@@ -336,8 +983,8 @@ $$
 
 <br>
 
-::: {style="padding: 10px; margin: 10px 0; text-align: center; font-size: 1.2em; font-weight: bold;"}
-[$\beta^{'} P(W)$ are nonlinear in $W$ but still linear in parameters $\beta$.]{style="color: #1A6872;"}
+:::{style="padding: 10px; margin: 10px 0; border-left: 2px solid #1A6872; text-align: left; color: #1A6872; font-weight: bold;"}
+$\beta^{'} P(W)$ are nonlinear in $W$ but still linear in parameters $\beta$.
 :::
 
 :::
@@ -479,7 +1126,7 @@ $$
 where $\hat{\sigma}$ is an estimate of the standard deviation of the error term, $\Phi^{-1}$ is the inverse CDF of the standard normal distribution, and $c > 1$ is a constant, and $\alpha$ is a small significance level (e.g., 0.05).
 :::
 
-  - Cross-validation: Split the data into training and validation sets multiple times, fit the model for different values of $\lambda$, and choose the one that minimizes the average validation error.
+- Cross-validation: Split the data into training and validation sets multiple times, fit the model for different values of $\lambda$, and choose the one that minimizes the average validation error.
 
 ##
 
@@ -506,7 +1153,7 @@ value of the coefficients.]{style="color: #BF505C;"}
 ```{python}
 #| fig-width: 100%
 #| fig-align: center
-#| fig-height: 60%
+#| fig-height: 100%
 
 # Simulate high-dimensional data to show how lasso coeffcients are biased compared to true coefficients
 import numpy as np
@@ -526,7 +1173,7 @@ from sklearn.linear_model import Lasso
 lasso = Lasso(alpha=0.2).fit(X, y)
 beta_lasso = lasso.coef_
 import matplotlib.pyplot as plt
-plt.figure(figsize=(12,6))
+plt.figure(figsize=(20,10))
 plt.plot(range(p), beta_true, marker='o', label='True Coefficients', linestyle='--')
 plt.plot(range(p), beta_lasso, marker='x', label='Lasso Coefficients', linestyle='-')
 plt.xlabel('Coefficient Index', fontsize=16)
@@ -549,7 +1196,7 @@ plt.show()
 
   2. Then, fit an ordinary least squares regression using only the selected regressors from the first step.
 
-  ::: {style="padding: 10px; margin: 10px 0; text-align: center;"}
+  ::: {style="padding: 10px; margin: 10px 0; text-align: left;"}
 [**Does Post-Lasso, $\hat{\beta^{'}} X$, provide a good approximation to best linear prediction rule, $\beta^{'} X$ ?**]{style="color: #1A6872;"}
 :::
 
@@ -600,8 +1247,12 @@ $$
 
 [Outline]{.mimic-h2}
 
-:::{style="font-weight: bold;"}
-- Introduction to Linear Regression, Causal Inference, and Machine Learning
+:::{style="font-weight: bold; font-size: 1.1em;"}
+- Motivation and Conceptual Foundations
+- Identification
+- Randomised Controlled Trials (RCTs)
+- Instrumental Variables (IV) and Difference-in-Differences (DiD)
+- Introduction to Linear Regression
 - Regularization Techniques for Linear Regression in High-Dimensional Settings
 - [Statistical Inference on Causal Effects in High Dimensional Linear Regression Models]{style="color: #1A6872;"}
 - Statistical Inference on Predictive and Causal Effects in Modern Nonlinear Regression Models
@@ -623,7 +1274,7 @@ $$
 [What is the average change in $Y$ when we intervene to increase $D$ by one unit, holding $W$ constant?]{style="color: #1A6872;"}
 :::
 
-## Inference with Double Lasso
+## Double Lasso {.smaller}
 
 The key step is application of Lasso regression for partialling-out in the presence of high-dimensional covariates. Consider the following regression model:
 
@@ -632,21 +1283,6 @@ Y = \alpha D + \beta^{'} W + \epsilon,
 $$
 
 where $D$ is the target regressor of interest and $W$ is a vector of $p$ control variables. After partialling-out $W$ from both $Y$ and $D$, we get
-$$
-\tilde{Y} = \alpha \tilde{D} + \epsilon, \quad E[\epsilon  \tilde{D}]=0,
-$$
-
-where $\tilde{Y}$ and $\tilde{D}$ are the residuals obtained from regressing $Y$ and $D$ on $W$, respectively.
-
-$$
-\tilde{Y} = Y - \gamma_{YW}^{'} W, \quad \gamma_{YW} = \arg\min_{\gamma \in \mathbb{R}^p} E[(Y - \gamma^{'} W)^2],
-$$
-
-$$
-\tilde{D} = D - \gamma_{DW}^{'} W, \quad \gamma_{DW} = \arg\min_{\gamma \in \mathbb{R}^p} E[(D - \gamma^{'} W)^2].
-$$
-
-## Double Lasso Estimation Procedure {.smaller}
 
 1. We run Lasso regressions of $Y$ on $W$ and $D$ on $W$:
 
@@ -695,35 +1331,17 @@ $$
 $$
 
 
-## Example: A comparison of OLS and Double Lasso
-
-### Data
-
-- The outcome $Y$ is the realized annual growth rate of a country’s wealth (Gross
-Domestic Product per capita).
-
-- The target regressor $D$ is the initial level of the country’s wealth.
-
-- The control variables $W$ include [60 covariates]{style="color: #1A6872;"} that capture various aspects of the country's education levels, quality of institutions, trade openness, and political stability in the country
-
-- The sample consists of [$n = 90$ countries]{style="color: #1A6872;"}. Thus we are in a high-dimensional setting with $p/n = 60/90$, which is not small.
-
-- We expect the least squares to provide a poor and noisy estimate of $\alpha$ due to overfitting in the partialling-out step, while Double Lasso should provide a more reliable estimate.
-
-## Results
-
-| Method       | Estimate of $\alpha$ | Std. Error | 95% - CI |
-|--------------|----------------------|----------------|-------------------------|
-| OLS          | -0.009                | 0.030           | [-0.071, 0.052]            |
-| Double Lasso | -0.050                | 0.014           | [-0.078, -0.022]             |
+##
 
 <br>
+<br>
+<br>
 
-- Least squares provides a rather noisy estimate of $\alpha$ with a large standard error, leading to a confidence interval that includes zero, suggesting no significant relationship between initial wealth and growth.
+:::{style="padding: 10px; margin: 10px 0; border-left: 2px solid #2CA0AB; text-align: left; color: #1A6872; font-weight: bold; font-size: 1.4em;"}
+Practical Example: A comparison of OLS and Double Lasso
 
-- In contrast, Double Lasso provides a more precise estimate of $\alpha$ with a smaller standard error, resulting in a confidence interval that does not include zero, indicating a statistically significant negative relationship between initial wealth and growth.
-
-- The corresponding notebook of the empirical analysis can be found [here](https://mustafaslancoto.github.io/talks/)
+*For the relevant code and data, go to [here](https://mustafaslancoto.github.io/talks/)*
+:::
 
 ## Inference on Many Coefficients
 
@@ -756,60 +1374,6 @@ $$
 
 - This allows us to make inference on multiple coefficients simultaneously, even in high-dimensional settings where $p_1$ and $p_2$ are large relative to $n$.
 
-## Why Partialling-out works: Neyman Orthogonality
-
-- The key to the success of the Double Lasso procedure is the property of [Neyman orthogonality]{style="color: #1A6872;"}, which ensures that the estimation error from the first step (Lasso) does not bias the estimation of $\alpha$ in the second step.
-
-- Neyman orthogonality means that the moment condition used to estimate $\alpha$ is insensitive to small errors in the estimation of the nuisance parameters $\gamma_{YW}$ and $\gamma_{DW}$.
-
-$$
-\eta^{\circ} = (\gamma_{DW}^{'}, \gamma_{YW}^{'})^{'}.
-$$
-
-- The local insensitivity of target parameters to nuisance parameters Neyman
-orthogonality.
-
-$$
-\partial_{\eta} \alpha(\eta^{\circ}) = 0.
-$$
-
-- This property allows us to achieve $\sqrt{n}$-consistency and asymptotic normality of the Double Lasso estimator $\hat{\alpha}$, even when the nuisance parameters are estimated at slower rates due to high dimensionality.
-
-
-## Simulation Example: Neyman Orthogonality
-
-- We compare the performance of the naive and orthogonal methods in a computational
-experiment where we $p=n=100$ and we have $\beta_j = 1/j^2, (\gamma_{DW})_j = 1/j^2$
-
-$$
-Y = 1 D + \beta^{'} W + \epsilon_Y, \quad W \sim N(0, I), \quad \epsilon_Y \sim N(0, 1)
-$$
-
-$$
-D = \gamma_{DW}^{'} W + \tilde{D}, \quad \tilde{D} \sim N(0, 1)/4
-$$
-
-
-## Results
-
-We run 1000 simulations and compute the bias and standard deviation of the naive and orthogonal estimators. The results are as follows:
-
-##
-
-- The reason that the naive estimator does not perform well is that it only selects controls, $W_j$, that are strongly predictive of $Y$ and omitting weak predictors of $Y$ that could be strongly predictive of $D$ leads to omitted variable bias in the estimation of $\alpha$. This is called [ommitted variable bias]{style="color: #BF505C;"}.
-
-- In contrast, the orthogonal estimator is designed to be robust to such selection mistakes, which is why it performs much better in terms of bias and standard deviation.
-
-## Double Selection
-
-- An alternative to the Double Lasso procedure is the Double Selection method, which also uses Lasso for variable selection but in a slightly different way.
-
-- 1. Find controls that predict $Y$ by running a Lasso regression of $Y$ on $W$ and selecting the non-zero coefficients.
-- 2. Find controls that predict $D$ by running a Lasso regression of $D$ on $W$ and selecting the non-zero coefficients.
-- 3. Take the union of the selected controls from both steps and run an ordinary least squares regression of $Y$ on $D$ and the union of selected controls to estimate $\alpha
-
-- This procedure is approximately equivalent to the partialling out approach and also relies on the principle of Neyman orthogonality to achieve valid inference on $\alpha$.
-
 ##
 
 <br>
@@ -817,12 +1381,17 @@ We run 1000 simulations and compute the bias and standard deviation of the naive
 
 [Outline]{.mimic-h2}
 
-:::{style="font-weight: bold;"}
-- Introduction to Linear Regression, Causal Inference, and Machine Learning
+:::{style="font-weight: bold; font-size: 1.1em;"}
+- Motivation and Conceptual Foundations
+- Identification
+- Randomised Controlled Trials (RCTs)
+- Instrumental Variables (IV) and Difference-in-Differences (DiD)
+- Introduction to Linear Regression
 - Regularization Techniques for Linear Regression in High-Dimensional Settings
 - Statistical Inference on Causal Effects in High Dimensional Linear Regression Models
-- [Statistical Inference on Predictive and Causal Effects in Modern Nonlinear Regression Models]{style="color: #1A6872;"}
+- Statistical Inference on Predictive and Causal Effects in Modern Nonlinear Regression Models]{style="color: #1A6872;"}
 :::
+
 
 ## Introduction
 
@@ -903,18 +1472,6 @@ $$
 
 - Rather than selecting a single best learner, we can also use residuals from multiple learners to form linear combinations of the residuals, which can potentially improve the estimation of $\alpha$.
 
-## Properties of DML
-
-- Here, nuisance parameters are $\ell$ and $m$, and the target parameter is $\alpha$.
-
-- Neyman orthogonality of the moment condition for $\alpha$ ensures that estimation errors in $\hat{\ell}$ and $\hat{m}$ do not bias the estimation of $\alpha$.
-
-- The DML algorithm uses cross-fitting to mitigate overfitting. Bias from overfitting could result from highly flexible ML methods such as boosting or neural networks.
-
-## Example: The Effect of Gun Ownership on Homicide Rates
-
-will be considered if add
-
 ## DML Inference in the Interactive Regression Model (IRM)
 
 - Here, we relax the additivity assumption in the partially linear regression model.
@@ -989,121 +1546,6 @@ $$
 
 &nbsp;&nbsp;&nbsp;&nbsp; where $\hat{V} = E_n[(\hat{\varphi}(W_i) - \hat{\theta})^2]$.
 
-## Group Average Treatment Effects (GATEs)
-
-We may also be interested in estimating group average treatment effects (GATEs) for a subgroup:
-
-$$
-\theta_0(x) = E[g(1, X) - g(0, X)|G = 1],
-$$
-
-where $G$ is is a group indicator defined in terms of covariates $X$.
-
-For example, we might be interested in the impact of a vaccine on teenagers, so $G$ would be an indicator for $13 \leq \text{age} \leq 19$.
-
-DML estimation of GATEs can be done by modifying the estimation procedure for APEs/ATEs to focus on the subgroup defined by $G=1$.
-
-$$
-\hat{\theta}(x) = \mathbb{E}[\varphi_{0}(W) | G=1) =  \frac{E[\hat{\varphi}(W) G]}{\Pr(G=1)}.
-$$
-
-## Example: The effect of 401(k) Eligibility on Net Financial Assets
-
-- The data covers a short period a few years after the introduction of 401(k)’s when they were rapidly increasing in popularity.
-
-- The key problem in determining the effect of 401(k) eligibility is that working for a firm that offers access to a 401(k) plan is not randomly assigned.
-
-- Net financial assets are the outcome variable, $Y$, in the analysis. The treatment variable, $D$, is an indicator for being eligible to enroll in a 401(k) plan. The vector of raw covariates, $X$, consists of age, income, family size, years of education, and a married indicator etc.
-
-## Causal DAGs for the 401(K) Example {.smaller}
-
-::: {layout="[[1,1], [1]]"}
-```{dot}
-//| fig-height: 4
-digraph G {
-    bgcolor="#FBFAF4";
-    rankdir=LR;
-    node [shape=circle, width=0.5];
-    
-    D [label="D" color="#707C36"];
-    Y [label="Y" color="#2CA0AB"];
-    X [label="X"];
-    F [label="F" style="dashed"];
-
-    D -> Y;
-    X -> Y;
-    X -> D;
-    F -> D;
-    F -> X;
-}
-```
-
-```{dot}
-//| fig-height: 4
-digraph G {
-    bgcolor="#FBFAF4";
-    rankdir=LR;
-    node [shape=circle, width=0.5];
-    
-    D [label="D" color="#707C36"];
-    Y [label="Y" color="#2CA0AB"];
-    X [label="X"];
-    F [label="F" style="dashed"];
-
-    D -> Y;
-    X -> Y;
-    X -> D;
-    F -> D;
-    F -> X [dir=back];
-}
-```
-
-```{dot}
-//| fig-height: 4
-digraph G {
-    bgcolor="#FBFAF4";
-    rankdir=LR;
-    node [shape=circle, width=0.5];
-    
-    D [label="D" color="#707C36"];
-    Y [label="Y" color="#2CA0AB"];
-    X [label="X"];
-    F [label="F" style="dashed"];
-    U [label="U" style="dashed"];
-
-    D -> Y;
-    X -> Y;
-    X -> D;
-    F -> D;
-    U -> F;
-    U -> X;
-}
-```
-
-:::
-
-::: {style="margin-top: 10px; font-size: 0.8em; color"}
-Three Causal DAGs for analysis of the 401(K) example in which adjusting for covariates $X$ is sufficient to control for confounding between $D$ and $Y$.
-:::
-<!-- // ```{dot}
-// //| fig-width: 6
-// digraph G {
-//     bgcolor="#FBFAF4";
-//     rankdir=LR;
-//     node [shape=circle, width=0.8];
-    
-//     eP [label=<&epsilon;<sub>P</sub>>, style=dashed];
-//     P [label="P"];
-//     Y [label="Y"];
-//     eY [label=<&epsilon;<sub>Y</sub>>, style=dashed];
-//     X [label="X"];
-    
-//     eP -> P;
-//     P -> Y [label=<&delta;>];
-//     Y -> eY [dir=back];
-//     X -> P [label=<&nu;>];
-//     X -> Y [label=<&beta;>];
-// } -->
 
 ## The Local Average Treatment Effect Model (LATE)
 
@@ -1190,3 +1632,164 @@ for $W = (Y, D, X, Z)$ and
 $$
 H(p) := \frac{Z}{p(X)} - \frac{1 - Z}{1 - p(X)} .
 $$
+
+##
+
+<br>
+<br>
+<br>
+
+:::{style="padding: 10px; margin: 10px 0; border-left: 2px solid #2CA0AB; text-align: left; color: #1A6872; font-weight: bold; font-size: 1.4em;"}
+
+Practical Example: Application of PLM, IRM and LATE to the 401(K) data
+
+*For the relevant code and data, go to [here](https://mustafaslancoto.github.io/talks/)*
+:::
+
+
+
+# Appendix
+
+## Why Partialling-out works: Neyman Orthogonality
+
+- The key to the success of the Double Lasso procedure is the property of [Neyman orthogonality]{style="color: #1A6872;"}, which ensures that the estimation error from the first step (Lasso) does not bias the estimation of $\alpha$ in the second step.
+
+- Neyman orthogonality means that the moment condition used to estimate $\alpha$ is insensitive to small errors in the estimation of the nuisance parameters $\gamma_{YW}$ and $\gamma_{DW}$.
+
+$$
+\eta^{\circ} = (\gamma_{DW}^{'}, \gamma_{YW}^{'})^{'}.
+$$
+
+- The local insensitivity of target parameters to nuisance parameters Neyman
+orthogonality.
+
+$$
+\partial_{\eta} \alpha(\eta^{\circ}) = 0.
+$$
+
+- This property allows us to achieve $\sqrt{n}$-consistency and asymptotic normality of the Double Lasso estimator $\hat{\alpha}$, even when the nuisance parameters are estimated at slower rates due to high dimensionality.
+
+
+## Simulation Example: Neyman Orthogonality
+
+- We compare the performance of the naive and orthogonal methods in a computational
+experiment where we $p=n=100$ and we have $\beta_j = 1/j^2, (\gamma_{DW})_j = 1/j^2$
+
+$$
+Y = 1 D + \beta^{'} W + \epsilon_Y, \quad W \sim N(0, I), \quad \epsilon_Y \sim N(0, 1)
+$$
+
+$$
+D = \gamma_{DW}^{'} W + \tilde{D}, \quad \tilde{D} \sim N(0, 1)/4
+$$
+
+
+## Results
+
+We run 1000 simulations and compute the bias and standard deviation of the naive and orthogonal estimators. The results are as follows:
+
+##
+
+- The reason that the naive estimator does not perform well is that it only selects controls, $W_j$, that are strongly predictive of $Y$ and omitting weak predictors of $Y$ that could be strongly predictive of $D$ leads to omitted variable bias in the estimation of $\alpha$. This is called [ommitted variable bias]{style="color: #BF505C;"}.
+
+- In contrast, the orthogonal estimator is designed to be robust to such selection mistakes, which is why it performs much better in terms of bias and standard deviation.
+
+## Double Selection
+
+- An alternative to the Double Lasso procedure is the Double Selection method, which also uses Lasso for variable selection but in a slightly different way.
+
+- 1. Find controls that predict $Y$ by running a Lasso regression of $Y$ on $W$ and selecting the non-zero coefficients.
+- 2. Find controls that predict $D$ by running a Lasso regression of $D$ on $W$ and selecting the non-zero coefficients.
+- 3. Take the union of the selected controls from both steps and run an ordinary least squares regression of $Y$ on $D$ and the union of selected controls to estimate $\alpha
+
+- This procedure is approximately equivalent to the partialling out approach and also relies on the principle of Neyman orthogonality to achieve valid inference on $\alpha$.
+
+## Group Average Treatment Effects (GATEs)
+
+We may also be interested in estimating group average treatment effects (GATEs) for a subgroup:
+
+$$
+\theta_0(x) = E[g(1, X) - g(0, X)|G = 1],
+$$
+
+where $G$ is is a group indicator defined in terms of covariates $X$.
+
+For example, we might be interested in the impact of a vaccine on teenagers, so $G$ would be an indicator for $13 \leq \text{age} \leq 19$.
+
+DML estimation of GATEs can be done by modifying the estimation procedure for APEs/ATEs to focus on the subgroup defined by $G=1$.
+
+$$
+\hat{\theta}(x) = \mathbb{E}[\varphi_{0}(W) | G=1) =  \frac{E[\hat{\varphi}(W) G]}{\Pr(G=1)}.
+$$
+
+
+## Causal DAGs for the 401(K) Example {.smaller}
+
+::: {layout="[[1,1], [1]]"}
+```{dot}
+//| fig-height: 4
+digraph G {
+    bgcolor="#FBFAF4";
+    rankdir=LR;
+    node [shape=circle, width=0.5];
+    
+    D [label="D" color="#707C36"];
+    Y [label="Y" color="#2CA0AB"];
+    X [label="X"];
+    F [label="F" style="dashed"];
+
+    D -> Y;
+    X -> Y;
+    X -> D;
+    F -> D;
+    F -> X;
+}
+```
+
+```{dot}
+//| fig-height: 4
+digraph G {
+    bgcolor="#FBFAF4";
+    rankdir=LR;
+    node [shape=circle, width=0.5];
+    
+    D [label="D" color="#707C36"];
+    Y [label="Y" color="#2CA0AB"];
+    X [label="X"];
+    F [label="F" style="dashed"];
+
+    D -> Y;
+    X -> Y;
+    X -> D;
+    F -> D;
+    F -> X [dir=back];
+}
+```
+
+```{dot}
+//| fig-height: 4
+digraph G {
+    bgcolor="#FBFAF4";
+    rankdir=LR;
+    node [shape=circle, width=0.5];
+    
+    D [label="D" color="#707C36"];
+    Y [label="Y" color="#2CA0AB"];
+    X [label="X"];
+    F [label="F" style="dashed"];
+    U [label="U" style="dashed"];
+
+    D -> Y;
+    X -> Y;
+    X -> D;
+    F -> D;
+    U -> F;
+    U -> X;
+}
+```
+
+:::
+
+::: {style="margin-top: 10px; font-size: 0.8em; color"}
+Three Causal DAGs for analysis of the 401(K) example in which adjusting for covariates $X$ is sufficient to control for confounding between $D$ and $Y$.
+:::

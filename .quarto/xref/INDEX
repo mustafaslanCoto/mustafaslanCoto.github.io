@@ -38,5 +38,14 @@
   },
   "learn/cond_dists/cond_dist_notebook.ipynb": {
     "cond_dist_notebook.html": "8f738fe3"
+  },
+  "workshops/trainings/causal_ml.qmd": {
+    "causal_ml.html": "2ab42850"
+  },
+  "workshops/causal_ml/slides.qmd": {
+    "slides.html": "622453c8"
+  },
+  "workshops/causal_ml/causal_inf.qmd": {
+    "causal_inf.html": "ac3e4916"
   }
 }
