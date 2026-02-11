@@ -700,6 +700,13 @@
     "text": "Scenario:\nAn NGO sells a single handcrafted backpack produced by under-represented artisan groups. Each month, over a 120-month horizon, they reach one of four audience-size tiers—40, 60, 80, or 100 customers—and choose a campaign label (marketing message) highlighting a different artisan community. Each label yields a unit profit per customer as follows:\n\n\n\n\n\n\n\n\nLabel\nArtisan Group Highlighted\nProfit/Customer (£)\n\n\n\n\nEcoNomad\nWomen-led cooperatives\n15\n\n\nTrailBlazer\nDisability-led artisan studios\n9\n\n\nClassicCarry\nMinority-owned craft collectives\n12\n\n\n\nTheir goal is to maximize total expected profit over the 120 months by selecting the best label each month.\n\nR = [15, 9, 12]\n\n\nimport numpy as np\n\ndef create__trans_prob(num_states, num_actions):\n    \"\"\"\n    Create a transition probability matrix for a reinforcement learning problem.\n    \n    Parameters:\n    - num_states: Number of states in the environment.\n    - num_actions: Number of actions available in the environment.\n    \n    Returns:\n    - P: Transition probability matrix of shape (num_states, num_actions, num_states) using Dirichlet.\n    \"\"\"\n    alpha = np.ones(num_states)  # Dirichlet distribution parameter\n    P = np.zeros((num_states, num_actions, num_states))\n    for s in range(num_states):\n        for a in range(num_actions):\n            P[s, a, :] = np.random.dirichlet(alpha)  # transition probabilities for each state-action pair\n    return P\n\n\n# initialize value function values\n\nimport numpy as np\n\ndef create__trans_prob(num_states, num_actions):\n    \"\"\"\n    Create a transition probability matrix for a reinforcement learning problem.\n    \n    Parameters:\n    - num_states: Number of states in the environment.\n    - num_actions: Number of actions available in the environment.\n    \n    Returns:\n    - P: Transition probability matrix of shape (num_states, num_actions, num_states) using Dirichlet.\n    \"\"\"\n    alpha = np.ones(num_states)  # Dirichlet distribution parameter\n    P = np.zeros((num_states, num_actions, num_states))\n    for s in range(num_states):\n        for a in range(num_actions):\n            P[s, a, :] = np.random.dirichlet(alpha)  # transition probabilities for each state-action pair\n    return P\n\n\ndef backward_dynamic_programming(T, states, actions, R, P):\n    \"\"\"\n    Perform backward dynamic programming to compute the value function and action values.\n    Parameters:\n    - T: Number of time steps.\n    - states: List of states in the environment.\n    - actions: Actions available in the environment.\n    - P: Transition probability matrix of shape (num_states, num_actions, num_states).\n    \n    Returns:\n    - V: Value function for each state at each time step.\n    - A: Best action for each state at each time step.\n    \"\"\"\n\n    num_states = len(states)  # number of states\n    num_actions = len(actions)  # number of actions\n\n    V = np.zeros((T+1, num_states)) # initial value function for 80 time steps and 4 states\n    A = np.zeros((T, num_states)) # action values for 80 time steps and 4 states\n\n    for t in reversed(range(T)):\n        for i in range(num_states): # loop over states\n            # initialize best value and action\n            best_val = -np.inf  \n            best_action = None \n            # loop over actions to find the best action for the current state\n            for a in range(num_actions): # loop over actions\n                q_ia = 0 # initialize action value\n                # calculate the action value q(s, a) using the Bellman equation\n                for j in range(num_states): # loop over next states\n                    # r = np.random.normal(50, 40) # sample a reward from a normal distribution\n                    r = R[a]*states[i]  # reward based on the action and state\n                    q_ia = + r + 0.1*P[i][a][j]*V[t+1, j]  # reward + discounted value of next state\n                if q_ia &gt; best_val: # if the action value is better than the best value found so far\n                    best_val = q_ia # update best value\n                    best_action = a # update best action\n            V[t][i] = best_val # store the best value for the current state at time t\n            A[t][i] = best_action # store the best action for the current state at time t\n    return V, A            \n\n\n\nT = 120\nstates = list(range(40, 61))  # example states\nactions = [0, 1, 2]  # example actions\nnum_states = len(states)  # number of states\nnum_actions = len(actions)  # number of actions\nR = [15, 9, 12]  # rewards for each action\nP = create__trans_prob(num_states, num_actions) # create transition probability matrix\nVs, As = backward_dynamic_programming(T, states, actions, R, P)  # perform backward dynamic programming\n\n\nVs.shape\n\n(121, 21)\n\n\n\nimport pandas as pd\npd.DataFrame(Vs, columns=states, index=range(T+1)).iloc[:, 0:3].plot()\n\n\n\n\n\n\n\n\nConsider a network of two products: product 1 (bags) has 10 units in inventory, while product 2 (raincoats) has 20 units in inventory. Customers may buy product 1, product 2, or both products. The price is £15 for product 1, £20 for product 2, and £30 if a customer wants to buy both products 1 and 2. The products can be sold over a time horizon of T = 90 periods. The arrival probabilities in each time period are constant over time: λ₁ = 0.2, λ₂ = 0.15, and λ₃ = 0.1. With a probability of λ₀ = 0.55, there will be no arrival in a given period. The objective of the NGO manager is to decide, whenever a shopping request arrives, whether to accept the demand such that the total expected profit is maximized.\n\nimport numpy as np\n\ndef backward_dp_two_products(T, Imax, Jmax, lambdas, prices):\n    \"\"\"\n    Backward dynamic programming for 2‐product booking control.\n    \n    Args:\n        T       : int, horizon (e.g. 90)\n        Imax    : int, max bags inventory (e.g. 10)\n        Jmax    : int, max raincoats inventory (e.g. 20)\n        lambdas : list of arrival probabilities [λ0, λ1, λ2, ...]\n        prices   : dict, prices for each product\n                 {1: price_bag, 2: price_raincoat, 3: price_both}\n        \n    Returns:\n        V      : np.array shape (T+1, Imax+1, Jmax+1)\n                 value function\n        policy : np.array shape (T, Imax+1, Jmax+1, 4)\n                 policy[t,i,j,k] = 0 (reject) or 1 (accept) for arrival k\n    \"\"\"\n    V = np.zeros((T+1, Imax+1, Jmax+1))\n    policy = np.zeros((T, Imax+1, Jmax+1, 3), dtype=int)\n    \n    for t in range(T-1, -1, -1):\n        for i in range(Imax+1):\n            for j in range(Jmax+1):\n                # calculate the value function for each state (i, j) at time t following the Bellman equation\n                reward = 0\n                for p in range(2):\n                    if i == 0 | j == 0 # No capacity to accept this booking\n                        reject = V[t+1, i, j]\n                        policy[t, i, j, p] = 0  # Reject\n                    else:\n\n\n                          \n\n    \n    \n    return V, policy\n\n# --- Usage ---\nT = 90\nImax, Jmax = 10, 20\nlambdas = [0.55, 0.2, 0.15, 0.1]\nfares = {1:15, 2:20, 3:30}\n\nV, policy = backward_dp_two_products(T, Imax, Jmax, lambdas, fares)\n\n\nlist(range(1, 2))\n\n[0, 1]"
   },
   {
+    "objectID": "workshops/index.html",
+    "href": "workshops/index.html",
+    "title": "MUSTAFA ASLAN",
+    "section": "",
+    "text": "Causal Inference via Machine Learning\n\n\nWorkshop\n\n\n\n\n\nFeb 13, 2026\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nIntroduction to Reinforcement Learning\n\n\nWorkshop\n\n\n\n\n\nMay 22, 2025\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nBasics of Python and Introduction to Quarto in Visual Studio Code\n\n\nWorkshop\n\n\n\n\n\nMar 3, 2025\n\n\nMustafa Aslan\n\n\n\n\n\nNo matching items"
+  },
+  {
     "objectID": "workshops/trainings/rl_index.html",
     "href": "workshops/trainings/rl_index.html",
     "title": "Introduction to Reinforcement Learning",
@@ -833,11 +840,606 @@
     "text": "Slides\nDate: Mar 3 2025 11:00 AM – 13:00 PM\nEvent: Data Lab for Social Good Training Session\nLocation: Aberconway Building Meeting Room, Cardiff University, UK"
   },
   {
-    "objectID": "workshops/index.html",
-    "href": "workshops/index.html",
+    "objectID": "workshops/trainings/causal_ml.html",
+    "href": "workshops/trainings/causal_ml.html",
+    "title": "Causal Inference via Machine Learning",
+    "section": "",
+    "text": "Slides\nDate: February 13, 2026 10:00 AM – 13:00 PM\nEvent: Data Lab for Social Good Training Session\nLocation: Aberconway Building Meeting Room, Cardiff University, UK"
+  },
+  {
+    "objectID": "workshops/trainings/causal_ml.html#who-is-the-course-for",
+    "href": "workshops/trainings/causal_ml.html#who-is-the-course-for",
+    "title": "Causal Inference via Machine Learning",
+    "section": "Who is the course for?",
+    "text": "Who is the course for?\n\nResearchers and practitioners interested in understanding causal relationships in observational data\nAnalysts working with high-dimensional datasets where traditional regression methods may fail\nAnyone seeking to combine modern machine learning techniques with rigorous causal inference frameworks\nPolicy analysts and evaluators who need to estimate treatment effects from non-experimental data\nThose familiar with basic statistics who want to advance to cutting-edge methods in econometrics and causal ML"
+  },
+  {
+    "objectID": "workshops/trainings/causal_ml.html#what-will-you-learn",
+    "href": "workshops/trainings/causal_ml.html#what-will-you-learn",
+    "title": "Causal Inference via Machine Learning",
+    "section": "What will you learn?",
+    "text": "What will you learn?\n\nThe fundamental distinction between correlation and causation, and why it matters for real-world decision-making\nCore identification strategies: RCTs, IV, DiD, and their assumptions.\nThe Double Lasso method for valid causal inference when the number of control variables is large\nDouble/Debiased Machine Learning (DML) for estimating causal effects in partially linear and fully interactive models\nHow to estimate heterogeneous treatment effects and local average treatment effects (LATE) using modern ML methods\nPractical implementation skills through hands-on examples with real datasets ## Course Outline\nMotivation and Conceptual Foundations\nIdentification\nRandomised Controlled Trials (RCTs)\nIntroduction to Linear Regression\nRegularization Techniques for Linear Regression in High-Dimensional Settings\nStatistical Inference on Causal Effects in High Dimensional Linear Regression Models\nStatistical Inference on Predictive and Causal Effects in Modern Nonlinear Regression Models"
+  },
+  {
+    "objectID": "workshops/trainings/causal_ml.html#prerequisites",
+    "href": "workshops/trainings/causal_ml.html#prerequisites",
+    "title": "Causal Inference via Machine Learning",
+    "section": "Prerequisites",
+    "text": "Prerequisites\n\nBasic understanding of statistics and probability theory\nFamiliarity with linear regression and ordinary least squares (OLS)\nWorking knowledge of statistical concepts such as expected values, variance, and correlation\nBasic programming skills (R)\nUnderstanding of matrix notation and basic linear algebra\nNo prior knowledge of causal inference required – the course builds from foundational concepts Helpful but not required: exposure to econometrics, machine learning basics, or policy evaluation methods"
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#section",
+    "href": "workshops/causal_ml/causal_inf.html#section",
     "title": "MUSTAFA ASLAN",
     "section": "",
-    "text": "Introduction to Reinforcement Learning\n\n\nWorkshop\n\n\n\n\n\nMay 22, 2025\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nBasics of Python and Introduction to Quarto in Visual Studio Code\n\n\nWorkshop\n\n\n\n\n\nMar 3, 2025\n\n\nMustafa Aslan\n\n\n\n\n\nNo matching items"
+    "text": "Outline\n\n\nMotivation and Conceptual Foundations\nIdentification\nRandomised Controlled Trials (RCTs)\nIntroduction to Linear Regression\nRegularization Techniques for Linear Regression in High-Dimensional Settings\nStatistical Inference on Causal Effects in High Dimensional Linear Regression Models\nStatistical Inference on Predictive and Causal Effects in Modern Nonlinear Regression Models"
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#section-1",
+    "href": "workshops/causal_ml/causal_inf.html#section-1",
+    "title": "MUSTAFA ASLAN",
+    "section": "",
+    "text": "Outline\n\n\nMotivation and Conceptual Foundations\nIdentification\nRandomised Controlled Trials (RCTs)\nIntroduction to Linear Regression\nRegularization Techniques for Linear Regression in High-Dimensional Settings\nStatistical Inference on Causal Effects in High Dimensional Linear Regression Models\nStatistical Inference on Predictive and Causal Effects in Modern Nonlinear Regression Models"
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#lets-start-thinking-causally",
+    "href": "workshops/causal_ml/causal_inf.html#lets-start-thinking-causally",
+    "title": "MUSTAFA ASLAN",
+    "section": "Let’s start thinking causally",
+    "text": "Let’s start thinking causally\nEveryday Conversations …\n\nPerson 1: I was late to work today because my alarm didn’t ring.\n\nPerson 2: Today, the 7:45 am bus did not come. Perhaps there was a driver shortage.\n\nPerson 3: My uncle got diagnosed with lung cancer because he was a chain smoker."
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#can-you-identify-the-cause-and-effect-variables",
+    "href": "workshops/causal_ml/causal_inf.html#can-you-identify-the-cause-and-effect-variables",
+    "title": "MUSTAFA ASLAN",
+    "section": "Can you identify the cause and effect variables?",
+    "text": "Can you identify the cause and effect variables?\n\nFunctioning alarm ⇒ Work arrival\nDriver shortage ⇒ Cancelled buses\nSmoking ⇒ Lung cancer\n\nSo, our Research Questions would be:\n\nDoes having a functioning alarm affect work arrival time?\nDoes driver shortage impact bus disruptions?\nDoes smoking lead to lung cancer?"
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#can-we-make-the-research-questions-causal",
+    "href": "workshops/causal_ml/causal_inf.html#can-we-make-the-research-questions-causal",
+    "title": "MUSTAFA ASLAN",
+    "section": "Can we make the Research Questions causal?",
+    "text": "Can we make the Research Questions causal?\n\nTo answer the questions, we need evidence.\nEvidence comes from real-life data.\nData needs to be analysed using the correct methodology.\nCorrect methodology is developed when we know our end goal is for our research question to give a causal answer!\n\nReframing the Research Questions:\n\nDoes having a functioning alarm causally affect the work arrival time?\nDoes driver shortage cause bus cancellations?\nDoes smoking cause lung cancer?"
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#conceptual-foundation-correlation-vs-causation",
+    "href": "workshops/causal_ml/causal_inf.html#conceptual-foundation-correlation-vs-causation",
+    "title": "MUSTAFA ASLAN",
+    "section": "Conceptual Foundation: Correlation vs Causation",
+    "text": "Conceptual Foundation: Correlation vs Causation\n \n\n\n\n\n\n\n\nConcept\nMeaning\n\n\n\n\nAssociation\nThe connection between two variables that is mostly based on our presumptions and general observations.\n\n\nCorrelation\nA statistical term that indicates the degree to which two variables move in coordination with one another.\n\n\nCausation\nIt is a change in one variable that directly causes a change in another variable; it is a cause-and-effect relationship."
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#counterfactual-framework-rubins-causal-model",
+    "href": "workshops/causal_ml/causal_inf.html#counterfactual-framework-rubins-causal-model",
+    "title": "MUSTAFA ASLAN",
+    "section": "Counterfactual framework (Rubin’s Causal Model)",
+    "text": "Counterfactual framework (Rubin’s Causal Model)\nFor every individual \\(i\\) there are two Potential Outcomes:\n\\[\nY_{1i} = \\text{outcome if treated}\n\\]\n\\[\nY_{0i} = \\text{outcome if not treated}\n\\]\nwhere \\(d\\) is the Treatment indicator (1 = treated, 0 = control).\nBut we only ever observe one of them:\n\\[\nY_i = d_i Y_{1i} + (1 - d_i) Y_{0i}\n\\]\nFundamental Problem of Causal Inference:\n\nWe never observe both \\(Y_1\\) and \\(Y_0\\) for the same person at the same time."
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#using-the-example-data",
+    "href": "workshops/causal_ml/causal_inf.html#using-the-example-data",
+    "title": "MUSTAFA ASLAN",
+    "section": "Using the Example Data",
+    "text": "Using the Example Data\n\n\n\n\n\nName\n\\(d\\)\n\\(Y_0\\)\n\\(Y_1\\)\n\n\n\n\nAndy\n1\n.\n10\n\n\nBen\n1\n.\n5\n\n\nChad\n1\n.\n16\n\n\nDaniel\n1\n.\n3\n\n\nEdith\n0\n5\n.\n\n\nFrank\n0\n7\n.\n\n\nGeorge\n0\n8\n.\n\n\nHank\n0\n10\n.\n\n\n\n \nSource: Cunningham (2021), Causal Inference: The Mixtape\n\n \n\nIf \\(d = 1\\): we observe \\(Y_1\\); \\(Y_0\\) is missing (counterfactual).\nIf \\(d = 0\\): we observe \\(Y_0\\); \\(Y_1\\) is missing."
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#causal-effect-and-the-goal",
+    "href": "workshops/causal_ml/causal_inf.html#causal-effect-and-the-goal",
+    "title": "MUSTAFA ASLAN",
+    "section": "Causal Effect and the Goal",
+    "text": "Causal Effect and the Goal\nThe individual treatment effect is:\n\\[\n\\tau_i = Y_{1i} - Y_{0i}\n\\]\nBut it is never observable for any single individual.\nTherefore: causal inference focuses on averages:\n\\[\nATE = E[Y_1 - Y_0]\n\\]\nIn data we estimate it using:\n\\[\nATE = E[Y | d = 1] - E[Y | d = 0]\n\\]\nKey Idea:\nCausal inference compares the outcome we observe with an outcome we cannot observe, and statistical methods try to approximate the missing counterfactual."
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#section-2",
+    "href": "workshops/causal_ml/causal_inf.html#section-2",
+    "title": "MUSTAFA ASLAN",
+    "section": "",
+    "text": "Outline\n\n\nMotivation and Conceptual Foundations\nIdentification\nRandomised Controlled Trials (RCTs)\nInstrumental Variables (IV) and Difference-in-Differences (DiD)\nIntroduction to Linear Regression\nRegularization Techniques for Linear Regression in High-Dimensional Settings\nStatistical Inference on Causal Effects in High Dimensional Linear Regression Models\nStatistical Inference on Predictive and Causal Effects in Modern Nonlinear Regression Models"
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#identification",
+    "href": "workshops/causal_ml/causal_inf.html#identification",
+    "title": "MUSTAFA ASLAN",
+    "section": "Identification",
+    "text": "Identification\nGoal:\nHow to find the causal effect of treatment on the outcome?\n\nWhat gives the causal effect? Comparison with the Counterfactual\nWhy can’t we see it directly? Potential outcomes problem\nWhat design assumption makes it recoverable? Identification\n\n\n“The issue of identification stemmed from the quest to know the attainability of economically meaningful relationships from statistical analysis of economic data” Duo 1993."
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#identification-issues",
+    "href": "workshops/causal_ml/causal_inf.html#identification-issues",
+    "title": "MUSTAFA ASLAN",
+    "section": "Identification Issues",
+    "text": "Identification Issues\nCan we just compare two individuals (one treated and one non-treated)? No!\nPotential Identification Issues\n\nConfounding (Omitted Variable Bias): When variables affect both treatment and outcome, we can’t separate causation from correlation.\nSelection Bias: The sample or treatment groups are non-randomly selected.\nReverse Causality: Outcome affects treatment rather than treatment affecting outcome.\nMeasurement Error: When treatment, outcome, or confounders are measured incorrectly.\nSimultaneity: It occurs when treatment and outcome influence each other at the same time."
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#identification-issues-1",
+    "href": "workshops/causal_ml/causal_inf.html#identification-issues-1",
+    "title": "MUSTAFA ASLAN",
+    "section": "Identification Issues",
+    "text": "Identification Issues\n\nModel Misspecification: Even if the causal structure is right, the statistical model can fail due to Wrong functional form, Omitted interactions and/or Nonlinearity ignored.\nSorting and Endogeneity: Sorting happens when individuals self-select into treatment in a way that is related to their potential outcomes. We say treatment assignment is endogenous because it is not independent of potential outcomes.\nUnobservable Heterogeneity: When unit-specific unobserved characteristics drive both treatment and outcome.\nViolation of SUTVA (Stable Unit Treatment Value Assumption): SUTVA needs two assumptions-(A) No Spillover-Your result should not change because someone else got (or didn’t get) the treatment, and (B) Consistency- The treatment we define is exactly the treatment people actually received."
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#section-3",
+    "href": "workshops/causal_ml/causal_inf.html#section-3",
+    "title": "MUSTAFA ASLAN",
+    "section": "",
+    "text": "Outline\n\n\nMotivation and Conceptual Foundations\nIdentification\nRandomised Controlled Trials (RCTs)\nInstrumental Variables (IV) and Difference-in-Differences (DiD)\nIntroduction to Linear Regression\nRegularization Techniques for Linear Regression in High-Dimensional Settings\nStatistical Inference on Causal Effects in High Dimensional Linear Regression Models\nStatistical Inference on Predictive and Causal Effects in Modern Nonlinear Regression Models"
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#randomized-controlled-trials-rct-basic-setup",
+    "href": "workshops/causal_ml/causal_inf.html#randomized-controlled-trials-rct-basic-setup",
+    "title": "MUSTAFA ASLAN",
+    "section": "Randomized Controlled Trials (RCT): Basic Setup",
+    "text": "Randomized Controlled Trials (RCT): Basic Setup\nPotential outcomes framework: \\[Y_i(1), Y_i(0)\\]\nTreatment assignment: \\[\nT_i = \\begin{cases}\n1 & \\text{if unit } i \\text{ receives treatment} \\\\\n0 & \\text{if unit } i \\text{ is control}\n\\end{cases}\n\\]\nObserved outcome: \\[\nY_i = T_i Y_i(1) + (1 - T_i) Y_i(0)\n\\]\nRCT key feature: Random assignment \\[\nT_i \\perp (Y_i(1), Y_i(0))\n\\]\nIdentification: \\[\nATE = E[Y_i(1) - Y_i(0)] = E[Y_i | T_i = 1] - E[Y_i | T_i = 0]\n\\]"
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#rct-linear-regression-model",
+    "href": "workshops/causal_ml/causal_inf.html#rct-linear-regression-model",
+    "title": "MUSTAFA ASLAN",
+    "section": "RCT: Linear Regression Model",
+    "text": "RCT: Linear Regression Model\nIn a randomized controlled trial, treatment \\(T_i\\) is randomly assigned.\nLinear model for estimating the treatment effect:\n\\[\nY_i = \\alpha + \\beta T_i + \\gamma X_i + \\varepsilon_i\n\\]\nKey feature of an RCT:\n\\[\n\\text{Cov}(T_i, \\varepsilon_i) = 0\n\\]\nbecause randomization ensures \\(T_i\\) is independent of unobserved factors.\nInterpretation:\n\n\\(\\beta\\) measures the causal effect of treatment.\n\\(X_i\\) are optional controls to improve precision (not identification).\n\nKey idea: random assignment makes the treated and control groups comparable, so the coefficient on \\(T_i\\) can be interpreted causally."
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#rct-validity-issues",
+    "href": "workshops/causal_ml/causal_inf.html#rct-validity-issues",
+    "title": "MUSTAFA ASLAN",
+    "section": "RCT Validity Issues",
+    "text": "RCT Validity Issues\nInternal validity:\nCan we estimate a causal effect for the experimental sample?\nRandomization ⇒ solves:\n\nConfounding\nSelection bias\nReverse causality\n\nExternal validity:\nDoes the effect generalize?\n\nPopulation differences\nInstitutional, geographic, or behavioral effects\nExperimental setting vs real world"
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#when-rcts-are-not-perfect-non-compliance",
+    "href": "workshops/causal_ml/causal_inf.html#when-rcts-are-not-perfect-non-compliance",
+    "title": "MUSTAFA ASLAN",
+    "section": "When RCTs Are Not Perfect: Non-compliance",
+    "text": "When RCTs Are Not Perfect: Non-compliance\nNon-compliance: people do not follow their assignment.\nExamples:\n\nSomeone is assigned to the treatment but does not take it.\nSomeone in the control group somehow gets the treatment.\n\nIntention-to-Treat (ITT):\n\nCompare groups based on assignment, not on what they actually did.\nThis keeps the randomisation intact."
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#when-rcts-are-not-perfect-attrition",
+    "href": "workshops/causal_ml/causal_inf.html#when-rcts-are-not-perfect-attrition",
+    "title": "MUSTAFA ASLAN",
+    "section": "When RCTs Are Not Perfect: Attrition",
+    "text": "When RCTs Are Not Perfect: Attrition\nAttrition: Some outcomes are missing.\nExamples:\n\nPeople drop out of the study.\nSome participants cannot be reached later.\n\nWhy this is a problem:\n\nThe missing data may be related to the outcome.\nThis can break the original randomisation.\n\nWhat researchers do:\n\nUse the original assignment for estimation.\nCheck whether dropout looks random or systematic."
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#section-4",
+    "href": "workshops/causal_ml/causal_inf.html#section-4",
+    "title": "MUSTAFA ASLAN",
+    "section": "",
+    "text": "Outline\n\n\nMotivation and Conceptual Foundations\nIdentification\nRandomised Controlled Trials (RCTs)\nInstrumental Variables (IV) and Difference-in-Differences (DiD)\nIntroduction to Linear Regression\nRegularization Techniques for Linear Regression in High-Dimensional Settings\nStatistical Inference on Causal Effects in High Dimensional Linear Regression Models\nStatistical Inference on Predictive and Causal Effects in Modern Nonlinear Regression Models"
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#natural-experiments-idea-and-motivation",
+    "href": "workshops/causal_ml/causal_inf.html#natural-experiments-idea-and-motivation",
+    "title": "MUSTAFA ASLAN",
+    "section": "Natural Experiments: Idea and Motivation",
+    "text": "Natural Experiments: Idea and Motivation\nKey idea:\n\nUse naturally occurring variation that mimics random assignment.\nExploit policy changes, institutional rules, shocks, geography.\n\nGoal:\nIdentify causal effects when RCTs are infeasible.\nAssumption: As-if random assignment\n\\[\nT_i \\perp (Y_i(1), Y_i(0)) \\text{ within some subpopulation}\n\\]\nExamples:\n\nEducation reforms\nWeather or natural shocks\nEligibility rules (cutoffs, policy thresholds)\n\nNatural experiments motivate econometric tools: IV, DiD, Matching, Regression discontinuity."
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#instrumental-variables-iv",
+    "href": "workshops/causal_ml/causal_inf.html#instrumental-variables-iv",
+    "title": "MUSTAFA ASLAN",
+    "section": "Instrumental Variables (IV)",
+    "text": "Instrumental Variables (IV)\nWhen we use IV:\n\nTreatment is not randomly assigned.\nThere is selection, omitted variables, or reverse causality.\nWe have something that pushes people into treatment.\n\nIdea:\nFind a variable that affects treatment, but does not directly affect the outcome.\nExample intuition:\nA policy, a rule, or an eligibility threshold that changes who receives the treatment, but does not change outcomes except through that treatment.\nWhat IV does:\n\nCreates as-if random variation in treatment.\nLets us focus on the group whose behavior is changed by the instrument.\nRecovers a causal effect even when we can’t control for everything.\n\nKey message:\nIV solves endogeneity when we cannot observe or adjust for all confounders."
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#iv-with-continuous-instrument-setup",
+    "href": "workshops/causal_ml/causal_inf.html#iv-with-continuous-instrument-setup",
+    "title": "MUSTAFA ASLAN",
+    "section": "IV with Continuous Instrument: Setup",
+    "text": "IV with Continuous Instrument: Setup\nStructural causal model:\n\\[\nY_i = \\alpha + \\beta T_i + \\gamma X_i + \\varepsilon_i\n\\]\nProblem:\n\\[\n\\text{Cov}(T_i, \\varepsilon_i) \\neq 0\n\\]\nExample sources of endogeneity:\n\nomitted ability\nselection into treatment\nreverse causality\n\nWe introduce an instrument \\(Z_i\\) (continuous or multi-valued)."
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#iv-with-continuous-instrument-1st-and-2nd-stage",
+    "href": "workshops/causal_ml/causal_inf.html#iv-with-continuous-instrument-1st-and-2nd-stage",
+    "title": "MUSTAFA ASLAN",
+    "section": "IV with Continuous Instrument: 1st and 2nd Stage",
+    "text": "IV with Continuous Instrument: 1st and 2nd Stage\nFirst stage (predict treatment):\n\\[\nT_i = \\pi_0 + \\pi_1 Z_i + \\pi_2 X_i + u_i\n\\]\nRequirement:\n\\[\n\\pi_1 \\neq 0 \\text{ (instrument relevance)}\n\\]\nReduced form (effect of instrument on outcome):\n\\[\nY_i = \\rho_0 + \\rho_1 Z_i + \\rho_2 X_i + v_i\n\\]\nSecond stage (2SLS):\n\\[\nY_i = \\alpha + \\beta \\hat{T}_i + \\gamma X_i + \\varepsilon_i\n\\]\nwhere \\(\\hat{T}_i\\) is the fitted value from the first stage."
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#iv-identification-for-continuous-z",
+    "href": "workshops/causal_ml/causal_inf.html#iv-identification-for-continuous-z",
+    "title": "MUSTAFA ASLAN",
+    "section": "IV Identification for Continuous Z",
+    "text": "IV Identification for Continuous Z\nTwo core assumptions:\n\nRelevance \\[\n\\text{Cov}(Z_i, T_i) \\neq 0\n\\]\nExogeneity \\[\nZ_i \\perp \\varepsilon_i\n\\]\n\n(no direct effect of \\(Z\\) on \\(Y\\))\nWhat IV estimates:\n\\[\n\\beta = \\frac{\\text{Cov}(Z_i, Y_i)}{\\text{Cov}(Z_i, T_i)}\n\\]\n(the continuous IV analog of Wald)\nInterpretation:\ncausal effect of \\(T\\) on \\(Y\\) for compliers."
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#example-continuous-iv",
+    "href": "workshops/causal_ml/causal_inf.html#example-continuous-iv",
+    "title": "MUSTAFA ASLAN",
+    "section": "Example: Continuous IV",
+    "text": "Example: Continuous IV\nQuestion:\nDoes education increase wages?\nEndogenous regressor:\n\\[\nT = \\text{years of education}\n\\]\nContinuous instrument:\n\\[\nZ = \\text{distance to nearest college}\n\\]\n\n1st stage: college proximity predicts schooling\n2nd stage: predicted schooling explains wages\n\nWhy it works:\nproximity affects education but not wages directly."
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#difference-in-differences-did",
+    "href": "workshops/causal_ml/causal_inf.html#difference-in-differences-did",
+    "title": "MUSTAFA ASLAN",
+    "section": "Difference-in-Differences (DiD)",
+    "text": "Difference-in-Differences (DiD)\nWhen we use DiD\n\nA policy or shock affects one group but not another.\nWe observe data before and after the change.\n\nIdea\nCompare how outcomes evolve over time in a treated group versus a similar control group.\nWhy it works\nIf both groups were on similar trends before the intervention, the change in the treatment group relative to the control group reflects the causal effect.\nWhat DiD does well - Handles unobserved factors that do not change over time. - Captures the impact of large reforms, laws, or shocks. - Works with repeated or panel data.\nKey message\nDiD isolates the effect of a treatment by comparing changes over time across groups."
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#did-linear-regression-setup",
+    "href": "workshops/causal_ml/causal_inf.html#did-linear-regression-setup",
+    "title": "MUSTAFA ASLAN",
+    "section": "DiD: Linear Regression Setup",
+    "text": "DiD: Linear Regression Setup\nTwo groups (Treated/Control) and two periods (Before/After).\n\\[\nY_{it} = \\alpha + \\beta(T_{treat_i} \\times P_{post_t}) + \\lambda T_{treat_i} + \\delta P_{post_t} + \\varepsilon_{it}\n\\]\nDiD estimator:\ncoefficient on the interaction term.\n\\[\n\\beta = \\text{DiD}\n\\]\nThis captures the causal effect of treatment."
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#did-identification-conditions",
+    "href": "workshops/causal_ml/causal_inf.html#did-identification-conditions",
+    "title": "MUSTAFA ASLAN",
+    "section": "DiD: Identification Conditions",
+    "text": "DiD: Identification Conditions\nMain assumption:\nParallel trends: \\((Y_{T, pre} - Y_{C, pre}) = (Y_{T, post} - Y_{C, post})\\) in absence of treatment\nControls in regression allow:\n\\[\nY_{it} = \\alpha + \\beta(T_{treat_i} \\times P_{post_t}) + \\gamma X_{it} + \\varepsilon_{it}\n\\]\nWhy it works:\n\nremoves time-invariant unobservables\ncontrols for common shocks"
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#did-example",
+    "href": "workshops/causal_ml/causal_inf.html#did-example",
+    "title": "MUSTAFA ASLAN",
+    "section": "DiD Example",
+    "text": "DiD Example\nPolicy:\nMinimum wage increases only in Region A.\nModel:\n\\[\nY_{it} = \\alpha + \\beta(\\text{RegionA}_i \\times \\text{After}_t) + \\varepsilon_{it}\n\\]\nSuppose:\n\nRegion A employment +5pp\nRegion B employment +1pp\n\n\\[\n\\text{DiD} = 5 - 1 = 4\\text{pp}\n\\]\nInterpretation:\nThe reform increased employment by 4pp."
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#section-5",
+    "href": "workshops/causal_ml/causal_inf.html#section-5",
+    "title": "MUSTAFA ASLAN",
+    "section": "",
+    "text": "Outline\n\n\nMotivation and Conceptual Foundations\nIdentification\nRandomised Controlled Trials (RCTs)\nInstrumental Variables (IV) and Difference-in-Differences (DiD)\nIntroduction to Linear Regression\nRegularization Techniques for Linear Regression in High-Dimensional Settings\nStatistical Inference on Causal Effects in High Dimensional Linear Regression Models\nStatistical Inference on Predictive and Causal Effects in Modern Nonlinear Regression Models"
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#foundations-of-linear-regression",
+    "href": "workshops/causal_ml/causal_inf.html#foundations-of-linear-regression",
+    "title": "MUSTAFA ASLAN",
+    "section": "Foundations of Linear Regression",
+    "text": "Foundations of Linear Regression\n\nA linear regression model is given by: \\[\nY = \\beta^{'} X + \\epsilon\n\\]\n\n    where \\(\\mathbb{E}[\\epsilon] = 0\\).\n\nWe consider \\(Y\\) as the outcome variable, \\(X = (X_1, X_2, \\ldots, X_p)'\\) as the vector of covariates, and \\(\\beta\\) as the vector of parameters.\nOur goal is to construct the best linear predictor of \\(Y\\) given \\(X\\), which is the linear function of \\(X\\) that minimizes the mean squared error (MSE):\n\n\\[\n\\beta = \\arg\\min_{\\beta \\in \\mathbb{R}^p} E[(Y - \\beta^{'} X)^2]\n\\]"
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#goodness-of-fit",
+    "href": "workshops/causal_ml/causal_inf.html#goodness-of-fit",
+    "title": "MUSTAFA ASLAN",
+    "section": "Goodness of Fit",
+    "text": "Goodness of Fit\n\nThe mean squared error (MSE) of the best linear predictor is given by: \\[\n\\text{MSE} = E[(Y - \\beta^{'} X)^2]\n\\]\nThe \\(R^2\\) of the best linear predictor is defined as: \\[\nR^2 = \\frac{E[(\\hat{\\beta}^{'} X)^2]}{E[Y^2]} = 1 - \\frac{E_n \\epsilon^2}{E_n Y^2} \\in [0, 1]\n\\]\n\nInterpretation:\n\n\n\\(R^2\\) measures the proportion of variance in \\(Y\\) that is explained by the linear predictor \\(\\hat{\\beta}^{'} X\\)."
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#overfitting-what-happens-when-pn-is-large",
+    "href": "workshops/causal_ml/causal_inf.html#overfitting-what-happens-when-pn-is-large",
+    "title": "MUSTAFA ASLAN",
+    "section": "Overfitting: What happens when \\(p/n\\) is large?",
+    "text": "Overfitting: What happens when \\(p/n\\) is large?\n\n\n\n\nWhen the number of predictors \\(p\\) is large relative to the number of observations \\(n\\), models can become overly complex and fit the noise in the training data rather than the underlying signal.\nConsider an example where \\(p = n\\) and all \\(X\\) variables are independent standard normal random variables. In this case, we have\n\n\\[\n\\text{MSE}_{sample} = 0 \\quad \\text{and} \\quad R^2_{sample} = 1\n\\]\n\n\n\nWHY?\n\n\n\n\nHere we have extreme overfitting: the model perfectly fits the training data but fails to generalize.\n\n\n\n\nOverfitting Example"
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#inference-about-predictive-effects-or-association",
+    "href": "workshops/causal_ml/causal_inf.html#inference-about-predictive-effects-or-association",
+    "title": "MUSTAFA ASLAN",
+    "section": "Inference about Predictive Effects or Association",
+    "text": "Inference about Predictive Effects or Association\n\nPredictive effects describe how our (population best linear) predictions change when a value of target regressor changes, holding all other regressors constant.\nSpecifically, we partition the vector of regressors \\(X\\) into two parts: the target regressor of interest \\(D\\) and the remaining regressors \\(W\\) (also called control variables or covariates).\n\n\\[\nX = (D, W'),\n\\]\n\nWe can then write the best linear predictor of \\(Y\\) given \\(X\\) as\n\n\\[\nY =  \\beta_1 D + \\beta^{'}_2 W + \\epsilon\n\\]\n\nHow does the predicted value of change if increases by a unit while remains unchanged?"
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#section-6",
+    "href": "workshops/causal_ml/causal_inf.html#section-6",
+    "title": "MUSTAFA ASLAN",
+    "section": "",
+    "text": "The predictive value of \\(Y\\) changes by \\(\\beta_1\\) units when \\(D\\) increases by one unit.\n\n\n\nNote that this interpretation is purely predictive and does not imply causality.\n\n\n\nWHY?\n\n\n\nThis is because we are holding all other regressors \\(W\\) constant, which may not be realistic in practice.\n\n\n\nFor example: In a wage regression, \\(D\\) could be years of education, and \\(W\\) could include experience, gender, and location. The coefficient on education (\\(\\beta_1\\)) tells us how much more (or less) we predict someone will earn for each additional year of education, with the same experience, gender, and location."
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#understanding-beta_1-via-partialling-out",
+    "href": "workshops/causal_ml/causal_inf.html#understanding-beta_1-via-partialling-out",
+    "title": "MUSTAFA ASLAN",
+    "section": "Understanding \\(\\beta_1\\) via “Partialling-Out”",
+    "text": "Understanding \\(\\beta_1\\) via “Partialling-Out”\n\n“Partialling-out” is the process of isolating the effect of the target regressor \\(D\\) on the outcome variable \\(Y\\) by removing the influence of the control variables \\(W\\).\nPartialling-out operation is define as a procedure with three steps:\n\nRegress \\(Y\\) on \\(W\\) and obtain the residuals \\(\\tilde{Y}\\).\n\n\\[\nY = \\gamma^{'}_{YW} W + u \\quad \\Rightarrow \\quad \\tilde{Y} = Y - \\hat{Y} = Y - \\gamma^{'}_{YW} W\n\\]\n\nRegress \\(D\\) on \\(W\\) and obtain the residuals \\(\\tilde{D}\\).\n\n\\[\nD = \\gamma^{'}_{DW} W + v \\quad \\Rightarrow \\quad \\tilde{D} = D - \\hat{D} = D - \\gamma^{'}_{DW} W\n\\]\n\nRegress the residuals \\(\\tilde{Y}\\) on the residuals \\(\\tilde{D}\\) to estimate \\(\\beta_1\\).\n\n\\[\n\\tilde{Y} = \\beta_1 \\tilde{D} + \\tilde{\\epsilon}\n\\]"
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#section-7",
+    "href": "workshops/causal_ml/causal_inf.html#section-7",
+    "title": "MUSTAFA ASLAN",
+    "section": "",
+    "text": "We can also show partialling-out procedure by partialling-out operation to both sides of our regression equation\n\\[\nY =  \\beta_1 D + \\beta^{'}_2 W + \\epsilon\n\\]\nto get\n\\[\n\\tilde{Y} = \\beta_1 \\tilde{D} + \\beta^{'}_2 \\tilde{W} + \\tilde{\\epsilon}\n\\]\nWhich simplifies to\n\\[\n\\tilde{Y} = \\beta_1 \\tilde{D} + \\epsilon\n\\]\n\nWhy does \\(\\tilde{W}\\) disappear in the partialled-out regression?\nWhy \\(\\tilde{\\epsilon} = \\epsilon\\)?\n\nInterpretation of \\(\\beta_1\\) in Partialling-Out\n\n\\(\\beta_1\\) can be interpreted as the effect of \\(D\\) on \\(Y\\) after removing the influence of \\(W\\) as univariate linear regression of residualized \\(Y\\) on residualized \\(D\\).\nResiduals are defined by partialling-out the linear effects of \\(W\\) from both \\(Y\\) and \\(D\\)."
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#section-8",
+    "href": "workshops/causal_ml/causal_inf.html#section-8",
+    "title": "MUSTAFA ASLAN",
+    "section": "",
+    "text": "When \\(p/n\\) is large, using linear regression for partialling-out can lead to overfitting issues, resulting in biased estimates of \\(\\beta_1\\).\n\n\n\nTo address this, we can use dimension reduction or regularization techniques, such as Lasso or Ridge regression, during the partialling-out steps."
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#section-9",
+    "href": "workshops/causal_ml/causal_inf.html#section-9",
+    "title": "MUSTAFA ASLAN",
+    "section": "",
+    "text": "Outline\n\n\nMotivation and Conceptual Foundations\nIdentification\nRandomised Controlled Trials (RCTs)\nInstrumental Variables (IV) and Difference-in-Differences (DiD)\nIntroduction to Linear Regression\nRegularization Techniques for Linear Regression in High-Dimensional Settings\nStatistical Inference on Causal Effects in High Dimensional Linear Regression Models\nStatistical Inference on Predictive and Causal Effects in Modern Nonlinear Regression Models"
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#linear-regression-with-high-dimensional-covariates",
+    "href": "workshops/causal_ml/causal_inf.html#linear-regression-with-high-dimensional-covariates",
+    "title": "MUSTAFA ASLAN",
+    "section": "Linear Regression with High-Dimensional  Covariates",
+    "text": "Linear Regression with High-Dimensional  Covariates\n\n\n\nA regression model\n\n\\[\nY = \\beta^{'} X + \\epsilon, \\quad \\epsilon \\perp X,\n\\]\n\nwhere \\(\\beta^{'} X\\) is the population best linear predictor of \\(Y\\) given \\(X\\).\n\n\nThe vector \\(X = (X_1, X_2, \\ldots, X_p)\\) represents the \\(p\\) covariates (\\(p\\) regressors).\n\n\n\\(p\\) is large, possibly larger than \\(n\\)\n\n\nThis case where is very large is what we call a high-dimensional setting."
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#constructed-regressors",
+    "href": "workshops/causal_ml/causal_inf.html#constructed-regressors",
+    "title": "MUSTAFA ASLAN",
+    "section": "Constructed Regressors",
+    "text": "Constructed Regressors\n\nIn high-dimensional settings, we often create new features from the original covariates to capture complex relationships.\nif \\(W\\) are raw covariates, we can create technical (constructed) regressors \\(X\\) by including polynomial terms, interaction terms, or other transformations of \\(W\\).\n\n\\[\nX = P(W) = (P_1(W), P_2(W), \\ldots, P_p(W))'\n\\]\nwhere the set of transformations \\(P(W)\\) can be very large, leading to a high-dimensional feature space.\n\nExample transformations include squared terms (\\(W_i^2\\)), interaction terms (\\(W_i W_j\\)), and higher-order polynomials (\\(W_i^3\\), etc.)."
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#section-10",
+    "href": "workshops/causal_ml/causal_inf.html#section-10",
+    "title": "MUSTAFA ASLAN",
+    "section": "",
+    "text": "Why Do We Need Constructed Regressors?\n\nThe main motivation for using constructed regressors is to built more flexible models that can capture non-linear relationships and interactions among the original covariates.\nBy expanding the feature space in prediction rules, \\(\\beta^{'} X = \\beta^{'} P(W)\\), we can approximate complex functions of the original covariates \\(W\\) more accurately.\n\n\n\n\\(\\beta^{'} P(W)\\) are nonlinear in \\(W\\) but still linear in parameters \\(\\beta\\)."
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#best-predictor",
+    "href": "workshops/causal_ml/causal_inf.html#best-predictor",
+    "title": "MUSTAFA ASLAN",
+    "section": "Best Predictor",
+    "text": "Best Predictor\n\nIn the population, the best predictor of \\(Y\\) given \\(W\\) is\n\n\\[\ng(W) = E[Y|W]\n\\]\nthe conditional expectation of \\(Y\\) given \\(W\\). The function \\(g(W)\\) is called the regression function of \\(Y\\) on \\(W\\).\n\nThe conditional expectation funnction \\(g(W)\\) solves the best prediction problem\n\n\\[\n\\min_{m(W)} E[(Y - m(W))^2].\n\\]\n\nHere we minimize the mean squared prediction error over all prediction rules \\(m(W)\\).\n\\(\\beta^{'} P(W)\\) is an approximation to best predictor \\(g(W)\\)\nUsing richer and more complex constructed regressors \\(P(W)\\) allows us to better approximate the true regression function \\(g(W)\\)."
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#motivation-for-regularization",
+    "href": "workshops/causal_ml/causal_inf.html#motivation-for-regularization",
+    "title": "MUSTAFA ASLAN",
+    "section": "Motivation for Regularization",
+    "text": "Motivation for Regularization\n\n\nClassical linear regression can perform poorly in high-dimensional settings due to overfitting.\n\n\n\nThis is especially apparent when \\(p \\geq n\\).\n\n\n\nRegularization techniques, such as Lasso and Ridge regression, help mitigate overfitting by adding a penalty term to the loss function."
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#lasso-regression",
+    "href": "workshops/causal_ml/causal_inf.html#lasso-regression",
+    "title": "MUSTAFA ASLAN",
+    "section": "Lasso Regression",
+    "text": "Lasso Regression\n\nLasso (Least Absolute Shrinkage and Selection Operator) regression adds a penalty to the loss function\nLasso constructs the estimator \\(\\hat{\\beta}\\) by solving the following penalized least squares problem:\n\n\\[\n\\min_{b \\in \\mathbb{R}^p} \\left\\{ \\frac{1}{n} \\sum_{i=1}^{n} (Y_i - b^{'} X_i)^2 + \\lambda \\sum_{j=1}^{p} |b_j| \\right\\}\n\\]\n\nThe first term is the usual mean squared error, while the second term is called a penalty term.\nThe tuning parameter \\(\\lambda \\geq 0\\) controls the strength of the penalty.\nLasso performs both variable selection and regularization, shrinking some coefficients to exactly zero, effectively selecting a simpler model.\nAs long as \\(\\lambda &gt; 0\\), the introduction of the penalty term leads to a prediction rule that is less complex and less prone to overfitting compared to ordinary least squares."
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#how-to-choose-the-tuning-parameter-lambda",
+    "href": "workshops/causal_ml/causal_inf.html#how-to-choose-the-tuning-parameter-lambda",
+    "title": "MUSTAFA ASLAN",
+    "section": "How to Choose the Tuning Parameter \\(\\lambda\\)?",
+    "text": "How to Choose the Tuning Parameter \\(\\lambda\\)?\n\nThe tuning parameter \\(\\lambda\\) in Lasso regression controls the trade-off between fitting the training data well and keeping the model simple.\n\nA larger \\(\\lambda\\) increases the penalty for large coefficients, leading to a sparser model with more coefficients set to zero.\nA smaller \\(\\lambda\\) allows the model to fit the training data more closely, potentially leading to overfitting if \\(p\\) is large relative to \\(n\\).\n\nCommon methods for selecting \\(\\lambda\\) include:\n\nA theoretically valid choice is\n\n\n\\[\n\\lambda = 2 c \\hat{\\sigma} \\sqrt{n} \\Phi^{-1}(1 - \\alpha / (2p))\n\\]\n\nwhere \\(\\hat{\\sigma}\\) is an estimate of the standard deviation of the error term, \\(\\Phi^{-1}\\) is the inverse CDF of the standard normal distribution, and \\(c &gt; 1\\) is a constant, and \\(\\alpha\\) is a small significance level (e.g., 0.05).\n\n\nCross-validation: Split the data into training and validation sets multiple times, fit the model for different values of \\(\\lambda\\), and choose the one that minimizes the average validation error."
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#section-11",
+    "href": "workshops/causal_ml/causal_inf.html#section-11",
+    "title": "MUSTAFA ASLAN",
+    "section": "",
+    "text": "Lasso shrinks relevant regressors towards zero and “underestimates” the absolute value of the coefficients.\n\n\n\nTherefore, Lasso may not be ideal for inference about predictive effects or causal effects."
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#example-bias-in-lasso-coefficients",
+    "href": "workshops/causal_ml/causal_inf.html#example-bias-in-lasso-coefficients",
+    "title": "MUSTAFA ASLAN",
+    "section": "Example: Bias in Lasso Coefficients",
+    "text": "Example: Bias in Lasso Coefficients"
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#post-lasso-estimation",
+    "href": "workshops/causal_ml/causal_inf.html#post-lasso-estimation",
+    "title": "MUSTAFA ASLAN",
+    "section": "Post-Lasso Estimation",
+    "text": "Post-Lasso Estimation\n\nTo mitigate the bias introduced by Lasso, we can use a two-step procedure called Post-Lasso estimation.\nThe Post-Lasso estimator is obtained by:\n\nFirst, use Lasso regression to select a subset of relevant regressors (those with non-zero coefficients).\nThen, fit an ordinary least squares regression using only the selected regressors from the first step.\n\n\nDoes Post-Lasso, \\(\\hat{\\beta^{'}} X\\), provide a good approximation to best linear prediction rule, \\(\\beta^{'} X\\) ?\n\nWe will have \\(s\\) selected regressors after Lasso, also called effective dimension\nTo estimate the Post-Lasso estimator, we need \\(n/s\\) to be sufficiently large to avoid overfitting in the second step."
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#ridge-regression",
+    "href": "workshops/causal_ml/causal_inf.html#ridge-regression",
+    "title": "MUSTAFA ASLAN",
+    "section": "Ridge Regression",
+    "text": "Ridge Regression\n\nRidge regression is another regularization technique that adds a penalty to the loss function based on the squared magnitude of the coefficients.\nRidge regression constructs the estimator \\(\\hat{\\beta}\\) by solving the following penalized least squares problem:\n\n\\[\n\\min_{b \\in \\mathbb{R}^p} \\left\\{ \\frac{1}{n} \\sum_{i=1}^{n} (Y_i - b^{'} X_i)^2 + \\lambda \\sum_{j=1}^{p} b_j^2 \\right\\}\n\\]\n\nIn contrast to Lasso, Ridge regression does not perform variable selection; instead, it shrinks all coefficients towards zero but none are set exactly to zero."
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#elastic-net-regression",
+    "href": "workshops/causal_ml/causal_inf.html#elastic-net-regression",
+    "title": "MUSTAFA ASLAN",
+    "section": "Elastic Net Regression",
+    "text": "Elastic Net Regression\n\nElastic Net regression combines the penalties of both Lasso and Ridge regression.\n\n\\[\n\\min_{b \\in \\mathbb{R}^p} \\left\\{ \\frac{1}{n} \\sum_{i=1}^{n} (Y_i - b^{'} X_i)^2 + \\lambda_1 \\sum_{j=1}^{p} |b_j| + \\lambda_2 \\sum_{j=1}^{p} b_j^2 \\right\\}\n\\]\n\n\\(\\lambda_1\\) controls the Lasso penalty, while \\(\\lambda_2\\) controls the Ridge penalty.\nTwo tuning parameters could be selected via cross-validation or other hyperparameter optimization methods in machine learning, such as grid search or Bayesian optimization."
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#section-12",
+    "href": "workshops/causal_ml/causal_inf.html#section-12",
+    "title": "MUSTAFA ASLAN",
+    "section": "",
+    "text": "Choice of Regression Methods in Practice\n\nThe choice between Lasso, Ridge, and Elastic Net regression depends on the specific characteristics of the data and the goals of the analysis.\nIf we are interested in building the best prediction, we can tune each method via cross-validation and select the one with the lowest prediction error on test data."
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#section-13",
+    "href": "workshops/causal_ml/causal_inf.html#section-13",
+    "title": "MUSTAFA ASLAN",
+    "section": "",
+    "text": "Outline\n\n\nMotivation and Conceptual Foundations\nIdentification\nRandomised Controlled Trials (RCTs)\nInstrumental Variables (IV) and Difference-in-Differences (DiD)\nIntroduction to Linear Regression\nRegularization Techniques for Linear Regression in High-Dimensional Settings\nStatistical Inference on Causal Effects in High Dimensional Linear Regression Models\nStatistical Inference on Predictive and Causal Effects in Modern Nonlinear Regression Models"
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#causal-interpretation-of-predictive-effects",
+    "href": "workshops/causal_ml/causal_inf.html#causal-interpretation-of-predictive-effects",
+    "title": "MUSTAFA ASLAN",
+    "section": "Causal interpretation of predictive effects",
+    "text": "Causal interpretation of predictive effects\n\nRemember our regression model with target regressor \\(D\\) and control variables \\(W\\):\n\n\\[\nY =  \\beta_1 D + \\beta^{'}_2 W + \\epsilon\n\\]\n\nIf conditioning on \\(W\\) is sufficient to control for confounding between \\(D\\) and \\(Y\\), then \\(\\beta_1\\) can be interpreted as the average causal effect of \\(D\\) on \\(Y\\).\nThen, predictive effect of \\(D\\) on \\(Y\\) can answer the causal question:\n\n\nWhat is the average change in \\(Y\\) when we intervene to increase \\(D\\) by one unit, holding \\(W\\) constant?"
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#double-lasso",
+    "href": "workshops/causal_ml/causal_inf.html#double-lasso",
+    "title": "MUSTAFA ASLAN",
+    "section": "Double Lasso",
+    "text": "Double Lasso\nThe key step is application of Lasso regression for partialling-out in the presence of high-dimensional covariates. Consider the following regression model:\n\\[\nY = \\alpha D + \\beta^{'} W + \\epsilon,\n\\]\nwhere \\(D\\) is the target regressor of interest and \\(W\\) is a vector of \\(p\\) control variables. After partialling-out \\(W\\) from both \\(Y\\) and \\(D\\), we get\n\nWe run Lasso regressions of \\(Y\\) on \\(W\\) and \\(D\\) on \\(W\\):\n\n\\[\n\\hat{\\gamma}_{YW} = \\arg\\min_{\\gamma \\in \\mathbb{R}^p} \\left\\{ \\frac{1}{n} \\sum_{i=1}^{n} (Y_i - \\gamma^{'} W_i)^2 + \\lambda \\sum_{j=1}^{p} |\\gamma_j| \\right\\},\n\\]\n\\[\n\\hat{\\gamma}_{DW} = \\arg\\min_{\\gamma \\in \\mathbb{R}^p} \\left\\{ \\frac{1}{n} \\sum_{i=1}^{n} (D_i - \\gamma^{'} W_i)^2 + \\lambda \\sum_{j=1}^{p} |\\gamma_j| \\right\\}.\n\\]\n\nCompute the residuals \\(\\tilde{Y}\\) and \\(\\tilde{D}\\):\n\n\\[\n\\tilde{Y} = Y - \\hat{\\gamma}_{YW}^{'} W, \\quad \\tilde{D} = D - \\hat{\\gamma}_{DW}^{'} W.\n\\]\n\nFinally, we run an ordinary least squares regression of \\(\\tilde{Y}\\) on \\(\\tilde{D}\\) to estimate \\(\\alpha\\):\n\n\\[\n\\begin{align}\n\\hat{\\alpha} &= \\arg\\min_{\\alpha \\in \\mathbb{R}} \\frac{1}{n} \\sum_{i=1}^{n} ({\\tilde{Y}}_i - \\alpha {\\tilde{D}}_i)^2  \\\\\n&= (E_n \\tilde{D}^2)^{-1} E_n\\tilde{D} \\tilde{Y}.\n\\end{align}\n\\]"
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#uncertainty-in-hatalpha",
+    "href": "workshops/causal_ml/causal_inf.html#uncertainty-in-hatalpha",
+    "title": "MUSTAFA ASLAN",
+    "section": "Uncertainty in \\(\\hat{\\alpha}\\)",
+    "text": "Uncertainty in \\(\\hat{\\alpha}\\)\n\nTo quantify the uncertainty of the Double Lasso estimator \\(\\hat{\\alpha}\\), we can use the following formula for the standard deviation of \\(\\hat{\\alpha}\\):\n\n\\[\nV = (E_n \\tilde{D}^2)^{-1} E_n (\\tilde{D}^2 \\hat{\\epsilon}^2) (E_n \\tilde{D}^2)^{-1},\n\\]\n\nThe standard error of \\(\\hat{\\alpha}\\) is then:\n\n\\[\n\\text{SE}(\\hat{\\alpha}) = \\sqrt{V/n}.\n\\]\n\nThis allows us to construct confidence intervals and perform hypothesis tests for the estimated causal effect \\(\\hat{\\alpha}\\). For example, a 95% confidence interval for \\(\\alpha\\) can be constructed as:\n\n\\[\n\\left[\\hat{\\alpha} \\pm 2 \\times \\sqrt{V/n} \\right].\n\\]"
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#section-14",
+    "href": "workshops/causal_ml/causal_inf.html#section-14",
+    "title": "MUSTAFA ASLAN",
+    "section": "",
+    "text": "Practical Example: A comparison of OLS and Double Lasso\nFor the relevant code and data, go to here"
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#inference-on-many-coefficients",
+    "href": "workshops/causal_ml/causal_inf.html#inference-on-many-coefficients",
+    "title": "MUSTAFA ASLAN",
+    "section": "Inference on Many Coefficients",
+    "text": "Inference on Many Coefficients\n\nIf we are interested in more than one coefficient, we can repeat the Double Lasso procedure for each target regressor of interest.\nHere we consider the model: \\[\nY = \\sum_{j=1}^{p_1} \\alpha_j D_j + \\sum_{k=1}^{p_2} \\beta_k W_k + \\epsilon,\n\\]\n\n     where the number of target regressors \\(p_1\\) can also be large, and the number of control variables \\(p_2\\) can be large as well."
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#motivation-for-many-coefficients-inference",
+    "href": "workshops/causal_ml/causal_inf.html#motivation-for-many-coefficients-inference",
+    "title": "MUSTAFA ASLAN",
+    "section": "Motivation for Many Coefficients Inference",
+    "text": "Motivation for Many Coefficients Inference\n\nThere can be multiple policy variables of interest that we want to analyze simultaneously, such as the effects of different education policies on student outcomes.\nWe can be interested in heterogeneous treatment effects across different subgroups, which requires estimating multiple coefficients for each subgroup.\nWe can be interested in nonlinear effects of policies"
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#one-by-one-double-lasso",
+    "href": "workshops/causal_ml/causal_inf.html#one-by-one-double-lasso",
+    "title": "MUSTAFA ASLAN",
+    "section": "One by One Double Lasso",
+    "text": "One by One Double Lasso\n\nFor each \\(j = 1, \\ldots, p_1\\), we can apply the one-by-one Double Lasso procedure to estimate \\(\\alpha_j\\) while treating the other \\(D_{-j}\\) as part of the control variables.\n\n\\[\nY = \\alpha_j D_j + \\gamma_j{'} W_j + \\epsilon, \\quad W_j = ((D_{-j})^{'}, W^{'})^{'}\n\\]\n\nThe double lasso provides a high quality estimate of \\(\\hat{\\alpha} = (\\alpha_j)_{j=1}^{p_1}\\) for each \\(j\\) and we can construct confidence intervals for each \\(\\alpha_j\\).\nThis allows us to make inference on multiple coefficients simultaneously, even in high-dimensional settings where \\(p_1\\) and \\(p_2\\) are large relative to \\(n\\)."
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#section-15",
+    "href": "workshops/causal_ml/causal_inf.html#section-15",
+    "title": "MUSTAFA ASLAN",
+    "section": "",
+    "text": "Outline\n\n\nMotivation and Conceptual Foundations\nIdentification\nRandomised Controlled Trials (RCTs)\nInstrumental Variables (IV) and Difference-in-Differences (DiD)\nIntroduction to Linear Regression\nRegularization Techniques for Linear Regression in High-Dimensional Settings\nStatistical Inference on Causal Effects in High Dimensional Linear Regression Models\nStatistical Inference on Predictive and Causal Effects in Modern Nonlinear Regression Models]{style=“color: #1A6872;”}"
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#introduction",
+    "href": "workshops/causal_ml/causal_inf.html#introduction",
+    "title": "MUSTAFA ASLAN",
+    "section": "Introduction",
+    "text": "Introduction\n\nWe recall our regression model with target regressor \\(D\\) and control variables \\(W\\), where we ask predictive effect question:\n\nHow does the predicted value of outcome \\(Y\\),\n\\[\nE[Y|D, W],\n\\]\nchange if a regressor value \\(D\\) increases by one init, while regressor values, \\(W\\), remain unchanged"
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#doubledebiased-machine-learning-dml-inference-in-the-partially-linear-regression-model-plm",
+    "href": "workshops/causal_ml/causal_inf.html#doubledebiased-machine-learning-dml-inference-in-the-partially-linear-regression-model-plm",
+    "title": "MUSTAFA ASLAN",
+    "section": "Double/debiased machine learning (DML) Inference in the Partially Linear Regression Model (PLM)",
+    "text": "Double/debiased machine learning (DML) Inference in the Partially Linear Regression Model (PLM)\n\nA partially linear regression model:\n\n\\[\nY = \\alpha D + {\\color{#707C36}{g(W)}} + \\epsilon, \\quad E[\\epsilon|D,W] = 0,\n\\tag{1}\\]\n     where \\(Y\\) is the outcome variable, \\(D\\) is the treatment variable, \\(W\\) is a vector of control variables.\n\nThe model allows a part of the regression function, \\(\\color{#707C36}{g(W)}\\), to be fully nonlinear\nHowever, the model is not fully general, because it imposes additivity in \\(\\color{#707C36}{g(W)}\\) and \\(D\\)"
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#partialling-out",
+    "href": "workshops/causal_ml/causal_inf.html#partialling-out",
+    "title": "MUSTAFA ASLAN",
+    "section": "Partialling-Out",
+    "text": "Partialling-Out\nApplying partialling-out to Equation 1, we obtain:\n\\[\n\\tilde{Y} = \\alpha \\tilde{D} + \\epsilon,\n\\]\nwhere \\(\\tilde{Y}\\) and \\(\\tilde{D}\\) are the residuals left after predicting \\(Y\\) and \\(D\\) using \\(W\\).\n\\[\n\\tilde{Y} := Y - \\ell(W) \\quad \\text{and} \\quad \\tilde{D} := D - m(W),\n\\] = E[Y|W]\nwhere \\(\\ell(W)\\) and \\(m(W)\\) are conditional expectation functions of \\(Y\\) and \\(D\\) given \\(W\\), respectively.\n\\[\n\\ell(W) = E[Y|W], \\quad m(W) = E[D|W].\n\\]"
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#dml-estimation-procedure",
+    "href": "workshops/causal_ml/causal_inf.html#dml-estimation-procedure",
+    "title": "MUSTAFA ASLAN",
+    "section": "DML Estimation Procedure",
+    "text": "DML Estimation Procedure\n\nSplit the data into random folds: \\(\\{1, \\ldots, n\\} = \\cup_{k=1}^K I_k\\). Compute ML estimators \\(\\hat{\\ell}_{k}\\) and \\(\\hat{m}_k\\), leaving out the \\(k\\)-th fold of the data. Obtain the cross-fitted residuals for each fold \\(i \\in I_k\\):\n\n\\[\n\\tilde{Y}_i = Y_i - \\hat{\\ell}_k(W_i), \\quad \\tilde{D}_i = D_i - \\hat{m}_k(W_i).\n\\]\n\nApply the ordinary least squares to \\(\\tilde{Y}_i\\) on \\(\\tilde{D}_i\\) to obtain the DML estimator \\(\\hat{\\alpha}\\):\n\n\\[\n\\hat{\\alpha} = E_n[(\\tilde{Y}_i-\\alpha \\tilde{D}_i) \\tilde{D}_i] =0.\n\\]\n\nConstruct confidence intervals for \\(\\alpha\\):\n\n\\[\n\\left[\\hat{\\alpha} \\pm 2 \\times \\sqrt{V/n} \\right],\n\\]\n     covers \\(\\alpha\\) in approximately 95% of repeated samples, where \\(V\\) is the variance of the DML estimator \\(\\hat{\\alpha}\\)."
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#selecting-the-best-ml-learners-of-hatell-and-hatm",
+    "href": "workshops/causal_ml/causal_inf.html#selecting-the-best-ml-learners-of-hatell-and-hatm",
+    "title": "MUSTAFA ASLAN",
+    "section": "Selecting the Best ML Learners of \\(\\hat{\\ell}\\) and \\(\\hat{m}\\)",
+    "text": "Selecting the Best ML Learners of \\(\\hat{\\ell}\\) and \\(\\hat{m}\\)\n\nWe can use cross-validation to select the best ML learners for estimating \\(\\hat{\\ell}\\) and \\(\\hat{m}\\).\n\n\\[\n\\frac{1}{K} \\sum_{k=1}^K ||\\hat{\\ell_k}- \\ell||_{L^2}^2 \\quad \\text{and} \\quad \\frac{1}{K} \\sum_{k=1}^K ||\\hat{m_k}- m||_{L^2}^2\n\\]\n\nRather than selecting a single best learner, we can also use residuals from multiple learners to form linear combinations of the residuals, which can potentially improve the estimation of \\(\\alpha\\)."
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#dml-inference-in-the-interactive-regression-model-irm",
+    "href": "workshops/causal_ml/causal_inf.html#dml-inference-in-the-interactive-regression-model-irm",
+    "title": "MUSTAFA ASLAN",
+    "section": "DML Inference in the Interactive Regression Model (IRM)",
+    "text": "DML Inference in the Interactive Regression Model (IRM)\n\nHere, we relax the additivity assumption in the partially linear regression model.\nWe consider estimation of average treatment effects when treatment effects are fully heterogeneous and the treatment variable is binary.\nWe consider vectors, \\(W = (Y, D, X)\\), where \\(Y\\) is the outcome variable, \\(D \\in \\{0,1\\}\\) is a binary treatment variable or policy, and \\(X\\) is a vector of control variables.\n\n\\[\nY = g(D, X) + \\epsilon, \\quad E[\\epsilon|D,X] = 0,\n\\tag{2}\\]\n\\[\nD = m(X) + \\tilde{D}, \\quad E[\\tilde{D}|X] = 0,\n\\tag{3}\\]\n\nSince \\(D\\) is not additively separable in the Equation 2, this model is more general than the partially linear regression model."
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#average-predictive-effect-ape",
+    "href": "workshops/causal_ml/causal_inf.html#average-predictive-effect-ape",
+    "title": "MUSTAFA ASLAN",
+    "section": "Average Predictive Effect (APE)",
+    "text": "Average Predictive Effect (APE)\n\nThe average predictive effect (APE) of the binary treatment \\(D\\) on the outcome \\(Y\\) is defined as:\n\n\\[\n\\theta_0 = E[g(1, X) - g(0, X)]\n\\]\n     which represents the average predictive effect of switching the treatment from 0 to 1, averaging over the distribution of covariates \\(X\\).\n\nThe confounding factors, \\(X\\), affect the policy variable via the propensity score \\(m(X) = E[D|X]\\) and affect the outcome variable via the regression function \\(g(D, X)\\)."
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#ape-estimation",
+    "href": "workshops/causal_ml/causal_inf.html#ape-estimation",
+    "title": "MUSTAFA ASLAN",
+    "section": "APE Estimation",
+    "text": "APE Estimation\nATE will be based on the relation:\n\\[\n\\theta_{0} = \\mathbb{E}[\\varphi_{0}(W)],\n\\tag{4}\\]\nwhere\n\\[\n\\varphi_{0}(W) = g_{0}(1, X) - g_{0}(0, X) + \\bigl(Y - g_{0}(D, X)\\bigr) H_{0}\n\\]\nand\n\\[\nH_{0} = \\frac{\\mathbf{1}(D = 1)}{m_{0}(X)} - \\frac{\\mathbf{1}(D = 0)}{1 - m_{0}(X)}\n\\]\nis the Horvitz-Thompson transformation."
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#dml-estimation-procedure-for-apesates-in-irm",
+    "href": "workshops/causal_ml/causal_inf.html#dml-estimation-procedure-for-apesates-in-irm",
+    "title": "MUSTAFA ASLAN",
+    "section": "DML Estimation Procedure for APEs/ATEs in IRM",
+    "text": "DML Estimation Procedure for APEs/ATEs in IRM\n\nSplit the data into random folds: \\(\\{1, \\ldots, n\\} = \\cup_{k=1}^K I_k\\). Compute ML estimators \\(\\hat{g}_{k}\\) and \\(\\hat{m}_k\\), leaving out the \\(k\\)-th fold of the data, such that \\(\\epsilon \\le \\hat{m}_k \\le 1-\\epsilon\\) for some small \\(\\epsilon &gt; 0\\). For each fold \\(i \\in I_k\\), compute:\n\n\\[\n\\hat{\\varphi}(W_i) = \\hat{g}_{k}(1, X_i) - \\hat{g}_{k}(0, X_i) + \\bigl(Y_i - \\hat{g}_{k}(D_i, X_i)\\bigr) \\hat{H}_i,\n\\]\n     where \\(\\hat{H}_i = \\frac{\\mathbf{1}(D_i = 1)}{\\hat{m}_k(X_i)} - \\frac{\\mathbf{1}(D_i = 0)}{1 - \\hat{m}_k(X_i)}\\).\n\nCompute the estimator \\(\\theta_0 = E_n[\\hat{\\varphi}(W_i)]\\).\nConstruct confidence intervals for \\(\\theta_0\\):\n\n\\[\n\\left[\\hat{\\theta} \\pm 2 \\times \\sqrt{\\hat{V}/n} \\right],\n\\]\n     where \\(\\hat{V} = E_n[(\\hat{\\varphi}(W_i) - \\hat{\\theta})^2]\\)."
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#the-local-average-treatment-effect-model-late",
+    "href": "workshops/causal_ml/causal_inf.html#the-local-average-treatment-effect-model-late",
+    "title": "MUSTAFA ASLAN",
+    "section": "The Local Average Treatment Effect Model (LATE)",
+    "text": "The Local Average Treatment Effect Model (LATE)\nConsider a structural Equation Model (SEM) where:\n\\[\n\\begin{aligned}\nY &:= f_{Y}(D, X, A, \\varepsilon_{Y}) \\\\\nD &:= f_{D}(Z, X, A, \\varepsilon_{D}) \\in \\{0,1\\}, \\\\\nZ &:= f_{Z}(X, \\varepsilon_{Z}) \\in \\{0,1\\}, \\\\\nX &:= \\varepsilon_{X}, \\quad A := \\varepsilon_{A},\n\\end{aligned}\n\\]\nwhere all \\(\\epsilon\\) are all independent.\n\nSuppose the instrument \\(Z\\) is is an offer to participate in a training program and that the treatment \\(D\\) is actual endogenous participation in the training program. Participation in the program may depend on unobservables, \\(A\\), such as motivation, which also affects the outcome \\(Y\\). The variable \\(X\\) captures observed covariates such as age, education, and work experience.\n\nThe model allows us to identify the local average treatment effect (LATE), defined as:\n\\[\n\\theta = E[Y(1) - Y(0)|D(1) &gt; D(0)],\n\\]\nwhere \\({D(1) &gt; D(0)}\\) defines the compliance event, where switching the instrument, \\(Z\\), from 0 to 1."
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#section-16",
+    "href": "workshops/causal_ml/causal_inf.html#section-16",
+    "title": "MUSTAFA ASLAN",
+    "section": "",
+    "text": "In the LATE model, \\(\\theta\\) can be identified by the ratio of two statistical parameters,\n\\[\n\\theta_0 = \\theta_1 / \\theta_2,\n\\tag{5}\\]\nwhere \\[\n\\theta_1 = E[E[Y|Z=1, X] - E[Y|Z=0, X]],\n\\]\nand \\[\n\\theta_2 = E[E[D|Z=1, X] - E[D|Z=0, X]].\n\\]\nEquation 5 is equivalent to the below expression:\n\\[\n\\theta_0 = \\frac{E[E[Y|Z=1, X] - E[Y|Z=0, X]]}{E[E[D|Z=1, X] - E[D|Z=0, X]]}.\n\\]\nThis parameter is the ratio of the average predictive effect of \\(Z\\) on \\(Y\\) to the average predictive effect of \\(Z\\) on \\(D\\)."
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#dml-estimation-for-late",
+    "href": "workshops/causal_ml/causal_inf.html#dml-estimation-for-late",
+    "title": "MUSTAFA ASLAN",
+    "section": "DML Estimation for LATE",
+    "text": "DML Estimation for LATE\nDefine regression functions:\n\\[\n\\begin{aligned}\n\\mu_0(Z, X) &= E[Y|Z, X] \\\\\nm_0(Z, X) &= E[D|Z, X] \\\\\np_0(X) &= E[Z|X].\n\\end{aligned}\n\\]\nTherefore, nuance parameters are \\(\\eta = (\\mu, m, p)\\).\nThe DML estimator of \\(\\theta\\) is given by:\n\\[\n\\psi(W; \\theta, \\eta) := \\mu(1, X) - \\mu(0, X)\n    + H(p)\\bigl(Y - \\mu(Z, X)\\bigr)\n    - \\bigl(m(1, X) - m(0, X) + H(p)\\bigl(D - m(Z, X)\\bigr)\\bigr)\\theta,\n\\]\nfor \\(W = (Y, D, X, Z)\\) and\n\\[\nH(p) := \\frac{Z}{p(X)} - \\frac{1 - Z}{1 - p(X)} .\n\\]"
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#section-17",
+    "href": "workshops/causal_ml/causal_inf.html#section-17",
+    "title": "MUSTAFA ASLAN",
+    "section": "",
+    "text": "Practical Example: Application of PLM, IRM and LATE to the 401(K) data\nFor the relevant code and data, go to here"
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#why-partialling-out-works-neyman-orthogonality",
+    "href": "workshops/causal_ml/causal_inf.html#why-partialling-out-works-neyman-orthogonality",
+    "title": "MUSTAFA ASLAN",
+    "section": "Why Partialling-out works: Neyman Orthogonality",
+    "text": "Why Partialling-out works: Neyman Orthogonality\n\nThe key to the success of the Double Lasso procedure is the property of Neyman orthogonality, which ensures that the estimation error from the first step (Lasso) does not bias the estimation of \\(\\alpha\\) in the second step.\nNeyman orthogonality means that the moment condition used to estimate \\(\\alpha\\) is insensitive to small errors in the estimation of the nuisance parameters \\(\\gamma_{YW}\\) and \\(\\gamma_{DW}\\).\n\n\\[\n\\eta^{\\circ} = (\\gamma_{DW}^{'}, \\gamma_{YW}^{'})^{'}.\n\\]\n\nThe local insensitivity of target parameters to nuisance parameters Neyman orthogonality.\n\n\\[\n\\partial_{\\eta} \\alpha(\\eta^{\\circ}) = 0.\n\\]\n\nThis property allows us to achieve \\(\\sqrt{n}\\)-consistency and asymptotic normality of the Double Lasso estimator \\(\\hat{\\alpha}\\), even when the nuisance parameters are estimated at slower rates due to high dimensionality."
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#simulation-example-neyman-orthogonality",
+    "href": "workshops/causal_ml/causal_inf.html#simulation-example-neyman-orthogonality",
+    "title": "MUSTAFA ASLAN",
+    "section": "Simulation Example: Neyman Orthogonality",
+    "text": "Simulation Example: Neyman Orthogonality\n\nWe compare the performance of the naive and orthogonal methods in a computational experiment where we \\(p=n=100\\) and we have \\(\\beta_j = 1/j^2, (\\gamma_{DW})_j = 1/j^2\\)\n\n\\[\nY = 1 D + \\beta^{'} W + \\epsilon_Y, \\quad W \\sim N(0, I), \\quad \\epsilon_Y \\sim N(0, 1)\n\\]\n\\[\nD = \\gamma_{DW}^{'} W + \\tilde{D}, \\quad \\tilde{D} \\sim N(0, 1)/4\n\\]"
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#results",
+    "href": "workshops/causal_ml/causal_inf.html#results",
+    "title": "MUSTAFA ASLAN",
+    "section": "Results",
+    "text": "Results\nWe run 1000 simulations and compute the bias and standard deviation of the naive and orthogonal estimators. The results are as follows:"
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#section-18",
+    "href": "workshops/causal_ml/causal_inf.html#section-18",
+    "title": "MUSTAFA ASLAN",
+    "section": "",
+    "text": "The reason that the naive estimator does not perform well is that it only selects controls, \\(W_j\\), that are strongly predictive of \\(Y\\) and omitting weak predictors of \\(Y\\) that could be strongly predictive of \\(D\\) leads to omitted variable bias in the estimation of \\(\\alpha\\). This is called ommitted variable bias.\nIn contrast, the orthogonal estimator is designed to be robust to such selection mistakes, which is why it performs much better in terms of bias and standard deviation."
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#double-selection",
+    "href": "workshops/causal_ml/causal_inf.html#double-selection",
+    "title": "MUSTAFA ASLAN",
+    "section": "Double Selection",
+    "text": "Double Selection\n\nAn alternative to the Double Lasso procedure is the Double Selection method, which also uses Lasso for variable selection but in a slightly different way.\n\nFind controls that predict \\(Y\\) by running a Lasso regression of \\(Y\\) on \\(W\\) and selecting the non-zero coefficients.\n\n\nFind controls that predict \\(D\\) by running a Lasso regression of \\(D\\) on \\(W\\) and selecting the non-zero coefficients.\n\n\nTake the union of the selected controls from both steps and run an ordinary least squares regression of \\(Y\\) on \\(D\\) and the union of selected controls to estimate $\n\nThis procedure is approximately equivalent to the partialling out approach and also relies on the principle of Neyman orthogonality to achieve valid inference on \\(\\alpha\\)."
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#group-average-treatment-effects-gates",
+    "href": "workshops/causal_ml/causal_inf.html#group-average-treatment-effects-gates",
+    "title": "MUSTAFA ASLAN",
+    "section": "Group Average Treatment Effects (GATEs)",
+    "text": "Group Average Treatment Effects (GATEs)\nWe may also be interested in estimating group average treatment effects (GATEs) for a subgroup:\n\\[\n\\theta_0(x) = E[g(1, X) - g(0, X)|G = 1],\n\\]\nwhere \\(G\\) is is a group indicator defined in terms of covariates \\(X\\).\nFor example, we might be interested in the impact of a vaccine on teenagers, so \\(G\\) would be an indicator for \\(13 \\leq \\text{age} \\leq 19\\).\nDML estimation of GATEs can be done by modifying the estimation procedure for APEs/ATEs to focus on the subgroup defined by \\(G=1\\).\n\\[\n\\hat{\\theta}(x) = \\mathbb{E}[\\varphi_{0}(W) | G=1) =  \\frac{E[\\hat{\\varphi}(W) G]}{\\Pr(G=1)}.\n\\]"
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#causal-dags-for-the-401k-example",
+    "href": "workshops/causal_ml/causal_inf.html#causal-dags-for-the-401k-example",
+    "title": "MUSTAFA ASLAN",
+    "section": "Causal DAGs for the 401(K) Example",
+    "text": "Causal DAGs for the 401(K) Example\n\n\n\n\n\n\n\n\n\nG\n\n\n\nD\n\nD\n\n\n\nY\n\nY\n\n\n\nD-&gt;Y\n\n\n\n\n\nX\n\nX\n\n\n\nX-&gt;D\n\n\n\n\n\nX-&gt;Y\n\n\n\n\n\nF\n\nF\n\n\n\nF-&gt;D\n\n\n\n\n\nF-&gt;X\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nG\n\n\n\nD\n\nD\n\n\n\nY\n\nY\n\n\n\nD-&gt;Y\n\n\n\n\n\nX\n\nX\n\n\n\nX-&gt;D\n\n\n\n\n\nX-&gt;Y\n\n\n\n\n\nF\n\nF\n\n\n\nF-&gt;D\n\n\n\n\n\nF-&gt;X\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nG\n\n\n\nD\n\nD\n\n\n\nY\n\nY\n\n\n\nD-&gt;Y\n\n\n\n\n\nX\n\nX\n\n\n\nX-&gt;D\n\n\n\n\n\nX-&gt;Y\n\n\n\n\n\nF\n\nF\n\n\n\nF-&gt;D\n\n\n\n\n\nU\n\nU\n\n\n\nU-&gt;X\n\n\n\n\n\nU-&gt;F\n\n\n\n\n\n\n\n\n\n\n\n\n\nThree Causal DAGs for analysis of the 401(K) example in which adjusting for covariates \\(X\\) is sufficient to control for confounding between \\(D\\) and \\(Y\\)."
   },
   {
     "objectID": "workshops/rl/temp/RL_presentation_v0.html#agenda",

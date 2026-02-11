@@ -1,0 +1,235 @@
+.smaller-font {
+  font-size: 0.9em;
+}
+
+.smallerx-font {
+  font-size: 0.35em;
+}
+
+.long-title1 {
+  font-size: 0.8em;
+}
+
+.long-title2 {
+  font-size: 0.7em;
+}
+
+
+#title-slide .quarto-title-author-name {
+  text-align: left !important;
+  font-size: 0.89em;
+}
+
+#title-slide .quarto-title-affiliation {
+  text-align: left !important;
+  font-size: 0.6em;
+}
+
+#title-slide .date {
+  text-align: left;
+  padding-left: 20px;
+}
+
+/* .reveal h1.title {
+  text-align: left !important;
+  font-size: 1.8em !important;
+} */
+
+
+
+.reveal .subtitle {
+  text-align: left !important;
+}
+.reveal {
+    background-color: #FBFAF4; /* Replace with your desired color */
+}
+
+
+
+/* Change callout background and sidebar color */
+div.callout {
+  border-left: 8px solid #20808D !important; /* Sidebar color */
+}
+
+div.callout .callout-title {
+  background-color: #BADFDE !important;
+  /* color: #fff !important;
+  /* border-radius: 0.5em 0.5em 0 0 */
+}
+
+
+.reveal .slide-menu-button .fa-bars::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2320808D" class="bi bi-list" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/></svg>') !important;
+}
+
+/* Change the color of the progress bar itself */
+.reveal .progress span {
+  background: #20808D !important; /* Your chosen color */
+  height: 100% !important;
+}
+.reveal .progress {
+  height: 4px !important;
+}
+
+/* Set background color for all images */
+img {
+    background-color: #FBFAF4; /* Replace with your desired hex color */
+}
+
+/* Custom class for left border only */
+
+.left-border {
+  border-left: 2px solid rgba(0,0,0,0.12);  /* Only the left */
+  border-radius: 0;                         /* Remove any edge rounding */
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+  padding-left: 14px;                       /* Optional, or reduce/increase */
+  background: none;                         /* Ensure background hasn't changed */
+}
+
+/* Footer color overrides */
+.reveal .footer {
+  color: #20808D !important;
+}
+
+.reveal .footer a {
+  color: #20808D !important;
+  text-decoration: none;
+}
+
+.reveal .footer a:hover,
+.reveal .footer a:focus {
+  color: #16606A !important; /* slightly darker on hover */
+}
+
+
+
+/* List styles for positive and negative lists */
+
+/* POSITIVE */
+.reveal .positive ul,
+.reveal ul.positive {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.reveal .positive li,
+.reveal ul.positive li {
+  margin-left: 0;
+}
+
+.reveal .positive li::before,
+.reveal ul.positive li::before {
+  content: "✓";
+  color: #2CA0AB;
+  font-weight: 700;
+  display: inline-block;
+  width: 1em;
+}
+
+/* NEGATIVE */
+.reveal .negative ul,
+.reveal ul.negative {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.reveal .negative li,
+.reveal ul.negative li {
+  margin-left: 0;
+}
+
+.reveal .negative li::before,
+.reveal ul.negative li::before {
+  content: "✗";
+  color: #BF505C;
+  font-weight: 700;
+  display: inline-block;
+  width: 1em;
+}
+
+/* Spaced lists - for both positive and negative */
+.spaced li {
+  margin-bottom: 1.5em !important;
+}
+
+
+.border-box {
+  padding: 15px;
+  border-radius: 5px;
+  background-color: #DEF7F9;
+}
+
+.cust_title {
+  font-size: 1em;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 0.5em;
+  margin-top: 0;
+  color: inherit;
+  display: block;
+}
+
+.reveal .slide-number {
+  color: #20808D;
+}
+
+.reveal h1 {
+  color: #091717;
+  /* font-size: 1.5em !important; */
+  /* padding-left: 20px; */
+}
+.reveal h2 {
+  color: #091717;
+  /* font-size: 1.3em !important; */
+}
+.reveal h3 {
+  color: #091717;
+  /* font-size: 1.1em !important; */
+}
+/* Custom class to mimic Revealjs H2 styling */
+.mimic-h2 {
+  display: block;                  /* Makes it sit on its own line like a header */
+  font-family: var(--heading-font);
+  font-weight: 600;               /* Match Revealjs H2 weight */
+  color: #091717;
+  text-transform: var(--heading-text-transform);
+  letter-spacing: var(--heading-letter-spacing);
+  font-size: 1.6em;                /* This is the standard Revealjs H2 size */
+  line-height: var(--heading-line-height);
+  margin-bottom: var(--heading-margin-bottom);
+}
+
+
+/* 1. Global Link Color (Standard Hyperlinks) */
+.reveal a {
+  color: #0B363C; /* Replace with your color */
+  text-decoration: none;
+}
+
+/* 2. Citations (e.g., @knuth1984) */
+.reveal a.citation {
+  color: #0B363C; /* Same color as standard links, or choose a different one */
+}
+
+/* 3. Quarto Cross-References (e.g., @fig-1, @tbl-1) */
+.reveal a.quarto-xref {
+  color: #0B363C; /* A distinct color for internal refs */
+}
+
+/* 4. Equation References (e.g., (1)) */
+/* Quarto often tags equation links with .no-external */
+.reveal a.no-external {
+  color: #0B363C;
+}
+
+/* 5. Hover Effects for all the above */
+.reveal a:hover, 
+.reveal a.quarto-xref:hover,
+.reveal a.no-external:hover {
+  color: #92DCE2; 
+  text-decoration: underline;
+}
