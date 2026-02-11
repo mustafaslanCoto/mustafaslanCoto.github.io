@@ -33,3 +33,7 @@ format:
     css: styles.css
     toc: true
 
+execute: 
+    engine: jupyter
+jupyter: python3
+
