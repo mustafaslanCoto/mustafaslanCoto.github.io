@@ -4,7 +4,7 @@ format:
     css: style.css
     width: 1920
     height: 1080
-    footer: "[Causal Inference with Machine Learning](https://mustafaslancoto.github.io/talks/)"
+    footer: "[Causal Inference via Machine Learning](https://mustafaslancoto.github.io/workshops/trainings/causal_ml.html)"
     slide-number: c/t
     preview-links: auto
     # chalkboard: true
@@ -1340,7 +1340,7 @@ $$
 :::{style="padding: 10px; margin: 10px 0; border-left: 2px solid #2CA0AB; text-align: left; color: #1A6872; font-weight: bold; font-size: 1.4em;"}
 Practical Example: A comparison of OLS and Double Lasso
 
-*For the relevant code and data, go to [here](https://mustafaslancoto.github.io/talks/)*
+*For the relevant code and data, go to [here](https://github.com/chamara7h/causal_inference_with_machine_learning_tutorial)*
 :::
 
 ## Inference on Many Coefficients
@@ -1643,7 +1643,7 @@ $$
 
 Practical Example: Application of PLM, IRM and LATE to the 401(K) data
 
-*For the relevant code and data, go to [here](https://mustafaslancoto.github.io/talks/)*
+*For the relevant code and data, go to [here](https://github.com/chamara7h/causal_inference_with_machine_learning_tutorial)*
 :::
 
 
