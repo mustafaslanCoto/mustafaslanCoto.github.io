@@ -38,6 +38,7 @@ link-external-newwindow: true
 - Double/Debiased Machine Learning (DML) for estimating causal effects in partially linear and fully interactive models
 - How to estimate heterogeneous treatment effects and local average treatment effects (LATE) using modern ML methods
 - Practical implementation skills through hands-on examples with real datasets
+
 ## Course Outline
 
 - Motivation and Conceptual Foundations
