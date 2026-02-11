@@ -19,4 +19,5 @@ openpyxl
 ruptures
 tabulate
 great_tables
+setuptools
 git+https://github.com/mustafaslanCoto/peshbeen_dev.git
