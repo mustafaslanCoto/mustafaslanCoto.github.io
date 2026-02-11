@@ -1,4 +1,3 @@
-
 on:
   workflow_dispatch:
   push:
@@ -24,11 +23,14 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.13'
-          cache: 'pip'  # ✅ NOW you can add this safely!
+          python-version: '3.11'
+          cache: 'pip'
 
-      - name: Install Python packages
-        run: pip install -r requirements.txt
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install setuptools
+          pip install -r requirements.txt
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
