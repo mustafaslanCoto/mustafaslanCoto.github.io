@@ -858,7 +858,14 @@
     "href": "workshops/trainings/causal_ml.html#what-will-you-learn",
     "title": "Causal Inference via Machine Learning",
     "section": "What will you learn?",
-    "text": "What will you learn?\n\nThe fundamental distinction between correlation and causation, and why it matters for real-world decision-making\nCore identification strategies: RCTs, IV, DiD, and their assumptions.\nThe Double Lasso method for valid causal inference when the number of control variables is large\nDouble/Debiased Machine Learning (DML) for estimating causal effects in partially linear and fully interactive models\nHow to estimate heterogeneous treatment effects and local average treatment effects (LATE) using modern ML methods\nPractical implementation skills through hands-on examples with real datasets ## Course Outline\nMotivation and Conceptual Foundations\nIdentification\nRandomised Controlled Trials (RCTs)\nIntroduction to Linear Regression\nRegularization Techniques for Linear Regression in High-Dimensional Settings\nStatistical Inference on Causal Effects in High Dimensional Linear Regression Models\nStatistical Inference on Predictive and Causal Effects in Modern Nonlinear Regression Models"
+    "text": "What will you learn?\n\nThe fundamental distinction between correlation and causation, and why it matters for real-world decision-making\nCore identification strategies: RCTs, IV, DiD, and their assumptions.\nThe Double Lasso method for valid causal inference when the number of control variables is large\nDouble/Debiased Machine Learning (DML) for estimating causal effects in partially linear and fully interactive models\nHow to estimate heterogeneous treatment effects and local average treatment effects (LATE) using modern ML methods\nPractical implementation skills through hands-on examples with real datasets"
+  },
+  {
+    "objectID": "workshops/trainings/causal_ml.html#course-outline",
+    "href": "workshops/trainings/causal_ml.html#course-outline",
+    "title": "Causal Inference via Machine Learning",
+    "section": "Course Outline",
+    "text": "Course Outline\n\nMotivation and Conceptual Foundations\nIdentification\nRandomised Controlled Trials (RCTs)\nIntroduction to Linear Regression\nRegularization Techniques for Linear Regression in High-Dimensional Settings\nStatistical Inference on Causal Effects in High Dimensional Linear Regression Models\nStatistical Inference on Predictive and Causal Effects in Modern Nonlinear Regression Models"
   },
   {
     "objectID": "workshops/trainings/causal_ml.html#prerequisites",
