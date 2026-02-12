@@ -663,6 +663,8 @@ $$
 
 ## Goodness of Fit
 
+::: {.fragment .fade-up}
+
 - The mean squared error (MSE) of the best linear predictor is given by:
 $$
 \text{MSE} = E[(Y - \beta^{'} X)^2]
@@ -673,6 +675,9 @@ $$
 R^2 = \frac{E[(\hat{\beta}^{'} X)^2]}{E[Y^2]} = 1 - \frac{E_n \epsilon^2}{E_n Y^2} \in [0, 1]
 $$
 
+:::
+
+::: {.fragment .fade-up}
 **Interpretation:**
 
 
@@ -680,6 +685,7 @@ $$
 - $R^2$ measures the proportion of variance in $Y$ that is explained by the linear predictor $\hat{\beta}^{'} X$.
 :::
 
+:::
 
 ## Overfitting: What happens when $p/n$ is large?
 
@@ -720,6 +726,8 @@ $$
 
 ::: {style="border-left: 1px solid #ccc; padding-left: 20px;"}
 
+:::{.fragment .fade-up}
+
 ```{python}
 #| fig-width: 100%
 #| fig-align: center
@@ -745,17 +753,21 @@ X_test, y_test = X[-test_size:], y[-test_size:]
 from sklearn.linear_model import LinearRegression
 model = LinearRegression().fit(X_train, y_train)
 y_pred = model.predict(X_train)
-plt.figure(figsize=(8,4))
+plt.figure(figsize=(9, 4.5))
 plt.scatter(range(len(y_train)), y_train, label='True y', s=50)
 plt.plot(range(len(y_train)), y_pred, color='red', label='Predicted y', linewidth=2)
 plt.xlabel('data point', fontsize=16)
 plt.xticks(fontsize=14)
 plt.ylabel('y value', fontsize=16)
 plt.yticks(fontsize=14)
-plt.legend(fontsize=16, loc='lower left')
+plt.legend(fontsize=16)
 plt.title(f'Train Set: p = {p} and n = {n - test_size}', fontsize=18)
 plt.show()  
 ```
+
+:::
+
+:::{.fragment .fade-up}
 
 ```{python}
 #| fig-width: 100%
@@ -764,14 +776,14 @@ plt.show()
 
 # plot performance on test set
 y_test_pred = model.predict(X_test)
-plt.figure(figsize=(8,4))
+plt.figure(figsize=(9,4.5))
 plt.scatter(range(len(y_test)), y_test, label='True y', s=50)
 plt.plot(range(len(y_test)), y_test_pred, color='red', label='Predicted y', linewidth=2)
 plt.xlabel('data point', fontsize=16)
 plt.xticks(fontsize=14)
 plt.ylabel('y value', fontsize=16)
 plt.yticks(fontsize=14)
-plt.legend(fontsize=16, loc='lower left')
+plt.legend(fontsize=16)
 plt.title(f'Test set', fontsize=18)
 plt.show()  
 
@@ -780,11 +792,16 @@ plt.show()
 :::
 
 :::
+
+:::
 ::::
 
 ## Inference about Predictive Effects or Association
 
-- Predictive effects describe how our (population best linear) predictions change when a value of [target regressor]{style="color: #B2582D;"} changes, holding all other regressors constant.
+
+:::{.fragment .fade-up}
+
+- Predictive effects describe how our (population best linear) predictions change when a value of [target regressor]{style="color: #1A6872;"} changes, holding all other regressors constant.
 
 - Specifically, we partition the vector of regressors $X$ into two parts: the target regressor of interest $D$ and the remaining regressors $W$ (also called control variables or covariates).
 
@@ -792,68 +809,95 @@ $$
 X = (D, W'),
 $$
 
+:::
+
+:::{.fragment .fade-up}
 - We can then write the best linear predictor of $Y$ given $X$ as
 
 $$
 Y =  \beta_1 D + \beta^{'}_2 W + \epsilon
 $$
 
+:::
+
+:::{.fragment .fade-up}
+
 :::{style="padding: 10px; margin: 10px 0; border-left: 2px solid #1A6872; text-align: left; color: #1A6872;"}
-[How does the predicted value of change if increases by a unit while remains
+[How does the predicted value of $Y$ change if $D$ increases by a unit while remains
 unchanged?]{style="color: #1A6872;"}
+:::
+
 :::
 
 ## {}
 
+:::{.fragment .fade-up}
 - The predictive value of $Y$ changes by $\beta_1$ units when $D$ increases by one unit.
-
+:::
 <br>
 
+:::{.fragment .fade-up}
 - Note that this interpretation is purely predictive and does not imply causality.
-
+:::
 <br>
 
+:::{.fragment .fade-up}
 :::{style="padding: 10px; margin: 10px 0; border-left: 2px solid #1A6872; text-align: center; color: #1A6872;"}
 **WHY?**
+:::
 :::
 
 <br>
 
+:::{.fragment .fade-up}
 - This is because we are holding all other regressors $W$ constant, which may not be realistic in practice.
-
+:::
 <br>
 
-
+:::{.fragment .fade-up}
 - For example: In a wage regression, $D$ could be years of education, and $W$ could include experience, gender, and location. The coefficient on education ($\beta_1$) tells us how much more (or less) we predict someone will earn for each additional year of education, with the same experience, gender, and location.
+:::
 
 ## Understanding $\beta_1$ via [“Partialling-Out”]{style="color: #1A6872;"}
 
+:::{.fragment .fade-up}
+
 - "Partialling-out" is the process of isolating the effect of the target regressor $D$ on the outcome variable $Y$ by removing the influence of the control variables $W$.
+:::
 
+
+:::{.fragment .fade-up}
 - Partialling-out operation is define as a procedure with three steps:
+:::
 
+:::{.fragment .fade-up}
   1. Regress $Y$ on $W$ and obtain the residuals $\tilde{Y}$.
 
   $$
-  Y = \gamma^{'}_{YW} W + u \quad \Rightarrow \quad \tilde{Y} = Y - \hat{Y} = Y - \gamma^{'}_{YW} W
+  Y = \gamma^{'}_{YW} W + \tilde{Y} \quad \Rightarrow \quad \tilde{Y} = Y - \hat{Y} = Y - \gamma^{'}_{YW} W
   $$
+:::
 
-
+:::{.fragment .fade-up}
   2. Regress $D$ on $W$ and obtain the residuals $\tilde{D}$.
 
   $$
-  D = \gamma^{'}_{DW} W + v \quad \Rightarrow \quad \tilde{D} = D - \hat{D} = D - \gamma^{'}_{DW} W
+  D = \gamma^{'}_{DW} W + \tilde{D} \quad \Rightarrow \quad \tilde{D} = D - \hat{D} = D - \gamma^{'}_{DW} W
   $$
+:::
 
+
+:::{.fragment .fade-up}
   3. Regress the residuals $\tilde{Y}$ on the residuals $\tilde{D}$ to estimate $\beta_1$.
 
   $$
   \tilde{Y} = \beta_1 \tilde{D} + \tilde{\epsilon}
   $$
-
+:::
 
 ## 
 
+:::{.fragment .fade-up}
 We can also show partialling-out procedure by partialling-out operation to both sides of our regression equation
 
 $$
@@ -866,38 +910,57 @@ $$
 \tilde{Y} = \beta_1 \tilde{D} + \beta^{'}_2 \tilde{W} + \tilde{\epsilon}
 $$
 
+:::
+
+
+:::{.fragment .fade-up}
 Which simplifies to
 
 $$
 \tilde{Y} = \beta_1 \tilde{D} + \epsilon
 $$
 
+:::
+
+:::{.fragment .fade-up}
 ::: {style="padding: 10px; margin: 10px 0; border-left: 1px solid #ccc; text-align: left;"}
 [**Why** does $\tilde{W}$ disappear in the partialled-out regression?]{style="color: #1A6872;"} \
 [**Why** $\tilde{\epsilon} = \epsilon$?]{style="color: #1A6872;"}
 ::: 
+:::
 
+:::{.fragment .fade-up}
 **Interpretation of $\beta_1$ in Partialling-Out**
 
 - $\beta_1$ can be interpreted as the effect of $D$ on $Y$ after removing the influence of $W$ as univariate linear regression of *residualized* $Y$ on *residualized* $D$.
 
 - Residuals are defined by partialling-out the linear effects of $W$ from both $Y$ and $D$.
+:::
 
 ##
 
-::: {style="padding: 10px; margin: 10px 0; text-align: left; font-size: 1.4em; font-weight: bold;"}
-
-<br>
 <br>
 
-::: {.fragment}
-[When $p/n$ is large, using linear regression for partialling-out can lead to overfitting issues, resulting in biased estimates of $\beta_1$.]{style="color: #BF505C;"}
+::: {.fragment .fade-up}
+:::{style="padding: 10px; margin: 10px 0; border-left: 2px solid #BF505C; text-align: left; color: #BF505C; font-weight: bold; font-size: 1.4em;"}
+Can we use *linear regression* for partialling-out?
+:::
 :::
 
 <br>
 
-:::{.fragment}
-[To address this, we can use dimension reduction or regularization techniques, such as Lasso or Ridge regression, during the partialling-out steps.]{style="color: #707C36;"}
+::: {.fragment .fade-up}
+:::{style="padding: 10px; margin: 10px 0; border-left: 2px solid #9B6C22; text-align: left; color: #9B6C22; font-weight: bold; font-size: 1.4em;"}
+When $p/n$ is large, using linear regression for partialling-out can lead to overfitting issues, resulting in biased estimates of $\beta_1$.
+:::
+:::
+
+<br>
+
+:::{.fragment .fade-up}
+
+:::{style="padding: 10px; margin: 10px 0; border-left: 2px solid #707C36; text-align: left; color: #707C36; font-weight: bold; font-size: 1.4em;"}
+To address this, we can use dimension reduction or regularization techniques, such as Lasso or Ridge regression, during the partialling-out steps.
 :::
 
 :::
@@ -926,26 +989,29 @@ $$
 :::: {.columns}
 ::: {.column width="60%"}
 
+::: {.fragment .fade-up}
 - A regression model
 
 $$
 Y = \beta^{'} X + \epsilon, \quad \epsilon \perp X,
 $$
 
-::: {style="margin-left: 1.5em;"}
-where $\beta^{'} X$ is the population best linear predictor of $Y$ given $X$.
-:::
+&nbsp;&nbsp;&nbsp;&nbsp; where $\beta^{'} X$ is the population best linear predictor of $Y$ given $X$.
 
 
 - The vector $X = (X_1, X_2, \ldots, X_p)$ represents the $p$ covariates ($p$ regressors).
-
-::: {style="padding: 10px; margin: 10px 0; text-align: center; font-size: 1.2em; font-weight: bold;"}
-
-[$p$ is large, possibly larger than $n$]{style="color: #1A6872;"}
-
 :::
 
+::: {.fragment .fade-up}
+::: {style="padding: 10px; margin: 10px 0; text-align: left; font-size: 1.2em; font-weight: bold; border-left: 2px solid #1A6872; color: #1A6872;"}
+$p$ is large, possibly larger than $n$
+:::
+:::
+
+::: {.fragment .fade-up}
 - This case where is very large is what we call a [high-dimensional]{style="color: #1A6872;"} setting.
+:::
+
 :::
 
 ::: {.column width="40%"}
@@ -956,17 +1022,25 @@ where $\beta^{'} X$ is the population best linear predictor of $Y$ given $X$.
 
 ## Constructed Regressors
 
-- In high-dimensional settings, we often create new features from the original covariates to capture complex relationships.
 
+::: {.fragment .fade-up}
+- In high-dimensional settings, we often create new features from the original covariates to capture complex relationships.
+:::
+
+::: {.fragment .fade-up}
 - if $W$ are raw covariates, we can create *technical (constructed) regressors* $X$ by including polynomial terms, interaction terms, or other transformations of $W$.
 
 $$
 X = P(W) = (P_1(W), P_2(W), \ldots, P_p(W))'
 $$
 
-[where the set of transformations $P(W)$ can be very large, leading to a high-dimensional feature space.]{style="margin-left: 50px;"}
+&nbsp;&nbsp;&nbsp;&nbsp; where the set of transformations $P(W)$ can be very large, leading to a high-dimensional feature space
+:::
 
+
+::: {.fragment .fade-up}
 - Example transformations include squared terms ($W_i^2$), interaction terms ($W_i W_j$), and higher-order polynomials ($W_i^3$, etc.).
+:::
 
 ##
 
@@ -977,21 +1051,30 @@ $$
 
 [Why Do We Need Constructed Regressors?]{.mimic-h2}
 
+::: {.fragment .fade-up}
 - The main motivation for using constructed regressors is to built more flexible models that can capture non-linear relationships and interactions among the original covariates.
+:::
 
+::: {.fragment .fade-up}
 - By expanding the feature space in prediction rules, $\beta^{'} X = \beta^{'} P(W)$, we can approximate complex functions of the original covariates $W$ more accurately.
+:::
 
 <br>
 
+::: {.fragment .fade-up}
 :::{style="padding: 10px; margin: 10px 0; border-left: 2px solid #1A6872; text-align: left; color: #1A6872; font-weight: bold;"}
 $\beta^{'} P(W)$ are nonlinear in $W$ but still linear in parameters $\beta$.
+:::
 :::
 
 :::
 
 :::{.column width="50%"}
+
 ::: {style="border-left: 1px solid #ccc; padding-left: 20px;"}
 
+
+::: {.fragment .fade-up}
 ```{python}
 import numpy as np
 import pandas as pd
@@ -1030,6 +1113,10 @@ plt.show()
 
 ```
 
+:::
+
+::: {.fragment .fade-up}
+
 ```{python}
 # now show the plot for constructed regressors only
 plt.figure(figsize=(12,6))
@@ -1047,25 +1134,28 @@ plt.show()
 
 :::
 :::
+:::
 ::::
 
 
 ## Best Predictor
 
+:::{.incremental}
+
 - In the population, the best predictor of $Y$ given $W$ is
 
-$$
-g(W) = E[Y|W]
-$$
+  $$
+  g(W) = E[Y|W]
+  $$
 
-[the conditional expectation of $Y$ given $W$. The function $g(W)$ is called the regression function of $Y$ on $W$.]{style="margin-left: 50px;"}
+  the conditional expectation of $Y$ given $W$. The function $g(W)$ is called the regression function of $Y$ on $W$.
 
 - The conditional expectation funnction $g(W)$ solves the best prediction
 problem
 
-$$
-\min_{m(W)} E[(Y - m(W))^2].
-$$
+  $$
+  \min_{m(W)} E[(Y - m(W))^2].
+  $$
 
 - Here we minimize the mean squared prediction error over all prediction rules $m(W)$.
 
@@ -1073,29 +1163,44 @@ $$
 
 - Using richer and more complex constructed regressors $P(W)$ allows us to better approximate the true regression function $g(W)$.
 
+:::
+
 ## Motivation for Regularization
 
 <br>
 
-- Classical linear regression can perform poorly in high-dimensional settings due to [overfitting]{style="color: #BF505C;"}.
+:::{.fragment .fade-up}
+:::{style="padding: 10px; margin: 10px 0; border-left: 2px solid #BF505C; text-align: left; color: #BF505C; font-weight: bold;"}
+- Classical linear regression can perform poorly in high-dimensional settings due to overfitting.
+:::
+:::
 
 <br>
 
+:::{.fragment .fade-up}
+:::{style="padding: 10px; margin: 10px 0; border-left: 2px solid #BF505C; text-align: left; color: #BF505C; font-weight: bold;"}
 - This is especially apparent when $p \geq n$.
+:::
+:::
 
 <br>
 
+:::{.fragment .fade-up}
+:::{style="padding: 10px; margin: 10px 0; border-left: 2px solid #707C36; text-align: left; color: #707C36; font-weight: bold;"}
 - Regularization techniques, such as Lasso and Ridge regression, help mitigate overfitting by adding a penalty term to the loss function.
+:::
+:::
 
 ## Lasso Regression
 
+:::{.incremental .fade-up}
 - Lasso (Least Absolute Shrinkage and Selection Operator) regression adds a penalty to the loss function
 
 - Lasso constructs the estimator $\hat{\beta}$ by solving the following penalized least squares problem:
 
-$$
-\min_{b \in \mathbb{R}^p} \left\{ \frac{1}{n} \sum_{i=1}^{n} (Y_i - b^{'} X_i)^2 + \lambda \sum_{j=1}^{p} |b_j| \right\}
-$$
+  $$
+  \min_{b \in \mathbb{R}^p} \left\{ \frac{1}{n} \sum_{i=1}^{n} (Y_i - b^{'} X_i)^2 + \lambda \sum_{j=1}^{p} |b_j| \right\}
+  $$
 
 
 - The first term is the usual mean squared error, while the second term is called a [penalty term]{style="color: #BF505C;"}.
@@ -1105,6 +1210,7 @@ $$
 - Lasso performs both [variable selection and regularization]{style="color: #1A6872;"}, shrinking some coefficients to exactly zero, effectively selecting a simpler model.
 
 - As long as $\lambda > 0$, the introduction of the penalty term leads to a prediction rule that is less complex and less prone to overfitting compared to ordinary least squares.
+:::
 
 ## How to Choose the Tuning Parameter $\lambda$?
 
@@ -1276,6 +1382,8 @@ $$
 
 ## Double Lasso {.smaller}
 
+
+:::{.fragment .fade-up}
 The key step is application of Lasso regression for partialling-out in the presence of high-dimensional covariates. Consider the following regression model:
 
 $$
@@ -1284,6 +1392,10 @@ $$
 
 where $D$ is the target regressor of interest and $W$ is a vector of $p$ control variables. After partialling-out $W$ from both $Y$ and $D$, we get
 
+:::
+
+
+:::{.fragment .fade-up}
 1. We run Lasso regressions of $Y$ on $W$ and $D$ on $W$:
 
 $$
@@ -1293,14 +1405,18 @@ $$
 $$
 \hat{\gamma}_{DW} = \arg\min_{\gamma \in \mathbb{R}^p} \left\{ \frac{1}{n} \sum_{i=1}^{n} (D_i - \gamma^{'} W_i)^2 + \lambda \sum_{j=1}^{p} |\gamma_j| \right\}.
 $$
+:::
 
+:::{.fragment .fade-up}
 2. Compute the residuals $\tilde{Y}$ and $\tilde{D}$:
 
 
 $$
 \tilde{Y} = Y - \hat{\gamma}_{YW}^{'} W, \quad \tilde{D} = D - \hat{\gamma}_{DW}^{'} W.
 $$
+:::
 
+:::{.fragment .fade-up}
 3. Finally, we run an ordinary least squares regression of $\tilde{Y}$ on $\tilde{D}$ to estimate $\alpha$:
 
 $$
@@ -1309,6 +1425,7 @@ $$
 &= (E_n \tilde{D}^2)^{-1} E_n\tilde{D} \tilde{Y}.
 \end{align}
 $$
+:::
 
 ## Uncertainty in $\hat{\alpha}$
 
@@ -1345,14 +1462,18 @@ Practical Example: A comparison of OLS and Double Lasso
 
 ## Inference on Many Coefficients
 
+:::{.fragment .fade-up}
 - If we are interested in more than one coefficient, we can repeat the Double Lasso procedure for each target regressor of interest.
+:::
 
+:::{.fragment .fade-up}
 - Here we consider the model:
-$$
-Y = \sum_{j=1}^{p_1} \alpha_j D_j + \sum_{k=1}^{p_2} \beta_k W_k + \epsilon,
-$$
+  $$
+  Y = \sum_{j=1}^{p_1} \alpha_j D_j + \sum_{k=1}^{p_2} \beta_k W_k + \epsilon,
+  $$
 
-&nbsp;&nbsp;&nbsp;&nbsp; where the number of target regressors $p_1$ can also be large, and the number of control variables $p_2$ can be large as well.
+  where the number of target regressors $p_1$ can also be large, and the number of control variables $p_2$ can be large as well.
+:::
 
 ## Motivation for Many Coefficients Inference
 
@@ -1364,15 +1485,18 @@ $$
 
 ## One by One Double Lasso
 
+
+:::{.incremental}
 - For each $j = 1, \ldots, p_1$, we can apply the one-by-one Double Lasso procedure to estimate $\alpha_j$ while treating the other $D_{-j}$ as part of the control variables.
 
-$$
-Y = \alpha_j D_j + \gamma_j{'} W_j + \epsilon, \quad W_j = ((D_{-j})^{'}, W^{'})^{'}
-$$
+  $$
+  Y = \alpha_j D_j + \gamma_j{'} W_j + \epsilon, \quad W_j = ((D_{-j})^{'}, W^{'})^{'}
+  $$
 
 - The double lasso provides a high quality estimate of $\hat{\alpha} = (\alpha_j)_{j=1}^{p_1}$ for each $j$ and we can construct confidence intervals for each $\alpha_j$.
 
 - This allows us to make inference on multiple coefficients simultaneously, even in high-dimensional settings where $p_1$ and $p_2$ are large relative to $n$.
+:::
 
 ##
 
@@ -1389,37 +1513,30 @@ $$
 - Introduction to Linear Regression
 - Regularization Techniques for Linear Regression in High-Dimensional Settings
 - Statistical Inference on Causal Effects in High Dimensional Linear Regression Models
-- Statistical Inference on Predictive and Causal Effects in Modern Nonlinear Regression Models]{style="color: #1A6872;"}
+- [Statistical Inference on Predictive and Causal Effects in Modern Nonlinear Regression Models]{style="color: #1A6872;"}
 :::
 
 
-## Introduction
-
-- We recall our regression model with target regressor $D$ and control variables $W$, where we ask predictive effect question:
-
-How does the predicted value of outcome $Y$,
-
-$$
-E[Y|D, W],
-$$
-
-change if a regressor value $D$ increases by one init, while regressor values, $W$, remain unchanged
-
 ## Double/debiased machine learning (DML) Inference in the Partially Linear Regression Model (PLM)
 
+
+:::{.incremental}
 - A partially linear regression model:
 
-$$
-Y = \alpha D + {\color{#707C36}{g(W)}} + \epsilon, \quad E[\epsilon|D,W] = 0,
-$$ {#eq-gx}
+  $$
+  Y = \alpha D + {\color{#707C36}{g(W)}} + \epsilon, \quad E[\epsilon|D,W] = 0,
+  $$ {#eq-gx}
 
-&nbsp;&nbsp;&nbsp;&nbsp; where $Y$ is the outcome variable, $D$ is the treatment variable, $W$ is a vector of control variables.
+  where $Y$ is the outcome variable, $D$ is the treatment variable, $W$ is a vector of control variables.
 
 - The model allows a part of the regression function, $\color{#707C36}{g(W)}$, to be fully nonlinear
 
 - However, the model is not fully general, because it imposes additivity in $\color{#707C36}{g(W)}$ and $D$
+:::
 
-## Partialling-Out
+## Partialling-Out using DML
+
+:::{.fragment .fade-up}
 
 Applying partialling-out to @eq-gx, we obtain:
 
@@ -1427,40 +1544,48 @@ $$
 \tilde{Y} = \alpha \tilde{D} + \epsilon,
 $$
 
+:::
+
+:::{.fragment .fade-up}
 where $\tilde{Y}$ and $\tilde{D}$ are the residuals left after predicting $Y$ and $D$ using $W$.
 
 $$
 \tilde{Y} := Y - \ell(W) \quad \text{and} \quad \tilde{D} := D - m(W),
 $$
-= E[Y|W]
+:::
 
+:::{.fragment .fade-up}
 where $\ell(W)$ and $m(W)$ are conditional expectation functions of $Y$ and $D$ given $W$, respectively.
+
 
 $$
 \ell(W) = E[Y|W], \quad m(W) = E[D|W].
 $$
+:::
 
 ## DML Estimation Procedure
 
+:::{.incremental}
 1. Split the data into random folds: $\{1, \ldots, n\} = \cup_{k=1}^K I_k$. Compute ML estimators $\hat{\ell}_{k}$ and $\hat{m}_k$, leaving out the $k$-th fold of the data. Obtain the cross-fitted residuals for each fold $i \in I_k$:
 
-$$
-\tilde{Y}_i = Y_i - \hat{\ell}_k(W_i), \quad \tilde{D}_i = D_i - \hat{m}_k(W_i).
-$$
+    $$
+    \tilde{Y}_i = Y_i - \hat{\ell}_k(W_i), \quad \tilde{D}_i = D_i - \hat{m}_k(W_i).
+    $$
 
 2. Apply the ordinary least squares to $\tilde{Y}_i$ on $\tilde{D}_i$ to obtain the DML estimator $\hat{\alpha}$:
 
-$$
-\hat{\alpha} = E_n[(\tilde{Y}_i-\alpha \tilde{D}_i) \tilde{D}_i] =0.
-$$
+    $$
+    \hat{\alpha} = E_n[(\tilde{Y}_i-\alpha \tilde{D}_i) \tilde{D}_i] =0.
+    $$
 
 3. Construct confidence intervals for $\alpha$:
 
-$$
-\left[\hat{\alpha} \pm 2 \times \sqrt{V/n} \right],
-$$
+    $$
+    \left[\hat{\alpha} \pm 2 \times \sqrt{V/n} \right],
+    $$
 
-&nbsp;&nbsp;&nbsp;&nbsp; covers $\alpha$ in approximately 95% of repeated samples, where $V$ is the variance of the DML estimator $\hat{\alpha}$.
+    covers $\alpha$ in approximately 95% of repeated samples, where $V$ is the variance of the DML estimator $\hat{\alpha}$.
+:::  
 
 ## Selecting the Best ML Learners of $\hat{\ell}$ and $\hat{m}$
 
@@ -1474,10 +1599,15 @@ $$
 
 ## DML Inference in the Interactive Regression Model (IRM)
 
+:::{.fragment .fade-up}
 - Here, we relax the additivity assumption in the partially linear regression model.
+:::
 
+:::{.fragment .fade-up}
 - We consider estimation of average treatment effects when treatment effects are fully heterogeneous and the treatment variable is binary.
+:::
 
+:::{.fragment .fade-up}
 - We consider vectors, $W = (Y, D, X)$, where $Y$ is the outcome variable, $D \in \{0,1\}$ is a binary treatment variable or policy, and $X$ is a vector of control variables.
 
 $$
@@ -1487,37 +1617,47 @@ $$ {#eq-irm}
 $$
 D = m(X) + \tilde{D}, \quad E[\tilde{D}|X] = 0,
 $$ {#eq-irm-d}
+:::
 
-::: {style="padding: 10px; margin: 10px 0; border-left: 2px solid #1A6872; text-align: left;  color: #1A6872;"}
+:::{.fragment .fade-up}
+::: {style="padding: 10px; margin: 10px 0; border-left: 2px solid #1A6872; text-align: left;  color: #1A6872; font-weight: bold;"}
 Since $D$ is not additively separable in the @eq-irm, this model is more general than the partially linear regression model.
+:::
 :::
 
 ## Average Predictive Effect (APE)
 
+:::{.incremental}
 - The average predictive effect (APE) of the binary treatment $D$ on the outcome $Y$ is defined as:
 
-$$
-\theta_0 = E[g(1, X) - g(0, X)]
-$$
+  $$
+  \theta_0 = E[g(1, X) - g(0, X)]
+  $$
 
-&nbsp;&nbsp;&nbsp;&nbsp; which represents the average predictive effect of switching the treatment from 0 to 1, averaging over the distribution of covariates $X$.
+  which represents the average predictive effect of switching the treatment from 0 to 1, averaging over the distribution of covariates $X$.
 
 - The confounding factors, $X$, affect the policy variable via the propensity score $m(X) = E[D|X]$ and affect the outcome variable via the regression function $g(D, X)$.
+:::
 
 ## APE Estimation
 
+:::{.fragment .fade-up}
 ATE will be based on the relation:
 
 $$
 \theta_{0} = \mathbb{E}[\varphi_{0}(W)],
 $$ {#eq-irm-ate}
+:::
 
+:::{.fragment .fade-up}
 where
 
 $$
 \varphi_{0}(W) = g_{0}(1, X) - g_{0}(0, X) + \bigl(Y - g_{0}(D, X)\bigr) H_{0}
 $$
+:::
 
+:::{.fragment .fade-up}
 and
 
 $$
@@ -1525,45 +1665,53 @@ H_{0} = \frac{\mathbf{1}(D = 1)}{m_{0}(X)} - \frac{\mathbf{1}(D = 0)}{1 - m_{0}(
 $$
 
 is the Horvitz-Thompson transformation.
+:::
 
 ## DML Estimation Procedure for APEs/ATEs in IRM
 
+:::{.incremental}
 1. Split the data into random folds: $\{1, \ldots, n\} = \cup_{k=1}^K I_k$. Compute ML estimators $\hat{g}_{k}$ and $\hat{m}_k$, leaving out the $k$-th fold of the data, such that $\epsilon \le \hat{m}_k \le 1-\epsilon$ for some small $\epsilon > 0$. For each fold $i \in I_k$, compute:
 
-$$
-\hat{\varphi}(W_i) = \hat{g}_{k}(1, X_i) - \hat{g}_{k}(0, X_i) + \bigl(Y_i - \hat{g}_{k}(D_i, X_i)\bigr) \hat{H}_i,
-$$
+    $$
+    \hat{\varphi}(W_i) = \hat{g}_{k}(1, X_i) - \hat{g}_{k}(0, X_i) + \bigl(Y_i - \hat{g}_{k}(D_i, X_i)\bigr) \hat{H}_i,
+    $$
 
-&nbsp;&nbsp;&nbsp;&nbsp; where $\hat{H}_i = \frac{\mathbf{1}(D_i = 1)}{\hat{m}_k(X_i)} - \frac{\mathbf{1}(D_i = 0)}{1 - \hat{m}_k(X_i)}$.
+    where $\hat{H}_i = \frac{\mathbf{1}(D_i = 1)}{\hat{m}_k(X_i)} - \frac{\mathbf{1}(D_i = 0)}{1 - \hat{m}_k(X_i)}$.
 
 2. Compute the estimator $\theta_0 = E_n[\hat{\varphi}(W_i)]$.
 
 3. Construct confidence intervals for $\theta_0$:
 
-$$
-\left[\hat{\theta} \pm 2 \times \sqrt{\hat{V}/n} \right],
-$$
+    $$
+    \left[\hat{\theta} \pm 2 \times \sqrt{\hat{V}/n} \right],
+    $$
 
-&nbsp;&nbsp;&nbsp;&nbsp; where $\hat{V} = E_n[(\hat{\varphi}(W_i) - \hat{\theta})^2]$.
+    where $\hat{V} = E_n[(\hat{\varphi}(W_i) - \hat{\theta})^2]$.
 
+:::
 
 ## The Local Average Treatment Effect Model (LATE)
 
+
+:::{.fragment .fade-up}
 Consider a structural Equation Model (SEM) where:
 
 $$
 \begin{aligned}
 Y &:= f_{Y}(D, X, A, \varepsilon_{Y}) \\
 D &:= f_{D}(Z, X, A, \varepsilon_{D}) \in \{0,1\}, \\
-Z &:= f_{Z}(X, \varepsilon_{Z}) \in \{0,1\}, \\
-X &:= \varepsilon_{X}, \quad A := \varepsilon_{A},
+Z &:= f_{Z}(X, \varepsilon_{Z}) \in \{0,1\}
 \end{aligned}
 $$
 
 where all $\epsilon$ are all independent.
+:::
 
-- Suppose the instrument $Z$ is is an offer to participate in a training program and that the treatment $D$ is actual endogenous participation in the training program. Participation in the program may depend on unobservables, $A$, such as motivation, which also affects the outcome $Y$. The variable $X$ captures observed covariates such as age, education, and work experience.
+:::{.fragment .fade-up}
+Suppose the instrument $Z$ is is an offer to participate in a training program and that the treatment $D$ is actual endogenous participation in the training program. Participation in the program may depend on unobservables, $A$, such as motivation, which also affects the outcome $Y$. The variable $X$ captures observed covariates such as age, education, and work experience.
+:::
 
+:::{.fragment .fade-up}
 The model allows us to identify the local average treatment effect (LATE), defined as:
 
 $$
@@ -1571,15 +1719,19 @@ $$
 $$
 
 where ${D(1) > D(0)}$ defines the compliance event, where switching the instrument, $Z$, from 0 to 1.
+:::
 
 ##
 
+:::{.fragment .fade-up}
 In the LATE model, $\theta$ can be identified by the ratio of two statistical parameters,
 
 $$
 \theta_0 = \theta_1 / \theta_2,
 $$ {#eq-late}
+:::
 
+:::{.fragment .fade-up}
 where
 $$
 \theta_1 = E[E[Y|Z=1, X] - E[Y|Z=0, X]],
@@ -1589,9 +1741,9 @@ and
 $$
 \theta_2 = E[E[D|Z=1, X] - E[D|Z=0, X]].
 $$
+:::
 
-
-
+:::{.fragment .fade-up}
 @eq-late is equivalent to the below expression:
 
 $$
@@ -1600,9 +1752,11 @@ $$
 
 
 This parameter is the ratio of the average predictive effect of $Z$ on $Y$ to the average predictive effect of $Z$ on $D$.
+:::
 
 
 ## DML Estimation for LATE
+
 
 Define regression functions:
 
@@ -1646,7 +1800,23 @@ Practical Example: Application of PLM, IRM and LATE to the 401(K) data
 *For the relevant code and data, go to [here](https://github.com/chamara7h/causal_inference_with_machine_learning_tutorial)*
 :::
 
+## Resources to Learn More
 
+:::: {.columns}
+
+::: {.column width="33%"}
+[![](images/causal_mlbook.png){width="100%"}](https://causalml-book.org/)
+:::
+
+::: {.column width="33%"}
+[![](images/mixtape.png){width="100%"}](https://mixtape.scunning.com/)
+:::
+
+::: {.column width="33%"}
+[![](images/causal_analy.avif){width="100%"}](https://mitpress.mit.edu/9780262545914/causal-analysis/)
+:::
+
+::::
 
 # Appendix
 

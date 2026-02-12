@@ -6339,7 +6339,7 @@
     "href": "workshops/causal_ml/causal_inf.html#goodness-of-fit",
     "title": "MUSTAFA ASLAN",
     "section": "Goodness of Fit",
-    "text": "Goodness of Fit\n\nThe mean squared error (MSE) of the best linear predictor is given by: \\[\n\\text{MSE} = E[(Y - \\beta^{'} X)^2]\n\\]\nThe \\(R^2\\) of the best linear predictor is defined as: \\[\nR^2 = \\frac{E[(\\hat{\\beta}^{'} X)^2]}{E[Y^2]} = 1 - \\frac{E_n \\epsilon^2}{E_n Y^2} \\in [0, 1]\n\\]\n\nInterpretation:\n\n\n\\(R^2\\) measures the proportion of variance in \\(Y\\) that is explained by the linear predictor \\(\\hat{\\beta}^{'} X\\)."
+    "text": "Goodness of Fit\n\n\nThe mean squared error (MSE) of the best linear predictor is given by: \\[\n\\text{MSE} = E[(Y - \\beta^{'} X)^2]\n\\]\nThe \\(R^2\\) of the best linear predictor is defined as: \\[\nR^2 = \\frac{E[(\\hat{\\beta}^{'} X)^2]}{E[Y^2]} = 1 - \\frac{E_n \\epsilon^2}{E_n Y^2} \\in [0, 1]\n\\]\n\n\n\nInterpretation:\n\n\n\\(R^2\\) measures the proportion of variance in \\(Y\\) that is explained by the linear predictor \\(\\hat{\\beta}^{'} X\\)."
   },
   {
     "objectID": "workshops/causal_ml/causal_inf.html#overfitting-what-happens-when-pn-is-large",
@@ -6353,35 +6353,35 @@
     "href": "workshops/causal_ml/causal_inf.html#inference-about-predictive-effects-or-association",
     "title": "MUSTAFA ASLAN",
     "section": "Inference about Predictive Effects or Association",
-    "text": "Inference about Predictive Effects or Association\n\nPredictive effects describe how our (population best linear) predictions change when a value of target regressor changes, holding all other regressors constant.\nSpecifically, we partition the vector of regressors \\(X\\) into two parts: the target regressor of interest \\(D\\) and the remaining regressors \\(W\\) (also called control variables or covariates).\n\n\\[\nX = (D, W'),\n\\]\n\nWe can then write the best linear predictor of \\(Y\\) given \\(X\\) as\n\n\\[\nY =  \\beta_1 D + \\beta^{'}_2 W + \\epsilon\n\\]\n\nHow does the predicted value of change if increases by a unit while remains unchanged?"
+    "text": "Inference about Predictive Effects or Association\n\n\nPredictive effects describe how our (population best linear) predictions change when a value of target regressor changes, holding all other regressors constant.\nSpecifically, we partition the vector of regressors \\(X\\) into two parts: the target regressor of interest \\(D\\) and the remaining regressors \\(W\\) (also called control variables or covariates).\n\n\\[\nX = (D, W'),\n\\]\n\n\n\nWe can then write the best linear predictor of \\(Y\\) given \\(X\\) as\n\n\\[\nY =  \\beta_1 D + \\beta^{'}_2 W + \\epsilon\n\\]\n\n\n\nHow does the predicted value of \\(Y\\) change if \\(D\\) increases by a unit while remains unchanged?"
   },
   {
     "objectID": "workshops/causal_ml/causal_inf.html#section-6",
     "href": "workshops/causal_ml/causal_inf.html#section-6",
     "title": "MUSTAFA ASLAN",
     "section": "",
-    "text": "The predictive value of \\(Y\\) changes by \\(\\beta_1\\) units when \\(D\\) increases by one unit.\n\n\n\nNote that this interpretation is purely predictive and does not imply causality.\n\n\n\nWHY?\n\n\n\nThis is because we are holding all other regressors \\(W\\) constant, which may not be realistic in practice.\n\n\n\nFor example: In a wage regression, \\(D\\) could be years of education, and \\(W\\) could include experience, gender, and location. The coefficient on education (\\(\\beta_1\\)) tells us how much more (or less) we predict someone will earn for each additional year of education, with the same experience, gender, and location."
+    "text": "The predictive value of \\(Y\\) changes by \\(\\beta_1\\) units when \\(D\\) increases by one unit.\n\n\n\n\n\nNote that this interpretation is purely predictive and does not imply causality.\n\n\n\n\n\nWHY?\n\n\n\n\n\nThis is because we are holding all other regressors \\(W\\) constant, which may not be realistic in practice.\n\n\n\n\n\nFor example: In a wage regression, \\(D\\) could be years of education, and \\(W\\) could include experience, gender, and location. The coefficient on education (\\(\\beta_1\\)) tells us how much more (or less) we predict someone will earn for each additional year of education, with the same experience, gender, and location."
   },
   {
     "objectID": "workshops/causal_ml/causal_inf.html#understanding-beta_1-via-partialling-out",
     "href": "workshops/causal_ml/causal_inf.html#understanding-beta_1-via-partialling-out",
     "title": "MUSTAFA ASLAN",
     "section": "Understanding \\(\\beta_1\\) via “Partialling-Out”",
-    "text": "Understanding \\(\\beta_1\\) via “Partialling-Out”\n\n“Partialling-out” is the process of isolating the effect of the target regressor \\(D\\) on the outcome variable \\(Y\\) by removing the influence of the control variables \\(W\\).\nPartialling-out operation is define as a procedure with three steps:\n\nRegress \\(Y\\) on \\(W\\) and obtain the residuals \\(\\tilde{Y}\\).\n\n\\[\nY = \\gamma^{'}_{YW} W + u \\quad \\Rightarrow \\quad \\tilde{Y} = Y - \\hat{Y} = Y - \\gamma^{'}_{YW} W\n\\]\n\nRegress \\(D\\) on \\(W\\) and obtain the residuals \\(\\tilde{D}\\).\n\n\\[\nD = \\gamma^{'}_{DW} W + v \\quad \\Rightarrow \\quad \\tilde{D} = D - \\hat{D} = D - \\gamma^{'}_{DW} W\n\\]\n\nRegress the residuals \\(\\tilde{Y}\\) on the residuals \\(\\tilde{D}\\) to estimate \\(\\beta_1\\).\n\n\\[\n\\tilde{Y} = \\beta_1 \\tilde{D} + \\tilde{\\epsilon}\n\\]"
+    "text": "Understanding \\(\\beta_1\\) via “Partialling-Out”\n\n\n“Partialling-out” is the process of isolating the effect of the target regressor \\(D\\) on the outcome variable \\(Y\\) by removing the influence of the control variables \\(W\\).\n\n\n\n\nPartialling-out operation is define as a procedure with three steps:\n\n\n\n\nRegress \\(Y\\) on \\(W\\) and obtain the residuals \\(\\tilde{Y}\\).\n\n\\[\n  Y = \\gamma^{'}_{YW} W + \\tilde{Y} \\quad \\Rightarrow \\quad \\tilde{Y} = Y - \\hat{Y} = Y - \\gamma^{'}_{YW} W\n  \\]\n\n\n\nRegress \\(D\\) on \\(W\\) and obtain the residuals \\(\\tilde{D}\\).\n\n\\[\n  D = \\gamma^{'}_{DW} W + \\tilde{D} \\quad \\Rightarrow \\quad \\tilde{D} = D - \\hat{D} = D - \\gamma^{'}_{DW} W\n  \\]\n\n\n\nRegress the residuals \\(\\tilde{Y}\\) on the residuals \\(\\tilde{D}\\) to estimate \\(\\beta_1\\).\n\n\\[\n  \\tilde{Y} = \\beta_1 \\tilde{D} + \\tilde{\\epsilon}\n  \\]"
   },
   {
     "objectID": "workshops/causal_ml/causal_inf.html#section-7",
     "href": "workshops/causal_ml/causal_inf.html#section-7",
     "title": "MUSTAFA ASLAN",
     "section": "",
-    "text": "We can also show partialling-out procedure by partialling-out operation to both sides of our regression equation\n\\[\nY =  \\beta_1 D + \\beta^{'}_2 W + \\epsilon\n\\]\nto get\n\\[\n\\tilde{Y} = \\beta_1 \\tilde{D} + \\beta^{'}_2 \\tilde{W} + \\tilde{\\epsilon}\n\\]\nWhich simplifies to\n\\[\n\\tilde{Y} = \\beta_1 \\tilde{D} + \\epsilon\n\\]\n\nWhy does \\(\\tilde{W}\\) disappear in the partialled-out regression?\nWhy \\(\\tilde{\\epsilon} = \\epsilon\\)?\n\nInterpretation of \\(\\beta_1\\) in Partialling-Out\n\n\\(\\beta_1\\) can be interpreted as the effect of \\(D\\) on \\(Y\\) after removing the influence of \\(W\\) as univariate linear regression of residualized \\(Y\\) on residualized \\(D\\).\nResiduals are defined by partialling-out the linear effects of \\(W\\) from both \\(Y\\) and \\(D\\)."
+    "text": "We can also show partialling-out procedure by partialling-out operation to both sides of our regression equation\n\\[\nY =  \\beta_1 D + \\beta^{'}_2 W + \\epsilon\n\\]\nto get\n\\[\n\\tilde{Y} = \\beta_1 \\tilde{D} + \\beta^{'}_2 \\tilde{W} + \\tilde{\\epsilon}\n\\]\n\n\nWhich simplifies to\n\\[\n\\tilde{Y} = \\beta_1 \\tilde{D} + \\epsilon\n\\]\n\n\n\nWhy does \\(\\tilde{W}\\) disappear in the partialled-out regression?\nWhy \\(\\tilde{\\epsilon} = \\epsilon\\)?\n\n\n\nInterpretation of \\(\\beta_1\\) in Partialling-Out\n\n\\(\\beta_1\\) can be interpreted as the effect of \\(D\\) on \\(Y\\) after removing the influence of \\(W\\) as univariate linear regression of residualized \\(Y\\) on residualized \\(D\\).\nResiduals are defined by partialling-out the linear effects of \\(W\\) from both \\(Y\\) and \\(D\\)."
   },
   {
     "objectID": "workshops/causal_ml/causal_inf.html#section-8",
     "href": "workshops/causal_ml/causal_inf.html#section-8",
     "title": "MUSTAFA ASLAN",
     "section": "",
-    "text": "When \\(p/n\\) is large, using linear regression for partialling-out can lead to overfitting issues, resulting in biased estimates of \\(\\beta_1\\).\n\n\n\nTo address this, we can use dimension reduction or regularization techniques, such as Lasso or Ridge regression, during the partialling-out steps."
+    "text": "Can we use linear regression for partialling-out?\n\n\n\n\n\nWhen \\(p/n\\) is large, using linear regression for partialling-out can lead to overfitting issues, resulting in biased estimates of \\(\\beta_1\\).\n\n\n\n\n\nTo address this, we can use dimension reduction or regularization techniques, such as Lasso or Ridge regression, during the partialling-out steps."
   },
   {
     "objectID": "workshops/causal_ml/causal_inf.html#section-9",
@@ -6395,42 +6395,42 @@
     "href": "workshops/causal_ml/causal_inf.html#linear-regression-with-high-dimensional-covariates",
     "title": "MUSTAFA ASLAN",
     "section": "Linear Regression with High-Dimensional  Covariates",
-    "text": "Linear Regression with High-Dimensional  Covariates\n\n\n\nA regression model\n\n\\[\nY = \\beta^{'} X + \\epsilon, \\quad \\epsilon \\perp X,\n\\]\n\nwhere \\(\\beta^{'} X\\) is the population best linear predictor of \\(Y\\) given \\(X\\).\n\n\nThe vector \\(X = (X_1, X_2, \\ldots, X_p)\\) represents the \\(p\\) covariates (\\(p\\) regressors).\n\n\n\\(p\\) is large, possibly larger than \\(n\\)\n\n\nThis case where is very large is what we call a high-dimensional setting."
+    "text": "Linear Regression with High-Dimensional  Covariates\n\n\n\n\nA regression model\n\n\\[\nY = \\beta^{'} X + \\epsilon, \\quad \\epsilon \\perp X,\n\\]\n     where \\(\\beta^{'} X\\) is the population best linear predictor of \\(Y\\) given \\(X\\).\n\nThe vector \\(X = (X_1, X_2, \\ldots, X_p)\\) represents the \\(p\\) covariates (\\(p\\) regressors).\n\n\n\n\n\\(p\\) is large, possibly larger than \\(n\\)\n\n\n\n\nThis case where is very large is what we call a high-dimensional setting."
   },
   {
     "objectID": "workshops/causal_ml/causal_inf.html#constructed-regressors",
     "href": "workshops/causal_ml/causal_inf.html#constructed-regressors",
     "title": "MUSTAFA ASLAN",
     "section": "Constructed Regressors",
-    "text": "Constructed Regressors\n\nIn high-dimensional settings, we often create new features from the original covariates to capture complex relationships.\nif \\(W\\) are raw covariates, we can create technical (constructed) regressors \\(X\\) by including polynomial terms, interaction terms, or other transformations of \\(W\\).\n\n\\[\nX = P(W) = (P_1(W), P_2(W), \\ldots, P_p(W))'\n\\]\nwhere the set of transformations \\(P(W)\\) can be very large, leading to a high-dimensional feature space.\n\nExample transformations include squared terms (\\(W_i^2\\)), interaction terms (\\(W_i W_j\\)), and higher-order polynomials (\\(W_i^3\\), etc.)."
+    "text": "Constructed Regressors\n\n\nIn high-dimensional settings, we often create new features from the original covariates to capture complex relationships.\n\n\n\n\nif \\(W\\) are raw covariates, we can create technical (constructed) regressors \\(X\\) by including polynomial terms, interaction terms, or other transformations of \\(W\\).\n\n\\[\nX = P(W) = (P_1(W), P_2(W), \\ldots, P_p(W))'\n\\]\n     where the set of transformations \\(P(W)\\) can be very large, leading to a high-dimensional feature space\n\n\n\nExample transformations include squared terms (\\(W_i^2\\)), interaction terms (\\(W_i W_j\\)), and higher-order polynomials (\\(W_i^3\\), etc.)."
   },
   {
     "objectID": "workshops/causal_ml/causal_inf.html#section-10",
     "href": "workshops/causal_ml/causal_inf.html#section-10",
     "title": "MUSTAFA ASLAN",
     "section": "",
-    "text": "Why Do We Need Constructed Regressors?\n\nThe main motivation for using constructed regressors is to built more flexible models that can capture non-linear relationships and interactions among the original covariates.\nBy expanding the feature space in prediction rules, \\(\\beta^{'} X = \\beta^{'} P(W)\\), we can approximate complex functions of the original covariates \\(W\\) more accurately.\n\n\n\n\\(\\beta^{'} P(W)\\) are nonlinear in \\(W\\) but still linear in parameters \\(\\beta\\)."
+    "text": "Why Do We Need Constructed Regressors?\n\n\nThe main motivation for using constructed regressors is to built more flexible models that can capture non-linear relationships and interactions among the original covariates.\n\n\n\n\nBy expanding the feature space in prediction rules, \\(\\beta^{'} X = \\beta^{'} P(W)\\), we can approximate complex functions of the original covariates \\(W\\) more accurately.\n\n\n\n\n\n\\(\\beta^{'} P(W)\\) are nonlinear in \\(W\\) but still linear in parameters \\(\\beta\\)."
   },
   {
     "objectID": "workshops/causal_ml/causal_inf.html#best-predictor",
     "href": "workshops/causal_ml/causal_inf.html#best-predictor",
     "title": "MUSTAFA ASLAN",
     "section": "Best Predictor",
-    "text": "Best Predictor\n\nIn the population, the best predictor of \\(Y\\) given \\(W\\) is\n\n\\[\ng(W) = E[Y|W]\n\\]\nthe conditional expectation of \\(Y\\) given \\(W\\). The function \\(g(W)\\) is called the regression function of \\(Y\\) on \\(W\\).\n\nThe conditional expectation funnction \\(g(W)\\) solves the best prediction problem\n\n\\[\n\\min_{m(W)} E[(Y - m(W))^2].\n\\]\n\nHere we minimize the mean squared prediction error over all prediction rules \\(m(W)\\).\n\\(\\beta^{'} P(W)\\) is an approximation to best predictor \\(g(W)\\)\nUsing richer and more complex constructed regressors \\(P(W)\\) allows us to better approximate the true regression function \\(g(W)\\)."
+    "text": "Best Predictor\n\nIn the population, the best predictor of \\(Y\\) given \\(W\\) is\n\\[\ng(W) = E[Y|W]\n\\]\nthe conditional expectation of \\(Y\\) given \\(W\\). The function \\(g(W)\\) is called the regression function of \\(Y\\) on \\(W\\).\nThe conditional expectation funnction \\(g(W)\\) solves the best prediction problem\n\\[\n\\min_{m(W)} E[(Y - m(W))^2].\n\\]\nHere we minimize the mean squared prediction error over all prediction rules \\(m(W)\\).\n\\(\\beta^{'} P(W)\\) is an approximation to best predictor \\(g(W)\\)\nUsing richer and more complex constructed regressors \\(P(W)\\) allows us to better approximate the true regression function \\(g(W)\\)."
   },
   {
     "objectID": "workshops/causal_ml/causal_inf.html#motivation-for-regularization",
     "href": "workshops/causal_ml/causal_inf.html#motivation-for-regularization",
     "title": "MUSTAFA ASLAN",
     "section": "Motivation for Regularization",
-    "text": "Motivation for Regularization\n\n\nClassical linear regression can perform poorly in high-dimensional settings due to overfitting.\n\n\n\nThis is especially apparent when \\(p \\geq n\\).\n\n\n\nRegularization techniques, such as Lasso and Ridge regression, help mitigate overfitting by adding a penalty term to the loss function."
+    "text": "Motivation for Regularization\n\n\n\n\nClassical linear regression can perform poorly in high-dimensional settings due to overfitting.\n\n\n\n\n\n\n\nThis is especially apparent when \\(p \\geq n\\).\n\n\n\n\n\n\n\nRegularization techniques, such as Lasso and Ridge regression, help mitigate overfitting by adding a penalty term to the loss function."
   },
   {
     "objectID": "workshops/causal_ml/causal_inf.html#lasso-regression",
     "href": "workshops/causal_ml/causal_inf.html#lasso-regression",
     "title": "MUSTAFA ASLAN",
     "section": "Lasso Regression",
-    "text": "Lasso Regression\n\nLasso (Least Absolute Shrinkage and Selection Operator) regression adds a penalty to the loss function\nLasso constructs the estimator \\(\\hat{\\beta}\\) by solving the following penalized least squares problem:\n\n\\[\n\\min_{b \\in \\mathbb{R}^p} \\left\\{ \\frac{1}{n} \\sum_{i=1}^{n} (Y_i - b^{'} X_i)^2 + \\lambda \\sum_{j=1}^{p} |b_j| \\right\\}\n\\]\n\nThe first term is the usual mean squared error, while the second term is called a penalty term.\nThe tuning parameter \\(\\lambda \\geq 0\\) controls the strength of the penalty.\nLasso performs both variable selection and regularization, shrinking some coefficients to exactly zero, effectively selecting a simpler model.\nAs long as \\(\\lambda &gt; 0\\), the introduction of the penalty term leads to a prediction rule that is less complex and less prone to overfitting compared to ordinary least squares."
+    "text": "Lasso Regression\n\n\nLasso (Least Absolute Shrinkage and Selection Operator) regression adds a penalty to the loss function\nLasso constructs the estimator \\(\\hat{\\beta}\\) by solving the following penalized least squares problem:\n\\[\n\\min_{b \\in \\mathbb{R}^p} \\left\\{ \\frac{1}{n} \\sum_{i=1}^{n} (Y_i - b^{'} X_i)^2 + \\lambda \\sum_{j=1}^{p} |b_j| \\right\\}\n\\]\nThe first term is the usual mean squared error, while the second term is called a penalty term.\nThe tuning parameter \\(\\lambda \\geq 0\\) controls the strength of the penalty.\nLasso performs both variable selection and regularization, shrinking some coefficients to exactly zero, effectively selecting a simpler model.\nAs long as \\(\\lambda &gt; 0\\), the introduction of the penalty term leads to a prediction rule that is less complex and less prone to overfitting compared to ordinary least squares."
   },
   {
     "objectID": "workshops/causal_ml/causal_inf.html#how-to-choose-the-tuning-parameter-lambda",
@@ -6500,7 +6500,7 @@
     "href": "workshops/causal_ml/causal_inf.html#double-lasso",
     "title": "MUSTAFA ASLAN",
     "section": "Double Lasso",
-    "text": "Double Lasso\nThe key step is application of Lasso regression for partialling-out in the presence of high-dimensional covariates. Consider the following regression model:\n\\[\nY = \\alpha D + \\beta^{'} W + \\epsilon,\n\\]\nwhere \\(D\\) is the target regressor of interest and \\(W\\) is a vector of \\(p\\) control variables. After partialling-out \\(W\\) from both \\(Y\\) and \\(D\\), we get\n\nWe run Lasso regressions of \\(Y\\) on \\(W\\) and \\(D\\) on \\(W\\):\n\n\\[\n\\hat{\\gamma}_{YW} = \\arg\\min_{\\gamma \\in \\mathbb{R}^p} \\left\\{ \\frac{1}{n} \\sum_{i=1}^{n} (Y_i - \\gamma^{'} W_i)^2 + \\lambda \\sum_{j=1}^{p} |\\gamma_j| \\right\\},\n\\]\n\\[\n\\hat{\\gamma}_{DW} = \\arg\\min_{\\gamma \\in \\mathbb{R}^p} \\left\\{ \\frac{1}{n} \\sum_{i=1}^{n} (D_i - \\gamma^{'} W_i)^2 + \\lambda \\sum_{j=1}^{p} |\\gamma_j| \\right\\}.\n\\]\n\nCompute the residuals \\(\\tilde{Y}\\) and \\(\\tilde{D}\\):\n\n\\[\n\\tilde{Y} = Y - \\hat{\\gamma}_{YW}^{'} W, \\quad \\tilde{D} = D - \\hat{\\gamma}_{DW}^{'} W.\n\\]\n\nFinally, we run an ordinary least squares regression of \\(\\tilde{Y}\\) on \\(\\tilde{D}\\) to estimate \\(\\alpha\\):\n\n\\[\n\\begin{align}\n\\hat{\\alpha} &= \\arg\\min_{\\alpha \\in \\mathbb{R}} \\frac{1}{n} \\sum_{i=1}^{n} ({\\tilde{Y}}_i - \\alpha {\\tilde{D}}_i)^2  \\\\\n&= (E_n \\tilde{D}^2)^{-1} E_n\\tilde{D} \\tilde{Y}.\n\\end{align}\n\\]"
+    "text": "Double Lasso\n\nThe key step is application of Lasso regression for partialling-out in the presence of high-dimensional covariates. Consider the following regression model:\n\\[\nY = \\alpha D + \\beta^{'} W + \\epsilon,\n\\]\nwhere \\(D\\) is the target regressor of interest and \\(W\\) is a vector of \\(p\\) control variables. After partialling-out \\(W\\) from both \\(Y\\) and \\(D\\), we get\n\n\n\nWe run Lasso regressions of \\(Y\\) on \\(W\\) and \\(D\\) on \\(W\\):\n\n\\[\n\\hat{\\gamma}_{YW} = \\arg\\min_{\\gamma \\in \\mathbb{R}^p} \\left\\{ \\frac{1}{n} \\sum_{i=1}^{n} (Y_i - \\gamma^{'} W_i)^2 + \\lambda \\sum_{j=1}^{p} |\\gamma_j| \\right\\},\n\\]\n\\[\n\\hat{\\gamma}_{DW} = \\arg\\min_{\\gamma \\in \\mathbb{R}^p} \\left\\{ \\frac{1}{n} \\sum_{i=1}^{n} (D_i - \\gamma^{'} W_i)^2 + \\lambda \\sum_{j=1}^{p} |\\gamma_j| \\right\\}.\n\\]\n\n\n\nCompute the residuals \\(\\tilde{Y}\\) and \\(\\tilde{D}\\):\n\n\\[\n\\tilde{Y} = Y - \\hat{\\gamma}_{YW}^{'} W, \\quad \\tilde{D} = D - \\hat{\\gamma}_{DW}^{'} W.\n\\]\n\n\n\nFinally, we run an ordinary least squares regression of \\(\\tilde{Y}\\) on \\(\\tilde{D}\\) to estimate \\(\\alpha\\):\n\n\\[\n\\begin{align}\n\\hat{\\alpha} &= \\arg\\min_{\\alpha \\in \\mathbb{R}} \\frac{1}{n} \\sum_{i=1}^{n} ({\\tilde{Y}}_i - \\alpha {\\tilde{D}}_i)^2  \\\\\n&= (E_n \\tilde{D}^2)^{-1} E_n\\tilde{D} \\tilde{Y}.\n\\end{align}\n\\]"
   },
   {
     "objectID": "workshops/causal_ml/causal_inf.html#uncertainty-in-hatalpha",
@@ -6521,7 +6521,7 @@
     "href": "workshops/causal_ml/causal_inf.html#inference-on-many-coefficients",
     "title": "MUSTAFA ASLAN",
     "section": "Inference on Many Coefficients",
-    "text": "Inference on Many Coefficients\n\nIf we are interested in more than one coefficient, we can repeat the Double Lasso procedure for each target regressor of interest.\nHere we consider the model: \\[\nY = \\sum_{j=1}^{p_1} \\alpha_j D_j + \\sum_{k=1}^{p_2} \\beta_k W_k + \\epsilon,\n\\]\n\n     where the number of target regressors \\(p_1\\) can also be large, and the number of control variables \\(p_2\\) can be large as well."
+    "text": "Inference on Many Coefficients\n\n\nIf we are interested in more than one coefficient, we can repeat the Double Lasso procedure for each target regressor of interest.\n\n\n\n\nHere we consider the model: \\[\nY = \\sum_{j=1}^{p_1} \\alpha_j D_j + \\sum_{k=1}^{p_2} \\beta_k W_k + \\epsilon,\n\\]\nwhere the number of target regressors \\(p_1\\) can also be large, and the number of control variables \\(p_2\\) can be large as well."
   },
   {
     "objectID": "workshops/causal_ml/causal_inf.html#motivation-for-many-coefficients-inference",
@@ -6535,14 +6535,14 @@
     "href": "workshops/causal_ml/causal_inf.html#one-by-one-double-lasso",
     "title": "MUSTAFA ASLAN",
     "section": "One by One Double Lasso",
-    "text": "One by One Double Lasso\n\nFor each \\(j = 1, \\ldots, p_1\\), we can apply the one-by-one Double Lasso procedure to estimate \\(\\alpha_j\\) while treating the other \\(D_{-j}\\) as part of the control variables.\n\n\\[\nY = \\alpha_j D_j + \\gamma_j{'} W_j + \\epsilon, \\quad W_j = ((D_{-j})^{'}, W^{'})^{'}\n\\]\n\nThe double lasso provides a high quality estimate of \\(\\hat{\\alpha} = (\\alpha_j)_{j=1}^{p_1}\\) for each \\(j\\) and we can construct confidence intervals for each \\(\\alpha_j\\).\nThis allows us to make inference on multiple coefficients simultaneously, even in high-dimensional settings where \\(p_1\\) and \\(p_2\\) are large relative to \\(n\\)."
+    "text": "One by One Double Lasso\n\nFor each \\(j = 1, \\ldots, p_1\\), we can apply the one-by-one Double Lasso procedure to estimate \\(\\alpha_j\\) while treating the other \\(D_{-j}\\) as part of the control variables.\n\\[\nY = \\alpha_j D_j + \\gamma_j{'} W_j + \\epsilon, \\quad W_j = ((D_{-j})^{'}, W^{'})^{'}\n\\]\nThe double lasso provides a high quality estimate of \\(\\hat{\\alpha} = (\\alpha_j)_{j=1}^{p_1}\\) for each \\(j\\) and we can construct confidence intervals for each \\(\\alpha_j\\).\nThis allows us to make inference on multiple coefficients simultaneously, even in high-dimensional settings where \\(p_1\\) and \\(p_2\\) are large relative to \\(n\\)."
   },
   {
     "objectID": "workshops/causal_ml/causal_inf.html#section-15",
     "href": "workshops/causal_ml/causal_inf.html#section-15",
     "title": "MUSTAFA ASLAN",
     "section": "",
-    "text": "Outline\n\n\nMotivation and Conceptual Foundations\nIdentification\nRandomised Controlled Trials (RCTs)\nInstrumental Variables (IV) and Difference-in-Differences (DiD)\nIntroduction to Linear Regression\nRegularization Techniques for Linear Regression in High-Dimensional Settings\nStatistical Inference on Causal Effects in High Dimensional Linear Regression Models\nStatistical Inference on Predictive and Causal Effects in Modern Nonlinear Regression Models]{style=“color: #1A6872;”}"
+    "text": "Outline\n\n\nMotivation and Conceptual Foundations\nIdentification\nRandomised Controlled Trials (RCTs)\nInstrumental Variables (IV) and Difference-in-Differences (DiD)\nIntroduction to Linear Regression\nRegularization Techniques for Linear Regression in High-Dimensional Settings\nStatistical Inference on Causal Effects in High Dimensional Linear Regression Models\nStatistical Inference on Predictive and Causal Effects in Modern Nonlinear Regression Models"
   },
   {
     "objectID": "workshops/causal_ml/causal_inf.html#introduction",
@@ -6556,7 +6556,7 @@
     "href": "workshops/causal_ml/causal_inf.html#doubledebiased-machine-learning-dml-inference-in-the-partially-linear-regression-model-plm",
     "title": "MUSTAFA ASLAN",
     "section": "Double/debiased machine learning (DML) Inference in the Partially Linear Regression Model (PLM)",
-    "text": "Double/debiased machine learning (DML) Inference in the Partially Linear Regression Model (PLM)\n\nA partially linear regression model:\n\n\\[\nY = \\alpha D + {\\color{#707C36}{g(W)}} + \\epsilon, \\quad E[\\epsilon|D,W] = 0,\n\\tag{1}\\]\n     where \\(Y\\) is the outcome variable, \\(D\\) is the treatment variable, \\(W\\) is a vector of control variables.\n\nThe model allows a part of the regression function, \\(\\color{#707C36}{g(W)}\\), to be fully nonlinear\nHowever, the model is not fully general, because it imposes additivity in \\(\\color{#707C36}{g(W)}\\) and \\(D\\)"
+    "text": "Double/debiased machine learning (DML) Inference in the Partially Linear Regression Model (PLM)\n\nA partially linear regression model:\n\\[\nY = \\alpha D + {\\color{#707C36}{g(W)}} + \\epsilon, \\quad E[\\epsilon|D,W] = 0,\n\\tag{1}\\]\nwhere \\(Y\\) is the outcome variable, \\(D\\) is the treatment variable, \\(W\\) is a vector of control variables.\nThe model allows a part of the regression function, \\(\\color{#707C36}{g(W)}\\), to be fully nonlinear\nHowever, the model is not fully general, because it imposes additivity in \\(\\color{#707C36}{g(W)}\\) and \\(D\\)"
   },
   {
     "objectID": "workshops/causal_ml/causal_inf.html#partialling-out",
@@ -6570,7 +6570,7 @@
     "href": "workshops/causal_ml/causal_inf.html#dml-estimation-procedure",
     "title": "MUSTAFA ASLAN",
     "section": "DML Estimation Procedure",
-    "text": "DML Estimation Procedure\n\nSplit the data into random folds: \\(\\{1, \\ldots, n\\} = \\cup_{k=1}^K I_k\\). Compute ML estimators \\(\\hat{\\ell}_{k}\\) and \\(\\hat{m}_k\\), leaving out the \\(k\\)-th fold of the data. Obtain the cross-fitted residuals for each fold \\(i \\in I_k\\):\n\n\\[\n\\tilde{Y}_i = Y_i - \\hat{\\ell}_k(W_i), \\quad \\tilde{D}_i = D_i - \\hat{m}_k(W_i).\n\\]\n\nApply the ordinary least squares to \\(\\tilde{Y}_i\\) on \\(\\tilde{D}_i\\) to obtain the DML estimator \\(\\hat{\\alpha}\\):\n\n\\[\n\\hat{\\alpha} = E_n[(\\tilde{Y}_i-\\alpha \\tilde{D}_i) \\tilde{D}_i] =0.\n\\]\n\nConstruct confidence intervals for \\(\\alpha\\):\n\n\\[\n\\left[\\hat{\\alpha} \\pm 2 \\times \\sqrt{V/n} \\right],\n\\]\n     covers \\(\\alpha\\) in approximately 95% of repeated samples, where \\(V\\) is the variance of the DML estimator \\(\\hat{\\alpha}\\)."
+    "text": "DML Estimation Procedure\n\nSplit the data into random folds: \\(\\{1, \\ldots, n\\} = \\cup_{k=1}^K I_k\\). Compute ML estimators \\(\\hat{\\ell}_{k}\\) and \\(\\hat{m}_k\\), leaving out the \\(k\\)-th fold of the data. Obtain the cross-fitted residuals for each fold \\(i \\in I_k\\):\n\\[\n\\tilde{Y}_i = Y_i - \\hat{\\ell}_k(W_i), \\quad \\tilde{D}_i = D_i - \\hat{m}_k(W_i).\n\\]\nApply the ordinary least squares to \\(\\tilde{Y}_i\\) on \\(\\tilde{D}_i\\) to obtain the DML estimator \\(\\hat{\\alpha}\\):\n\\[\n\\hat{\\alpha} = E_n[(\\tilde{Y}_i-\\alpha \\tilde{D}_i) \\tilde{D}_i] =0.\n\\]\nConstruct confidence intervals for \\(\\alpha\\):\n\\[\n\\left[\\hat{\\alpha} \\pm 2 \\times \\sqrt{V/n} \\right],\n\\]\ncovers \\(\\alpha\\) in approximately 95% of repeated samples, where \\(V\\) is the variance of the DML estimator \\(\\hat{\\alpha}\\)."
   },
   {
     "objectID": "workshops/causal_ml/causal_inf.html#selecting-the-best-ml-learners-of-hatell-and-hatm",
@@ -6584,42 +6584,42 @@
     "href": "workshops/causal_ml/causal_inf.html#dml-inference-in-the-interactive-regression-model-irm",
     "title": "MUSTAFA ASLAN",
     "section": "DML Inference in the Interactive Regression Model (IRM)",
-    "text": "DML Inference in the Interactive Regression Model (IRM)\n\nHere, we relax the additivity assumption in the partially linear regression model.\nWe consider estimation of average treatment effects when treatment effects are fully heterogeneous and the treatment variable is binary.\nWe consider vectors, \\(W = (Y, D, X)\\), where \\(Y\\) is the outcome variable, \\(D \\in \\{0,1\\}\\) is a binary treatment variable or policy, and \\(X\\) is a vector of control variables.\n\n\\[\nY = g(D, X) + \\epsilon, \\quad E[\\epsilon|D,X] = 0,\n\\tag{2}\\]\n\\[\nD = m(X) + \\tilde{D}, \\quad E[\\tilde{D}|X] = 0,\n\\tag{3}\\]\n\nSince \\(D\\) is not additively separable in the Equation 2, this model is more general than the partially linear regression model."
+    "text": "DML Inference in the Interactive Regression Model (IRM)\n\n\nHere, we relax the additivity assumption in the partially linear regression model.\n\n\n\n\nWe consider estimation of average treatment effects when treatment effects are fully heterogeneous and the treatment variable is binary.\n\n\n\n\nWe consider vectors, \\(W = (Y, D, X)\\), where \\(Y\\) is the outcome variable, \\(D \\in \\{0,1\\}\\) is a binary treatment variable or policy, and \\(X\\) is a vector of control variables.\n\n\\[\nY = g(D, X) + \\epsilon, \\quad E[\\epsilon|D,X] = 0,\n\\tag{2}\\]\n\\[\nD = m(X) + \\tilde{D}, \\quad E[\\tilde{D}|X] = 0,\n\\tag{3}\\]\n\n\n\nSince \\(D\\) is not additively separable in the Equation 2, this model is more general than the partially linear regression model."
   },
   {
     "objectID": "workshops/causal_ml/causal_inf.html#average-predictive-effect-ape",
     "href": "workshops/causal_ml/causal_inf.html#average-predictive-effect-ape",
     "title": "MUSTAFA ASLAN",
     "section": "Average Predictive Effect (APE)",
-    "text": "Average Predictive Effect (APE)\n\nThe average predictive effect (APE) of the binary treatment \\(D\\) on the outcome \\(Y\\) is defined as:\n\n\\[\n\\theta_0 = E[g(1, X) - g(0, X)]\n\\]\n     which represents the average predictive effect of switching the treatment from 0 to 1, averaging over the distribution of covariates \\(X\\).\n\nThe confounding factors, \\(X\\), affect the policy variable via the propensity score \\(m(X) = E[D|X]\\) and affect the outcome variable via the regression function \\(g(D, X)\\)."
+    "text": "Average Predictive Effect (APE)\n\nThe average predictive effect (APE) of the binary treatment \\(D\\) on the outcome \\(Y\\) is defined as:\n\\[\n\\theta_0 = E[g(1, X) - g(0, X)]\n\\]\nwhich represents the average predictive effect of switching the treatment from 0 to 1, averaging over the distribution of covariates \\(X\\).\nThe confounding factors, \\(X\\), affect the policy variable via the propensity score \\(m(X) = E[D|X]\\) and affect the outcome variable via the regression function \\(g(D, X)\\)."
   },
   {
     "objectID": "workshops/causal_ml/causal_inf.html#ape-estimation",
     "href": "workshops/causal_ml/causal_inf.html#ape-estimation",
     "title": "MUSTAFA ASLAN",
     "section": "APE Estimation",
-    "text": "APE Estimation\nATE will be based on the relation:\n\\[\n\\theta_{0} = \\mathbb{E}[\\varphi_{0}(W)],\n\\tag{4}\\]\nwhere\n\\[\n\\varphi_{0}(W) = g_{0}(1, X) - g_{0}(0, X) + \\bigl(Y - g_{0}(D, X)\\bigr) H_{0}\n\\]\nand\n\\[\nH_{0} = \\frac{\\mathbf{1}(D = 1)}{m_{0}(X)} - \\frac{\\mathbf{1}(D = 0)}{1 - m_{0}(X)}\n\\]\nis the Horvitz-Thompson transformation."
+    "text": "APE Estimation\n\nATE will be based on the relation:\n\\[\n\\theta_{0} = \\mathbb{E}[\\varphi_{0}(W)],\n\\tag{4}\\]\n\n\nwhere\n\\[\n\\varphi_{0}(W) = g_{0}(1, X) - g_{0}(0, X) + \\bigl(Y - g_{0}(D, X)\\bigr) H_{0}\n\\]\n\n\nand\n\\[\nH_{0} = \\frac{\\mathbf{1}(D = 1)}{m_{0}(X)} - \\frac{\\mathbf{1}(D = 0)}{1 - m_{0}(X)}\n\\]\nis the Horvitz-Thompson transformation."
   },
   {
     "objectID": "workshops/causal_ml/causal_inf.html#dml-estimation-procedure-for-apesates-in-irm",
     "href": "workshops/causal_ml/causal_inf.html#dml-estimation-procedure-for-apesates-in-irm",
     "title": "MUSTAFA ASLAN",
     "section": "DML Estimation Procedure for APEs/ATEs in IRM",
-    "text": "DML Estimation Procedure for APEs/ATEs in IRM\n\nSplit the data into random folds: \\(\\{1, \\ldots, n\\} = \\cup_{k=1}^K I_k\\). Compute ML estimators \\(\\hat{g}_{k}\\) and \\(\\hat{m}_k\\), leaving out the \\(k\\)-th fold of the data, such that \\(\\epsilon \\le \\hat{m}_k \\le 1-\\epsilon\\) for some small \\(\\epsilon &gt; 0\\). For each fold \\(i \\in I_k\\), compute:\n\n\\[\n\\hat{\\varphi}(W_i) = \\hat{g}_{k}(1, X_i) - \\hat{g}_{k}(0, X_i) + \\bigl(Y_i - \\hat{g}_{k}(D_i, X_i)\\bigr) \\hat{H}_i,\n\\]\n     where \\(\\hat{H}_i = \\frac{\\mathbf{1}(D_i = 1)}{\\hat{m}_k(X_i)} - \\frac{\\mathbf{1}(D_i = 0)}{1 - \\hat{m}_k(X_i)}\\).\n\nCompute the estimator \\(\\theta_0 = E_n[\\hat{\\varphi}(W_i)]\\).\nConstruct confidence intervals for \\(\\theta_0\\):\n\n\\[\n\\left[\\hat{\\theta} \\pm 2 \\times \\sqrt{\\hat{V}/n} \\right],\n\\]\n     where \\(\\hat{V} = E_n[(\\hat{\\varphi}(W_i) - \\hat{\\theta})^2]\\)."
+    "text": "DML Estimation Procedure for APEs/ATEs in IRM\n\nSplit the data into random folds: \\(\\{1, \\ldots, n\\} = \\cup_{k=1}^K I_k\\). Compute ML estimators \\(\\hat{g}_{k}\\) and \\(\\hat{m}_k\\), leaving out the \\(k\\)-th fold of the data, such that \\(\\epsilon \\le \\hat{m}_k \\le 1-\\epsilon\\) for some small \\(\\epsilon &gt; 0\\). For each fold \\(i \\in I_k\\), compute:\n\\[\n\\hat{\\varphi}(W_i) = \\hat{g}_{k}(1, X_i) - \\hat{g}_{k}(0, X_i) + \\bigl(Y_i - \\hat{g}_{k}(D_i, X_i)\\bigr) \\hat{H}_i,\n\\]\nwhere \\(\\hat{H}_i = \\frac{\\mathbf{1}(D_i = 1)}{\\hat{m}_k(X_i)} - \\frac{\\mathbf{1}(D_i = 0)}{1 - \\hat{m}_k(X_i)}\\).\nCompute the estimator \\(\\theta_0 = E_n[\\hat{\\varphi}(W_i)]\\).\nConstruct confidence intervals for \\(\\theta_0\\):\n\\[\n\\left[\\hat{\\theta} \\pm 2 \\times \\sqrt{\\hat{V}/n} \\right],\n\\]\nwhere \\(\\hat{V} = E_n[(\\hat{\\varphi}(W_i) - \\hat{\\theta})^2]\\)."
   },
   {
     "objectID": "workshops/causal_ml/causal_inf.html#the-local-average-treatment-effect-model-late",
     "href": "workshops/causal_ml/causal_inf.html#the-local-average-treatment-effect-model-late",
     "title": "MUSTAFA ASLAN",
     "section": "The Local Average Treatment Effect Model (LATE)",
-    "text": "The Local Average Treatment Effect Model (LATE)\nConsider a structural Equation Model (SEM) where:\n\\[\n\\begin{aligned}\nY &:= f_{Y}(D, X, A, \\varepsilon_{Y}) \\\\\nD &:= f_{D}(Z, X, A, \\varepsilon_{D}) \\in \\{0,1\\}, \\\\\nZ &:= f_{Z}(X, \\varepsilon_{Z}) \\in \\{0,1\\}, \\\\\nX &:= \\varepsilon_{X}, \\quad A := \\varepsilon_{A},\n\\end{aligned}\n\\]\nwhere all \\(\\epsilon\\) are all independent.\n\nSuppose the instrument \\(Z\\) is is an offer to participate in a training program and that the treatment \\(D\\) is actual endogenous participation in the training program. Participation in the program may depend on unobservables, \\(A\\), such as motivation, which also affects the outcome \\(Y\\). The variable \\(X\\) captures observed covariates such as age, education, and work experience.\n\nThe model allows us to identify the local average treatment effect (LATE), defined as:\n\\[\n\\theta = E[Y(1) - Y(0)|D(1) &gt; D(0)],\n\\]\nwhere \\({D(1) &gt; D(0)}\\) defines the compliance event, where switching the instrument, \\(Z\\), from 0 to 1."
+    "text": "The Local Average Treatment Effect Model (LATE)\n\nConsider a structural Equation Model (SEM) where:\n\\[\n\\begin{aligned}\nY &:= f_{Y}(D, X, A, \\varepsilon_{Y}) \\\\\nD &:= f_{D}(Z, X, A, \\varepsilon_{D}) \\in \\{0,1\\}, \\\\\nZ &:= f_{Z}(X, \\varepsilon_{Z}) \\in \\{0,1\\}\n\\end{aligned}\n\\]\nwhere all \\(\\epsilon\\) are all independent.\n\n\nSuppose the instrument \\(Z\\) is is an offer to participate in a training program and that the treatment \\(D\\) is actual endogenous participation in the training program. Participation in the program may depend on unobservables, \\(A\\), such as motivation, which also affects the outcome \\(Y\\). The variable \\(X\\) captures observed covariates such as age, education, and work experience.\n\n\nThe model allows us to identify the local average treatment effect (LATE), defined as:\n\\[\n\\theta = E[Y(1) - Y(0)|D(1) &gt; D(0)],\n\\]\nwhere \\({D(1) &gt; D(0)}\\) defines the compliance event, where switching the instrument, \\(Z\\), from 0 to 1."
   },
   {
     "objectID": "workshops/causal_ml/causal_inf.html#section-16",
     "href": "workshops/causal_ml/causal_inf.html#section-16",
     "title": "MUSTAFA ASLAN",
     "section": "",
-    "text": "In the LATE model, \\(\\theta\\) can be identified by the ratio of two statistical parameters,\n\\[\n\\theta_0 = \\theta_1 / \\theta_2,\n\\tag{5}\\]\nwhere \\[\n\\theta_1 = E[E[Y|Z=1, X] - E[Y|Z=0, X]],\n\\]\nand \\[\n\\theta_2 = E[E[D|Z=1, X] - E[D|Z=0, X]].\n\\]\nEquation 5 is equivalent to the below expression:\n\\[\n\\theta_0 = \\frac{E[E[Y|Z=1, X] - E[Y|Z=0, X]]}{E[E[D|Z=1, X] - E[D|Z=0, X]]}.\n\\]\nThis parameter is the ratio of the average predictive effect of \\(Z\\) on \\(Y\\) to the average predictive effect of \\(Z\\) on \\(D\\)."
+    "text": "In the LATE model, \\(\\theta\\) can be identified by the ratio of two statistical parameters,\n\\[\n\\theta_0 = \\theta_1 / \\theta_2,\n\\tag{5}\\]\n\n\nwhere \\[\n\\theta_1 = E[E[Y|Z=1, X] - E[Y|Z=0, X]],\n\\]\nand \\[\n\\theta_2 = E[E[D|Z=1, X] - E[D|Z=0, X]].\n\\]\n\n\nEquation 5 is equivalent to the below expression:\n\\[\n\\theta_0 = \\frac{E[E[Y|Z=1, X] - E[Y|Z=0, X]]}{E[E[D|Z=1, X] - E[D|Z=0, X]]}.\n\\]\nThis parameter is the ratio of the average predictive effect of \\(Z\\) on \\(Y\\) to the average predictive effect of \\(Z\\) on \\(D\\)."
   },
   {
     "objectID": "workshops/causal_ml/causal_inf.html#dml-estimation-for-late",
@@ -6781,5 +6781,19 @@
     "title": "Causal Inference via Machine Learning",
     "section": "Prerequisites",
     "text": "Prerequisites\n\nBasic understanding of statistics and probability theory\nFamiliarity with linear regression and ordinary least squares (OLS)\nWorking knowledge of statistical concepts such as expected values, variance, and correlation\nBasic programming skills (R)\nUnderstanding of matrix notation and basic linear algebra\nNo prior knowledge of causal inference required – the course builds from foundational concepts Helpful but not required: exposure to econometrics, machine learning basics, or policy evaluation methods"
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#partialling-out-using-dml",
+    "href": "workshops/causal_ml/causal_inf.html#partialling-out-using-dml",
+    "title": "MUSTAFA ASLAN",
+    "section": "Partialling-Out using DML",
+    "text": "Partialling-Out using DML\n\nApplying partialling-out to Equation 1, we obtain:\n\\[\n\\tilde{Y} = \\alpha \\tilde{D} + \\epsilon,\n\\]\n\n\nwhere \\(\\tilde{Y}\\) and \\(\\tilde{D}\\) are the residuals left after predicting \\(Y\\) and \\(D\\) using \\(W\\).\n\\[\n\\tilde{Y} := Y - \\ell(W) \\quad \\text{and} \\quad \\tilde{D} := D - m(W),\n\\]\n\n\nwhere \\(\\ell(W)\\) and \\(m(W)\\) are conditional expectation functions of \\(Y\\) and \\(D\\) given \\(W\\), respectively.\n\\[\n\\ell(W) = E[Y|W], \\quad m(W) = E[D|W].\n\\]"
+  },
+  {
+    "objectID": "workshops/causal_ml/causal_inf.html#resources-to-learn-more",
+    "href": "workshops/causal_ml/causal_inf.html#resources-to-learn-more",
+    "title": "MUSTAFA ASLAN",
+    "section": "Resources to Learn More",
+    "text": "Resources to Learn More"
   }
 ]
