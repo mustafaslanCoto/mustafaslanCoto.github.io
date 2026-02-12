@@ -1,18 +1,10 @@
 [
   {
-    "listing": "/workshops/index.html",
-    "items": [
-      "/workshops/trainings/causal_ml.html",
-      "/workshops/trainings/rl_index.html",
-      "/workshops/trainings/py_index.html"
-    ]
-  },
-  {
     "listing": "/learn/index.html",
     "items": [
       "/learn/prob_stats/mc_integration.html",
-      "/learn/prob_stats/dists_index.html",
-      "/learn/prob_stats/cond_index.html"
+      "/learn/prob_stats/cond_index.html",
+      "/learn/prob_stats/dists_index.html"
     ]
   },
   {
@@ -20,6 +12,14 @@
     "items": [
       "/talks/presentations/sword.html",
       "/talks/presentations/wgsss.html"
+    ]
+  },
+  {
+    "listing": "/workshops/index.html",
+    "items": [
+      "/workshops/trainings/causal_ml.html",
+      "/workshops/trainings/rl_index.html",
+      "/workshops/trainings/py_index.html"
     ]
   }
 ]

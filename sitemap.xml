@@ -1,119 +1,119 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://mustafaslanCoto.github.io/talks/wgsss/occupancy_nb.html</loc>
-    <lastmod>2026-02-11T12:55:20.267Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mustafaslanCoto.github.io/talks/sword/sword_slides.html</loc>
-    <lastmod>2026-02-11T12:55:20.183Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mustafaslanCoto.github.io/talks/presentations/sword.html</loc>
-    <lastmod>2026-02-11T12:55:19.794Z</lastmod>
-  </url>
-  <url>
     <loc>https://mustafaslanCoto.github.io/bins/CV/CV.html</loc>
-    <lastmod>2026-02-11T12:55:19.537Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mustafaslanCoto.github.io/learn/prob_stats/mc_integration.html</loc>
-    <lastmod>2026-02-11T12:55:19.778Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mustafaslanCoto.github.io/learn/prob_stats/dists_index.html</loc>
-    <lastmod>2026-02-11T12:55:19.778Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mustafaslanCoto.github.io/learn/monte_carlo/mc_notebook.html</loc>
-    <lastmod>2026-02-11T12:55:19.778Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mustafaslanCoto.github.io/learn/distributions/dists_notebook.html</loc>
-    <lastmod>2026-02-11T12:55:19.773Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mustafaslanCoto.github.io/CV/LICENSE.html</loc>
-    <lastmod>2026-02-11T12:55:19.519Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mustafaslanCoto.github.io/workshops/rl/RL_presentation.html</loc>
-    <lastmod>2026-02-11T12:55:20.722Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mustafaslanCoto.github.io/workshops/rl/rl.html</loc>
-    <lastmod>2026-02-11T12:55:20.730Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mustafaslanCoto.github.io/workshops/rl/temp/rl_python_revenue_max.html</loc>
-    <lastmod>2026-02-11T12:55:20.731Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mustafaslanCoto.github.io/workshops/index.html</loc>
-    <lastmod>2026-02-11T12:55:20.702Z</lastmod>
+    <lastmod>2026-02-12T17:13:53.367Z</lastmod>
   </url>
   <url>
     <loc>https://mustafaslanCoto.github.io/workshops/trainings/rl_index.html</loc>
-    <lastmod>2026-02-11T12:55:20.731Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mustafaslanCoto.github.io/workshops/intro_python/intro_to_python_part_3.html</loc>
-    <lastmod>2026-02-11T12:55:20.722Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mustafaslanCoto.github.io/index.html</loc>
-    <lastmod>2026-02-11T12:55:19.765Z</lastmod>
+    <lastmod>2026-02-12T17:13:54.478Z</lastmod>
   </url>
   <url>
     <loc>https://mustafaslanCoto.github.io/workshops/trainings/py_index.html</loc>
-    <lastmod>2026-02-11T12:55:20.731Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mustafaslanCoto.github.io/workshops/trainings/causal_ml.html</loc>
-    <lastmod>2026-02-11T12:55:20.731Z</lastmod>
+    <lastmod>2026-02-12T17:13:54.478Z</lastmod>
   </url>
   <url>
     <loc>https://mustafaslanCoto.github.io/workshops/causal_ml/causal_inf.html</loc>
-    <lastmod>2026-02-11T12:55:20.599Z</lastmod>
+    <lastmod>2026-02-12T17:13:54.428Z</lastmod>
   </url>
   <url>
-    <loc>https://mustafaslanCoto.github.io/workshops/rl/temp/RL_presentation_v0.html</loc>
-    <lastmod>2026-02-11T12:55:20.730Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mustafaslanCoto.github.io/workshops/rl/notes_ides.html</loc>
-    <lastmod>2026-02-11T12:55:20.730Z</lastmod>
+    <loc>https://mustafaslanCoto.github.io/workshops/rl/temp/rl_python_revenue_max.html</loc>
+    <lastmod>2026-02-12T17:13:54.478Z</lastmod>
   </url>
   <url>
     <loc>https://mustafaslanCoto.github.io/workshops/rl/note.html</loc>
-    <lastmod>2026-02-11T12:55:20.730Z</lastmod>
+    <lastmod>2026-02-12T17:13:54.475Z</lastmod>
   </url>
   <url>
-    <loc>https://mustafaslanCoto.github.io/learn/index.html</loc>
-    <lastmod>2026-02-11T12:55:19.774Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mustafaslanCoto.github.io/learn/cond_dists/cond_dist_notebook.html</loc>
-    <lastmod>2026-02-11T12:55:19.765Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mustafaslanCoto.github.io/learn/prob_stats/cond_index.html</loc>
-    <lastmod>2026-02-11T12:55:19.778Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mustafaslanCoto.github.io/bins/dist.html</loc>
-    <lastmod>2026-02-11T12:55:19.537Z</lastmod>
+    <loc>https://mustafaslanCoto.github.io/workshops/rl/RL_presentation.html</loc>
+    <lastmod>2026-02-12T17:13:54.469Z</lastmod>
   </url>
   <url>
     <loc>https://mustafaslanCoto.github.io/talks/presentations/wgsss.html</loc>
-    <lastmod>2026-02-11T12:55:19.794Z</lastmod>
+    <lastmod>2026-02-12T17:13:53.626Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mustafaslanCoto.github.io/talks/sword/sword_slides.html</loc>
+    <lastmod>2026-02-12T17:13:54.013Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mustafaslanCoto.github.io/talks/wgsss/occupancy_nb.html</loc>
+    <lastmod>2026-02-12T17:13:54.096Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mustafaslanCoto.github.io/learn/prob_stats/dists_index.html</loc>
+    <lastmod>2026-02-12T17:13:53.606Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mustafaslanCoto.github.io/learn/prob_stats/mc_integration.html</loc>
+    <lastmod>2026-02-12T17:13:53.606Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mustafaslanCoto.github.io/learn/cond_dists/cond_dist_notebook.html</loc>
+    <lastmod>2026-02-12T17:13:53.593Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mustafaslanCoto.github.io/learn/index.html</loc>
+    <lastmod>2026-02-12T17:13:53.600Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mustafaslanCoto.github.io/index.html</loc>
+    <lastmod>2026-02-12T17:13:53.591Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mustafaslanCoto.github.io/learn/monte_carlo/mc_notebook.html</loc>
+    <lastmod>2026-02-12T17:13:53.604Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mustafaslanCoto.github.io/learn/distributions/dists_notebook.html</loc>
+    <lastmod>2026-02-12T17:13:53.600Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mustafaslanCoto.github.io/learn/prob_stats/cond_index.html</loc>
+    <lastmod>2026-02-12T17:13:53.604Z</lastmod>
   </url>
   <url>
     <loc>https://mustafaslanCoto.github.io/talks/index.html</loc>
-    <lastmod>2026-02-11T12:55:19.794Z</lastmod>
+    <lastmod>2026-02-12T17:13:53.625Z</lastmod>
   </url>
   <url>
     <loc>https://mustafaslanCoto.github.io/talks/wgsss/slides.html</loc>
-    <lastmod>2026-02-11T12:55:20.584Z</lastmod>
+    <lastmod>2026-02-12T17:13:54.410Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mustafaslanCoto.github.io/talks/presentations/sword.html</loc>
+    <lastmod>2026-02-12T17:13:53.625Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mustafaslanCoto.github.io/workshops/index.html</loc>
+    <lastmod>2026-02-12T17:13:54.447Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mustafaslanCoto.github.io/workshops/rl/notes_ides.html</loc>
+    <lastmod>2026-02-12T17:13:54.475Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mustafaslanCoto.github.io/workshops/rl/rl.html</loc>
+    <lastmod>2026-02-12T17:13:54.476Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mustafaslanCoto.github.io/workshops/rl/temp/RL_presentation_v0.html</loc>
+    <lastmod>2026-02-12T17:13:54.476Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mustafaslanCoto.github.io/workshops/intro_python/intro_to_python_part_3.html</loc>
+    <lastmod>2026-02-12T17:13:54.468Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mustafaslanCoto.github.io/workshops/trainings/causal_ml.html</loc>
+    <lastmod>2026-02-12T17:13:54.478Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mustafaslanCoto.github.io/bins/dist.html</loc>
+    <lastmod>2026-02-12T17:13:53.367Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mustafaslanCoto.github.io/CV/LICENSE.html</loc>
+    <lastmod>2026-02-12T17:13:53.349Z</lastmod>
   </url>
 </urlset>

@@ -788,6 +788,7 @@ Y = \beta^{'} X + \epsilon
 </section>
 <section id="goodness-of-fit" class="slide level2">
 <h2>Goodness of Fit</h2>
+<div class="fragment fade-up">
 <ul>
 <li><p>The mean squared error (MSE) of the best linear predictor is given by: <span class="math display">\[
 \text{MSE} = E[(Y - \beta^{'} X)^2]
@@ -796,11 +797,14 @@ Y = \beta^{'} X + \epsilon
 R^2 = \frac{E[(\hat{\beta}^{'} X)^2]}{E[Y^2]} = 1 - \frac{E_n \epsilon^2}{E_n Y^2} \in [0, 1]
 \]</span></p></li>
 </ul>
+</div>
+<div class="fragment fade-up">
 <p><strong>Interpretation:</strong></p>
 <div style="padding: 10px; margin: 10px 0; border-left: 2px solid #1A6872; text-align: left; color: #1A6872;">
 <ul>
 <li><span class="math inline">\(R^2\)</span> measures the proportion of variance in <span class="math inline">\(Y\)</span> that is explained by the linear predictor <span class="math inline">\(\hat{\beta}^{'} X\)</span>.</li>
 </ul>
+</div>
 </div>
 </section>
 <section id="overfitting-what-happens-when-pn-is-large" class="slide level2">
@@ -831,21 +835,25 @@ R^2 = \frac{E[(\hat{\beta}^{'} X)^2]}{E[Y^2]} = 1 - \frac{E_n \epsilon^2}{E_n Y^
 <p><span class="cust_title">Overfitting Example</span></p>
 </div>
 <div style="border-left: 1px solid #ccc; padding-left: 20px;">
-<div id="5f161baf" class="cell" data-fig-height="50%" data-fig-width="100%" data-execution_count="1">
+<div class="fragment fade-up">
+<div id="bde51409" class="cell" data-fig-height="50%" data-fig-width="100%" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="causal_inf_files/figure-revealjs/cell-2-output-1.png" class="quarto-figure quarto-figure-center" width="690" height="396"></p>
+<p><img data-src="causal_inf_files/figure-revealjs/cell-2-output-1.png" class="quarto-figure quarto-figure-center" width="764" height="433"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="1665a007" class="cell" data-fig-height="50%" data-fig-width="100%" data-execution_count="2">
+</div>
+<div class="fragment fade-up">
+<div id="efb1881c" class="cell" data-fig-height="50%" data-fig-width="100%" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="causal_inf_files/figure-revealjs/cell-3-output-1.png" class="quarto-figure quarto-figure-center" width="696" height="396"></p>
+<p><img data-src="causal_inf_files/figure-revealjs/cell-3-output-1.png" class="quarto-figure quarto-figure-center" width="770" height="433"></p>
 </figure>
+</div>
 </div>
 </div>
 </div>
@@ -854,72 +862,101 @@ R^2 = \frac{E[(\hat{\beta}^{'} X)^2]}{E[Y^2]} = 1 - \frac{E_n \epsilon^2}{E_n Y^
 </section>
 <section id="inference-about-predictive-effects-or-association" class="slide level2">
 <h2>Inference about Predictive Effects or Association</h2>
+<div class="fragment fade-up">
 <ul>
-<li><p>Predictive effects describe how our (population best linear) predictions change when a value of <span style="color: #B2582D;">target regressor</span> changes, holding all other regressors constant.</p></li>
+<li><p>Predictive effects describe how our (population best linear) predictions change when a value of <span style="color: #1A6872;">target regressor</span> changes, holding all other regressors constant.</p></li>
 <li><p>Specifically, we partition the vector of regressors <span class="math inline">\(X\)</span> into two parts: the target regressor of interest <span class="math inline">\(D\)</span> and the remaining regressors <span class="math inline">\(W\)</span> (also called control variables or covariates).</p></li>
 </ul>
 <p><span class="math display">\[
 X = (D, W'),
 \]</span></p>
+</div>
+<div class="fragment fade-up">
 <ul>
 <li>We can then write the best linear predictor of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X\)</span> as</li>
 </ul>
 <p><span class="math display">\[
 Y =  \beta_1 D + \beta^{'}_2 W + \epsilon
 \]</span></p>
+</div>
+<div class="fragment fade-up">
 <div style="padding: 10px; margin: 10px 0; border-left: 2px solid #1A6872; text-align: left; color: #1A6872;">
-<p><span style="color: #1A6872;">How does the predicted value of change if increases by a unit while remains unchanged?</span></p>
+<p><span style="color: #1A6872;">How does the predicted value of <span class="math inline">\(Y\)</span> change if <span class="math inline">\(D\)</span> increases by a unit while remains unchanged?</span></p>
+</div>
 </div>
 </section>
 <section id="section-6" class="slide level2">
 <h2></h2>
+<div class="fragment fade-up">
 <ul>
 <li>The predictive value of <span class="math inline">\(Y\)</span> changes by <span class="math inline">\(\beta_1\)</span> units when <span class="math inline">\(D\)</span> increases by one unit.</li>
 </ul>
+</div>
 <p><br></p>
+<div class="fragment fade-up">
 <ul>
 <li>Note that this interpretation is purely predictive and does not imply causality.</li>
 </ul>
+</div>
 <p><br></p>
+<div class="fragment fade-up">
 <div style="padding: 10px; margin: 10px 0; border-left: 2px solid #1A6872; text-align: center; color: #1A6872;">
 <p><strong>WHY?</strong></p>
 </div>
+</div>
 <p><br></p>
+<div class="fragment fade-up">
 <ul>
 <li>This is because we are holding all other regressors <span class="math inline">\(W\)</span> constant, which may not be realistic in practice.</li>
 </ul>
+</div>
 <p><br></p>
+<div class="fragment fade-up">
 <ul>
 <li>For example: In a wage regression, <span class="math inline">\(D\)</span> could be years of education, and <span class="math inline">\(W\)</span> could include experience, gender, and location. The coefficient on education (<span class="math inline">\(\beta_1\)</span>) tells us how much more (or less) we predict someone will earn for each additional year of education, with the same experience, gender, and location.</li>
 </ul>
+</div>
 </section>
 <section id="understanding-beta_1-via-partialling-out" class="slide level2">
 <h2>Understanding <span class="math inline">\(\beta_1\)</span> via <span style="color: #1A6872;">“Partialling-Out”</span></h2>
+<div class="fragment fade-up">
 <ul>
-<li><p>“Partialling-out” is the process of isolating the effect of the target regressor <span class="math inline">\(D\)</span> on the outcome variable <span class="math inline">\(Y\)</span> by removing the influence of the control variables <span class="math inline">\(W\)</span>.</p></li>
-<li><p>Partialling-out operation is define as a procedure with three steps:</p>
+<li>“Partialling-out” is the process of isolating the effect of the target regressor <span class="math inline">\(D\)</span> on the outcome variable <span class="math inline">\(Y\)</span> by removing the influence of the control variables <span class="math inline">\(W\)</span>.</li>
+</ul>
+</div>
+<div class="fragment fade-up">
+<ul>
+<li>Partialling-out operation is define as a procedure with three steps:</li>
+</ul>
+</div>
+<div class="fragment fade-up">
 <ol type="1">
 <li>Regress <span class="math inline">\(Y\)</span> on <span class="math inline">\(W\)</span> and obtain the residuals <span class="math inline">\(\tilde{Y}\)</span>.</li>
 </ol>
 <p><span class="math display">\[
-Y = \gamma^{'}_{YW} W + u \quad \Rightarrow \quad \tilde{Y} = Y - \hat{Y} = Y - \gamma^{'}_{YW} W
-\]</span></p>
+  Y = \gamma^{'}_{YW} W + \tilde{Y} \quad \Rightarrow \quad \tilde{Y} = Y - \hat{Y} = Y - \gamma^{'}_{YW} W
+  \]</span></p>
+</div>
+<div class="fragment fade-up">
 <ol start="2" type="1">
 <li>Regress <span class="math inline">\(D\)</span> on <span class="math inline">\(W\)</span> and obtain the residuals <span class="math inline">\(\tilde{D}\)</span>.</li>
 </ol>
 <p><span class="math display">\[
-D = \gamma^{'}_{DW} W + v \quad \Rightarrow \quad \tilde{D} = D - \hat{D} = D - \gamma^{'}_{DW} W
-\]</span></p>
+  D = \gamma^{'}_{DW} W + \tilde{D} \quad \Rightarrow \quad \tilde{D} = D - \hat{D} = D - \gamma^{'}_{DW} W
+  \]</span></p>
+</div>
+<div class="fragment fade-up">
 <ol start="3" type="1">
 <li>Regress the residuals <span class="math inline">\(\tilde{Y}\)</span> on the residuals <span class="math inline">\(\tilde{D}\)</span> to estimate <span class="math inline">\(\beta_1\)</span>.</li>
 </ol>
 <p><span class="math display">\[
-\tilde{Y} = \beta_1 \tilde{D} + \tilde{\epsilon}
-\]</span></p></li>
-</ul>
+  \tilde{Y} = \beta_1 \tilde{D} + \tilde{\epsilon}
+  \]</span></p>
+</div>
 </section>
 <section id="section-7" class="slide level2">
 <h2></h2>
+<div class="fragment fade-up">
 <p>We can also show partialling-out procedure by partialling-out operation to both sides of our regression equation</p>
 <p><span class="math display">\[
 Y =  \beta_1 D + \beta^{'}_2 W + \epsilon
@@ -928,30 +965,45 @@ Y =  \beta_1 D + \beta^{'}_2 W + \epsilon
 <p><span class="math display">\[
 \tilde{Y} = \beta_1 \tilde{D} + \beta^{'}_2 \tilde{W} + \tilde{\epsilon}
 \]</span></p>
+</div>
+<div class="fragment fade-up">
 <p>Which simplifies to</p>
 <p><span class="math display">\[
 \tilde{Y} = \beta_1 \tilde{D} + \epsilon
 \]</span></p>
+</div>
+<div class="fragment fade-up">
 <div style="padding: 10px; margin: 10px 0; border-left: 1px solid #ccc; text-align: left;">
 <p><span style="color: #1A6872;"><strong>Why</strong> does <span class="math inline">\(\tilde{W}\)</span> disappear in the partialled-out regression?</span><br>
 <span style="color: #1A6872;"><strong>Why</strong> <span class="math inline">\(\tilde{\epsilon} = \epsilon\)</span>?</span></p>
 </div>
+</div>
+<div class="fragment fade-up">
 <p><strong>Interpretation of <span class="math inline">\(\beta_1\)</span> in Partialling-Out</strong></p>
 <ul>
 <li><p><span class="math inline">\(\beta_1\)</span> can be interpreted as the effect of <span class="math inline">\(D\)</span> on <span class="math inline">\(Y\)</span> after removing the influence of <span class="math inline">\(W\)</span> as univariate linear regression of <em>residualized</em> <span class="math inline">\(Y\)</span> on <em>residualized</em> <span class="math inline">\(D\)</span>.</p></li>
 <li><p>Residuals are defined by partialling-out the linear effects of <span class="math inline">\(W\)</span> from both <span class="math inline">\(Y\)</span> and <span class="math inline">\(D\)</span>.</p></li>
 </ul>
+</div>
 </section>
 <section id="section-8" class="slide level2">
 <h2></h2>
-<div style="padding: 10px; margin: 10px 0; text-align: left; font-size: 1.4em; font-weight: bold;">
-<p><br> <br></p>
-<div class="fragment">
-<p><span style="color: #BF505C;">When <span class="math inline">\(p/n\)</span> is large, using linear regression for partialling-out can lead to overfitting issues, resulting in biased estimates of <span class="math inline">\(\beta_1\)</span>.</span></p>
+<p><br></p>
+<div class="fragment fade-up">
+<div style="padding: 10px; margin: 10px 0; border-left: 2px solid #BF505C; text-align: left; color: #BF505C; font-weight: bold; font-size: 1.4em;">
+<p>Can we use <em>linear regression</em> for partialling-out?</p>
+</div>
 </div>
 <p><br></p>
-<div class="fragment">
-<p><span style="color: #707C36;">To address this, we can use dimension reduction or regularization techniques, such as Lasso or Ridge regression, during the partialling-out steps.</span></p>
+<div class="fragment fade-up">
+<div style="padding: 10px; margin: 10px 0; border-left: 2px solid #9B6C22; text-align: left; color: #9B6C22; font-weight: bold; font-size: 1.4em;">
+<p>When <span class="math inline">\(p/n\)</span> is large, using linear regression for partialling-out can lead to overfitting issues, resulting in biased estimates of <span class="math inline">\(\beta_1\)</span>.</p>
+</div>
+</div>
+<p><br></p>
+<div class="fragment fade-up">
+<div style="padding: 10px; margin: 10px 0; border-left: 2px solid #707C36; text-align: left; color: #707C36; font-weight: bold; font-size: 1.4em;">
+<p>To address this, we can use dimension reduction or regularization techniques, such as Lasso or Ridge regression, during the partialling-out steps.</p>
 </div>
 </div>
 </section>
@@ -976,24 +1028,28 @@ Y =  \beta_1 D + \beta^{'}_2 W + \epsilon
 <h2>Linear Regression with High-Dimensional <br> Covariates</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
+<div class="fragment fade-up">
 <ul>
 <li>A regression model</li>
 </ul>
 <p><span class="math display">\[
 Y = \beta^{'} X + \epsilon, \quad \epsilon \perp X,
 \]</span></p>
-<div style="margin-left: 1.5em;">
-<p>where <span class="math inline">\(\beta^{'} X\)</span> is the population best linear predictor of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X\)</span>.</p>
-</div>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; where <span class="math inline">\(\beta^{'} X\)</span> is the population best linear predictor of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X\)</span>.</p>
 <ul>
 <li>The vector <span class="math inline">\(X = (X_1, X_2, \ldots, X_p)\)</span> represents the <span class="math inline">\(p\)</span> covariates (<span class="math inline">\(p\)</span> regressors).</li>
 </ul>
-<div style="padding: 10px; margin: 10px 0; text-align: center; font-size: 1.2em; font-weight: bold;">
-<p><span style="color: #1A6872;"><span class="math inline">\(p\)</span> is large, possibly larger than <span class="math inline">\(n\)</span></span></p>
 </div>
+<div class="fragment fade-up">
+<div style="padding: 10px; margin: 10px 0; text-align: left; font-size: 1.2em; font-weight: bold; border-left: 2px solid #1A6872; color: #1A6872;">
+<p><span class="math inline">\(p\)</span> is large, possibly larger than <span class="math inline">\(n\)</span></p>
+</div>
+</div>
+<div class="fragment fade-up">
 <ul>
 <li>This case where is very large is what we call a <span style="color: #1A6872;">high-dimensional</span> setting.</li>
 </ul>
+</div>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1004,17 +1060,25 @@ Y = \beta^{'} X + \epsilon, \quad \epsilon \perp X,
 </section>
 <section id="constructed-regressors" class="slide level2">
 <h2>Constructed Regressors</h2>
+<div class="fragment fade-up">
 <ul>
-<li><p>In high-dimensional settings, we often create new features from the original covariates to capture complex relationships.</p></li>
-<li><p>if <span class="math inline">\(W\)</span> are raw covariates, we can create <em>technical (constructed) regressors</em> <span class="math inline">\(X\)</span> by including polynomial terms, interaction terms, or other transformations of <span class="math inline">\(W\)</span>.</p></li>
+<li>In high-dimensional settings, we often create new features from the original covariates to capture complex relationships.</li>
+</ul>
+</div>
+<div class="fragment fade-up">
+<ul>
+<li>if <span class="math inline">\(W\)</span> are raw covariates, we can create <em>technical (constructed) regressors</em> <span class="math inline">\(X\)</span> by including polynomial terms, interaction terms, or other transformations of <span class="math inline">\(W\)</span>.</li>
 </ul>
 <p><span class="math display">\[
 X = P(W) = (P_1(W), P_2(W), \ldots, P_p(W))'
 \]</span></p>
-<p><span style="margin-left: 50px;">where the set of transformations <span class="math inline">\(P(W)\)</span> can be very large, leading to a high-dimensional feature space.</span></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; where the set of transformations <span class="math inline">\(P(W)\)</span> can be very large, leading to a high-dimensional feature space</p>
+</div>
+<div class="fragment fade-up">
 <ul>
 <li>Example transformations include squared terms (<span class="math inline">\(W_i^2\)</span>), interaction terms (<span class="math inline">\(W_i W_j\)</span>), and higher-order polynomials (<span class="math inline">\(W_i^3\)</span>, etc.).</li>
 </ul>
+</div>
 </section>
 <section id="section-10" class="slide level2">
 <h2></h2>
@@ -1022,17 +1086,26 @@ X = P(W) = (P_1(W), P_2(W), \ldots, P_p(W))'
 <div class="column" style="width:50%;">
 <p><br></p>
 <p><span class="mimic-h2">Why Do We Need Constructed Regressors?</span></p>
+<div class="fragment fade-up">
 <ul>
-<li><p>The main motivation for using constructed regressors is to built more flexible models that can capture non-linear relationships and interactions among the original covariates.</p></li>
-<li><p>By expanding the feature space in prediction rules, <span class="math inline">\(\beta^{'} X = \beta^{'} P(W)\)</span>, we can approximate complex functions of the original covariates <span class="math inline">\(W\)</span> more accurately.</p></li>
+<li>The main motivation for using constructed regressors is to built more flexible models that can capture non-linear relationships and interactions among the original covariates.</li>
 </ul>
+</div>
+<div class="fragment fade-up">
+<ul>
+<li>By expanding the feature space in prediction rules, <span class="math inline">\(\beta^{'} X = \beta^{'} P(W)\)</span>, we can approximate complex functions of the original covariates <span class="math inline">\(W\)</span> more accurately.</li>
+</ul>
+</div>
 <p><br></p>
+<div class="fragment fade-up">
 <div style="padding: 10px; margin: 10px 0; border-left: 2px solid #1A6872; text-align: left; color: #1A6872; font-weight: bold;">
 <p><span class="math inline">\(\beta^{'} P(W)\)</span> are nonlinear in <span class="math inline">\(W\)</span> but still linear in parameters <span class="math inline">\(\beta\)</span>.</p>
 </div>
+</div>
 </div><div class="column" style="width:50%;">
 <div style="border-left: 1px solid #ccc; padding-left: 20px;">
-<div id="7aaca70d" class="cell" data-execution_count="3">
+<div class="fragment fade-up">
+<div id="3bb9c8b0" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1041,7 +1114,9 @@ X = P(W) = (P_1(W), P_2(W), \ldots, P_p(W))'
 </div>
 </div>
 </div>
-<div id="56fcfe6f" class="cell" data-execution_count="4">
+</div>
+<div class="fragment fade-up">
+<div id="f31559cf" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1051,59 +1126,68 @@ X = P(W) = (P_1(W), P_2(W), \ldots, P_p(W))'
 </div>
 </div>
 </div>
+</div>
 </div></div>
 </section>
 <section id="best-predictor" class="slide level2">
 <h2>Best Predictor</h2>
 <ul>
-<li>In the population, the best predictor of <span class="math inline">\(Y\)</span> given <span class="math inline">\(W\)</span> is</li>
-</ul>
+<li class="fragment"><p>In the population, the best predictor of <span class="math inline">\(Y\)</span> given <span class="math inline">\(W\)</span> is</p>
 <p><span class="math display">\[
 g(W) = E[Y|W]
 \]</span></p>
-<p><span style="margin-left: 50px;">the conditional expectation of <span class="math inline">\(Y\)</span> given <span class="math inline">\(W\)</span>. The function <span class="math inline">\(g(W)\)</span> is called the regression function of <span class="math inline">\(Y\)</span> on <span class="math inline">\(W\)</span>.</span></p>
-<ul>
-<li>The conditional expectation funnction <span class="math inline">\(g(W)\)</span> solves the best prediction problem</li>
-</ul>
+<p>the conditional expectation of <span class="math inline">\(Y\)</span> given <span class="math inline">\(W\)</span>. The function <span class="math inline">\(g(W)\)</span> is called the regression function of <span class="math inline">\(Y\)</span> on <span class="math inline">\(W\)</span>.</p></li>
+<li class="fragment"><p>The conditional expectation funnction <span class="math inline">\(g(W)\)</span> solves the best prediction problem</p>
 <p><span class="math display">\[
 \min_{m(W)} E[(Y - m(W))^2].
-\]</span></p>
-<ul>
-<li><p>Here we minimize the mean squared prediction error over all prediction rules <span class="math inline">\(m(W)\)</span>.</p></li>
-<li><p><span class="math inline">\(\beta^{'} P(W)\)</span> is an approximation to best predictor <span class="math inline">\(g(W)\)</span></p></li>
-<li><p>Using richer and more complex constructed regressors <span class="math inline">\(P(W)\)</span> allows us to better approximate the true regression function <span class="math inline">\(g(W)\)</span>.</p></li>
+\]</span></p></li>
+<li class="fragment"><p>Here we minimize the mean squared prediction error over all prediction rules <span class="math inline">\(m(W)\)</span>.</p></li>
+<li class="fragment"><p><span class="math inline">\(\beta^{'} P(W)\)</span> is an approximation to best predictor <span class="math inline">\(g(W)\)</span></p></li>
+<li class="fragment"><p>Using richer and more complex constructed regressors <span class="math inline">\(P(W)\)</span> allows us to better approximate the true regression function <span class="math inline">\(g(W)\)</span>.</p></li>
 </ul>
 </section>
 <section id="motivation-for-regularization" class="slide level2">
 <h2>Motivation for Regularization</h2>
 <p><br></p>
+<div class="fragment fade-up">
+<div style="padding: 10px; margin: 10px 0; border-left: 2px solid #BF505C; text-align: left; color: #BF505C; font-weight: bold;">
 <ul>
-<li>Classical linear regression can perform poorly in high-dimensional settings due to <span style="color: #BF505C;">overfitting</span>.</li>
+<li>Classical linear regression can perform poorly in high-dimensional settings due to overfitting.</li>
 </ul>
+</div>
+</div>
 <p><br></p>
+<div class="fragment fade-up">
+<div style="padding: 10px; margin: 10px 0; border-left: 2px solid #BF505C; text-align: left; color: #BF505C; font-weight: bold;">
 <ul>
 <li>This is especially apparent when <span class="math inline">\(p \geq n\)</span>.</li>
 </ul>
+</div>
+</div>
 <p><br></p>
+<div class="fragment fade-up">
+<div style="padding: 10px; margin: 10px 0; border-left: 2px solid #707C36; text-align: left; color: #707C36; font-weight: bold;">
 <ul>
 <li>Regularization techniques, such as Lasso and Ridge regression, help mitigate overfitting by adding a penalty term to the loss function.</li>
 </ul>
+</div>
+</div>
 </section>
 <section id="lasso-regression" class="slide level2">
 <h2>Lasso Regression</h2>
+<div class="fade-up">
 <ul>
-<li><p>Lasso (Least Absolute Shrinkage and Selection Operator) regression adds a penalty to the loss function</p></li>
-<li><p>Lasso constructs the estimator <span class="math inline">\(\hat{\beta}\)</span> by solving the following penalized least squares problem:</p></li>
-</ul>
+<li class="fragment"><p>Lasso (Least Absolute Shrinkage and Selection Operator) regression adds a penalty to the loss function</p></li>
+<li class="fragment"><p>Lasso constructs the estimator <span class="math inline">\(\hat{\beta}\)</span> by solving the following penalized least squares problem:</p>
 <p><span class="math display">\[
 \min_{b \in \mathbb{R}^p} \left\{ \frac{1}{n} \sum_{i=1}^{n} (Y_i - b^{'} X_i)^2 + \lambda \sum_{j=1}^{p} |b_j| \right\}
-\]</span></p>
-<ul>
-<li><p>The first term is the usual mean squared error, while the second term is called a <span style="color: #BF505C;">penalty term</span>.</p></li>
-<li><p>The tuning parameter <span class="math inline">\(\lambda \geq 0\)</span> controls the strength of the penalty.</p></li>
-<li><p>Lasso performs both <span style="color: #1A6872;">variable selection and regularization</span>, shrinking some coefficients to exactly zero, effectively selecting a simpler model.</p></li>
-<li><p>As long as <span class="math inline">\(\lambda &gt; 0\)</span>, the introduction of the penalty term leads to a prediction rule that is less complex and less prone to overfitting compared to ordinary least squares.</p></li>
+\]</span></p></li>
+<li class="fragment"><p>The first term is the usual mean squared error, while the second term is called a <span style="color: #BF505C;">penalty term</span>.</p></li>
+<li class="fragment"><p>The tuning parameter <span class="math inline">\(\lambda \geq 0\)</span> controls the strength of the penalty.</p></li>
+<li class="fragment"><p>Lasso performs both <span style="color: #1A6872;">variable selection and regularization</span>, shrinking some coefficients to exactly zero, effectively selecting a simpler model.</p></li>
+<li class="fragment"><p>As long as <span class="math inline">\(\lambda &gt; 0\)</span>, the introduction of the penalty term leads to a prediction rule that is less complex and less prone to overfitting compared to ordinary least squares.</p></li>
 </ul>
+</div>
 </section>
 <section id="how-to-choose-the-tuning-parameter-lambda" class="slide level2">
 <h2>How to Choose the Tuning Parameter <span class="math inline">\(\lambda\)</span>?</h2>
@@ -1141,7 +1225,7 @@ g(W) = E[Y|W]
 </section>
 <section id="example-bias-in-lasso-coefficients" class="slide level2">
 <h2>Example: Bias in Lasso Coefficients</h2>
-<div id="a1f2d8d9" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="5">
+<div id="57d1d8c8" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1237,11 +1321,14 @@ Y =  \beta_1 D + \beta^{'}_2 W + \epsilon
 </section>
 <section id="double-lasso" class="slide level2 smaller">
 <h2>Double Lasso</h2>
+<div class="fragment fade-up">
 <p>The key step is application of Lasso regression for partialling-out in the presence of high-dimensional covariates. Consider the following regression model:</p>
 <p><span class="math display">\[
 Y = \alpha D + \beta^{'} W + \epsilon,
 \]</span></p>
 <p>where <span class="math inline">\(D\)</span> is the target regressor of interest and <span class="math inline">\(W\)</span> is a vector of <span class="math inline">\(p\)</span> control variables. After partialling-out <span class="math inline">\(W\)</span> from both <span class="math inline">\(Y\)</span> and <span class="math inline">\(D\)</span>, we get</p>
+</div>
+<div class="fragment fade-up">
 <ol type="1">
 <li>We run Lasso regressions of <span class="math inline">\(Y\)</span> on <span class="math inline">\(W\)</span> and <span class="math inline">\(D\)</span> on <span class="math inline">\(W\)</span>:</li>
 </ol>
@@ -1251,12 +1338,16 @@ Y = \alpha D + \beta^{'} W + \epsilon,
 <p><span class="math display">\[
 \hat{\gamma}_{DW} = \arg\min_{\gamma \in \mathbb{R}^p} \left\{ \frac{1}{n} \sum_{i=1}^{n} (D_i - \gamma^{'} W_i)^2 + \lambda \sum_{j=1}^{p} |\gamma_j| \right\}.
 \]</span></p>
+</div>
+<div class="fragment fade-up">
 <ol start="2" type="1">
 <li>Compute the residuals <span class="math inline">\(\tilde{Y}\)</span> and <span class="math inline">\(\tilde{D}\)</span>:</li>
 </ol>
 <p><span class="math display">\[
 \tilde{Y} = Y - \hat{\gamma}_{YW}^{'} W, \quad \tilde{D} = D - \hat{\gamma}_{DW}^{'} W.
 \]</span></p>
+</div>
+<div class="fragment fade-up">
 <ol start="3" type="1">
 <li>Finally, we run an ordinary least squares regression of <span class="math inline">\(\tilde{Y}\)</span> on <span class="math inline">\(\tilde{D}\)</span> to estimate <span class="math inline">\(\alpha\)</span>:</li>
 </ol>
@@ -1266,6 +1357,7 @@ Y = \alpha D + \beta^{'} W + \epsilon,
 &amp;= (E_n \tilde{D}^2)^{-1} E_n\tilde{D} \tilde{Y}.
 \end{align}
 \]</span></p>
+</div>
 </section>
 <section id="uncertainty-in-hatalpha" class="slide level2">
 <h2>Uncertainty in <span class="math inline">\(\hat{\alpha}\)</span></h2>
@@ -1298,13 +1390,19 @@ V = (E_n \tilde{D}^2)^{-1} E_n (\tilde{D}^2 \hat{\epsilon}^2) (E_n \tilde{D}^2)^
 </section>
 <section id="inference-on-many-coefficients" class="slide level2">
 <h2>Inference on Many Coefficients</h2>
+<div class="fragment fade-up">
 <ul>
-<li><p>If we are interested in more than one coefficient, we can repeat the Double Lasso procedure for each target regressor of interest.</p></li>
+<li>If we are interested in more than one coefficient, we can repeat the Double Lasso procedure for each target regressor of interest.</li>
+</ul>
+</div>
+<div class="fragment fade-up">
+<ul>
 <li><p>Here we consider the model: <span class="math display">\[
 Y = \sum_{j=1}^{p_1} \alpha_j D_j + \sum_{k=1}^{p_2} \beta_k W_k + \epsilon,
-\]</span></p></li>
+\]</span></p>
+<p>where the number of target regressors <span class="math inline">\(p_1\)</span> can also be large, and the number of control variables <span class="math inline">\(p_2\)</span> can be large as well.</p></li>
 </ul>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; where the number of target regressors <span class="math inline">\(p_1\)</span> can also be large, and the number of control variables <span class="math inline">\(p_2\)</span> can be large as well.</p>
+</div>
 </section>
 <section id="motivation-for-many-coefficients-inference" class="slide level2">
 <h2>Motivation for Many Coefficients Inference</h2>
@@ -1317,14 +1415,12 @@ Y = \sum_{j=1}^{p_1} \alpha_j D_j + \sum_{k=1}^{p_2} \beta_k W_k + \epsilon,
 <section id="one-by-one-double-lasso" class="slide level2">
 <h2>One by One Double Lasso</h2>
 <ul>
-<li>For each <span class="math inline">\(j = 1, \ldots, p_1\)</span>, we can apply the one-by-one Double Lasso procedure to estimate <span class="math inline">\(\alpha_j\)</span> while treating the other <span class="math inline">\(D_{-j}\)</span> as part of the control variables.</li>
-</ul>
+<li class="fragment"><p>For each <span class="math inline">\(j = 1, \ldots, p_1\)</span>, we can apply the one-by-one Double Lasso procedure to estimate <span class="math inline">\(\alpha_j\)</span> while treating the other <span class="math inline">\(D_{-j}\)</span> as part of the control variables.</p>
 <p><span class="math display">\[
 Y = \alpha_j D_j + \gamma_j{'} W_j + \epsilon, \quad W_j = ((D_{-j})^{'}, W^{'})^{'}
-\]</span></p>
-<ul>
-<li><p>The double lasso provides a high quality estimate of <span class="math inline">\(\hat{\alpha} = (\alpha_j)_{j=1}^{p_1}\)</span> for each <span class="math inline">\(j\)</span> and we can construct confidence intervals for each <span class="math inline">\(\alpha_j\)</span>.</p></li>
-<li><p>This allows us to make inference on multiple coefficients simultaneously, even in high-dimensional settings where <span class="math inline">\(p_1\)</span> and <span class="math inline">\(p_2\)</span> are large relative to <span class="math inline">\(n\)</span>.</p></li>
+\]</span></p></li>
+<li class="fragment"><p>The double lasso provides a high quality estimate of <span class="math inline">\(\hat{\alpha} = (\alpha_j)_{j=1}^{p_1}\)</span> for each <span class="math inline">\(j\)</span> and we can construct confidence intervals for each <span class="math inline">\(\alpha_j\)</span>.</p></li>
+<li class="fragment"><p>This allows us to make inference on multiple coefficients simultaneously, even in high-dimensional settings where <span class="math inline">\(p_1\)</span> and <span class="math inline">\(p_2\)</span> are large relative to <span class="math inline">\(n\)</span>.</p></li>
 </ul>
 </section>
 <section id="section-15" class="slide level2">
@@ -1340,71 +1436,60 @@ Y = \alpha_j D_j + \gamma_j{'} W_j + \epsilon, \quad W_j = ((D_{-j})^{'}, W^{'})
 <li>Introduction to Linear Regression</li>
 <li>Regularization Techniques for Linear Regression in High-Dimensional Settings</li>
 <li>Statistical Inference on Causal Effects in High Dimensional Linear Regression Models</li>
-<li>Statistical Inference on Predictive and Causal Effects in Modern Nonlinear Regression Models]{style=“color: #1A6872;”}</li>
+<li><span style="color: #1A6872;">Statistical Inference on Predictive and Causal Effects in Modern Nonlinear Regression Models</span></li>
 </ul>
 </div>
-</section>
-<section id="introduction" class="slide level2">
-<h2>Introduction</h2>
-<ul>
-<li>We recall our regression model with target regressor <span class="math inline">\(D\)</span> and control variables <span class="math inline">\(W\)</span>, where we ask predictive effect question:</li>
-</ul>
-<p>How does the predicted value of outcome <span class="math inline">\(Y\)</span>,</p>
-<p><span class="math display">\[
-E[Y|D, W],
-\]</span></p>
-<p>change if a regressor value <span class="math inline">\(D\)</span> increases by one init, while regressor values, <span class="math inline">\(W\)</span>, remain unchanged</p>
 </section>
 <section id="doubledebiased-machine-learning-dml-inference-in-the-partially-linear-regression-model-plm" class="slide level2">
 <h2>Double/debiased machine learning (DML) Inference in the Partially Linear Regression Model (PLM)</h2>
 <ul>
-<li>A partially linear regression model:</li>
-</ul>
+<li class="fragment"><p>A partially linear regression model:</p>
 <p><span id="eq-gx"><span class="math display">\[
 Y = \alpha D + {\color{#707C36}{g(W)}} + \epsilon, \quad E[\epsilon|D,W] = 0,
 \tag{1}\]</span></span></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; where <span class="math inline">\(Y\)</span> is the outcome variable, <span class="math inline">\(D\)</span> is the treatment variable, <span class="math inline">\(W\)</span> is a vector of control variables.</p>
-<ul>
-<li><p>The model allows a part of the regression function, <span class="math inline">\(\color{#707C36}{g(W)}\)</span>, to be fully nonlinear</p></li>
-<li><p>However, the model is not fully general, because it imposes additivity in <span class="math inline">\(\color{#707C36}{g(W)}\)</span> and <span class="math inline">\(D\)</span></p></li>
+<p>where <span class="math inline">\(Y\)</span> is the outcome variable, <span class="math inline">\(D\)</span> is the treatment variable, <span class="math inline">\(W\)</span> is a vector of control variables.</p></li>
+<li class="fragment"><p>The model allows a part of the regression function, <span class="math inline">\(\color{#707C36}{g(W)}\)</span>, to be fully nonlinear</p></li>
+<li class="fragment"><p>However, the model is not fully general, because it imposes additivity in <span class="math inline">\(\color{#707C36}{g(W)}\)</span> and <span class="math inline">\(D\)</span></p></li>
 </ul>
 </section>
-<section id="partialling-out" class="slide level2">
-<h2>Partialling-Out</h2>
+<section id="partialling-out-using-dml" class="slide level2">
+<h2>Partialling-Out using DML</h2>
+<div class="fragment fade-up">
 <p>Applying partialling-out to <a href="#/eq-gx" class="quarto-xref">Equation&nbsp;1</a>, we obtain:</p>
 <p><span class="math display">\[
 \tilde{Y} = \alpha \tilde{D} + \epsilon,
 \]</span></p>
+</div>
+<div class="fragment fade-up">
 <p>where <span class="math inline">\(\tilde{Y}\)</span> and <span class="math inline">\(\tilde{D}\)</span> are the residuals left after predicting <span class="math inline">\(Y\)</span> and <span class="math inline">\(D\)</span> using <span class="math inline">\(W\)</span>.</p>
 <p><span class="math display">\[
 \tilde{Y} := Y - \ell(W) \quad \text{and} \quad \tilde{D} := D - m(W),
-\]</span> = E[Y|W]</p>
+\]</span></p>
+</div>
+<div class="fragment fade-up">
 <p>where <span class="math inline">\(\ell(W)\)</span> and <span class="math inline">\(m(W)\)</span> are conditional expectation functions of <span class="math inline">\(Y\)</span> and <span class="math inline">\(D\)</span> given <span class="math inline">\(W\)</span>, respectively.</p>
 <p><span class="math display">\[
 \ell(W) = E[Y|W], \quad m(W) = E[D|W].
 \]</span></p>
+</div>
 </section>
 <section id="dml-estimation-procedure" class="slide level2">
 <h2>DML Estimation Procedure</h2>
 <ol type="1">
-<li>Split the data into random folds: <span class="math inline">\(\{1, \ldots, n\} = \cup_{k=1}^K I_k\)</span>. Compute ML estimators <span class="math inline">\(\hat{\ell}_{k}\)</span> and <span class="math inline">\(\hat{m}_k\)</span>, leaving out the <span class="math inline">\(k\)</span>-th fold of the data. Obtain the cross-fitted residuals for each fold <span class="math inline">\(i \in I_k\)</span>:</li>
-</ol>
+<li class="fragment"><p>Split the data into random folds: <span class="math inline">\(\{1, \ldots, n\} = \cup_{k=1}^K I_k\)</span>. Compute ML estimators <span class="math inline">\(\hat{\ell}_{k}\)</span> and <span class="math inline">\(\hat{m}_k\)</span>, leaving out the <span class="math inline">\(k\)</span>-th fold of the data. Obtain the cross-fitted residuals for each fold <span class="math inline">\(i \in I_k\)</span>:</p>
 <p><span class="math display">\[
 \tilde{Y}_i = Y_i - \hat{\ell}_k(W_i), \quad \tilde{D}_i = D_i - \hat{m}_k(W_i).
-\]</span></p>
-<ol start="2" type="1">
-<li>Apply the ordinary least squares to <span class="math inline">\(\tilde{Y}_i\)</span> on <span class="math inline">\(\tilde{D}_i\)</span> to obtain the DML estimator <span class="math inline">\(\hat{\alpha}\)</span>:</li>
-</ol>
+\]</span></p></li>
+<li class="fragment"><p>Apply the ordinary least squares to <span class="math inline">\(\tilde{Y}_i\)</span> on <span class="math inline">\(\tilde{D}_i\)</span> to obtain the DML estimator <span class="math inline">\(\hat{\alpha}\)</span>:</p>
 <p><span class="math display">\[
 \hat{\alpha} = E_n[(\tilde{Y}_i-\alpha \tilde{D}_i) \tilde{D}_i] =0.
-\]</span></p>
-<ol start="3" type="1">
-<li>Construct confidence intervals for <span class="math inline">\(\alpha\)</span>:</li>
-</ol>
+\]</span></p></li>
+<li class="fragment"><p>Construct confidence intervals for <span class="math inline">\(\alpha\)</span>:</p>
 <p><span class="math display">\[
 \left[\hat{\alpha} \pm 2 \times \sqrt{V/n} \right],
 \]</span></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; covers <span class="math inline">\(\alpha\)</span> in approximately 95% of repeated samples, where <span class="math inline">\(V\)</span> is the variance of the DML estimator <span class="math inline">\(\hat{\alpha}\)</span>.</p>
+<p>covers <span class="math inline">\(\alpha\)</span> in approximately 95% of repeated samples, where <span class="math inline">\(V\)</span> is the variance of the DML estimator <span class="math inline">\(\hat{\alpha}\)</span>.</p></li>
+</ol>
 </section>
 <section id="selecting-the-best-ml-learners-of-hatell-and-hatm" class="slide level2">
 <h2>Selecting the Best ML Learners of <span class="math inline">\(\hat{\ell}\)</span> and <span class="math inline">\(\hat{m}\)</span></h2>
@@ -1420,10 +1505,19 @@ Y = \alpha D + {\color{#707C36}{g(W)}} + \epsilon, \quad E[\epsilon|D,W] = 0,
 </section>
 <section id="dml-inference-in-the-interactive-regression-model-irm" class="slide level2">
 <h2>DML Inference in the Interactive Regression Model (IRM)</h2>
+<div class="fragment fade-up">
 <ul>
-<li><p>Here, we relax the additivity assumption in the partially linear regression model.</p></li>
-<li><p>We consider estimation of average treatment effects when treatment effects are fully heterogeneous and the treatment variable is binary.</p></li>
-<li><p>We consider vectors, <span class="math inline">\(W = (Y, D, X)\)</span>, where <span class="math inline">\(Y\)</span> is the outcome variable, <span class="math inline">\(D \in \{0,1\}\)</span> is a binary treatment variable or policy, and <span class="math inline">\(X\)</span> is a vector of control variables.</p></li>
+<li>Here, we relax the additivity assumption in the partially linear regression model.</li>
+</ul>
+</div>
+<div class="fragment fade-up">
+<ul>
+<li>We consider estimation of average treatment effects when treatment effects are fully heterogeneous and the treatment variable is binary.</li>
+</ul>
+</div>
+<div class="fragment fade-up">
+<ul>
+<li>We consider vectors, <span class="math inline">\(W = (Y, D, X)\)</span>, where <span class="math inline">\(Y\)</span> is the outcome variable, <span class="math inline">\(D \in \{0,1\}\)</span> is a binary treatment variable or policy, and <span class="math inline">\(X\)</span> is a vector of control variables.</li>
 </ul>
 <p><span id="eq-irm"><span class="math display">\[
 Y = g(D, X) + \epsilon, \quad E[\epsilon|D,X] = 0,
@@ -1431,95 +1525,109 @@ Y = g(D, X) + \epsilon, \quad E[\epsilon|D,X] = 0,
 <p><span id="eq-irm-d"><span class="math display">\[
 D = m(X) + \tilde{D}, \quad E[\tilde{D}|X] = 0,
 \tag{3}\]</span></span></p>
-<div style="padding: 10px; margin: 10px 0; border-left: 2px solid #1A6872; text-align: left;  color: #1A6872;">
+</div>
+<div class="fragment fade-up">
+<div style="padding: 10px; margin: 10px 0; border-left: 2px solid #1A6872; text-align: left;  color: #1A6872; font-weight: bold;">
 <p>Since <span class="math inline">\(D\)</span> is not additively separable in the <a href="#/eq-irm" class="quarto-xref">Equation&nbsp;2</a>, this model is more general than the partially linear regression model.</p>
+</div>
 </div>
 </section>
 <section id="average-predictive-effect-ape" class="slide level2">
 <h2>Average Predictive Effect (APE)</h2>
 <ul>
-<li>The average predictive effect (APE) of the binary treatment <span class="math inline">\(D\)</span> on the outcome <span class="math inline">\(Y\)</span> is defined as:</li>
-</ul>
+<li class="fragment"><p>The average predictive effect (APE) of the binary treatment <span class="math inline">\(D\)</span> on the outcome <span class="math inline">\(Y\)</span> is defined as:</p>
 <p><span class="math display">\[
 \theta_0 = E[g(1, X) - g(0, X)]
 \]</span></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; which represents the average predictive effect of switching the treatment from 0 to 1, averaging over the distribution of covariates <span class="math inline">\(X\)</span>.</p>
-<ul>
-<li>The confounding factors, <span class="math inline">\(X\)</span>, affect the policy variable via the propensity score <span class="math inline">\(m(X) = E[D|X]\)</span> and affect the outcome variable via the regression function <span class="math inline">\(g(D, X)\)</span>.</li>
+<p>which represents the average predictive effect of switching the treatment from 0 to 1, averaging over the distribution of covariates <span class="math inline">\(X\)</span>.</p></li>
+<li class="fragment"><p>The confounding factors, <span class="math inline">\(X\)</span>, affect the policy variable via the propensity score <span class="math inline">\(m(X) = E[D|X]\)</span> and affect the outcome variable via the regression function <span class="math inline">\(g(D, X)\)</span>.</p></li>
 </ul>
 </section>
 <section id="ape-estimation" class="slide level2">
 <h2>APE Estimation</h2>
+<div class="fragment fade-up">
 <p>ATE will be based on the relation:</p>
 <p><span id="eq-irm-ate"><span class="math display">\[
 \theta_{0} = \mathbb{E}[\varphi_{0}(W)],
 \tag{4}\]</span></span></p>
+</div>
+<div class="fragment fade-up">
 <p>where</p>
 <p><span class="math display">\[
 \varphi_{0}(W) = g_{0}(1, X) - g_{0}(0, X) + \bigl(Y - g_{0}(D, X)\bigr) H_{0}
 \]</span></p>
+</div>
+<div class="fragment fade-up">
 <p>and</p>
 <p><span class="math display">\[
 H_{0} = \frac{\mathbf{1}(D = 1)}{m_{0}(X)} - \frac{\mathbf{1}(D = 0)}{1 - m_{0}(X)}
 \]</span></p>
 <p>is the Horvitz-Thompson transformation.</p>
+</div>
 </section>
 <section id="dml-estimation-procedure-for-apesates-in-irm" class="slide level2">
 <h2>DML Estimation Procedure for APEs/ATEs in IRM</h2>
 <ol type="1">
-<li>Split the data into random folds: <span class="math inline">\(\{1, \ldots, n\} = \cup_{k=1}^K I_k\)</span>. Compute ML estimators <span class="math inline">\(\hat{g}_{k}\)</span> and <span class="math inline">\(\hat{m}_k\)</span>, leaving out the <span class="math inline">\(k\)</span>-th fold of the data, such that <span class="math inline">\(\epsilon \le \hat{m}_k \le 1-\epsilon\)</span> for some small <span class="math inline">\(\epsilon &gt; 0\)</span>. For each fold <span class="math inline">\(i \in I_k\)</span>, compute:</li>
-</ol>
+<li class="fragment"><p>Split the data into random folds: <span class="math inline">\(\{1, \ldots, n\} = \cup_{k=1}^K I_k\)</span>. Compute ML estimators <span class="math inline">\(\hat{g}_{k}\)</span> and <span class="math inline">\(\hat{m}_k\)</span>, leaving out the <span class="math inline">\(k\)</span>-th fold of the data, such that <span class="math inline">\(\epsilon \le \hat{m}_k \le 1-\epsilon\)</span> for some small <span class="math inline">\(\epsilon &gt; 0\)</span>. For each fold <span class="math inline">\(i \in I_k\)</span>, compute:</p>
 <p><span class="math display">\[
 \hat{\varphi}(W_i) = \hat{g}_{k}(1, X_i) - \hat{g}_{k}(0, X_i) + \bigl(Y_i - \hat{g}_{k}(D_i, X_i)\bigr) \hat{H}_i,
 \]</span></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; where <span class="math inline">\(\hat{H}_i = \frac{\mathbf{1}(D_i = 1)}{\hat{m}_k(X_i)} - \frac{\mathbf{1}(D_i = 0)}{1 - \hat{m}_k(X_i)}\)</span>.</p>
-<ol start="2" type="1">
-<li><p>Compute the estimator <span class="math inline">\(\theta_0 = E_n[\hat{\varphi}(W_i)]\)</span>.</p></li>
-<li><p>Construct confidence intervals for <span class="math inline">\(\theta_0\)</span>:</p></li>
-</ol>
+<p>where <span class="math inline">\(\hat{H}_i = \frac{\mathbf{1}(D_i = 1)}{\hat{m}_k(X_i)} - \frac{\mathbf{1}(D_i = 0)}{1 - \hat{m}_k(X_i)}\)</span>.</p></li>
+<li class="fragment"><p>Compute the estimator <span class="math inline">\(\theta_0 = E_n[\hat{\varphi}(W_i)]\)</span>.</p></li>
+<li class="fragment"><p>Construct confidence intervals for <span class="math inline">\(\theta_0\)</span>:</p>
 <p><span class="math display">\[
 \left[\hat{\theta} \pm 2 \times \sqrt{\hat{V}/n} \right],
 \]</span></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; where <span class="math inline">\(\hat{V} = E_n[(\hat{\varphi}(W_i) - \hat{\theta})^2]\)</span>.</p>
+<p>where <span class="math inline">\(\hat{V} = E_n[(\hat{\varphi}(W_i) - \hat{\theta})^2]\)</span>.</p></li>
+</ol>
 </section>
 <section id="the-local-average-treatment-effect-model-late" class="slide level2">
 <h2>The Local Average Treatment Effect Model (LATE)</h2>
+<div class="fragment fade-up">
 <p>Consider a structural Equation Model (SEM) where:</p>
 <p><span class="math display">\[
 \begin{aligned}
 Y &amp;:= f_{Y}(D, X, A, \varepsilon_{Y}) \\
 D &amp;:= f_{D}(Z, X, A, \varepsilon_{D}) \in \{0,1\}, \\
-Z &amp;:= f_{Z}(X, \varepsilon_{Z}) \in \{0,1\}, \\
-X &amp;:= \varepsilon_{X}, \quad A := \varepsilon_{A},
+Z &amp;:= f_{Z}(X, \varepsilon_{Z}) \in \{0,1\}
 \end{aligned}
 \]</span></p>
 <p>where all <span class="math inline">\(\epsilon\)</span> are all independent.</p>
-<ul>
-<li>Suppose the instrument <span class="math inline">\(Z\)</span> is is an offer to participate in a training program and that the treatment <span class="math inline">\(D\)</span> is actual endogenous participation in the training program. Participation in the program may depend on unobservables, <span class="math inline">\(A\)</span>, such as motivation, which also affects the outcome <span class="math inline">\(Y\)</span>. The variable <span class="math inline">\(X\)</span> captures observed covariates such as age, education, and work experience.</li>
-</ul>
+</div>
+<div class="fragment fade-up">
+<p>Suppose the instrument <span class="math inline">\(Z\)</span> is is an offer to participate in a training program and that the treatment <span class="math inline">\(D\)</span> is actual endogenous participation in the training program. Participation in the program may depend on unobservables, <span class="math inline">\(A\)</span>, such as motivation, which also affects the outcome <span class="math inline">\(Y\)</span>. The variable <span class="math inline">\(X\)</span> captures observed covariates such as age, education, and work experience.</p>
+</div>
+<div class="fragment fade-up">
 <p>The model allows us to identify the local average treatment effect (LATE), defined as:</p>
 <p><span class="math display">\[
 \theta = E[Y(1) - Y(0)|D(1) &gt; D(0)],
 \]</span></p>
 <p>where <span class="math inline">\({D(1) &gt; D(0)}\)</span> defines the compliance event, where switching the instrument, <span class="math inline">\(Z\)</span>, from 0 to 1.</p>
+</div>
 </section>
 <section id="section-16" class="slide level2">
 <h2></h2>
+<div class="fragment fade-up">
 <p>In the LATE model, <span class="math inline">\(\theta\)</span> can be identified by the ratio of two statistical parameters,</p>
 <p><span id="eq-late"><span class="math display">\[
 \theta_0 = \theta_1 / \theta_2,
 \tag{5}\]</span></span></p>
+</div>
+<div class="fragment fade-up">
 <p>where <span class="math display">\[
 \theta_1 = E[E[Y|Z=1, X] - E[Y|Z=0, X]],
 \]</span></p>
 <p>and <span class="math display">\[
 \theta_2 = E[E[D|Z=1, X] - E[D|Z=0, X]].
 \]</span></p>
+</div>
+<div class="fragment fade-up">
 <p><a href="#/eq-late" class="quarto-xref">Equation&nbsp;5</a> is equivalent to the below expression:</p>
 <p><span class="math display">\[
 \theta_0 = \frac{E[E[Y|Z=1, X] - E[Y|Z=0, X]]}{E[E[D|Z=1, X] - E[D|Z=0, X]]}.
 \]</span></p>
 <p>This parameter is the ratio of the average predictive effect of <span class="math inline">\(Z\)</span> on <span class="math inline">\(Y\)</span> to the average predictive effect of <span class="math inline">\(Z\)</span> on <span class="math inline">\(D\)</span>.</p>
+</div>
 </section>
 <section id="dml-estimation-for-late" class="slide level2">
 <h2>DML Estimation for LATE</h2>
@@ -1550,6 +1658,17 @@ H(p) := \frac{Z}{p(X)} - \frac{1 - Z}{1 - p(X)} .
 <p>Practical Example: Application of PLM, IRM and LATE to the 401(K) data</p>
 <p><em>For the relevant code and data, go to <a href="https://github.com/chamara7h/causal_inference_with_machine_learning_tutorial">here</a></em></p>
 </div>
+</section>
+<section id="resources-to-learn-more" class="slide level2">
+<h2>Resources to Learn More</h2>
+<div class="columns">
+<div class="column" style="width:33%;">
+<p><a href="https://causalml-book.org/"><img data-src="images/causal_mlbook.png" style="width:100.0%"></a></p>
+</div><div class="column" style="width:33%;">
+<p><a href="https://mixtape.scunning.com/"><img data-src="images/mixtape.png" style="width:100.0%"></a></p>
+</div><div class="column" style="width:33%;">
+<p><a href="https://mitpress.mit.edu/9780262545914/causal-analysis/"><img data-src="images/causal_analy.avif" style="width:100.0%"></a></p>
+</div></div>
 </section>
 <section>
 <section id="appendix" class="title-slide slide level1 center">
