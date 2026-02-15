@@ -396,7 +396,7 @@
     "href": "workshops/causal_ml/causal_inf.html#motivation-for-regularization",
     "title": "MUSTAFA ASLAN",
     "section": "Motivation for Regularization",
-    "text": "Motivation for Regularization\n\n\n\n\nClassical linear regression can perform poorly in high-dimensional settings due to overfitting.\n\n\n\n\n\n\n\nThis is especially apparent when \\(p \\geq n\\).\n\n\n\n\n\n\n\nRegularization techniques, such as Lasso and Ridge regression, help mitigate overfitting by adding a penalty term to the loss function."
+    "text": "Motivation for Regularization\n\n\n\nClassical linear regression can perform poorly in high-dimensional settings due to overfitting.\n\n\n\n\n\nThis is especially apparent when \\(p \\geq n\\).\n\n\n\n\n\nRegularization techniques, such as Lasso and Ridge regression, help mitigate overfitting by adding a penalty term to the loss function."
   },
   {
     "objectID": "workshops/causal_ml/causal_inf.html#lasso-regression",
