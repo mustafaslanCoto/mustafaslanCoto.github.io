@@ -1171,7 +1171,7 @@ problem
 
 :::{.fragment .fade-up}
 :::{style="padding: 10px; margin: 10px 0; border-left: 2px solid #BF505C; text-align: left; color: #BF505C; font-weight: bold;"}
-- Classical linear regression can perform poorly in high-dimensional settings due to overfitting.
+Classical linear regression can perform poorly in high-dimensional settings due to overfitting.
 :::
 :::
 
@@ -1179,7 +1179,7 @@ problem
 
 :::{.fragment .fade-up}
 :::{style="padding: 10px; margin: 10px 0; border-left: 2px solid #BF505C; text-align: left; color: #BF505C; font-weight: bold;"}
-- This is especially apparent when $p \geq n$.
+This is especially apparent when $p \geq n$.
 :::
 :::
 
@@ -1187,7 +1187,7 @@ problem
 
 :::{.fragment .fade-up}
 :::{style="padding: 10px; margin: 10px 0; border-left: 2px solid #707C36; text-align: left; color: #707C36; font-weight: bold;"}
-- Regularization techniques, such as Lasso and Ridge regression, help mitigate overfitting by adding a penalty term to the loss function.
+Regularization techniques, such as Lasso and Ridge regression, help mitigate overfitting by adding a penalty term to the loss function.
 :::
 :::
 
