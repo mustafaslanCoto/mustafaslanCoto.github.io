@@ -1,0 +1,162 @@
+---
+title: PhD Researcher | Data Scientist
+# author: Mustafa Aslan
+jobtitle: "PhD Researcher • Data Scientist"
+format:
+  # html: default
+  quarto-cv-pdf:
+    mainfont: "TeX Gyre Heros"
+    linkcolor: "mycolor"
+    urlcolor: "mycolor"
+    citecolor: "mycolor"
+    fontsize: 10pt
+    include-in-header:
+      text: |
+        \usepackage{enumitem}
+        \setlist[itemize,2]{label=\textopenbullet}
+        \newcommand{\sectionline}{\vspace{-1.5em}\noindent\rule{\linewidth}{0.8pt}\vspace{-0.5em}}
+        \usepackage{fontawesome5}
+        \usepackage{xcolor}
+        \usepackage{hyperref}
+        \definecolor{mycolor}{HTML}{20808D}
+        \let\oldhref\href
+        \renewcommand{\href}[2]{\oldhref{#1}{\textmd{#2}}}
+        \usepackage{xcolor}
+        \definecolor{mybgcolor}{HTML}{FBFAF4}
+        \usepackage{pagecolor}
+        \pagecolor{mybgcolor}
+# address: "Cardiff Business School, Colum Drive, Cardiff CF10 3EU, UK"
+# linkedin: aslanmu
+# email: aslanm@cardiff.ac.uk
+# fontsize: 11pt
+# github: mustafaslanCoto # github account
+# #osf: ymqui # osf five character id
+# #twitter: twitter # twitter handle
+# web: mustafaslancoto.github.io
+fontawesome: true
+nocite: '@*'
+validate-yaml: false
+bullets: true
+css: cv.css
+format-links:
+  - html
+  - format: quarto-cv-pdf
+    text: PDF
+    icon: file-pdf
+---
+
+\setlist[itemize,2]{label=\textopenbullet}
+
+## **EDUCATION**
+
+\sectionline
+
+**PhD in Probabilistic Modeling for Healthcare Management and Operations** \hfill [*Oct 2024 --- Present*]{.cvdate}
+
+-   Recipient of WGSSS-ESRC Studentship Award
+-   Project focused on enhancing discharge planning process using probabilistic modelling
+
+**MSc in Financial Mathematics** \hfill [*Oct 2017 --- Aug 2021*]{.cvdate}
+
+-   Dissertation: Effects of Exchange Rate Volatility and Firm-Specific Features on the Rates of Returns of the Manufacturing Firms Listed in Stock Market: A CAPM Approach
+    -   Statistical&Machine learning techniques used: Markov Switching GARCH Models, ARIMA, Panel Data Econometrics, Principal Component Analysis
+
+**BSc in Business Administration** \hfill [*Oct 2011 --- Aug 2015*]{.cvdate}
+
+## **TEACHING** {style="page-break-before: always"}
+
+\sectionline
+
+**Graduate Tutor in Business Data Analytics** \hfill [*Oct 2025 --- Present*]{.cvdate}
+
+-  Designed lab work materials and lesson plans for MSc‑level courses on Business Data Analytics, utilizing Python and R programming.
+-  Conducted weekly lab sessions, guiding and assisting students through practical applications of data analysis techniques.
+
+**Training sessions for a research group members**
+
+-   Causal Inference via Machine Learning \hfill [*Feb 2026*]{.cvdate}
+-   Introduction to Dynamic Programming and Reinforcement Learning \hfill [*May 2025*]{.cvdate}
+-   Introduction to Python and Quarto on Visual Studio Code \hfill [*Mar 2025*]{.cvdate}
+
+## **WORK EXPERIENCES**
+
+\sectionline
+
+**Reporting and Data Analytics Executive at Commercial Bank** \hfill [*Jun 2022 --- Sep 2024*]{.cvdate}
+
+-   Applied time-series forecasting and machine learning techniques, including ARIMA, Bayesian Time Series, Prophet, ANN, LSTM, Random Forest, LightGBM and XGBoost, to historical data for making long-horizon forecasts of daily customer call volume. The winning model helped to allocate resources effectively, reducing customer wait times by 6%.
+-   Implemented machine learning models (e.g., XGBoost, LightGBM, CatBoost) to predict customer behavior with an over recall rate of 70% and an accuracy rate of 85%, enabling fewer customer complaints and increase sales by 14%.
+-   Analyzing large amounts of data to identify trends and find patterns, signals and hidden stories within customer calls data.
+-   Applied machine learning techniques (Z-score, IsolationForest) to detect anomalies.
+-   Applied unsupervised machine learning techniques (DBSCAN, Gaussian mixture, K-means) to cluster customers.
+-   Hyperparameter tuning for machine learning models using Hyperopt, Optuna and KerasTuner.
+
+**Research Associate at a Think Tank** \hfill [*Jan 2022 --- Apr 2024*]{.cvdate}
+
+-   Determined areas of research to increase knowledge in the particular field.
+-   Utilizing inferential statistics such as hypothesis testing (e.g., t-test, ANOVA test, population proportion test), confidence intervals, correlation analysis and regression analysis to make inferences and draw conclusions about data.
+-   Developed statistical models (regression analysis, panel data modeling) for regional development projects to contribute to data-driven decisions.
+
+**Senior Process Development Analyst an FMCG Company** \hfill [*Jun 2019 --- Jan 2022*]{.cvdate}
+
+-   Interacted with internal customers to understand business needs and translate into requirements and project scope.
+-   Assessed the impact of current business processes on users and stakeholders and evaluated potential areas for improvement.
+-   Maintained strong working knowledge of ERP (SAP), CRM and business intelligence tools and operational features.
+
+**Internal Auditor at a Telecommunication Company** \hfill [*Nov 2015 --- Jun 2019*]{.cvdate}
+
+-   Performed strategic planning, execution and finalization of audits using data analytics and critical thinking skills.
+-   Investigated discrepancies discovered during the auditing process.
+-   Recommended new methods to improve internal controls and operating efficiency.
+
+## **RESEARCH INTERESTS** {style="page-break-before: always"}
+
+\sectionline
+
+-   Healthcare analytics
+-   Data-driven decision making
+-   Statistical learning and Machine learning
+-   Reinforcement learning and stochastic optimization
+-   Time series forecasting
+-   Probabilistic forecasting
+
+## **SKILLS & EXPERTISE** {style="page-break-before: always"}
+
+\sectionline
+
+**Expertise:** Mathematical and Statistical Modeling, Machine Learning, Time Series Analysis and Forecasting, Stochastic Optimization and Reinforcement Learning, Statistical and Explanatory Data Analysis, web scraping in Python\
+**Programming:** ![](images/python.jpeg){width="15"}Python ![](images/sql.png){width="28"}SQL\
+**Reporting:** ![](images/quarto.png){width="40" height="10"}Quarto ![](images/excel.png){width="22" height="15"}Advanced Excel ![](images/qlick.png){width="23" height="10"}QlikView ![](images/sas.png){width="26"}SAS
+
+
+## **PROFESSIONAL DEVELOPMENT** {style="page-break-before: always"}
+
+\sectionline
+
+-   Certification:
+    -   [Data Science: Machine Learning, HarvardX (edX)](https://courses.edx.org/certificates/f1ae5e21826241a5ad7ebb4de58dabb4)
+-   Books (some of my go-to books):
+    -   Forecasting: Principles and Practice (Hyndman et al, 2021)
+    -   Introduction to Statistical Learning with Applications in R (Tibshirani et al, 2019)
+    -   The Elements of Statistical Learning (Tibshirani et al, 2008)
+    -   Probabilistic Machine Learning: An Introduction (Murphy. 2022)
+    -   Reinforcement Learning: An Introduction (Barto et al, 2018)
+    -   Reinforcement Learning and Stochastic Optimization (Powell, 2022)
+    -   A Student’s Guide to Bayesian Statistics (Lambert, 2018)
+    -   Dive into deep learning (Zhang, 2022)
+
+## **Scholarships & Grants**
+
+\sectionline
+
+-   Welsh Graduate School for the Social Sciences (WGSSS) Studentship Award \hfill [*Aug 2024*]{.cvdate}
+-   NATCOR Bursaries / EURO Funding for Stochastic Modelling \hfill [*Mar 2025*]{.cvdate}
+-   The Best Presentation Award at the 5th Welsh Postgraduate Research Cluster Workshop \hfill [*Sep 2025*]{.cvdate}
+
+::: print-only
+## **References** {.unlisted}
+
+\sectionline
+
+Available upon request
+:::
