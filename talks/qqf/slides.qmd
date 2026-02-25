@@ -1,5 +1,4 @@
 ---
-jupyter: python313
 format:
   revealjs:
     css: style.css
