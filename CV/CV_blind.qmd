@@ -134,7 +134,7 @@ format-links:
 \sectionline
 
 -   Certification:
-    -   [Data Science: Machine Learning, HarvardX (edX)](https://courses.edx.org/certificates/f1ae5e21826241a5ad7ebb4de58dabb4)
+    -   Data Science: Machine Learning, HarvardX (edX)
 -   Books (some of my go-to books):
     -   Forecasting: Principles and Practice (Hyndman et al, 2021)
     -   Introduction to Statistical Learning with Applications in R (Tibshirani et al, 2019)

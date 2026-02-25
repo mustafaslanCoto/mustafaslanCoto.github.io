@@ -36,4 +36,3 @@ format:
 execute: 
     engine: jupyter
 jupyter: python3
-

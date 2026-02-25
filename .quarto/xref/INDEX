@@ -1,57 +1,18 @@
 {
-  "index.qmd": {
-    "index.html": "fd34e19b"
+  "workshops/causal_ml/causal_inf.qmd": {
+    "causal_inf.html": "54844a74"
   },
-  "talks/index.qmd": {
-    "index.html": "eebabdd9"
-  },
-  "problem.ipynb": {
-    "problem.html": "1a52af70"
-  },
-  "talks/wgsss/slides.qmd": {
-    "slides.html": "71019052"
-  },
-  "talks/sword/sword_slides.qmd": {
-    "sword_slides.html": "77bff049"
-  },
-  "talks/presentations/wgsss.qmd": {
-    "wgsss.html": "d0a5ce88"
-  },
-  "talks/presentations/sword.qmd": {
-    "sword.html": "71fcc146"
-  },
-  "talks/wgsss/occupancy_nb.ipynb": {
-    "occupancy_nb.html": "224e512b"
-  },
-  "CV/CV.qmd": {
-    "CV.html": "4f102704",
-    "CV.tex": "caf1f6a5"
-  },
-  "workshops/index.qmd": {
-    "index.html": "8d91f1ce"
-  },
-  "learn/index.qmd": {
-    "index.html": "114a3382"
-  },
-  "learn/prob_stats/cond_index.qmd": {
-    "cond_index.html": "9d2264ca"
-  },
-  "learn/cond_dists/cond_dist_notebook.ipynb": {
-    "cond_dist_notebook.html": "8f738fe3"
+  "bins/CV/CV.qmd": {
+    "CV.html": "35746225",
+    "CV.tex": "429f843c"
   },
   "workshops/trainings/causal_ml.qmd": {
-    "causal_ml.html": "2ab42850"
+    "causal_ml.html": "96132a0c"
   },
-  "workshops/causal_ml/slides.qmd": {
-    "slides.html": "622453c8"
+  "talks/qqf/slides.qmd": {
+    "slides.html": "e7c01cc7"
   },
-  "workshops/causal_ml/causal_inf.qmd": {
-    "causal_inf.html": "ac3e4916"
-  },
-  "CV/CV_no_name.qmd": {
-    "CV_no_name.tex": "3798ca96"
-  },
-  "CV/CV_blind.qmd": {
-    "CV_blind.tex": "ee396228"
+  "CV/CV.qmd": {
+    "CV.html": "9449d566"
   }
 }

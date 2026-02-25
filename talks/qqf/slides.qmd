@@ -1,0 +1,73 @@
+---
+jupyter: python313
+format:
+  revealjs:
+    css: style.css
+    width: 1920
+    height: 1080
+    footer: "[Causal Inference via Machine Learning](https://mustafaslancoto.github.io/workshops/trainings/causal_ml.html)"
+    slide-number: c/t
+    preview-links: auto
+    # chalkboard: true
+    html-math-method: mathjax
+    # margin: 0.1
+    # min-scale: 0.2
+    # max-scale: 2.0
+---
+
+{{< include title-slide.html >}}
+
+##
+
+<br>
+<br>
+
+[Outline]{.mimic-h2}
+
+:::{style="font-weight: bold; font-size: 1.1em;"}
+- Motivation and Conceptual Foundations
+- Identification
+- Randomised Controlled Trials (RCTs)
+- Introduction to Linear Regression
+- Regularization Techniques for Linear Regression in High-Dimensional Settings
+- Statistical Inference on Causal Effects in High Dimensional Linear Regression Models
+- Statistical Inference on Predictive and Causal Effects in Modern Nonlinear Regression Models
+:::
+
+##
+
+<br>
+
+[Outline]{.mimic-h2}
+
+:::{style="font-weight: bold; font-size: 1.1em;"}
+- Motivation and Conceptual Foundations
+- Identification
+- Randomised Controlled Trials (RCTs)
+- Instrumental Variables (IV) and Difference-in-Differences (DiD)
+- [Introduction to Linear Regression]{style="color: #1A6872;"}
+- Regularization Techniques for Linear Regression in High-Dimensional Settings
+- Statistical Inference on Causal Effects in High Dimensional Linear Regression Models
+- Statistical Inference on Predictive and Causal Effects in Modern Nonlinear Regression Models
+:::
+
+
+## Foundations of Linear Regression
+
+- A linear regression model is given by:
+$$
+Y = \beta^{'} X + \epsilon
+$$
+
+&nbsp;&nbsp;&nbsp; where $\mathbb{E}[\epsilon] = 0$.
+
+- We consider $Y$ as the outcome variable, $X = (X_1, X_2, \ldots, X_p)'$ as the vector of covariates, and $\beta$ as the vector of parameters.
+
+- Our goal is to construct the best linear predictor of $Y$ given $X$, which is the linear function of $X$ that minimizes the mean squared error (MSE):
+
+$$
+\beta = \arg\min_{\beta \in \mathbb{R}^p} E[(Y - \beta^{'} X)^2]
+$$
+
+
+## Goodness of Fit
