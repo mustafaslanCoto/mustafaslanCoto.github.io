@@ -9,7 +9,7 @@
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.27">
 
-  <title>MUSTAFA ASLAN – sword_slides</title>
+  <title>MUSTAFA ASLAN – slides</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -150,7 +150,7 @@
 
   .logo-left img,
   .logo-right img {
-    height: 160px;
+    height: 180px;
     width: auto;
     
   }
@@ -162,251 +162,86 @@
 
 </style>
 <div class="logo-left">
-<p><img src="images/cu.png" alt="Left Logo"> <img src="images/wgsss.png" alt="Left Logo 2"> <img src="images/hcrw_back.png" alt="Left Logo 3"></p>
+<p><img src="images/cu.png" alt="Left Logo"></p>
 </div>
 <div class="logo-right">
-<p><img src="images/dlsg.png" alt="Right Logo"> <img src="images/care.png" alt="Right Logo 2"></p>
+<p><img src="images/dlsg.png" alt="Right Logo"></p>
 </div>
 <br> <br> <br> <br> <br> <br> <br>
 <h1>
-Enhancing Discharge Care Planning: A Probabilistic Data-Driven Approach
+Forecast-Driven Two-Stage Stochastic Optimization for Nurse Rostering
 </h1>
 <div class="title-block">
-<br> <br> <br> <br> <br> <br>
-<h3>
-Mustafa Aslan, Cardiff University, UK <br> Lead supervisor: Prof.&nbsp;Bahman Rostami-Tabar<br> Co-supervisor: Dr.&nbsp;Jeremy Dixon <br> Data Lab for Social Good <br> Cardiff University, UK <br> <!-- <span style="color: rgba(179, 0, 0, 0.7); font-weight: bold;">Slides:</span>
+<br> <br>
+<h5>
+Mustafa Aslan, Cardiff University, UK <br> Data Lab for Social Good, Cardiff University, UK <br> <!-- <span style="color: rgba(179, 0, 0, 0.7); font-weight: bold;">Slides:</span>
   <a href="https://mustafaslancoto.github.io/talks/" style="color: #000; font-weight: bold; text-decoration: underline dotted;text-underline-offset: 5px">
-    https://mustafaslancoto.github.io/talks/
+    https://mustafaslancoto.github.io/talks/"
   </a> -->
-</h3>
+</h5>
 <p>
-9 Oct 2025
+13 Mar 2026
 </p>
 </div>
 </section>
-<section id="outline" class="slide level2">
-<h2>Outline</h2>
+<section id="section" class="slide level2">
+<h2></h2>
+<p><br> <br></p>
+<p><span class="mimic-h2">Outline</span></p>
+<div style="font-weight: bold; font-size: 1.1em;">
 <ul>
-<li><p>What problem(s) does our research focus on?</p></li>
-<li><p>Research Questions and How We Address Them</p></li>
-<li><p>Methodology &amp; Approach</p></li>
-<li><p>Progress so far?</p></li>
+<li>Motivation and Conceptual Foundations</li>
+<li>Identification</li>
+<li>Randomised Controlled Trials (RCTs)</li>
+<li>Introduction to Linear Regression</li>
+<li>Regularization Techniques for Linear Regression in High-Dimensional Settings</li>
+<li>Statistical Inference on Causal Effects in High Dimensional Linear Regression Models</li>
+<li>Statistical Inference on Predictive and Causal Effects in Modern Nonlinear Regression Models</li>
 </ul>
-</section>
-<section id="outline-1" class="slide level2">
-<h2>Outline</h2>
-<ul>
-<li><p><span style="color: #944454;"><strong>What problem(s) does our research focus on?</strong></span></p></li>
-<li><p>Research Questions and How We Address Them</p></li>
-<li><p>Methodology &amp; Approach</p></li>
-<li><p>Progress so far?</p></li>
-</ul>
-</section>
-<section id="what-problems-does-our-research-focus-on" class="slide level2">
-<h2>What problem(s) does our research focus on?</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-left">
-<figure>
-<p><img data-src="images/disc_news2.png" class="quarto-figure quarto-figure-left" style="width:85.0%"></p>
-</figure>
 </div>
-</div><div class="column" style="width:50%;">
-<p><strong>Problem</strong></p>
-<ul>
-<li>The challenge of capacity management
-<ul>
-<li>Inefficient use of healthcare and social care resources</li>
-</ul></li>
-<li>Inadequate discharge care coordination
-<ul>
-<li>Difficulties with discharging medically fit patients in a timely manner</li>
-</ul></li>
-</ul>
-<p><strong>Why it matters</strong></p>
-<p>Poorly managed discharge processes negatively affect both individuals and patient flow through hospitals, creating bottlenecks that increase pressure on all healthcare services.</p>
-<p><strong>Who it impacts</strong></p>
-<p>Patients, healthcare professionals, and the overall healthcare system.</p>
-</div></div>
 </section>
-<section id="outline-2" class="slide level2">
-<h2>Outline</h2>
+<section id="section-1" class="slide level2">
+<h2></h2>
+<p><br></p>
+<p><span class="mimic-h2">Outline</span></p>
+<div style="font-weight: bold; font-size: 1.1em;">
 <ul>
-<li><p>What problem(s) does our research focus on?</p></li>
-<li><p><span style="color: #944454;"><strong>Research Questions and How We Address Them</strong></span></p></li>
-<li><p>Methodology &amp; Approach</p></li>
-<li><p>Progress so far?</p></li>
+<li>Motivation and Conceptual Foundations</li>
+<li>Identification</li>
+<li>Randomised Controlled Trials (RCTs)</li>
+<li>Instrumental Variables (IV) and Difference-in-Differences (DiD)</li>
+<li><span style="color: #1A6872;">Introduction to Linear Regression</span></li>
+<li>Regularization Techniques for Linear Regression in High-Dimensional Settings</li>
+<li>Statistical Inference on Causal Effects in High Dimensional Linear Regression Models</li>
+<li>Statistical Inference on Predictive and Causal Effects in Modern Nonlinear Regression Models</li>
 </ul>
-</section>
-<section id="research-questions-and-how-we-address-them" class="slide level2">
-<h2>❓Research Questions and How We Address Them</h2>
-
-<img data-src="plan0.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
-<section id="research-questions-and-how-we-address-them-1" class="slide level2">
-<h2>❓Research Questions and How We Address Them</h2>
-
-<img data-src="plan1.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
-<section id="research-questions-and-how-we-address-them-2" class="slide level2">
-<h2>❓Research Questions and How We Address Them</h2>
-
-<img data-src="plan2.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
-<section id="research-questions-and-how-we-address-them-3" class="slide level2">
-<h2>❓Research Questions and How We Address Them</h2>
-
-<img data-src="plan3.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
-<section id="outline-3" class="slide level2">
-<h2>Outline</h2>
-<ul>
-<li><p>What problem(s) does our research focus on?</p></li>
-<li><p>Research Questions and How We Address Them</p></li>
-<li><p><span style="color: #944454;"><strong>Methodology &amp; Approach</strong></span></p></li>
-<li><p>Progress so far?</p></li>
-</ul>
-</section>
-<section id="methodology-approach" class="slide level2">
-<h2>🛠️ Methodology &amp; Approach</h2>
-<div class="{columns}">
-<div class="column" style="font-size: 100%;">
-<h3 id="data">Data</h3>
-<ul>
-<li>SAIL Databank</li>
-<li>Patient-level data sources</li>
-</ul>
-<h3 id="model-development">Model Development</h3>
-<ul>
-<li>Mathematical modelling</li>
-<li>Stocastic optimization and reinforcement learning methods</li>
-<li>Machine learning</li>
-<li>Probabilistic modelling</li>
-</ul>
-<h3 id="validation-and-testing">Validation and Testing</h3>
-<ul>
-<li>Cross-Validation to test predictive models</li>
-<li>Test models in a real-world setting, possibly in collaboration with a hospital</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/machine_learning.jpg" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
-</figure>
 </div>
-</div></div>
 </section>
-<section id="outline-4" class="slide level2">
-<h2>Outline</h2>
+<section id="foundations-of-linear-regression" class="slide level2">
+<h2>Foundations of Linear Regression</h2>
 <ul>
-<li><p>What problem(s) does our research focus on?</p></li>
-<li><p>Research Questions and How We Address Them</p></li>
-<li><p>Methodology &amp; Approach</p></li>
-<li><p><span style="color: #944454;"><strong>Progress so far?</strong></span></p></li>
-</ul>
-</section>
-<section id="progress-so-far" class="slide level2">
-<h2>Progress so far?</h2>
-
-<img data-src="plan_so_far.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
-<section id="models" class="slide level2">
-<h2>Models</h2>
-<div class="columns">
-<div class="column" style="width:40%;">
-<div class="fragment">
-<div class="callout callout-note no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Regime-Switching AutoRegressive Hidden Markov Model (RS-ARHMM)</strong></p>
-</div>
-<div class="callout-content">
-<p>Let <span class="math inline">\(y_t\)</span> be the observed value at time <span class="math inline">\(t\)</span>, modeled as a function of its <span class="math inline">\(p\)</span> lagged values, the regime-specific parameters associated with the hidden state <span class="math inline">\(s_t\)</span>, and exogenous variables <span class="math inline">\(\mathbf{X}_t = (X_{t1}, \ldots, X_{tM})\)</span>.</p>
-<p>The <strong>RS-ARHMM</strong> can be expressed as follows:</p>
-<p><span class="math display">\[
-y_t^{(s)} = \beta_{0}^{(s)} + \sum_{i=1}^{p} \beta_{i}^{(s)} \, y_{t-i} + \sum_{j=1}^{M} \beta_{p+j}^{(s)} \, X_{tj} + \epsilon_t^{(s)},
-\]</span></p>
-<p><strong>Parameter estimation:</strong> <code>EM (Expectation-Maximization) Algorithm</code></p>
-<ul>
-<li><p>Iteratively estimates parameters <span class="math inline">\(\Theta = \{\beta^{(s)}, \sigma^{2(s)}, P, \pi\}\)</span> to maximize likelihood.</p>
-<ul>
-<li>Transition probabilities stored as: <span class="math display">\[
-P = \begin{pmatrix}
-p_{11} &amp; \cdots &amp; p_{1K} \\
-\vdots &amp; \ddots &amp; \vdots \\
-p_{K1} &amp; \cdots &amp; p_{KK}
-\end{pmatrix}
+<li>A linear regression model is given by: <span class="math display">\[
+Y = \beta^{'} X + \epsilon
 \]</span></li>
-</ul></li>
-<li><p>Alternates between two steps:</p>
-<ul>
-<li><strong>E-Step:</strong> Estimate regime probabilities given current <span class="math inline">\(\Theta\)</span>.</li>
-<li><strong>M-Step:</strong> Update <span class="math inline">\(\Theta\)</span> using these probabilities.</li>
-</ul></li>
 </ul>
-</div>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:35%;">
-<div class="fragment">
-<div class="callout callout-note no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Benchmark models</strong></p>
-</div>
-<div class="callout-content">
-<p><strong>Statistical models:</strong></p>
+<p>&nbsp;&nbsp;&nbsp; where <span class="math inline">\(\mathbb{E}[\epsilon] = 0\)</span>.</p>
 <ul>
-<li><code>Exponential Smoothing (ETS)</code>: A state space time series model capturing level, trend, and seasonality.</li>
-<li><code>Linear Regression</code>: A statistical model that estimates the linear relationship between predictors and a response variable.</li>
-<li><code>Lasso Regression</code>: A regression method with <em>L1</em> regularization, useful for variable selection and preventing overfitting.</li>
+<li><p>We consider <span class="math inline">\(Y\)</span> as the outcome variable, <span class="math inline">\(X = (X_1, X_2, \ldots, X_p)'\)</span> as the vector of covariates, and <span class="math inline">\(\beta\)</span> as the vector of parameters.</p></li>
+<li><p>Our goal is to construct the best linear predictor of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X\)</span>, which is the linear function of <span class="math inline">\(X\)</span> that minimizes the mean squared error (MSE):</p></li>
 </ul>
-<p><strong>Machine Learning models:</strong></p>
-<ul>
-<li><code>XGBoost</code>: An optimized gradient boosting library designed to be highly efficient and flexible.</li>
-<li><code>LightGBM</code>: A gradient boosting framework that uses tree-based learning algorithms, known for its speed and efficiency. It uses leaf-wise tree growth.</li>
-<li><code>Random Forest</code>: An ensemble learning method that builds multiple decision trees and merges them together to get predictions.</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:25%;">
-<div class="fragment">
-<div class="callout callout-note no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Probabilistic Forecasting - Conformal Prediction</strong></p>
-</div>
-<div class="callout-content">
-<ul>
-<li><p>A distribution-free method for constructing prediction intervals</p></li>
-<li><p>A way to quantify the uncertainty of point forecasts by generating prediction intervals</p></li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div></div>
+<p><span class="math display">\[
+\beta = \arg\min_{\beta \in \mathbb{R}^p} E[(Y - \beta^{'} X)^2]
+\]</span></p>
 </section>
-<section id="forecast-distributions-quantile-scores" class="slide level2">
-<h2>Forecast Distributions (Quantile scores)</h2>
-<div id="d56bbadb" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="1">
-<div class="cell-output cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="sword_slides_files/figure-revealjs/cell-2-output-1.png" class="quarto-figure quarto-figure-center" width="1882" height="955"></p>
-</figure>
-</div>
-</div>
-</div>
+<section id="goodness-of-fit" class="slide level2">
+<h2>Goodness of Fit</h2>
+
+
 </section>
-<section id="any-questions-or-thoughts" class="slide level2" style="text-align: center;">
-<h2>Any questions or thoughts? 💬</h2>
-
-
-
-<img data-src="images/follow_us.png" class="quarto-figure quarto-figure-center r-stretch"></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
-<p><a href="https://mustafaslancoto.github.io/talks/presentations/sword.html">Enhancing Discharge Care Planning: A Probabilistic Data-Driven Approach</a></p>
+<p><a href="https://mustafaslancoto.github.io/workshops/trainings/causal_ml.html">Causal Inference via Machine Learning</a></p>
 </div>
 </div></div>
 
@@ -432,7 +267,7 @@ p_{K1} &amp; \cdots &amp; p_{KK}
       // https://revealjs.com/config/
       Reveal.initialize({
 'controlsAuto': true,
-'previewLinksAuto': false,
+'previewLinksAuto': true,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -584,15 +419,15 @@ p_{K1} &amp; \cdots &amp; p_{KK}
         // The "normal" size of the presentation, aspect ratio will be preserved
         // when the presentation is scaled to fit different resolutions. Can be
         // specified using percentage units.
-        width: 2100,
+        width: 1920,
 
-        height: 1200,
+        height: 1080,
 
         // Factor of the display size that should remain empty around the content
-        margin: 6.0e-2,
+        margin: 0.1,
 
         math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
