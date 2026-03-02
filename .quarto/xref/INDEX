@@ -14,5 +14,17 @@
   },
   "CV/CV.qmd": {
     "CV.html": "9449d566"
+  },
+  "talks/presentations/qqf.qmd": {
+    "qqf.html": "58bbb7e8"
+  },
+  "talks/qqf/example.ipynb": {
+    "example.html": "c3c5665e"
+  },
+  "workshops/index.qmd": {
+    "index.html": "2f3b80e0"
+  },
+  "talks/index.qmd": {
+    "index.html": "bd43e078"
   }
 }

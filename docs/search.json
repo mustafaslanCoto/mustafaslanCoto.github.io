@@ -179,7 +179,7 @@
     "href": "talks/index.html",
     "title": "MUSTAFA ASLAN",
     "section": "",
-    "text": "Enhancing Discharge Care Planning: A Probabilistic Data-Driven Approach\n\n\nSWORD Network Event - Postgraduate OR Presentations\n\n\n\n\n\nOct 9, 2025\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nForecasting Mental Health Hospital Bed Occupancy: A Regime-Switching AutoRegressive Hidden Markov Model Approach\n\n\n5th Welsh Postgraduate Research Cluster Workshop in Economy, Enterprise and Productivity\n\n\n\n\n\nSep 16, 2025\n\n\nMustafa Aslan\n\n\n\n\n\nNo matching items"
+    "text": "Forecast-Driven Two-Stage Stochastic Programming for Nurse Rostering\n\n\nQuarterly Forecasting Forum\n\n\n\n\n\nMar 13, 2026\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nEnhancing Discharge Care Planning: A Probabilistic Data-Driven Approach\n\n\nSWORD Network Event - Postgraduate OR Presentations\n\n\n\n\n\nOct 9, 2025\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nForecasting Mental Health Hospital Bed Occupancy: A Regime-Switching AutoRegressive Hidden Markov Model Approach\n\n\n5th Welsh Postgraduate Research Cluster Workshop in Economy, Enterprise and Productivity\n\n\n\n\n\nSep 16, 2025\n\n\nMustafa Aslan\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "talks/index.html#probability-and-statistics",
@@ -6801,14 +6801,14 @@
     "href": "talks/qqf/slides.html#section",
     "title": "MUSTAFA ASLAN",
     "section": "",
-    "text": "Outline\n\n\nMotivation and Conceptual Foundations\nIdentification\nRandomised Controlled Trials (RCTs)\nIntroduction to Linear Regression\nRegularization Techniques for Linear Regression in High-Dimensional Settings\nStatistical Inference on Causal Effects in High Dimensional Linear Regression Models\nStatistical Inference on Predictive and Causal Effects in Modern Nonlinear Regression Models"
+    "text": "Outline\n\n\nProblem statement and motivation\nForecasting framework: autoregressive Markov-switching regression (AR-MSR)\nBridging Forecasts and Decisions: The Role of Uncertainty\nA Holistic Multi-Ward Nurse Rostering framework\nComputational experiments and results"
   },
   {
     "objectID": "talks/qqf/slides.html#section-1",
     "href": "talks/qqf/slides.html#section-1",
     "title": "MUSTAFA ASLAN",
     "section": "",
-    "text": "Outline\n\n\nMotivation and Conceptual Foundations\nIdentification\nRandomised Controlled Trials (RCTs)\nInstrumental Variables (IV) and Difference-in-Differences (DiD)\nIntroduction to Linear Regression\nRegularization Techniques for Linear Regression in High-Dimensional Settings\nStatistical Inference on Causal Effects in High Dimensional Linear Regression Models\nStatistical Inference on Predictive and Causal Effects in Modern Nonlinear Regression Models"
+    "text": "Outline\n\n\nProblem statement and motivation\nForecasting framework: autoregressive Markov-switching regression (AR-MSR)\nBridging Forecasts and Decisions: The Role of Uncertainty\nA Holistic Multi-Ward Nurse Rostering framework\nComputational experiments and results"
   },
   {
     "objectID": "talks/qqf/slides.html#foundations-of-linear-regression",
@@ -6843,7 +6843,7 @@
     "href": "talks/qqf/slides.html#section-2",
     "title": "MUSTAFA ASLAN",
     "section": "",
-    "text": "The predictive value of \\(Y\\) changes by \\(\\beta_1\\) units when \\(D\\) increases by one unit.\n\n\n\n\n\nNote that this interpretation is purely predictive and does not imply causality.\n\n\n\n\n\nWHY?\n\n\n\n\n\nThis is because we are holding all other regressors \\(W\\) constant, which may not be realistic in practice.\n\n\n\n\n\nFor example: In a wage regression, \\(D\\) could be years of education, and \\(W\\) could include experience, gender, and location. The coefficient on education (\\(\\beta_1\\)) tells us how much more (or less) we predict someone will earn for each additional year of education, with the same experience, gender, and location."
+    "text": "Severe Nurse Burnout: Approximately 65% of psychiatric nurses report high stress and chronic exhaustion\nIneffective Scheduling: Current scheduling policies that fail to account for the highly variable patient acuity and unpredictable occupancy patterns inherent in mental healthcare"
   },
   {
     "objectID": "talks/qqf/slides.html#understanding-beta_1-via-partialling-out",
@@ -6857,21 +6857,21 @@
     "href": "talks/qqf/slides.html#section-3",
     "title": "MUSTAFA ASLAN",
     "section": "",
-    "text": "We can also show partialling-out procedure by partialling-out operation to both sides of our regression equation\n\\[\nY =  \\beta_1 D + \\beta^{'}_2 W + \\epsilon\n\\]\nto get\n\\[\n\\tilde{Y} = \\beta_1 \\tilde{D} + \\beta^{'}_2 \\tilde{W} + \\tilde{\\epsilon}\n\\]\n\n\nWhich simplifies to\n\\[\n\\tilde{Y} = \\beta_1 \\tilde{D} + \\epsilon\n\\]\n\n\n\nWhy does \\(\\tilde{W}\\) disappear in the partialled-out regression?\nWhy \\(\\tilde{\\epsilon} = \\epsilon\\)?\n\n\n\nInterpretation of \\(\\beta_1\\) in Partialling-Out\n\n\\(\\beta_1\\) can be interpreted as the effect of \\(D\\) on \\(Y\\) after removing the influence of \\(W\\) as univariate linear regression of residualized \\(Y\\) on residualized \\(D\\).\nResiduals are defined by partialling-out the linear effects of \\(W\\) from both \\(Y\\) and \\(D\\)."
+    "text": "Outline\n\n\nProblem statement and motivation\nBridging Forecasts and Decisions: The Role of Uncertainty\nForecasting framework: autoregressive Markov-switching regression (AR-MSR)\nA Holistic Multi-Ward Nurse Rostering framework\nComputational experiments and results"
   },
   {
     "objectID": "talks/qqf/slides.html#section-4",
     "href": "talks/qqf/slides.html#section-4",
     "title": "MUSTAFA ASLAN",
     "section": "",
-    "text": "Can we use linear regression for partialling-out?\n\n\n\n\n\nWhen \\(p/n\\) is large, using linear regression for partialling-out can lead to overfitting issues, resulting in biased estimates of \\(\\beta_1\\).\n\n\n\n\n\nTo address this, we can use dimension reduction or regularization techniques, such as Lasso or Ridge regression, during the partialling-out steps."
+    "text": "Outline\n\n\nProblem statement and motivation\nBridging Forecasts and Decisions: The Role of Uncertainty\nForecasting framework: Autoregressive Markov-switching regression (AR-MSR)\nA Holistic Multi-Ward Nurse Rostering framework\nComputational experiments and results"
   },
   {
     "objectID": "talks/qqf/slides.html#section-5",
     "href": "talks/qqf/slides.html#section-5",
     "title": "MUSTAFA ASLAN",
     "section": "",
-    "text": "Outline\n\n\nMotivation and Conceptual Foundations\nIdentification\nRandomised Controlled Trials (RCTs)\nInstrumental Variables (IV) and Difference-in-Differences (DiD)\nIntroduction to Linear Regression\nRegularization Techniques for Linear Regression in High-Dimensional Settings\nStatistical Inference on Causal Effects in High Dimensional Linear Regression Models\nStatistical Inference on Predictive and Causal Effects in Modern Nonlinear Regression Models"
+    "text": "Parameter Estimation of AR-MSR\nModel parameters are estimated using the Expectation–Maximization (EM) algorithm, which iteratively refines the parameter vector\n\\[\n\\theta = \\{\\beta^{(r)}, \\sigma_r^2, P, \\pi \\}_{r \\in \\mathcal{R}}\n\\]\nby maximising the likelihood of the observed occupancy time series \\(O_{1:T} = (O_1, \\ldots, O_T)\\).\n\n\n\nEM Algorithm\n\n\nLet \\(k\\) denote the iteration index. The EM algorithm proceeds as follows:\n\\[\n\\begin{aligned}\n&\\textbf{E-step:} \\\\[4pt]\n&\\quad\nQ(\\theta \\mid \\theta^{(k)})\n=\n\\mathbb{E}_{\\,r_{1:T} \\mid O_{1:T},\\, \\theta^{(k)}}\n\\left[\n\\log p(O_{1:T}, r_{1:T} \\mid \\theta)\n\\right]\n\\\\[14pt]\n&\\textbf{M-step:} \\\\[4pt]\n&\\quad\n\\theta^{(k+1)}\n=\n\\arg\\max_{\\theta}\\,\nQ(\\theta \\mid \\theta^{(k)})\n\\\\[14pt]\n&\\textbf{Iterate until convergence:} \\\\[4pt]\n&\\quad\n\\theta^{(0)}\n\\;\\rightarrow\\;\n\\text{E-step}\n\\;\\rightarrow\\;\n\\text{M-step}\n\\;\\rightarrow\\;\n\\theta^{(1)}\n\\;\\rightarrow\\;\n\\cdots\n\\;\\rightarrow\\;\n\\theta^{(k+1)}\n\\end{aligned}\n\\]\n\n\n\n\nForecasting with AR-MSR\n\\(P(r_T = i \\mid O_{1:T})\\) denote the filtered probability of being in regime \\(i\\) at time \\(T\\). The \\(h\\)-step-ahead regime probabilities are obtained according to\n\\[\nP(r_{T+h} = j \\mid O_{1:T})\n=\n\\sum_{i=1}^{K}\nP(r_{T+h-1} = i \\mid O_{1:T}) \\, p_{ij},\n\\qquad h \\ge 1.\n\\]\nConditional on regime \\(r_{T+h} = r\\), the \\(h\\)-step-ahead forecast of the occupancy process is obtained from the regime-specific autoregressive model,\n\\[\n\\hat{O}_{T+h}^{(r)}\n=\n\\beta_{0}^{(r)}\n+\n\\sum_{i=1}^{p}\n\\beta_{i}^{(r)} \\, O_{T+h-i}\n+\n\\sum_{m=1}^{M}\n\\beta_{p+m}^{(r)} \\, X_{T+h,m},\n\\]\n\nThe final point forecast at horizon \\(h\\) is computed as a probability-weighted average of the regime-specific forecasts,\n\\[\n\\hat{O}_{T+h}\n=\n\\sum_{r=1}^{K}\nP(r_{T+h} = r \\mid O_{1:T}) \\, \\hat{O}_{T+h}^{(r)}.\n\\]"
   },
   {
     "objectID": "talks/qqf/slides.html#linear-regression-with-high-dimensional-covariates",
@@ -6892,7 +6892,7 @@
     "href": "talks/qqf/slides.html#section-6",
     "title": "MUSTAFA ASLAN",
     "section": "",
-    "text": "Why Do We Need Constructed Regressors?\n\n\nThe main motivation for using constructed regressors is to built more flexible models that can capture non-linear relationships and interactions among the original covariates.\n\n\n\n\nBy expanding the feature space in prediction rules, \\(\\beta^{'} X = \\beta^{'} P(W)\\), we can approximate complex functions of the original covariates \\(W\\) more accurately.\n\n\n\n\n\n\\(\\beta^{'} P(W)\\) are nonlinear in \\(W\\) but still linear in parameters \\(\\beta\\)."
+    "text": "Outline\n\n\nProblem statement and motivation\nBridging Forecasts and Decisions: The Role of Uncertainty\nForecasting framework: Autoregressive Markov-switching regression (AR-MSR)\nA Holistic Multi-Ward Nurse Rostering framework\nComputational experiments and results"
   },
   {
     "objectID": "talks/qqf/slides.html#best-predictor",
@@ -6927,7 +6927,7 @@
     "href": "talks/qqf/slides.html#section-7",
     "title": "MUSTAFA ASLAN",
     "section": "",
-    "text": "Lasso shrinks relevant regressors towards zero and “underestimates” the absolute value of the coefficients.\n\n\n\nTherefore, Lasso may not be ideal for inference about predictive effects or causal effects."
+    "text": "Outline\n\n\nProblem statement and motivation\nBridging Forecasts and Decisions: The Role of Uncertainty\nForecasting framework: Autoregressive Markov-switching regression (AR-MSR)\nA Holistic Multi-Ward Nurse Rostering framework\nComputational experiments and results"
   },
   {
     "objectID": "talks/qqf/slides.html#example-bias-in-lasso-coefficients",
@@ -6962,7 +6962,7 @@
     "href": "talks/qqf/slides.html#section-8",
     "title": "MUSTAFA ASLAN",
     "section": "",
-    "text": "Choice of Regression Methods in Practice\n\nThe choice between Lasso, Ridge, and Elastic Net regression depends on the specific characteristics of the data and the goals of the analysis.\nIf we are interested in building the best prediction, we can tune each method via cross-validation and select the one with the lowest prediction error on test data."
+    "text": "Forecasting performance\n\n\n\n\n\n\n\n\nmodel\nWard A\nWard B\nWard C\nWard D\nWard E\nWard F\nWard G\noverall\n\n\n\n\nPoint Forecast (RMSE)\n\n\nAR-MSR\n3.37\n4.95\n3.26\n3.91\n2.80\n3.78\n2.11\n3.45\n\n\nLASSO\n3.79\n5.34\n4.08\n2.32\n3.07\n3.69\n2.08\n3.48\n\n\nLR\n3.62\n5.66\n3.70\n2.20\n3.34\n3.98\n2.08\n3.51\n\n\nRF\n3.96\n5.07\n4.38\n2.64\n2.87\n4.09\n2.10\n3.59\n\n\nETS\n3.70\n5.49\n3.89\n2.61\n3.60\n3.95\n2.05\n3.61\n\n\nTimeGPT\n4.10\n5.51\n3.78\n2.76\n3.41\n3.66\n2.51\n3.67\n\n\nARIMA\n3.66\n5.73\n4.06\n2.46\n3.73\n3.98\n2.20\n3.69\n\n\nNAIVE\n4.26\n5.40\n3.89\n2.90\n3.45\n3.71\n2.58\n3.74\n\n\nXGB\n4.22\n5.25\n5.15\n2.57\n3.64\n3.94\n2.01\n3.83\n\n\nLGB\n3.98\n5.50\n4.40\n4.09\n3.29\n3.86\n2.00\n3.87\n\n\nProbabilistic (Pinball Loss)\n\n\nAR-MSR\n1.05\n1.53\n0.96\n0.87\n0.87\n1.22\n0.60\n1.01\n\n\nLR\n1.01\n1.50\n0.96\n0.97\n0.85\n1.29\n0.61\n1.03\n\n\nLASSO\n1.14\n1.61\n1.06\n0.91\n0.87\n1.19\n0.61\n1.06\n\n\nRF\n1.25\n1.64\n1.22\n0.92\n0.87\n1.35\n0.64\n1.13\n\n\nXGB\n1.23\n1.68\n1.33\n0.81\n0.99\n1.35\n0.63\n1.15\n\n\nETS\n1.25\n1.81\n1.11\n0.94\n1.09\n1.35\n0.64\n1.17\n\n\nNAIVE\n1.38\n1.75\n1.22\n0.97\n1.10\n1.13\n0.80\n1.19\n\n\nARIMA\n1.16\n1.87\n1.28\n1.00\n1.19\n1.21\n0.67\n1.20\n\n\nLGB\n1.19\n1.83\n1.19\n1.41\n1.00\n1.30\n0.63\n1.22\n\n\nTimeGPT\n1.45\n1.96\n1.33\n0.98\n1.24\n1.29\n0.87\n1.30\n\n\nPermutation Entropy\n\n\n\n0.76\n0.72\n0.71\n0.66\n0.61\n0.61\n0.56\n0.66\n\n\n\n\n\n\n\n\n\nOperational performance\n\n\n\n\n\n\n\n\nmodel\nWard A\nWard B\nWard C\nWard D\nWard E\nWard F\nWard G\noverall\n\n\n\n\nAverage Understaffed Number of Patients\n\n\nAR-MSR\n0.12\n1.62\n0.42\n0.01\n0.40\n0.98\n0.16\n3.71\n\n\nLR\n0.21\n1.71\n0.51\n0.00\n0.24\n1.17\n0.16\n4.01\n\n\nLASSO\n0.43\n1.57\n0.94\n0.01\n0.16\n1.28\n0.16\n4.54\n\n\nARIMA\n0.73\n1.74\n0.35\n0.02\n0.54\n1.25\n0.31\n4.94\n\n\nETS\n0.27\n1.14\n0.68\n0.01\n1.37\n1.60\n0.16\n5.23\n\n\nRF\n0.44\n1.72\n1.23\n0.07\n0.47\n1.22\n0.14\n5.29\n\n\nNAIVE\n1.14\n1.58\n0.41\n0.11\n0.53\n1.21\n0.45\n5.43\n\n\nXGB\n0.60\n1.23\n1.39\n0.02\n0.74\n1.60\n0.15\n5.73\n\n\nLGB\n0.56\n1.62\n1.28\n0.01\n0.90\n1.60\n0.16\n6.14\n\n\nAR-MSR-PointForecasts\n1.17\n3.58\n1.34\n0.14\n1.08\n1.60\n0.15\n9.06\n\n\nValue of Stochastic Solution\n\n\nAR-MSR\n834\n1334\n836\n658\n670\n823\n448\n5602\n\n\nLASSO\n883\n1319\n932\n676\n616\n841\n447\n5714\n\n\nLR\n849\n1340\n851\n740\n642\n870\n452\n5744\n\n\nETS\n859\n1261\n884\n650\n811\n879\n447\n5791\n\n\nRF\n883\n1330\n988\n654\n676\n837\n453\n5821\n\n\nXGB\n910\n1263\n1017\n633\n745\n879\n446\n5894\n\n\nARIMA\n933\n1399\n909\n700\n726\n845\n494\n6006\n\n\nNAIVE\n1042\n1377\n903\n661\n730\n818\n555\n6086\n\n\nLGB\n899\n1354\n1005\n766\n750\n879\n448\n6102\n\n\nAR-MSR-PointForecasts\n1023\n1747\n1007\n613\n769\n879\n446\n6483"
   },
   {
     "objectID": "talks/qqf/slides.html#section-9",
@@ -7137,7 +7137,7 @@
     "href": "talks/qqf/slides.html#results",
     "title": "MUSTAFA ASLAN",
     "section": "Results",
-    "text": "Results\nWe run 1000 simulations and compute the bias and standard deviation of the naive and orthogonal estimators. The results are as follows:"
+    "text": "Results\n\n\n\n\n\n\n\n\n\n\nmodel\nWard A\nWard B\nWard C\nWard D\nWard E\nWard F\nWard G\noverall\n\n\n\n\nPoint Forecast (RMSE)\n\n\nAR-MSR\n3.37\n4.95\n3.26\n3.91\n2.80\n3.78\n2.11\n3.45\n\n\nLASSO\n3.79\n5.34\n4.08\n2.32\n3.07\n3.69\n2.08\n3.48\n\n\nLR\n3.62\n5.66\n3.70\n2.20\n3.34\n3.98\n2.08\n3.51\n\n\nRF\n3.96\n5.07\n4.38\n2.64\n2.87\n4.09\n2.10\n3.59\n\n\nETS\n3.70\n5.49\n3.89\n2.61\n3.60\n3.95\n2.05\n3.61\n\n\nTimeGPT\n4.10\n5.51\n3.78\n2.76\n3.41\n3.66\n2.51\n3.67\n\n\nARIMA\n3.66\n5.73\n4.06\n2.46\n3.73\n3.98\n2.20\n3.69\n\n\nNAIVE\n4.26\n5.40\n3.89\n2.90\n3.45\n3.71\n2.58\n3.74\n\n\nXGB\n4.22\n5.25\n5.15\n2.57\n3.64\n3.94\n2.01\n3.83\n\n\nLGB\n3.98\n5.50\n4.40\n4.09\n3.29\n3.86\n2.00\n3.87\n\n\nProbabilistic (Pinball Loss)\n\n\nAR-MSR\n1.05\n1.53\n0.96\n0.87\n0.87\n1.22\n0.60\n1.01\n\n\nLR\n1.01\n1.50\n0.96\n0.97\n0.85\n1.29\n0.61\n1.03\n\n\nLASSO\n1.14\n1.61\n1.06\n0.91\n0.87\n1.19\n0.61\n1.06\n\n\nRF\n1.25\n1.64\n1.22\n0.92\n0.87\n1.35\n0.64\n1.13\n\n\nXGB\n1.23\n1.68\n1.33\n0.81\n0.99\n1.35\n0.63\n1.15\n\n\nETS\n1.25\n1.81\n1.11\n0.94\n1.09\n1.35\n0.64\n1.17\n\n\nNAIVE\n1.38\n1.75\n1.22\n0.97\n1.10\n1.13\n0.80\n1.19\n\n\nARIMA\n1.16\n1.87\n1.28\n1.00\n1.19\n1.21\n0.67\n1.20\n\n\nLGB\n1.19\n1.83\n1.19\n1.41\n1.00\n1.30\n0.63\n1.22\n\n\nTimeGPT\n1.45\n1.96\n1.33\n0.98\n1.24\n1.29\n0.87\n1.30\n\n\nPermutation Entropy\n\n\n\n0.76\n0.72\n0.71\n0.66\n0.61\n0.61\n0.56\n0.66\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmodel\nWard A\nWard B\nWard C\nWard D\nWard E\nWard F\nWard G\noverall\n\n\n\n\nAverage Understaffed Number of Patients\n\n\nAR-MSR\n0.12\n1.62\n0.42\n0.01\n0.40\n0.98\n0.16\n3.71\n\n\nLR\n0.21\n1.71\n0.51\n0.00\n0.24\n1.17\n0.16\n4.01\n\n\nLASSO\n0.43\n1.57\n0.94\n0.01\n0.16\n1.28\n0.16\n4.54\n\n\nARIMA\n0.73\n1.74\n0.35\n0.02\n0.54\n1.25\n0.31\n4.94\n\n\nETS\n0.27\n1.14\n0.68\n0.01\n1.37\n1.60\n0.16\n5.23\n\n\nRF\n0.44\n1.72\n1.23\n0.07\n0.47\n1.22\n0.14\n5.29\n\n\nNAIVE\n1.14\n1.58\n0.41\n0.11\n0.53\n1.21\n0.45\n5.43\n\n\nXGB\n0.60\n1.23\n1.39\n0.02\n0.74\n1.60\n0.15\n5.73\n\n\nLGB\n0.56\n1.62\n1.28\n0.01\n0.90\n1.60\n0.16\n6.14\n\n\nAR-MSR-PointForecasts\n1.17\n3.58\n1.34\n0.14\n1.08\n1.60\n0.15\n9.06\n\n\nValue of Stochastic Solution\n\n\nAR-MSR\n834\n1334\n836\n658\n670\n823\n448\n5602\n\n\nLASSO\n883\n1319\n932\n676\n616\n841\n447\n5714\n\n\nLR\n849\n1340\n851\n740\n642\n870\n452\n5744\n\n\nETS\n859\n1261\n884\n650\n811\n879\n447\n5791\n\n\nRF\n883\n1330\n988\n654\n676\n837\n453\n5821\n\n\nXGB\n910\n1263\n1017\n633\n745\n879\n446\n5894\n\n\nARIMA\n933\n1399\n909\n700\n726\n845\n494\n6006\n\n\nNAIVE\n1042\n1377\n903\n661\n730\n818\n555\n6086\n\n\nLGB\n899\n1354\n1005\n766\n750\n879\n448\n6102\n\n\nAR-MSR-PointForecasts\n1023\n1747\n1007\n613\n769\n879\n446\n6483"
   },
   {
     "objectID": "talks/qqf/slides.html#section-14",
@@ -7166,5 +7166,250 @@
     "title": "MUSTAFA ASLAN",
     "section": "Causal DAGs for the 401(K) Example",
     "text": "Causal DAGs for the 401(K) Example\n\n\n\n\n\n\n\n\n\nG\n\n\n\nD\n\nD\n\n\n\nY\n\nY\n\n\n\nD-&gt;Y\n\n\n\n\n\nX\n\nX\n\n\n\nX-&gt;D\n\n\n\n\n\nX-&gt;Y\n\n\n\n\n\nF\n\nF\n\n\n\nF-&gt;D\n\n\n\n\n\nF-&gt;X\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nG\n\n\n\nD\n\nD\n\n\n\nY\n\nY\n\n\n\nD-&gt;Y\n\n\n\n\n\nX\n\nX\n\n\n\nX-&gt;D\n\n\n\n\n\nX-&gt;Y\n\n\n\n\n\nF\n\nF\n\n\n\nF-&gt;D\n\n\n\n\n\nF-&gt;X\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nG\n\n\n\nD\n\nD\n\n\n\nY\n\nY\n\n\n\nD-&gt;Y\n\n\n\n\n\nX\n\nX\n\n\n\nX-&gt;D\n\n\n\n\n\nX-&gt;Y\n\n\n\n\n\nF\n\nF\n\n\n\nF-&gt;D\n\n\n\n\n\nU\n\nU\n\n\n\nU-&gt;X\n\n\n\n\n\nU-&gt;F\n\n\n\n\n\n\n\n\n\n\n\n\n\nThree Causal DAGs for analysis of the 401(K) example in which adjusting for covariates \\(X\\) is sufficient to control for confounding between \\(D\\) and \\(Y\\)."
+  },
+  {
+    "objectID": "talks/qqf/slides.html#forecasting-framework-autoregressive-markov-switching-regression-ar-msr",
+    "href": "talks/qqf/slides.html#forecasting-framework-autoregressive-markov-switching-regression-ar-msr",
+    "title": "MUSTAFA ASLAN",
+    "section": "Forecasting framework: autoregressive Markov-switching regression (AR-MSR)",
+    "text": "Forecasting framework: autoregressive Markov-switching regression (AR-MSR)\n\n\nThe proposed AR-MSR is:\n\\[\nO_t \\mid (r_t = r)\n= \\beta_{0}^{(r)} + \\sum_{i=1}^{p} \\beta_{i}^{(r)} \\, O_{t-i} + \\sum_{m=p+1}^{M} \\beta_{m}^{(r)} X_{tm} + \\epsilon_t,\n\\]\nwhre \\(\\epsilon_t \\sim \\mathcal{N}\\!\\left(0, \\sigma_r^2\\right)\\) is \\(i.i.d.\\) noise.\n\n\n\nwhere \\(O_t\\) is the observed demand at time \\(t\\),\n\\(r_t\\) is the unobserved (hidden) regime at time \\(t\\),\n\\(X_{tm}\\) are the exogenous predictors.\n\\(\\beta_{0}^{(r)}\\) is the regime-specific intercept\n\\(\\beta_{i}^{(r)}\\) are the autoregressive coefficients associated with the \\(i\\)-th lag in regime \\(r\\)\n\\(\\beta_{m}^{(r)}\\) are the coefficients for the exogenous covariates in regime \\(r\\)"
+  },
+  {
+    "objectID": "talks/qqf/slides.html#problem-statement-and-motivation",
+    "href": "talks/qqf/slides.html#problem-statement-and-motivation",
+    "title": "Problem statement and motivation",
+    "section": "Problem statement and motivation",
+    "text": "Problem statement and motivation\nRising Demand & Vulnerability Inpatient mental health services are highly sensitive to demand fluctuations and are facing severe workforce shortages and rising admissions.\n\n\n\n\n\n\n\n\n\n\n\n\nRising Demand & Vulnerability Inpatient mental health services are highly sensitive to demand fluctuations and are facing severe workforce shortages and rising admissions.\nSevere Nurse Burnout: Approximately 65% of psychiatric nurses report high stress and chronic exhaustion\nIneffective Scheduling: Current scheduling policies that fail to account for the highly variable patient acuity and unpredictable occupancy patterns inherent in mental healthcare"
+  },
+  {
+    "objectID": "talks/qqf/slides.html#a-holistic-multi-ward-nurse-rostering-framework",
+    "href": "talks/qqf/slides.html#a-holistic-multi-ward-nurse-rostering-framework",
+    "title": "MUSTAFA ASLAN",
+    "section": "A Holistic Multi-Ward Nurse Rostering framework",
+    "text": "A Holistic Multi-Ward Nurse Rostering framework\n\n\nWe formulate the HMNR as follows:\n\\[\n\\begin{align}\n\\min \\; z\n&=\n\\sum_{j \\in \\mathcal{W}} c_n^{(j)} \\sum_{t \\in T} n_t^{(j)}\n+\n\\mathcal{Q}(\\mathbf{n}) \\label{eq-hmnr-obj} \\\\\n\\text{s.t. }\\;\n& \\sum_{j \\in \\mathcal{W}} n_t^{(j)} \\le N_t - \\Lambda_{t},\n\\qquad \\forall t \\in T, \\label{eq-hmnr-cap} \\\\\n& \\mathbf{n}\n=\n\\{ n_t^{(j)} \\mid j \\in \\mathcal{W},\\; t \\in T \\}\n\\in \\mathbb{Z}_+^{|\\mathcal{W}|\\times |T|} \\label{eq-hmnr-int}\n\\end{align}\n\\]\nwhere \\(\\mathcal{Q}(\\mathbf{n})\\) is the expected recourse function that evaluates the expected understaffing cost across all wards given first-stage staffing decisions \\(\\mathbf{n}\\).\n\\(\\mathcal{Q}(\\mathbf{n})\\) is defined as\n\\[\n\\mathcal{Q}(\\mathbf{n})\n=\n\\mathbb{E}_{O}\n\\left[\n\\mathcal{Q}\\!\\left(\\mathbf{n}, O(\\omega)\\right)\n\\right]\n\\]\nand \\(\\mathcal{Q}(\\mathbf{n}, O(\\omega))\\) is the optimal value of the second-stage recourse problem for a given realization \\(O(\\omega)\\) of the random occupancy vector \\(O\\):\n\\[\n\\begin{align}\n\\mathcal{Q}(\\mathbf{n}, O(\\omega))\n=\n\\min_{u(\\omega)} \\quad\n& \\sum_{j \\in \\mathcal{W}} \\sum_{t \\in T} c_u^{(j)} u_{j,t}(\\omega) \\label{eq-rec-obj} \\\\\n\\text{s.t.} \\quad\n& u_{j,t}(\\omega) \\ge O_{j,t}(\\omega) - \\rho_j n_t^{(j)},\n\\qquad \\forall j \\in \\mathcal{W},\\; t \\in T \\label{eq-rec-short}\\\\\n& u_{j,t}(\\omega) \\ge 0,\n\\qquad \\forall j \\in \\mathcal{W},\\; t \\in T \\label{eq-rec-nonneg}\n\\end{align}\n\\]\n\n\nNotation\nFirst-stage problem:\n\n\\(\\mathcal{W}\\): Set of hospital wards, indexed by \\(j\\).\n\\(T\\): Set of time periods (e.g., days) in the planning horizon, indexed by \\(t\\).\n\\(c_n^{(j)}\\): Daily cost of scheduling one nurse in ward \\(j\\).\n\\(N_t\\): Total nurse pool available on day \\(t\\).\n\\(\\lambda\\): Mean rate of hospital-level nurse absences per day.\n\\(\\Lambda_{t}\\): Random variable to impose unplanned absent nurses on day \\(t\\), where \\(\\Lambda_{t} \\sim \\text{Poisson}(\\lambda)\\)\nDecision variable & \\(n_t^{(j)}\\) & Number of nurses scheduled for ward \\(j\\) on day \\(t\\).\n\nSecond-stage recourse problem:\n\n\\(\\Omega^{j}\\): Set of occupancy scenarios for ward \\(j\\).\n\\(\\omega\\): Scenario (random parameter) representing a realization of occupancy uncertainty.\n\\(\\rho_j\\): Number of patients a single nurse can attend to in ward \\(j\\).\n\\(c_u^{(j)}\\): Associated penalty cost per understaffed patient for ward \\(j\\).\n\\(s\\): Index for occupancy scenarios, \\(s\\in\\mathcal{S}\\).\n\\(O_{j,t}(\\omega)\\): Occupied beds in ward \\(j\\) on day \\(t\\) under scenario \\(\\omega\\in\\Omega^{j}\\).\n\\(u_{j,t}(\\omega)\\): The number of understaffed patients in ward \\(j\\) at time \\(t\\) under scenario \\(\\omega\\in\\Omega^{j}\\)."
+  },
+  {
+    "objectID": "talks/qqf/slides.html#computational-experiments-and-results",
+    "href": "talks/qqf/slides.html#computational-experiments-and-results",
+    "title": "MUSTAFA ASLAN",
+    "section": "Computational experiments and results",
+    "text": "Computational experiments and results\n\nThe proposed AR-MSR model was evaluated on real-world data from a hospital, demonstrating superior forecasting accuracy compared to traditional methods.\nThe integrated nurse rostering framework showed significant improvements in staffing efficiency and nurse satisfaction, as well"
+  },
+  {
+    "objectID": "talks/qqf/slides.html#forecasting-framework-ar-msr",
+    "href": "talks/qqf/slides.html#forecasting-framework-ar-msr",
+    "title": "MUSTAFA ASLAN",
+    "section": "Forecasting framework: AR-MSR",
+    "text": "Forecasting framework: AR-MSR\n\n\n\n\nThe proposed AR-MSR is:\n\\[\n  O_t \\mid (r_t = r)\n  = \\beta_{0}^{(r)} + \\sum_{i=1}^{p} \\beta_{i}^{(r)} \\, O_{t-i} + \\sum_{m=p+1}^{M} \\beta_{m}^{(r)} X_{tm} + \\epsilon_t,\n  \\]\nwhere \\(\\epsilon_t \\sim \\mathcal{N}\\!\\left(0, \\sigma_r^2\\right)\\) is \\(i.i.d.\\) noise.\nTo model regime dynamics, we assume that the latent process \\(\\{r_t\\}\\) satisfies the Markov property:\n\n\\[\nP(r_t = j \\mid r_{1:t-1}) = P(r_t = j \\mid r_{t-1}),\n\\qquad\nj \\in \\mathcal{R}, \\; t \\ge 2.\n\\]\n\nThe transition probabilities are defined as:\n\n\\[\nP =\n\\begin{pmatrix}\np_{11} & \\cdots & p_{1K} \\\\\n\\vdots & \\ddots & \\vdots \\\\\np_{K1} & \\cdots & p_{KK}\n\\end{pmatrix}.\n\\]\n\n\n\nwhere \\(O_t\\) is the observed demand at time \\(t\\),\n\\(r_t\\) is the unobserved (hidden) regime at time \\(t\\),\n\\(X_{tm}\\) are the exogenous predictors.\n\\(\\beta_{0}^{(r)}\\) is the regime-specific intercept\n\\(\\beta_{i}^{(r)}\\) are the autoregressive coefficients associated with the \\(i\\)-th lag in regime \\(r\\)\n\\(\\beta_{m}^{(r)}\\) are the coefficients for the exogenous covariates in regime \\(r\\)\n\\(K\\) is the total number of regimes. Set of regimes is \\(\\mathcal{R} = \\{1, 2, \\ldots, K\\}\\)."
+  },
+  {
+    "objectID": "talks/qqf/slides.html#parameter-estimation-of-ar-msr",
+    "href": "talks/qqf/slides.html#parameter-estimation-of-ar-msr",
+    "title": "MUSTAFA ASLAN",
+    "section": "Parameter Estimation of AR-MSR",
+    "text": "Parameter Estimation of AR-MSR\nModel parameters are estimated using the Expectation–Maximization (EM) algorithm, which iteratively refines the parameter vector\n\\[\n\\theta = \\{\\beta^{(r)}, \\sigma_r^2, P, \\pi \\}_{r \\in \\mathcal{R}}\n\\]\nby maximising the likelihood of the observed occupancy time series \\(O_{1:T} = (O_1, \\ldots, O_T)\\).\n\n\n\nEM Algorithm\n\n\nLet \\(k\\) denote the iteration index. The EM algorithm proceeds as follows:\n\\[\n\\begin{aligned}\n&\\textbf{E-step:} \\\\[4pt]\n&\\quad\nQ(\\theta \\mid \\theta^{(k)})\n=\n\\mathbb{E}_{\\,r_{1:T} \\mid O_{1:T},\\, \\theta^{(k)}}\n\\left[\n\\log p(O_{1:T}, r_{1:T} \\mid \\theta)\n\\right]\n\\\\[14pt]\n&\\textbf{M-step:} \\\\[4pt]\n&\\quad\n\\theta^{(k+1)}\n=\n\\arg\\max_{\\theta}\\,\nQ(\\theta \\mid \\theta^{(k)})\n\\\\[14pt]\n&\\textbf{Iterate until convergence:} \\\\[4pt]\n&\\quad\n\\theta^{(0)}\n\\;\\rightarrow\\;\n\\text{E-step}\n\\;\\rightarrow\\;\n\\text{M-step}\n\\;\\rightarrow\\;\n\\theta^{(1)}\n\\;\\rightarrow\\;\n\\cdots\n\\;\\rightarrow\\;\n\\theta^{(k+1)}\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "talks/qqf/slides.html#notations",
+    "href": "talks/qqf/slides.html#notations",
+    "title": "MUSTAFA ASLAN",
+    "section": "notations",
+    "text": "notations"
+  },
+  {
+    "objectID": "talks/qqf/slides.html#solution-method-for-hmnr",
+    "href": "talks/qqf/slides.html#solution-method-for-hmnr",
+    "title": "MUSTAFA ASLAN",
+    "section": "Solution method for HMNR",
+    "text": "Solution method for HMNR\n\n\nDeterministic equivalent reformulation of the two-stage stochastic program is obtained sample average approximation (SAA) using a finite set of occupancy scenarios probabilistic forecasts.\n\n\n\n\nBy replacing the expected recourse function with its sample average over the scenario set \\(\\mathcal{S}\\), we obtain the following mixed-integer linear program (MILP):\n\n\\[\n\\begin{aligned}\n\\min \\; z\n&=\nc_n \\sum_{j \\in \\mathcal{W}} \\sum_{t \\in T} n_t^{(j)}\n+\n\\sum_{s \\in \\mathcal{S}} p_s \\sum_{j \\in \\mathcal{W}} \\sum_{t \\in T} c_u \\, u_{j,s,t} \\\\\n\\text{s.t. }\\;\n& \\sum_{j \\in \\mathcal{W}} n_t^{(j)} \\le N_t - \\Lambda_{t},\n\\qquad \\forall t \\in T, \\\\\n& u_{j,s,t} \\ge O_{j,t}^{s} - \\rho_j \\, n_t^{(j)},\n\\qquad \\forall j \\in \\mathcal{W},\\; t \\in T,\\; s \\in \\mathcal{S}, \\\\\n& u_{j,s,t} \\ge 0,\n\\qquad \\forall j \\in \\mathcal{W},\\; t \\in T,\\; s \\in \\mathcal{S}, \\\\\n& \\mathbf{n}=\\{n_t^{(j)}\\mid j\\in\\mathcal{W},\\, t\\in T\\}\\in\\mathbb{Z}_+^{|\\mathcal{W}|\\times|T|}.\n\\end{aligned}\n\\]\n\n\n\nImplementation Details\nThe deterministic equivalent model is implemented in Pyomo and solved using the Gurobi optimization solver in Python."
+  },
+  {
+    "objectID": "talks/qqf/slides.html#problem",
+    "href": "talks/qqf/slides.html#problem",
+    "title": "MUSTAFA ASLAN",
+    "section": "Problem",
+    "text": "Problem"
+  },
+  {
+    "objectID": "talks/qqf/slides.html#probabilistic-forecasting",
+    "href": "talks/qqf/slides.html#probabilistic-forecasting",
+    "title": "MUSTAFA ASLAN",
+    "section": "Probabilistic forecasting",
+    "text": "Probabilistic forecasting"
+  },
+  {
+    "objectID": "talks/qqf/slides.html#probabilistic-forecasting-5-scnearios",
+    "href": "talks/qqf/slides.html#probabilistic-forecasting-5-scnearios",
+    "title": "MUSTAFA ASLAN",
+    "section": "Probabilistic forecasting-5 scnearios",
+    "text": "Probabilistic forecasting-5 scnearios"
+  },
+  {
+    "objectID": "talks/qqf/slides.html#probabilistic-forecasting-3-scnearios",
+    "href": "talks/qqf/slides.html#probabilistic-forecasting-3-scnearios",
+    "title": "MUSTAFA ASLAN",
+    "section": "Probabilistic forecasting-3 scnearios",
+    "text": "Probabilistic forecasting-3 scnearios"
+  },
+  {
+    "objectID": "talks/qqf/slides.html#probabilistic-forecasting-10-scnearios",
+    "href": "talks/qqf/slides.html#probabilistic-forecasting-10-scnearios",
+    "title": "MUSTAFA ASLAN",
+    "section": "Probabilistic forecasting-10 scnearios",
+    "text": "Probabilistic forecasting-10 scnearios"
+  },
+  {
+    "objectID": "talks/qqf/slides.html#probabilistic-forecasting-100-scnearios",
+    "href": "talks/qqf/slides.html#probabilistic-forecasting-100-scnearios",
+    "title": "MUSTAFA ASLAN",
+    "section": "Probabilistic forecasting-100 scnearios",
+    "text": "Probabilistic forecasting-100 scnearios"
+  },
+  {
+    "objectID": "talks/qqf/slides.html#probabilistic-forecasting-1000-scnearios",
+    "href": "talks/qqf/slides.html#probabilistic-forecasting-1000-scnearios",
+    "title": "MUSTAFA ASLAN",
+    "section": "Probabilistic forecasting-1000 scnearios",
+    "text": "Probabilistic forecasting-1000 scnearios"
+  },
+  {
+    "objectID": "talks/qqf/slides.html#probabilistic-forecasting--1-scneario",
+    "href": "talks/qqf/slides.html#probabilistic-forecasting--1-scneario",
+    "title": "MUSTAFA ASLAN",
+    "section": "Probabilistic forecasting -1 scneario",
+    "text": "Probabilistic forecasting -1 scneario"
+  },
+  {
+    "objectID": "talks/qqf/slides.html#understaffing-reliability",
+    "href": "talks/qqf/slides.html#understaffing-reliability",
+    "title": "MUSTAFA ASLAN",
+    "section": "Understaffing Reliability",
+    "text": "Understaffing Reliability"
+  },
+  {
+    "objectID": "talks/qqf/slides.html#problem-statement-and-motivation-1",
+    "href": "talks/qqf/slides.html#problem-statement-and-motivation-1",
+    "title": "MUSTAFA ASLAN",
+    "section": "Problem statement and motivation",
+    "text": "Problem statement and motivation\n\n\n\nRising Demand & Vulnerability Inpatient mental health services are highly sensitive to demand fluctuations and are facing severe workforce shortages and rising admissions.\nSevere Nurse Burnout: Approximately 65% of psychiatric nurses report high stress and chronic exhaustion\nIneffective Scheduling: Current scheduling policies that fail to account for the highly variable patient acuity and unpredictable occupancy patterns inherent in mental healthcare"
+  },
+  {
+    "objectID": "talks/qqf/slides.html#the-clinical-operational-problem",
+    "href": "talks/qqf/slides.html#the-clinical-operational-problem",
+    "title": "MUSTAFA ASLAN",
+    "section": "The Clinical & Operational Problem",
+    "text": "The Clinical & Operational Problem\n\nRising Demand & Vulnerability Inpatient mental health services are highly sensitive to demand fluctuations and are facing severe workforce shortages and rising admissions."
+  },
+  {
+    "objectID": "talks/qqf/slides.html#the-methodological-problem",
+    "href": "talks/qqf/slides.html#the-methodological-problem",
+    "title": "MUSTAFA ASLAN",
+    "section": "The Methodological Problem",
+    "text": "The Methodological Problem\n\n\n\nExisting healthcare scheduling relies heavily on deterministic models, which completely fail to capture the uncertainties of fluctuating mental health demand and service durations.\n\n\n\n\n\nTraditional forecasting treats occupancy as an isolated time series, missing the abrupt “regime shifts” that are common in volatile mental health time series."
+  },
+  {
+    "objectID": "talks/qqf/slides.html#the-risk-of-point-forecasting",
+    "href": "talks/qqf/slides.html#the-risk-of-point-forecasting",
+    "title": "MUSTAFA ASLAN",
+    "section": "The Risk of Point Forecasting",
+    "text": "The Risk of Point Forecasting"
+  },
+  {
+    "objectID": "talks/qqf/slides.html#embracing-uncertainty",
+    "href": "talks/qqf/slides.html#embracing-uncertainty",
+    "title": "MUSTAFA ASLAN",
+    "section": "Embracing Uncertainty",
+    "text": "Embracing Uncertainty"
+  },
+  {
+    "objectID": "talks/qqf/slides.html#embracing-uncertainty---3-scenarios",
+    "href": "talks/qqf/slides.html#embracing-uncertainty---3-scenarios",
+    "title": "MUSTAFA ASLAN",
+    "section": "Embracing Uncertainty - 3 scenarios",
+    "text": "Embracing Uncertainty - 3 scenarios"
+  },
+  {
+    "objectID": "talks/qqf/slides.html#embracing-uncertainty---10-scenarios",
+    "href": "talks/qqf/slides.html#embracing-uncertainty---10-scenarios",
+    "title": "MUSTAFA ASLAN",
+    "section": "Embracing Uncertainty - 10 scenarios",
+    "text": "Embracing Uncertainty - 10 scenarios"
+  },
+  {
+    "objectID": "talks/qqf/slides.html#embracing-uncertainty---100-scenarios",
+    "href": "talks/qqf/slides.html#embracing-uncertainty---100-scenarios",
+    "title": "MUSTAFA ASLAN",
+    "section": "Embracing Uncertainty - 100 scenarios",
+    "text": "Embracing Uncertainty - 100 scenarios"
+  },
+  {
+    "objectID": "talks/qqf/slides.html#embracing-uncertainty---1000-scenarios",
+    "href": "talks/qqf/slides.html#embracing-uncertainty---1000-scenarios",
+    "title": "MUSTAFA ASLAN",
+    "section": "Embracing Uncertainty - 1000 scenarios",
+    "text": "Embracing Uncertainty - 1000 scenarios"
+  },
+  {
+    "objectID": "talks/qqf/slides.html#experimental-design-data",
+    "href": "talks/qqf/slides.html#experimental-design-data",
+    "title": "MUSTAFA ASLAN",
+    "section": "Experimental Design & Data",
+    "text": "Experimental Design & Data\n \n\n\n\n\nStudy Period: 7+ years of daily occupancy (2018–2025).\nScope: 7 UK Mental Health Wards (6 Acute, 1 Rehab)\nPredictors: Lags, seasonality (DoW, Month), and Public Holidays.\nEvaluation: * Two equal 360-day periods\n\nThe first for hyperparameter tuning and empirical forecast error extraction\nThe second as an holdout test set\n\n\n\n\nOptimization Constraints:\n\nStaffing Pool: 24 Nurses.\nMean absences: 1 nurses/day (Poisson distributed).\nRatios: 5:1 (Acute), 4:1 (Rehab).\nCosts: 200 (Nurse cost) vs. 300 (Penalty).\nSimulations: 1,000 scenarios via correlated bootstrap."
+  },
+  {
+    "objectID": "talks/qqf/slides.html#benchmark-molels",
+    "href": "talks/qqf/slides.html#benchmark-molels",
+    "title": "MUSTAFA ASLAN",
+    "section": "Benchmark molels",
+    "text": "Benchmark molels\n\n\n\n\n\n\n\n\nCategory\nModel / Approach\nKey Characteristics\n\n\n\n\nProposed\nAR-MSR\nRegime-switching dynamics\n\n\nStatistical\nNaive, ETS, ARIMA\nClassic time-series baselines\n\n\nMachine Learning\nRandom Forest, XGBoost, LightGBM\nNon-linear feature ensembles\n\n\nClassical Regression\nLinear & Lasso Regression\nLinear&Regularized linear baselines\n\n\nFoundation AI\nTimeGPT\nTransformer-based architecture\n\n\n\n\n\n\n\n\n\nResearch Question\n\n\nCan a regime-switching model outperform state-of-the-art Transformers (TimeGPT) in volatile mental health settings?"
+  },
+  {
+    "objectID": "talks/qqf/slides.html#benchmark-models",
+    "href": "talks/qqf/slides.html#benchmark-models",
+    "title": "MUSTAFA ASLAN",
+    "section": "Benchmark models",
+    "text": "Benchmark models\n  \n\n\n\n\n\n\n\n\nCategory\nModel / Approach\nKey Characteristics\n\n\n\n\nProposed\nAR-MSR\nRegime-switching dynamics\n\n\nStatistical\nNaive, ETS, ARIMA\nClassic time-series baselines\n\n\nMachine Learning\nRandom Forest, XGBoost, LightGBM\nNon-linear feature ensembles\n\n\nClassical Regression\nLinear & Lasso Regression\nLinear&Regularized linear baselines\n\n\nFoundational method\nTimeGPT\nTransformer-based architecture"
+  },
+  {
+    "objectID": "talks/qqf/slides.html#performance-evaluation-metrics",
+    "href": "talks/qqf/slides.html#performance-evaluation-metrics",
+    "title": "MUSTAFA ASLAN",
+    "section": "Performance Evaluation Metrics",
+    "text": "Performance Evaluation Metrics\n\n\n\n1. Forecasting Accuracy\nEvaluating the quality of the “Input”\n\nRMSE: Point forecast precision. \\[\n\\text{RMSE} = \\sqrt{\\frac{1}{H} \\sum_{t=1}^{H} (y_t - \\hat{y}_t)^2}\n\\]\nPinball Loss (PB): Distribution calibration. \\[\n\\text{PB}_q = \\frac{1}{H} \\sum_{t=1}^{H} \\rho_q(y_t - \\hat{y}_t^q)\n\\]\n\n\n\n\n\n2. Operational Utility\nEvaluating the “Decision Impact”\n\nAvg. Understaffing (AU): \\[\n\\text{AU}(\\tau) = \\frac{1}{H} \\sum_{t = \\tau+1}^{\\tau+H} [ O_t - \\rho_j n^{*}_{j,t} ]^+\n\\]\nValue of Stochastic Solution (VSS): \\[\n\\text{VSS} = \\text{EEV} - \\mathbb{E}_{O} [ z(\\mathbf{n}^{*}, O) ]\n\\]\nwhere EEV is the expected cost of the deterministic solution: \\(\\text{EEV} = \\mathbb{E}_{O} \\left[ z\\left( \\bar n(\\bar O), O \\right) \\right]\\)"
+  },
+  {
+    "objectID": "talks/qqf/slides.html#scenario-generation-correlated-bootstrapping",
+    "href": "talks/qqf/slides.html#scenario-generation-correlated-bootstrapping",
+    "title": "MUSTAFA ASLAN",
+    "section": "Scenario Generation: Correlated Bootstrapping",
+    "text": "Scenario Generation: Correlated Bootstrapping\nWe account for the fact that forecast errors are not \\(i.i.d.\\) across time (forecasting horizon)\n\n\n\n\nThe Mathematical Approach\n\n\n\nFor each test origin \\(t = 1, \\dots, 360\\), let\n\n\\[\ne_{t,h} = y_{t+h} - \\hat{y}_{t+h}, \\qquad h = 1, \\dots, 84,\n\\]\n\n\n\nDenote the forecast error at horizon \\(h\\). Define the error vector\n\n\\[\n\\mathbf{e}_t = (e_{t+1}, e_{t+2}, \\dots, e_{t+84})^\\top \\in \\mathbb{R}^{84}.\n\\]\n\n\n\nThe mean vector and covariance matrix are estimated as\n\n\\[\n\\mu = \\frac{1}{360} \\sum_{t=1}^{360} \\mathbf{e}_t,\n\\qquad\n\\Sigma = \\frac{1}{359} \\sum_{t=1}^{360}\n(\\mathbf{e}_t - \\mu)(\\mathbf{e}_t - \\mu)^\\top.\n\\]\n\n\n\n\n\n\nWe approximate the joint error distribution by\n\n\\[\n\\mathbf{E} \\sim \\mathcal{N}(\\mu, \\Sigma).\n\\]\n\n\n\nFor each origin, \\(S=1{,}000\\) correlated error samples are drawn as\n\n\\[\n\\mathbf{e}^{(s)} \\sim \\mathcal{N}(\\mu, \\Sigma),\n\\qquad s = 1, \\dots, S.\n\\]\n\n\n\nLet \\(\\hat{\\mathbf{y}}_t\\) denote the vector of point forecasts. The simulated occupancy scenarios are then given by\n\n\\[\n\\mathbf{y}^{(s)}_t = \\hat{\\mathbf{y}}_t + \\mathbf{e}^{(s)}.\n\\]"
+  },
+  {
+    "objectID": "talks/presentations/qqf.html",
+    "href": "talks/presentations/qqf.html",
+    "title": "Forecast-Driven Two-Stage Stochastic Programming for Nurse Rostering",
+    "section": "",
+    "text": "Slides\nDate: Mar 13 2026 12:00-17:00\nEvent: Quarterly Forecasting Forum\nLocation: Cardiff Business School, Cardiff University, UK"
+  },
+  {
+    "objectID": "talks/presentations/qqf.html#context",
+    "href": "talks/presentations/qqf.html#context",
+    "title": "Forecast-Driven Two-Stage Stochastic Programming for Nurse Rostering",
+    "section": "Context",
+    "text": "Context\nAt the Quarterly Forecasting Forum (QFF), I presented our research on “Forecast-Driven Two-Stage Stochastic Programming for Nurse Rostering.” This presentation focused on the application of a proposed forecasting approach, Autoregressive Markov-switching regression (AR-MSR), to forecast occupancy levels in mental hospital wards. The simulated forecasts were then integrated into a two-stage stochastic programming model to optimize nurse rostering decisions, aiming to improve patient care and operational efficiency."
+  },
+  {
+    "objectID": "talks/qqf/example.html",
+    "href": "talks/qqf/example.html",
+    "title": "Probabilistic forecast flow",
+    "section": "",
+    "text": "# import libraries\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport plotly.express as px\nimport pandas as pd\n# allow max rows to be displayed\npd.set_option('display.max_columns', None)\npd.set_option('display.max_rows', 50)\n# ignore warnings\nimport warnings\nwarnings.filterwarnings('ignore')\nfrom xgboost import XGBRegressor\nfrom lightgbm import LGBMRegressor\nfrom catboost import CatBoostRegressor\nfrom sklearn.linear_model import LinearRegression, Ridge, Lasso, ElasticNet\nfrom sklearn.model_selection import TimeSeriesSplit, KFold\nimport pandas as pd\nfrom sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error, root_mean_squared_error\nfrom sklearn.preprocessing import StandardScaler, MinMaxScaler\nfrom sklearn.pipeline import Pipeline       \nfrom sklearn.compose import ColumnTransformer\nfrom sklearn.impute import SimpleImputer\nfrom sklearn.ensemble import RandomForestRegressor, HistGradientBoostingRegressor, AdaBoostRegressor, GradientBoostingRegressor\nimport numpy as np\nfrom cubist import Cubist\nfrom hyperopt import fmin, tpe, hp, Trials, STATUS_OK, space_eval\nfrom hyperopt.pyll import scope\npd.set_option('display.max_rows', 150)\nimport pickle # for saving and loading models\nfrom statsmodels.tsa.holtwinters import ExponentialSmoothing\nfrom statsmodels.tsa.seasonal import seasonal_decompose, MSTL\nfrom sklearn.tree import DecisionTreeRegressor\n\nfrom peshbeen.models import (ml_forecaster, ml_bidirect_forecaster, VARModel, MsHmmRegression, MsHmmVar)\nfrom peshbeen.model_selection import (cross_validate,  mv_cross_validate,\n                                      cv_tune, mv_cv_tune, prob_param_forecasts,\n                                      tune_ets, tune_sarima, ParametricTimeSeriesSplit,\n                                      forward_feature_selection, backward_feature_selection,\n                                      mv_forward_feature_selection, mv_backward_feature_selection,\n                                      hmm_forward_feature_selection, hmm_backward_feature_selection,\n                                      hmm_mv_forward_feature_selection, hmm_mv_backward_feature_selection,\n                                      hmm_cross_validate, hmm_mv_cross_validate, cv_lag_tune, \n                                      cv_hmm_lag_tune)\nfrom peshbeen.statplots import (plot_ccf, plot_PACF_ACF)\nfrom peshbeen.stattools import (unit_root_test, cross_autocorrelation,\n                                lr_trend_model, forecast_trend, pacf_strength, ccf_strength)\nfrom peshbeen.transformations import (fourier_terms, rolling_quantile,\n                        rolling_mean, rolling_std, expanding_mean, expanding_std,\n                        expanding_quantile, expanding_ets, box_cox_transform,\n                        back_box_cox_transform,undiff_ts, seasonal_diff, invert_seasonal_diff,\n                        nzInterval, zeroCumulative, kfold_target_encoder, target_encoder_for_test)\nfrom peshbeen.metrics import (MAPE, MASE, MSE, MAE, RMSE, SMAPE, CFE, CFE_ABS, WMAPE, SRMSE, RMSSE, SMAE)\nfrom peshbeen.prob_forecast import (ml_prob_forecasts, var_prob_forecasts, hmm_prob_forecasts, ets_prob_forecasts, arima_prob_forecasts, naive_prob_forecasts)\nfrom sktime.transformations.series.boxcox import BoxCoxTransformer\nsns.set_context(\"talk\")\noccup = pd.read_excel('data/occup_train_clean.xlsx', index_col=0)\noccup[\"day_of_week\"] = occup.index.day_name()\noccup[\"month\"] = occup.index.month_name()\ncat_cols = [\"day_of_week\", \"month\", \"is_holiday\"]\ncat_col_f = [\"day_of_week\", \"is_holiday\"]\nhmm_params = {'blake': {'best_states': 2, 'best_lag': 2, 'best_k': 1},\n 'mulberry': {'best_states': 2, 'best_lag': 3, 'best_k': 1},\n 'juniper': {'best_states': 2, 'best_lag': 3, 'best_k': 1},\n 'magnolia': {'best_states': 6, 'best_lag': 3, 'best_k': 2},\n 'clare': {'best_states': 2, 'best_lag': 3, 'best_k': 1},\n 'anderson': {'best_states': 2, 'best_lag': 3, 'best_k': 1},\n 'other': {'best_states': 2, 'best_lag': 2, 'best_k': 2}}\n\ndef data_prep_f(ward, fourier_k):\n    ward_train = occup[[ward, \"time\"]+cat_col_f]\n    ft = fourier_terms(start_end_index=(ward_train.index.min(), ward_train.index.max()),\n                period=365.25, num_terms=fourier_k)\n    return ward_train.merge(ft, left_index=True, right_index=True, how=\"left\")\nward_df= data_prep_f(\"blake\", 1)\n\ntrain = ward_df.iloc[:-3*84]\ntest = ward_df.iloc[-3*84:-2*84]\ncol = \"blake\"\nhm_model_ = MsHmmRegression(n_components=2, target_col=col, cat_variables=cat_col_f, lags=2,\n                            random_state=42, n_iter=300, tol=1e-2, ridge=0, verbose=False)\n# fit_df = df_[:-360]\nhm_model_.fit_em(train)\n\nnp.float64(360.66690918204046)\n# # Save to file\n# with open('exp_results/hm_model_.pkl', 'wb') as f:\n#     pickle.dump(hm_model_, f)# \n\n# Load from file\nwith open('exp_results/hm_model_.pkl', 'rb') as f:\n    hm_model_ = pickle.load(f)\npoint_forecasts = hm_model_.forecast(H=84, exog=test.drop(columns=[col]))\nhmm_prob = hmm_prob_forecasts(model=hm_model_, n_calibration=360, H=84, sliding_window=1, n_iter=100, verbose=False)\nhmm_prob.calibrate(train)\n# # Save to file\n# with open('exp_results/hmm_prob.pkl', 'wb') as f:\n#     pickle.dump(hmm_prob, f)# \n\n# Load from file\nwith open('exp_results/hmm_prob.pkl', 'rb') as f:\n    hmm_prob = pickle.load(f)\nboost = hmm_prob.simulate_correlated_forecasts(train, samples=1000, future_exog=test.drop(columns=[col]))\nprob_forecasts = boost.correlated_forecasts\n## Generate point forecasts\n## Generate probabilistic forecasts\nfrom datetime import timedelta\n\n\nscenarios_hmm = np.array(prob_forecasts)\n\n## plot scenarios agains train and test\nplt.figure(figsize=(12, 6))\nplt.plot(train[col].index[-120:], train[col][-120:], label='Train', color='C0')\nplt.plot(test.index, test[col], label='Actual', color='C2', linewidth=2, alpha=1)\nplt.plot(test.index, point_forecasts, label='Point Forecast', color='C3')\n# Define decision time (start of forecast horizon)\ndecision_time = test.index[0]+ timedelta(days=-1)  # first day of test/forecast period\n# for i in range(scenarios_hmm.shape[0]-1):\n#     plt.plot(test.index, scenarios_hmm[i], color='C7', alpha=0.1)\n# plt.plot(test.index, scenarios_hmm[-1], color='C7', alpha=0.1, label ='All Scenarios (1000)')\n\n# 1. Vertical dashed line\nplt.axvline(decision_time, color='black', linestyle='--', linewidth=1.5)\n\n# 2. \"Decision time\" label at top\nplt.text(\n    decision_time,\n    plt.ylim()[1] * 0.98,\n    \"Decision time\",\n    ha='center',\n    va='top',\n    fontsize=12,\n    fontweight='bold',\n    color='black'\n)\n\n# 3. Explanation text box\nplt.text(\n    decision_time,\n    plt.ylim()[1] * 0.90,\n    \"Decision:\\nHow many nurses\\nshould I schedule\\nfor each day of next 42-84 days of forecasting horizon?\",\n    ha='center',\n    va='top',\n    fontsize=11,\n    color='black',\n    bbox=dict(facecolor='white', alpha=0.4, edgecolor='none')\n)\n\n\n# Choose a low y-level automatically (5% above bottom of plot)\nhline_y = plt.ylim()[0] + 0.05 * (plt.ylim()[1] - plt.ylim()[0])\n\n# Horizontal line spanning forecasting period\nplt.hlines(\n    y=hline_y,\n    xmin=test.index[42],\n    xmax=test.index[-1],\n    color='C5',\n    linestyle='--',\n    linewidth=2,\n    alpha=0.8\n)\n\n# Label next to the horizontal line\nplt.text(\n    test.index[62],\n    hline_y,\n    \"Uncertainty in occupancy levels\\nfor the next 42 days\",\n    ha='center',\n    va='bottom',\n    fontsize=11,\n    color='black'\n)\n\n\nplt.ylabel('Occupancy')\nplt.xlabel('Date')\nplt.grid(True)\nplt.legend(fontsize=12)\nplt.show()\n## Generate point forecasts\n## Generate probabilistic forecasts\nfrom datetime import timedelta\n\n\nscenarios_hmm = np.array(prob_forecasts)\n\n## plot scenarios agains train and test\nplt.figure(figsize=(12, 6))\nplt.plot(train[col].index[-120:], train[col][-120:], label='Train', color='C0')\nplt.plot(test.index, test[col], label='Actual', color='C2', linewidth=2, alpha=1)\nplt.plot(test.index, point_forecasts, label='Point Forecast', color='C3')\n# Define decision time (start of forecast horizon)\ndecision_time = test.index[0]+ timedelta(days=-1)  # first day of test/forecast period\n# for i in range(scenarios_hmm[0:3].shape[0]-1):\n#     plt.plot(test.index, scenarios_hmm[i], color='C7', alpha=0.5)\nplt.plot(test.index, scenarios_hmm[-1], color='C7', alpha=0.5, label ='All Scenarios (1000)')\n\n# 1. Vertical dashed line\nplt.axvline(decision_time, color='black', linestyle='--', linewidth=1.5)\n\n# 2. \"Decision time\" label at top\nplt.text(\n    decision_time,\n    plt.ylim()[1] * 0.98,\n    \"Decision time\",\n    ha='center',\n    va='top',\n    fontsize=12,\n    fontweight='bold',\n    color='black'\n)\n\n# 3. Explanation text box\nplt.text(\n    decision_time,\n    plt.ylim()[1] * 0.90,\n    \"Decision:\\nHow many nurses\\nshould I schedule\\nfor each day of next 42-84 days of forecasting horizon?\",\n    ha='center',\n    va='top',\n    fontsize=11,\n    color='black',\n    bbox=dict(facecolor='white', alpha=0.4, edgecolor='none')\n)\n\n\n# Choose a low y-level automatically (5% above bottom of plot)\nhline_y = plt.ylim()[0] + 0.05 * (plt.ylim()[1] - plt.ylim()[0])\n\n# Horizontal line spanning forecasting period\nplt.hlines(\n    y=hline_y,\n    xmin=test.index[42],\n    xmax=test.index[-1],\n    color='C5',\n    linestyle='--',\n    linewidth=2,\n    alpha=0.8\n)\n\n# Label next to the horizontal line\nplt.text(\n    test.index[62],\n    hline_y,\n    \"Uncertainty in occupancy levels\\nfor the next 42 days\",\n    ha='center',\n    va='bottom',\n    fontsize=11,\n    color='black'\n)\n\n\nplt.ylabel('Occupancy')\nplt.xlabel('Date')\nplt.grid(True)\nplt.legend(fontsize=12)\nplt.show()"
+  },
+  {
+    "objectID": "talks/qqf/example.html#tables",
+    "href": "talks/qqf/example.html#tables",
+    "title": "Probabilistic forecast flow",
+    "section": "tables",
+    "text": "tables\n\nfrom great_tables import *\n\n\nf_metrics = pd.read_csv(\"tables/model_ward_sgain_forecasts.csv\")\n\n\nf_metrics.replace({\"model\": {\"PermEntropy\": \"\"}}, inplace=True)\n\n\nf_metrics\n\n\n\n\n\n\n\n\nmodel\nWard A\nWard B\nWard C\nWard D\nWard E\nWard F\nWard G\noverall\nmetric\n\n\n\n\n0\nAR-MSR\n3.373633\n4.947921\n3.260366\n3.910015\n2.800352\n3.782174\n2.105290\n3.454250\nRMSE\n\n\n1\nLASSO\n3.793185\n5.341442\n4.075063\n2.318951\n3.067318\n3.685791\n2.084345\n3.480871\nRMSE\n\n\n2\nLR\n3.623391\n5.664509\n3.700904\n2.199278\n3.335767\n3.983707\n2.080061\n3.512517\nRMSE\n\n\n3\nRF\n3.956461\n5.071211\n4.382106\n2.639701\n2.867912\n4.090270\n2.098558\n3.586603\nRMSE\n\n\n4\nETS\n3.698820\n5.486072\n3.888890\n2.606520\n3.602168\n3.948612\n2.048124\n3.611315\nRMSE\n\n\n5\nTimeGPT\n4.095112\n5.507926\n3.779924\n2.758942\n3.407333\n3.660007\n2.513029\n3.674610\nRMSE\n\n\n6\nARIMA\n3.662656\n5.729906\n4.063827\n2.463221\n3.730140\n3.975073\n2.198374\n3.689028\nRMSE\n\n\n7\nNAIVE\n4.260987\n5.399300\n3.892615\n2.899999\n3.448369\n3.706992\n2.580958\n3.741317\nRMSE\n\n\n8\nXGB\n4.224786\n5.253307\n5.149105\n2.571125\n3.643394\n3.943408\n2.011702\n3.828118\nRMSE\n\n\n9\nLGB\n3.984276\n5.500140\n4.400395\n4.086323\n3.289454\n3.862070\n1.999413\n3.874582\nRMSE\n\n\n10\nAR-MSR\n1.045588\n1.525511\n0.964952\n0.868996\n0.871215\n1.215376\n0.600589\n1.013175\nPinball\n\n\n11\nLR\n1.012719\n1.498275\n0.963025\n0.968045\n0.845042\n1.294412\n0.611702\n1.027603\nPinball\n\n\n12\nLASSO\n1.136555\n1.606141\n1.058391\n0.912206\n0.874879\n1.190900\n0.610077\n1.055593\nPinball\n\n\n13\nRF\n1.249672\n1.640816\n1.221365\n0.916781\n0.865144\n1.353165\n0.637384\n1.126332\nPinball\n\n\n14\nXGB\n1.226932\n1.677229\n1.325663\n0.813778\n0.992039\n1.348910\n0.633346\n1.145414\nPinball\n\n\n15\nETS\n1.245543\n1.806563\n1.107668\n0.942603\n1.091017\n1.351288\n0.644271\n1.169851\nPinball\n\n\n16\nNAIVE\n1.383129\n1.746438\n1.221968\n0.965408\n1.100163\n1.128023\n0.803762\n1.192699\nPinball\n\n\n17\nARIMA\n1.163442\n1.866146\n1.277825\n1.000289\n1.187604\n1.209706\n0.668664\n1.196239\nPinball\n\n\n18\nLGB\n1.186391\n1.833974\n1.185235\n1.414645\n0.995072\n1.304311\n0.631901\n1.221647\nPinball\n\n\n19\nTimeGPT\n1.448103\n1.955222\n1.334803\n0.976975\n1.238214\n1.294727\n0.867477\n1.302217\nPinball\n\n\n20\n\n0.760015\n0.723240\n0.712319\n0.657460\n0.613129\n0.613726\n0.563251\n0.663306\nPermEntropy\n\n\n21\nAR-MSR\n0.115079\n1.617460\n0.422222\n0.010317\n0.404762\n0.979365\n0.162698\n3.711905\nSTO\n\n\n22\nLR\n0.214286\n1.712698\n0.512698\n0.003968\n0.238889\n1.169841\n0.155556\n4.007937\nSTO\n\n\n23\nLASSO\n0.429365\n1.565873\n0.938889\n0.009524\n0.160317\n1.280159\n0.158730\n4.542857\nSTO\n\n\n24\nARIMA\n0.731746\n1.737302\n0.352381\n0.015873\n0.535714\n1.250000\n0.312698\n4.935714\nSTO\n\n\n25\nETS\n0.270635\n1.139683\n0.681746\n0.008730\n1.371429\n1.595238\n0.158730\n5.226190\nSTO\n\n\n26\nRF\n0.442063\n1.718254\n1.230159\n0.068254\n0.469048\n1.220635\n0.144444\n5.292857\nSTO\n\n\n27\nNAIVE\n1.136508\n1.582540\n0.409524\n0.108730\n0.534921\n1.212698\n0.449206\n5.434127\nSTO\n\n\n28\nXGB\n0.595238\n1.227778\n1.391270\n0.024603\n0.743651\n1.595238\n0.153968\n5.731746\nSTO\n\n\n29\nLGB\n0.557143\n1.619048\n1.284921\n0.013492\n0.903968\n1.595238\n0.164286\n6.138095\nSTO\n\n\n30\nAR-MSR-PointForecasts\n1.165873\n3.584127\n1.342063\n0.138889\n1.079365\n1.595238\n0.153968\n9.059524\nSTO\n\n\n31\nAR-MSR\n833.571429\n1333.650794\n836.190476\n657.698413\n669.841270\n822.857143\n447.857143\n5601.666667\nVSS\n\n\n32\nLASSO\n883.253968\n1319.126984\n931.825397\n676.349206\n615.555556\n841.349206\n446.825397\n5714.285714\nVSS\n\n\n33\nLR\n849.047619\n1340.476190\n850.634921\n739.603175\n641.666667\n870.476190\n452.063492\n5743.968253\nVSS\n\n\n34\nETS\n858.968254\n1261.428571\n883.571429\n650.079365\n811.428571\n878.571429\n447.301587\n5791.349206\nVSS\n\n\n35\nRF\n883.095238\n1329.761905\n987.777778\n653.968254\n675.793651\n836.984127\n453.333333\n5820.714286\nVSS\n\n\n36\nXGB\n910.476190\n1262.936508\n1017.380952\n633.253968\n745.476190\n878.571429\n446.190476\n5894.285714\nVSS\n\n\n37\nARIMA\n932.698413\n1398.968254\n909.206349\n699.841270\n725.793651\n845.158730\n494.285715\n6005.952382\nVSS\n\n\n38\nNAIVE\n1041.746032\n1376.666667\n903.174603\n661.190476\n730.317460\n817.619048\n555.396825\n6086.111111\nVSS\n\n\n39\nLGB\n899.047619\n1353.968254\n1005.476190\n766.428571\n750.079365\n878.571429\n448.492063\n6102.063492\nVSS\n\n\n40\nAR-MSR-PointForecasts\n1022.619048\n1746.984127\n1006.746032\n613.095238\n768.571429\n878.571429\n446.190476\n6482.777778\nVSS\n\n\n\n\n\n\n\n\nf_metrics = pd.read_csv(\"tables/model_ward_sgain_forecasts.csv\")\ngroup_map = {\n    \"RMSE\": \"Point Forecast (RMSE)\",\n    \"Pinball\": \"Probabilistic (Pinball Loss)\",\n    \"PermEntropy\": \"Permutation Entropy\",\n    \"STO\": \"Average Understaffed Number of Patients\",\n    \"VSS\": \"Value of Stochastic Solution\"\n}\n\nf_metrics_view = f_metrics.assign(metric=f_metrics[\"metric\"].replace(group_map))\n\nGT(f_metrics_view).tab_stub(groupname_col=\"metric\").tab_style(\n    style=style.fill(color=\"#FBFAF4\"),\n    locations=loc.body()\n).tab_style(\n    style=style.fill(color=\"#20808D\"),\n    locations=loc.column_header()\n).tab_style(\n    style=style.text(color=\"#FBFAF4\", weight=\"bold\"),\n    locations=loc.column_labels()\n).tab_style(\n    # Targeting the row group labels specifically\n    style=[\n        style.fill(color=\"#20808D\"), \n        style.text(color=\"#FBFAF4\", weight=\"bold\")\n    ],\n    locations=loc.row_groups()\n).tab_style(\n        style=style.text(size=\"38px\", weight=\"bold\"),\n        locations=loc.column_labels()\n    ).tab_style(\n        style=style.text(size=\"36px\"),\n        locations=loc.body()\n    )\n\n\n\n\n\n\n\nmodel\nWard A\nWard B\nWard C\nWard D\nWard E\nWard F\nWard G\noverall\n\n\n\n\nPoint Forecast (RMSE)\n\n\nAR-MSR\n3.3736325222806594\n4.9479213593117475\n3.2603664196995603\n3.910014573851342\n2.8003516710737717\n3.78217417220872\n2.1052900735969664\n3.4542501131461094\n\n\nLASSO\n3.793185217596648\n5.3414415585736315\n4.075062540070708\n2.318951228444537\n3.0673181364467195\n3.6857912371812858\n2.0843451115078797\n3.480870718545915\n\n\nLR\n3.6233911417590305\n5.664509055807773\n3.7009041794708417\n2.199278262453863\n3.335766512790936\n3.983706623960853\n2.0800614715029813\n3.51251674967804\n\n\nRF\n3.956460859156175\n5.071210553765478\n4.382106481001265\n2.639701270318182\n2.867911956206467\n4.090270065963361\n2.09855798820284\n3.586602739230538\n\n\nETS\n3.698820423579899\n5.486072037184399\n3.8888902836483767\n2.6065201189737772\n3.602168307178825\n3.948612055940692\n2.0481244272801713\n3.611315379112306\n\n\nTimeGPT\n4.095111878591425\n5.507925562611942\n3.779924129775609\n2.758941878046337\n3.407332852275019\n3.660006772990124\n2.5130292584559366\n3.674610333249484\n\n\nARIMA\n3.662655832476581\n5.729905546461908\n4.063826627378163\n2.463220867810203\n3.730139616106371\n3.975072518826525\n2.1983735929913717\n3.689027800293018\n\n\nNAIVE\n4.260987040964574\n5.399299752142806\n3.8926151003546345\n2.8999988369509304\n3.4483687089421675\n3.7069920924559177\n2.5809578448760058\n3.7413170538124336\n\n\nXGB\n4.22478572823843\n5.253307070988415\n5.14910494514314\n2.5711249060260664\n3.643394453862358\n3.943407713572969\n2.011702066389987\n3.828118126317338\n\n\nLGB\n3.9842762875188433\n5.500139533944931\n4.4003954354861134\n4.0863227950048095\n3.28945411312878\n3.862069763025887\n1.9994134519250544\n3.8745816257192023\n\n\nProbabilistic (Pinball Loss)\n\n\nAR-MSR\n1.0455875579861142\n1.5255110475719946\n0.9649518069053143\n0.8689964743838985\n0.8712152071667197\n1.2153756722484013\n0.6005890560222211\n1.0131752603263806\n\n\nLR\n1.0127193110566717\n1.4982747879743534\n0.9630251847086618\n0.968044519050438\n0.8450424718575041\n1.2944118782428118\n0.611701816919458\n1.0276028528299856\n\n\nLASSO\n1.1365554539073948\n1.60614119344363\n1.058390926918535\n0.9122055708463676\n0.8748794130505652\n1.190900129362254\n0.6100767774966529\n1.0555927807179144\n\n\nRF\n1.2496724479447865\n1.640816120670067\n1.221364718972858\n0.9167805244756492\n0.8651444806631923\n1.3531649571401048\n0.63738417749596\n1.1263324896232312\n\n\nXGB\n1.226931581221036\n1.6772289492956132\n1.3256634397400446\n0.813778291420804\n0.9920388979708644\n1.3489098199301053\n0.6333462498260695\n1.145413889914934\n\n\nETS\n1.245543412227771\n1.8065633587027037\n1.107667894194592\n0.9426031403408556\n1.091016965316723\n1.3512878351742563\n0.6442709168543923\n1.1698505032587565\n\n\nNAIVE\n1.3831290847885516\n1.7464382527182014\n1.2219682238106846\n0.965408082750928\n1.1001625417693714\n1.1280228171112354\n0.803762038793292\n1.1926987202488948\n\n\nARIMA\n1.1634417415669212\n1.866146428689427\n1.27782549302118\n1.0002886569303275\n1.187604198455248\n1.2097061055732412\n0.668663566465396\n1.1962394558145346\n\n\nLGB\n1.1863909289942072\n1.8339742459478732\n1.1852349778567757\n1.4146446159996908\n0.9950716168133968\n1.304311002239472\n0.6319007856533069\n1.221646881929246\n\n\nTimeGPT\n1.448102945413886\n1.9552222822739664\n1.3348032419839704\n0.976974874457276\n1.2382143427588694\n1.294727288827358\n0.8674771408778873\n1.302217445227602\n\n\nPermutation Entropy\n\n\nPermEntropy\n0.7600151178826429\n0.723239948259235\n0.7123187468675354\n0.657460223717832\n0.6131288328640623\n0.6137260493073763\n0.5632510909790247\n0.6633057156968155\n\n\nAverage Understaffed Number of Patients\n\n\nAR-MSR\n0.115079365079365\n1.6174603174603177\n0.4222222222222222\n0.0103174603174603\n0.4047619047619047\n0.9793650793650792\n0.1626984126984127\n3.711904761904762\n\n\nLR\n0.2142857142857142\n1.7126984107051404\n0.5126984126984127\n0.0039682539682539\n0.2388888888888889\n1.16984126984127\n0.1555555555555555\n4.007936505943236\n\n\nLASSO\n0.4293650793650793\n1.565873015873016\n0.9388888888888888\n0.0095238095238095\n0.1603174603174603\n1.28015873015873\n0.1587301587301587\n4.542857142857143\n\n\nARIMA\n0.7317460317460317\n1.7373015873015871\n0.3523809523809524\n0.0158730158730158\n0.5357142857142857\n1.25\n0.3126984167550957\n4.935714289770968\n\n\nETS\n0.2706349206349206\n1.1396825396825396\n0.6817460317460318\n0.0087301587301587\n1.3714285714285714\n1.5952380952380951\n0.1587301587301587\n5.226190476190476\n\n\nRF\n0.442063492063492\n1.718253968253968\n1.2301587301587302\n0.0682539682539682\n0.469047619047619\n1.2206349206349207\n0.1444444444444444\n5.292857142857143\n\n\nNAIVE\n1.1365079365079365\n1.5825396825396825\n0.4095238095238095\n0.1087301587301587\n0.5349206349206349\n1.2126984126984126\n0.4492063492063492\n5.434126984126984\n\n\nXGB\n0.5952380952380952\n1.227777777777778\n1.3912698412698412\n0.0246031746031746\n0.7436507936507937\n1.5952380952380951\n0.1539682539682539\n5.731746031746032\n\n\nLGB\n0.5571428571428572\n1.619047619047619\n1.284920634920635\n0.0134920634920634\n0.903968253968254\n1.5952380952380951\n0.1642857142857142\n6.1380952380952385\n\n\nAR-MSR-PointForecasts\n1.165873015873016\n3.5841269841269843\n1.342063492063492\n0.1388888888888889\n1.0793650793650793\n1.5952380952380951\n0.1539682539682539\n9.05952380952381\n\n\nValue of Stochastic Solution\n\n\nAR-MSR\n833.5714285714286\n1333.6507936507935\n836.1904761904761\n657.6984126984127\n669.8412698412699\n822.8571428571429\n447.8571428571428\n5601.666666666667\n\n\nLASSO\n883.2539682539683\n1319.126984126984\n931.8253968253968\n676.3492063492064\n615.5555555555555\n841.3492063492064\n446.8253968253968\n5714.285714285715\n\n\nLR\n849.047619047619\n1340.4761899579398\n850.6349206349206\n739.6031746031746\n641.6666666666666\n870.4761904761905\n452.0634920634921\n5743.968253450003\n\n\nETS\n858.968253968254\n1261.428571428571\n883.5714285714286\n650.0793650793651\n811.4285714285714\n878.5714285714286\n447.3015873015873\n5791.349206349207\n\n\nRF\n883.0952380952381\n1329.7619047619048\n987.7777777777778\n653.968253968254\n675.7936507936508\n836.984126984127\n453.3333333333333\n5820.714285714285\n\n\nXGB\n910.4761904761904\n1262.936507936508\n1017.3809523809524\n633.2539682539683\n745.4761904761905\n878.5714285714286\n446.1904761904762\n5894.285714285715\n\n\nARIMA\n932.6984126984128\n1398.968253968254\n909.2063492063492\n699.8412698412699\n725.7936507936508\n845.1587301587301\n494.285715299885\n6005.952381966551\n\n\nNAIVE\n1041.7460317460318\n1376.6666666666667\n903.1746031746032\n661.1904761904761\n730.3174603174604\n817.6190476190476\n555.3968253968254\n6086.111111111111\n\n\nLGB\n899.047619047619\n1353.968253968254\n1005.4761904761904\n766.4285714285714\n750.0793650793651\n878.5714285714286\n448.4920634920635\n6102.063492063492\n\n\nAR-MSR-PointForecasts\n1022.6190476190476\n1746.984126984127\n1006.7460317460316\n613.0952380952381\n768.5714285714286\n878.5714285714286\n446.1904761904762\n6482.777777777777"
   }
 ]

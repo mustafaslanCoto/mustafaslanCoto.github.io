@@ -2,6 +2,7 @@
   {
     "listing": "/talks/index.html",
     "items": [
+      "/talks/presentations/qqf.html",
       "/talks/presentations/sword.html",
       "/talks/presentations/wgsss.html"
     ]

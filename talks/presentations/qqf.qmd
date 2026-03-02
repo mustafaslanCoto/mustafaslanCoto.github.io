@@ -1,0 +1,30 @@
+---
+title: "Forecast-Driven Two-Stage Stochastic Programming for Nurse Rostering"
+description: "Quarterly Forecasting Forum"
+author: "Mustafa Aslan"
+date: "2026-03-13"
+image: "../images/gemini_present.png"
+categories:
+  - Mental Health
+  - Healthcare Operations
+  - Sequential Decision Analytics
+  - Python
+  - Time Series Forecasting
+  - Machine Learning
+link-external-newwindow: true
+---
+
+
+![](../images/gemini_present.png){fig-align="center"}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+[<i class="fas fa-bookmark"></i> Slides](../qqf/slides.qmd){.btn .btn-sm .btn-outline-primary}
+
+**Date:** Mar 13 2026 12:00-17:00 \
+**Event:** Quarterly Forecasting Forum\
+**Location:** Cardiff Business School, Cardiff University, UK
+
+## Context
+
+At the Quarterly Forecasting Forum (QFF), I presented our research on "Forecast-Driven Two-Stage Stochastic Programming for Nurse Rostering." This presentation focused on the application of a proposed forecasting approach, Autoregressive Markov-switching regression (AR-MSR), to forecast occupancy levels in mental hospital wards. The simulated forecasts were then integrated into a two-stage stochastic programming model to optimize nurse rostering decisions, aiming to improve patient care and operational efficiency.
