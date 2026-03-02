@@ -1,5 +1,5 @@
 ---
-jupyter: peshbeen
+jupyter: python3
 format:
   revealjs:
     css: style.css
