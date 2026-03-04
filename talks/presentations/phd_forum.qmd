@@ -1,0 +1,28 @@
+---
+title: "AI in Research & Social Care"
+description: "Care PhD Forum"
+author: "Mustafa Aslan"
+date: "2026-04-23"
+image: "../images/ai.jpeg"
+categories:
+  - AI
+  - Research
+  - Social Care
+  - PhD
+link-external-newwindow: true
+---
+
+
+![](../images/ai.jpeg){fig-align="center"}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+[<i class="fas fa-bookmark"></i> Slides](../care_phd/slides.qmd){.btn .btn-sm .btn-outline-primary}
+
+**Date:** Apr 23 2026 12:00-17:00 \
+**Event:** Care PhD Forum\
+**Location:** Spark, Cardiff University, UK
+
+## Context
+
+In this talk, I will discuss the transformative potential of AI in research and social care. I will cover the basics of AI, its applications in research, key tools for researchers, and specific use cases in social care.

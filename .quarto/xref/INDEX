@@ -26,5 +26,11 @@
   },
   "talks/index.qmd": {
     "index.html": "bd43e078"
+  },
+  "talks/presentations/phd_forum.qmd": {
+    "phd_forum.html": "1c0e8b4b"
+  },
+  "talks/care_phd/slides.qmd": {
+    "slides.html": "ef3895ea"
   }
 }

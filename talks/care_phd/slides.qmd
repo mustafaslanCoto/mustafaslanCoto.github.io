@@ -1,0 +1,197 @@
+---
+title: "AI in Research & Social Care"
+subtitle: "Moving Beyond the Chatbot"
+author: "Mustafa Aslan"
+date: "April 24, 2025"
+format:
+    revealjs:
+        css: style.css
+        transition: "fade"
+        width: 1920
+        height: 1080
+        footer: "[AI and AI in Research](https://mustafaslancoto.github.io/talks/presentations/qqf.html)"
+        slide-number: c/t
+        preview-links: auto
+        html-math-method: mathjax
+        # title-slide-attributes:
+        #     data-background-image: "images/ai.jpeg"
+        #     data-background-size: cover
+---
+
+# Outline
+
+:::{style="color: #091717; font-size: 1.5em; font-weight: bold;"}
+- What is AI?
+- AI in Research
+- Key Generative AI Tools for Researchers
+- Social Care Use Cases
+- Predicting Future Care Demand
+- Critical Considerations
+:::
+
+
+# What is AI? <br> (It's not just ChatGPT/Gemini/Copilot)
+
+## [AI is a Toolbox, Not a Magic Wand]{style="color: #091717"} {background-image="images/ai.jpeg" background-size="cover"}
+
+
+## Main Engines of AI
+
+:::{style="color: #091717; font-size: 1.3em"}
+Most people see **Generative AI**, but the engine of research is often:
+
+:::{.incremental}
+
+* **Machine Learning (ML):** Teaching computers to learn from data to make predictions.
+* **Forecasting:** Predicting future trends based on historical data and patterns.
+* **Optimization:** Solving complex "best-fit" problems.
+* **Natural Language Processing (NLP):** Understanding and generating human language.
+* **Computer Vision:** Analyzing images and videos for insights.
+* **Reinforcement Learning:** Training agents to make decisions through trial and error.
+* **Generative AI:** Creating new content (text, images, code) based on learned patterns using large language models (LLMs).
+:::
+:::
+
+# AI in Research
+
+## AI as a Research Partner/Assistant, not a Replacement
+
+<br>
+<br>
+
+> "AI doesn't replace the researcher; it removes the friction of the mundane."
+
+### Key Applications
+
+1. **Data Synthesis:** Mapping 20 years of research in seconds.
+2. **Pattern Discovery:** Finding signals and patterns in complex datasets that humans might miss.
+3. **Automated Workflows:** Managing large-scale longitudinal studies.
+4. **Hypothesis Generation:** Suggesting new research directions based on existing data.
+
+
+---
+
+## Key Generative AI Tools for Researchers
+
+<br>
+
+:::{.fragment}
+[**🔬 Perplexity AI**](https://www.perplexity.ai/)
+
+-  Real-time research synthesis with citations, fact-checking, and current information retrieval for literature review
+
+:::
+
+
+:::{.fragment}
+[**📚 SciSpace (Typeset)**](https://www.typeset.io/)
+
+-  AI-powered paper analysis and understanding: break down complex papers, extract key findings, answer questions
+
+:::    
+
+:::{.fragment}
+[**📖 NotebookLM**](https://notebooklm.google.com/)
+
+- Transform research documents into interactive conversations, study guides, and podcast-style discussions
+:::
+
+:::{.fragment}
+
+[**🤖 ChatGPT/Claude/Gemini/Copilot**](https://gemini.google.com/app)
+
+- General-purpose AI assistants for brainstorming, explanation of concepts, coding and writing support
+
+:::
+
+# Social Care Use Cases
+
+## Social Care Use Cases
+
+<br>
+<br>
+
+AI can transform the quality of life for both carers and residents:
+
+| Technology | Use Case | Benefit |
+|----|-----|-------------|
+| **Machine Learning** | Fall Prevention | Early intervention before injury |
+| **Forecasting** | Planning Care Needs | Forecasing number of residents needing specific care in the next years |
+| **Optimization** | Staff Scheduling | Matches skills to specific needs |
+| **NLP** | Voice Assistants | Independence for limited-mobility users |
+| **Vision/Sensor AI** | Gait Analysis | Tracking physical rehabilitation progress |
+| **Generative AI** | Documentation | Automating care notes and reports prepared by carers (efficiency boost) |
+
+---
+
+
+
+## Example: Predicting Future Care Demand
+
+<br>
+<br>
+
+::::{.columns}
+::: {.column width="31%" .fragment}
+
+**📥 Inputs**
+
+- Historical daily bed occupancy
+- New referrals per week
+- Demographics, diagnosis mix
+- Seasonality indicators (month, holidays)
+
+:::
+::: {.column width="3%" .fragment}
+<br>
+<br>
+<br>
+<br>
+$\rightarrow$
+:::
+
+::: {.column width="31%" .fragment}
+
+::: {style="border-left: 1px solid #6767677f; padding-left: 20px;"}
+
+**📊 AI Model**
+
+- Machine Learning Algorithm (e.g., Random Forest, LSTM Neural Network)
+    - Learns patterns from historical data to identify relationships
+:::
+:::
+::: {.column width="3%" .fragment}
+<br>
+<br>
+<br>
+<br>
+$\rightarrow$
+:::
+
+::: {.column width="31%" .fragment}
+::: {style="border-left: 1px solid #6767677f; padding-left: 20px;"}
+**📤Outputs**
+
+
+- Predicted bed occupancy for the next months
+- Confidence intervals for predictions to quantify uncertainty
+- Risk of over/understaffing based on predicted demand
+- Actionable insights for resource planning (e.g., "Increase staffing by 20% in December")
+:::
+:::
+::::
+
+# Critical Considerations
+
+
+## Ethical and Practical Considerations for AI in Social Care
+
+<br>
+<br>
+
+- **Transparency:** Explainable AI for accountability
+- **Privacy:** Secure data handling and consent
+- **Equity:** Avoiding bias in vulnerable populations
+- **Human-in-the-Loop:** Final decisions remain with care professionals
+
+# AI is a Tool to Assist, Not Replace !!!
