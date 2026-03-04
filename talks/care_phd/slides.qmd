@@ -9,7 +9,7 @@ format:
         transition: "fade"
         width: 1920
         height: 1080
-        footer: "[AI and AI in Research](https://mustafaslancoto.github.io/talks/presentations/qqf.html)"
+        footer: "[AI and AI in Research](https://mustafaslancoto.github.io/talks/presentations/phd_forum.html)"
         slide-number: c/t
         preview-links: auto
         html-math-method: mathjax
