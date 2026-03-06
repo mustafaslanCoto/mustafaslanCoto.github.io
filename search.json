@@ -886,7 +886,7 @@
     "href": "talks/index.html",
     "title": "MUSTAFA ASLAN",
     "section": "",
-    "text": "AI in Research & Social Care\n\n\nCare PhD Forum\n\n\n\n\n\nApr 23, 2026\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nForecast-Driven Two-Stage Stochastic Programming for Nurse Rostering\n\n\nQuarterly Forecasting Forum\n\n\n\n\n\nMar 13, 2026\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nEnhancing Discharge Care Planning: A Probabilistic Data-Driven Approach\n\n\nSWORD Network Event - Postgraduate OR Presentations\n\n\n\n\n\nOct 9, 2025\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nForecasting Mental Health Hospital Bed Occupancy: A Regime-Switching AutoRegressive Hidden Markov Model Approach\n\n\n5th Welsh Postgraduate Research Cluster Workshop in Economy, Enterprise and Productivity\n\n\n\n\n\nSep 16, 2025\n\n\nMustafa Aslan\n\n\n\n\n\nNo matching items"
+    "text": "AI in Research & Social Care\n\n\nCare PhD Forum\n\n\n\n\n\nApr 23, 2026\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nForecast-Driven Two-Stage Stochastic Programming for Nurse Rostering in Mental Healthcare\n\n\nQuarterly Forecasting Forum\n\n\n\n\n\nMar 13, 2026\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nEnhancing Discharge Care Planning: A Probabilistic Data-Driven Approach\n\n\nSWORD Network Event - Postgraduate OR Presentations\n\n\n\n\n\nOct 9, 2025\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nForecasting Mental Health Hospital Bed Occupancy: A Regime-Switching AutoRegressive Hidden Markov Model Approach\n\n\n5th Welsh Postgraduate Research Cluster Workshop in Economy, Enterprise and Productivity\n\n\n\n\n\nSep 16, 2025\n\n\nMustafa Aslan\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "talks/wgsss/slides.html#outline",
@@ -1115,14 +1115,14 @@
   {
     "objectID": "talks/presentations/qqf.html",
     "href": "talks/presentations/qqf.html",
-    "title": "Forecast-Driven Two-Stage Stochastic Programming for Nurse Rostering",
+    "title": "Forecast-Driven Two-Stage Stochastic Programming for Nurse Rostering in Mental Healthcare",
     "section": "",
     "text": "Slides\nDate: Mar 13 2026 12:00-17:00\nEvent: Quarterly Forecasting Forum\nLocation: Cardiff Business School, Cardiff University, UK"
   },
   {
     "objectID": "talks/presentations/qqf.html#context",
     "href": "talks/presentations/qqf.html#context",
-    "title": "Forecast-Driven Two-Stage Stochastic Programming for Nurse Rostering",
+    "title": "Forecast-Driven Two-Stage Stochastic Programming for Nurse Rostering in Mental Healthcare",
     "section": "Context",
     "text": "Context\nAt the Quarterly Forecasting Forum (QFF), I presented our research on “Forecast-Driven Two-Stage Stochastic Programming for Nurse Rostering.” This presentation focused on the application of a proposed forecasting approach, Autoregressive Markov-switching regression (AR-MSR), to forecast occupancy levels in mental hospital wards. The simulated forecasts were then integrated into a two-stage stochastic programming model to optimize nurse rostering decisions, aiming to improve patient care and operational efficiency."
   },
