@@ -1208,7 +1208,7 @@
     "href": "talks/qqf/slides.html#the-methodological-problem",
     "title": "MUSTAFA ASLAN",
     "section": "The Methodological Problem",
-    "text": "The Methodological Problem\n\n\n\nExisting healthcare scheduling relies heavily on deterministic models, which completely fail to capture the uncertainties of fluctuating mental health demand and service durations.\n\n\n\n\n\nTraditional forecasting treats occupancy as an isolated time series, missing the abrupt “regime shifts” that are common in volatile mental health time series."
+    "text": "The Methodological Problem\n \n\n\nExisting scheduling in mental healthcare relies heavily on deterministic models, which completely fail to capture the uncertainties of fluctuating mental health demand.\n\n\n\n\n\nTraditional forecasting treats occupancy as an isolated time series, missing the abrupt “regime shifts” that are common in volatile mental health time series."
   },
   {
     "objectID": "talks/qqf/slides.html#section-3",
