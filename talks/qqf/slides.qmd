@@ -103,10 +103,11 @@ plt.show()
 ## The Methodological Problem
 
 <br>
+<br>
 
 :::{.fragment}
 :::{style="padding: 10px; margin: 10px 0; border-left: 2px solid #BF505C; text-align: left; color: #BF505C; font-weight: bold; font-size: 1.2em;"}
-Existing healthcare scheduling relies heavily on *deterministic models*, which completely fail to capture the uncertainties of fluctuating mental health demand and service durations.
+Existing scheduling in mental healthcare relies heavily on *deterministic models*, which completely fail to capture the uncertainties of fluctuating mental health demand.
 :::
 :::
 
@@ -1244,14 +1245,14 @@ GT(f_metrics_forecast).tab_stub(groupname_col="metric").tab_style(
     # Targeting the row group labels specifically
     style=[
         style.fill(color="#DEF7F9"), 
-        style.text(size="22px", color="#091717", weight="bold")
+        style.text(size="20px", color="#091717", weight="bold")
     ],
     locations=loc.row_groups()
 ).tab_style(
-        style=style.text(size="22px", weight="bold"),
+        style=style.text(size="20px", weight="bold"),
         locations=loc.column_labels()
     ).tab_style(
-        style=style.text(size="20px"),
+        style=style.text(size="18px"),
         locations=loc.body()
     )
 
@@ -1280,14 +1281,14 @@ GT(f_metrics_operat).tab_stub(groupname_col="metric").tab_style(
     # Targeting the row group labels specifically
     style=[
         style.fill(color="#DEF7F9"), 
-        style.text(size="22px", color="#091717", weight="bold")
+        style.text(size="20px", color="#091717", weight="bold")
     ],
     locations=loc.row_groups()
 ).tab_style(
-        style=style.text(size="22px", weight="bold"),
+        style=style.text(size="20px", weight="bold"),
         locations=loc.column_labels()
     ).tab_style(
-        style=style.text(size="20px"),
+        style=style.text(size="18px"),
         locations=loc.body()
     )
 
