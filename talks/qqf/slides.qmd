@@ -1232,6 +1232,7 @@ f_metrics_forecast = f_metrics_view[f_metrics_view["metric"].isin(["Point Foreca
 f_metrics_operat = f_metrics_view[f_metrics_view["metric"].isin(["Average Understaffed Number of Patients", "Value of Stochastic Solution"])]
 
 
+
 GT(f_metrics_forecast).tab_stub(groupname_col="metric").tab_style(
     style=style.fill(color="#FBFAF4"),
     locations=loc.body()
@@ -1266,6 +1267,11 @@ GT(f_metrics_forecast).tab_stub(groupname_col="metric").tab_style(
 ```{python}
 
 f_metrics_operat = f_metrics_view[f_metrics_view["metric"].isin(["Average Understaffed Number of Patients", "Value of Stochastic Solution"])]
+
+
+## Change the name  of Value of Stochastic Solution to "Cost of using model's solution instead of perfect information" for better readability
+f_metrics_operat["metric"] = f_metrics_operat["metric"].replace({"Value of Stochastic Solution": "Cost of using model's solution"
+})
 
 
 GT(f_metrics_operat).tab_stub(groupname_col="metric").tab_style(
