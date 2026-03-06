@@ -1,11 +1,12 @@
 ---
 jupyter: python3
+# jupyter: peshbeen
 format:
   revealjs:
     css: style.css
     width: 1920
     height: 1080
-    footer: "[Forecast-Driven Two-Stage Stochastic Programming for Nurse Rostering](https://mustafaslancoto.github.io/talks/presentations/qqf.html)"
+    footer: "[Forecast-Driven Two-Stage Stochastic Programming for Nurse Rostering in Mental Healthcare](https://mustafaslancoto.github.io/talks/presentations/qqf.html)"
     slide-number: c/t
     preview-links: auto
     # chalkboard: true

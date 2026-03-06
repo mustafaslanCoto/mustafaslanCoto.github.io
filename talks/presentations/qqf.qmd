@@ -1,5 +1,5 @@
 ---
-title: "Forecast-Driven Two-Stage Stochastic Programming for Nurse Rostering"
+title: "Forecast-Driven Two-Stage Stochastic Programming for Nurse Rostering in Mental Healthcare"
 description: "Quarterly Forecasting Forum"
 author: "Mustafa Aslan"
 date: "2026-03-13"
