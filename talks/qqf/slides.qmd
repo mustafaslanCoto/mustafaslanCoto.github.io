@@ -119,6 +119,18 @@ Traditional forecasting treats occupancy as an isolated time series, missing the
 :::
 :::
 
+
+## How do we adress these challenges?
+
+<br>
+<br>
+
+| Challenge | Solution |
+| :-- | :----|
+| [**Volatile Demand & Regime Shifts**]{style="color: #BF505C;"} | A regime-switching model that identifies hidden states to generate multiple high-fidelity probabilistic scenarios. |
+| [**Nurse Burnout & Ineffective Scheduling**]{style="color: #BF505C;"} | A stochastic programming framework that accounts for forecast distribution of occupancy, absenteeism and enables robust staffing decisions across multiple wards. |
+
+
 ##
 
 <br>

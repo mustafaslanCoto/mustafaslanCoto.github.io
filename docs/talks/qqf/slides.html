@@ -218,7 +218,7 @@ Mustafa Aslan, Cardiff University, UK <br> Lead supervisor: Prof.&nbsp;Bahman Ro
 <p><strong>Rising Demand &amp; Vulnerability</strong> Inpatient mental health services are highly sensitive to demand fluctuations and are facing severe workforce shortages and rising admissions.</p>
 </div>
 <div class="fragment">
-<div id="f912497d" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="1">
+<div id="86af8e20" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -244,10 +244,10 @@ Mustafa Aslan, Cardiff University, UK <br> Lead supervisor: Prof.&nbsp;Bahman Ro
 </section>
 <section id="the-methodological-problem" class="slide level2">
 <h2>The Methodological Problem</h2>
-<p><br></p>
+<p><br> <br></p>
 <div class="fragment">
 <div style="padding: 10px; margin: 10px 0; border-left: 2px solid #BF505C; text-align: left; color: #BF505C; font-weight: bold; font-size: 1.2em;">
-<p>Existing healthcare scheduling relies heavily on <em>deterministic models</em>, which completely fail to capture the uncertainties of fluctuating mental health demand and service durations.</p>
+<p>Existing scheduling in mental healthcare relies heavily on <em>deterministic models</em>, which completely fail to capture the uncertainties of fluctuating mental health demand.</p>
 </div>
 </div>
 <p><br></p>
@@ -256,6 +256,58 @@ Mustafa Aslan, Cardiff University, UK <br> Lead supervisor: Prof.&nbsp;Bahman Ro
 <p>Traditional forecasting treats occupancy as an isolated time series, missing the abrupt <em>“regime shifts”</em> that are common in volatile mental health time series.</p>
 </div>
 </div>
+</section>
+<section id="how-do-we-adress-these-challenges" class="slide level2">
+<h2>How do we adress these challenges?</h2>
+<p><br> <br></p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 37%">
+<col style="width: 62%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Challenge</th>
+<th style="text-align: left;">Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span style="color: #BF505C;"><strong>Volatile Demand &amp; Regime Shifts</strong></span></td>
+<td style="text-align: left;">A regime-switching model that identifies hidden states to generate multiple high-fidelity probabilistic scenarios.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span style="color: #BF505C;"><strong>Nurse Burnout &amp; Ineffective Scheduling</strong></span></td>
+<td style="text-align: left;">A stochastic programming framework that accounts for forecast distribution of occupancy, absenteeism and enables robust staffing decisions across multiple wards.</td>
+</tr>
+</tbody>
+</table>
+<!-- ::::{.columns}
+::: {.column width="50%"}
+<br>
+**We bridge the gap between forecasting and rostering by integrating two distinct but complementary layers:**
+
+1. **Probabilistic Forecasting (The Input):**
+   - Moves beyond point forecasts by capturing "regime shifts" via **AR-MSR**.
+   - Generates 1,000+ realistic occupancy scenarios using **correlated bootstrapping** to reflect true uncertainty.
+
+2. **Stochastic Optimization (The Decision):**
+   - A **Two-Stage Stochastic Program** that finds the optimal staffing plan that performs well across *all* generated scenarios, not just the "average" case.
+   - Explicitly accounts for nurse absenteeism and ward-specific capacity constraints.
+:::
+
+::: {.column width="50%"}
+<br>
+{style="display:block; margin: 0 auto; width: 80%;"}
+
+<br>
+
+:::{style="background-color: #DEF7F9; padding: 20px; border-radius: 10px;"}
+**The Goal:**
+Transform *uncertainty* into *operational resilience*.
+:::
+:::
+:::: -->
 </section>
 <section id="section-3" class="slide level2">
 <h2></h2>
@@ -273,7 +325,7 @@ Mustafa Aslan, Cardiff University, UK <br> Lead supervisor: Prof.&nbsp;Bahman Ro
 </section>
 <section id="the-risk-of-point-forecasting" class="slide level2">
 <h2>The Risk of Point Forecasting</h2>
-<div id="b79e4e85" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="2">
+<div id="79d6fd64" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -285,7 +337,7 @@ Mustafa Aslan, Cardiff University, UK <br> Lead supervisor: Prof.&nbsp;Bahman Ro
 </section>
 <section id="embracing-uncertainty" class="slide level2">
 <h2>Embracing Uncertainty</h2>
-<div id="8660e008" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="3">
+<div id="c31fb3ac" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -297,7 +349,7 @@ Mustafa Aslan, Cardiff University, UK <br> Lead supervisor: Prof.&nbsp;Bahman Ro
 </section>
 <section id="embracing-uncertainty---3-scenarios" class="slide level2">
 <h2>Embracing Uncertainty - 3 scenarios</h2>
-<div id="6e9d6242" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="4">
+<div id="24136037" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -309,7 +361,7 @@ Mustafa Aslan, Cardiff University, UK <br> Lead supervisor: Prof.&nbsp;Bahman Ro
 </section>
 <section id="embracing-uncertainty---10-scenarios" class="slide level2">
 <h2>Embracing Uncertainty - 10 scenarios</h2>
-<div id="1de072a3" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="5">
+<div id="5c24f025" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -321,7 +373,7 @@ Mustafa Aslan, Cardiff University, UK <br> Lead supervisor: Prof.&nbsp;Bahman Ro
 </section>
 <section id="embracing-uncertainty---100-scenarios" class="slide level2">
 <h2>Embracing Uncertainty - 100 scenarios</h2>
-<div id="6408a475" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="6">
+<div id="c81c7787" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -333,7 +385,7 @@ Mustafa Aslan, Cardiff University, UK <br> Lead supervisor: Prof.&nbsp;Bahman Ro
 </section>
 <section id="embracing-uncertainty---1000-scenarios" class="slide level2">
 <h2>Embracing Uncertainty - 1000 scenarios</h2>
-<div id="53588ab2" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="7">
+<div id="479a8b4d" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -798,314 +850,314 @@ e_{t,h} = y_{t+h} - \hat{y}_{t+h}, \qquad h = 1, \dots, 84,
 <div class="columns">
 <div class="column fragment" style="width:50%;">
 <p><span class="mimic-h2">Forecasting performance</span></p>
-<div id="f322ff56" class="cell" data-execution_count="8">
+<div id="9c8899b6" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display" data-execution_count="8">
-<div id="kzupxvmbha" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="lanuyhykis" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>
-#kzupxvmbha table {
+#lanuyhykis table {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
         }
 
-#kzupxvmbha thead, tbody, tfoot, tr, td, th { border-style: none; }
+#lanuyhykis thead, tbody, tfoot, tr, td, th { border-style: none; }
  tr { background-color: transparent; }
-#kzupxvmbha p { margin: 0; padding: 0; }
- #kzupxvmbha .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
- #kzupxvmbha .gt_caption { padding-top: 4px; padding-bottom: 4px; }
- #kzupxvmbha .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
- #kzupxvmbha .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
- #kzupxvmbha .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #kzupxvmbha .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #kzupxvmbha .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #kzupxvmbha .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
- #kzupxvmbha .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
- #kzupxvmbha .gt_column_spanner_outer:first-child { padding-left: 0; }
- #kzupxvmbha .gt_column_spanner_outer:last-child { padding-right: 0; }
- #kzupxvmbha .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
- #kzupxvmbha .gt_spanner_row { border-bottom-style: hidden; }
- #kzupxvmbha .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
- #kzupxvmbha .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
- #kzupxvmbha .gt_from_md> :first-child { margin-top: 0; }
- #kzupxvmbha .gt_from_md> :last-child { margin-bottom: 0; }
- #kzupxvmbha .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
- #kzupxvmbha .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
- #kzupxvmbha .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
- #kzupxvmbha .gt_row_group_first td { border-top-width: 2px; }
- #kzupxvmbha .gt_row_group_first th { border-top-width: 2px; }
- #kzupxvmbha .gt_striped { color: #333333; background-color: #F4F4F4; }
- #kzupxvmbha .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #kzupxvmbha .gt_grand_summary_row { color: #333333; background-color: #FFFFFF; text-transform: inherit; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; }
- #kzupxvmbha .gt_first_grand_summary_row_bottom { border-top-style: double; border-top-width: 6px; border-top-color: #D3D3D3; }
- #kzupxvmbha .gt_last_grand_summary_row_top { border-bottom-style: double; border-bottom-width: 6px; border-bottom-color: #D3D3D3; }
- #kzupxvmbha .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
- #kzupxvmbha .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
- #kzupxvmbha .gt_left { text-align: left; }
- #kzupxvmbha .gt_center { text-align: center; }
- #kzupxvmbha .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
- #kzupxvmbha .gt_font_normal { font-weight: normal; }
- #kzupxvmbha .gt_font_bold { font-weight: bold; }
- #kzupxvmbha .gt_font_italic { font-style: italic; }
- #kzupxvmbha .gt_super { font-size: 65%; }
- #kzupxvmbha .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
- #kzupxvmbha .gt_asterisk { font-size: 100%; vertical-align: 0; }
+#lanuyhykis p { margin: 0; padding: 0; }
+ #lanuyhykis .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #lanuyhykis .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #lanuyhykis .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #lanuyhykis .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #lanuyhykis .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #lanuyhykis .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #lanuyhykis .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #lanuyhykis .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #lanuyhykis .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #lanuyhykis .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #lanuyhykis .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #lanuyhykis .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #lanuyhykis .gt_spanner_row { border-bottom-style: hidden; }
+ #lanuyhykis .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
+ #lanuyhykis .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
+ #lanuyhykis .gt_from_md> :first-child { margin-top: 0; }
+ #lanuyhykis .gt_from_md> :last-child { margin-bottom: 0; }
+ #lanuyhykis .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
+ #lanuyhykis .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
+ #lanuyhykis .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #lanuyhykis .gt_row_group_first td { border-top-width: 2px; }
+ #lanuyhykis .gt_row_group_first th { border-top-width: 2px; }
+ #lanuyhykis .gt_striped { color: #333333; background-color: #F4F4F4; }
+ #lanuyhykis .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #lanuyhykis .gt_grand_summary_row { color: #333333; background-color: #FFFFFF; text-transform: inherit; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; }
+ #lanuyhykis .gt_first_grand_summary_row_bottom { border-top-style: double; border-top-width: 6px; border-top-color: #D3D3D3; }
+ #lanuyhykis .gt_last_grand_summary_row_top { border-bottom-style: double; border-bottom-width: 6px; border-bottom-color: #D3D3D3; }
+ #lanuyhykis .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #lanuyhykis .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #lanuyhykis .gt_left { text-align: left; }
+ #lanuyhykis .gt_center { text-align: center; }
+ #lanuyhykis .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #lanuyhykis .gt_font_normal { font-weight: normal; }
+ #lanuyhykis .gt_font_bold { font-weight: bold; }
+ #lanuyhykis .gt_font_italic { font-style: italic; }
+ #lanuyhykis .gt_super { font-size: 65%; }
+ #lanuyhykis .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #lanuyhykis .gt_asterisk { font-size: 100%; vertical-align: 0; }
  
 </style>
 
 <table class="gt_table caption-top" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_col_headings header">
-<th id="model" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="background-color: #20808D; color: #FBFAF4; font-weight: bold; font-size: 22px; font-weight: bold" scope="col">model</th>
-<th id="Ward-A" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="background-color: #20808D; color: #FBFAF4; font-weight: bold; font-size: 22px; font-weight: bold" scope="col">Ward A</th>
-<th id="Ward-B" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="background-color: #20808D; color: #FBFAF4; font-weight: bold; font-size: 22px; font-weight: bold" scope="col">Ward B</th>
-<th id="Ward-C" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="background-color: #20808D; color: #FBFAF4; font-weight: bold; font-size: 22px; font-weight: bold" scope="col">Ward C</th>
-<th id="Ward-D" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="background-color: #20808D; color: #FBFAF4; font-weight: bold; font-size: 22px; font-weight: bold" scope="col">Ward D</th>
-<th id="Ward-E" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="background-color: #20808D; color: #FBFAF4; font-weight: bold; font-size: 22px; font-weight: bold" scope="col">Ward E</th>
-<th id="Ward-F" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="background-color: #20808D; color: #FBFAF4; font-weight: bold; font-size: 22px; font-weight: bold" scope="col">Ward F</th>
-<th id="Ward-G" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="background-color: #20808D; color: #FBFAF4; font-weight: bold; font-size: 22px; font-weight: bold" scope="col">Ward G</th>
-<th id="overall" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="background-color: #20808D; color: #FBFAF4; font-weight: bold; font-size: 22px; font-weight: bold" scope="col">overall</th>
+<th id="model" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="background-color: #20808D; color: #FBFAF4; font-weight: bold; font-size: 20px; font-weight: bold" scope="col">model</th>
+<th id="Ward-A" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="background-color: #20808D; color: #FBFAF4; font-weight: bold; font-size: 20px; font-weight: bold" scope="col">Ward A</th>
+<th id="Ward-B" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="background-color: #20808D; color: #FBFAF4; font-weight: bold; font-size: 20px; font-weight: bold" scope="col">Ward B</th>
+<th id="Ward-C" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="background-color: #20808D; color: #FBFAF4; font-weight: bold; font-size: 20px; font-weight: bold" scope="col">Ward C</th>
+<th id="Ward-D" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="background-color: #20808D; color: #FBFAF4; font-weight: bold; font-size: 20px; font-weight: bold" scope="col">Ward D</th>
+<th id="Ward-E" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="background-color: #20808D; color: #FBFAF4; font-weight: bold; font-size: 20px; font-weight: bold" scope="col">Ward E</th>
+<th id="Ward-F" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="background-color: #20808D; color: #FBFAF4; font-weight: bold; font-size: 20px; font-weight: bold" scope="col">Ward F</th>
+<th id="Ward-G" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="background-color: #20808D; color: #FBFAF4; font-weight: bold; font-size: 20px; font-weight: bold" scope="col">Ward G</th>
+<th id="overall" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="background-color: #20808D; color: #FBFAF4; font-weight: bold; font-size: 20px; font-weight: bold" scope="col">overall</th>
 </tr>
 </thead>
 <tbody class="gt_table_body">
 <tr class="gt_group_heading_row odd">
-<th colspan="9" class="gt_group_heading" data-quarto-table-cell-role="th" style="background-color: #DEF7F9; color: #091717; font-size: 22px; font-weight: bold">Point Forecast (RMSE)</th>
+<th colspan="9" class="gt_group_heading" data-quarto-table-cell-role="th" style="background-color: #DEF7F9; color: #091717; font-size: 20px; font-weight: bold">Point Forecast (RMSE)</th>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 20px">AR-MSR</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">3.37</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">4.95</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">3.26</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">3.91</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">2.80</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">3.78</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">2.11</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">3.45</td>
+<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 18px">AR-MSR</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">3.37</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">4.95</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">3.26</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">3.91</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">2.80</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">3.78</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">2.11</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">3.45</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 20px">LASSO</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">3.79</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">5.34</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">4.08</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">2.32</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">3.07</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">3.69</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">2.08</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">3.48</td>
+<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 18px">LASSO</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">3.79</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">5.34</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">4.08</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">2.32</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">3.07</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">3.69</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">2.08</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">3.48</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 20px">LR</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">3.62</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">5.66</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">3.70</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">2.20</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">3.34</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">3.98</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">2.08</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">3.51</td>
+<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 18px">LR</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">3.62</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">5.66</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">3.70</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">2.20</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">3.34</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">3.98</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">2.08</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">3.51</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 20px">RF</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">3.96</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">5.07</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">4.38</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">2.64</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">2.87</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">4.09</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">2.10</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">3.59</td>
+<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 18px">RF</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">3.96</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">5.07</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">4.38</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">2.64</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">2.87</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">4.09</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">2.10</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">3.59</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 20px">ETS</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">3.70</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">5.49</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">3.89</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">2.61</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">3.60</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">3.95</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">2.05</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">3.61</td>
+<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 18px">ETS</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">3.70</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">5.49</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">3.89</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">2.61</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">3.60</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">3.95</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">2.05</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">3.61</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 20px">TimeGPT</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">4.10</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">5.51</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">3.78</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">2.76</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">3.41</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">3.66</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">2.51</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">3.67</td>
+<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 18px">TimeGPT</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">4.10</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">5.51</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">3.78</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">2.76</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">3.41</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">3.66</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">2.51</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">3.67</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 20px">ARIMA</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">3.66</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">5.73</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">4.06</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">2.46</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">3.73</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">3.98</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">2.20</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">3.69</td>
+<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 18px">ARIMA</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">3.66</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">5.73</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">4.06</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">2.46</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">3.73</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">3.98</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">2.20</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">3.69</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 20px">NAIVE</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">4.26</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">5.40</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">3.89</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">2.90</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">3.45</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">3.71</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">2.58</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">3.74</td>
+<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 18px">NAIVE</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">4.26</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">5.40</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">3.89</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">2.90</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">3.45</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">3.71</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">2.58</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">3.74</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 20px">XGB</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">4.22</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">5.25</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">5.15</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">2.57</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">3.64</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">3.94</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">2.01</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">3.83</td>
+<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 18px">XGB</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">4.22</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">5.25</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">5.15</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">2.57</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">3.64</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">3.94</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">2.01</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">3.83</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 20px">LGB</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">3.98</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">5.50</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">4.40</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">4.09</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">3.29</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">3.86</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">2.00</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">3.87</td>
+<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 18px">LGB</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">3.98</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">5.50</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">4.40</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">4.09</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">3.29</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">3.86</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">2.00</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">3.87</td>
 </tr>
 <tr class="gt_group_heading_row even">
-<th colspan="9" class="gt_group_heading" data-quarto-table-cell-role="th" style="background-color: #DEF7F9; color: #091717; font-size: 22px; font-weight: bold">Probabilistic (Pinball Loss)</th>
+<th colspan="9" class="gt_group_heading" data-quarto-table-cell-role="th" style="background-color: #DEF7F9; color: #091717; font-size: 20px; font-weight: bold">Probabilistic (Pinball Loss)</th>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 20px">AR-MSR</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.05</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.53</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.96</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.87</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.87</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.22</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.60</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.01</td>
+<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 18px">AR-MSR</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.05</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.53</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.96</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.87</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.87</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.22</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.60</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.01</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 20px">LR</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.01</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.50</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.96</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.97</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.85</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.29</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.61</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.03</td>
+<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 18px">LR</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.01</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.50</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.96</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.97</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.85</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.29</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.61</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.03</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 20px">LASSO</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.14</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.61</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.06</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.91</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.87</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.19</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.61</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.06</td>
+<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 18px">LASSO</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.14</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.61</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.06</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.91</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.87</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.19</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.61</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.06</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 20px">RF</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.25</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.64</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.22</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.92</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.87</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.35</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.64</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.13</td>
+<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 18px">RF</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.25</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.64</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.22</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.92</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.87</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.35</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.64</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.13</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 20px">XGB</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.23</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.68</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.33</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.81</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.99</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.35</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.63</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.15</td>
+<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 18px">XGB</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.23</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.68</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.33</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.81</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.99</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.35</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.63</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.15</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 20px">ETS</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.25</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.81</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.11</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.94</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.09</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.35</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.64</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.17</td>
+<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 18px">ETS</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.25</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.81</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.11</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.94</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.09</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.35</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.64</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.17</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 20px">NAIVE</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.38</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.75</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.22</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.97</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.10</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.13</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.80</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.19</td>
+<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 18px">NAIVE</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.38</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.75</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.22</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.97</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.10</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.13</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.80</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.19</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 20px">ARIMA</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.16</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.87</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.28</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.00</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.19</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.21</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.67</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.20</td>
+<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 18px">ARIMA</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.16</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.87</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.28</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.00</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.19</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.21</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.67</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.20</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 20px">LGB</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.19</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.83</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.19</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.41</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.00</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.30</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.63</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.22</td>
+<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 18px">LGB</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.19</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.83</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.19</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.41</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.00</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.30</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.63</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.22</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 20px">TimeGPT</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.45</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.96</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.33</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.98</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.24</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.29</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.87</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.30</td>
+<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 18px">TimeGPT</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.45</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.96</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.33</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.98</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.24</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.29</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.87</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.30</td>
 </tr>
 <tr class="gt_group_heading_row odd">
-<th colspan="9" class="gt_group_heading" data-quarto-table-cell-role="th" style="background-color: #DEF7F9; color: #091717; font-size: 22px; font-weight: bold">Permutation Entropy</th>
+<th colspan="9" class="gt_group_heading" data-quarto-table-cell-role="th" style="background-color: #DEF7F9; color: #091717; font-size: 20px; font-weight: bold">Permutation Entropy</th>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 20px"></td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.76</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.72</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.71</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.66</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.61</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.61</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.56</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.66</td>
+<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 18px"></td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.76</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.72</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.71</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.66</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.61</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.61</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.56</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.66</td>
 </tr>
 </tbody>
 </table>
@@ -1116,300 +1168,300 @@ e_{t,h} = y_{t+h} - \hat{y}_{t+h}, \qquad h = 1, \dots, 84,
 </div>
 </div><div class="column fragment" style="width:50%;">
 <p><span class="mimic-h2">Operational performance</span></p>
-<div id="5b11324f" class="cell" data-execution_count="9">
+<div id="eb08f5f9" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display" data-execution_count="9">
-<div id="qmrtdvfbco" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="dsahsfylgq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>
-#qmrtdvfbco table {
+#dsahsfylgq table {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
         }
 
-#qmrtdvfbco thead, tbody, tfoot, tr, td, th { border-style: none; }
+#dsahsfylgq thead, tbody, tfoot, tr, td, th { border-style: none; }
  tr { background-color: transparent; }
-#qmrtdvfbco p { margin: 0; padding: 0; }
- #qmrtdvfbco .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
- #qmrtdvfbco .gt_caption { padding-top: 4px; padding-bottom: 4px; }
- #qmrtdvfbco .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
- #qmrtdvfbco .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
- #qmrtdvfbco .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #qmrtdvfbco .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #qmrtdvfbco .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #qmrtdvfbco .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
- #qmrtdvfbco .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
- #qmrtdvfbco .gt_column_spanner_outer:first-child { padding-left: 0; }
- #qmrtdvfbco .gt_column_spanner_outer:last-child { padding-right: 0; }
- #qmrtdvfbco .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
- #qmrtdvfbco .gt_spanner_row { border-bottom-style: hidden; }
- #qmrtdvfbco .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
- #qmrtdvfbco .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
- #qmrtdvfbco .gt_from_md> :first-child { margin-top: 0; }
- #qmrtdvfbco .gt_from_md> :last-child { margin-bottom: 0; }
- #qmrtdvfbco .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
- #qmrtdvfbco .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
- #qmrtdvfbco .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
- #qmrtdvfbco .gt_row_group_first td { border-top-width: 2px; }
- #qmrtdvfbco .gt_row_group_first th { border-top-width: 2px; }
- #qmrtdvfbco .gt_striped { color: #333333; background-color: #F4F4F4; }
- #qmrtdvfbco .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #qmrtdvfbco .gt_grand_summary_row { color: #333333; background-color: #FFFFFF; text-transform: inherit; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; }
- #qmrtdvfbco .gt_first_grand_summary_row_bottom { border-top-style: double; border-top-width: 6px; border-top-color: #D3D3D3; }
- #qmrtdvfbco .gt_last_grand_summary_row_top { border-bottom-style: double; border-bottom-width: 6px; border-bottom-color: #D3D3D3; }
- #qmrtdvfbco .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
- #qmrtdvfbco .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
- #qmrtdvfbco .gt_left { text-align: left; }
- #qmrtdvfbco .gt_center { text-align: center; }
- #qmrtdvfbco .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
- #qmrtdvfbco .gt_font_normal { font-weight: normal; }
- #qmrtdvfbco .gt_font_bold { font-weight: bold; }
- #qmrtdvfbco .gt_font_italic { font-style: italic; }
- #qmrtdvfbco .gt_super { font-size: 65%; }
- #qmrtdvfbco .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
- #qmrtdvfbco .gt_asterisk { font-size: 100%; vertical-align: 0; }
+#dsahsfylgq p { margin: 0; padding: 0; }
+ #dsahsfylgq .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #dsahsfylgq .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #dsahsfylgq .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #dsahsfylgq .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #dsahsfylgq .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #dsahsfylgq .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #dsahsfylgq .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #dsahsfylgq .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #dsahsfylgq .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #dsahsfylgq .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #dsahsfylgq .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #dsahsfylgq .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #dsahsfylgq .gt_spanner_row { border-bottom-style: hidden; }
+ #dsahsfylgq .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
+ #dsahsfylgq .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
+ #dsahsfylgq .gt_from_md> :first-child { margin-top: 0; }
+ #dsahsfylgq .gt_from_md> :last-child { margin-bottom: 0; }
+ #dsahsfylgq .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
+ #dsahsfylgq .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
+ #dsahsfylgq .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #dsahsfylgq .gt_row_group_first td { border-top-width: 2px; }
+ #dsahsfylgq .gt_row_group_first th { border-top-width: 2px; }
+ #dsahsfylgq .gt_striped { color: #333333; background-color: #F4F4F4; }
+ #dsahsfylgq .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #dsahsfylgq .gt_grand_summary_row { color: #333333; background-color: #FFFFFF; text-transform: inherit; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; }
+ #dsahsfylgq .gt_first_grand_summary_row_bottom { border-top-style: double; border-top-width: 6px; border-top-color: #D3D3D3; }
+ #dsahsfylgq .gt_last_grand_summary_row_top { border-bottom-style: double; border-bottom-width: 6px; border-bottom-color: #D3D3D3; }
+ #dsahsfylgq .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #dsahsfylgq .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #dsahsfylgq .gt_left { text-align: left; }
+ #dsahsfylgq .gt_center { text-align: center; }
+ #dsahsfylgq .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #dsahsfylgq .gt_font_normal { font-weight: normal; }
+ #dsahsfylgq .gt_font_bold { font-weight: bold; }
+ #dsahsfylgq .gt_font_italic { font-style: italic; }
+ #dsahsfylgq .gt_super { font-size: 65%; }
+ #dsahsfylgq .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #dsahsfylgq .gt_asterisk { font-size: 100%; vertical-align: 0; }
  
 </style>
 
 <table class="gt_table caption-top" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_col_headings header">
-<th id="model" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="background-color: #20808D; color: #FBFAF4; font-weight: bold; font-size: 22px; font-weight: bold" scope="col">model</th>
-<th id="Ward-A" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="background-color: #20808D; color: #FBFAF4; font-weight: bold; font-size: 22px; font-weight: bold" scope="col">Ward A</th>
-<th id="Ward-B" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="background-color: #20808D; color: #FBFAF4; font-weight: bold; font-size: 22px; font-weight: bold" scope="col">Ward B</th>
-<th id="Ward-C" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="background-color: #20808D; color: #FBFAF4; font-weight: bold; font-size: 22px; font-weight: bold" scope="col">Ward C</th>
-<th id="Ward-D" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="background-color: #20808D; color: #FBFAF4; font-weight: bold; font-size: 22px; font-weight: bold" scope="col">Ward D</th>
-<th id="Ward-E" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="background-color: #20808D; color: #FBFAF4; font-weight: bold; font-size: 22px; font-weight: bold" scope="col">Ward E</th>
-<th id="Ward-F" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="background-color: #20808D; color: #FBFAF4; font-weight: bold; font-size: 22px; font-weight: bold" scope="col">Ward F</th>
-<th id="Ward-G" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="background-color: #20808D; color: #FBFAF4; font-weight: bold; font-size: 22px; font-weight: bold" scope="col">Ward G</th>
-<th id="overall" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="background-color: #20808D; color: #FBFAF4; font-weight: bold; font-size: 22px; font-weight: bold" scope="col">overall</th>
+<th id="model" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="background-color: #20808D; color: #FBFAF4; font-weight: bold; font-size: 20px; font-weight: bold" scope="col">model</th>
+<th id="Ward-A" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="background-color: #20808D; color: #FBFAF4; font-weight: bold; font-size: 20px; font-weight: bold" scope="col">Ward A</th>
+<th id="Ward-B" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="background-color: #20808D; color: #FBFAF4; font-weight: bold; font-size: 20px; font-weight: bold" scope="col">Ward B</th>
+<th id="Ward-C" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="background-color: #20808D; color: #FBFAF4; font-weight: bold; font-size: 20px; font-weight: bold" scope="col">Ward C</th>
+<th id="Ward-D" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="background-color: #20808D; color: #FBFAF4; font-weight: bold; font-size: 20px; font-weight: bold" scope="col">Ward D</th>
+<th id="Ward-E" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="background-color: #20808D; color: #FBFAF4; font-weight: bold; font-size: 20px; font-weight: bold" scope="col">Ward E</th>
+<th id="Ward-F" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="background-color: #20808D; color: #FBFAF4; font-weight: bold; font-size: 20px; font-weight: bold" scope="col">Ward F</th>
+<th id="Ward-G" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="background-color: #20808D; color: #FBFAF4; font-weight: bold; font-size: 20px; font-weight: bold" scope="col">Ward G</th>
+<th id="overall" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="background-color: #20808D; color: #FBFAF4; font-weight: bold; font-size: 20px; font-weight: bold" scope="col">overall</th>
 </tr>
 </thead>
 <tbody class="gt_table_body">
 <tr class="gt_group_heading_row odd">
-<th colspan="9" class="gt_group_heading" data-quarto-table-cell-role="th" style="background-color: #DEF7F9; color: #091717; font-size: 22px; font-weight: bold">Average Understaffed Number of Patients</th>
+<th colspan="9" class="gt_group_heading" data-quarto-table-cell-role="th" style="background-color: #DEF7F9; color: #091717; font-size: 20px; font-weight: bold">Average Understaffed Number of Patients</th>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 20px">AR-MSR</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.12</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.62</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.42</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.01</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.40</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.98</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.16</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">3.71</td>
+<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 18px">AR-MSR</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.12</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.62</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.42</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.01</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.40</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.98</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.16</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">3.71</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 20px">LR</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.21</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.71</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.51</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.00</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.24</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.17</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.16</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">4.01</td>
+<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 18px">LR</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.21</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.71</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.51</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.00</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.24</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.17</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.16</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">4.01</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 20px">LASSO</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.43</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.57</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.94</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.01</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.16</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.28</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.16</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">4.54</td>
+<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 18px">LASSO</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.43</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.57</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.94</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.01</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.16</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.28</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.16</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">4.54</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 20px">ARIMA</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.73</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.74</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.35</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.02</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.54</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.25</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.31</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">4.94</td>
+<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 18px">ARIMA</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.73</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.74</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.35</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.02</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.54</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.25</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.31</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">4.94</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 20px">ETS</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.27</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.14</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.68</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.01</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.37</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.60</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.16</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">5.23</td>
+<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 18px">ETS</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.27</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.14</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.68</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.01</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.37</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.60</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.16</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">5.23</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 20px">RF</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.44</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.72</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.23</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.07</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.47</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.22</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.14</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">5.29</td>
+<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 18px">RF</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.44</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.72</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.23</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.07</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.47</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.22</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.14</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">5.29</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 20px">NAIVE</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.14</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.58</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.41</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.11</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.53</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.21</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.45</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">5.43</td>
+<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 18px">NAIVE</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.14</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.58</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.41</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.11</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.53</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.21</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.45</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">5.43</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 20px">XGB</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.60</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.23</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.39</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.02</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.74</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.60</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.15</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">5.73</td>
+<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 18px">XGB</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.60</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.23</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.39</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.02</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.74</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.60</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.15</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">5.73</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 20px">LGB</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.56</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.62</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.28</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.01</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.90</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.60</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.16</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">6.14</td>
+<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 18px">LGB</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.56</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.62</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.28</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.01</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.90</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.60</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.16</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">6.14</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 20px">AR-MSR-PointForecasts</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.17</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">3.58</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.34</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.14</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.08</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1.60</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">0.15</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">9.06</td>
+<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 18px">AR-MSR-PointForecasts</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.17</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">3.58</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.34</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.14</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.08</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1.60</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">0.15</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">9.06</td>
 </tr>
 <tr class="gt_group_heading_row even">
-<th colspan="9" class="gt_group_heading" data-quarto-table-cell-role="th" style="background-color: #DEF7F9; color: #091717; font-size: 22px; font-weight: bold">Value of Stochastic Solution</th>
+<th colspan="9" class="gt_group_heading" data-quarto-table-cell-role="th" style="background-color: #DEF7F9; color: #091717; font-size: 20px; font-weight: bold">Cost of using model's solution</th>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 20px">AR-MSR</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">834</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1334</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">836</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">658</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">670</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">823</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">448</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">5602</td>
+<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 18px">AR-MSR</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">834</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1334</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">836</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">658</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">670</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">823</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">448</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">5602</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 20px">LASSO</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">883</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1319</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">932</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">676</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">616</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">841</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">447</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">5714</td>
+<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 18px">LASSO</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">883</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1319</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">932</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">676</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">616</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">841</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">447</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">5714</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 20px">LR</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">849</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1340</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">851</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">740</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">642</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">870</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">452</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">5744</td>
+<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 18px">LR</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">849</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1340</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">851</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">740</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">642</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">870</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">452</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">5744</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 20px">ETS</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">859</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1261</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">884</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">650</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">811</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">879</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">447</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">5791</td>
+<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 18px">ETS</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">859</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1261</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">884</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">650</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">811</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">879</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">447</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">5791</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 20px">RF</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">883</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1330</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">988</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">654</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">676</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">837</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">453</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">5821</td>
+<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 18px">RF</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">883</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1330</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">988</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">654</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">676</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">837</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">453</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">5821</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 20px">XGB</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">910</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1263</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1017</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">633</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">745</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">879</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">446</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">5894</td>
+<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 18px">XGB</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">910</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1263</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1017</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">633</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">745</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">879</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">446</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">5894</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 20px">ARIMA</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">933</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1399</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">909</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">700</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">726</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">845</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">494</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">6006</td>
+<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 18px">ARIMA</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">933</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1399</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">909</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">700</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">726</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">845</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">494</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">6006</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 20px">NAIVE</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1042</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1377</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">903</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">661</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">730</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">818</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">555</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">6086</td>
+<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 18px">NAIVE</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1042</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1377</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">903</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">661</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">730</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">818</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">555</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">6086</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 20px">LGB</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">899</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1354</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1005</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">766</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">750</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">879</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">448</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">6102</td>
+<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 18px">LGB</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">899</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1354</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1005</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">766</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">750</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">879</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">448</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">6102</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 20px">AR-MSR-PointForecasts</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1023</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1747</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">1007</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">613</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">769</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">879</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">446</td>
-<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 20px">6483</td>
+<td class="gt_row gt_left" style="background-color: #FBFAF4; font-size: 18px">AR-MSR-PointForecasts</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1023</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1747</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">1007</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">613</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">769</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">879</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">446</td>
+<td class="gt_row gt_right" style="background-color: #FBFAF4; font-size: 18px">6483</td>
 </tr>
 </tbody>
 </table>
@@ -1423,7 +1475,7 @@ e_{t,h} = y_{t+h} - \hat{y}_{t+h}, \qquad h = 1, \dots, 84,
 <section id="understaffing-reliability" class="slide level2">
 <h2>Understaffing Reliability</h2>
 <p><br></p>
-<div id="9f14b86d" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="10">
+<div id="cc34803c" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="10">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
