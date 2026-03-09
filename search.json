@@ -1211,6 +1211,13 @@
     "text": "The Methodological Problem\n \n\n\nExisting scheduling in mental healthcare relies heavily on deterministic models, which completely fail to capture the uncertainties of fluctuating mental health demand.\n\n\n\n\n\nTraditional forecasting treats occupancy as an isolated time series, missing the abrupt “regime shifts” that are common in volatile mental health time series."
   },
   {
+    "objectID": "talks/qqf/slides.html#how-do-we-adress-these-challenges",
+    "href": "talks/qqf/slides.html#how-do-we-adress-these-challenges",
+    "title": "MUSTAFA ASLAN",
+    "section": "How do we adress these challenges?",
+    "text": "How do we adress these challenges?\n \n\n\n\n\n\n\n\nChallenge\nSolution\n\n\n\n\nVolatile Demand & Regime Shifts\nA regime-switching model that identifies hidden states to generate multiple high-fidelity probabilistic scenarios.\n\n\nNurse Burnout & Ineffective Scheduling\nA stochastic programming framework that accounts for forecast distribution of occupancy, absenteeism and enables robust staffing decisions across multiple wards."
+  },
+  {
     "objectID": "talks/qqf/slides.html#section-3",
     "href": "talks/qqf/slides.html#section-3",
     "title": "MUSTAFA ASLAN",
