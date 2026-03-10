@@ -1,6 +1,6 @@
 ---
-jupyter: python3
-# jupyter: peshbeen
+# jupyter: python3
+jupyter: peshbeen
 format:
   revealjs:
     css: style.css
@@ -150,6 +150,8 @@ Traditional forecasting treats occupancy as an isolated time series, missing the
 
 ## The Risk of Point Forecasting
 
+### Decision: How many nurses should I schedule for the [42-day Planning Horizon?]{style="color: #707C36;"}
+
 ```{python}
 #| fig-width: 100%
 #| fig-align: center
@@ -203,15 +205,17 @@ from datetime import timedelta
 scenarios_hmm = np.array(prob_forecasts)
 
 ## plot scenarios agains train and test
-plt.figure(figsize=(30, 10))
-plt.plot(train[col].index[-120:], train[col][-120:], label='Train', color='C0')
-plt.plot(test.index, test[col], label='Actual', color='C2', linewidth=2, alpha=1)
-plt.plot(test.index, point_forecasts, label='Point Forecast', color='C3')
+
 # Define decision time (start of forecast horizon)
 decision_time = test.index[0]+ timedelta(days=-1)  # first day of test/forecast period
-# for i in range(scenarios_hmm.shape[0]-1):
-#     plt.plot(test.index, scenarios_hmm[i], color='C7', alpha=0.1)
-# plt.plot(test.index, scenarios_hmm[-1], color='C7', alpha=0.1, label ='All Scenarios (1000)')
+decision_time2 = test.index[0]+ timedelta(days=-16)  # first day of test/forecast period
+
+plt.figure(figsize=(30, 10))
+plt.plot(train[col].index[-120:], train[col][-120:], label='Train', linewidth=3, color='#0B363C')
+plt.plot(test.index, test[col], label='Actual', color='#2CA0AB', linewidth=3, alpha=1)
+plt.plot(test.index, point_forecasts, label='Point Forecast', linewidth=3, color='#BF505C')
+# Define decision time (start of forecast horizon)
+
 
 # 1. Vertical dashed line
 plt.axvline(decision_time, color='black', linestyle='--', linewidth=1.5)
@@ -223,56 +227,65 @@ plt.text(
     "Decision time",
     ha='center',
     va='top',
-    fontsize=12,
+    fontsize=24,
     fontweight='bold',
     color='black'
 )
 
-# 3. Explanation text box
+# # 3. Explanation text box
+# plt.text(
+#     decision_time2,
+#     plt.ylim()[1] * 0.90,
+#     "Decision:\nHow many nurses\nshould I schedule\nfor the 42-day Planning Horizon?",
+#     ha='center',
+#     va='top',
+#     fontsize=24,
+#     color='black',
+#     bbox=dict(facecolor='white', alpha=0.4, edgecolor='none')
+# )
+
+# 4. Add 42-day lead time shaded region
+lead_time_end = test.index[42]
+plt.axvspan(decision_time, lead_time_end, alpha=0.1, color='#B2582D', label='42-day Lead Time')
+
+# Label for lead time region
+lead_time_mid = decision_time + (lead_time_end - decision_time) / 2
 plt.text(
-    decision_time,
-    plt.ylim()[1] * 0.90,
-    "Decision:\nHow many nurses\nshould I schedule\nfor each day of next 42-84 days of forecasting horizon?",
+    lead_time_mid,
+    plt.ylim()[1] * 0.42,
+    "42-day Lead Time \nto Announce Nurse Schedules",
     ha='center',
     va='top',
-    fontsize=16,
-    color='black',
-    bbox=dict(facecolor='white', alpha=0.4, edgecolor='none')
+    fontsize=19,
+    color='#B2582D',
+    fontweight='bold'
 )
 
+# 4. Add 42-day planning horizon shaded region (last 42 days)
+planning_horizon_start = test.index[-42]
+plt.axvspan(planning_horizon_start, test.index[-1], alpha=0.1, color='#707C36', label='42-day Planning Horizon')
 
-# Choose a low y-level automatically (5% above bottom of plot)
-hline_y = plt.ylim()[0] + 0.05 * (plt.ylim()[1] - plt.ylim()[0])
-
-# Horizontal line spanning forecasting period
-plt.hlines(
-    y=hline_y,
-    xmin=test.index[42],
-    xmax=test.index[-1],
-    color='C5',
-    linestyle='--',
-    linewidth=2,
-    alpha=0.8
-)
-
-# Label next to the horizontal line
+# Label for planning horizon region
+planning_horizon_mid = planning_horizon_start + (test.index[-1] - planning_horizon_start) / 2
 plt.text(
-    test.index[62],
-    hline_y,
-    "Uncertainty in occupancy levels\nfor the next 42 days",
+    planning_horizon_mid,
+    plt.ylim()[1] * 0.40,
+    "42-day Planning Horizon",
     ha='center',
-    va='bottom',
-    fontsize=16,
-    color='black'
+    va='top',
+    fontsize=19,
+    color='#707C36',
+    fontweight='bold'
 )
 
-
-plt.ylabel('Occupancy')
-plt.xlabel('Date')
+plt.ylabel('Occupancy', fontsize=22)
+plt.xlabel('Date', fontsize=22)
+# increase font size of values on x-axis and y-axis
+plt.xticks(fontsize=20)
+plt.yticks(fontsize=20)
 plt.grid(True)
-plt.legend(fontsize=12)
+plt.legend(fontsize=16, loc='upper left')
 plt.show()
-
 
 ```
 
@@ -280,6 +293,7 @@ plt.show()
 
 ## Embracing Uncertainty
 
+### Decision: How many nurses should I schedule for the [42-day Planning Horizon?]{style="color: #707C36;"}
 ```{python}
 #| fig-width: 100%
 #| fig-align: center
@@ -287,93 +301,10 @@ plt.show()
 
 ## plot scenarios agains train and test
 plt.figure(figsize=(30, 10))
-plt.plot(train[col].index[-120:], train[col][-120:], label='Train', color='C0')
-plt.plot(test.index, test[col], label='Actual', color='C2', linewidth=2, alpha=1)
-plt.plot(test.index, point_forecasts, label='Point Forecast', color='C3')
+
 # Define decision time (start of forecast horizon)
 decision_time = test.index[0]+ timedelta(days=-1)  # first day of test/forecast period
-for i in range(scenarios_hmm[0:2].shape[0]-1):
-    plt.plot(test.index, scenarios_hmm[i], color='C7', alpha=0.7, label ='1 Scenario')
-
-# 1. Vertical dashed line
-plt.axvline(decision_time, color='black', linestyle='--', linewidth=1.5)
-
-# 2. "Decision time" label at top
-plt.text(
-    decision_time,
-    plt.ylim()[1] * 0.98,
-    "Decision time",
-    ha='center',
-    va='top',
-    fontsize=12,
-    fontweight='bold',
-    color='black'
-)
-
-# 3. Explanation text box
-plt.text(
-    decision_time,
-    plt.ylim()[1] * 0.90,
-    "Decision:\nHow many nurses\nshould I schedule\nfor each day of next 42-84 days of forecasting horizon?",
-    ha='center',
-    va='top',
-    fontsize=16,
-    color='black',
-    bbox=dict(facecolor='white', alpha=0.4, edgecolor='none')
-)
-
-
-# Choose a low y-level automatically (5% above bottom of plot)
-hline_y = plt.ylim()[0] + 0.05 * (plt.ylim()[1] - plt.ylim()[0])
-
-# Horizontal line spanning forecasting period
-plt.hlines(
-    y=hline_y,
-    xmin=test.index[42],
-    xmax=test.index[-1],
-    color='C5',
-    linestyle='--',
-    linewidth=2,
-    alpha=0.8
-)
-
-# Label next to the horizontal line
-plt.text(
-    test.index[62],
-    hline_y,
-    "Uncertainty in occupancy levels\nfor the next 42 days",
-    ha='center',
-    va='bottom',
-    fontsize=16,
-    color='black'
-)
-
-
-plt.ylabel('Occupancy')
-plt.xlabel('Date')
-plt.grid(True)
-plt.legend(fontsize=12)
-plt.show()
-
-
-```
-
----
-
-## Embracing Uncertainty - 3 scenarios
-```{python}
-#| fig-width: 100%
-#| fig-align: center
-#| fig-height: 100%
-
-## plot scenarios agains train and test
-plt.figure(figsize=(30, 10))
-plt.plot(train[col].index[-120:], train[col][-120:], label='Train', color='C0')
-plt.plot(test.index, test[col], label='Actual', color='C2', linewidth=2, alpha=1)
-plt.plot(test.index, point_forecasts, label='Point Forecast', color='C3')
-# Define decision time (start of forecast horizon)
-decision_time = test.index[0]+ timedelta(days=-1)  # first day of test/forecast period
-decision_time2 = test.index[0]+ timedelta(days=-2)  # first day of test/forecast period
+decision_time2 = test.index[0]+ timedelta(days=-16)  # first day of test/forecast period
 for i in range(scenarios_hmm[0:3].shape[0]):
     # plt.plot(test.index, scenarios_hmm[i], color='C7', alpha=0.5)
     # if i is the last scenario, add label
@@ -383,6 +314,10 @@ for i in range(scenarios_hmm[0:3].shape[0]):
         plt.plot(test.index, scenarios_hmm[i], color='C7', alpha=0.7)
 # plt.plot(test.index, scenarios_hmm[-1], color='C7', alpha=0.5, label ='All Scenarios (1000)')
 
+plt.plot(train[col].index[-120:], train[col][-120:], label='Train', linewidth=3, color='#0B363C')
+plt.plot(test.index, test[col], label='Actual', color='#2CA0AB', linewidth=3, alpha=1)
+plt.plot(test.index, point_forecasts, label='Point Forecast', linewidth=3, color='#BF505C')
+
 # 1. Vertical dashed line
 plt.axvline(decision_time, color='black', linestyle='--', linewidth=1.5)
 
@@ -393,62 +328,73 @@ plt.text(
     "Decision time",
     ha='center',
     va='top',
-    fontsize=12,
+    fontsize=24,
     fontweight='bold',
     color='black'
 )
 
-# 3. Explanation text box
+# # 3. Explanation text box
+# plt.text(
+#     decision_time2,
+#     plt.ylim()[1] * 0.90,
+#     "Decision:\nHow many nurses\nshould I schedule\nfor the 42-day Planning Horizon?",
+#     ha='center',
+#     va='top',
+#     fontsize=24,
+#     color='black',
+#     bbox=dict(facecolor='white', alpha=0.4, edgecolor='none')
+# )
+
+# 4. Add 42-day lead time shaded region
+lead_time_end = test.index[42]
+plt.axvspan(decision_time, lead_time_end, alpha=0.1, color='#B2582D', label='42-day Lead Time')
+
+# Label for lead time region
+lead_time_mid = decision_time + (lead_time_end - decision_time) / 2
 plt.text(
-    decision_time,
-    plt.ylim()[1] * 0.90,
-    "Decision:\nHow many nurses\nshould I schedule\nfor each day of next 42-84 days of forecasting horizon?",
+    lead_time_mid,
+    plt.ylim()[1] * 0.40,
+    "42-day Lead Time \nto Announce Nurse Schedules",
     ha='center',
     va='top',
-    fontsize=16,
-    color='black',
-    bbox=dict(facecolor='white', alpha=0.4, edgecolor='none')
+    fontsize=19,
+    color='#B2582D',
+    fontweight='bold'
 )
 
+# 4. Add 42-day planning horizon shaded region (last 42 days)
+planning_horizon_start = test.index[-42]
+plt.axvspan(planning_horizon_start, test.index[-1], alpha=0.1, color='#707C36', label='42-day Planning Horizon')
 
-# Choose a low y-level automatically (5% above bottom of plot)
-hline_y = plt.ylim()[0] + 0.05 * (plt.ylim()[1] - plt.ylim()[0])
-
-# Horizontal line spanning forecasting period
-plt.hlines(
-    y=hline_y,
-    xmin=test.index[42],
-    xmax=test.index[-1],
-    color='C5',
-    linestyle='--',
-    linewidth=2,
-    alpha=0.8
-)
-
-# Label next to the horizontal line
+# Label for planning horizon region
+planning_horizon_mid = planning_horizon_start + (test.index[-1] - planning_horizon_start) / 2
 plt.text(
-    test.index[62],
-    hline_y,
-    "Uncertainty in occupancy levels\nfor the next 42 days",
+    planning_horizon_mid,
+    plt.ylim()[1] * 0.38,
+    "42-day Planning Horizon",
     ha='center',
-    va='bottom',
-    fontsize=16,
-    color='black'
+    va='top',
+    fontsize=19,
+    color='#707C36',
+    fontweight='bold'
 )
 
-
-plt.ylabel('Occupancy')
-plt.xlabel('Date')
+plt.ylabel('Occupancy', fontsize=22)
+plt.xlabel('Date', fontsize=22)
+# increase font size of values on x-axis and y-axis
+plt.xticks(fontsize=20)
+plt.yticks(fontsize=20)
 plt.grid(True)
-plt.legend(fontsize=12)
+plt.legend(fontsize=16, loc='upper left')
 plt.show()
-
 
 ```
 
 ---
 
-## Embracing Uncertainty - 10 scenarios
+## Embracing Uncertainty
+
+### Decision: How many nurses should I schedule for the [42-day Planning Horizon?]{style="color: #707C36;"}
 
 ```{python}
 #| fig-width: 100%
@@ -457,11 +403,10 @@ plt.show()
 
 ## plot scenarios agains train and test
 plt.figure(figsize=(30, 10))
-plt.plot(train[col].index[-120:], train[col][-120:], label='Train', color='C0')
-plt.plot(test.index, test[col], label='Actual', color='C2', linewidth=2, alpha=1)
-plt.plot(test.index, point_forecasts, label='Point Forecast', color='C3')
+
 # Define decision time (start of forecast horizon)
 decision_time = test.index[0]+ timedelta(days=-1)  # first day of test/forecast period
+decision_time2 = test.index[0]+ timedelta(days=-16)  # first day of test/forecast period
 for i in range(scenarios_hmm[0:10].shape[0]):
     # plt.plot(test.index, scenarios_hmm[i], color='C7', alpha=0.5)
     # if i is the last scenario, add label
@@ -470,6 +415,9 @@ for i in range(scenarios_hmm[0:10].shape[0]):
     else:
         plt.plot(test.index, scenarios_hmm[i], color='C7', alpha=0.7)
 # plt.plot(test.index, scenarios_hmm[-1], color='C7', alpha=0.5, label ='All Scenarios (1000)')
+plt.plot(train[col].index[-120:], train[col][-120:], label='Train', linewidth=3, color='#0B363C')
+plt.plot(test.index, test[col], label='Actual', color='#2CA0AB', linewidth=3, alpha=1)
+plt.plot(test.index, point_forecasts, label='Point Forecast', linewidth=3, color='#BF505C')
 
 # 1. Vertical dashed line
 plt.axvline(decision_time, color='black', linestyle='--', linewidth=1.5)
@@ -481,63 +429,72 @@ plt.text(
     "Decision time",
     ha='center',
     va='top',
-    fontsize=12,
+    fontsize=24,
     fontweight='bold',
     color='black'
 )
 
-# 3. Explanation text box
+# # 3. Explanation text box
+# plt.text(
+#     decision_time2,
+#     plt.ylim()[1] * 0.90,
+#     "Decision:\nHow many nurses\nshould I schedule\nfor the 42-day Planning Horizon?",
+#     ha='center',
+#     va='top',
+#     fontsize=24,
+#     color='black',
+#     bbox=dict(facecolor='white', alpha=0.4, edgecolor='none')
+# )
+
+# 4. Add 42-day lead time shaded region
+lead_time_end = test.index[42]
+plt.axvspan(decision_time, lead_time_end, alpha=0.1, color='#B2582D', label='42-day Lead Time')
+
+# Label for lead time region
+lead_time_mid = decision_time + (lead_time_end - decision_time) / 2
 plt.text(
-    decision_time,
-    plt.ylim()[1] * 0.90,
-    "Decision:\nHow many nurses\nshould I schedule\nfor each day of next 42-84 days of forecasting horizon?",
+    lead_time_mid,
+    plt.ylim()[1] * 0.32,
+    "42-day Lead Time \nto Announce Nurse Schedules",
     ha='center',
     va='top',
-    fontsize=16,
-    color='black',
-    bbox=dict(facecolor='white', alpha=0.4, edgecolor='none')
+    fontsize=19,
+    color='#B2582D',
+    fontweight='bold'
 )
 
+# 4. Add 42-day planning horizon shaded region (last 42 days)
+planning_horizon_start = test.index[-42]
+plt.axvspan(planning_horizon_start, test.index[-1], alpha=0.1, color='#707C36', label='42-day Planning Horizon')
 
-# Choose a low y-level automatically (5% above bottom of plot)
-hline_y = plt.ylim()[0] + 0.05 * (plt.ylim()[1] - plt.ylim()[0])
-
-# Horizontal line spanning forecasting period
-plt.hlines(
-    y=hline_y,
-    xmin=test.index[42],
-    xmax=test.index[-1],
-    color='C5',
-    linestyle='--',
-    linewidth=2,
-    alpha=0.8
-)
-
-# Label next to the horizontal line
+# Label for planning horizon region
+planning_horizon_mid = planning_horizon_start + (test.index[-1] - planning_horizon_start) / 2
 plt.text(
-    test.index[62],
-    hline_y,
-    "Uncertainty in occupancy levels\nfor the next 42 days",
+    planning_horizon_mid,
+    plt.ylim()[1] * 0.30,
+    "42-day Planning Horizon",
     ha='center',
-    va='bottom',
-    fontsize=16,
-    color='black'
+    va='top',
+    fontsize=19,
+    color='#707C36',
+    fontweight='bold'
 )
 
-
-plt.ylabel('Occupancy')
-plt.xlabel('Date')
+plt.ylabel('Occupancy', fontsize=22)
+plt.xlabel('Date', fontsize=22)
+# increase font size of values on x-axis and y-axis
+plt.xticks(fontsize=20)
+plt.yticks(fontsize=20)
 plt.grid(True)
-plt.legend(fontsize=12)
+plt.legend(fontsize=16, loc='upper left')
 plt.show()
-
-
 ```
 
 ---
 
-## Embracing Uncertainty - 100 scenarios
+## Embracing Uncertainty
 
+### Decision: How many nurses should I schedule for the [42-day Planning Horizon?]{style="color: #707C36;"}
 ```{python}
 #| fig-width: 100%
 #| fig-align: center
@@ -545,11 +502,10 @@ plt.show()
 
 ## plot scenarios agains train and test
 plt.figure(figsize=(30, 10))
-plt.plot(train[col].index[-120:], train[col][-120:], label='Train', color='C0')
-plt.plot(test.index, test[col], label='Actual', color='C2', linewidth=2, alpha=1)
-plt.plot(test.index, point_forecasts, label='Point Forecast', color='C3')
+
 # Define decision time (start of forecast horizon)
 decision_time = test.index[0]+ timedelta(days=-1)  # first day of test/forecast period
+decision_time2 = test.index[0]+ timedelta(days=-16)  # first day of test/forecast period
 for i in range(scenarios_hmm[0:100].shape[0]):
     # plt.plot(test.index, scenarios_hmm[i], color='C7', alpha=0.5)
     # if i is the last scenario, add label
@@ -558,6 +514,9 @@ for i in range(scenarios_hmm[0:100].shape[0]):
     else:
         plt.plot(test.index, scenarios_hmm[i], color='C7', alpha=0.7)
 # plt.plot(test.index, scenarios_hmm[-1], color='C7', alpha=0.5, label ='All Scenarios (1000)')
+plt.plot(train[col].index[-120:], train[col][-120:], label='Train', linewidth=3, color='#0B363C')
+plt.plot(test.index, test[col], label='Actual', color='#2CA0AB', linewidth=3, alpha=1)
+plt.plot(test.index, point_forecasts, label='Point Forecast', linewidth=3, color='#BF505C')
 
 # 1. Vertical dashed line
 plt.axvline(decision_time, color='black', linestyle='--', linewidth=1.5)
@@ -569,62 +528,72 @@ plt.text(
     "Decision time",
     ha='center',
     va='top',
-    fontsize=12,
+    fontsize=24,
     fontweight='bold',
     color='black'
 )
 
-# 3. Explanation text box
+# # 3. Explanation text box
+# plt.text(
+#     decision_time2,
+#     plt.ylim()[1] * 0.90,
+#     "Decision:\nHow many nurses\nshould I schedule\nfor the 42-day Planning Horizon?",
+#     ha='center',
+#     va='top',
+#     fontsize=24,
+#     color='black',
+#     bbox=dict(facecolor='white', alpha=0.4, edgecolor='none')
+# )
+
+# 4. Add 42-day lead time shaded region
+lead_time_end = test.index[42]
+plt.axvspan(decision_time, lead_time_end, alpha=0.1, color='#B2582D', label='42-day Lead Time')
+
+# Label for lead time region
+lead_time_mid = decision_time + (lead_time_end - decision_time) / 2
 plt.text(
-    decision_time,
-    plt.ylim()[1] * 0.90,
-    "Decision:\nHow many nurses\nshould I schedule\nfor each day of next 42-84 days of forecasting horizon?",
+    lead_time_mid,
+    plt.ylim()[1] * 0.18,
+    "42-day Lead Time \nto Announce Nurse Schedules",
     ha='center',
     va='top',
-    fontsize=16,
-    color='black',
-    bbox=dict(facecolor='white', alpha=0.4, edgecolor='none')
+    fontsize=19,
+    color='#B2582D',
+    fontweight='bold'
 )
 
+# 4. Add 42-day planning horizon shaded region (last 42 days)
+planning_horizon_start = test.index[-42]
+plt.axvspan(planning_horizon_start, test.index[-1], alpha=0.1, color='#707C36', label='42-day Planning Horizon')
 
-# Choose a low y-level automatically (5% above bottom of plot)
-hline_y = plt.ylim()[0] + 0.05 * (plt.ylim()[1] - plt.ylim()[0])
-
-# Horizontal line spanning forecasting period
-plt.hlines(
-    y=hline_y,
-    xmin=test.index[42],
-    xmax=test.index[-1],
-    color='C5',
-    linestyle='--',
-    linewidth=2,
-    alpha=0.8
-)
-
-# Label next to the horizontal line
+# Label for planning horizon region
+planning_horizon_mid = planning_horizon_start + (test.index[-1] - planning_horizon_start) / 2
 plt.text(
-    test.index[62],
-    hline_y,
-    "Uncertainty in occupancy levels\nfor the next 42 days",
+    planning_horizon_mid,
+    plt.ylim()[1] * 0.16,
+    "42-day Planning Horizon",
     ha='center',
-    va='bottom',
-    fontsize=16,
-    color='black'
+    va='top',
+    fontsize=19,
+    color='#707C36',
+    fontweight='bold'
 )
 
-
-plt.ylabel('Occupancy')
-plt.xlabel('Date')
+plt.ylabel('Occupancy', fontsize=22)
+plt.xlabel('Date', fontsize=22)
+# increase font size of values on x-axis and y-axis
+plt.xticks(fontsize=20)
+plt.yticks(fontsize=20)
 plt.grid(True)
-plt.legend(fontsize=12)
+plt.legend(fontsize=16, loc='upper left')
 plt.show()
-
-
 ```
 
 ---
 
-## Embracing Uncertainty - 1000 scenarios
+## Embracing Uncertainty
+
+### Decision: How many nurses should I schedule for the [42-day Planning Horizon?]{style="color: #707C36;"}
 
 ```{python}
 #| fig-width: 100%
@@ -633,11 +602,10 @@ plt.show()
 
 ## plot scenarios agains train and test
 plt.figure(figsize=(30, 10))
-plt.plot(train[col].index[-120:], train[col][-120:], label='Train', color='C0')
-plt.plot(test.index, test[col], label='Actual', color='C2', linewidth=2, alpha=1)
-plt.plot(test.index, point_forecasts, label='Point Forecast', color='C3')
+
 # Define decision time (start of forecast horizon)
 decision_time = test.index[0]+ timedelta(days=-1)  # first day of test/forecast period
+decision_time2 = test.index[0]+ timedelta(days=-16)  # first day of test/forecast period
 for i in range(scenarios_hmm.shape[0]):
     # plt.plot(test.index, scenarios_hmm[i], color='C7', alpha=0.5)
     # if i is the last scenario, add label
@@ -645,6 +613,9 @@ for i in range(scenarios_hmm.shape[0]):
         plt.plot(test.index, scenarios_hmm[i], color='C7', alpha=0.7, label ='1000 scenarios')
     else:
         plt.plot(test.index, scenarios_hmm[i], color='C7', alpha=0.7)
+plt.plot(train[col].index[-120:], train[col][-120:], label='Train', linewidth=3, color='#0B363C')
+plt.plot(test.index, test[col], label='Actual', color='#2CA0AB', linewidth=3, alpha=1)
+plt.plot(test.index, point_forecasts, label='Point Forecast', linewidth=3, color='#BF505C')
 
 # 1. Vertical dashed line
 plt.axvline(decision_time, color='black', linestyle='--', linewidth=1.5)
@@ -656,54 +627,64 @@ plt.text(
     "Decision time",
     ha='center',
     va='top',
-    fontsize=12,
+    fontsize=24,
     fontweight='bold',
     color='black'
 )
 
-# 3. Explanation text box
+# # 3. Explanation text box
+# plt.text(
+#     decision_time2,
+#     plt.ylim()[1] * 0.90,
+#     "Decision:\nHow many nurses\nshould I schedule\nfor the 42-day Planning Horizon?",
+#     ha='center',
+#     va='top',
+#     fontsize=24,
+#     color='black',
+#     bbox=dict(facecolor='white', alpha=0.4, edgecolor='none')
+# )
+
+# 4. Add 42-day lead time shaded region
+lead_time_end = test.index[42]
+plt.axvspan(decision_time, lead_time_end, alpha=0.1, color='#B2582D', label='42-day Lead Time')
+
+# Label for lead time region
+lead_time_mid = decision_time + (lead_time_end - decision_time) / 2
 plt.text(
-    decision_time,
-    plt.ylim()[1] * 0.90,
-    "Decision:\nHow many nurses\nshould I schedule\nfor each day of next 42-84 days of forecasting horizon?",
+    lead_time_mid,
+    plt.ylim()[1] * 0.16,
+    "42-day Lead Time \nto Announce Nurse Schedules",
     ha='center',
     va='top',
-    fontsize=16,
-    color='black',
-    bbox=dict(facecolor='white', alpha=0.4, edgecolor='none')
+    fontsize=19,
+    color='#B2582D',
+    fontweight='bold'
 )
 
+# 4. Add 42-day planning horizon shaded region (last 42 days)
+planning_horizon_start = test.index[-42]
+plt.axvspan(planning_horizon_start, test.index[-1], alpha=0.1, color='#707C36', label='42-day Planning Horizon')
 
-# Choose a low y-level automatically (5% above bottom of plot)
-hline_y = plt.ylim()[0] + 0.05 * (plt.ylim()[1] - plt.ylim()[0])
-
-# Horizontal line spanning forecasting period
-plt.hlines(
-    y=hline_y,
-    xmin=test.index[42],
-    xmax=test.index[-1],
-    color='C5',
-    linestyle='--',
-    linewidth=2,
-    alpha=0.8
-)
-
-# Label next to the horizontal line
+# Label for planning horizon region
+planning_horizon_mid = planning_horizon_start + (test.index[-1] - planning_horizon_start) / 2
 plt.text(
-    test.index[62],
-    hline_y,
-    "Uncertainty in occupancy levels\nfor the next 42 days",
+    planning_horizon_mid,
+    plt.ylim()[1] * 0.14,
+    "42-day Planning Horizon",
     ha='center',
-    va='bottom',
-    fontsize=16,
-    color='black'
+    va='top',
+    fontsize=19,
+    color='#707C36',
+    fontweight='bold'
 )
 
-
-plt.ylabel('Occupancy')
-plt.xlabel('Date')
+plt.ylabel('Occupancy', fontsize=22)
+plt.xlabel('Date', fontsize=22)
+# increase font size of values on x-axis and y-axis
+plt.xticks(fontsize=20)
+plt.yticks(fontsize=20)
 plt.grid(True)
-plt.legend(fontsize=12)
+plt.legend(fontsize=16, loc='upper left')
 plt.show()
 
 
@@ -1211,12 +1192,18 @@ $$
 
 ::::
 
-##
+
+## Forecasting Performance {.tables-full-slide}
+
+<br>
+<br>
 
 ::::{.columns}
-::: {.column width="50%" .fragment}
+::: {.column width="50%"}
 
-[Forecasting performance]{.mimic-h2}
+:::{.fragment}
+
+**Point Forecast Accuracy (RMSE)**
 
 ```{python}
 from great_tables import *
@@ -1230,6 +1217,7 @@ group_map = {
     "VSS": "Value of Stochastic Solution"
 }
 
+score_cols = ["Ward A", "Ward B", "Ward C", "Ward D", "Ward E", "Ward F", "Ward G", "overall"]
 f_metrics_view = f_metrics.assign(metric=f_metrics["metric"].replace(group_map))
 
 # make number columns with 2 decimal places
@@ -1239,13 +1227,32 @@ f_metrics_view[num_cols] = f_metrics_view.apply(
     axis=1
 )
 
-f_metrics_forecast = f_metrics_view[f_metrics_view["metric"].isin(["Point Forecast (RMSE)", "Probabilistic (Pinball Loss)", "Permutation Entropy"])]
+f_metrics_point = f_metrics_view[f_metrics_view["metric"] == "Point Forecast (RMSE)"].drop(columns=["metric"])
 
-f_metrics_operat = f_metrics_view[f_metrics_view["metric"].isin(["Average Understaffed Number of Patients", "Value of Stochastic Solution"])]
+f_metrics_prob = (
+    f_metrics_view[f_metrics_view["metric"] == "Probabilistic (Pinball Loss)"]
+    .drop(columns=["metric"])
+    .reset_index(drop=True)
+)
 
 
+f_metrics_perm = f_metrics_view[f_metrics_view["metric"] == "Permutation Entropy"].drop(columns=["metric"]).reset_index(drop=True)
 
-GT(f_metrics_forecast).tab_stub(groupname_col="metric").tab_style(
+au = f_metrics_view[f_metrics_view["metric"] == "Average Understaffed Number of Patients"].drop(columns=["metric"]).reset_index(drop=True)
+
+cst = f_metrics_view[f_metrics_view["metric"] == "Value of Stochastic Solution"].drop(columns=["metric"]).reset_index(drop=True)
+
+## Change the name  of Value of Stochastic Solution to "Cost of using model's solution instead of perfect information" for better readability
+# cst["metric"] = cst["metric"].replace({"Value of Stochastic Solution": "Cost of using model's solution"
+# })
+
+rank_df = f_metrics_point.copy()
+for c in score_cols:
+    rank_df[c] = pd.to_numeric(rank_df[c], errors="coerce")
+
+
+tbl = (
+    GT(f_metrics_point).tab_style(
     style=style.fill(color="#FBFAF4"),
     locations=loc.body()
 ).tab_style(
@@ -1255,19 +1262,167 @@ GT(f_metrics_forecast).tab_stub(groupname_col="metric").tab_style(
     style=style.text(color="#FBFAF4", weight="bold"),
     locations=loc.column_labels()
 ).tab_style(
-    # Targeting the row group labels specifically
-    style=[
-        style.fill(color="#DEF7F9"), 
-        style.text(size="20px", color="#091717", weight="bold")
-    ],
-    locations=loc.row_groups()
-).tab_style(
-        style=style.text(size="20px", weight="bold"),
+        style=style.text(size="26px", weight="bold"),
         locations=loc.column_labels()
     ).tab_style(
-        style=style.text(size="18px"),
+        style=style.text(size="24px"),
         locations=loc.body()
     )
+)
+
+
+# Bold top-3 per column (for RMSE, smaller is better)
+for c in score_cols:
+    top3_rows = rank_df[c].nsmallest(2).index.tolist()
+    tbl = tbl.tab_style(
+        style=style.text(weight="bold"),
+        locations=loc.body(columns=[c], rows=top3_rows)
+    )
+
+tbl
+
+```
+
+:::
+
+:::
+
+::: {.column width="50%"}
+
+:::{.fragment}
+**Probabilistic Forecast Accuracy (Pinball Loss)**
+```{python}
+
+rank_prob = f_metrics_prob.copy()
+for c in score_cols:
+    rank_prob[c] = pd.to_numeric(rank_prob[c], errors="coerce")
+
+tbl = (
+    GT(f_metrics_prob).tab_style(
+    style=style.fill(color="#FBFAF4"),
+    locations=loc.body()
+).tab_style(
+    style=style.fill(color="#20808D"),
+    locations=loc.column_header()
+).tab_style(
+    style=style.text(color="#FBFAF4", weight="bold"),
+    locations=loc.column_labels()
+).tab_style(
+        style=style.text(size="26px", weight="bold"),
+        locations=loc.column_labels()
+    ).tab_style(
+        style=style.text(size="24px"),
+        locations=loc.body()
+    )
+
+)
+
+# Bold top-3 per column (for PB, smaller is better)
+for c in score_cols:
+    top3_rows = rank_prob[c].nsmallest(2).index.tolist()
+    tbl = tbl.tab_style(
+        style=style.text(weight="bold"),
+        locations=loc.body(columns=[c], rows=top3_rows)
+    )
+
+tbl
+
+```
+
+:::
+:::
+::::
+
+
+:::{.fragment}
+**Permutation Entropy (PE)**
+```{python}
+
+tbl = (
+    GT(f_metrics_perm)
+    .tab_style(
+        style=style.fill(color="#FBFAF4"),
+        locations=loc.body()
+    )
+    .tab_style(
+        style=style.fill(color="#20808D"),
+        locations=loc.column_header()
+    )
+    .tab_style(
+        style=style.text(color="#FBFAF4", weight="bold"),
+        locations=loc.column_labels()
+    )
+    .tab_style(
+        style=style.text(size="26px", weight="bold"),
+        locations=loc.column_labels()
+    )
+    .tab_style(
+        style=style.text(size="24px"),
+        locations=loc.body()
+    )
+)
+
+# top-3 values in first row (excluding "model")
+score_cols = ["Ward A", "Ward B", "Ward C", "Ward D", "Ward E", "Ward F", "Ward G", "overall"]
+row0_num = pd.to_numeric(f_metrics_perm.loc[0, score_cols], errors="coerce")
+top3_cols = row0_num.nlargest(3).index.tolist()  # use .nlargest(3) if higher is better
+
+tbl = tbl.tab_style(
+    style=style.text(weight="bold"),
+    locations=loc.body(columns=top3_cols, rows=[0])
+)
+
+tbl
+```
+
+:::
+
+
+
+## Operational performance {.tables-full-slide}
+
+<br>
+<br>
+
+::::{.columns}
+::: {.column width="50%" .fragment}
+
+**Average Daily Number of Understaffed Patients**
+
+```{python}
+
+tbl = (GT(au).tab_style(
+    style=style.fill(color="#FBFAF4"),
+    locations=loc.body()
+).tab_style(
+    style=style.fill(color="#20808D"),
+    locations=loc.column_header()
+).tab_style(
+    style=style.text(color="#FBFAF4", weight="bold"),
+    locations=loc.column_labels()
+).tab_style(
+        style=style.text(size="26px", weight="bold"),
+        locations=loc.column_labels()
+    ).tab_style(
+        style=style.text(size="24px"),
+        locations=loc.body()
+    )
+)
+
+
+rank_au = au.copy()
+for c in score_cols:
+    rank_au[c] = pd.to_numeric(rank_au[c], errors="coerce")
+
+for c in score_cols:
+    top3_rows = rank_au[c].nsmallest(2).index.tolist()
+    tbl = tbl.tab_style(
+        style=style.text(weight="bold"),
+        locations=loc.body(columns=[c], rows=top3_rows)
+    )
+
+tbl
+
 
 ```
 
@@ -1275,18 +1430,13 @@ GT(f_metrics_forecast).tab_stub(groupname_col="metric").tab_style(
 
 ::: {.column width="50%" .fragment}
 
-[Operational performance]{.mimic-h2}
+**Daily VSS (% Improvement over Deterministic)**
 ```{python}
+# cst_m = cst.drop(columns=["model"])
+perc_svss = pd.read_csv("tables/perc_ward_svss.csv")
+perc_ = perc_svss[perc_svss["metric"] == "VSS"].drop(columns=["overall_std", "metric"]).reset_index(drop=True)
 
-f_metrics_operat = f_metrics_view[f_metrics_view["metric"].isin(["Average Understaffed Number of Patients", "Value of Stochastic Solution"])]
-
-
-## Change the name  of Value of Stochastic Solution to "Cost of using model's solution instead of perfect information" for better readability
-f_metrics_operat["metric"] = f_metrics_operat["metric"].replace({"Value of Stochastic Solution": "Cost of using model's solution"
-})
-
-
-GT(f_metrics_operat).tab_stub(groupname_col="metric").tab_style(
+tbl = (GT(perc_).tab_style(
     style=style.fill(color="#FBFAF4"),
     locations=loc.body()
 ).tab_style(
@@ -1296,19 +1446,27 @@ GT(f_metrics_operat).tab_stub(groupname_col="metric").tab_style(
     style=style.text(color="#FBFAF4", weight="bold"),
     locations=loc.column_labels()
 ).tab_style(
-    # Targeting the row group labels specifically
-    style=[
-        style.fill(color="#DEF7F9"), 
-        style.text(size="20px", color="#091717", weight="bold")
-    ],
-    locations=loc.row_groups()
-).tab_style(
-        style=style.text(size="20px", weight="bold"),
+        style=style.text(size="26px", weight="bold"),
         locations=loc.column_labels()
     ).tab_style(
-        style=style.text(size="18px"),
+        style=style.text(size="24px"),
         locations=loc.body()
     )
+)
+
+rank_vss = perc_.copy()
+for c in score_cols:
+    rank_vss[c] = pd.to_numeric(rank_vss[c], errors="coerce")
+
+for c in score_cols:
+    top3_rows = rank_vss[c].nlargest(2).index.tolist()
+    tbl = tbl.tab_style(
+        style=style.text(weight="bold"),
+        locations=loc.body(columns=[c], rows=top3_rows)
+    )
+
+tbl
+
 
 ```
 
@@ -1317,8 +1475,52 @@ GT(f_metrics_operat).tab_stub(groupname_col="metric").tab_style(
 
 ## Understaffing Reliability
 
-<br>
+::::{.columns}
+::: {.column width="20%" .fragment}
 
+```{python}
+
+with open('tables/comb_opt_cdf.pkl', 'rb') as f:
+    comb_opt_cdf = pickle.load(f)
+dominance_score = (
+    comb_opt_cdf
+    .groupby('Model')['total_shortage']
+    .apply(lambda x: (x == 0).mean())
+    .sort_values(ascending=False)
+)
+ds = (dominance_score.to_frame()*100).reset_index().rename(columns={"total_shortage": "Zero-Shortage Prob (%)"})
+## round to 2 decimal places
+ds = ds.round(2)
+tbl = (
+    GT(ds)
+    .tab_style(
+        style=style.fill(color="#FBFAF4"),
+        locations=loc.body()
+    )
+    .tab_style(
+        style=style.fill(color="#20808D"),
+        locations=loc.column_header()
+    )
+    .tab_style(
+        style=style.text(color="#FBFAF4", weight="bold"),
+        locations=loc.column_labels()
+    )
+    .tab_style(
+        style=style.text(size="32px", weight="bold", align="left"),
+        locations=loc.column_labels()
+    )
+    .tab_style(
+        style=style.text(size="30px"),
+        locations=loc.body()
+    )
+)
+tbl
+
+```
+
+:::
+
+::: {.column width="80%" .fragment}
 ```{python}
 #| fig-width: 100%
 #| fig-align: center
@@ -1385,33 +1587,37 @@ for i, model in enumerate(dominance_score.index):
     )
     plt.xticks(range(0, cutoff + 1, 1), fontsize=10)
 
-# --------------------------------------------------
-# 4. Add aligned annotations (axis coordinates)
-# --------------------------------------------------
-ax = plt.gca()
 
-for y, model in zip(y_positions, annot_models):
-    zero_prob = dominance_score[model]
+## add vertical line for 0 x axis
+plt.axvline(x=0, color='#BF505C', linestyle='--', linewidth=3)
 
-    ax.text(
-        0.02, y,                         # left margin in axes coords
-        f"{model}: {zero_prob:.2%}",
-        transform=ax.transAxes,
-        fontsize=24,
-        va='center',
-        ha='left'
-    )
+# # --------------------------------------------------
+# # 4. Add aligned annotations (axis coordinates)
+# # --------------------------------------------------
+# ax = plt.gca()
+
+# for y, model in zip(y_positions, annot_models):
+#     zero_prob = dominance_score[model]
+
+#     ax.text(
+#         0.02, y,                         # left margin in axes coords
+#         f"{model}: {zero_prob:.2%}",
+#         transform=ax.transAxes,
+#         fontsize=24,
+#         va='center',
+#         ha='left'
+#     )
 
 # --------------------------------------------------
 # 5. Formatting
 # --------------------------------------------------
-plt.annotate(
-    'Zero-Shortage Reliability\nP(0 Understaffed Days):',
-    xy=(0.02, 0.28),
-    xytext=(-0.7, 0.86),
-    fontweight='bold',
-    fontsize=24
-)
+# plt.annotate(
+#     'Zero-Shortage Reliability\nP(0 Understaffed Days):',
+#     xy=(0.02, 0.28),
+#     xytext=(-0.7, 0.86),
+#     fontweight='bold',
+#     fontsize=24
+# )
 plt.xlabel("Number of understaffed days within a 42-day planning horizon", fontsize=30)
 plt.xticks(fontsize=24)
 plt.yticks(fontsize=24)
@@ -1422,6 +1628,9 @@ plt.tight_layout()
 plt.show()
 
 ```
+
+:::
+::::
 
 # Any questions or thoughts? 💬
 
