@@ -1,6 +1,6 @@
 ---
-# jupyter: python3
-jupyter: peshbeen
+jupyter: python3
+# jupyter: peshbeen
 format:
   revealjs:
     css: style.css
