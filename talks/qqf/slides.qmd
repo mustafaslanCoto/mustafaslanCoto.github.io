@@ -1584,7 +1584,7 @@ plt.axvline(x=0, color='#BF505C', linestyle='--', linewidth=3)
 #     fontweight='bold',
 #     fontsize=24
 # )
-plt.xlabel("Number of understaffed days within a 42-day planning horizon", fontsize=30)
+plt.xlabel("Number of understaffed days", fontsize=30)
 # plt.title("Stochastic vs Deterministic Optimization: Understaffing Reliability \n Zero-Shortage Reliability: AR-MSR: 28% vs. AR-MSR (Det-Best Point Forecast): 2%", fontsize=28, fontweight='bold')
 plt.xticks(fontsize=24)
 plt.yticks(fontsize=24)
@@ -1741,7 +1741,7 @@ plt.axvline(x=0, color='#BF505C', linestyle='--', linewidth=3)
 #     fontweight='bold',
 #     fontsize=24
 # )
-plt.xlabel("Number of understaffed days within a 42-day planning horizon", fontsize=30)
+plt.xlabel("Number of understaffed days", fontsize=30)
 plt.xticks(fontsize=24)
 plt.yticks(fontsize=24)
 plt.ylabel("Probability of ≤ x Understaffed Days", fontsize=30)
