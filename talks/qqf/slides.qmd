@@ -1473,10 +1473,133 @@ tbl
 :::
 ::::
 
-## Understaffing Reliability
+## Understaffing Reliability: Stocastic vs Deterministic Optimization
+
+***Zero-Shortage Reliability: AR-MSR: 28% vs. AR-MSR (Det-Best Point Forecast): 2%***
+
+```{python}
+#| fig-width: 100%
+#| fig-align: center
+#| fig-height: 100%
+
+with open('tables/comb_opt_cdf.pkl', 'rb') as f:
+    comb_opt_cdf = pickle.load(f)
+
+## filter first and last rows
+comb_opt_cdf_sd = comb_opt_cdf[comb_opt_cdf['Model'].isin(['AR-MSR (Det-Best Point Forecast)', "AR-MSR"])]
+plt.figure(figsize=(27, 9))
+
+comb_opt_cdf_sd['total_shortage'] = comb_opt_cdf_sd['total_shortage'].astype(int)
+
+cutoff = 26
+markers = ['o', '<', '>']
+
+colors = {
+    "AR-MSR": "C0",
+    "AR-MSR (Det-Best Point Forecast)": "C9"
+}
+# --------------------------------------------------
+# 1. Dominance score: P(0 understaffed days)
+# --------------------------------------------------
+dominance_score = (
+    comb_opt_cdf_sd
+    .groupby('Model')['total_shortage']
+    .apply(lambda x: (x == 0).mean())
+    .sort_values(ascending=False)
+)
+
+
+
+# --------------------------------------------------
+# 2. Fixed annotation layout (TOP 5)
+# --------------------------------------------------
+annot_models = dominance_score.index[:5]
+y_positions = np.linspace(0.78, 0.62, len(annot_models))  # evenly spaced
+
+# --------------------------------------------------
+# 3. Plot in dominance order
+# --------------------------------------------------
+for i, model in enumerate(dominance_score.index):
+
+    g = comb_opt_cdf_sd[comb_opt_cdf_sd['Model'] == model]
+
+    x_full = np.arange(
+        g['total_shortage'].min(),
+        g['total_shortage'].max() + 1
+    )
+
+    counts = (
+        g['total_shortage']
+        .value_counts()
+        .reindex(x_full, fill_value=0)
+        .sort_index()
+    )
+
+    cdf_full = counts.cumsum() / counts.sum()
+
+    mask = x_full <= cutoff
+    x_plot = x_full[mask]
+    cdf_plot = cdf_full[mask]
+
+    plt.plot(
+        x_plot,
+        cdf_plot,
+        marker=markers[i % len(markers)],
+        linestyle='-',
+        label=model,
+        linewidth=4,
+        color=colors[model],
+        markersize=16
+    )
+    plt.xticks(range(0, cutoff + 1, 1), fontsize=10)
+
+
+## add vertical line for 0 x axis
+plt.axvline(x=0, color='#BF505C', linestyle='--', linewidth=3)
+
+# # --------------------------------------------------
+# # 4. Add aligned annotations (axis coordinates)
+# # --------------------------------------------------
+# ax = plt.gca()
+
+# for y, model in zip(y_positions, annot_models):
+#     zero_prob = dominance_score[model]
+
+#     ax.text(
+#         0.02, y,                         # left margin in axes coords
+#         f"{model}: {zero_prob:.2%}",
+#         transform=ax.transAxes,
+#         fontsize=24,
+#         va='center',
+#         ha='left'
+#     )
+
+# --------------------------------------------------
+# 5. Formatting
+# --------------------------------------------------
+# plt.annotate(
+#     'Zero-Shortage Reliability\nP(0 Understaffed Days):',
+#     xy=(0.02, 0.28),
+#     xytext=(-0.7, 0.86),
+#     fontweight='bold',
+#     fontsize=24
+# )
+plt.xlabel("Number of understaffed days within a 42-day planning horizon", fontsize=30)
+# plt.title("Stochastic vs Deterministic Optimization: Understaffing Reliability \n Zero-Shortage Reliability: AR-MSR: 28% vs. AR-MSR (Det-Best Point Forecast): 2%", fontsize=28, fontweight='bold')
+plt.xticks(fontsize=24)
+plt.yticks(fontsize=24)
+plt.ylabel("Probability of ≤ x Understaffed Days", fontsize=30)
+plt.legend(title="Model", fontsize=24)
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+
+```
+
+## Understaffing Reliability: Stocastic Results Across All Models
 
 ::::{.columns}
-::: {.column width="20%" .fragment}
+::: {.column width="20%"}
 
 ```{python}
 
@@ -1487,7 +1610,7 @@ dominance_score = (
     .groupby('Model')['total_shortage']
     .apply(lambda x: (x == 0).mean())
     .sort_values(ascending=False)
-)
+)[:-1]
 ds = (dominance_score.to_frame()*100).reset_index().rename(columns={"total_shortage": "Zero-Shortage Prob (%)"})
 ## round to 2 decimal places
 ds = ds.round(2)
@@ -1520,10 +1643,10 @@ tbl
 
 :::
 
-::: {.column width="80%" .fragment}
+::: {.column width="80%"}
 ```{python}
 #| fig-width: 100%
-#| fig-align: center
+#| fig-align: left
 #| fig-height: 100%
 
 with open('tables/comb_opt_cdf.pkl', 'rb') as f:
@@ -1533,7 +1656,7 @@ plt.figure(figsize=(27, 9))
 
 comb_opt_cdf['total_shortage'] = comb_opt_cdf['total_shortage'].astype(int)
 
-cutoff = 26
+cutoff = 17
 markers = ['o', 's', '^', 'D', 'v', 'P', 'X', '*', 'h', '<', '>']
 
 # --------------------------------------------------
@@ -1544,7 +1667,7 @@ dominance_score = (
     .groupby('Model')['total_shortage']
     .apply(lambda x: (x == 0).mean())
     .sort_values(ascending=False)
-)
+)[:-1]
 
 # --------------------------------------------------
 # 2. Fixed annotation layout (TOP 5)
@@ -1622,7 +1745,7 @@ plt.xlabel("Number of understaffed days within a 42-day planning horizon", fonts
 plt.xticks(fontsize=24)
 plt.yticks(fontsize=24)
 plt.ylabel("Probability of ≤ x Understaffed Days", fontsize=30)
-plt.legend(title="Model", fontsize=20)
+plt.legend(title="Model", fontsize=24)
 plt.grid(True)
 plt.tight_layout()
 plt.show()
@@ -1631,6 +1754,7 @@ plt.show()
 
 :::
 ::::
+
 
 # Any questions or thoughts? 💬
 
