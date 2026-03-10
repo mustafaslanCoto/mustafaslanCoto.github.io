@@ -233,3 +233,25 @@ img {
   color: #92DCE2; 
   text-decoration: underline;
 }
+
+
+/* Table styling for full-slide tables
+*/
+
+.reveal .slides section.tables-full-slide .columns {
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.reveal .slides section.tables-full-slide .column {
+  min-width: 0; /* prevents overflow squeeze issues */
+}
+
+.reveal .slides section.tables-full-slide .gt_table {
+  width: 100% !important;
+  margin: 0 auto;
+}
+
+.reveal .slides section.tables-full-slide .gt_col_heading {
+  white-space: nowrap;
+}
