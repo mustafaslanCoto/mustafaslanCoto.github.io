@@ -43,7 +43,7 @@ format:
 
 :::{style="font-weight: bold; font-size: 1.3em;"}
 - [Problem statement and motivation]{style="color: #1A6872;"}
-- Forecasting framework: autoregressive Markov-switching regression (AR-MSR)
+- Forecasting framework: Autoregressive Markov-switching regression (AR-MSR)
 - Bridging Forecasts and Decisions: The Role of Uncertainty
 - A Holistic Multi-Ward Nurse Rostering framework
 - Computational experiments and results
@@ -73,7 +73,7 @@ anon_wnames = ["Ward A", "Ward B", "Ward C", "Ward D", "Ward E", "Ward F", "Ward
 # just plot the Ward A (blake) occupancy time series
 plt.figure(figsize=(30, 10))
 plt.plot(occupancy_orig.index, occupancy_orig["blake"], label='Original Occupancy', color='C0')
-plt.title('Occupancy Time Series for Ward A', fontsize=24)
+plt.title('Daily Occupancy Time Series for Ward A', fontsize=24)
 plt.xlabel('Date', fontsize=20)
 plt.ylabel('Occupancy', fontsize=20)
 plt.grid(True)
@@ -81,6 +81,25 @@ plt.show()
 ```
 
 :::
+
+## The Clinical & Operational Problem: Zooming in
+
+```{python}
+
+#| fig-width: 100%
+#| fig-align: center
+#| fig-height: 100%
+
+occup_closer = occupancy_orig[occupancy_orig.index.isin(pd.date_range("2022-04-15", "2022-07-31"))]
+
+plt.figure(figsize=(30, 10))
+plt.plot(occup_closer.index, occup_closer["blake"], label='Original Occupancy', color='C0', linewidth=3)
+plt.title('Daily Occupancy Time Series for Ward A', fontsize=24)
+plt.xlabel('Date', fontsize=20)
+plt.ylabel('Occupancy', fontsize=20)
+plt.grid(True)
+plt.show()
+```
 
 ## 
 
@@ -125,7 +144,7 @@ Traditional forecasting treats occupancy as an isolated time series, missing the
 <br>
 <br>
 
-| Challenge | Solution |
+| Challenge | Proposed solution |
 | :-- | :----|
 | [**Volatile Demand & Regime Shifts**]{style="color: #BF505C;"} | A regime-switching model that identifies hidden states to generate multiple high-fidelity probabilistic scenarios. |
 | [**Nurse Burnout & Ineffective Scheduling**]{style="color: #BF505C;"} | A stochastic programming framework that accounts for forecast distribution of occupancy, absenteeism and enables robust staffing decisions across multiple wards. |
@@ -1252,7 +1271,7 @@ f_metrics_prob = (
 )
 
 
-f_metrics_perm = f_metrics_view[f_metrics_view["metric"] == "Permutation Entropy"].drop(columns=["metric"]).reset_index(drop=True)
+f_metrics_perm = f_metrics_view[f_metrics_view["metric"] == "Permutation Entropy"].drop(columns=["metric", "model"]).reset_index(drop=True)
 
 au = f_metrics_view[f_metrics_view["metric"] == "Average Understaffed Number of Patients"].drop(columns=["metric"]).reset_index(drop=True)
 
