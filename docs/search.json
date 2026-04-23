@@ -7487,14 +7487,14 @@
     "href": "talks/care_phd/slides.html#example-predicting-future-care-demand",
     "title": "AI in Research & Social Care",
     "section": "Example: Predicting Future Care Demand",
-    "text": "Example: Predicting Future Care Demand\n \n\n\n📥 Inputs\n\nHistorical daily bed occupancy\nNew referrals per week\nDemographics, diagnosis mix\nSeasonality indicators (month, holidays)\n\n\n    \\(\\rightarrow\\)\n\n\n📊 AI Model\n\nMachine Learning Algorithm (e.g., Random Forest, LSTM Neural Network)\n\nLearns patterns from historical data to identify relationships\n\n\n\n\n    \\(\\rightarrow\\)\n\n\n📤Outputs\n\nPredicted bed occupancy for the next months\nConfidence intervals for predictions to quantify uncertainty\nRisk of over/understaffing based on predicted demand\nActionable insights for resource planning (e.g., “Increase staffing by 20% in December”)"
+    "text": "Example: Predicting Future Care Demand\n\n\n\n\n\\(X\\)  📥 Inputs\n\n\nHistorical bed occupancy\nNew referrals per week\nDemographics & diagnosis\nSeasonality (holidays/flu)\n\n\n \\(\\rightarrow\\)\n\n\n\n\\(f(X)\\)  📊 AI Model\n\n\nThe “Pattern Finder”\nLearns the relationship between your inputs (\\(X\\)) to understand the “why” and “when.”\n\n\n\n \\(\\rightarrow\\)\n\n\n\n\\(\\hat{Y}\\)  📤 Outputs\n\n\nPredicted occupancy\nConfidence intervals\nRisk alerts for staffing\nActionable planning insights\n\n\n\n\n\n\nResearcher’s Translation: We take what we know (\\(X\\)), apply a logic/function (\\(f\\)), to get our best estimate of the future (\\(\\hat{Y}\\))."
   },
   {
     "objectID": "talks/care_phd/slides.html#social-care-use-cases-1",
     "href": "talks/care_phd/slides.html#social-care-use-cases-1",
     "title": "AI in Research & Social Care",
     "section": "Social Care Use Cases",
-    "text": "Social Care Use Cases\n \nAI can transform the quality of life for both carers and residents:\n\n\n\n\n\n\n\n\nTechnology\nUse Case\nBenefit\n\n\n\n\nMachine Learning\nFall Prevention\nEarly intervention before injury\n\n\nForecasting\nPlanning Care Needs\nForecasing number of residents needing specific care in the next years\n\n\nOptimization\nStaff Scheduling\nMatches skills to specific needs\n\n\nNLP\nVoice Assistants\nIndependence for limited-mobility users\n\n\nVision/Sensor AI\nGait Analysis\nTracking physical rehabilitation progress\n\n\nGenerative AI\nDocumentation\nAutomating care notes and reports prepared by carers (efficiency boost)"
+    "text": "Social Care Use Cases"
   },
   {
     "objectID": "talks/qqf/slides.html#the-proposed-solution-the-hmnr-framework",
@@ -7621,5 +7621,19 @@
     "title": "peshbeen",
     "section": "Key Features",
     "text": "Key Features\n\n⚡ Unified Model-Agnostic API\nTrain any model—from classic ARIMA/ETS to modern XGBoost/LightGBM—using a simple .fit(df) and .forecast(H) workflow. This eliminates the need for manual feature/target splitting across different library types.\n\n\n🛠️ Automated Feature & Trend Engineering\nPeshbeen handles the heavy lifting of preprocessing. It automatically generates lag features and rolling statistics, while offering sophisticated trend removal options like piecewise linear or local ETS-based trends.\n\n\n🎲 Scalable Probabilistic Uncertainty\nMove beyond simple point estimates with native uncertainty quantification. peshbeen integrates Conformal Prediction, Correlated Bootstrapping, and Classical Bootstrap methods to provide robust prediction intervals that account for both model error and data volatility.\nFurthermore, the package supports the generation of stochastic forecasting scenarios. This allows users to capture the full distribution of future paths, providing the necessary inputs for downstream risk assessment, “what-if” analysis, and complex optimization problems.\n\n\n\n\n\n\nNote🚧 Under Development\n\n\n\nThe peshbeen package and its documentation are currently under active development. Deep learning-based forecasting models are planned for future releases. Stay tuned for updates!\n\n\nView Full Documentation →"
+  },
+  {
+    "objectID": "talks/care_phd/slides.html#example-predicting-future-care-demand-2",
+    "href": "talks/care_phd/slides.html#example-predicting-future-care-demand-2",
+    "title": "AI in Research & Social Care",
+    "section": "Example: Predicting Future Care Demand 2",
+    "text": "Example: Predicting Future Care Demand 2\n\n\n\n\n\\(X\\)  📥 Inputs\n\n\nHistorical bed occupancy\nNew referrals per week\nDemographics & diagnosis\nSeasonality (holidays/flu)\n\n\n \\(\\rightarrow\\)\n\n\n\n\\(f(X)\\)  📊 AI Model\n\n\nThe “Pattern Finder”\nLearns the relationship between your inputs (\\(X\\)) to understand the “why” and “when.”\n\n\n\n \\(\\rightarrow\\)\n\n\n\n\\(\\hat{Y}\\)  📤 Outputs\n\n\nPredicted occupancy\nConfidence intervals\nRisk alerts for staffing\nActionable planning insights\n\n\n\n\n\n\nResearcher’s Translation: We take what we know (\\(X\\)), apply a logic/function (\\(f\\)), to get our best estimate of the future (\\(\\hat{Y}\\))."
+  },
+  {
+    "objectID": "talks/care_phd/slides.html#example-continued-what-are-the-ingredients-and-the-results",
+    "href": "talks/care_phd/slides.html#example-continued-what-are-the-ingredients-and-the-results",
+    "title": "AI in Research & Social Care",
+    "section": "Example (continued): What are the “Ingredients” and the “Results”?",
+    "text": "Example (continued): What are the “Ingredients” and the “Results”?\n\n\n\n\n\n\n\n\n\n\nContext\n\\(X\\) (The Input)\n\\(f(X)\\) (The Logic)\n\\(\\hat{Y}\\) (The Prediction)\n\n\n\n\nRegression\nA resident’s age or medical history\nA mathematical trend line\nA Risk Score: e.g., 75% probability of a fall\n\n\nGenerative AI (ChatGPT/Gemini)\nThe words in your prompt\nA massive Neural Network\nThe Next Word: Summarizing\n\n\nForecasting (social care planning)\nHistorical bed usage + Staffing levels\nPattern-matching algorithm\nFuture Demand: Number of beds needed in December\n\n\n\n\n\n\n\nThe “Researcher’s Secret”\n\n\nWhether it’s a simple spreadsheet or a complex chatbot, the machine is always doing the same thing: taking what we know (X) to calculate a best guess (\\(\\hat{Y}\\)).\n\n\n\n\n\nCrucial for Qualitative Researchers: The AI calculates the probability, but it doesn’t understand the meaning. You provide the meaning."
   }
 ]

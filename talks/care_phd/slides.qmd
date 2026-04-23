@@ -111,75 +111,107 @@ Most people see **Generative AI**, but the engine of research is often:
 <br>
 <br>
 
+# Social Care Use Cases
+
 AI can transform the quality of life for both carers and residents:
 
-| Technology | Use Case | Benefit |
-|----|-----|-------------|
-| **Machine Learning** | Fall Prevention | Early intervention before injury |
-| **Forecasting** | Planning Care Needs | Forecasing number of residents needing specific care in the next years |
-| **Optimization** | Staff Scheduling | Matches skills to specific needs |
-| **NLP** | Voice Assistants | Independence for limited-mobility users |
-| **Vision/Sensor AI** | Gait Analysis | Tracking physical rehabilitation progress |
-| **Generative AI** | Documentation | Automating care notes and reports prepared by carers (efficiency boost) |
+| AI tool | Use Case | Inputs (Data) | Outputs (Result) | Benefit |
+|------------|----------|---------------|------------------|---------|
+| **Machine Learning** | Fall Prevention | Sensor data, gait history | Real-time "High Risk" alert | Early intervention |
+| **Forecasting** | Planning Demand | Demographics, health trends | 5-year demand projections | Strategic planning |
+| **Optimization** | Staff Scheduling | Staff skills, care plans | Optimized shift rosters | Matches skills to needs |
+| **NLP** | Voice Assistants | Verbal commands | Reminders, device control | Independence |
+| **Vision AI** | Gait Analysis | Video/Wearable motion | Mobility trend reports | Tracking rehab progress |
+| **Generative AI** | Documentation | Raw notes, voice logs | Structured care reports | Efficiency boost |
 
 ---
 
-
+# The Universal Logic of AI: $X \rightarrow f(X) \rightarrow \hat{Y}$
 
 ## Example: Predicting Future Care Demand
 
 <br>
-<br>
 
 ::::{.columns}
 ::: {.column width="31%" .fragment}
-
+<center>
+[**$X$**]{style="font-size: 3em; color: #2c3e50; opacity: 0.3;"}
+<br>
 **📥 Inputs**
+</center>
 
-- Historical daily bed occupancy
+- Historical bed occupancy
 - New referrals per week
-- Demographics, diagnosis mix
-- Seasonality indicators (month, holidays)
+- Demographics & diagnosis
+- Seasonality (holidays/flu)
 
 :::
+
 ::: {.column width="3%" .fragment}
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br>
 $\rightarrow$
 :::
 
 ::: {.column width="31%" .fragment}
-
 ::: {style="border-left: 1px solid #6767677f; padding-left: 20px;"}
-
+<center>
+[**$f(X)$**]{style="font-size: 3em; color: #2c3e50; opacity: 0.3;"}
+<br>
 **📊 AI Model**
+</center>
 
-- Machine Learning Algorithm (e.g., Random Forest, LSTM Neural Network)
-    - Learns patterns from historical data to identify relationships
+- **The "Pattern Finder"**
+- Learns the relationship between your inputs ($X$) to understand the "why" and "when."
 :::
 :::
+
 ::: {.column width="3%" .fragment}
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br>
 $\rightarrow$
 :::
 
 ::: {.column width="31%" .fragment}
 ::: {style="border-left: 1px solid #6767677f; padding-left: 20px;"}
-**📤Outputs**
+<center>
+[**$\hat{Y}$**]{style="font-size: 3em; color: #2c3e50; opacity: 0.3;"}
+<br>
+**📤 Outputs**
+</center>
 
-
-- Predicted bed occupancy for the next months
-- Confidence intervals for predictions to quantify uncertainty
-- Risk of over/understaffing based on predicted demand
-- Actionable insights for resource planning (e.g., "Increase staffing by 20% in December")
+- **Predicted occupancy**
+- Confidence intervals
+- Risk alerts for staffing
+- Actionable planning insights
 :::
 :::
 ::::
+
+<br>
+
+::: {.fragment}
+> **Researcher's Translation:** We take what we know (**$X$**), apply a logic/function (**$f$**), to get our best estimate of the future (**$\hat{Y}$**).
+:::
+
+## Example (continued): What are the "Ingredients" and the "Results"?
+
+<br>
+
+| Context | $X$ (The Input) | $f(X)$ (The Logic) | $\hat{Y}$ (The Prediction) |
+| :--- | :--- | :--- | :--- |
+| **Regression** | A resident's age or medical history | A mathematical trend line | **A Risk Score:** e.g., 75% probability of a fall |
+| **Generative AI** (ChatGPT/Gemini) | The words in your prompt | A massive Neural Network | **The Next Word:** Summarizing |
+| **Forecasting (social care planning)** | Historical bed usage + Staffing levels | Pattern-matching algorithm | **Future Demand:** Number of beds needed in December |
+
+<br>
+
+::: {.callout-note icon=false}
+## The "Researcher's Secret"
+Whether it’s a simple spreadsheet or a complex chatbot, the machine is always doing the same thing: taking **what we know (X)** to calculate a **best guess ($\hat{Y}$)**. 
+:::
+
+::: {.fragment}
+> **Crucial for Qualitative Researchers:** The AI calculates the *probability*, but it doesn't understand the *meaning*. You provide the meaning.
+:::
 
 # Critical Considerations
 
