@@ -1,6 +1,6 @@
 ---
 title: "peshbeen"
-description: "A Python package for advanced time-series forecasting."
+description: "A Python package for forecasting that unifies traditional and modern machine learning approaches with automated feature engineering and robust uncertainty quantification."
 date: "2026-04-01"
 image: pimages/peshbeen_logo_transparent.svg # Use your package logo here
 categories: [Forecasting, Machine Learning, Python]
