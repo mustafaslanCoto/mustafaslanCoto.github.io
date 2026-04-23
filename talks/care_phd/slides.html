@@ -240,17 +240,25 @@ Mustafa Aslan
 <section id="social-care-use-cases-1" class="slide level2">
 <h2>Social Care Use Cases</h2>
 <p><br> <br></p>
+</section></section>
+<section>
+<section id="social-care-use-cases-2" class="title-slide slide level1 center">
+<h1>Social Care Use Cases</h1>
 <p>AI can transform the quality of life for both carers and residents:</p>
 <table class="caption-top">
 <colgroup>
 <col style="width: 18%">
-<col style="width: 22%">
-<col style="width: 59%">
+<col style="width: 15%">
+<col style="width: 23%">
+<col style="width: 28%">
+<col style="width: 14%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Technology</th>
+<th>AI tool</th>
 <th>Use Case</th>
+<th>Inputs (Data)</th>
+<th>Outputs (Result)</th>
 <th>Benefit</th>
 </tr>
 </thead>
@@ -258,73 +266,159 @@ Mustafa Aslan
 <tr class="odd">
 <td><strong>Machine Learning</strong></td>
 <td>Fall Prevention</td>
-<td>Early intervention before injury</td>
+<td>Sensor data, gait history</td>
+<td>Real-time “High Risk” alert</td>
+<td>Early intervention</td>
 </tr>
 <tr class="even">
 <td><strong>Forecasting</strong></td>
-<td>Planning Care Needs</td>
-<td>Forecasing number of residents needing specific care in the next years</td>
+<td>Planning Demand</td>
+<td>Demographics, health trends</td>
+<td>5-year demand projections</td>
+<td>Strategic planning</td>
 </tr>
 <tr class="odd">
 <td><strong>Optimization</strong></td>
 <td>Staff Scheduling</td>
-<td>Matches skills to specific needs</td>
+<td>Staff skills, care plans</td>
+<td>Optimized shift rosters</td>
+<td>Matches skills to needs</td>
 </tr>
 <tr class="even">
 <td><strong>NLP</strong></td>
 <td>Voice Assistants</td>
-<td>Independence for limited-mobility users</td>
+<td>Verbal commands</td>
+<td>Reminders, device control</td>
+<td>Independence</td>
 </tr>
 <tr class="odd">
-<td><strong>Vision/Sensor AI</strong></td>
+<td><strong>Vision AI</strong></td>
 <td>Gait Analysis</td>
-<td>Tracking physical rehabilitation progress</td>
+<td>Video/Wearable motion</td>
+<td>Mobility trend reports</td>
+<td>Tracking rehab progress</td>
 </tr>
 <tr class="even">
 <td><strong>Generative AI</strong></td>
 <td>Documentation</td>
-<td>Automating care notes and reports prepared by carers (efficiency boost)</td>
+<td>Raw notes, voice logs</td>
+<td>Structured care reports</td>
+<td>Efficiency boost</td>
 </tr>
 </tbody>
 </table>
 </section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="the-universal-logic-of-ai-x-rightarrow-fx-rightarrow-haty" class="title-slide slide level1 center">
+<h1>The Universal Logic of AI: <span class="math inline">\(X \rightarrow f(X) \rightarrow \hat{Y}\)</span></h1>
+
+</section>
 <section id="example-predicting-future-care-demand" class="slide level2">
 <h2>Example: Predicting Future Care Demand</h2>
-<p><br> <br></p>
+<p><br></p>
 <div class="columns">
 <div class="column fragment" style="width:31%;">
-<p><strong>📥 Inputs</strong></p>
+<center>
+<span style="font-size: 3em; color: #2c3e50; opacity: 0.3;"><strong><span class="math inline">\(X\)</span></strong></span> <br> <strong>📥 Inputs</strong>
+</center>
 <ul>
-<li>Historical daily bed occupancy</li>
+<li>Historical bed occupancy</li>
 <li>New referrals per week</li>
-<li>Demographics, diagnosis mix</li>
-<li>Seasonality indicators (month, holidays)</li>
+<li>Demographics &amp; diagnosis</li>
+<li>Seasonality (holidays/flu)</li>
 </ul>
 </div><div class="column fragment" style="width:3%;">
-<p><br> <br> <br> <br> <span class="math inline">\(\rightarrow\)</span></p>
+<p><br><br><br><br> <span class="math inline">\(\rightarrow\)</span></p>
 </div><div class="column fragment" style="width:31%;">
 <div style="border-left: 1px solid #6767677f; padding-left: 20px;">
-<p><strong>📊 AI Model</strong></p>
+<center>
+<span style="font-size: 3em; color: #2c3e50; opacity: 0.3;"><strong><span class="math inline">\(f(X)\)</span></strong></span> <br> <strong>📊 AI Model</strong>
+</center>
 <ul>
-<li>Machine Learning Algorithm (e.g., Random Forest, LSTM Neural Network)
-<ul>
-<li>Learns patterns from historical data to identify relationships</li>
-</ul></li>
+<li><strong>The “Pattern Finder”</strong></li>
+<li>Learns the relationship between your inputs (<span class="math inline">\(X\)</span>) to understand the “why” and “when.”</li>
 </ul>
 </div>
 </div><div class="column fragment" style="width:3%;">
-<p><br> <br> <br> <br> <span class="math inline">\(\rightarrow\)</span></p>
+<p><br><br><br><br> <span class="math inline">\(\rightarrow\)</span></p>
 </div><div class="column fragment" style="width:31%;">
 <div style="border-left: 1px solid #6767677f; padding-left: 20px;">
-<p><strong>📤Outputs</strong></p>
+<center>
+<span style="font-size: 3em; color: #2c3e50; opacity: 0.3;"><strong><span class="math inline">\(\hat{Y}\)</span></strong></span> <br> <strong>📤 Outputs</strong>
+</center>
 <ul>
-<li>Predicted bed occupancy for the next months</li>
-<li>Confidence intervals for predictions to quantify uncertainty</li>
-<li>Risk of over/understaffing based on predicted demand</li>
-<li>Actionable insights for resource planning (e.g., “Increase staffing by 20% in December”)</li>
+<li><strong>Predicted occupancy</strong></li>
+<li>Confidence intervals</li>
+<li>Risk alerts for staffing</li>
+<li>Actionable planning insights</li>
 </ul>
 </div>
 </div></div>
+<p><br></p>
+<div class="fragment">
+<blockquote>
+<p><strong>Researcher’s Translation:</strong> We take what we know (<strong><span class="math inline">\(X\)</span></strong>), apply a logic/function (<strong><span class="math inline">\(f\)</span></strong>), to get our best estimate of the future (<strong><span class="math inline">\(\hat{Y}\)</span></strong>).</p>
+</blockquote>
+</div>
+</section>
+<section id="example-continued-what-are-the-ingredients-and-the-results" class="slide level2">
+<h2>Example (continued): What are the “Ingredients” and the “Results”?</h2>
+<p><br></p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Context</th>
+<th style="text-align: left;"><span class="math inline">\(X\)</span> (The Input)</th>
+<th style="text-align: left;"><span class="math inline">\(f(X)\)</span> (The Logic)</th>
+<th style="text-align: left;"><span class="math inline">\(\hat{Y}\)</span> (The Prediction)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Regression</strong></td>
+<td style="text-align: left;">A resident’s age or medical history</td>
+<td style="text-align: left;">A mathematical trend line</td>
+<td style="text-align: left;"><strong>A Risk Score:</strong> e.g., 75% probability of a fall</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Generative AI</strong> (ChatGPT/Gemini)</td>
+<td style="text-align: left;">The words in your prompt</td>
+<td style="text-align: left;">A massive Neural Network</td>
+<td style="text-align: left;"><strong>The Next Word:</strong> Summarizing</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Forecasting (social care planning)</strong></td>
+<td style="text-align: left;">Historical bed usage + Staffing levels</td>
+<td style="text-align: left;">Pattern-matching algorithm</td>
+<td style="text-align: left;"><strong>Future Demand:</strong> Number of beds needed in December</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>The “Researcher’s Secret”</strong></p>
+</div>
+<div class="callout-content">
+<p>Whether it’s a simple spreadsheet or a complex chatbot, the machine is always doing the same thing: taking <strong>what we know (X)</strong> to calculate a <strong>best guess (<span class="math inline">\(\hat{Y}\)</span>)</strong>.</p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<blockquote>
+<p><strong>Crucial for Qualitative Researchers:</strong> The AI calculates the <em>probability</em>, but it doesn’t understand the <em>meaning</em>. You provide the meaning.</p>
+</blockquote>
+</div>
 </section></section>
 <section>
 <section id="critical-considerations" class="title-slide slide level1 center">
