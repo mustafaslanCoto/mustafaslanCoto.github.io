@@ -11,6 +11,9 @@ website:
       - href: learn/index.qmd
         text: LEARN
 
+      - href: projects/index.qmd  # Add this line
+        text: PROJECTS
+
       - text: WORKSHOPS
         href: workshops/index.qmd
 

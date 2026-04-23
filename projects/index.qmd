@@ -1,0 +1,12 @@
+---
+listing:
+  contents: "."
+  type: grid
+  grid-columns: 1 # Changes from 3 (default) to 2, making them wider
+  grid-item-border: true
+  grid-item-align: left
+  sort: "date desc"
+  categories: true
+---
+
+Explore my open-source contributions and research projects.

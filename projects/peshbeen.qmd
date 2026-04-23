@@ -1,0 +1,38 @@
+---
+title: "peshbeen"
+description: "A Python package for advanced time-series forecasting."
+date: "2026-04-01"
+image: pimages/peshbeen_logo_transparent.svg # Use your package logo here
+categories: [Forecasting, Machine Learning, Python]
+about:
+  template: solana
+  links:
+    - icon: github
+      text: Source Code
+      href: https://github.com/mustafaslanCoto/peshbeen
+    - icon: link
+      text: Documentation
+      href: https://mustafaslancoto.github.io/peshbeen/
+---
+
+**peshbeen** is designed to streamline the forecasting workflow by providing a unified interface for diverse modeling approaches.
+
+## Key Features
+
+### ⚡ Unified Model-Agnostic API
+Train any model—from classic **ARIMA/ETS** to modern **XGBoost/LightGBM**—using a simple `.fit(df)` and `.forecast(H)` workflow. This eliminates the need for manual feature/target splitting across different library types.
+
+### 🛠️ Automated Feature & Trend Engineering
+Peshbeen handles the heavy lifting of preprocessing. It automatically generates lag features and rolling statistics, while offering sophisticated trend removal options like **piecewise linear** or **local ETS-based trends**.
+
+### 🎲 Scalable Probabilistic Uncertainty
+Move beyond simple point estimates with native uncertainty quantification. peshbeen integrates Conformal Prediction, Correlated Bootstrapping, and Classical Bootstrap methods to provide robust prediction intervals that account for both model error and data volatility.
+
+Furthermore, the package supports the generation of stochastic forecasting scenarios. This allows users to capture the full distribution of future paths, providing the necessary inputs for downstream risk assessment, "what-if" analysis, and complex optimization problems.
+
+:::{.callout-note icon="false"}
+## 🚧 Under Development
+The **peshbeen** package and its documentation are currently under active development. Deep learning-based forecasting models are planned for future releases. Stay tuned for updates!
+:::
+
+[View Full Documentation →](https://mustafaslancoto.github.io/peshbeen/){.btn .btn-outline-primary .btn-lg role="button"}

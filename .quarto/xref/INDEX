@@ -32,5 +32,14 @@
   },
   "talks/care_phd/slides.qmd": {
     "slides.html": "ef3895ea"
+  },
+  "projects/index.qmd": {
+    "index.html": "33f200ad"
+  },
+  "projects/peshbeen.qmd": {
+    "peshbeen.html": "efd1fab2"
+  },
+  "index.qmd": {
+    "index.html": "b779031b"
   }
 }

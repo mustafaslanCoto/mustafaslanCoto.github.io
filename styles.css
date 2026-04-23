@@ -231,3 +231,35 @@ body {
 .sidebar nav[role="doc-toc"] ul > li > a.active {
   border-left: 1px solid #20808D !important; /* Replace with your color */
 }
+
+
+/* Change the background and border of the project cards */
+.quarto-grid-item.card {
+  background-color: #FBFAF4; /* Light grey, or try #e9ecef */
+  border-radius: 10px;       /* Rounds the corners for a 'cool' look */
+  border: 1px solid #2CA0AB;
+  transition: transform 0.2s; /* Adds a subtle lift effect on hover */
+}
+
+/* Optional: Add a hover effect to make it feel interactive */
+.quarto-grid-item.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  background-color: #ffffff; /* Brighter white on hover */
+}
+
+/* Fix the text padding inside the card */
+.card-body {
+  padding: 1.5rem;
+}
+
+/* Change callout background and sidebar color */
+div.callout {
+  border-left: 8px solid #20808D !important; /* Sidebar color */
+}
+
+div.callout .callout-title {
+  background-color: #BADFDE !important;
+  /* color: #fff !important;
+  /* border-radius: 0.5em 0.5em 0 0 */
+}

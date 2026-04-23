@@ -50,5 +50,11 @@
       "/workshops/DL4SG/rl/slides/rl.html",
       "/workshops/DL4SG/rl/slides/notes_ides.html"
     ]
+  },
+  {
+    "listing": "/projects/index.html",
+    "items": [
+      "/projects/peshbeen.html"
+    ]
   }
 ]
