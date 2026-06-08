@@ -913,7 +913,7 @@ def plot_hmm_regimes(
         fig, ax = plt.subplots(figsize=(30, 10))
         
         # 1. Plot the FULL target variable
-        ax.plot(dates, target, label='Occupancy', color='black', linewidth=1.5, fontsize =16)
+        ax.plot(dates, target, label='Occupancy', color='black', linewidth=1.5)
         
         is_regime_1 = posterior_probs.values >= threshold
         is_regime_0 = ~is_regime_1
