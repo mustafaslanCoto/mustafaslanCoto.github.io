@@ -1,14 +1,5 @@
 [
   {
-    "listing": "/talks/index.html",
-    "items": [
-      "/talks/presentations/phd_forum.html",
-      "/talks/presentations/qqf.html",
-      "/talks/presentations/sword.html",
-      "/talks/presentations/wgsss.html"
-    ]
-  },
-  {
     "listing": "/projects/index.html",
     "items": [
       "/projects/peshbeen.html"
@@ -28,6 +19,15 @@
       "/workshops/trainings/causal_ml.html",
       "/workshops/trainings/rl_index.html",
       "/workshops/trainings/py_index.html"
+    ]
+  },
+  {
+    "listing": "/talks/index.html",
+    "items": [
+      "/talks/presentations/phd_forum.html",
+      "/talks/presentations/qqf.html",
+      "/talks/presentations/sword.html",
+      "/talks/presentations/wgsss.html"
     ]
   }
 ]
