@@ -41,5 +41,14 @@
   },
   "index.qmd": {
     "index.html": "b779031b"
+  },
+  "talks/ifors/ifors_slides.qmd": {
+    "ifors_slides.html": "3e63fea1"
+  },
+  "talks/presentations/ifors.qmd": {
+    "ifors.html": "bdeb0dfe"
+  },
+  "talks/ifors/example.ipynb": {
+    "example.html": "85eb7785"
   }
 }

@@ -1,0 +1,30 @@
+---
+title: "Integrating Regime-Switching Probabilistic Forecasts into Stochastic Optimization for Nurse Rostering in Mental Health Wards"
+description: "The 24th Conference of the International Federation of Operational Research Societies"
+author: "Mustafa Aslan"
+date: "2026-03-13"
+image: "../images/ward_nurses.png"
+categories:
+  - Mental Health
+  - Healthcare Operations
+  - Sequential Decision Analytics
+  - Python
+  - Time Series Forecasting
+  - Machine Learning
+link-external-newwindow: true
+---
+
+
+![](../images/ward_nurses.png){fig-align="center"}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+[<i class="fas fa-bookmark"></i> Slides](../ifors/ifors_slides.qmd){.btn .btn-sm .btn-outline-primary}
+
+**Date:** July 11 2026 12:00-17:00 \
+**Event:** IFORS 2026\
+**Location:** University of Vienna, Austria
+
+## Context
+
+At the 24th Conference of the International Federation of Operational Research Societies (IFOR 2026), I presented our research on "Integrating Regime-Switching Probabilistic Forecasts into Stochastic Optimization for Nurse Rostering in Mental Health Wards." This presentation highlighted our novel approach of using Autoregressive Markov-switching regression (AR-MSR) to forecast occupancy levels in mental hospital wards. The forecasts were then incorporated into a two-stage stochastic programming model to optimize nurse rostering decisions, with the goal of enhancing patient care and operational efficiency in mental health settings.

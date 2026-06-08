@@ -6,7 +6,7 @@ format:
     css: style.css
     width: 1920
     height: 1080
-    footer: "[Forecast-Driven Two-Stage Stochastic Programming for Nurse Rostering in Mental Healthcare](https://mustafaslancoto.github.io/talks/presentations/qqf.html)"
+    footer: "[Integrating Regime-Switching Probabilistic Forecasts into Stochastic Optimization for Nurse Rostering in Mental Health Wards](https://mustafaslancoto.github.io/talks/presentations/qqf.html)"
     slide-number: c/t
     preview-links: auto
     # chalkboard: true
@@ -878,6 +878,90 @@ $$
 :::
 ::::
 
+
+## HMM Regime Segmentation
+
+```{python}
+#| fig-width: 100%
+#| fig-align: center
+#| fig-height: 100%
+hmm_df =pd.read_excel('data/hmm_regime_df.xlsx')
+hmm_df.set_index("Date", inplace=True)
+
+import logging
+
+# Configure basic logging for error tracking
+logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
+
+def plot_hmm_regimes(
+    dates: pd.DatetimeIndex, 
+    target: pd.Series, 
+    posterior_probs: np.ndarray, 
+    threshold: float = 0.5
+) -> None:
+    """
+    Plots a time series with background shading indicating the dominant HMM regime.
+    Dynamically handles cases where the posterior array is shorter than the target series.
+    
+    Parameters:
+    dates (pd.DatetimeIndex): The datetime index for the x-axis.
+    target (pd.Series): The target variable to plot.
+    posterior_probs (np.ndarray): 2D array of regime probabilities. 
+    threshold (float): Probability threshold to classify a regime. Defaults to 0.5.
+    """
+    try:
+        fig, ax = plt.subplots(figsize=(30, 10))
+        
+        # 1. Plot the FULL target variable
+        ax.plot(dates, target, label='Occupancy', color='black', linewidth=1.5, fontsize =16)
+        
+        is_regime_1 = posterior_probs.values >= threshold
+        is_regime_0 = ~is_regime_1
+            
+        # 3. Apply background shading using fill_between
+        ax.fill_between(
+            dates, 
+            ax.get_ylim()[0], 
+            ax.get_ylim()[1], 
+            where=is_regime_1, 
+            color='red', 
+            alpha=0.15, 
+            label='Regime 1 Dominant',
+            interpolate=True
+        )
+        
+        ax.fill_between(
+            dates, 
+            ax.get_ylim()[0], 
+            ax.get_ylim()[1], 
+            where=is_regime_0, 
+            color='green', 
+            alpha=0.15, 
+            label='Regime 0 Dominant',
+            interpolate=True
+        )
+        
+        # 4. Formatting
+        ax.set_xlabel('Date', fontweight='bold')
+        ax.set_ylabel('Target Variable', fontweight='bold')
+        ax.set_title('Occupancy Pattern Segmented by HMM Regimes', fontweight='bold')
+        ax.legend(loc='upper left', frameon=True)
+        ax.margins(x=0) 
+        
+        plt.tight_layout()
+        plt.show()
+        
+    except Exception as e:
+        logging.error(f"Visualization failed due to: {e}")
+        raise
+
+plot_hmm_regimes(
+    dates=hmm_df.index[-90:],
+    target=hmm_df.loc[:, "blake"][-90:],
+    posterior_probs=hmm_df["regime_1"][-90:]
+)
+
+```
 
 ##
 
