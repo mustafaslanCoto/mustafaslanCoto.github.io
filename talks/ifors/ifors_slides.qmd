@@ -6,7 +6,7 @@ format:
     css: style.css
     width: 1920
     height: 1080
-    footer: "[Integrating Regime-Switching Probabilistic Forecasts into Stochastic Optimization for Nurse Rostering in Mental Health Wards](https://mustafaslancoto.github.io/talks/presentations/qqf.html)"
+    footer: "[Integrating Regime-Switching Probabilistic Forecasts into Stochastic Optimization for Nurse Rostering in Mental Health Wards](https://mustafaslancoto.github.io/talks/presentations/ifors.html)"
     slide-number: c/t
     preview-links: auto
     # chalkboard: true

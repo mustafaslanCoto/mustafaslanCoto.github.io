@@ -6,7 +6,7 @@ format:
     css: style.css
     width: 1920
     height: 1080
-    footer: "[From Admission to Discharge: Dynamically Updating Length of Stay Forecasts with Causal Diagnostic and Operational Penalties](https://mustafaslancoto.github.io/talks/presentations/qqf.html)"
+    footer: "[From Admission to Discharge: Dynamically Updating Length of Stay Forecasts with Causal Diagnostic and Operational Penalties](https://mustafaslancoto.github.io/talks/presentations/exeter_visit.html)"
     slide-number: c/t
     preview-links: auto
     # chalkboard: true
