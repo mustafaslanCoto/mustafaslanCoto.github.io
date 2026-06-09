@@ -1,0 +1,29 @@
+---
+title: "From Admission to Discharge: Dynamically Updating Length of Stay Forecasts with Causal Diagnostic and Operational Penalties"
+description: "University of Exeter, UK - July 11 2026"
+author: "Mustafa Aslan"
+date: "2026-03-13"
+image: "../images/ward_nurses.png"
+categories:
+  - Mental Health
+  - Healthcare Operations
+  - Sequential Decision Analytics
+  - Python
+  - Time Series Forecasting
+  - Machine Learning
+link-external-newwindow: true
+---
+
+![](../images/gemini_congest.png){fig-align="center"}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+[<i class="fas fa-bookmark"></i> Slides](../exeter/exeter_slides.qmd){.btn .btn-sm .btn-outline-primary}
+
+**Date:** July 11 2026 12:00-17:00 \
+**Event:** University of Exeter Visit \
+**Location:** Exeter, UK\
+
+## Context
+
+At the University of Exeter, I had the opportunity to present my work on dynamically updating length of stay forecasts using causal diagnostic and operational penalties. This presentation was part of a broader discussion on healthcare operations and machine learning applications in clinical settings. The talk covered the operational challenges of forecasting patient length of stay, the limitations of traditional models, and our novel framework for isolating and modeling the causal impact of diagnostics on discharge delays. We also demonstrated the practical implications of our approach through a case study on location shift in hospital operations.

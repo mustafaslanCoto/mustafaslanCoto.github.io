@@ -179,7 +179,7 @@
     "href": "talks/index.html",
     "title": "MUSTAFA ASLAN",
     "section": "",
-    "text": "AI in Research & Social Care\n\n\nCare PhD Forum\n\n\n\n\n\nApr 23, 2026\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nIntegrating Regime-Switching Probabilistic Forecasts into Stochastic Optimization for Nurse Rostering in Mental Health Wards\n\n\nThe 24th Conference of the International Federation of Operational Research Societies\n\n\n\n\n\nMar 13, 2026\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nForecast-Driven Two-Stage Stochastic Programming for Nurse Rostering in Mental Healthcare\n\n\nQuarterly Forecasting Forum\n\n\n\n\n\nMar 13, 2026\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nEnhancing Discharge Care Planning: A Probabilistic Data-Driven Approach\n\n\nSWORD Network Event - Postgraduate OR Presentations\n\n\n\n\n\nOct 9, 2025\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nForecasting Mental Health Hospital Bed Occupancy: A Regime-Switching AutoRegressive Hidden Markov Model Approach\n\n\n5th Welsh Postgraduate Research Cluster Workshop in Economy, Enterprise and Productivity\n\n\n\n\n\nSep 16, 2025\n\n\nMustafa Aslan\n\n\n\n\n\nNo matching items"
+    "text": "AI in Research & Social Care\n\n\nCare PhD Forum\n\n\n\n\n\nApr 23, 2026\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nIntegrating Regime-Switching Probabilistic Forecasts into Stochastic Optimization for Nurse Rostering in Mental Health Wards\n\n\nThe 24th Conference of the International Federation of Operational Research Societies\n\n\n\n\n\nMar 13, 2026\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nForecast-Driven Two-Stage Stochastic Programming for Nurse Rostering in Mental Healthcare\n\n\nQuarterly Forecasting Forum\n\n\n\n\n\nMar 13, 2026\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nFrom Admission to Discharge: Dynamically Updating Length of Stay Forecasts with Causal Diagnostic and Operational Penalties\n\n\nUniversity of Exeter, UK - July 11 2026\n\n\n\n\n\nMar 13, 2026\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nEnhancing Discharge Care Planning: A Probabilistic Data-Driven Approach\n\n\nSWORD Network Event - Postgraduate OR Presentations\n\n\n\n\n\nOct 9, 2025\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nForecasting Mental Health Hospital Bed Occupancy: A Regime-Switching AutoRegressive Hidden Markov Model Approach\n\n\n5th Welsh Postgraduate Research Cluster Workshop in Economy, Enterprise and Productivity\n\n\n\n\n\nSep 16, 2025\n\n\nMustafa Aslan\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "talks/index.html#probability-and-statistics",
@@ -7873,5 +7873,145 @@
     "title": "MUSTAFA ASLAN",
     "section": "HMM Regime Segmentation",
     "text": "HMM Regime Segmentation"
+  },
+  {
+    "objectID": "talks/exeter/exeter_slides.html#the-operational-blind-spot",
+    "href": "talks/exeter/exeter_slides.html#the-operational-blind-spot",
+    "title": "MUSTAFA ASLAN",
+    "section": "The “Operational Blind Spot”",
+    "text": "The “Operational Blind Spot”\n\n\nCurrent hospital operations rely on aggregate comorbidity scores (e.g., Charlson), which compress complex medical histories, masking the true operational drivers of discharge delays.\n\n\n\n\n\n\nThe Problem: We cannot manage what we do not isolate.\nThe Gap: Traditional models suffer from selection bias; diagnostics are endogenous.\nOur Approach: Move from “Correlative Scores” to “Causal Penalties.”"
+  },
+  {
+    "objectID": "talks/exeter/exeter_slides.html#the-framework-purging-confounders",
+    "href": "talks/exeter/exeter_slides.html#the-framework-purging-confounders",
+    "title": "MUSTAFA ASLAN",
+    "section": "The Framework: Purging Confounders",
+    "text": "The Framework: Purging Confounders\n\nWe utilize Double Machine Learning (DML) to isolate the causal impact of diagnostics (\\(\\tau_D\\)) and ward transfers (\\(\\tau_W\\)) from the “clean-path” LoS.\n\\[\nY_{purged} = Total\\_LoS - \\sum_{i=1}^{n} \\tau_{D_i} -  \\tau_{W_j}\n\\]\n\n\n1. Identification: DML partials out high-dimensional confounders (age, gender, ward busyness) to estimate the true “bed-day burden” of specific diagnoses.\n\n\n\n\n2. Purging: We subtract realized shocks from the observed outcome to create an idealized survival curve \\(S_0(t)\\)—the “clean-path” prediction in the absence of operational friction."
+  },
+  {
+    "objectID": "talks/exeter/exeter_slides.html#dynamic-thresholding",
+    "href": "talks/exeter/exeter_slides.html#dynamic-thresholding",
+    "title": "MUSTAFA ASLAN",
+    "section": "Dynamic Thresholding",
+    "text": "Dynamic Thresholding\n\nWe update the survival curve (\\(P(LoS &gt; threshold)\\)) dynamically as clinical data arrives (11 am daily).\n\n\n\nAdmission Day: Baseline prediction based on demographic/non-clinical features.\nMid-Stay Update: As a diagnosis is confirmed, we “shift” the survival curve by the causal penalty \\(\\tau_D\\).\nTrigger Logic: Risk threshold: \\(P(\\text{LoS} \\ge 14 \\mid \\text{Current Day}) \\ge 55\\%\\).\n\nAction: Automate referral to MDT and community care pathways."
+  },
+  {
+    "objectID": "talks/exeter/exeter_slides.html#counterfactual-simulation-impact",
+    "href": "talks/exeter/exeter_slides.html#counterfactual-simulation-impact",
+    "title": "MUSTAFA ASLAN",
+    "section": "Counterfactual Simulation & Impact",
+    "text": "Counterfactual Simulation & Impact\n\nTo prove the framework’s worth, we replay the historical baseline as a simulation:\n\n\nStep 1: Run a day-by-day replay of historical patients.\nStep 2: Apply the policy trigger (the “Model Intervention”) the moment a patient hits the risk threshold.\nStep 3: Compute the System Delta (\\(\\Delta Beds\\)):\n\n\\[\n\\Delta \\text{Beds} = \\sum \\text{Actual LoS}_i - \\sum \\text{Counterfactual LoS}_i\n\\]\n\n\n\nThis allows us to present decision-makers with a concrete metric: “If we had used this model, we would have reclaimed X bed-days.”"
+  },
+  {
+    "objectID": "talks/exeter/exeter_slides.html#dynamic-thresholding-real-time-updating",
+    "href": "talks/exeter/exeter_slides.html#dynamic-thresholding-real-time-updating",
+    "title": "MUSTAFA ASLAN",
+    "section": "Dynamic Thresholding: Real-Time Updating",
+    "text": "Dynamic Thresholding: Real-Time Updating\nWe update the survival curve (\\(P(LoS &gt; threshold)\\)) dynamically as clinical data arrives (11 am daily).\n\n\n\n1. Admission Day\n\nBaseline prediction based on initial exisitng data\nInitial \\(P(LoS &gt; \\text{threshold})\\)\n\n\n➔\n\n2. Mid-Stay Update\n\nDiagnosis confirmed\nCausal Shift: Apply \\(\\tau_D\\) penalty to the distribution\n\n\n➔\n\n3. Action Trigger\n\nCondition: \\(P(LoS &gt; \\text{threshold}) \\ge 55\\%\\)\nAction: Refer to MDT / Community pathways"
+  },
+  {
+    "objectID": "talks/exeter/exeter_slides.html#from-analysis-to-recommendation",
+    "href": "talks/exeter/exeter_slides.html#from-analysis-to-recommendation",
+    "title": "MUSTAFA ASLAN",
+    "section": "🚀 From Analysis to Recommendation",
+    "text": "🚀 From Analysis to Recommendation\nTranslate your model’s math into an actionable operational policy.\n\n\n\n\n❌ The “Math” Pitch\n“Our DML model partialled out 100+ confounders, isolating a 1.4-day LoS penalty for Diagnosis X with a p-value of &lt;0.01.” (The Board: “So what do we actually do?”)\n\n\n\n➔\n\n\n\n✅ The “Action” Pitch\n“Patients with Diagnosis X should trigger an automatic MDT referral within 11 hours of admission to avoid the 1.4-day bottleneck.” (The Board: “Policy Approved.”)"
+  },
+  {
+    "objectID": "talks/exeter/exeter_slides.html#visualizing-the-causal-location-shift",
+    "href": "talks/exeter/exeter_slides.html#visualizing-the-causal-location-shift",
+    "title": "MUSTAFA ASLAN",
+    "section": "Visualizing the Causal Location Shift",
+    "text": "Visualizing the Causal Location Shift\nThe DML framework treats the diagnostic confirmation as a “shock” that shifts the distribution’s location along the time axis.\n\n\n\n\n\n\n\n\n\n\n\n🟢 Day 0: Baseline\nThe “clean-path” prediction based on demographics. The shaded teal area represents the initial risk of becoming a stranded patient.\n\n\n\n🔴 Day \\(k\\): Causal Update\nDiagnosis \\(\\tau_D\\) shifts the entire distribution right. The shaded red area shows the massive increase in the probability of crossing the 14-day threshold."
+  },
+  {
+    "objectID": "talks/exeter/exeter_slides.html#the-causal-location-shift-example",
+    "href": "talks/exeter/exeter_slides.html#the-causal-location-shift-example",
+    "title": "MUSTAFA ASLAN",
+    "section": "The Causal Location Shift Example",
+    "text": "The Causal Location Shift Example\nThe DML framework treats the diagnostic confirmation as a “shock” that shifts the distribution’s location along the time axis.\n\n\n\n\n\n\n\n\n\n\n\n🟢 Day 0: Baseline\nThe “clean-path” prediction based on demographics and only initial information. The shaded area represents the initial risk of becoming a stranded patient.\n\n\n\n🔴 Day \\(k\\): Causal Update\nDiagnosis \\(\\tau_D\\) shifts the entire distribution right. The shaded area shows sn increase in the probability of crossing the 14-day threshold."
+  },
+  {
+    "objectID": "talks/exeter/exeter_slides.html#modeling-uncertainty-the-convolution-framework",
+    "href": "talks/exeter/exeter_slides.html#modeling-uncertainty-the-convolution-framework",
+    "title": "MUSTAFA ASLAN",
+    "section": "Modeling Uncertainty: The Convolution Framework",
+    "text": "Modeling Uncertainty: The Convolution Framework\nWe treat diagnostic impact not as a fixed constant, but as a distribution, accounting for clinical uncertainty.\n\n\n\nThe Mathematical Convolution\nTo generate a robust “Tail Risk” forecast, we convolve the baseline LoS distribution (\\(f_L\\)) with the diagnostic uncertainty (\\(\\tau_D \\sim \\mathcal{N}(\\mu, \\sigma^2)\\)):\n\\[\nf_{new}(z) = \\int_{-\\infty}^{\\infty} f_L(z - \\tau) \\cdot f_\\tau(\\tau) \\, d\\tau\n\\]\n\n\\(f_L(z - \\tau)\\): The baseline LoS probability.\n\\(f_\\tau(\\tau)\\): The clinical uncertainty of the diagnostic penalty.\n\\(\\int \\dots d\\tau\\): Aggregating all potential outcomes into a single risk-aware distribution.\n\n\n\n\nWhy this matters for the MDT:\n\nBeyond the Average: It captures the “Tail Risk”—the patients who face both a complex diagnosis and a slow recovery.\nOperational Buffer: By modeling the variance of the effect (\\(\\sigma^2\\)), we create a “safety margin” for discharge planning.\nRobustness: This prevents underestimating the probability of a patient becoming “Super-Stranded” (\\(\\ge 14\\) days)."
+  },
+  {
+    "objectID": "talks/exeter/exeter_slides.html#modeling-uncertainty-of-the-diagnostic-penalty",
+    "href": "talks/exeter/exeter_slides.html#modeling-uncertainty-of-the-diagnostic-penalty",
+    "title": "MUSTAFA ASLAN",
+    "section": "Modeling Uncertainty of the Diagnostic Penalty",
+    "text": "Modeling Uncertainty of the Diagnostic Penalty\nWe treat diagnostic impact not as a fixed constant, but as a distribution, accounting for clinical uncertainty.\n\n\n\nThe Mathematical Convolution\nTo generate a robust “Tail Risk” LoS forecasts, we convolve the baseline LoS distribution (\\(f_L\\)) with the diagnostic uncertainty (\\(\\tau_D \\sim \\mathcal{N}(\\mu, \\sigma^2)\\)):\n\\[\nf_{new}(z) = \\int_{-\\infty}^{\\infty} f_L(z - \\tau) \\cdot f_\\tau(\\tau) \\, d\\tau\n\\]\n\n\\(f_L(z - \\tau)\\): The baseline LoS probability.\n\\(f_\\tau(\\tau)\\): The clinical uncertainty of the diagnostic penalty.\n\n\n\n\nWhy this matters for the MDT:\n\nBeyond the Average: It captures the “Tail Risk”—the patients who face both a complex diagnosis and a slow recovery.\nOperational Buffer: By modeling the variance of the effect (\\(\\sigma^2\\)), we create a “safety margin” for discharge planning.\nRobustness: This prevents underestimating the probability of a patient becoming “Super-Stranded” (\\(\\ge 14\\) days)."
+  },
+  {
+    "objectID": "talks/exeter/exeter_slides.html#modeling-uncertainty-of-the-diagnostic-penalty-for-updating-the-hatlos-distribution",
+    "href": "talks/exeter/exeter_slides.html#modeling-uncertainty-of-the-diagnostic-penalty-for-updating-the-hatlos-distribution",
+    "title": "MUSTAFA ASLAN",
+    "section": "Modeling Uncertainty of the Diagnostic Penalty For Updating the \\(\\hat{LoS}\\) Distribution",
+    "text": "Modeling Uncertainty of the Diagnostic Penalty For Updating the \\(\\hat{LoS}\\) Distribution\nWe treat diagnostic impact not as a fixed constant, but as a distribution, accounting for clinical uncertainty.\n\n\n\nThe Mathematical Convolution\nTo generate a robust “Tail Risk” LoS forecasts, we convolve the baseline LoS distribution (\\(f_L\\)) with the diagnostic uncertainty (\\(\\tau_D \\sim \\mathcal{N}(\\mu, \\sigma^2)\\)):\n\\[\nf_{new}(z) = \\int_{-\\infty}^{\\infty} f_L(z - \\tau) \\cdot f_\\tau(\\tau) \\, d\\tau\n\\]\n\n\\(f_L(z - \\tau)\\): The baseline LoS probability.\n\\(f_\\tau(\\tau)\\): The clinical uncertainty of the diagnostic penalty.\n\n\n\n\nWhy this matters for the MDT:\n\nBeyond the Average: It captures the “Tail Risk”—the patients who face both a complex diagnosis and a slow recovery.\nOperational Buffer: By modeling the variance of the effect (\\(\\sigma^2\\)), we create a “safety margin” for discharge planning.\nRobustness: This prevents underestimating the probability of a patient becoming “Super-Stranded” (\\(\\ge 14\\) days)."
+  },
+  {
+    "objectID": "talks/exeter/exeter_slides.html#the-operational-problem",
+    "href": "talks/exeter/exeter_slides.html#the-operational-problem",
+    "title": "MUSTAFA ASLAN",
+    "section": "The “Operational Problem”",
+    "text": "The “Operational Problem”\n\nCurrent hospital operations rely on aggregate comorbidity scores (e.g., Charlson), which compress complex medical histories, masking the true operational drivers of discharge delays.\n\n\n\n\n\nThe Problem: We cannot manage what we do not isolate.\nThe Gap: Traditional models suffer from selection bias; diagnostics are endogenous.\nOur Approach: Move from “Correlative Scores” to “Causal Penalties.”"
+  },
+  {
+    "objectID": "talks/exeter/exeter_slides.html#modeling-uncertainty-of-the-diagnostic-penalty-for-updating-the-hatlos",
+    "href": "talks/exeter/exeter_slides.html#modeling-uncertainty-of-the-diagnostic-penalty-for-updating-the-hatlos",
+    "title": "MUSTAFA ASLAN",
+    "section": "Modeling Uncertainty of the Diagnostic Penalty For Updating the \\(\\hat{LoS}\\)",
+    "text": "Modeling Uncertainty of the Diagnostic Penalty For Updating the \\(\\hat{LoS}\\)\nWe treat diagnostic impact not as a fixed constant, but as a distribution, accounting for clinical uncertainty.\n\n\n\nThe Convolution\nTo generate a robust “Tail Risk” LoS forecasts, we convolve the baseline LoS distribution (\\(f_L\\)) with the diagnostic uncertainty (\\(\\tau_D \\sim \\mathcal{N}(\\mu, \\sigma^2)\\)):\n\\[\nf_{new}(z) = \\int_{-\\infty}^{\\infty} f_L(z - \\tau) \\cdot f_\\tau(\\tau) \\, d\\tau\n\\]\n\n\\(f_L(z - \\tau)\\): The baseline LoS probability.\n\\(f_\\tau(\\tau)\\): The clinical uncertainty of the diagnostic penalty.\n\n\n\n\nWhy this matters for the MDT:\n\nBeyond the Average: It captures the “Tail Risk”—the patients who face both a complex diagnosis and a slow recovery.\nOperational Buffer: By modeling the variance of the effect (\\(\\sigma^2\\)), we create a “safety margin” for discharge planning.\nRobustness: This prevents underestimating the probability of a patient becoming “Super-Stranded” (\\(\\ge 14\\) days)."
+  },
+  {
+    "objectID": "talks/exeter/exeter_slides.html#the-framework",
+    "href": "talks/exeter/exeter_slides.html#the-framework",
+    "title": "MUSTAFA ASLAN",
+    "section": "The Framework",
+    "text": "The Framework\n1. Purging Confounders\n\nWe utilize Double Machine Learning (DML) to isolate the causal impact of diagnostics (\\(\\tau_D\\)) and ward transfers (\\(\\tau_W\\)) from the “clean-path” LoS.\n\\[\nY_{purged} = Total\\_LoS - \\sum_{i=1}^{n} \\tau_{D_i} -  \\tau_{W_j}\n\\]\n\n\n\nIdentification: DML partials out high-dimensional confounders (age, gender, ward busyness) to estimate the true “bed-day burden” of specific diagnoses.\n\n\n\n\n\n\nPurging: We subtract realized shocks from the observed outcome to create an idealized survival curve \\(S_0(t)\\)—the “clean-path” prediction in the absence of operational friction."
+  },
+  {
+    "objectID": "talks/exeter/exeter_slides.html#the-framework-1",
+    "href": "talks/exeter/exeter_slides.html#the-framework-1",
+    "title": "MUSTAFA ASLAN",
+    "section": "The Framework",
+    "text": "The Framework\n2. Modeling Uncertainty of the Diagnostic Penalty For Updating the \\(\\hat{LoS}\\)\nWe treat diagnostic impact not as a fixed constant, but as a distribution, accounting for clinical uncertainty.\n\n\n\nThe Convolution\nTo generate a robust “Tail Risk” LoS forecasts, we convolve the baseline LoS distribution (\\(f_L\\)) with the diagnostic uncertainty (\\(\\tau_D \\sim \\mathcal{N}(\\mu, \\sigma^2)\\)):\n\\[\nf_{new}(z) = \\int_{-\\infty}^{\\infty} f_L(z - \\tau) \\cdot f_\\tau(\\tau) \\, d\\tau\n\\]\n\n\\(f_L(z - \\tau)\\): The baseline LoS probability.\n\\(f_\\tau(\\tau)\\): The clinical uncertainty of the diagnostic penalty.\n\n\n\n\nWhy this matters for the MDT:\n\nBeyond the Average: It captures the “Tail Risk”—the patients who face both a complex diagnosis and a slow recovery.\nOperational Buffer: By modeling the variance of the effect (\\(\\sigma^2\\)), we create a “safety margin” for discharge planning.\nRobustness: This prevents underestimating the probability of a patient becoming “Super-Stranded” (\\(\\ge 14\\) days)."
+  },
+  {
+    "objectID": "talks/exeter/exeter_slides.html#outline",
+    "href": "talks/exeter/exeter_slides.html#outline",
+    "title": "MUSTAFA ASLAN",
+    "section": "Outline",
+    "text": "Outline\n\n\nThe Operational Problem: Why do we need a new approach to LoS forecasting?\nThe Framework: How do we isolate and model the causal impact of diagnostics?\nThe Causal Location Shift Example: A visual demonstration of the model’s mechanics.\nCounterfactual Simulation & Impact: Quantifying the potential benefits of this approach."
+  },
+  {
+    "objectID": "talks/exeter/exeter_slides.html#section",
+    "href": "talks/exeter/exeter_slides.html#section",
+    "title": "MUSTAFA ASLAN",
+    "section": "",
+    "text": "Outline\n\nThe Operational Problem\nSolution\nThe Framework\nThe Causal Location Shift Example\nCounterfactual Simulation & Impact"
+  },
+  {
+    "objectID": "talks/exeter/exeter_slides.html#solution",
+    "href": "talks/exeter/exeter_slides.html#solution",
+    "title": "MUSTAFA ASLAN",
+    "section": "Solution",
+    "text": "Solution\nDynamic Thresholding: Real-Time Updating\nWe update the survival curve (\\(P(LoS &gt; threshold)\\)) dynamically as clinical data arrives (11 am daily).\n\n\n\n1. Admission Day\n\nBaseline prediction based on initial exisitng data\nInitial \\(P(LoS &gt; \\text{threshold})\\)\n\n\n➔\n\n2. Mid-Stay Update\n\nDiagnosis confirmed\nCausal Shift: Apply \\(\\tau_D\\) penalty to the distribution\n\n\n➔\n\n3. Action Trigger\n\nCondition: \\(P(LoS &gt; \\text{threshold}) \\ge 55\\%\\)\nAction: Refer to MDT / Community pathways"
+  },
+  {
+    "objectID": "talks/presentations/exeter_visit.html",
+    "href": "talks/presentations/exeter_visit.html",
+    "title": "From Admission to Discharge: Dynamically Updating Length of Stay Forecasts with Causal Diagnostic and Operational Penalties",
+    "section": "",
+    "text": "Slides\nDate: July 11 2026 12:00-17:00\nEvent: University of Exeter Visit\nLocation: Exeter, UK"
+  },
+  {
+    "objectID": "talks/presentations/exeter_visit.html#context",
+    "href": "talks/presentations/exeter_visit.html#context",
+    "title": "From Admission to Discharge: Dynamically Updating Length of Stay Forecasts with Causal Diagnostic and Operational Penalties",
+    "section": "Context",
+    "text": "Context\nAt the University of Exeter, I had the opportunity to present my work on dynamically updating length of stay forecasts using causal diagnostic and operational penalties. This presentation was part of a broader discussion on healthcare operations and machine learning applications in clinical settings. The talk covered the operational challenges of forecasting patient length of stay, the limitations of traditional models, and our novel framework for isolating and modeling the causal impact of diagnostics on discharge delays. We also demonstrated the practical implications of our approach through a case study on location shift in hospital operations."
   }
 ]

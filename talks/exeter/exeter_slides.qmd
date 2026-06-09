@@ -1,0 +1,268 @@
+---
+jupyter: python3
+# jupyter: peshbeen
+format:
+  revealjs:
+    css: style.css
+    width: 1920
+    height: 1080
+    footer: "[From Admission to Discharge: Dynamically Updating Length of Stay Forecasts with Causal Diagnostic and Operational Penalties](https://mustafaslancoto.github.io/talks/presentations/qqf.html)"
+    slide-number: c/t
+    preview-links: auto
+    # chalkboard: true
+    html-math-method: mathjax
+    # margin: 0.1
+    # min-scale: 0.2
+    # max-scale: 2.0
+---
+
+{{< include title-slide.html >}}
+
+##
+
+<br>
+<br>
+
+[Outline]{.mimic-h2}
+
+
+- [**The Operational Problem**]{style="font-size: 1.2em; color: #1A6872;"}
+- [**Solution**]{style="font-size: 1.2em; color: #1A6872;"}
+- [**The Framework**]{style="font-size: 1.2em; color: #1A6872;"}
+- [**The Causal Location Shift Example**]{style="font-size: 1.2em; color: #1A6872;"}
+- [**Counterfactual Simulation & Impact**]{style="font-size: 1.2em; color: #1A6872;"}
+
+---
+
+
+
+## The "Operational Problem"
+
+:::{style="padding: 10px; margin: 10px 0; border-left: 2px solid #BF505C; text-align: left; color: #BF505C; font-weight: bold; font-size: 1.2em;"}
+Current hospital operations rely on aggregate comorbidity scores (e.g., Charlson), which compress complex medical histories, masking the true operational drivers of discharge delays.
+:::
+
+<br>
+
+::::{.columns}
+::: {.column width="50%"}
+- **The Problem:** We cannot manage what we do not isolate.
+- **The Gap:** Traditional models suffer from selection bias; diagnostics are endogenous.
+- **Our Approach:** Move from "Correlative Scores" to "Causal Penalties."
+:::
+
+::: {.column width="50%"}
+![](images/gemini_congest.png)
+:::
+::::
+
+---
+
+## Solution
+
+### Dynamic Thresholding: Real-Time Updating
+[We update the survival curve ($P(LoS > threshold)$) dynamically as clinical data arrives (11 am daily).]{style="font-size: 1.2em; color: #1A6872;"}
+
+<br>
+
+:::: {.columns style="display: flex; align-items: center; justify-content: space-between;"}
+::: {.column width="30%" style="background-color: #f1f5f9; padding: 20px; border-radius: 10px; border: 2px solid #cbd5e1;"}
+### 1. Admission Day
+* Baseline prediction based on initial exisitng data
+* Initial $P(LoS > \text{threshold})$
+:::
+
+::: {.column width="5%" style="text-align: center; display: flex; align-items: center; justify-content: center;"}
+[**➔**]{style="font-size: 3em; color: #BF505C;"}
+:::
+
+::: {.column width="30%" style="background-color: #EFECE1; padding: 20px; border-radius: 10px; border: 2px solid #dcdac8;"}
+### 2. Mid-Stay Update
+* Diagnosis confirmed
+* **Causal Shift:** Apply $\tau_D$ penalty to the distribution
+:::
+
+::: {.column width="5%" style="text-align: center; display: flex; align-items: center; justify-content: center;"}
+[**➔**]{style="font-size: 3em; color: #BF505C;"}
+:::
+
+::: {.column width="30%" style="background-color: #e5f0f2; padding: 20px; border-radius: 10px; border: 2px solid #b7d5da;"}
+### 3. Action Trigger
+* **Condition:** $P(LoS > \text{threshold}) \ge 55\%$
+* **Action:** Refer to MDT / Community pathways
+:::
+::::
+
+---
+
+## The Framework
+
+### 1. Purging Confounders
+
+<br>
+
+We utilize Double Machine Learning (DML) to isolate the causal impact of diagnostics ($\tau_D$) and ward transfers ($\tau_W$) from the "clean-path" LoS.
+
+$$
+Y_{purged} = Total\_LoS - \sum_{i=1}^{n} \tau_{D_i} -  \tau_{W_j}
+$$
+
+:::{.fragment}
+:::{style="margin-top: 30px;"}
+- **Identification:** DML partials out high-dimensional confounders (age, gender, ward busyness) to estimate the true "bed-day burden" of specific diagnoses.
+:::
+:::
+
+:::{.fragment}
+:::{style="margin-top: 20px;"}
+- **Purging:** We subtract realized shocks from the observed outcome to create an idealized survival curve $S_0(t)$—the "clean-path" prediction in the absence of operational friction.
+:::
+:::
+
+---
+
+## The Framework
+
+### 2. Modeling Uncertainty of the Diagnostic Penalty For Updating the $\hat{LoS}$
+
+[We treat diagnostic impact not as a fixed constant, but as a distribution, accounting for clinical uncertainty.]{style="font-size: 1.2em; color: #1A6872;"}
+
+<br>
+
+:::: {.columns style="display: flex; align-items: center; justify-content: space-between;"}
+
+::: {.column width="55%" style="padding: 20px; border-radius: 10px; border: 1px solid #2CA0AB;" .fragment}
+
+### The Convolution
+To generate a robust "Tail Risk" LoS forecasts, we convolve the baseline LoS distribution ($f_L$) with the diagnostic uncertainty ($\tau_D \sim \mathcal{N}(\mu, \sigma^2)$):
+
+$$
+f_{new}(z) = \int_{-\infty}^{\infty} f_L(z - \tau) \cdot f_\tau(\tau) \, d\tau
+$$
+
+- **$f_L(z - \tau)$:** The baseline LoS probability.
+- **$f_\tau(\tau)$:** The clinical uncertainty of the diagnostic penalty.
+
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="40%" style="padding: 20px; border-radius: 10px; border: 1px solid #2CA0AB;" .fragment}
+
+### Why this matters for the MDT:
+
+* **Beyond the Average:** It captures the "Tail Risk"—the patients who face both a complex diagnosis and a slow recovery.
+* **Operational Buffer:** By modeling the variance of the effect ($\sigma^2$), we create a "safety margin" for discharge planning.
+* **Robustness:** This prevents underestimating the probability of a patient becoming "Super-Stranded" ($\ge 14$ days).
+
+:::
+
+::::
+
+
+---
+
+
+## The Causal Location Shift Example
+
+[The DML framework treats the diagnostic confirmation as a "shock" that shifts the distribution's location along the time axis.]{style="font-size: 1.2em; color: #1A6872;"}
+
+```{python}
+#| fig-align: center
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import lognorm
+
+# Set theme colors to match your presentation
+color_baseline = "#1A6872"
+color_shifted = "#BF505C"
+threshold = 14
+plt.rcParams['figure.facecolor'] = '#FBFAF4'
+plt.rcParams['axes.facecolor'] = '#FBFAF4'
+
+# Generate synthetic LoS data (Log-Normal)
+# Baseline: Mean LoS ~8 days
+s, loc, scale = 0.5, 0, 8
+x = np.linspace(0, 30, 500)
+pdf_baseline = lognorm.pdf(x, s, loc, scale)
+
+# Shifted: Diagnostic penalty adds a +4 day shift to the location
+pdf_shifted = lognorm.pdf(x, s, loc + 4, scale)
+
+# Calculate Probabilities P(LoS > 14)
+prob_baseline = 1 - lognorm.cdf(threshold, s, loc, scale)
+prob_shifted = 1 - lognorm.cdf(threshold, s, loc + 4, scale)
+
+# Plotting
+plt.figure(figsize=(15, 5), facecolor="#FBFAF4")
+ax = plt.gca()
+ax.set_facecolor("#FBFAF4")
+
+# 1. Baseline Plot
+plt.plot(x, pdf_baseline, color=color_baseline, lw=3, label=f'Day 0 Baseline (P > 14: {prob_baseline:.1%})')
+plt.fill_between(x, 0, pdf_baseline, where=(x > threshold), color=color_baseline, alpha=0.2)
+
+# 2. Shifted Plot
+plt.plot(x, pdf_shifted, color=color_shifted, lw=3, linestyle="--", label=f'Updated with Diagnosis (P > 14: {prob_shifted:.1%})')
+plt.fill_between(x, 0, pdf_shifted, where=(x > threshold), color=color_shifted, alpha=0.3)
+
+# Threshold Line
+plt.axvline(threshold, color="black", linestyle=":", lw=2)
+plt.text(threshold+0.5, plt.ylim()[1]*0.6, f"Hospital Threshold (e.g., {threshold} days)", rotation=0, fontweight="bold", fontsize=16)
+
+plt.title("Location-Shift Model: Impact of Diagnostic Shock on Tail Risk", fontsize=20)
+plt.xlabel("Days in Hospital (LoS)", fontsize=16)
+plt.ylabel("Probability Density", fontsize=16)
+plt.legend(fontsize=16)
+plt.grid(axis='y', alpha=0.3)
+plt.show()
+```
+
+:::: {.columns style="display: flex; align-items: center; justify-content: space-between;"}
+
+::: {.column width="48%" style="background-color: #f1f5f9; padding: 15px; border-radius: 10px;"}
+### 🟢 Day 0: Baseline
+The "clean-path" prediction based on demographics and only initial information. The shaded area represents the initial risk of becoming a stranded patient.
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%" style="background-color: #fee2e2; padding: 15px; border-radius: 10px;"}
+### 🔴 Day $k$: Causal Update
+Diagnosis $\tau_D$ shifts the entire distribution right. The shaded area shows sn increase in the probability of crossing the 14-day threshold.
+:::
+
+::::
+
+---
+
+
+## Counterfactual Simulation & Impact
+
+<br>
+
+To prove the framework's worth, we replay the historical baseline as a simulation:
+
+:::{.fragment}
+- **Step 1:** Run a day-by-day replay of historical patients.
+- **Step 2:** Apply the policy trigger (the "Model Intervention") the moment a patient hits the risk threshold.
+- **Step 3:** Compute the System Delta ($\Delta Beds$):
+
+$$
+\Delta \text{Beds} = \sum \text{Actual LoS}_i - \sum \text{Counterfactual LoS}_i
+$$
+
+
+:::
+
+:::{.fragment}
+:::{style="padding: 10px; margin: 10px 0; border-left: 2px solid #2CA0AB; text-align: left; color: #2CA0AB; font-weight: bold;"}
+This allows us to present decision-makers with a concrete metric: "If we had used this model, we would have reclaimed X bed-days."
+:::
+:::
+
+# Any questions or thoughts? 💬
+
+![](images/follow_us.png){fig-align="center"}

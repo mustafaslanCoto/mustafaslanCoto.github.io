@@ -50,5 +50,11 @@
   },
   "talks/ifors/example.ipynb": {
     "example.html": "85eb7785"
+  },
+  "talks/exeter/exeter_slides.qmd": {
+    "exeter_slides.html": "b6770684"
+  },
+  "talks/presentations/exeter_visit.qmd": {
+    "exeter_visit.html": "74b06024"
   }
 }
