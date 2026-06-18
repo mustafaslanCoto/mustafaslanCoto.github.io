@@ -2048,7 +2048,7 @@
     "href": "talks/ifors/ifors_slides.html#regime-segmentation-what-the-hidden-states-capture",
     "title": "MUSTAFA ASLAN",
     "section": "Regime Segmentation: What the Hidden States Capture",
-    "text": "Regime Segmentation: What the Hidden States Capture\nThe estimated regimes track distinct occupancy levels and switch abruptly — exactly the dynamics a single time series misses."
+    "text": "Regime Segmentation: What the Hidden States Capture\nThe estimated regimes track distinct occupancy levels and switch abruptly."
   },
   {
     "objectID": "talks/ifors/ifors_slides.html#from-forecasts-to-scenarios-correlated-bootstrapping",
