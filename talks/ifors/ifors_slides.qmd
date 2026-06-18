@@ -502,7 +502,7 @@ $$
 
 ## Regime Segmentation: What the Hidden States Capture
 
-[**The estimated regimes track distinct occupancy levels and switch abruptly — exactly the dynamics a single time series misses.**]{style="color: #1A6872;"}
+[**The estimated regimes track distinct occupancy levels and switch abruptly.**]{style="color: #1A6872;"}
 
 ```{python}
 #| fig-width: 100%
@@ -553,7 +553,7 @@ def plot_hmm_regimes(
             where=is_regime_1,
             color='#BF505C',
             alpha=0.18,
-            label=f'Regime 1  (mean occ. ≈ {m1:.0f})',
+            label=f'Regime 1',
             interpolate=True
         )
 
@@ -564,7 +564,7 @@ def plot_hmm_regimes(
             where=is_regime_0,
             color='#707C36',
             alpha=0.18,
-            label=f'Regime 2  (mean occ. ≈ {m0:.0f})',
+            label=f'Regime 2',
             interpolate=True
         )
 
