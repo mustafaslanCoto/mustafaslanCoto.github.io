@@ -1,65 +1,95 @@
-<!-- logo style -->
-
+```{=html}
 <style>
-  .logo-left {
-    position: absolute;
-    top: 10px;
-    left: 20px;
-  }
+  .title-slide-custom { text-align: center; }
 
-  .logo-right {
-    position: absolute;
-    top: 10px;
-    right: 20px;
+  /* Logo row */
+  .title-slide-custom .logo-bar {
     display: flex;
-    gap: 10px;
-    align-items: flex-start;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 3em;
+  }
+  .title-slide-custom .logo-group {
+    display: flex;
+    align-items: center;
+    gap: 1.2em;
+  }
+  .title-slide-custom .logo-bar img {
+    height: 140px;
+    width: auto;
+    background: none;
   }
 
-  .logo-left img,
-  .logo-right img {
-    height: 170px;
-    width: auto;
-    
+  /* Title — main size knob */
+  .title-slide-custom .talk-title {
+    font-size: 1.3em !important;
+    font-weight: 700;
+    line-height: 1.2;
+    text-transform: none;
+    max-width: 85%;          /* was 30ch — this is the real knob */
+    text-wrap: balance;      /* distributes text into even lines */
+    color: #091717;
+    margin: 0 auto 0.8em auto;   /* top handled by logo-bar's margin-bottom */
   }
   
-/* title sytle */
-  h1 {
-    text-align: center;
+  
+  /* Conference label + accent rule */
+  .title-slide-custom .talk-conference {
+    font-size: 1em;
+    font-weight: 600;
+    letter-spacing: 0.12em; /* spacing for uppercase letters */
+    text-transform: uppercase;
+    color: #20808D;
   }
 
+  .title-slide-custom .accent-rule {
+    width: 90px;
+    height: 4px;
+    background: #20808D;
+    border: none;
+    margin: 0.5em auto 1.2em auto;
+    border-radius: 2px;
+  }
+
+  /* Authors */
+  .title-slide-custom .presenter { font-weight: 700; font-size: 0.80em; color: #091717; }
+  .title-slide-custom .supervisors { font-weight: 700; font-size: 0.80em; color: #333; margin-top: 0.5em; line-height: 1.5; }
+  .title-slide-custom .role { color: #666; }
+  .title-slide-custom .affiliation { font-weight: 700; font-size: 0.80em; color: #666; margin-top: 0.2em; }
+  .title-slide-custom .talk-date { font-size: 0.80em; color: #999; margin-top: 1em; }
 </style>
 
-<div class="logo-left">
-  <img src="images/cu.png" alt="Left Logo">
-  <img src="images/wgsss.png" alt="Left Logo 2">
-  <img src="images/hcrw_back.png" alt="Left Logo 3">
-</div>
+<div class="title-slide-custom">
 
-<div class="logo-right">
-  <img src="images/dlsg.png" alt="Right Logo">
-  <img src="images/care.png" alt="Right Logo 2">
-</div>
+  <div class="logo-bar">
+    <div class="logo-group">
+      <img src="images/cu.png" alt="Cardiff University">
+      <img src="images/wgsss.png" alt="WGSSS">
+      <img src="images/hcrw_back.png" alt="Health and Care Research Wales">
+    </div>
+    <div class="logo-group">
+      <img src="images/dlsg.png" alt="Data Lab for Social Good">
+      <img src="images/care.png" alt="CARE">
+    </div>
+  </div>
 
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <h1>Integrating Regime-Switching Probabilistic Forecasts into Stochastic Optimization for Nurse Rostering in Mental Health Wards
-</h1>
+  <h1 class="talk-title">
+    Integrating Regime-Switching Probabilistic Forecasts into Stochastic Optimization for Nurse Rostering in Mental Health Wards
+  </h1>
 
-<div class="title-block">
-  <br>
-  <br>
-  <br>
-  <h3>
-  Mustafa Aslan, Cardiff University, UK <br>
-  Lead supervisor: Prof. Bahman Rostami-Tabar<br>
-  Co-supervisor: Dr. Jeremy Dixon <br>
-  Data Lab for Social Good, Cardiff University, UK <br>
-  </h3>
-  <p>11 July 2026</p>
+  <div class="talk-conference">IFORS 2026</div>
+  <hr class="accent-rule">
+
+  <div class="presenter">Mustafa Aslan</div>
+  <div class="affiliation">Data Lab for Social Good, Cardiff University, UK</div>
+
+  <div class="supervisors">
+    <span class="role">Lead supervisor:</span> Prof. Bahman Rostami-Tabar<br>
+    <span class="role">Co-supervisor:</span> Dr. Jeremy Dixon
+  </div>
+
+  <div class="talk-date">16 July 2026</div>
+
 </div>
+```

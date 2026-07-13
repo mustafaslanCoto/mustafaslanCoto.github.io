@@ -177,11 +177,8 @@ img {
   color: #20808D;
 }
 
-.reveal h1 {
-  color: #091717;
-  font-size: 2em !important;
-  /* padding-left: 20px; */
-}
+.reveal h1.title { font-size: 1.8em !important; }
+
 .reveal h2 {
   color: #091717;
   /* font-size: 1.3em !important; */
