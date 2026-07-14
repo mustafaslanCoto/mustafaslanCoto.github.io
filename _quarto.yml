@@ -1,7 +1,7 @@
 project:
   type: website
   output-dir: docs
-
+ 
 website:
   title: "MUSTAFA ASLAN"
   open-graph: true
@@ -10,18 +10,21 @@ website:
     right:
       - href: learn/index.qmd
         text: LEARN
-
+ 
       - href: projects/index.qmd  # Add this line
         text: PROJECTS
-
+ 
+      - href: publications/index.qmd
+        text: PUBLICATIONS
+ 
       - text: WORKSHOPS
         href: workshops/index.qmd
-
+ 
       - href: talks/index.qmd
         text: TALKS
       # - href: CV/CV.qmd
       #   text: CV
-
+ 
     tools:
       - icon: envelope
         href: mailto:aslanm@cardiff.ac.uk
@@ -29,13 +32,13 @@ website:
         href: https://github.com/mustafaslanCoto
       - icon: linkedin
         href: https://www.linkedin.com/in/aslanmu/
-
+ 
 format:
   html:
     theme: cosmo
     css: styles.css
     toc: true
-
+ 
 execute: 
     engine: jupyter
 jupyter: python3

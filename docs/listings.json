@@ -2,10 +2,10 @@
   {
     "listing": "/talks/index.html",
     "items": [
-      "/talks/presentations/phd_forum.html",
       "/talks/presentations/ifors.html",
-      "/talks/presentations/qqf.html",
       "/talks/presentations/exeter_visit.html",
+      "/talks/presentations/phd_forum.html",
+      "/talks/presentations/qqf.html",
       "/talks/presentations/sword.html",
       "/talks/presentations/wgsss.html"
     ]

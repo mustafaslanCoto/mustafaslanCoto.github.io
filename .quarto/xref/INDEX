@@ -59,5 +59,17 @@
   },
   "talks/ifors/ifors_slides_copy.qmd": {
     "ifors_slides_copy.html": "1e571a72"
+  },
+  "publications/index.qmd": {
+    "index.html": "ea057c3e"
+  },
+  "learn/index.qmd": {
+    "index.html": "9351c3e6"
+  },
+  "publications/index (2).qmd": {
+    "index (2).html": "0223e02d"
+  },
+  "publications/pub_arshive/index.qmd": {
+    "index.html": "d5508e57"
   }
 }
