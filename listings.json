@@ -1,16 +1,13 @@
 [
   {
-    "listing": "/projects/index.html",
+    "listing": "/talks/index.html",
     "items": [
-      "/projects/peshbeen.html"
-    ]
-  },
-  {
-    "listing": "/learn/index.html",
-    "items": [
-      "/learn/prob_stats/mc_integration.html",
-      "/learn/prob_stats/cond_index.html",
-      "/learn/prob_stats/dists_index.html"
+      "/talks/presentations/ifors.html",
+      "/talks/presentations/exeter_visit.html",
+      "/talks/presentations/phd_forum.html",
+      "/talks/presentations/qqf.html",
+      "/talks/presentations/sword.html",
+      "/talks/presentations/wgsss.html"
     ]
   },
   {
@@ -22,14 +19,17 @@
     ]
   },
   {
-    "listing": "/talks/index.html",
+    "listing": "/learn/index.html",
     "items": [
-      "/talks/presentations/ifors.html",
-      "/talks/presentations/exeter_visit.html",
-      "/talks/presentations/phd_forum.html",
-      "/talks/presentations/qqf.html",
-      "/talks/presentations/sword.html",
-      "/talks/presentations/wgsss.html"
+      "/learn/prob_stats/mc_integration.html",
+      "/learn/prob_stats/cond_index.html",
+      "/learn/prob_stats/dists_index.html"
+    ]
+  },
+  {
+    "listing": "/projects/index.html",
+    "items": [
+      "/projects/peshbeen.html"
     ]
   }
 ]
