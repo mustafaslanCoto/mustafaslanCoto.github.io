@@ -658,6 +658,13 @@
     "text": "Key Takeaways\n\n\n\nRegimes matter. AR-MSR captures the abrupt regime shifts that single-series models miss — achieving the best overall point (RMSE) and probabilistic (Pinball) accuracy.\nScenarios, not point estimates. Correlated-bootstrap sampling preserves error dependence across the 84-day horizon and feeds a multi-ward, two-stage stochastic roster.\nBetter decisions, not just better forecasts. Stochastic optimization lifts zero-shortage reliability from 2% to 28% and reduces average understaffing by ~59% versus the deterministic baseline, with a positive value of the stochastic solution across wards.\nOperational impact. More robust, ward-aware staffing under uncertain demand and absenteeism — directly targeting understaffing and nurse burnout."
   },
   {
+    "objectID": "talks/ifors/ifors_slides.html#peshbeen",
+    "href": "talks/ifors/ifors_slides.html#peshbeen",
+    "title": "MUSTAFA ASLAN",
+    "section": "peshbeen",
+    "text": "peshbeen\n\nA Probabilistic Forecasting Package\nOpen-source Python package implementing the AR-MSR forecasting framework\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nScan for documentation\nmustafaslancoto.github.io/peshbeen"
+  },
+  {
     "objectID": "workshops/index.html",
     "href": "workshops/index.html",
     "title": "MUSTAFA ASLAN",
