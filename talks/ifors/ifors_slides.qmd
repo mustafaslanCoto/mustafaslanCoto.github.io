@@ -1423,6 +1423,35 @@ plt.show()
 
 :::
 
+## [pesh]{style="color: #091717;"}[been]{style="color: #20808D;"}
+
+- A Probabilistic Forecasting Package
+- Open-source Python package implementing the AR-MSR forecasting framework
+
+::::{.columns style="align-items: center;"}
+::: {.column width="65%"}
+<br>
+
+![](images/peshbeen.png){width="100%" fig-align="center"}
+:::
+
+
+::: {.column width="35%"}
+
+<br>
+
+<!-- [Open-source Python package implementing the AR-MSR forecasting framework]{style="font-size: 1.1em;"} -->
+
+<br>
+
+![](images/peshbeen_qr.png){width="55%" fig-align="center"}
+
+[Scan for documentation]{style="display: block; text-align: center; font-weight: bold; color: #1A6872;"}
+
+[mustafaslancoto.github.io/peshbeen](https://mustafaslancoto.github.io/peshbeen/){style="display: block; text-align: center; font-size: 0.8em;"}
+:::
+::::
+
 # Any questions or thoughts? 💬
 
 ![](images/follow_us.png){fig-align="center"}
