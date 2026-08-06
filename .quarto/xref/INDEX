@@ -71,5 +71,14 @@
   },
   "publications/pub_arshive/index.qmd": {
     "index.html": "d5508e57"
+  },
+  "projects/hosp_marimo.qmd": {
+    "hosp_marimo.html": "266ab26c"
+  },
+  "presentations/index.qmd": {
+    "index.html": "321fc1aa"
+  },
+  "presentations/hosp_marimo.qmd": {
+    "hosp_marimo.html": "e1b6e2ae"
   }
 }

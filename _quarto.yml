@@ -20,8 +20,8 @@ website:
       - text: WORKSHOPS
         href: workshops/index.qmd
  
-      - href: talks/index.qmd
-        text: TALKS
+      - href: presentations/index.qmd
+        text: PRESENTATIONS
       # - href: CV/CV.qmd
       #   text: CV
  

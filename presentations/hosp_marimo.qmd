@@ -1,0 +1,13 @@
+---
+title: "Causal Effect Sizes of Health Resource Groups on LoS"
+description: ""
+date: "2026-08-06"
+categories:
+  - Causal Inference
+  - Python
+resources:
+  - "causal_presentation/interactive_slides_folder/**"
+---
+
+<!-- Launch Button pointing directly to the Marimo index.html -->
+[<i class="fas fa-play"></i> Launch Interactive Slides](causal_presentation/interactive_slides_folder/index.html){.btn .btn-sm .btn-outline-primary target="_blank"}

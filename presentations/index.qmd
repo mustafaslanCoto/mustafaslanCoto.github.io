@@ -1,0 +1,11 @@
+---
+listing:
+  - id: talks
+    contents:
+      - "*.qmd"
+      # - "causal_presentation/*.qmd"
+    type: default
+    sort: date desc
+---
+
+My presentations are listed below. You can click on the title of each presentation to view the slides and additional resources.

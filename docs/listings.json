@@ -56,7 +56,14 @@
   {
     "listing": "/projects/index.html",
     "items": [
+      "/projects/hosp_marimo.html",
       "/projects/peshbeen.html"
+    ]
+  },
+  {
+    "listing": "/presentations/index.html",
+    "items": [
+      "/presentations/hosp_marimo.html"
     ]
   }
 ]

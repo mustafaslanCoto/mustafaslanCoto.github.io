@@ -21,4 +21,5 @@ ruptures
 tabulate
 great_tables
 setuptools
+marimo
 git+https://github.com/mustafaslanCoto/peshbeen_dev.git
