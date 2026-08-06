@@ -101,7 +101,6 @@
 
 
 
-
 /* Only style links inside paragraphs */
 p a, p a:visited {
   color: #20808D !important;
@@ -263,3 +262,6 @@ div.callout .callout-title {
   /* color: #fff !important;
   /* border-radius: 0.5em 0.5em 0 0 */
 }
+
+
+/* Only style */
