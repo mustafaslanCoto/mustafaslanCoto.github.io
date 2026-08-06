@@ -6,8 +6,8 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.38">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <title>MUSTAFA ASLAN – causal_inf</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -19,10 +19,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -839,7 +842,7 @@ R^2 = \frac{E[(\hat{\beta}^{'} X)^2]}{E[Y^2]} = 1 - \frac{E_n \epsilon^2}{E_n Y^
 </div>
 <div style="border-left: 1px solid #ccc; padding-left: 20px;">
 <div class="fragment fade-up">
-<div id="66800cc5" class="cell" data-fig-height="50%" data-fig-width="100%" data-execution_count="1">
+<div id="93333da7" class="cell" data-fig-height="50%" data-fig-width="100%" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -850,7 +853,7 @@ R^2 = \frac{E[(\hat{\beta}^{'} X)^2]}{E[Y^2]} = 1 - \frac{E_n \epsilon^2}{E_n Y^
 </div>
 </div>
 <div class="fragment fade-up">
-<div id="0c3fdeab" class="cell" data-fig-height="50%" data-fig-width="100%" data-execution_count="2">
+<div id="177c77da" class="cell" data-fig-height="50%" data-fig-width="100%" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1108,22 +1111,22 @@ X = P(W) = (P_1(W), P_2(W), \ldots, P_p(W))'
 </div><div class="column" style="width:50%;">
 <div style="border-left: 1px solid #ccc; padding-left: 20px;">
 <div class="fragment fade-up">
-<div id="751616a1" class="cell" data-execution_count="3">
+<div id="b4cf7b36" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="causal_inf_files/figure-revealjs/cell-4-output-1.png" width="975" height="544"></p>
+<p><img data-src="causal_inf_files/figure-revealjs/cell-4-output-1.png" width="976" height="544"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
 <div class="fragment fade-up">
-<div id="d901570e" class="cell" data-execution_count="4">
+<div id="f92c5593" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="causal_inf_files/figure-revealjs/cell-5-output-1.png" width="975" height="544"></p>
+<p><img data-src="causal_inf_files/figure-revealjs/cell-5-output-1.png" width="976" height="544"></p>
 </figure>
 </div>
 </div>
@@ -1222,7 +1225,7 @@ g(W) = E[Y|W]
 </section>
 <section id="example-bias-in-lasso-coefficients" class="slide level2">
 <h2>Example: Bias in Lasso Coefficients</h2>
-<div id="98cf97f6" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="5">
+<div id="1f2b8e4d" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -2168,7 +2171,7 @@ D = \gamma_{DW}^{'} W + \tilde{D}, \quad \tilde{D} \sim N(0, 1)/4
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],

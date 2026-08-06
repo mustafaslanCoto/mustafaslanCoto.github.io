@@ -1,5 +1,17 @@
 [
   {
+    "listing": "/projects/index.html",
+    "items": [
+      "/projects/peshbeen.html"
+    ]
+  },
+  {
+    "listing": "/presentations/index.html",
+    "items": [
+      "/presentations/hosp_marimo.html"
+    ]
+  },
+  {
     "listing": "/talks/index.html",
     "items": [
       "/talks/presentations/ifors.html",
@@ -11,14 +23,6 @@
     ]
   },
   {
-    "listing": "/workshops/index.html",
-    "items": [
-      "/workshops/trainings/causal_ml.html",
-      "/workshops/trainings/rl_index.html",
-      "/workshops/trainings/py_index.html"
-    ]
-  },
-  {
     "listing": "/learn/index.html",
     "items": [
       "/learn/prob_stats/mc_integration.html",
@@ -27,9 +31,11 @@
     ]
   },
   {
-    "listing": "/projects/index.html",
+    "listing": "/workshops/index.html",
     "items": [
-      "/projects/peshbeen.html"
+      "/workshops/trainings/causal_ml.html",
+      "/workshops/trainings/rl_index.html",
+      "/workshops/trainings/py_index.html"
     ]
   }
 ]
