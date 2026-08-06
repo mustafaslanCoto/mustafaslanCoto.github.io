@@ -113,9 +113,9 @@ def _(mo):
 
 @app.cell
 def _(mo, pd):
-    data_path = mo.notebook_location() / "tables"
-    order_df = pd.read_csv(data_path / "diagnosis_order.csv")
-    diags = pd.read_csv(data_path / "caus_hrg_lgb.csv")
+    data_path = mo.notebook_location() / "public" / "tables"
+    order_df = pd.read_csv(data_path / "diagnosis_order.csv", sep=None, engine='python')       # Use the more robust engine)
+    diags = pd.read_csv(data_path / "caus_hrg_lgb.csv", sep=None, engine='python')
     diags = diags.merge(order_df, on='profile', how ='left')
     diags.rename(columns={"proportion": "dominance"}, inplace=True)
     # diags["dominance"] = diags["dominance"]*100

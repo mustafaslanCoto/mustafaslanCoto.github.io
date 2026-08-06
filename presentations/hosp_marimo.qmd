@@ -9,5 +9,8 @@ resources:
   - "causal_presentation/interactive_slides_folder/**"
 ---
 
-<!-- Launch Button pointing directly to the Marimo index.html -->
-[<i class="fas fa-play"></i> Launch Interactive Slides](causal_presentation/interactive_slides_folder/index.html){.btn .btn-sm .btn-outline-primary target="_blank"}
+
+<!-- <iframe src="https://molab.marimo.io/notebooks/nb_eGUGFqiFei1TVkHSEaXXyE/app" width="100%" height="600px"></iframe> -->
+
+
+[![Open in molab](https://molab.marimo.io/molab-shield.svg)](https://marimo.io/notebooks/nb_eGUGFqiFei1TVkHSEaXXyE/follow#sb=sb-3f693cf011addcff&token=ea6cc0c457d8d18665e8c87355c1f1cfc02a56f789ee0dec6075e81ac5a17372)
