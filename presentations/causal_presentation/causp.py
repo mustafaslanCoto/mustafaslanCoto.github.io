@@ -31,6 +31,29 @@ def _():
     return np, pd
 
 
+@app.cell
+def _():
+    import io
+    import urllib.request
+
+    def fetch(path):
+        """Read a data file into memory before handing it to pandas.
+
+        Under WASM these files are served over HTTP, and GitHub Pages responds
+        with `Content-Encoding: gzip`. The browser has already decompressed the
+        body by the time pandas sees it, but pandas reads that header and
+        gunzips a second time, raising BadGzipFile. Passing an in-memory buffer
+        skips pandas' URL handling entirely. Local paths pass straight through.
+        """
+        location = str(path)
+        if location.startswith(("http://", "https://")):
+            with urllib.request.urlopen(location) as response:
+                return io.BytesIO(response.read())
+        return path
+
+    return (fetch,)
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -121,14 +144,14 @@ def _(mo):
 
 
 @app.cell
-def _(mo, pd):
+def _(fetch, mo, pd):
     data_path = mo.notebook_location() / "public"
-    order_df = pd.read_csv(data_path / "diagnosis_order.csv", sep=None, engine='python')       # Use the more robust engine)
-    diags = pd.read_csv(data_path / "caus_hrg_lgb.csv", sep=None, engine='python')
+    order_df = pd.read_csv(fetch(data_path / "diagnosis_order.csv"), sep=None, engine='python')       # Use the more robust engine)
+    diags = pd.read_csv(fetch(data_path / "caus_hrg_lgb.csv"), sep=None, engine='python')
     diags = diags.merge(order_df, on='profile', how ='left')
     diags.rename(columns={"proportion": "dominance"}, inplace=True)
     # diags["dominance"] = diags["dominance"]*100
-    cleand_df = pd.read_parquet(data_path /"clean_df_present.parquet")
+    cleand_df = pd.read_parquet(fetch(data_path /"clean_df_present.parquet"))
     # cleand_df.to_csv(data_path / "clean_df_present.csv", index=False)
     # cleand_df = pd.read_csv(data_path / "clean_df_present.csv")
     exist_codes = cleand_df[cleand_df["code"]!= "$$X"]["code"].drop_duplicates().tolist()
@@ -153,8 +176,8 @@ def _(diags):
 
 
 @app.cell
-def _(data_path, exist_codes, pd):
-    hrg = pd.read_csv(data_path / "nhs_group.csv")[["code", "HRG 1","Code Description"]].drop_duplicates().rename(columns={"code":"ICD_code", "HRG 1": "HRG", "Code Description": "ICD_description"})
+def _(data_path, exist_codes, fetch, pd):
+    hrg = pd.read_csv(fetch(data_path / "nhs_group.csv"))[["code", "HRG 1","Code Description"]].drop_duplicates().rename(columns={"code":"ICD_code", "HRG 1": "HRG", "Code Description": "ICD_description"})
     ## filter ICD
     hrg = hrg[hrg["ICD_code"].isin(exist_codes)]
     hrg["HRG2"] = hrg["HRG"].str[:2]

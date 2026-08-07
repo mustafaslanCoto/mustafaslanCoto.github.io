@@ -2,7 +2,7 @@
   "version": "1",
   "metadata": {
     "marimo_version": "0.23.16",
-    "script_metadata_hash": "dc11d4bd637a8f6021b906e250f147ae"
+    "script_metadata_hash": "ef8054cb316bc2aea370fc1b47a346fc"
   },
   "cells": [
     {
@@ -33,6 +33,19 @@
     },
     {
       "id": "vblA",
+      "code_hash": "515cbd4d8e50a3011e08ac54ba8b77b5",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "bkHC",
       "code_hash": "79a2936684bc9a3d9f011f1c27fcf87f",
       "outputs": [
         {
@@ -45,7 +58,7 @@
       "console": []
     },
     {
-      "id": "bkHC",
+      "id": "lEQa",
       "code_hash": "ea0ce9a940d7ebb5fac0b5d3944e284a",
       "outputs": [
         {
@@ -58,7 +71,7 @@
       "console": []
     },
     {
-      "id": "lEQa",
+      "id": "PKri",
       "code_hash": "ca0f2a57ef739113f20330c15015804d",
       "outputs": [
         {
@@ -71,7 +84,7 @@
       "console": []
     },
     {
-      "id": "PKri",
+      "id": "Xref",
       "code_hash": "763208ced77dc3777e3133caae7df969",
       "outputs": [
         {
@@ -84,7 +97,7 @@
       "console": []
     },
     {
-      "id": "Xref",
+      "id": "SFPL",
       "code_hash": "95718d94ee4f52be7af2e4136416a74b",
       "outputs": [
         {
@@ -97,7 +110,7 @@
       "console": []
     },
     {
-      "id": "SFPL",
+      "id": "BYtC",
       "code_hash": "92b108a5bcb507b45c3929b4b8c307d8",
       "outputs": [
         {
@@ -110,21 +123,8 @@
       "console": []
     },
     {
-      "id": "BYtC",
-      "code_hash": "9b947e1eb8893a17041fcb3855e67346",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": []
-    },
-    {
       "id": "RGSE",
-      "code_hash": "06d40f3f412e781eca88b70d67e19efa",
+      "code_hash": "b8e541b7f1d4e9c151d8e120c1a26095",
       "outputs": [
         {
           "type": "data",
@@ -137,7 +137,7 @@
     },
     {
       "id": "Kclp",
-      "code_hash": "f6fef9e5bd6f5e4b28171b8aa947ad0f",
+      "code_hash": "06d40f3f412e781eca88b70d67e19efa",
       "outputs": [
         {
           "type": "data",
@@ -150,7 +150,7 @@
     },
     {
       "id": "emfo",
-      "code_hash": "05da94f00b8448e4a3a675d960b5207c",
+      "code_hash": "186ced60a454380c7819a3e7ac371990",
       "outputs": [
         {
           "type": "data",
@@ -163,7 +163,7 @@
     },
     {
       "id": "Hstk",
-      "code_hash": "bc1dc8101d1ff3f8be7c710fa71611b5",
+      "code_hash": "05da94f00b8448e4a3a675d960b5207c",
       "outputs": [
         {
           "type": "data",
@@ -176,7 +176,7 @@
     },
     {
       "id": "nWHF",
-      "code_hash": "1aaa4c1a0138dc938866cc5d5c4a3ae8",
+      "code_hash": "bc1dc8101d1ff3f8be7c710fa71611b5",
       "outputs": [
         {
           "type": "data",
@@ -189,6 +189,19 @@
     },
     {
       "id": "iLit",
+      "code_hash": "1aaa4c1a0138dc938866cc5d5c4a3ae8",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ZHCJ",
       "code_hash": "d4acc247ae37d5853fd0de2ccc447da6",
       "outputs": [
         {
@@ -201,7 +214,7 @@
       "console": []
     },
     {
-      "id": "ZHCJ",
+      "id": "ROlb",
       "code_hash": "7642eedd71edeae6a0c574115f000b35",
       "outputs": [
         {
@@ -214,20 +227,20 @@
       "console": []
     },
     {
-      "id": "ROlb",
+      "id": "qnkX",
       "code_hash": "73ee6d10d246c7586bc4e91343550a05",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><marimo-ui-element object-id='nWHF-0' random-id='6030d97b-4437-9d2d-cbbe-4e3314b43c63'><marimo-text data-initial-value='&quot;&quot;' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eLook up ICD codes for HRG group:&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-placeholder='&quot;Type an HRG group (e.g. FD10)&quot;' data-kind='&quot;text&quot;' data-full-width='false' data-disabled='false' data-debounce='true'></marimo-text></marimo-ui-element><div style='display: flex;flex: 1;flex-direction: row;justify-content: space-between;align-items: flex-start;flex-wrap: nowrap;gap: 2rem'><div style='flex: 0.55;display: flex;min-width: 0;min-height: 0'><div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><marimo-ui-element object-id='ROlb-0' random-id='326ed098-976a-dc78-cdee-299c5def7e49'><marimo-plotly data-initial-value='{}' data-label='null' data-figure='{&quot;data&quot;:[{&quot;customdata&quot;:{&quot;dtype&quot;:&quot;f8&quot;,&quot;bdata&quot;:&quot;WL2SX5VK5L9OCA98ASjiPxXhJqPK0PU/Sp6+NQhU4L9qXhvjoKPKPyiVlcvrTfE/wOsXjOWcv7/VTPpMiLbjPxkXWBF/fvQ/bOSRis4Ikr80+nffzW/rP2xHzEet6wZA53DiDs/49b++zou1qU7Fv5V+wtmtNQtAwm/5mMed9r+Nbqo3dAu+v8abRqS3afg/YEOXdum90T/p0iwMNJf0P03ar5aW7Pw/Y5lAegGs9b9Yp4v5oFDZv4ReJFksagtAOsqaUG/1+L+grFjaqP3sv+1imuleJ/A/5yAbBtRU/L/vo1uB2Tznv4H0XsZeuf4/7+suFCbJ/b8Iisa4+JDnv6n8a3nl+vc/ZH9DcZdj/L9qDHy7ny7tv1sv4SsVjw5ARBdlFExK/b+Czf/YyhDsv9uuK8E9qvQ/xqCYRx0B/79BasEMltzrvzjgqTbu4/M/yY0QhImN/b+ogTlyrHPwv0t+eiI+hgdAO9aF7veV/r/Q0GYJsW7vv/K6NDRUO/0/8kt2D1fH/7/kriFCY7jwv653yUlyavA/qzE/RZreAMB8NCMyyqL3v9rIdVPKq/s/MEYw3NoZA8DlZrP4J4T3v66RE9z+a/c/rD4spyNvA8BndCap7pb3vxgFwePb6yRAviy/vWLSCMCPjlA/k5wBwP36ITZY+PM/MFzhGIwtCcC84WDNL5gDwEu9XeW/dgFAsXpqXOYfCcCa1it3khQFwEGHVKx13fI/NmHwP397C8At0V1hWVgFwCC+AocGePM/LnVsEAguCEB92v4NlVUNQNXiUwCMtzxA7cZKHkPyDMB+05h6GNUIwGwvWGB+ffc/9VA+GlVPDsBdbpjBZJoHwM4op4eyYfA/Yo9pelKLDsBe1eIbRFwKwGbZk8Dm/PE/hBuQFnAxD8B6ulQshMMJwNk3QeWpePQ/1uIki7YMEcASgjsdkzcMwExYdhyazfA/Zb7OiCEPEsDLiioPOg0PwProHiPqb/Q/aUyWN/42E8CeTZI+vWgRwFmRh3Qu2/M/kPIKmzBkF8AQsr2dxwUWwPFcKRWeQfA/P+SC+a95F8DwyMAwj/gVwDHxogran/Y/BhUWaNV9HMB8h2et2qIbwFltWRnotfQ/uJWEk4A9HEB026YSUVgfQMQkXMgjOPg/&quot;,&quot;shape&quot;:&quot;36, 3&quot;},&quot;error_x&quot;:{&quot;array&quot;:{&quot;dtype&quot;:&quot;f8&quot;,&quot;bdata&quot;:&quot;69S7Gp434z/kdYVu8PzWP05Kff4kqtc/f7EV5r732z/WQ0QoG1XjP9AY3L236+Q/q9q2Jlsm4D8aX7t3sq/eP9Tn3MY17dQ/TSYZY26i4D/Y0NbyE5DhP1y3oQicONs/BGHKT82D3j+xQhC4F93gP1j/s3nb1dk/hEmgQUDO3T9QttkoP8PdPyDnZxtrWNQ/9Epafxtf3T/IQ2UoAk7eP7h4uvk919w/QEGYb0Ny1j/g4hxM3TXQP6ijkJWjatg/eESNlhKW1D/AzceOqnTQP2jBQdFHqto/EOgaejm80D8whO2or7fVP1DTYDELINg/CMjLCSRE1D/A7D+QD+TMPwAI1NSP5sU/ALUhjAwSyD9AsdFVV1+7P+AtEvmD1tg/&quot;},&quot;arrayminus&quot;:{&quot;dtype&quot;:&quot;f8&quot;,&quot;bdata&quot;:&quot;u/DlwPg64z/kdYVu8PzWP0xKff4kqtc/MGGDwWkI3D9Iqh2I2EjjP+J4Ie1ojuQ/dylXNhgp4D8aX7t3sq/eP9Tn3MY17dQ/knfBJ2DK4D/+fMB8P3HiP2AtdEWC+Ns/CGHKT82D3j+alF/KjEjhPywxqM2Ykdo/yG2pZT2s3T/ovXgMkHjeP0jUBEY+EdQ/+Epafxtf3T/832JsYM/eP8B4uvk919w/YJJr7J441j/YPdjdwSTQP6DcA1+Lrtg/AOYFVlWm1D+4zceOqnTQP1hT7fM6/do/EOgaejm80D8ghO2or7fVP4BJEZfE7tY/8MfLCSRE1D+g7D+QD+TMPwAI1NSP5sU/4LQhjAwSyD9AsdFVV1+7P+AtEvmD1tg/&quot;},&quot;color&quot;:&quot;#4A5568&quot;,&quot;symmetric&quot;:false,&quot;thickness&quot;:2,&quot;type&quot;:&quot;data&quot;,&quot;width&quot;:5},&quot;hovertemplate&quot;:&quot;&#92;u003cb&#92;u003eHRG Profile:&#92;u003c/b&#92;u003e %{y}&#92;u003cbr&#92;u003e&#92;u003cb&#92;u003eATE (Days):&#92;u003c/b&#92;u003e %{x:.2f}&#92;u003cbr&#92;u003e&#92;u003cb&#92;u003e95%% CI:&#92;u003c/b&#92;u003e [%{customdata[0]:.2f}, %{customdata[1]:.2f}]&#92;u003cbr&#92;u003e&#92;u003cb&#92;u003eDominance (Frequency):&#92;u003c/b&#92;u003e %{customdata[2]:.2f}%%&#92;u003cextra&#92;u003e&#92;u003c/extra&#92;u003e&quot;,&quot;marker&quot;:{&quot;color&quot;:[&quot;#319795&quot;,&quot;#319795&quot;,&quot;#E53E3E&quot;,&quot;#E53E3E&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#E53E3E&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#E53E3E&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#E53E3E&quot;],&quot;line&quot;:{&quot;color&quot;:&quot;#2D3748&quot;,&quot;width&quot;:1},&quot;size&quot;:{&quot;dtype&quot;:&quot;f8&quot;,&quot;bdata&quot;:&quot;lWovnZ9oIECha7XyQhUgQGQfvk80UCBA6N1H3ZYkIkDLAE16GsMiQGs8xKuemCBA/EQuWPvrIEA2jfmJrsoiQAAAAAAAACBA4umADz4NIUAcxADUnpAgQO8xzx/iPiNA9P55qlxTIECFxz4dDEUgQKWNRkLnOiJAR6KDYarxIEAgjxd71wQgQDyqIV/T1CBAaDq/L06GIEAHYPOZT+oqQIX3nleFRiBAUHjFrOtaIUCsYxf1GTIgQIu7lidCPSBAAAAAAAAAOEAU/gOIkYcgQEot9c41BCBAHv2EYeQhIECAM6eHyE8gQKcvrcL/CyBAqtGE2yZPIECvZRxxakQgQOQbdwLlASBAdw192JF3IEC81qc6NFQgQPdw8YgKlSBA&quot;}},&quot;mode&quot;:&quot;markers&quot;,&quot;x&quot;:{&quot;dtype&quot;:&quot;f8&quot;,&quot;bdata&quot;:&quot;y8nM6sn5oL9fje/5P1bDv7me7jbXhc8/6ULa2Nzn2j+GN6eVxajov6Jm0UQmrei/J8ui8QwI6T85g6O4KQDsv0WQ494huvO/HmU68qPv879wrc5VhpD0vwx05t92ZfW/An9ywFip9b951mji1lz2v36BplAj6fa/yXoblegq9794HFgMMyn4v0Qu/fjkuPy/ovmJ2O7b/r9ZxT8zbyr/v6bdh/56NwXA5OlTO3hmBsD2cq8gThsHwKLlD9StZQjA7jEtu9LCCkA2zXHMreMKwIqmwLut7wrAYDImS8tzDMAAa3IhenoMwHycZ4OUOw/A5gEySN/KEMAETRS73U8SwFBSZBz8tBbAmNYhlR+5FsBBzr4KWBAcwJa4FdPoyh1A&quot;},&quot;y&quot;:[&quot;WJ&quot;,&quot;FD11&quot;,&quot;EB10&quot;,&quot;DZ11&quot;,&quot;WH&quot;,&quot;HD&quot;,&quot;HE&quot;,&quot;AA&quot;,&quot;KC&quot;,&quot;LA&quot;,&quot;AA26&quot;,&quot;DZ&quot;,&quot;YQ50&quot;,&quot;HC&quot;,&quot;EB&quot;,&quot;GC17&quot;,&quot;LA04&quot;,&quot;EB14&quot;,&quot;JD07&quot;,&quot;FD10&quot;,&quot;FD&quot;,&quot;LB&quot;,&quot;FD02&quot;,&quot;EB07&quot;,&quot;unknown&quot;,&quot;MB&quot;,&quot;CB&quot;,&quot;DZ65&quot;,&quot;LB38&quot;,&quot;FD03&quot;,&quot;SA04&quot;,&quot;DZ19&quot;,&quot;FD05&quot;,&quot;EB12&quot;,&quot;WH52&quot;,&quot;HE11&quot;],&quot;type&quot;:&quot;scatter&quot;}],&quot;layout&quot;:{&quot;template&quot;:{&quot;data&quot;:{&quot;histogram2dcontour&quot;:[{&quot;type&quot;:&quot;histogram2dcontour&quot;,&quot;colorbar&quot;:{&quot;outlinewidth&quot;:0,&quot;ticks&quot;:&quot;&quot;},&quot;colorscale&quot;:[[0.0,&quot;#0d0887&quot;],[0.1111111111111111,&quot;#46039f&quot;],[0.2222222222222222,&quot;#7201a8&quot;],[0.3333333333333333,&quot;#9c179e&quot;],[0.4444444444444444,&quot;#bd3786&quot;],[0.5555555555555556,&quot;#d8576b&quot;],[0.6666666666666666,&quot;#ed7953&quot;],[0.7777777777777778,&quot;#fb9f3a&quot;],[0.8888888888888888,&quot;#fdca26&quot;],[1.0,&quot;#f0f921&quot;]]}],&quot;choropleth&quot;:[{&quot;type&quot;:&quot;choropleth&quot;,&quot;colorbar&quot;:{&quot;outlinewidth&quot;:0,&quot;ticks&quot;:&quot;&quot;}}],&quot;histogram2d&quot;:[{&quot;type&quot;:&quot;histogram2d&quot;,&quot;colorbar&quot;:{&quot;outlinewidth&quot;:0,&quot;ticks&quot;:&quot;&quot;},&quot;colorscale&quot;:[[0.0,&quot;#0d0887&quot;],[0.1111111111111111,&quot;#46039f&quot;],[0.2222222222222222,&quot;#7201a8&quot;],[0.3333333333333333,&quot;#9c179e&quot;],[0.4444444444444444,&quot;#bd3786&quot;],[0.5555555555555556,&quot;#d8576b&quot;],[0.6666666666666666,&quot;#ed7953&quot;],[0.7777777777777778,&quot;#fb9f3a&quot;],[0.8888888888888888,&quot;#fdca26&quot;],[1.0,&quot;#f0f921&quot;]]}],&quot;heatmap&quot;:[{&quot;type&quot;:&quot;heatmap&quot;,&quot;colorbar&quot;:{&quot;outlinewidth&quot;:0,&quot;ticks&quot;:&quot;&quot;},&quot;colorscale&quot;:[[0.0,&quot;#0d0887&quot;],[0.1111111111111111,&quot;#46039f&quot;],[0.2222222222222222,&quot;#7201a8&quot;],[0.3333333333333333,&quot;#9c179e&quot;],[0.4444444444444444,&quot;#bd3786&quot;],[0.5555555555555556,&quot;#d8576b&quot;],[0.6666666666666666,&quot;#ed7953&quot;],[0.7777777777777778,&quot;#fb9f3a&quot;],[0.8888888888888888,&quot;#fdca26&quot;],[1.0,&quot;#f0f921&quot;]]}],&quot;contourcarpet&quot;:[{&quot;type&quot;:&quot;contourcarpet&quot;,&quot;colorbar&quot;:{&quot;outlinewidth&quot;:0,&quot;ticks&quot;:&quot;&quot;}}],&quot;contour&quot;:[{&quot;type&quot;:&quot;contour&quot;,&quot;colorbar&quot;:{&quot;outlinewidth&quot;:0,&quot;ticks&quot;:&quot;&quot;},&quot;colorscale&quot;:[[0.0,&quot;#0d0887&quot;],[0.1111111111111111,&quot;#46039f&quot;],[0.2222222222222222,&quot;#7201a8&quot;],[0.3333333333333333,&quot;#9c179e&quot;],[0.4444444444444444,&quot;#bd3786&quot;],[0.5555555555555556,&quot;#d8576b&quot;],[0.6666666666666666,&quot;#ed7953&quot;],[0.7777777777777778,&quot;#fb9f3a&quot;],[0.8888888888888888,&quot;#fdca26&quot;],[1.0,&quot;#f0f921&quot;]]}],&quot;surface&quot;:[{&quot;type&quot;:&quot;surface&quot;,&quot;colorbar&quot;:{&quot;outlinewidth&quot;:0,&quot;ticks&quot;:&quot;&quot;},&quot;colorscale&quot;:[[0.0,&quot;#0d0887&quot;],[0.1111111111111111,&quot;#46039f&quot;],[0.2222222222222222,&quot;#7201a8&quot;],[0.3333333333333333,&quot;#9c179e&quot;],[0.4444444444444444,&quot;#bd3786&quot;],[0.5555555555555556,&quot;#d8576b&quot;],[0.6666666666666666,&quot;#ed7953&quot;],[0.7777777777777778,&quot;#fb9f3a&quot;],[0.8888888888888888,&quot;#fdca26&quot;],[1.0,&quot;#f0f921&quot;]]}],&quot;mesh3d&quot;:[{&quot;type&quot;:&quot;mesh3d&quot;,&quot;colorbar&quot;:{&quot;outlinewidth&quot;:0,&quot;ticks&quot;:&quot;&quot;}}],&quot;scatter&quot;:[{&quot;fillpattern&quot;:{&quot;fillmode&quot;:&quot;overlay&quot;,&quot;size&quot;:10,&quot;solidity&quot;:0.2},&quot;type&quot;:&quot;scatter&quot;}],&quot;parcoords&quot;:[{&quot;type&quot;:&quot;parcoords&quot;,&quot;line&quot;:{&quot;colorbar&quot;:{&quot;outlinewidth&quot;:0,&quot;ticks&quot;:&quot;&quot;}}}],&quot;scatterpolargl&quot;:[{&quot;type&quot;:&quot;scatterpolargl&quot;,&quot;marker&quot;:{&quot;colorbar&quot;:{&quot;outlinewidth&quot;:0,&quot;ticks&quot;:&quot;&quot;}}}],&quot;bar&quot;:[{&quot;error_x&quot;:{&quot;color&quot;:&quot;#2a3f5f&quot;},&quot;error_y&quot;:{&quot;color&quot;:&quot;#2a3f5f&quot;},&quot;marker&quot;:{&quot;line&quot;:{&quot;color&quot;:&quot;#E5ECF6&quot;,&quot;width&quot;:0.5},&quot;pattern&quot;:{&quot;fillmode&quot;:&quot;overlay&quot;,&quot;size&quot;:10,&quot;solidity&quot;:0.2}},&quot;type&quot;:&quot;bar&quot;}],&quot;scattergeo&quot;:[{&quot;type&quot;:&quot;scattergeo&quot;,&quot;marker&quot;:{&quot;colorbar&quot;:{&quot;outlinewidth&quot;:0,&quot;ticks&quot;:&quot;&quot;}}}],&quot;scatterpolar&quot;:[{&quot;type&quot;:&quot;scatterpolar&quot;,&quot;marker&quot;:{&quot;colorbar&quot;:{&quot;outlinewidth&quot;:0,&quot;ticks&quot;:&quot;&quot;}}}],&quot;histogram&quot;:[{&quot;marker&quot;:{&quot;pattern&quot;:{&quot;fillmode&quot;:&quot;overlay&quot;,&quot;size&quot;:10,&quot;solidity&quot;:0.2}},&quot;type&quot;:&quot;histogram&quot;}],&quot;scattergl&quot;:[{&quot;type&quot;:&quot;scattergl&quot;,&quot;marker&quot;:{&quot;colorbar&quot;:{&quot;outlinewidth&quot;:0,&quot;ticks&quot;:&quot;&quot;}}}],&quot;scatter3d&quot;:[{&quot;type&quot;:&quot;scatter3d&quot;,&quot;line&quot;:{&quot;colorbar&quot;:{&quot;outlinewidth&quot;:0,&quot;ticks&quot;:&quot;&quot;}},&quot;marker&quot;:{&quot;colorbar&quot;:{&quot;outlinewidth&quot;:0,&quot;ticks&quot;:&quot;&quot;}}}],&quot;scattermap&quot;:[{&quot;type&quot;:&quot;scattermap&quot;,&quot;marker&quot;:{&quot;colorbar&quot;:{&quot;outlinewidth&quot;:0,&quot;ticks&quot;:&quot;&quot;}}}],&quot;scattermapbox&quot;:[{&quot;type&quot;:&quot;scattermapbox&quot;,&quot;marker&quot;:{&quot;colorbar&quot;:{&quot;outlinewidth&quot;:0,&quot;ticks&quot;:&quot;&quot;}}}],&quot;scatterternary&quot;:[{&quot;type&quot;:&quot;scatterternary&quot;,&quot;marker&quot;:{&quot;colorbar&quot;:{&quot;outlinewidth&quot;:0,&quot;ticks&quot;:&quot;&quot;}}}],&quot;scattercarpet&quot;:[{&quot;type&quot;:&quot;scattercarpet&quot;,&quot;marker&quot;:{&quot;colorbar&quot;:{&quot;outlinewidth&quot;:0,&quot;ticks&quot;:&quot;&quot;}}}],&quot;carpet&quot;:[{&quot;aaxis&quot;:{&quot;endlinecolor&quot;:&quot;#2a3f5f&quot;,&quot;gridcolor&quot;:&quot;white&quot;,&quot;linecolor&quot;:&quot;white&quot;,&quot;minorgridcolor&quot;:&quot;white&quot;,&quot;startlinecolor&quot;:&quot;#2a3f5f&quot;},&quot;baxis&quot;:{&quot;endlinecolor&quot;:&quot;#2a3f5f&quot;,&quot;gridcolor&quot;:&quot;white&quot;,&quot;linecolor&quot;:&quot;white&quot;,&quot;minorgridcolor&quot;:&quot;white&quot;,&quot;startlinecolor&quot;:&quot;#2a3f5f&quot;},&quot;type&quot;:&quot;carpet&quot;}],&quot;table&quot;:[{&quot;cells&quot;:{&quot;fill&quot;:{&quot;color&quot;:&quot;#EBF0F8&quot;},&quot;line&quot;:{&quot;color&quot;:&quot;white&quot;}},&quot;header&quot;:{&quot;fill&quot;:{&quot;color&quot;:&quot;#C8D4E3&quot;},&quot;line&quot;:{&quot;color&quot;:&quot;white&quot;}},&quot;type&quot;:&quot;table&quot;}],&quot;barpolar&quot;:[{&quot;marker&quot;:{&quot;line&quot;:{&quot;color&quot;:&quot;#E5ECF6&quot;,&quot;width&quot;:0.5},&quot;pattern&quot;:{&quot;fillmode&quot;:&quot;overlay&quot;,&quot;size&quot;:10,&quot;solidity&quot;:0.2}},&quot;type&quot;:&quot;barpolar&quot;}],&quot;pie&quot;:[{&quot;automargin&quot;:true,&quot;type&quot;:&quot;pie&quot;}]},&quot;layout&quot;:{&quot;autotypenumbers&quot;:&quot;strict&quot;,&quot;colorway&quot;:[&quot;#636efa&quot;,&quot;#EF553B&quot;,&quot;#00cc96&quot;,&quot;#ab63fa&quot;,&quot;#FFA15A&quot;,&quot;#19d3f3&quot;,&quot;#FF6692&quot;,&quot;#B6E880&quot;,&quot;#FF97FF&quot;,&quot;#FECB52&quot;],&quot;font&quot;:{&quot;color&quot;:&quot;#2a3f5f&quot;},&quot;hovermode&quot;:&quot;closest&quot;,&quot;hoverlabel&quot;:{&quot;align&quot;:&quot;left&quot;},&quot;paper_bgcolor&quot;:&quot;white&quot;,&quot;plot_bgcolor&quot;:&quot;#E5ECF6&quot;,&quot;polar&quot;:{&quot;bgcolor&quot;:&quot;#E5ECF6&quot;,&quot;angularaxis&quot;:{&quot;gridcolor&quot;:&quot;white&quot;,&quot;linecolor&quot;:&quot;white&quot;,&quot;ticks&quot;:&quot;&quot;},&quot;radialaxis&quot;:{&quot;gridcolor&quot;:&quot;white&quot;,&quot;linecolor&quot;:&quot;white&quot;,&quot;ticks&quot;:&quot;&quot;}},&quot;ternary&quot;:{&quot;bgcolor&quot;:&quot;#E5ECF6&quot;,&quot;aaxis&quot;:{&quot;gridcolor&quot;:&quot;white&quot;,&quot;linecolor&quot;:&quot;white&quot;,&quot;ticks&quot;:&quot;&quot;},&quot;baxis&quot;:{&quot;gridcolor&quot;:&quot;white&quot;,&quot;linecolor&quot;:&quot;white&quot;,&quot;ticks&quot;:&quot;&quot;},&quot;caxis&quot;:{&quot;gridcolor&quot;:&quot;white&quot;,&quot;linecolor&quot;:&quot;white&quot;,&quot;ticks&quot;:&quot;&quot;}},&quot;coloraxis&quot;:{&quot;colorbar&quot;:{&quot;outlinewidth&quot;:0,&quot;ticks&quot;:&quot;&quot;}},&quot;colorscale&quot;:{&quot;sequential&quot;:[[0.0,&quot;#0d0887&quot;],[0.1111111111111111,&quot;#46039f&quot;],[0.2222222222222222,&quot;#7201a8&quot;],[0.3333333333333333,&quot;#9c179e&quot;],[0.4444444444444444,&quot;#bd3786&quot;],[0.5555555555555556,&quot;#d8576b&quot;],[0.6666666666666666,&quot;#ed7953&quot;],[0.7777777777777778,&quot;#fb9f3a&quot;],[0.8888888888888888,&quot;#fdca26&quot;],[1.0,&quot;#f0f921&quot;]],&quot;sequentialminus&quot;:[[0.0,&quot;#0d0887&quot;],[0.1111111111111111,&quot;#46039f&quot;],[0.2222222222222222,&quot;#7201a8&quot;],[0.3333333333333333,&quot;#9c179e&quot;],[0.4444444444444444,&quot;#bd3786&quot;],[0.5555555555555556,&quot;#d8576b&quot;],[0.6666666666666666,&quot;#ed7953&quot;],[0.7777777777777778,&quot;#fb9f3a&quot;],[0.8888888888888888,&quot;#fdca26&quot;],[1.0,&quot;#f0f921&quot;]],&quot;diverging&quot;:[[0,&quot;#8e0152&quot;],[0.1,&quot;#c51b7d&quot;],[0.2,&quot;#de77ae&quot;],[0.3,&quot;#f1b6da&quot;],[0.4,&quot;#fde0ef&quot;],[0.5,&quot;#f7f7f7&quot;],[0.6,&quot;#e6f5d0&quot;],[0.7,&quot;#b8e186&quot;],[0.8,&quot;#7fbc41&quot;],[0.9,&quot;#4d9221&quot;],[1,&quot;#276419&quot;]]},&quot;xaxis&quot;:{&quot;gridcolor&quot;:&quot;white&quot;,&quot;linecolor&quot;:&quot;white&quot;,&quot;ticks&quot;:&quot;&quot;,&quot;title&quot;:{&quot;standoff&quot;:15},&quot;zerolinecolor&quot;:&quot;white&quot;,&quot;automargin&quot;:true,&quot;zerolinewidth&quot;:2},&quot;yaxis&quot;:{&quot;gridcolor&quot;:&quot;white&quot;,&quot;linecolor&quot;:&quot;white&quot;,&quot;ticks&quot;:&quot;&quot;,&quot;title&quot;:{&quot;standoff&quot;:15},&quot;zerolinecolor&quot;:&quot;white&quot;,&quot;automargin&quot;:true,&quot;zerolinewidth&quot;:2},&quot;scene&quot;:{&quot;xaxis&quot;:{&quot;backgroundcolor&quot;:&quot;#E5ECF6&quot;,&quot;gridcolor&quot;:&quot;white&quot;,&quot;linecolor&quot;:&quot;white&quot;,&quot;showbackground&quot;:true,&quot;ticks&quot;:&quot;&quot;,&quot;zerolinecolor&quot;:&quot;white&quot;,&quot;gridwidth&quot;:2},&quot;yaxis&quot;:{&quot;backgroundcolor&quot;:&quot;#E5ECF6&quot;,&quot;gridcolor&quot;:&quot;white&quot;,&quot;linecolor&quot;:&quot;white&quot;,&quot;showbackground&quot;:true,&quot;ticks&quot;:&quot;&quot;,&quot;zerolinecolor&quot;:&quot;white&quot;,&quot;gridwidth&quot;:2},&quot;zaxis&quot;:{&quot;backgroundcolor&quot;:&quot;#E5ECF6&quot;,&quot;gridcolor&quot;:&quot;white&quot;,&quot;linecolor&quot;:&quot;white&quot;,&quot;showbackground&quot;:true,&quot;ticks&quot;:&quot;&quot;,&quot;zerolinecolor&quot;:&quot;white&quot;,&quot;gridwidth&quot;:2}},&quot;shapedefaults&quot;:{&quot;line&quot;:{&quot;color&quot;:&quot;#2a3f5f&quot;}},&quot;annotationdefaults&quot;:{&quot;arrowcolor&quot;:&quot;#2a3f5f&quot;,&quot;arrowhead&quot;:0,&quot;arrowwidth&quot;:1},&quot;geo&quot;:{&quot;bgcolor&quot;:&quot;white&quot;,&quot;landcolor&quot;:&quot;#E5ECF6&quot;,&quot;subunitcolor&quot;:&quot;white&quot;,&quot;showland&quot;:true,&quot;showlakes&quot;:true,&quot;lakecolor&quot;:&quot;white&quot;},&quot;title&quot;:{&quot;x&quot;:0.05},&quot;mapbox&quot;:{&quot;style&quot;:&quot;light&quot;}}},&quot;title&quot;:{&quot;font&quot;:{&quot;size&quot;:14,&quot;color&quot;:&quot;#2D3748&quot;},&quot;pad&quot;:{&quot;b&quot;:20}},&quot;margin&quot;:{&quot;l&quot;:60,&quot;r&quot;:30,&quot;t&quot;:80,&quot;b&quot;:30},&quot;xaxis&quot;:{&quot;title&quot;:{&quot;text&quot;:&quot;Causal Effect Sizes of Diagnosis Groups on LoS (Days) - (Point size = Dominance % in data)&quot;},&quot;side&quot;:&quot;top&quot;,&quot;showgrid&quot;:true,&quot;gridcolor&quot;:&quot;rgba(160, 174, 192, 0.35)&quot;,&quot;gridwidth&quot;:1,&quot;zeroline&quot;:true,&quot;zerolinecolor&quot;:&quot;#718096&quot;,&quot;zerolinewidth&quot;:1.5,&quot;ticks&quot;:&quot;outside&quot;},&quot;yaxis&quot;:{&quot;title&quot;:{&quot;text&quot;:&quot;HRG Profile&quot;},&quot;showgrid&quot;:true,&quot;gridcolor&quot;:&quot;rgba(160, 174, 192, 0.35)&quot;,&quot;gridwidth&quot;:1,&quot;type&quot;:&quot;category&quot;,&quot;ticks&quot;:&quot;outside&quot;},&quot;hoverlabel&quot;:{&quot;font&quot;:{&quot;color&quot;:&quot;#FFFFFF&quot;,&quot;size&quot;:12},&quot;bgcolor&quot;:&quot;#1A202C&quot;},&quot;height&quot;:1008,&quot;paper_bgcolor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;plot_bgcolor&quot;:&quot;rgba(237, 242, 247, 0.45)&quot;}}' data-config='{}'></marimo-plotly></marimo-ui-element></div></div><div style='flex: 0.45'><span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><em>Type an HRG group to see its ICD codes here.</em></span></span></div></div></div>"
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><marimo-ui-element object-id='iLit-0' random-id='1bedd5ac-1ebc-6049-16d5-bf1fe3d7bb30'><marimo-text data-initial-value='&quot;&quot;' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003eLook up ICD codes for HRG group:&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-placeholder='&quot;Type an HRG group (e.g. FD10)&quot;' data-kind='&quot;text&quot;' data-full-width='false' data-disabled='false' data-debounce='true'></marimo-text></marimo-ui-element><div style='display: flex;flex: 1;flex-direction: row;justify-content: space-between;align-items: flex-start;flex-wrap: nowrap;gap: 2rem'><div style='flex: 0.55;display: flex;min-width: 0;min-height: 0'><div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><marimo-ui-element object-id='qnkX-0' random-id='ad5cfd1e-79b8-c1ec-57ca-9a1a3e8bd736'><marimo-plotly data-initial-value='{}' data-label='null' data-figure='{&quot;data&quot;:[{&quot;customdata&quot;:{&quot;dtype&quot;:&quot;f8&quot;,&quot;bdata&quot;:&quot;WL2SX5VK5L9OCA98ASjiPxXhJqPK0PU/Sp6+NQhU4L9qXhvjoKPKPyiVlcvrTfE/wOsXjOWcv7/VTPpMiLbjPxkXWBF/fvQ/bOSRis4Ikr80+nffzW/rP2xHzEet6wZA53DiDs/49b++zou1qU7Fv5V+wtmtNQtAwm/5mMed9r+Nbqo3dAu+v8abRqS3afg/YEOXdum90T/p0iwMNJf0P03ar5aW7Pw/Y5lAegGs9b9Yp4v5oFDZv4ReJFksagtAOsqaUG/1+L+grFjaqP3sv+1imuleJ/A/5yAbBtRU/L/vo1uB2Tznv4H0XsZeuf4/7+suFCbJ/b8Iisa4+JDnv6n8a3nl+vc/ZH9DcZdj/L9qDHy7ny7tv1sv4SsVjw5ARBdlFExK/b+Czf/YyhDsv9uuK8E9qvQ/xqCYRx0B/79BasEMltzrvzjgqTbu4/M/yY0QhImN/b+ogTlyrHPwv0t+eiI+hgdAO9aF7veV/r/Q0GYJsW7vv/K6NDRUO/0/8kt2D1fH/7/kriFCY7jwv653yUlyavA/qzE/RZreAMB8NCMyyqL3v9rIdVPKq/s/MEYw3NoZA8DlZrP4J4T3v66RE9z+a/c/rD4spyNvA8BndCap7pb3vxgFwePb6yRAviy/vWLSCMCPjlA/k5wBwP36ITZY+PM/MFzhGIwtCcC84WDNL5gDwEu9XeW/dgFAsXpqXOYfCcCa1it3khQFwEGHVKx13fI/NmHwP397C8At0V1hWVgFwCC+AocGePM/LnVsEAguCEB92v4NlVUNQNXiUwCMtzxA7cZKHkPyDMB+05h6GNUIwGwvWGB+ffc/9VA+GlVPDsBdbpjBZJoHwM4op4eyYfA/Yo9pelKLDsBe1eIbRFwKwGbZk8Dm/PE/hBuQFnAxD8B6ulQshMMJwNk3QeWpePQ/1uIki7YMEcASgjsdkzcMwExYdhyazfA/Zb7OiCEPEsDLiioPOg0PwProHiPqb/Q/aUyWN/42E8CeTZI+vWgRwFmRh3Qu2/M/kPIKmzBkF8AQsr2dxwUWwPFcKRWeQfA/P+SC+a95F8DwyMAwj/gVwDHxogran/Y/BhUWaNV9HMB8h2et2qIbwFltWRnotfQ/uJWEk4A9HEB026YSUVgfQMQkXMgjOPg/&quot;,&quot;shape&quot;:&quot;36, 3&quot;},&quot;error_x&quot;:{&quot;array&quot;:{&quot;dtype&quot;:&quot;f8&quot;,&quot;bdata&quot;:&quot;69S7Gp434z/kdYVu8PzWP05Kff4kqtc/f7EV5r732z/WQ0QoG1XjP9AY3L236+Q/q9q2Jlsm4D8aX7t3sq/eP9Tn3MY17dQ/TSYZY26i4D/Y0NbyE5DhP1y3oQicONs/BGHKT82D3j+xQhC4F93gP1j/s3nb1dk/hEmgQUDO3T9QttkoP8PdPyDnZxtrWNQ/9Epafxtf3T/IQ2UoAk7eP7h4uvk919w/QEGYb0Ny1j/g4hxM3TXQP6ijkJWjatg/eESNlhKW1D/AzceOqnTQP2jBQdFHqto/EOgaejm80D8whO2or7fVP1DTYDELINg/CMjLCSRE1D/A7D+QD+TMPwAI1NSP5sU/ALUhjAwSyD9AsdFVV1+7P+AtEvmD1tg/&quot;},&quot;arrayminus&quot;:{&quot;dtype&quot;:&quot;f8&quot;,&quot;bdata&quot;:&quot;u/DlwPg64z/kdYVu8PzWP0xKff4kqtc/MGGDwWkI3D9Iqh2I2EjjP+J4Ie1ojuQ/dylXNhgp4D8aX7t3sq/eP9Tn3MY17dQ/knfBJ2DK4D/+fMB8P3HiP2AtdEWC+Ns/CGHKT82D3j+alF/KjEjhPywxqM2Ykdo/yG2pZT2s3T/ovXgMkHjeP0jUBEY+EdQ/+Epafxtf3T/832JsYM/eP8B4uvk919w/YJJr7J441j/YPdjdwSTQP6DcA1+Lrtg/AOYFVlWm1D+4zceOqnTQP1hT7fM6/do/EOgaejm80D8ghO2or7fVP4BJEZfE7tY/8MfLCSRE1D+g7D+QD+TMPwAI1NSP5sU/4LQhjAwSyD9AsdFVV1+7P+AtEvmD1tg/&quot;},&quot;color&quot;:&quot;#4A5568&quot;,&quot;symmetric&quot;:false,&quot;thickness&quot;:2,&quot;type&quot;:&quot;data&quot;,&quot;width&quot;:5},&quot;hovertemplate&quot;:&quot;&#92;u003cb&#92;u003eHRG Profile:&#92;u003c/b&#92;u003e %{y}&#92;u003cbr&#92;u003e&#92;u003cb&#92;u003eATE (Days):&#92;u003c/b&#92;u003e %{x:.2f}&#92;u003cbr&#92;u003e&#92;u003cb&#92;u003e95%% CI:&#92;u003c/b&#92;u003e [%{customdata[0]:.2f}, %{customdata[1]:.2f}]&#92;u003cbr&#92;u003e&#92;u003cb&#92;u003eDominance (Frequency):&#92;u003c/b&#92;u003e %{customdata[2]:.2f}%%&#92;u003cextra&#92;u003e&#92;u003c/extra&#92;u003e&quot;,&quot;marker&quot;:{&quot;color&quot;:[&quot;#319795&quot;,&quot;#319795&quot;,&quot;#E53E3E&quot;,&quot;#E53E3E&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#E53E3E&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#E53E3E&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#319795&quot;,&quot;#E53E3E&quot;],&quot;line&quot;:{&quot;color&quot;:&quot;#2D3748&quot;,&quot;width&quot;:1},&quot;size&quot;:{&quot;dtype&quot;:&quot;f8&quot;,&quot;bdata&quot;:&quot;lWovnZ9oIECha7XyQhUgQGQfvk80UCBA6N1H3ZYkIkDLAE16GsMiQGs8xKuemCBA/EQuWPvrIEA2jfmJrsoiQAAAAAAAACBA4umADz4NIUAcxADUnpAgQO8xzx/iPiNA9P55qlxTIECFxz4dDEUgQKWNRkLnOiJAR6KDYarxIEAgjxd71wQgQDyqIV/T1CBAaDq/L06GIEAHYPOZT+oqQIX3nleFRiBAUHjFrOtaIUCsYxf1GTIgQIu7lidCPSBAAAAAAAAAOEAU/gOIkYcgQEot9c41BCBAHv2EYeQhIECAM6eHyE8gQKcvrcL/CyBAqtGE2yZPIECvZRxxakQgQOQbdwLlASBAdw192JF3IEC81qc6NFQgQPdw8YgKlSBA&quot;}},&quot;mode&quot;:&quot;markers&quot;,&quot;x&quot;:{&quot;dtype&quot;:&quot;f8&quot;,&quot;bdata&quot;:&quot;y8nM6sn5oL9fje/5P1bDv7me7jbXhc8/6ULa2Nzn2j+GN6eVxajov6Jm0UQmrei/J8ui8QwI6T85g6O4KQDsv0WQ494huvO/HmU68qPv879wrc5VhpD0vwx05t92ZfW/An9ywFip9b951mji1lz2v36BplAj6fa/yXoblegq9794HFgMMyn4v0Qu/fjkuPy/ovmJ2O7b/r9ZxT8zbyr/v6bdh/56NwXA5OlTO3hmBsD2cq8gThsHwKLlD9StZQjA7jEtu9LCCkA2zXHMreMKwIqmwLut7wrAYDImS8tzDMAAa3IhenoMwHycZ4OUOw/A5gEySN/KEMAETRS73U8SwFBSZBz8tBbAmNYhlR+5FsBBzr4KWBAcwJa4FdPoyh1A&quot;},&quot;y&quot;:[&quot;WJ&quot;,&quot;FD11&quot;,&quot;EB10&quot;,&quot;DZ11&quot;,&quot;WH&quot;,&quot;HD&quot;,&quot;HE&quot;,&quot;AA&quot;,&quot;KC&quot;,&quot;LA&quot;,&quot;AA26&quot;,&quot;DZ&quot;,&quot;YQ50&quot;,&quot;HC&quot;,&quot;EB&quot;,&quot;GC17&quot;,&quot;LA04&quot;,&quot;EB14&quot;,&quot;JD07&quot;,&quot;FD10&quot;,&quot;FD&quot;,&quot;LB&quot;,&quot;FD02&quot;,&quot;EB07&quot;,&quot;unknown&quot;,&quot;MB&quot;,&quot;CB&quot;,&quot;DZ65&quot;,&quot;LB38&quot;,&quot;FD03&quot;,&quot;SA04&quot;,&quot;DZ19&quot;,&quot;FD05&quot;,&quot;EB12&quot;,&quot;WH52&quot;,&quot;HE11&quot;],&quot;type&quot;:&quot;scatter&quot;}],&quot;layout&quot;:{&quot;template&quot;:{&quot;data&quot;:{&quot;histogram2dcontour&quot;:[{&quot;type&quot;:&quot;histogram2dcontour&quot;,&quot;colorbar&quot;:{&quot;outlinewidth&quot;:0,&quot;ticks&quot;:&quot;&quot;},&quot;colorscale&quot;:[[0.0,&quot;#0d0887&quot;],[0.1111111111111111,&quot;#46039f&quot;],[0.2222222222222222,&quot;#7201a8&quot;],[0.3333333333333333,&quot;#9c179e&quot;],[0.4444444444444444,&quot;#bd3786&quot;],[0.5555555555555556,&quot;#d8576b&quot;],[0.6666666666666666,&quot;#ed7953&quot;],[0.7777777777777778,&quot;#fb9f3a&quot;],[0.8888888888888888,&quot;#fdca26&quot;],[1.0,&quot;#f0f921&quot;]]}],&quot;choropleth&quot;:[{&quot;type&quot;:&quot;choropleth&quot;,&quot;colorbar&quot;:{&quot;outlinewidth&quot;:0,&quot;ticks&quot;:&quot;&quot;}}],&quot;histogram2d&quot;:[{&quot;type&quot;:&quot;histogram2d&quot;,&quot;colorbar&quot;:{&quot;outlinewidth&quot;:0,&quot;ticks&quot;:&quot;&quot;},&quot;colorscale&quot;:[[0.0,&quot;#0d0887&quot;],[0.1111111111111111,&quot;#46039f&quot;],[0.2222222222222222,&quot;#7201a8&quot;],[0.3333333333333333,&quot;#9c179e&quot;],[0.4444444444444444,&quot;#bd3786&quot;],[0.5555555555555556,&quot;#d8576b&quot;],[0.6666666666666666,&quot;#ed7953&quot;],[0.7777777777777778,&quot;#fb9f3a&quot;],[0.8888888888888888,&quot;#fdca26&quot;],[1.0,&quot;#f0f921&quot;]]}],&quot;heatmap&quot;:[{&quot;type&quot;:&quot;heatmap&quot;,&quot;colorbar&quot;:{&quot;outlinewidth&quot;:0,&quot;ticks&quot;:&quot;&quot;},&quot;colorscale&quot;:[[0.0,&quot;#0d0887&quot;],[0.1111111111111111,&quot;#46039f&quot;],[0.2222222222222222,&quot;#7201a8&quot;],[0.3333333333333333,&quot;#9c179e&quot;],[0.4444444444444444,&quot;#bd3786&quot;],[0.5555555555555556,&quot;#d8576b&quot;],[0.6666666666666666,&quot;#ed7953&quot;],[0.7777777777777778,&quot;#fb9f3a&quot;],[0.8888888888888888,&quot;#fdca26&quot;],[1.0,&quot;#f0f921&quot;]]}],&quot;contourcarpet&quot;:[{&quot;type&quot;:&quot;contourcarpet&quot;,&quot;colorbar&quot;:{&quot;outlinewidth&quot;:0,&quot;ticks&quot;:&quot;&quot;}}],&quot;contour&quot;:[{&quot;type&quot;:&quot;contour&quot;,&quot;colorbar&quot;:{&quot;outlinewidth&quot;:0,&quot;ticks&quot;:&quot;&quot;},&quot;colorscale&quot;:[[0.0,&quot;#0d0887&quot;],[0.1111111111111111,&quot;#46039f&quot;],[0.2222222222222222,&quot;#7201a8&quot;],[0.3333333333333333,&quot;#9c179e&quot;],[0.4444444444444444,&quot;#bd3786&quot;],[0.5555555555555556,&quot;#d8576b&quot;],[0.6666666666666666,&quot;#ed7953&quot;],[0.7777777777777778,&quot;#fb9f3a&quot;],[0.8888888888888888,&quot;#fdca26&quot;],[1.0,&quot;#f0f921&quot;]]}],&quot;surface&quot;:[{&quot;type&quot;:&quot;surface&quot;,&quot;colorbar&quot;:{&quot;outlinewidth&quot;:0,&quot;ticks&quot;:&quot;&quot;},&quot;colorscale&quot;:[[0.0,&quot;#0d0887&quot;],[0.1111111111111111,&quot;#46039f&quot;],[0.2222222222222222,&quot;#7201a8&quot;],[0.3333333333333333,&quot;#9c179e&quot;],[0.4444444444444444,&quot;#bd3786&quot;],[0.5555555555555556,&quot;#d8576b&quot;],[0.6666666666666666,&quot;#ed7953&quot;],[0.7777777777777778,&quot;#fb9f3a&quot;],[0.8888888888888888,&quot;#fdca26&quot;],[1.0,&quot;#f0f921&quot;]]}],&quot;mesh3d&quot;:[{&quot;type&quot;:&quot;mesh3d&quot;,&quot;colorbar&quot;:{&quot;outlinewidth&quot;:0,&quot;ticks&quot;:&quot;&quot;}}],&quot;scatter&quot;:[{&quot;fillpattern&quot;:{&quot;fillmode&quot;:&quot;overlay&quot;,&quot;size&quot;:10,&quot;solidity&quot;:0.2},&quot;type&quot;:&quot;scatter&quot;}],&quot;parcoords&quot;:[{&quot;type&quot;:&quot;parcoords&quot;,&quot;line&quot;:{&quot;colorbar&quot;:{&quot;outlinewidth&quot;:0,&quot;ticks&quot;:&quot;&quot;}}}],&quot;scatterpolargl&quot;:[{&quot;type&quot;:&quot;scatterpolargl&quot;,&quot;marker&quot;:{&quot;colorbar&quot;:{&quot;outlinewidth&quot;:0,&quot;ticks&quot;:&quot;&quot;}}}],&quot;bar&quot;:[{&quot;error_x&quot;:{&quot;color&quot;:&quot;#2a3f5f&quot;},&quot;error_y&quot;:{&quot;color&quot;:&quot;#2a3f5f&quot;},&quot;marker&quot;:{&quot;line&quot;:{&quot;color&quot;:&quot;#E5ECF6&quot;,&quot;width&quot;:0.5},&quot;pattern&quot;:{&quot;fillmode&quot;:&quot;overlay&quot;,&quot;size&quot;:10,&quot;solidity&quot;:0.2}},&quot;type&quot;:&quot;bar&quot;}],&quot;scattergeo&quot;:[{&quot;type&quot;:&quot;scattergeo&quot;,&quot;marker&quot;:{&quot;colorbar&quot;:{&quot;outlinewidth&quot;:0,&quot;ticks&quot;:&quot;&quot;}}}],&quot;scatterpolar&quot;:[{&quot;type&quot;:&quot;scatterpolar&quot;,&quot;marker&quot;:{&quot;colorbar&quot;:{&quot;outlinewidth&quot;:0,&quot;ticks&quot;:&quot;&quot;}}}],&quot;histogram&quot;:[{&quot;marker&quot;:{&quot;pattern&quot;:{&quot;fillmode&quot;:&quot;overlay&quot;,&quot;size&quot;:10,&quot;solidity&quot;:0.2}},&quot;type&quot;:&quot;histogram&quot;}],&quot;scattergl&quot;:[{&quot;type&quot;:&quot;scattergl&quot;,&quot;marker&quot;:{&quot;colorbar&quot;:{&quot;outlinewidth&quot;:0,&quot;ticks&quot;:&quot;&quot;}}}],&quot;scatter3d&quot;:[{&quot;type&quot;:&quot;scatter3d&quot;,&quot;line&quot;:{&quot;colorbar&quot;:{&quot;outlinewidth&quot;:0,&quot;ticks&quot;:&quot;&quot;}},&quot;marker&quot;:{&quot;colorbar&quot;:{&quot;outlinewidth&quot;:0,&quot;ticks&quot;:&quot;&quot;}}}],&quot;scattermap&quot;:[{&quot;type&quot;:&quot;scattermap&quot;,&quot;marker&quot;:{&quot;colorbar&quot;:{&quot;outlinewidth&quot;:0,&quot;ticks&quot;:&quot;&quot;}}}],&quot;scattermapbox&quot;:[{&quot;type&quot;:&quot;scattermapbox&quot;,&quot;marker&quot;:{&quot;colorbar&quot;:{&quot;outlinewidth&quot;:0,&quot;ticks&quot;:&quot;&quot;}}}],&quot;scatterternary&quot;:[{&quot;type&quot;:&quot;scatterternary&quot;,&quot;marker&quot;:{&quot;colorbar&quot;:{&quot;outlinewidth&quot;:0,&quot;ticks&quot;:&quot;&quot;}}}],&quot;scattercarpet&quot;:[{&quot;type&quot;:&quot;scattercarpet&quot;,&quot;marker&quot;:{&quot;colorbar&quot;:{&quot;outlinewidth&quot;:0,&quot;ticks&quot;:&quot;&quot;}}}],&quot;carpet&quot;:[{&quot;aaxis&quot;:{&quot;endlinecolor&quot;:&quot;#2a3f5f&quot;,&quot;gridcolor&quot;:&quot;white&quot;,&quot;linecolor&quot;:&quot;white&quot;,&quot;minorgridcolor&quot;:&quot;white&quot;,&quot;startlinecolor&quot;:&quot;#2a3f5f&quot;},&quot;baxis&quot;:{&quot;endlinecolor&quot;:&quot;#2a3f5f&quot;,&quot;gridcolor&quot;:&quot;white&quot;,&quot;linecolor&quot;:&quot;white&quot;,&quot;minorgridcolor&quot;:&quot;white&quot;,&quot;startlinecolor&quot;:&quot;#2a3f5f&quot;},&quot;type&quot;:&quot;carpet&quot;}],&quot;table&quot;:[{&quot;cells&quot;:{&quot;fill&quot;:{&quot;color&quot;:&quot;#EBF0F8&quot;},&quot;line&quot;:{&quot;color&quot;:&quot;white&quot;}},&quot;header&quot;:{&quot;fill&quot;:{&quot;color&quot;:&quot;#C8D4E3&quot;},&quot;line&quot;:{&quot;color&quot;:&quot;white&quot;}},&quot;type&quot;:&quot;table&quot;}],&quot;barpolar&quot;:[{&quot;marker&quot;:{&quot;line&quot;:{&quot;color&quot;:&quot;#E5ECF6&quot;,&quot;width&quot;:0.5},&quot;pattern&quot;:{&quot;fillmode&quot;:&quot;overlay&quot;,&quot;size&quot;:10,&quot;solidity&quot;:0.2}},&quot;type&quot;:&quot;barpolar&quot;}],&quot;pie&quot;:[{&quot;automargin&quot;:true,&quot;type&quot;:&quot;pie&quot;}]},&quot;layout&quot;:{&quot;autotypenumbers&quot;:&quot;strict&quot;,&quot;colorway&quot;:[&quot;#636efa&quot;,&quot;#EF553B&quot;,&quot;#00cc96&quot;,&quot;#ab63fa&quot;,&quot;#FFA15A&quot;,&quot;#19d3f3&quot;,&quot;#FF6692&quot;,&quot;#B6E880&quot;,&quot;#FF97FF&quot;,&quot;#FECB52&quot;],&quot;font&quot;:{&quot;color&quot;:&quot;#2a3f5f&quot;},&quot;hovermode&quot;:&quot;closest&quot;,&quot;hoverlabel&quot;:{&quot;align&quot;:&quot;left&quot;},&quot;paper_bgcolor&quot;:&quot;white&quot;,&quot;plot_bgcolor&quot;:&quot;#E5ECF6&quot;,&quot;polar&quot;:{&quot;bgcolor&quot;:&quot;#E5ECF6&quot;,&quot;angularaxis&quot;:{&quot;gridcolor&quot;:&quot;white&quot;,&quot;linecolor&quot;:&quot;white&quot;,&quot;ticks&quot;:&quot;&quot;},&quot;radialaxis&quot;:{&quot;gridcolor&quot;:&quot;white&quot;,&quot;linecolor&quot;:&quot;white&quot;,&quot;ticks&quot;:&quot;&quot;}},&quot;ternary&quot;:{&quot;bgcolor&quot;:&quot;#E5ECF6&quot;,&quot;aaxis&quot;:{&quot;gridcolor&quot;:&quot;white&quot;,&quot;linecolor&quot;:&quot;white&quot;,&quot;ticks&quot;:&quot;&quot;},&quot;baxis&quot;:{&quot;gridcolor&quot;:&quot;white&quot;,&quot;linecolor&quot;:&quot;white&quot;,&quot;ticks&quot;:&quot;&quot;},&quot;caxis&quot;:{&quot;gridcolor&quot;:&quot;white&quot;,&quot;linecolor&quot;:&quot;white&quot;,&quot;ticks&quot;:&quot;&quot;}},&quot;coloraxis&quot;:{&quot;colorbar&quot;:{&quot;outlinewidth&quot;:0,&quot;ticks&quot;:&quot;&quot;}},&quot;colorscale&quot;:{&quot;sequential&quot;:[[0.0,&quot;#0d0887&quot;],[0.1111111111111111,&quot;#46039f&quot;],[0.2222222222222222,&quot;#7201a8&quot;],[0.3333333333333333,&quot;#9c179e&quot;],[0.4444444444444444,&quot;#bd3786&quot;],[0.5555555555555556,&quot;#d8576b&quot;],[0.6666666666666666,&quot;#ed7953&quot;],[0.7777777777777778,&quot;#fb9f3a&quot;],[0.8888888888888888,&quot;#fdca26&quot;],[1.0,&quot;#f0f921&quot;]],&quot;sequentialminus&quot;:[[0.0,&quot;#0d0887&quot;],[0.1111111111111111,&quot;#46039f&quot;],[0.2222222222222222,&quot;#7201a8&quot;],[0.3333333333333333,&quot;#9c179e&quot;],[0.4444444444444444,&quot;#bd3786&quot;],[0.5555555555555556,&quot;#d8576b&quot;],[0.6666666666666666,&quot;#ed7953&quot;],[0.7777777777777778,&quot;#fb9f3a&quot;],[0.8888888888888888,&quot;#fdca26&quot;],[1.0,&quot;#f0f921&quot;]],&quot;diverging&quot;:[[0,&quot;#8e0152&quot;],[0.1,&quot;#c51b7d&quot;],[0.2,&quot;#de77ae&quot;],[0.3,&quot;#f1b6da&quot;],[0.4,&quot;#fde0ef&quot;],[0.5,&quot;#f7f7f7&quot;],[0.6,&quot;#e6f5d0&quot;],[0.7,&quot;#b8e186&quot;],[0.8,&quot;#7fbc41&quot;],[0.9,&quot;#4d9221&quot;],[1,&quot;#276419&quot;]]},&quot;xaxis&quot;:{&quot;gridcolor&quot;:&quot;white&quot;,&quot;linecolor&quot;:&quot;white&quot;,&quot;ticks&quot;:&quot;&quot;,&quot;title&quot;:{&quot;standoff&quot;:15},&quot;zerolinecolor&quot;:&quot;white&quot;,&quot;automargin&quot;:true,&quot;zerolinewidth&quot;:2},&quot;yaxis&quot;:{&quot;gridcolor&quot;:&quot;white&quot;,&quot;linecolor&quot;:&quot;white&quot;,&quot;ticks&quot;:&quot;&quot;,&quot;title&quot;:{&quot;standoff&quot;:15},&quot;zerolinecolor&quot;:&quot;white&quot;,&quot;automargin&quot;:true,&quot;zerolinewidth&quot;:2},&quot;scene&quot;:{&quot;xaxis&quot;:{&quot;backgroundcolor&quot;:&quot;#E5ECF6&quot;,&quot;gridcolor&quot;:&quot;white&quot;,&quot;linecolor&quot;:&quot;white&quot;,&quot;showbackground&quot;:true,&quot;ticks&quot;:&quot;&quot;,&quot;zerolinecolor&quot;:&quot;white&quot;,&quot;gridwidth&quot;:2},&quot;yaxis&quot;:{&quot;backgroundcolor&quot;:&quot;#E5ECF6&quot;,&quot;gridcolor&quot;:&quot;white&quot;,&quot;linecolor&quot;:&quot;white&quot;,&quot;showbackground&quot;:true,&quot;ticks&quot;:&quot;&quot;,&quot;zerolinecolor&quot;:&quot;white&quot;,&quot;gridwidth&quot;:2},&quot;zaxis&quot;:{&quot;backgroundcolor&quot;:&quot;#E5ECF6&quot;,&quot;gridcolor&quot;:&quot;white&quot;,&quot;linecolor&quot;:&quot;white&quot;,&quot;showbackground&quot;:true,&quot;ticks&quot;:&quot;&quot;,&quot;zerolinecolor&quot;:&quot;white&quot;,&quot;gridwidth&quot;:2}},&quot;shapedefaults&quot;:{&quot;line&quot;:{&quot;color&quot;:&quot;#2a3f5f&quot;}},&quot;annotationdefaults&quot;:{&quot;arrowcolor&quot;:&quot;#2a3f5f&quot;,&quot;arrowhead&quot;:0,&quot;arrowwidth&quot;:1},&quot;geo&quot;:{&quot;bgcolor&quot;:&quot;white&quot;,&quot;landcolor&quot;:&quot;#E5ECF6&quot;,&quot;subunitcolor&quot;:&quot;white&quot;,&quot;showland&quot;:true,&quot;showlakes&quot;:true,&quot;lakecolor&quot;:&quot;white&quot;},&quot;title&quot;:{&quot;x&quot;:0.05},&quot;mapbox&quot;:{&quot;style&quot;:&quot;light&quot;}}},&quot;title&quot;:{&quot;font&quot;:{&quot;size&quot;:14,&quot;color&quot;:&quot;#2D3748&quot;},&quot;pad&quot;:{&quot;b&quot;:20}},&quot;margin&quot;:{&quot;l&quot;:60,&quot;r&quot;:30,&quot;t&quot;:80,&quot;b&quot;:30},&quot;xaxis&quot;:{&quot;title&quot;:{&quot;text&quot;:&quot;Causal Effect Sizes of Diagnosis Groups on LoS (Days) - (Point size = Dominance % in data)&quot;},&quot;side&quot;:&quot;top&quot;,&quot;showgrid&quot;:true,&quot;gridcolor&quot;:&quot;rgba(160, 174, 192, 0.35)&quot;,&quot;gridwidth&quot;:1,&quot;zeroline&quot;:true,&quot;zerolinecolor&quot;:&quot;#718096&quot;,&quot;zerolinewidth&quot;:1.5,&quot;ticks&quot;:&quot;outside&quot;},&quot;yaxis&quot;:{&quot;title&quot;:{&quot;text&quot;:&quot;HRG Profile&quot;},&quot;showgrid&quot;:true,&quot;gridcolor&quot;:&quot;rgba(160, 174, 192, 0.35)&quot;,&quot;gridwidth&quot;:1,&quot;type&quot;:&quot;category&quot;,&quot;ticks&quot;:&quot;outside&quot;},&quot;hoverlabel&quot;:{&quot;font&quot;:{&quot;color&quot;:&quot;#FFFFFF&quot;,&quot;size&quot;:12},&quot;bgcolor&quot;:&quot;#1A202C&quot;},&quot;height&quot;:1008,&quot;paper_bgcolor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;plot_bgcolor&quot;:&quot;rgba(237, 242, 247, 0.45)&quot;}}' data-config='{}'></marimo-plotly></marimo-ui-element></div></div><div style='flex: 0.45'><span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><em>Type an HRG group to see its ICD codes here.</em></span></span></div></div></div>"
           }
         }
       ],
       "console": []
     },
     {
-      "id": "qnkX",
+      "id": "TqIu",
       "code_hash": "827290b0ba693a80eb7e51175e0755d4",
       "outputs": [
         {
@@ -240,7 +253,7 @@
       "console": []
     },
     {
-      "id": "TqIu",
+      "id": "Vxnm",
       "code_hash": "5208d748e922dbd5c40c2337ca16917b",
       "outputs": [
         {
@@ -253,7 +266,7 @@
       "console": []
     },
     {
-      "id": "Vxnm",
+      "id": "DnEU",
       "code_hash": "8c57fde7558f794c03bd32a43c651f45",
       "outputs": [
         {
@@ -266,20 +279,20 @@
       "console": []
     },
     {
-      "id": "DnEU",
+      "id": "ulZA",
       "code_hash": "7b2eea75ec05f1730701b40975245d14",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'>\n<style>\n    /* Scale up the dropdown options text */\n    select { \n        font-size: 16px !important; \n        padding: 6px 10px !important; \n        cursor: pointer;\n    }\n\n    /* Slightly enlarge the slider track for better UX */\n    input[type=range] { \n        transform: scale(1.1); \n        margin-left: 8px; \n        cursor: pointer;\n    }\n</style>\n<div style='padding:24px;background-color:#f8fafc;border-radius:12px;border:1px solid #e2e8f0;align-items:center'><div style='display: flex;flex: 1;flex-direction: row;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 4rem'><marimo-ui-element object-id='DnEU-0' random-id='35b736ab-4d32-84ca-c030-1273a660a1b5'><marimo-dropdown data-initial-value='[&quot;\ud83d\udcc1 Uncoded Group (+3.34 days - 28.7% dominance)&quot;]' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003e&#92;u003cspan style=&#x27;font-size: 18px; font-weight: 600; color: #1e293b;&#x27;&#92;u003eSelect Diagnosis Group:&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-options='[&quot;\ud83d\udcc1 Uncoded Group (+3.34 days - 28.7% dominance)&quot;,&quot;\ud83c\udfe5 HE11 (7.44 days - 1.5% dominance)&quot;,&quot;\ud83c\udfe5 HE (0.78 days - 1.8% dominance)&quot;,&quot;\u2b50 Combined (All 3 Groups)&quot;]' data-allow-select-none='false' data-searchable='false' data-full-width='false' data-disabled='false'></marimo-dropdown></marimo-ui-element><marimo-ui-element object-id='DnEU-1' random-id='eef42056-4270-e9ea-312c-1a266250cd65'><marimo-dropdown data-initial-value='[&quot;\ud83d\udcca Point Estimate (ATE - Mean Days)&quot;]' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003e&#92;u003cspan style=&#x27;font-size: 18px; font-weight: 600; color: #1e293b;&#x27;&#92;u003eSelect Causal Estimator:&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-options='[&quot;\ud83d\udcca Point Estimate (ATE - Mean Days)&quot;,&quot;\ud83d\udcc9 Conservative Estimate (CI Lower Bound)&quot;,&quot;\ud83d\udcc8 Aggressive Estimate (CI Upper Bound)&quot;]' data-allow-select-none='false' data-searchable='false' data-full-width='false' data-disabled='false'></marimo-dropdown></marimo-ui-element><marimo-ui-element object-id='DnEU-2' random-id='75b18107-33e7-96f2-e087-b002016cbc83'><marimo-slider data-initial-value='100' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003e&#92;u003cspan style=&#x27;font-size: 18px; font-weight: 600; color: #1e293b;&#x27;&#92;u003eAmbiguity Resolution Success Rate (%):&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-start='0' data-stop='100' data-step='5' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='false' data-include-input='false' data-full-width='false'></marimo-slider></marimo-ui-element></div></div></div>"
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'>\n<style>\n    /* Scale up the dropdown options text */\n    select { \n        font-size: 16px !important; \n        padding: 6px 10px !important; \n        cursor: pointer;\n    }\n\n    /* Slightly enlarge the slider track for better UX */\n    input[type=range] { \n        transform: scale(1.1); \n        margin-left: 8px; \n        cursor: pointer;\n    }\n</style>\n<div style='padding:24px;background-color:#f8fafc;border-radius:12px;border:1px solid #e2e8f0;align-items:center'><div style='display: flex;flex: 1;flex-direction: row;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 4rem'><marimo-ui-element object-id='ulZA-0' random-id='1fcbb2ce-a25e-7e53-eef2-63355762fb24'><marimo-dropdown data-initial-value='[&quot;\ud83d\udcc1 Uncoded Group (+3.34 days - 28.7% dominance)&quot;]' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003e&#92;u003cspan style=&#x27;font-size: 18px; font-weight: 600; color: #1e293b;&#x27;&#92;u003eSelect Diagnosis Group:&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-options='[&quot;\ud83d\udcc1 Uncoded Group (+3.34 days - 28.7% dominance)&quot;,&quot;\ud83c\udfe5 HE11 (7.44 days - 1.5% dominance)&quot;,&quot;\ud83c\udfe5 HE (0.78 days - 1.8% dominance)&quot;,&quot;\u2b50 Combined (All 3 Groups)&quot;]' data-allow-select-none='false' data-searchable='false' data-full-width='false' data-disabled='false'></marimo-dropdown></marimo-ui-element><marimo-ui-element object-id='ulZA-1' random-id='a45fa389-7854-81fa-ddd8-42ef744242d7'><marimo-dropdown data-initial-value='[&quot;\ud83d\udcca Point Estimate (ATE - Mean Days)&quot;]' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003e&#92;u003cspan style=&#x27;font-size: 18px; font-weight: 600; color: #1e293b;&#x27;&#92;u003eSelect Causal Estimator:&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-options='[&quot;\ud83d\udcca Point Estimate (ATE - Mean Days)&quot;,&quot;\ud83d\udcc9 Conservative Estimate (CI Lower Bound)&quot;,&quot;\ud83d\udcc8 Aggressive Estimate (CI Upper Bound)&quot;]' data-allow-select-none='false' data-searchable='false' data-full-width='false' data-disabled='false'></marimo-dropdown></marimo-ui-element><marimo-ui-element object-id='ulZA-2' random-id='649ec0ff-5c92-e33f-dafd-0782194abbfb'><marimo-slider data-initial-value='100' data-label='&quot;&#92;u003cspan class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&#92;u003e&#92;u003cspan class=&#92;&quot;paragraph&#92;&quot;&#92;u003e&#92;u003cspan style=&#x27;font-size: 18px; font-weight: 600; color: #1e293b;&#x27;&#92;u003eAmbiguity Resolution Success Rate (%):&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&#92;u003c/span&#92;u003e&quot;' data-start='0' data-stop='100' data-step='5' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='false' data-include-input='false' data-full-width='false'></marimo-slider></marimo-ui-element></div></div></div>"
           }
         }
       ],
       "console": []
     },
     {
-      "id": "ulZA",
+      "id": "ecfG",
       "code_hash": "32cb9976408a8819185ce26681d194e7",
       "outputs": [
         {
@@ -292,7 +305,7 @@
       "console": []
     },
     {
-      "id": "ecfG",
+      "id": "Pvdt",
       "code_hash": "e0485072415deefe02cff619182a7e87",
       "outputs": [
         {
@@ -305,7 +318,7 @@
       "console": []
     },
     {
-      "id": "Pvdt",
+      "id": "ZBYS",
       "code_hash": "0ef018de521276ce687084a3bf40c78f",
       "outputs": [
         {
@@ -318,7 +331,7 @@
       "console": []
     },
     {
-      "id": "ZBYS",
+      "id": "aLJB",
       "code_hash": "6d9fcc71bd003c09711385a7cbe6e2ec",
       "outputs": [
         {
@@ -331,7 +344,7 @@
       "console": []
     },
     {
-      "id": "aLJB",
+      "id": "nHfw",
       "code_hash": "d73149c1fbc73adfd14f830db94b4e7f",
       "outputs": [
         {
@@ -344,7 +357,7 @@
       "console": []
     },
     {
-      "id": "nHfw",
+      "id": "xXTn",
       "code_hash": "f689015d0f3b83316506b9e2f2588eb7",
       "outputs": [
         {
