@@ -1,6 +1,6 @@
 ---
 listing:
-  - id: talks
+  - id: presentations
     contents:
       - "*.qmd"
       # - "causal_presentation/*.qmd"
