@@ -1,10 +1,18 @@
+# /// script
+# requires-python = ">=3.11"
+# dependencies = [
+#     "marimo",
+#     "numpy",
+#     "pandas",
+#     "plotly @ ./wheels/plotly-6.7.0-py3-none-any.whl",
+#     "pyarrow",
+# ]
+# ///
+
 import marimo
 
 __generated_with = "0.23.16"
-app = marimo.App(
-    width="full",
-    layout_file="layouts/present_in_marimo.slides.json",
-)
+app = marimo.App(width="full", layout_file="layouts/causp.slides.json")
 
 
 @app.cell
@@ -18,6 +26,7 @@ def _():
 def _():
     import pandas as pd
     import numpy as np
+    import pyarrow
 
     return np, pd
 
@@ -25,7 +34,7 @@ def _():
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    ## Causal Impact of Diagnosis on LoS
+    # Causal Impact of Diagnosis on LoS
     """)
     return
 
@@ -113,13 +122,15 @@ def _(mo):
 
 @app.cell
 def _(mo, pd):
-    data_path = mo.notebook_location() / "public" / "tables"
+    data_path = mo.notebook_location() / "public"
     order_df = pd.read_csv(data_path / "diagnosis_order.csv", sep=None, engine='python')       # Use the more robust engine)
     diags = pd.read_csv(data_path / "caus_hrg_lgb.csv", sep=None, engine='python')
     diags = diags.merge(order_df, on='profile', how ='left')
     diags.rename(columns={"proportion": "dominance"}, inplace=True)
     # diags["dominance"] = diags["dominance"]*100
     cleand_df = pd.read_parquet(data_path /"clean_df_present.parquet")
+    # cleand_df.to_csv(data_path / "clean_df_present.csv", index=False)
+    # cleand_df = pd.read_csv(data_path / "clean_df_present.csv")
     exist_codes = cleand_df[cleand_df["code"]!= "$$X"]["code"].drop_duplicates().tolist()
 
     diags = diags.drop(columns=["variance"])
@@ -143,7 +154,7 @@ def _(diags):
 
 @app.cell
 def _(data_path, exist_codes, pd):
-    hrg = pd.read_excel(data_path / "nhs_group.xlsx", sheet_name="nhs_map")[["code", "HRG 1","Code Description"]].drop_duplicates().rename(columns={"code":"ICD_code", "HRG 1": "HRG", "Code Description": "ICD_description"})
+    hrg = pd.read_csv(data_path / "nhs_group.csv")[["code", "HRG 1","Code Description"]].drop_duplicates().rename(columns={"code":"ICD_code", "HRG 1": "HRG", "Code Description": "ICD_description"})
     ## filter ICD
     hrg = hrg[hrg["ICD_code"].isin(exist_codes)]
     hrg["HRG2"] = hrg["HRG"].str[:2]
@@ -188,7 +199,7 @@ def _(mo):
     return
 
 
-@app.cell(hide_code=True)
+@app.cell
 def _():
     # _q = hrg_search.value.strip().upper()
 

@@ -6,11 +6,11 @@ categories:
   - Causal Inference
   - Python
 resources:
-  - "causal_presentation/interactive_slides_folder/**"
+  - "causal_presentation/output_dir/**"
 ---
 
 
-<!-- <iframe src="https://molab.marimo.io/notebooks/nb_eGUGFqiFei1TVkHSEaXXyE/app" width="100%" height="600px"></iframe> -->
+<iframe src="causal_presentation/output_dir/index.html" width="100%" height="600px"></iframe>
 
 
-[![Open in molab](https://molab.marimo.io/molab-shield.svg)](https://marimo.io/notebooks/nb_eGUGFqiFei1TVkHSEaXXyE/follow#sb=sb-3f693cf011addcff&token=ea6cc0c457d8d18665e8c87355c1f1cfc02a56f789ee0dec6075e81ac5a17372)
+<!-- [![Open in molab](https://molab.marimo.io/molab-shield.svg)](causal_presentation/output_dir/index.html) -->
