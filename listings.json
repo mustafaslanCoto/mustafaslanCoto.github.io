@@ -1,13 +1,8 @@
 [
   {
-    "listing": "/talks/index.html",
+    "listing": "/projects/index.html",
     "items": [
-      "/talks/presentations/ifors.html",
-      "/talks/presentations/exeter_visit.html",
-      "/talks/presentations/phd_forum.html",
-      "/talks/presentations/qqf.html",
-      "/talks/presentations/sword.html",
-      "/talks/presentations/wgsss.html"
+      "/projects/peshbeen.html"
     ]
   },
   {
@@ -17,9 +12,14 @@
     ]
   },
   {
-    "listing": "/projects/index.html",
+    "listing": "/talks/index.html",
     "items": [
-      "/projects/peshbeen.html"
+      "/talks/presentations/ifors.html",
+      "/talks/presentations/exeter_visit.html",
+      "/talks/presentations/phd_forum.html",
+      "/talks/presentations/qqf.html",
+      "/talks/presentations/sword.html",
+      "/talks/presentations/wgsss.html"
     ]
   },
   {
