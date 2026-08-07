@@ -47,7 +47,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-6ac2aec46ad7f46b16024ee4409aa65c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-921ecb3ff3b004e91bddb2369f3a9636.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -78,20 +78,20 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-talks .list');
+    const listingTargetEl = window.document.querySelector('#listing-presentations .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
+      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-talks'] = new List('listing-talks', options);
+    window['quarto-listings']['listing-presentations'] = new List('listing-presentations', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -174,10 +174,6 @@ window.Quarto = {
     <a class="nav-link" href="../workshops/index.html"> 
 <span class="menu-text">WORKSHOPS</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link active" href="../presentations/index.html" aria-current="page"> 
-<span class="menu-text">PRESENTATIONS</span></a>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools tools-wide">
@@ -206,9 +202,9 @@ window.Quarto = {
 
 
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-talks">
+<div class="quarto-listing quarto-listing-container-default" id="listing-presentations">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Q2F1c2FsJTIwSW5mZXJlbmNlJTJDUHl0aG9u" data-listing-date-sort="1785974400000" data-listing-file-modified-sort="1786064749767" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="8">
+<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1786092875032" data-listing-reading-time-sort="1" data-listing-word-count-sort="33">
 <div class="thumbnail"><a href="../presentations/hosp_marimo.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -216,18 +212,14 @@ window.Quarto = {
 </a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="../presentations/hosp_marimo.html" class="no-external">Causal Effect Sizes of Health Resource Groups on LoS</a>
+<a href="../presentations/hosp_marimo.html" class="no-external">- “causal_presentation/output_dir/**“</a>
 </h3>
 <div class="delink listing-description"><a href="../presentations/hosp_marimo.html" class="no-external">
-
 
 </a></div>
 </div>
 <div class="metadata">
 <a href="../presentations/hosp_marimo.html" class="no-external">
-<div class="listing-date">
-Aug 6, 2026
-</div>
 </a>
 </div>
 </div>
