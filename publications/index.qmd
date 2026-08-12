@@ -14,7 +14,7 @@ toc-title: "On this page"
 </div>
 ```
 
-## Working Papers (Under Review)
+## Working Papers & Preprints
 
 ```{=html}
 <!-- ===== PAPER CARD =====
@@ -29,13 +29,13 @@ toc-title: "On this page"
       <h3 class="pub-title">Integrating Regime-Switching Probabilistic Forecasts into Stochastic Optimization for Nurse Rostering in Mental Health Wards</h3>
       <p class="pub-meta">
         <span class="pub-journal">European Journal of Operational Research</span>&nbsp;&middot;&nbsp;2026
-        <span class="pub-status">Under review</span>
+        <span class="pub-status">Revise & Resubmit (Major Revision)</span>
       </p>
     </div>
     <div class="pub-actions">
       <a class="pub-btn pub-btn-primary" role="button" href="#" target="_blank" rel="noopener"
          data-href=""
-         data-msg="The paper is under review — it will be accessible here once it is published.">Read paper</a>
+         data-msg="The paper received a Revise & Resubmit decision and is currently under major revision — it will be accessible here once published.">Read paper</a>
       <a class="pub-btn pub-btn-outline" role="button" href="#" target="_blank" rel="noopener"
          data-href=""
          data-msg="The code will be shared here once the paper is published.">View code</a>
