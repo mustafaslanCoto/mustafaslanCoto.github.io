@@ -17,6 +17,9 @@ website:
       - href: publications/index.qmd
         text: PUBLICATIONS
  
+      - href: talks/index.qmd
+        text: TALKS
+
       - text: WORKSHOPS
         href: workshops/index.qmd
  
