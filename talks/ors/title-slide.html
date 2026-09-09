@@ -1,0 +1,95 @@
+```{=html}
+<style>
+  .title-slide-custom { text-align: center; }
+
+  /* Logo row */
+  .title-slide-custom .logo-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 3em;
+  }
+  .title-slide-custom .logo-group {
+    display: flex;
+    align-items: center;
+    gap: 1.2em;
+  }
+  .title-slide-custom .logo-bar img {
+    height: 140px;
+    width: auto;
+    background: none;
+  }
+
+  /* Title — main size knob */
+  .title-slide-custom .talk-title {
+    font-size: 1.3em !important;
+    font-weight: 700;
+    line-height: 1.2;
+    text-transform: none;
+    max-width: 85%;          /* was 30ch — this is the real knob */
+    text-wrap: balance;      /* distributes text into even lines */
+    color: #091717;
+    margin: 0 auto 0.8em auto;   /* top handled by logo-bar's margin-bottom */
+  }
+  
+  
+  /* Conference label + accent rule */
+  .title-slide-custom .talk-conference {
+    font-size: 1em;
+    font-weight: 600;
+    letter-spacing: 0.12em; /* spacing for uppercase letters */
+    text-transform: uppercase;
+    color: #20808D;
+  }
+
+  .title-slide-custom .accent-rule {
+    width: 90px;
+    height: 4px;
+    background: #20808D;
+    border: none;
+    margin: 0.5em auto 1.2em auto;
+    border-radius: 2px;
+  }
+
+  /* Authors */
+  .title-slide-custom .presenter { font-weight: 700; font-size: 0.80em; color: #091717; }
+  .title-slide-custom .supervisors { font-weight: 700; font-size: 0.80em; color: #333; margin-top: 0.5em; line-height: 1.5; }
+  .title-slide-custom .role { color: #666; }
+  .title-slide-custom .affiliation { font-weight: 700; font-size: 0.80em; color: #666; margin-top: 0.2em; }
+  .title-slide-custom .talk-date { font-size: 0.80em; color: #666; margin-top: 1em; }
+</style>
+
+<div class="title-slide-custom">
+
+  <div class="logo-bar">
+    <div class="logo-group">
+      <img src="images/cu.png" alt="Cardiff University">
+      <img src="images/wgsss.png" alt="WGSSS">
+      <img src="images/hcrw_back.png" alt="Health and Care Research Wales">
+    </div>
+    <div class="logo-group">
+      <img src="images/dlsg.png" alt="Data Lab for Social Good">
+      <img src="images/care.png" alt="CARE">
+    </div>
+  </div>
+
+  <h1 class="talk-title">
+    Forcast all at once: A multi-series forecasting approach for hospital discharges and admissions
+  </h1>
+
+  <div class="talk-conference">ORS Annual Conference 2026</div>
+  <hr class="accent-rule">
+
+  <div class="presenter">Mustafa Aslan</div>
+  <div class="affiliation">Data Lab for Social Good, Cardiff University, UK</div>
+
+  <div class="supervisors">
+    <span class="role">Lead supervisor:</span> Prof. Bahman Rostami-Tabar<br>
+    <span class="role">Co-supervisor:</span> Dr. Jeremy Dixon
+  </div>
+
+  <div class="talk-date">10 Sept 2026</div>
+
+</div>
+```

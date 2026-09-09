@@ -1,0 +1,433 @@
+```{=html}
+<style>
+  .matrix-wrapper-clean {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 2000px;
+    margin: 5px auto 0 auto;
+    font-family: inherit;
+    box-sizing: border-box;
+  }
+
+  .matrix-box {
+    background: transparent;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Force table-layout auto so text CANNOT overlap and colgroup is suppressed */
+  .matrix-box table.auto-table colgroup {
+    display: none !important;
+  }
+
+  .matrix-box table.auto-table {
+    width: 100% !important;
+    table-layout: auto !important;
+    border-collapse: collapse !important;
+    border-spacing: 0 !important;
+    font-size: 0.88em !important;
+    margin: 0 !important;
+  }
+
+  .matrix-box table.auto-table th,
+  .matrix-box table.auto-table td {
+    text-align: center !important;
+    vertical-align: middle !important;
+    padding: 5px 8px !important;
+    border: 1px solid #D2DFDF !important;
+    white-space: nowrap !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Super Headers */
+  .th-top-time {
+    background: #0B363C !important;
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+    font-size: 0.98em !important;
+  }
+
+  .th-top-id {
+    background: #0F4951 !important;
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+    font-size: 0.98em !important;
+  }
+
+  .th-top-s1 {
+    background: #16606A !important;
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+    font-size: 0.98em !important;
+  }
+
+  .th-top-s2 {
+    background: #1E7480 !important;
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+    font-size: 0.98em !important;
+  }
+
+  .th-top-s3 {
+    background: #288795 !important;
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+    font-size: 0.98em !important;
+  }
+
+  .th-top-dots {
+    background: #4D8F99 !important;
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+    font-size: 0.98em !important;
+  }
+
+  .th-top-exog {
+    background: #16606A !important;
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+    font-size: 0.98em !important;
+  }
+
+  .th-top-y {
+    background: #B2582D !important;
+    color: #FFFFFF !important;
+    font-weight: 800 !important;
+    font-size: 1.05em !important;
+    letter-spacing: 0.5px !important;
+  }
+
+  /* Sub Headers */
+  .th-sub-cell {
+    background: #EAF3F4 !important;
+    color: #0B363C !important;
+    font-weight: 700 !important;
+    font-size: 0.84em !important;
+    padding: 5px 6px !important;
+  }
+
+  /* Data Cells */
+  .td-time-cell {
+    background: #F5FAFA !important;
+    font-weight: 700 !important;
+    color: #0B363C !important;
+    font-size: 0.95em !important;
+  }
+
+  /* Series ID Badges */
+  .id-badge {
+    display: inline-block !important;
+    padding: 3px 12px !important;
+    border-radius: 5px !important;
+    font-weight: 700 !important;
+    font-size: 0.90em !important;
+    white-space: nowrap !important;
+  }
+
+  .badge-spec-a {
+    background: #E0F2F4 !important;
+    color: #0B363C !important;
+    border: 1px solid #B2DFE3 !important;
+  }
+
+  .badge-spec-b {
+    background: #FCEFE6 !important;
+    color: #8A3D14 !important;
+    border: 1px solid #F8D1BA !important;
+  }
+
+  .badge-spec-c {
+    background: #F2EBF9 !important;
+    color: #5B2B82 !important;
+    border: 1px solid #DFCCF2 !important;
+  }
+
+  /* Lag Features */
+  .td-num {
+    font-family: monospace !important;
+    font-size: 0.96em !important;
+    font-weight: 600 !important;
+    color: #222 !important;
+  }
+
+  .td-bg-s1 {
+    background: #F9FCFC !important;
+  }
+
+  .td-bg-s2 {
+    background: #FCFAF8 !important;
+  }
+
+  .td-bg-s3 {
+    background: #FAF8FC !important;
+  }
+
+  .td-bg-dots {
+    background: #FAFAFA !important;
+    color: #888888 !important;
+    font-weight: 700 !important;
+  }
+
+  .td-bg-exog {
+    background: #F2F9F7 !important;
+    font-family: monospace !important;
+    font-weight: 700 !important;
+    color: #16606A !important;
+    font-size: 0.92em !important;
+  }
+
+  /* Target Highlight */
+  .td-bg-y {
+    background: #FFF8F5 !important;
+  }
+
+  .y-pill {
+    display: inline-block !important;
+    padding: 3px 14px !important;
+    border-radius: 5px !important;
+    font-weight: 800 !important;
+    font-family: monospace !important;
+    font-size: 1.05em !important;
+    color: #FFFFFF !important;
+  }
+
+  .y-pill-a {
+    background: #20808D !important;
+  }
+
+  .y-pill-b {
+    background: #B2582D !important;
+  }
+
+  .y-pill-c {
+    background: #5B2B82 !important;
+  }
+
+  /* Transition Divider Row */
+  .tr-divider td {
+    background: #F4F8F8 !important;
+    padding: 5px 8px !important;
+    font-size: 0.80em !important;
+    color: #20808D !important;
+    font-weight: 700 !important;
+    border-top: 2px dashed #20808D !important;
+    border-bottom: 2px dashed #20808D !important;
+  }
+
+  .tr-divider td.td-y-switch {
+    color: #B2582D !important;
+    font-weight: 800 !important;
+  }
+</style>
+
+<div class="matrix-wrapper-clean">
+
+  <div class="matrix-box">
+    <table class="auto-table">
+      <thead>
+        <tr>
+          <th class="th-top-time" rowspan="2">Time</th>
+          <th class="th-top-id" rowspan="2">Series ID (<code>id_col</code>)</th>
+          <th class="th-top-s1" colspan="3">Specialty A Lags</th>
+          <th class="th-top-s2" colspan="3">Specialty B Lags</th>
+          <th class="th-top-s3" colspan="3">Specialty C Lags</th>
+          <th class="th-top-dots" rowspan="2">&hellip;</th>
+          <th class="th-top-exog" rowspan="2">Exog</th>
+          <th class="th-top-y" rowspan="2">Target (<em>Y</em>)<br>Flow</th>
+        </tr>
+        <tr>
+          <th class="th-sub-cell">lag 3</th>
+          <th class="th-sub-cell">lag 2</th>
+          <th class="th-sub-cell">lag 1</th>
+          <th class="th-sub-cell">lag 3</th>
+          <th class="th-sub-cell">lag 2</th>
+          <th class="th-sub-cell">lag 1</th>
+          <th class="th-sub-cell">lag 3</th>
+          <th class="th-sub-cell">lag 2</th>
+          <th class="th-sub-cell">lag 1</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- SPECIALTY A -->
+        <tr>
+          <td class="td-time-cell"><em>t</em><sub>1</sub></td>
+          <td><span class="id-badge badge-spec-a">Specialty A</span></td>
+          <td class="td-num td-bg-s1">49</td>
+          <td class="td-num td-bg-s1">52</td>
+          <td class="td-num td-bg-s1">58</td>
+          <td class="td-num td-bg-s2">15</td>
+          <td class="td-num td-bg-s2">18</td>
+          <td class="td-num td-bg-s2">20</td>
+          <td class="td-num td-bg-s3">10</td>
+          <td class="td-num td-bg-s3">12</td>
+          <td class="td-num td-bg-s3">14</td>
+          <td class="td-bg-dots">&hellip;</td>
+          <td class="td-bg-exog">exog<sub>1</sub></td>
+          <td class="td-bg-y"><span class="y-pill y-pill-a">65</span></td>
+        </tr>
+        <tr>
+          <td class="td-time-cell"><em>t</em><sub>2</sub></td>
+          <td><span class="id-badge badge-spec-a">Specialty A</span></td>
+          <td class="td-num td-bg-s1">52</td>
+          <td class="td-num td-bg-s1">58</td>
+          <td class="td-num td-bg-s1">65</td>
+          <td class="td-num td-bg-s2">18</td>
+          <td class="td-num td-bg-s2">20</td>
+          <td class="td-num td-bg-s2">22</td>
+          <td class="td-num td-bg-s3">12</td>
+          <td class="td-num td-bg-s3">14</td>
+          <td class="td-num td-bg-s3">16</td>
+          <td class="td-bg-dots">&hellip;</td>
+          <td class="td-bg-exog">exog<sub>2</sub></td>
+          <td class="td-bg-y"><span class="y-pill y-pill-a">71</span></td>
+        </tr>
+        <tr>
+          <td class="td-time-cell"><em>t</em><sub>3</sub></td>
+          <td><span class="id-badge badge-spec-a">Specialty A</span></td>
+          <td class="td-num td-bg-s1">58</td>
+          <td class="td-num td-bg-s1">65</td>
+          <td class="td-num td-bg-s1">71</td>
+          <td class="td-num td-bg-s2">20</td>
+          <td class="td-num td-bg-s2">22</td>
+          <td class="td-num td-bg-s2">19</td>
+          <td class="td-num td-bg-s3">14</td>
+          <td class="td-num td-bg-s3">16</td>
+          <td class="td-num td-bg-s3">14</td>
+          <td class="td-bg-dots">&hellip;</td>
+          <td class="td-bg-exog">exog<sub>3</sub></td>
+          <td class="td-bg-y"><span class="y-pill y-pill-a">68</span></td>
+        </tr>
+
+        <!-- TRANSITION A -> B -->
+        <tr class="tr-divider">
+          <td>&darr;</td>
+          <td><code>id_col</code> switches &rarr;</td>
+          <td colspan="10">&larr; <strong>Cross-Lag Features (X) Repeat Identically Across Series</strong> &rarr;</td>
+          <td class="td-y-switch">Target switches &darr;</td>
+        </tr>
+
+        <!-- SPECIALTY B -->
+        <tr>
+          <td class="td-time-cell"><em>t</em><sub>1</sub></td>
+          <td><span class="id-badge badge-spec-b">Specialty B</span></td>
+          <td class="td-num td-bg-s1">49</td>
+          <td class="td-num td-bg-s1">52</td>
+          <td class="td-num td-bg-s1">58</td>
+          <td class="td-num td-bg-s2">15</td>
+          <td class="td-num td-bg-s2">18</td>
+          <td class="td-num td-bg-s2">20</td>
+          <td class="td-num td-bg-s3">10</td>
+          <td class="td-num td-bg-s3">12</td>
+          <td class="td-num td-bg-s3">14</td>
+          <td class="td-bg-dots">&hellip;</td>
+          <td class="td-bg-exog">exog<sub>1</sub></td>
+          <td class="td-bg-y"><span class="y-pill y-pill-b">22</span></td>
+        </tr>
+        <tr>
+          <td class="td-time-cell"><em>t</em><sub>2</sub></td>
+          <td><span class="id-badge badge-spec-b">Specialty B</span></td>
+          <td class="td-num td-bg-s1">52</td>
+          <td class="td-num td-bg-s1">58</td>
+          <td class="td-num td-bg-s1">65</td>
+          <td class="td-num td-bg-s2">18</td>
+          <td class="td-num td-bg-s2">20</td>
+          <td class="td-num td-bg-s2">22</td>
+          <td class="td-num td-bg-s3">12</td>
+          <td class="td-num td-bg-s3">14</td>
+          <td class="td-num td-bg-s3">16</td>
+          <td class="td-bg-dots">&hellip;</td>
+          <td class="td-bg-exog">exog<sub>2</sub></td>
+          <td class="td-bg-y"><span class="y-pill y-pill-b">19</span></td>
+        </tr>
+        <tr>
+          <td class="td-time-cell"><em>t</em><sub>3</sub></td>
+          <td><span class="id-badge badge-spec-b">Specialty B</span></td>
+          <td class="td-num td-bg-s1">58</td>
+          <td class="td-num td-bg-s1">65</td>
+          <td class="td-num td-bg-s1">71</td>
+          <td class="td-num td-bg-s2">20</td>
+          <td class="td-num td-bg-s2">22</td>
+          <td class="td-num td-bg-s2">19</td>
+          <td class="td-num td-bg-s3">14</td>
+          <td class="td-num td-bg-s3">16</td>
+          <td class="td-num td-bg-s3">14</td>
+          <td class="td-bg-dots">&hellip;</td>
+          <td class="td-bg-exog">exog<sub>3</sub></td>
+          <td class="td-bg-y"><span class="y-pill y-pill-b">21</span></td>
+        </tr>
+
+        <!-- TRANSITION B -> C -->
+        <tr class="tr-divider">
+          <td>&darr;</td>
+          <td><code>id_col</code> switches &rarr;</td>
+          <td colspan="10">&larr; <strong>Cross-Lag Features (X) Repeat Identically Across Series</strong> &rarr;</td>
+          <td class="td-y-switch">Target switches &darr;</td>
+        </tr>
+
+        <!-- SPECIALTY C -->
+        <tr>
+          <td class="td-time-cell"><em>t</em><sub>1</sub></td>
+          <td><span class="id-badge badge-spec-c">Specialty C</span></td>
+          <td class="td-num td-bg-s1">49</td>
+          <td class="td-num td-bg-s1">52</td>
+          <td class="td-num td-bg-s1">58</td>
+          <td class="td-num td-bg-s2">15</td>
+          <td class="td-num td-bg-s2">18</td>
+          <td class="td-num td-bg-s2">20</td>
+          <td class="td-num td-bg-s3">10</td>
+          <td class="td-num td-bg-s3">12</td>
+          <td class="td-num td-bg-s3">14</td>
+          <td class="td-bg-dots">&hellip;</td>
+          <td class="td-bg-exog">exog<sub>1</sub></td>
+          <td class="td-bg-y"><span class="y-pill y-pill-c">16</span></td>
+        </tr>
+        <tr>
+          <td class="td-time-cell"><em>t</em><sub>2</sub></td>
+          <td><span class="id-badge badge-spec-c">Specialty C</span></td>
+          <td class="td-num td-bg-s1">52</td>
+          <td class="td-num td-bg-s1">58</td>
+          <td class="td-num td-bg-s1">65</td>
+          <td class="td-num td-bg-s2">18</td>
+          <td class="td-num td-bg-s2">20</td>
+          <td class="td-num td-bg-s2">22</td>
+          <td class="td-num td-bg-s3">12</td>
+          <td class="td-num td-bg-s3">14</td>
+          <td class="td-num td-bg-s3">16</td>
+          <td class="td-bg-dots">&hellip;</td>
+          <td class="td-bg-exog">exog<sub>2</sub></td>
+          <td class="td-bg-y"><span class="y-pill y-pill-c">14</span></td>
+        </tr>
+        <tr>
+          <td class="td-time-cell"><em>t</em><sub>3</sub></td>
+          <td><span class="id-badge badge-spec-c">Specialty C</span></td>
+          <td class="td-num td-bg-s1">58</td>
+          <td class="td-num td-bg-s1">65</td>
+          <td class="td-num td-bg-s1">71</td>
+          <td class="td-num td-bg-s2">20</td>
+          <td class="td-num td-bg-s2">22</td>
+          <td class="td-num td-bg-s2">19</td>
+          <td class="td-num td-bg-s3">14</td>
+          <td class="td-num td-bg-s3">16</td>
+          <td class="td-num td-bg-s3">14</td>
+          <td class="td-bg-dots">&hellip;</td>
+          <td class="td-bg-exog">exog<sub>3</sub></td>
+          <td class="td-bg-y"><span class="y-pill y-pill-c">15</span></td>
+        </tr>
+
+        <!-- CONTINUATION ROW -->
+        <tr style="background:#FAFDFD;">
+          <td style="color:#888;">&vellip;</td>
+          <td style="font-family:monospace; color:#888; font-size:0.85em; font-style:italic;">&vellip; (all 58 streams)
+          </td>
+          <td colspan="10" style="color:#888; font-size:0.85em; font-style:italic;">&vellip; (cross-lags repeated
+            identically per date across streams)</td>
+          <td class="td-bg-y" style="color:#888; font-weight:700;">&vellip;</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+```

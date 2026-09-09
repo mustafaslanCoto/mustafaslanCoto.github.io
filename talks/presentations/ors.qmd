@@ -1,0 +1,29 @@
+---
+title: "Forecast all at once: A multi-series forecasting approach for hospital discharges and admissions"
+description: "The Operational Research Society"
+author: "Mustafa Aslan"
+date: "2026-09-10"
+image: "../images/hospital_flow_network.png"
+categories:
+  - Healthcare Operations
+  - Python
+  - Time Series Forecasting
+  - Machine Learning
+link-external-newwindow: true
+---
+
+
+![](../images/hospital_flow_network.png){fig-align="center"}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+[<i class="fas fa-bookmark"></i> Slides](../ors/present.qmd){.btn .btn-sm .btn-outline-primary}
+
+**Date:** September 10 2026 10:45-11:30 \
+**Event:** The Operational Research Society\
+**Location:** University of Nottingham, UK
+
+## Context
+
+At the Operational Research Society Annual Conference (ORS 2026), I presented our research on "Forecast all at once: A multi-series forecasting approach for hospital discharges and admissions." This presentation introduced a unified global multi-series forecasting framework designed to simultaneously predict daily admissions and discharges across 29 clinical specialties (58 interdependent time series). By capturing system-wide ripple effects through pooled cross-lag features and recursive multi-step forecasting with LightGBM, this approach replaces 58 individually tuned univariate models with a single scalable model, substantially reducing maintenance overhead while achieving superior point and probabilistic forecast accuracy to support hospital bed management and capacity planning.
+

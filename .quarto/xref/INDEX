@@ -81,5 +81,8 @@
   },
   "presentations/hosp_marimo.qmd": {
     "hosp_marimo.html": "e1b6e2ae"
+  },
+  "talks/presentations/ors.qmd": {
+    "ors.html": "57802c94"
   }
 }
