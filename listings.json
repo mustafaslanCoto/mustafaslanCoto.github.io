@@ -1,19 +1,22 @@
 [
   {
-    "listing": "/presentations/index.html",
-    "items": [
-      "/presentations/hosp_marimo.html"
-    ]
-  },
-  {
     "listing": "/talks/index.html",
     "items": [
+      "/talks/presentations/ors.html",
       "/talks/presentations/ifors.html",
       "/talks/presentations/exeter_visit.html",
       "/talks/presentations/phd_forum.html",
       "/talks/presentations/qqf.html",
       "/talks/presentations/sword.html",
       "/talks/presentations/wgsss.html"
+    ]
+  },
+  {
+    "listing": "/learn/index.html",
+    "items": [
+      "/learn/prob_stats/mc_integration.html",
+      "/learn/prob_stats/dists_index.html",
+      "/learn/prob_stats/cond_index.html"
     ]
   },
   {
@@ -31,11 +34,9 @@
     ]
   },
   {
-    "listing": "/learn/index.html",
+    "listing": "/presentations/index.html",
     "items": [
-      "/learn/prob_stats/mc_integration.html",
-      "/learn/prob_stats/cond_index.html",
-      "/learn/prob_stats/dists_index.html"
+      "/presentations/hosp_marimo.html"
     ]
   }
 ]
