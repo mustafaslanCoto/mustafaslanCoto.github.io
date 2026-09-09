@@ -84,5 +84,8 @@
   },
   "talks/presentations/ors.qmd": {
     "ors.html": "57802c94"
+  },
+  "talks/ors/present.qmd": {
+    "present.html": "aec5e316"
   }
 }

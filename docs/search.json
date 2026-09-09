@@ -8391,5 +8391,145 @@
     "title": "Forecast all at once: A multi-series forecasting approach for hospital discharges and admissions",
     "section": "Context",
     "text": "Context\nAt the Operational Research Society Annual Conference (ORS 2026), I presented our research on “Forecast all at once: A multi-series forecasting approach for hospital discharges and admissions.” This presentation introduced a unified global multi-series forecasting framework designed to simultaneously predict daily admissions and discharges across 29 clinical specialties (58 interdependent time series). By capturing system-wide ripple effects through pooled cross-lag features and recursive multi-step forecasting with LightGBM, this approach replaces 58 individually tuned univariate models with a single scalable model, substantially reducing maintenance overhead while achieving superior point and probabilistic forecast accuracy to support hospital bed management and capacity planning."
+  },
+  {
+    "objectID": "talks/ors/present.html#section",
+    "href": "talks/ors/present.html#section",
+    "title": "MUSTAFA ASLAN",
+    "section": "",
+    "text": "Outline\n\n\nProblem & Motivation\nThe Methodology\nExperimental Setup\nEmpirical Results\nNext Steps"
+  },
+  {
+    "objectID": "talks/ors/present.html#the-clinical-operational-problem",
+    "href": "talks/ors/present.html#the-clinical-operational-problem",
+    "title": "MUSTAFA ASLAN",
+    "section": "The Clinical & Operational Problem",
+    "text": "The Clinical & Operational Problem\n\n\n\n\n\nInterconnected Specialties: Dozens of acute clinical services continuously share and compete for hospital bed capacity.\nRipple Effects & Bed Blocking: Medical discharge delays directly block acute surgical transfers from recovery units.\nPatient Off-Placement: When target wards are full, patients are boarded in the “wrong” specialty beds—inflating length of stay and compounding hospital gridlock."
+  },
+  {
+    "objectID": "talks/ors/present.html#the-scale-of-the-challenge",
+    "href": "talks/ors/present.html#the-scale-of-the-challenge",
+    "title": "MUSTAFA ASLAN",
+    "section": "The Scale of the Challenge",
+    "text": "The Scale of the Challenge\nCapturing system-wide dynamics across 58 interdependent time series\n\n\n\n\n29 Clinical Specialties Medicine, Surgery, Trauma, Cardiology, Haematology, ICU, etc.\n\n\n\n2 Flow Types Admissions & Discharges Coupled daily inflows and outflows\n\n\n\n58 Series Simultaneous Time Series 5 years of daily data (\\(&gt;133,000\\) hospital observations)\n\n\n\n\nHow should we forecast these 58 streams for next planning periods?"
+  },
+  {
+    "objectID": "talks/ors/present.html#the-traditional-approach-58-univariate-forecasting-models",
+    "href": "talks/ors/present.html#the-traditional-approach-58-univariate-forecasting-models",
+    "title": "MUSTAFA ASLAN",
+    "section": "The Traditional Approach: 58 Univariate Forecasting Models",
+    "text": "The Traditional Approach: 58 Univariate Forecasting Models\n\n\n\n\n\n\nUnivariate Modeling\n\n\n\nFit 58 separate forecasting models (one per specialty and flow).\nMaintain and monitor model performance for each series independently.\n\nFor example, Hyperparameter tuning repeated for 58 independent times.\n\nEach model conditioned exclusively on its own past values: \\[\n\\hat{y}_{t+1}^{(i)} = f_i\\left(y_t^{(i)}, y_{t-1}^{(i)}, \\dots, y_{t-p}^{(i)}, \\mathbf{X}_t^{\\text{calendar}}\\right)\n\\]\n\n\n\n\n\n\n\n\nOperational Realities\n\n\n\nInformation Interdependencies: Admissions and discharges are strongly correlated across specialties (\\(r \\approx 0.85-1.0\\)). Ignoring cross-specialty spillovers creates blind spots in operational planning.\nTechnical Debt: Maintaining 58 separate models is resource-intensive and error-prone, especially when each model requires independent hyperparameter tuning and monitoring.\nScalability Issues: As the number of specialties grows, the maintenance burden increases linearly, making it unsustainable for large hospitals with many interdependent streams.\n\n\n\n\n\n\n\n➜ What if we could train ONE model that forecasts all 58 series at once?"
+  },
+  {
+    "objectID": "talks/ors/present.html#section-1",
+    "href": "talks/ors/present.html#section-1",
+    "title": "MUSTAFA ASLAN",
+    "section": "",
+    "text": "Outline\n\n\nProblem & Motivation\nThe Methodology\nExperimental Setup\nEmpirical Results\nNext Steps"
+  },
+  {
+    "objectID": "talks/ors/present.html#mathematical-formulation-multi-series-global-model",
+    "href": "talks/ors/present.html#mathematical-formulation-multi-series-global-model",
+    "title": "MUSTAFA ASLAN",
+    "section": "Mathematical Formulation: Multi-Series Global Model",
+    "text": "Mathematical Formulation: Multi-Series Global Model\n\n\n\n\nGlobal Functional Mapping:\nRather than fitting 58 single-series models, a single function \\(\\mathcal{M}\\) predicts discharge volume \\(y_{i,t}\\): \\[y_{i, t} = \\mathcal{M}\\left( s_i, \\, \\mathbf{X}_{t}^{\\text{cross}}, \\, \\mathbf{Z}_{t} \\right) + \\epsilon_{i, t}, \\qquad i = 1, \\dots, N\\]\nCross-Specialty Feature Vector:\nCaptures systemic “ripple effects” by concatenating \\(p\\) autoregressive lags across all \\(M\\) clinical specialties: \\[\\mathbf{X}_{t}^{\\text{cross}} = \\left[\\mathbf{y}_{t-1:t-p}^{(1)}, \\, \\mathbf{y}_{t-1:t-p}^{(2)}, \\, \\dots, \\, \\mathbf{y}_{t-1:t-p}^{(M)}\\right] \\in \\mathbb{R}^{M \\cdot p}\\]\nPooled Empirical Risk Minimization:\nThe global estimator \\(\\mathcal{M}^*\\) is learned jointly across all series and time points: \\[\\min_{\\mathcal{M}} \\sum_{i=1}^{N} \\sum_{t=p+1}^{T} \\mathcal{L}\\left( y_{i, t}, \\, \\mathcal{M}\\left(s_i, \\, \\mathbf{X}_{t}^{\\text{cross}}, \\, \\mathbf{Z}_{t}\\right) \\right) + \\Omega(\\mathcal{M})\\]\n\n\n\n\nNotation & Dimensions:\n\n\\(y_{i,t}\\): Discharge volume for series \\(i\\) on day \\(t\\)\n\\(N\\): Total target streams (29 specialties \\(\\times\\) 2 flow types)\n\\(s_i \\in \\{1, \\dots, N\\}\\): Categorical series identifier\n\\(M\\): Number of clinical specialties\n\\(p\\): Autoregressive lag depth\n\\(\\mathbf{Z}_t\\): Exogenous covariates (calendar, holidays, capacity expansion)\n\\(\\mathcal{M}(\\cdot)\\): Global non-linear learner (LightGBM GBDT)"
+  },
+  {
+    "objectID": "talks/ors/present.html#the-multi-series-training-matrix-architecture",
+    "href": "talks/ors/present.html#the-multi-series-training-matrix-architecture",
+    "title": "MUSTAFA ASLAN",
+    "section": "The Multi-Series Training Matrix Architecture",
+    "text": "The Multi-Series Training Matrix Architecture\n\n\n\n\n\n  \n    \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTime\nSeries ID (id_col)\nSpecialty A Lags\nSpecialty B Lags\nSpecialty C Lags\n…\nExog\nTarget (Y)\nFlow\n\n\nlag 3\nlag 2\nlag 1\nlag 3\nlag 2\nlag 1\nlag 3\nlag 2\nlag 1\n\n\n\n\nt1\nSpecialty A\n49\n52\n58\n15\n18\n20\n10\n12\n14\n…\nexog1\n65\n\n\nt2\nSpecialty A\n52\n58\n65\n18\n20\n22\n12\n14\n16\n…\nexog2\n71\n\n\nt3\nSpecialty A\n58\n65\n71\n20\n22\n19\n14\n16\n14\n…\nexog3\n68\n\n\n↓\nid_col switches →\n← Cross-Lag Features (X) Repeat Identically Across Series →\nTarget switches ↓\n\n\n\nt1\nSpecialty B\n49\n52\n58\n15\n18\n20\n10\n12\n14\n…\nexog1\n22\n\n\nt2\nSpecialty B\n52\n58\n65\n18\n20\n22\n12\n14\n16\n…\nexog2\n19\n\n\nt3\nSpecialty B\n58\n65\n71\n20\n22\n19\n14\n16\n14\n…\nexog3\n21\n\n\n↓\nid_col switches →\n← Cross-Lag Features (X) Repeat Identically Across Series →\nTarget switches ↓\n\n\n\nt1\nSpecialty C\n49\n52\n58\n15\n18\n20\n10\n12\n14\n…\nexog1\n16\n\n\nt2\nSpecialty C\n52\n58\n65\n18\n20\n22\n12\n14\n16\n…\nexog2\n14\n\n\nt3\nSpecialty C\n58\n65\n71\n20\n22\n19\n14\n16\n14\n…\nexog3\n15\n\n\n⋮\n⋮ (all 58 streams)\n⋮ (cross-lags repeated identically per date across streams)\n⋮"
+  },
+  {
+    "objectID": "talks/ors/present.html#recursive-multi-step-ahead-forecasting-h-42-days",
+    "href": "talks/ors/present.html#recursive-multi-step-ahead-forecasting-h-42-days",
+    "title": "MUSTAFA ASLAN",
+    "section": "Recursive Multi-Step Ahead Forecasting (\\(H = 42\\) Days)",
+    "text": "Recursive Multi-Step Ahead Forecasting (\\(H = 42\\) Days)\nPropagating dynamic feedback loops across the forecasting horizon\n\n\n\n\nStep \\(h = 1\\) (Known History)\n1. Known Observations: Model ingests historical observations up to time \\(t\\): \\[\\mathbf{X}_{t} = \\left[\\mathbf{y}_{t:t-6}^{(1)}, \\dots, \\mathbf{y}_{t:t-6}^{(29)}, \\mathbf{Z}_{t+1}\\right]\\]\n2. Forecast Generation: \\[\\hat{\\mathbf{y}}_{t+1} = \\mathcal{M}\\left(\\mathbf{X}_t\\right)\\] Generates 1-step ahead predictions for all 58 series simultaneously.\n\n\n\nStep \\(h = 2\\) (AutoReg Roll)\n1. Lag Update Feedback: Predicted values \\(\\hat{\\mathbf{y}}_{t+1}\\) roll into the most recent lag position: \\[\\text{Lag}_1 \\leftarrow \\hat{\\mathbf{y}}_{t+1}, \\quad \\text{Lag}_2 \\leftarrow \\mathbf{y}_t\\]\n2. Step-2 Prediction: \\[\\hat{\\mathbf{y}}_{t+2} = \\mathcal{M}\\left(\\mathbf{X}_{t+1}\\right)\\] Mutual cross-specialty dependencies feed directly into day 2.\n\n\n\nStep \\(h = 3 \\dots H\\) (\\(H = 42\\))\n1. Recursive Progression: Repeated iteratively for all 42 days of the operational roster horizon.\n2. Full Joint Trajectory: Produces a coherent \\(42 \\times 58\\) matrix of predictions: \\[\\hat{\\mathbf{Y}}_{t+1:t+42} \\in \\mathbb{R}^{42 \\times 58}\\]"
+  },
+  {
+    "objectID": "talks/ors/present.html#section-2",
+    "href": "talks/ors/present.html#section-2",
+    "title": "MUSTAFA ASLAN",
+    "section": "",
+    "text": "Outline\n\n\nProblem & Motivation\nThe Methodology\nExperimental Setup\nEmpirical Results\nNext Steps"
+  },
+  {
+    "objectID": "talks/ors/present.html#experimental-setup-benchmarking",
+    "href": "talks/ors/present.html#experimental-setup-benchmarking",
+    "title": "MUSTAFA ASLAN",
+    "section": "Experimental Setup & Benchmarking",
+    "text": "Experimental Setup & Benchmarking\n\n\n\n\nNHS Inpatient Dataset & Evaluation Protocol\n\n\nData Source: NHS Inpatient dataset (Jan 2021 – Feb 2026, \\(&gt;133,000\\) points).\nTarget Dimensions: 29 clinical specialties \\(\\times\\) 2 flow types \\(= \\mathbf{58}\\) time series.\nCross-Lag Features: 29 dominant flow series \\(\\times\\) 7 lags \\(= \\mathbf{203}\\) dynamic features.\nExogenous Variables: Calendar (dow, month), bank holidays, and General Medicine capacity expansion (gm_ch).\nRolling-Origin Cross-Validation:\n\n30 rolling evaluation splits, horizon \\(H = 42\\) days (step \\(= 12\\) days).\nPrimary metric: Root Mean Squared Scaled Error (RMSSE).\n\n\n\n\n\n\nCompeting Models & Benchmarking Protocol\n\n\nModel Families Evaluated:\n\nLightGBM (lgb): Fast histogram GBDT with native categorical series handling.\nXGBoost (xgb): Level-wise gradient boosting with one-hot series encoding.\nRidge Regression (ridge): Linear \\(L_2\\) regression with Fourier seasonality terms.\n\nSingle-Series Benchmark (Status Quo):\n\n58 independent models per family, tuned with Optuna (75 trials \\(\\times 58 = 4,350\\) CV fits).\n\nMulti-Series Model (Proposed):\n\n1 unified model trained on the pooled cross-lag matrix (\\(203\\) features)."
+  },
+  {
+    "objectID": "talks/ors/present.html#section-3",
+    "href": "talks/ors/present.html#section-3",
+    "title": "MUSTAFA ASLAN",
+    "section": "",
+    "text": "Outline\n\n\nProblem & Motivation\nThe Methodology\nExperimental Setup\nEmpirical Results\nNext Steps"
+  },
+  {
+    "objectID": "talks/ors/present.html#forecast-evaluation-metrics",
+    "href": "talks/ors/present.html#forecast-evaluation-metrics",
+    "title": "MUSTAFA ASLAN",
+    "section": "Forecast Evaluation Metrics",
+    "text": "Forecast Evaluation Metrics\nAssessing point accuracy and distributional calibration across heterogeneous streams\n\n\n\nRoot Mean Squared Scaled Error (RMSSE)\n\\[\\text{RMSSE} = \\sqrt{\\frac{\\frac{1}{H}\\sum_{h=1}^{H}\\left(y_{t+h} - \\hat{y}_{t+h}\\right)^2}{\\frac{1}{T-1}\\sum_{t=2}^{T}\\left(y_t - y_{t-1}\\right)^2}}\\]\n\n\nScale-Independent: Discharges vary widely across series (e.g., 2 vs. 70 patients/day); errors are scaled by naïve random walk to enable fair multi-series comparison.\nOutlier Penalty: Quadratic loss penalizes large misforecasts during critical patient surges.\n\n\n\n\n\nContinuous Ranked Probability Skill Score (CRPSS)\n\\[\\text{CRPS}(F, y) = \\int_{-\\infty}^{\\infty}\\left(F(x) - \\mathbf{1}(x \\ge y)\\right)^2 dx\\] \\[\\text{CRPSS} = 1 - \\frac{\\text{CRPS}_{\\text{Multi}}}{\\text{CRPS}_{\\text{Single}}}\\]\n\n\nContinuous Ranked Probability Score (CRPS): Evaluates sharpness and calibration across all quantiles (probabilistic analogue of MAE).\nRelative Skill Gain (CRPSS): Benchmarks multi-series against single-series models (\\(\\text{CRPSS} &gt; 0\\) indicates percentage improvement)."
+  },
+  {
+    "objectID": "talks/ors/present.html#point-forecast-results",
+    "href": "talks/ors/present.html#point-forecast-results",
+    "title": "MUSTAFA ASLAN",
+    "section": "Point Forecast Results",
+    "text": "Point Forecast Results"
+  },
+  {
+    "objectID": "talks/ors/present.html#system-wide-superiority-94-of-inpatient-streams-improved",
+    "href": "talks/ors/present.html#system-wide-superiority-94-of-inpatient-streams-improved",
+    "title": "MUSTAFA ASLAN",
+    "section": "System-Wide Superiority: 94% of Inpatient Streams Improved",
+    "text": "System-Wide Superiority: 94% of Inpatient Streams Improved"
+  },
+  {
+    "objectID": "talks/ors/present.html#probabilistic-forecast-results",
+    "href": "talks/ors/present.html#probabilistic-forecast-results",
+    "title": "MUSTAFA ASLAN",
+    "section": "Probabilistic Forecast Results",
+    "text": "Probabilistic Forecast Results"
+  },
+  {
+    "objectID": "talks/ors/present.html#system-wide-probabilistic-calibration",
+    "href": "talks/ors/present.html#system-wide-probabilistic-calibration",
+    "title": "MUSTAFA ASLAN",
+    "section": "System-Wide Probabilistic Calibration",
+    "text": "System-Wide Probabilistic Calibration"
+  },
+  {
+    "objectID": "talks/ors/present.html#model-vs.-58-models",
+    "href": "talks/ors/present.html#model-vs.-58-models",
+    "title": "MUSTAFA ASLAN",
+    "section": "1 Model vs. 58 Models",
+    "text": "1 Model vs. 58 Models\n\n\n\n\n\n\n\n\n\n\nOperational Dimension\nSingle-Series Models\nProposed Multi-Series\nOperational Benefit\n\n\n\n\nModel Footprint\n58 separate models\n1 unified model\nSingle model to maintain\n\n\nHyperparameter Tuning\n58 Optuna studies (\\(4,350\\) CV fits)\n1 Optuna study (\\(75\\) CV fits)\nSubstantially faster tuning process\n\n\nData Utilization\n\\(58 \\times 2,300\\) isolated observations\n\\(133,000+\\) collective panel rows\nGreater statistical power\n\n\nDrift Monitoring\n58 separate pipelines to track\n1 consolidated pipeline\nMinimal maintenance overhead\n\n\nCross-Specialty Awareness\nLimited to own series history\nFull cross-series lag visibility\nCaptures inter-specialty spillover\n\n\nForecast Accuracy\nMean RMSSE: 0.5989\nMean RMSSE: 0.5610\n+7.01% average gain across 58 series"
+  },
+  {
+    "objectID": "talks/ors/present.html#section-4",
+    "href": "talks/ors/present.html#section-4",
+    "title": "MUSTAFA ASLAN",
+    "section": "",
+    "text": "Outline\n\n\nProblem & Motivation\nThe Methodology\nExperimental Setup\nEmpirical Results\nNext Steps"
+  },
+  {
+    "objectID": "talks/ors/present.html#next-steps",
+    "href": "talks/ors/present.html#next-steps",
+    "title": "MUSTAFA ASLAN",
+    "section": "Next Steps",
+    "text": "Next Steps\nFrom well-calibrated probabilistic forecasts to stochastic bed allocation\n\n\n\nProbabilistic Scenarios: Generate joint scenario paths across all specialties to capture uncertainty and cross-specialty admission&discharge surges.\nBed Allocation & Reservation Simulation: Simulate downstream bed availability to evaluate proactive reservation policies across clinical wards.\nStochastic Optimization: Formulate stochastic programming models for dynamic bed allocation under uncertainty to reduce patient off-placement."
+  },
+  {
+    "objectID": "talks/ors/present.html#peshbeen",
+    "href": "talks/ors/present.html#peshbeen",
+    "title": "MUSTAFA ASLAN",
+    "section": "peshbeen",
+    "text": "peshbeen\n\nA Probabilistic Forecasting Package\nOpen-source Python package implementing various forecasting frameworks(e.g., any sklearn-compatible regressor, ARIMA, ETS, etc.) for univariate and multi-series time series forecasting.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nScan for documentation\nmustafaslancoto.github.io/peshbeen"
   }
 ]
