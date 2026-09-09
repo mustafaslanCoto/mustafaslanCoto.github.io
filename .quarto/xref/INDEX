@@ -87,5 +87,8 @@
   },
   "talks/ors/present.qmd": {
     "present.html": "aec5e316"
+  },
+  "talks/sword/sword_slides.qmd": {
+    "sword_slides.html": "c7dc7e19"
   }
 }
