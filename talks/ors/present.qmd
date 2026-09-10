@@ -120,9 +120,8 @@ $$
 
 - **Information Interdependencies:** Admissions and discharges are strongly correlated across specialties ($r \approx 0.85-1.0$). Ignoring cross-specialty spillovers creates blind spots in operational planning.
 
-- **Technical Debt:** Maintaining 58 separate models is resource-intensive and error-prone, especially when each model requires independent hyperparameter tuning and monitoring.
+- **Technical Debt & Scalability Issues:** Maintaining 58 separate models is resource-intensive and error-prone, especially when each model requires independent hyperparameter tuning and monitoring.
 
-- **Scalability Issues:** As the number of specialties grows, the maintenance burden increases linearly, making it unsustainable for large hospitals with many interdependent streams.
 :::
 :::
 ::::
@@ -204,7 +203,7 @@ $$
 <br>
 
 ::::{.columns}
-:::{.column width="32%"}
+:::{.column width="32%" .fragment}
 :::{.border-box style="background: white; border: 2px solid #20808D; border-radius: 10px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); height: 100%;"}
 [Step $h = 1$ (Known History)]{style="background: #20808D; color: white; padding: 6px 14px; border-radius: 6px; font-weight: bold; font-size: 1.1em; display: block; text-align: center; margin-bottom: 14px;"}
 
@@ -214,11 +213,11 @@ $$\mathbf{X}_{t} = \left[\mathbf{y}_{t:t-6}^{(1)}, \dots, \mathbf{y}_{t:t-6}^{(2
 
 [2. Forecast Generation:]{style="font-weight: bold; color: #0B363C; font-size: 1.02em; margin-top: 10px; display: block;"}
 $$\hat{\mathbf{y}}_{t+1} = \mathcal{M}\left(\mathbf{X}_t\right)$$
-Generates 1-step ahead predictions for **all 58 series simultaneously**.
+Generates 1-step ahead forecasts for **all 58 series simultaneously**.
 :::
 :::
 
-:::{.column width="32%"}
+:::{.column width="32%" .fragment}
 :::{.border-box style="background: white; border: 2px solid #B2582D; border-radius: 10px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); height: 100%;"}
 [Step $h = 2$ (AutoReg Roll)]{style="background: #B2582D; color: white; padding: 6px 14px; border-radius: 6px; font-weight: bold; font-size: 1.1em; display: block; text-align: center; margin-bottom: 14px;"}
 
@@ -228,11 +227,12 @@ $$\text{Lag}_1 \leftarrow \hat{\mathbf{y}}_{t+1}, \quad \text{Lag}_2 \leftarrow 
 
 [2. Step-2 Prediction:]{style="font-weight: bold; color: #B2582D; font-size: 1.02em; margin-top: 10px; display: block;"}
 $$\hat{\mathbf{y}}_{t+2} = \mathcal{M}\left(\mathbf{X}_{t+1}\right)$$
+Generates 2-step ahead forecasts for **all 58 series simultaneously**.
 Mutual cross-specialty dependencies feed directly into day 2.
 :::
 :::
 
-:::{.column width="32%"}
+:::{.column width="32%" .fragment}
 :::{.border-box style="background: white; border: 2px solid #0B363C; border-radius: 10px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); height: 100%;"}
 [Step $h = 3 \dots H$ ($H = 42$)]{style="background: #0B363C; color: white; padding: 6px 14px; border-radius: 6px; font-weight: bold; font-size: 1.1em; display: block; text-align: center; margin-bottom: 14px;"}
 
@@ -240,7 +240,7 @@ Mutual cross-specialty dependencies feed directly into day 2.
 Repeated iteratively for all 42 days of the operational roster horizon.
 
 [2. Full Joint Trajectory:]{style="font-weight: bold; color: #0B363C; font-size: 1.02em; margin-top: 10px; display: block;"}
-Produces a coherent $42 \times 58$ matrix of predictions:
+Produces a coherent $42 \times 58$ matrix of forecasts:
 $$\hat{\mathbf{Y}}_{t+1:t+42} \in \mathbb{R}^{42 \times 58}$$
 :::
 :::
@@ -274,12 +274,12 @@ $$\hat{\mathbf{Y}}_{t+1:t+42} \in \mathbb{R}^{42 \times 58}$$
 <br>
 
 ::::{.columns style="display: flex; align-items: stretch; gap: 20px;"}
-:::{.column style="width: 50%; display: flex; flex-direction: column;"}
+:::{.column style="width: 50%; display: flex; flex-direction: column;" .fragment}
 :::{.border-box style="background: white; border: 2px solid #0B363C; border-radius: 10px; padding: 18px 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); flex: 1; display: flex; flex-direction: column;"}
 [NHS Inpatient Dataset & Evaluation Protocol]{style="background: #0B363C; color: white; padding: 6px 14px; border-radius: 6px; font-weight: bold; font-size: 0.98em; display: block; text-align: center; margin-bottom: 14px;"}
 
 :::{style="font-size: 0.95em; line-height: 1.55; flex: 1;"}
-- **Data Source:** NHS Inpatient dataset (Jan 2021 – Feb 2026, $>133,000$ points).
+- **Data Source:** NHS Inpatient dataset (Jan 2021 – Feb 2026).
 
 - **Target Dimensions:** 29 clinical specialties $\times$ 2 flow types $= \mathbf{58}$ time series.
 
@@ -288,13 +288,14 @@ $$\hat{\mathbf{Y}}_{t+1:t+42} \in \mathbb{R}^{42 \times 58}$$
 - **Exogenous Variables:** Calendar (`dow`, `month`), bank holidays, and General Medicine capacity expansion (`gm_ch`).
 
 - **Rolling-Origin Cross-Validation:**
+  - Reserve the last year of data for out-of-sample evaluation.
   - **30 rolling evaluation splits**, horizon **$H = 42$ days** (step $= 12$ days).
   - Primary metric: Root Mean Squared Scaled Error (**RMSSE**).
 :::
 :::
 :::
 
-:::{.column style="width: 50%; display: flex; flex-direction: column;"}
+:::{.column style="width: 50%; display: flex; flex-direction: column;" .fragment}
 :::{.border-box style="background: white; border: 2px solid #20808D; border-radius: 10px; padding: 18px 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); flex: 1; display: flex; flex-direction: column;"}
 [Competing Models & Benchmarking Protocol]{style="background: #20808D; color: white; padding: 6px 14px; border-radius: 6px; font-weight: bold; font-size: 0.98em; display: block; text-align: center; margin-bottom: 14px;"}
 
@@ -304,11 +305,11 @@ $$\hat{\mathbf{Y}}_{t+1:t+42} \in \mathbb{R}^{42 \times 58}$$
   - **XGBoost (`xgb`):** Level-wise gradient boosting with one-hot series encoding.
   - **Ridge Regression (`ridge`):** Linear $L_2$ regression with Fourier seasonality terms.
 
-- **Single-Series Benchmark (Status Quo):**
-  - **58 independent models** per family, tuned with **Optuna** (75 trials $\times 58 = 4,350$ CV fits).
+- **Single-Series Benchmark:**
+  - **58 independent models** per family, tuned with **Optuna** and cross-validation on test data.
 
 - **Multi-Series Model (Proposed):**
-  - **1 unified model** trained on the pooled cross-lag matrix ($203$ features).
+  - **1 unified model** per family, tuned with **Optuna** and cross-validation on test data.
 :::
 :::
 :::
@@ -667,7 +668,7 @@ plt.show()
 | :--- | :--- | :--- | :--- |
 | **Model Footprint** | **58 separate models** | **1 unified model** | [**Single model to maintain**]{style="color: #20808D; font-weight: bold;"} |
 | **Hyperparameter Tuning** | 58 Optuna studies ($4,350$ CV fits) | 1 Optuna study ($75$ CV fits) | [**Substantially faster tuning process**]{style="color: #20808D; font-weight: bold;"} |
-| **Data Utilization** | $58 \times 2,300$ isolated observations | $133,000+$ collective panel rows | [**Greater statistical power**]{style="color: #20808D; font-weight: bold;"} |
+| **Data Utilization** | $58 \times 2,300$ observations | $133,000+$ collective panel rows | [**Greater statistical power**]{style="color: #20808D; font-weight: bold;"} |
 | **Drift Monitoring** | 58 separate pipelines to track | 1 consolidated pipeline | [**Minimal maintenance overhead**]{style="color: #20808D; font-weight: bold;"} |
 | **Cross-Specialty Awareness** | Limited to own series history | Full cross-series lag visibility | [**Captures inter-specialty spillover**]{style="color: #20808D; font-weight: bold;"} |
 | **Forecast Accuracy** | Mean RMSSE: 0.5989 | **Mean RMSSE: 0.5610** | [**+7.01% average gain across 58 series**]{style="color: #20808D; font-weight: bold;"} |
