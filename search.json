@@ -2258,7 +2258,7 @@
     "href": "talks/ors/present.html#next-steps",
     "title": "MUSTAFA ASLAN",
     "section": "Next Steps",
-    "text": "Next Steps\nFrom well-calibrated probabilistic forecasts to stochastic bed allocation\n\n\n\nProbabilistic Scenarios: Generate joint scenario paths across all specialties to capture uncertainty and cross-specialty admission&discharge surges.\nBed Allocation & Reservation Simulation: Simulate downstream bed availability to evaluate proactive reservation policies across clinical wards.\nStochastic Optimization: Formulate stochastic programming models for dynamic bed allocation under uncertainty to reduce patient off-placement."
+    "text": "Next Steps\nFrom well-calibrated probabilistic forecasts to stochastic bed allocation\n\n\n\nProbabilistic Scenarios: Generate joint scenario paths across all specialties to capture uncertainty and cross-specialty admission&discharge surges.\nStochastic Optimization and Bed Reservation: Formulate stochastic programming models for dynamic bed reservation under uncertainty to reduce patient off-placement."
   },
   {
     "objectID": "talks/ors/present.html#peshbeen",
