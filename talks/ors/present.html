@@ -317,8 +317,7 @@
 <div class="callout-content">
 <ul>
 <li><p><strong>Information Interdependencies:</strong> Admissions and discharges are strongly correlated across specialties (<span class="math inline">\(r \approx 0.85-1.0\)</span>). Ignoring cross-specialty spillovers creates blind spots in operational planning.</p></li>
-<li><p><strong>Technical Debt:</strong> Maintaining 58 separate models is resource-intensive and error-prone, especially when each model requires independent hyperparameter tuning and monitoring.</p></li>
-<li><p><strong>Scalability Issues:</strong> As the number of specialties grows, the maintenance burden increases linearly, making it unsustainable for large hospitals with many interdependent streams.</p></li>
+<li><p><strong>Technical Debt &amp; Scalability Issues:</strong> Maintaining 58 separate models is resource-intensive and error-prone, especially when each model requires independent hyperparameter tuning and monitoring.</p></li>
 </ul>
 </div>
 </div>
@@ -821,23 +820,23 @@ Flow</th>
 <h3 id="propagating-dynamic-feedback-loops-across-the-forecasting-horizon">Propagating dynamic feedback loops across the forecasting horizon</h3>
 <p><br></p>
 <div class="columns">
-<div class="column" style="width:32%;">
+<div class="column fragment" style="width:32%;">
 <div class="border-box" style="background: white; border: 2px solid #20808D; border-radius: 10px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); height: 100%;">
 <p><span style="background: #20808D; color: white; padding: 6px 14px; border-radius: 6px; font-weight: bold; font-size: 1.1em; display: block; text-align: center; margin-bottom: 14px;">Step <span class="math inline">\(h = 1\)</span> (Known History)</span></p>
 <p><span style="font-weight: bold; color: #0B363C; font-size: 1.02em;">1. Known Observations:</span> Model ingests historical observations up to time <span class="math inline">\(t\)</span>: <span class="math display">\[\mathbf{X}_{t} = \left[\mathbf{y}_{t:t-6}^{(1)}, \dots, \mathbf{y}_{t:t-6}^{(29)}, \mathbf{Z}_{t+1}\right]\]</span></p>
-<p><span style="font-weight: bold; color: #0B363C; font-size: 1.02em; margin-top: 10px; display: block;">2. Forecast Generation:</span> <span class="math display">\[\hat{\mathbf{y}}_{t+1} = \mathcal{M}\left(\mathbf{X}_t\right)\]</span> Generates 1-step ahead predictions for <strong>all 58 series simultaneously</strong>.</p>
+<p><span style="font-weight: bold; color: #0B363C; font-size: 1.02em; margin-top: 10px; display: block;">2. Forecast Generation:</span> <span class="math display">\[\hat{\mathbf{y}}_{t+1} = \mathcal{M}\left(\mathbf{X}_t\right)\]</span> Generates 1-step ahead forecasts for <strong>all 58 series simultaneously</strong>.</p>
 </div>
-</div><div class="column" style="width:32%;">
+</div><div class="column fragment" style="width:32%;">
 <div class="border-box" style="background: white; border: 2px solid #B2582D; border-radius: 10px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); height: 100%;">
 <p><span style="background: #B2582D; color: white; padding: 6px 14px; border-radius: 6px; font-weight: bold; font-size: 1.1em; display: block; text-align: center; margin-bottom: 14px;">Step <span class="math inline">\(h = 2\)</span> (AutoReg Roll)</span></p>
 <p><span style="font-weight: bold; color: #B2582D; font-size: 1.02em;">1. Lag Update Feedback:</span> Predicted values <span class="math inline">\(\hat{\mathbf{y}}_{t+1}\)</span> roll into the most recent lag position: <span class="math display">\[\text{Lag}_1 \leftarrow \hat{\mathbf{y}}_{t+1}, \quad \text{Lag}_2 \leftarrow \mathbf{y}_t\]</span></p>
-<p><span style="font-weight: bold; color: #B2582D; font-size: 1.02em; margin-top: 10px; display: block;">2. Step-2 Prediction:</span> <span class="math display">\[\hat{\mathbf{y}}_{t+2} = \mathcal{M}\left(\mathbf{X}_{t+1}\right)\]</span> Mutual cross-specialty dependencies feed directly into day 2.</p>
+<p><span style="font-weight: bold; color: #B2582D; font-size: 1.02em; margin-top: 10px; display: block;">2. Step-2 Prediction:</span> <span class="math display">\[\hat{\mathbf{y}}_{t+2} = \mathcal{M}\left(\mathbf{X}_{t+1}\right)\]</span> Generates 2-step ahead forecasts for <strong>all 58 series simultaneously</strong>. Mutual cross-specialty dependencies feed directly into day 2.</p>
 </div>
-</div><div class="column" style="width:32%;">
+</div><div class="column fragment" style="width:32%;">
 <div class="border-box" style="background: white; border: 2px solid #0B363C; border-radius: 10px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); height: 100%;">
 <p><span style="background: #0B363C; color: white; padding: 6px 14px; border-radius: 6px; font-weight: bold; font-size: 1.1em; display: block; text-align: center; margin-bottom: 14px;">Step <span class="math inline">\(h = 3 \dots H\)</span> (<span class="math inline">\(H = 42\)</span>)</span></p>
 <p><span style="font-weight: bold; color: #0B363C; font-size: 1.02em;">1. Recursive Progression:</span> Repeated iteratively for all 42 days of the operational roster horizon.</p>
-<p><span style="font-weight: bold; color: #0B363C; font-size: 1.02em; margin-top: 10px; display: block;">2. Full Joint Trajectory:</span> Produces a coherent <span class="math inline">\(42 \times 58\)</span> matrix of predictions: <span class="math display">\[\hat{\mathbf{Y}}_{t+1:t+42} \in \mathbb{R}^{42 \times 58}\]</span></p>
+<p><span style="font-weight: bold; color: #0B363C; font-size: 1.02em; margin-top: 10px; display: block;">2. Full Joint Trajectory:</span> Produces a coherent <span class="math inline">\(42 \times 58\)</span> matrix of forecasts: <span class="math display">\[\hat{\mathbf{Y}}_{t+1:t+42} \in \mathbb{R}^{42 \times 58}\]</span></p>
 </div>
 </div></div>
 <!-- :::{style="background: #DEF7F9; padding: 14px 20px; border-radius: 8px; border-left: 4px solid #0B363C; font-size: 0.98em; line-height: 1.5;"}
@@ -862,24 +861,25 @@ Flow</th>
 <h2>Experimental Setup &amp; Benchmarking</h2>
 <p><br></p>
 <div class="columns" style="display: flex; align-items: stretch; gap: 20px;">
-<div class="column" style="width: 50%; display: flex; flex-direction: column;">
+<div class="column fragment" style="width: 50%; display: flex; flex-direction: column;">
 <div class="border-box" style="background: white; border: 2px solid #0B363C; border-radius: 10px; padding: 18px 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); flex: 1; display: flex; flex-direction: column;">
 <p><span style="background: #0B363C; color: white; padding: 6px 14px; border-radius: 6px; font-weight: bold; font-size: 0.98em; display: block; text-align: center; margin-bottom: 14px;">NHS Inpatient Dataset &amp; Evaluation Protocol</span></p>
 <div style="font-size: 0.95em; line-height: 1.55; flex: 1;">
 <ul>
-<li><p><strong>Data Source:</strong> NHS Inpatient dataset (Jan 2021 – Feb 2026, <span class="math inline">\(&gt;133,000\)</span> points).</p></li>
+<li><p><strong>Data Source:</strong> NHS Inpatient dataset (Jan 2021 – Feb 2026).</p></li>
 <li><p><strong>Target Dimensions:</strong> 29 clinical specialties <span class="math inline">\(\times\)</span> 2 flow types <span class="math inline">\(= \mathbf{58}\)</span> time series.</p></li>
 <li><p><strong>Cross-Lag Features:</strong> 29 dominant flow series <span class="math inline">\(\times\)</span> 7 lags <span class="math inline">\(= \mathbf{203}\)</span> dynamic features.</p></li>
 <li><p><strong>Exogenous Variables:</strong> Calendar (<code>dow</code>, <code>month</code>), bank holidays, and General Medicine capacity expansion (<code>gm_ch</code>).</p></li>
 <li><p><strong>Rolling-Origin Cross-Validation:</strong></p>
 <ul>
+<li>Reserve the last year of data for out-of-sample evaluation.</li>
 <li><strong>30 rolling evaluation splits</strong>, horizon <strong><span class="math inline">\(H = 42\)</span> days</strong> (step <span class="math inline">\(= 12\)</span> days).</li>
 <li>Primary metric: Root Mean Squared Scaled Error (<strong>RMSSE</strong>).</li>
 </ul></li>
 </ul>
 </div>
 </div>
-</div><div class="column" style="width: 50%; display: flex; flex-direction: column;">
+</div><div class="column fragment" style="width: 50%; display: flex; flex-direction: column;">
 <div class="border-box" style="background: white; border: 2px solid #20808D; border-radius: 10px; padding: 18px 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); flex: 1; display: flex; flex-direction: column;">
 <p><span style="background: #20808D; color: white; padding: 6px 14px; border-radius: 6px; font-weight: bold; font-size: 0.98em; display: block; text-align: center; margin-bottom: 14px;">Competing Models &amp; Benchmarking Protocol</span></p>
 <div style="font-size: 0.95em; line-height: 1.55; flex: 1;">
@@ -890,13 +890,13 @@ Flow</th>
 <li><strong>XGBoost (<code>xgb</code>):</strong> Level-wise gradient boosting with one-hot series encoding.</li>
 <li><strong>Ridge Regression (<code>ridge</code>):</strong> Linear <span class="math inline">\(L_2\)</span> regression with Fourier seasonality terms.</li>
 </ul></li>
-<li><strong>Single-Series Benchmark (Status Quo):</strong>
+<li><strong>Single-Series Benchmark:</strong>
 <ul>
-<li><strong>58 independent models</strong> per family, tuned with <strong>Optuna</strong> (75 trials <span class="math inline">\(\times 58 = 4,350\)</span> CV fits).</li>
+<li><strong>58 independent models</strong> per family, tuned with <strong>Optuna</strong> and cross-validation on test data.</li>
 </ul></li>
 <li><strong>Multi-Series Model (Proposed):</strong>
 <ul>
-<li><strong>1 unified model</strong> trained on the pooled cross-lag matrix (<span class="math inline">\(203\)</span> features).</li>
+<li><strong>1 unified model</strong> per family, tuned with <strong>Optuna</strong> and cross-validation on test data.</li>
 </ul></li>
 </ul>
 </div>
@@ -947,7 +947,7 @@ Flow</th>
 </section>
 <section id="point-forecast-results" class="slide level2">
 <h2>Point Forecast Results</h2>
-<div id="ae49e9a5" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="1">
+<div id="3a84dcd6" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -960,7 +960,7 @@ Flow</th>
 <section id="system-wide-superiority-94-of-inpatient-streams-improved" class="slide level2">
 <h2>System-Wide Superiority: 94% of Inpatient Streams Improved</h2>
 <p><br></p>
-<div id="10938396" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="2">
+<div id="8635677b" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -973,7 +973,7 @@ Flow</th>
 <section id="probabilistic-forecast-results" class="slide level2">
 <h2>Probabilistic Forecast Results</h2>
 <p><br></p>
-<div id="617f3ca9" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="3">
+<div id="371a6689" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -985,7 +985,7 @@ Flow</th>
 </section>
 <section id="system-wide-probabilistic-calibration" class="slide level2">
 <h2>System-Wide Probabilistic Calibration</h2>
-<div id="d2a30585" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="4">
+<div id="e311c053" class="cell" data-fig-height="100%" data-fig-width="100%" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1028,7 +1028,7 @@ Flow</th>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong>Data Utilization</strong></td>
-<td style="text-align: left;"><span class="math inline">\(58 \times 2,300\)</span> isolated observations</td>
+<td style="text-align: left;"><span class="math inline">\(58 \times 2,300\)</span> observations</td>
 <td style="text-align: left;"><span class="math inline">\(133,000+\)</span> collective panel rows</td>
 <td style="text-align: left;"><span style="color: #20808D; font-weight: bold;"><strong>Greater statistical power</strong></span></td>
 </tr>
