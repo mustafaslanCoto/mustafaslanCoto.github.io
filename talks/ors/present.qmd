@@ -6,7 +6,7 @@ format:
     css: style.css
     width: 1920
     height: 1080
-    footer: "[Forecast all at once: A multi-series approach | OR Society Annual Conference 2026](https://mustafaslancoto.github.io)"
+    footer: "[Forecast all at once: A multi-series approach | OR Society Annual Conference 2026](https://mustafaslancoto.github.io/talks/presentations/ors.html)"
     slide-number: c/t
     preview-links: auto
     # chalkboard: true
@@ -698,9 +698,7 @@ plt.show()
 
 - **Probabilistic Scenarios:** Generate joint scenario paths across all specialties to capture uncertainty and cross-specialty admission&discharge surges.
 
-- **Bed Allocation & Reservation Simulation:** Simulate downstream bed availability to evaluate proactive reservation policies across clinical wards.
-
-- **Stochastic Optimization:** Formulate stochastic programming models for dynamic bed allocation under uncertainty to reduce patient off-placement.
+- **Stochastic Optimization and Bed Reservation:** Formulate stochastic programming models for dynamic bed reservation under uncertainty to reduce patient off-placement.
 
 :::
 
