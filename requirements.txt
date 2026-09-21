@@ -22,4 +22,5 @@ tabulate
 great_tables
 setuptools
 marimo
+itables
 git+https://github.com/mustafaslanCoto/peshbeen_dev.git
