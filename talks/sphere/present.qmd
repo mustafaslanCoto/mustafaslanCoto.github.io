@@ -6,7 +6,7 @@ format:
     css: style.css
     width: 1920
     height: 1080
-    footer: "[Markov-Switching AutoRegressive Regression | Data Lab for Social Good](https://mustafaslancoto.github.io/peshbeen/guide/01_model_zoo.html#forecasting-with-ms-arr-capturing-regime-changes)"
+    footer: "[Markov-Switching AutoRegressive Regression | Data Lab for Social Good](https://mustafaslancoto.github.io/talks/presentations/sphere.html)"
     slide-number: c/t
     preview-links: auto
     html-math-method: mathjax
