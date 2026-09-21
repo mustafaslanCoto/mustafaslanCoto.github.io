@@ -1,17 +1,5 @@
 [
   {
-    "listing": "/talks/index.html",
-    "items": [
-      "/talks/presentations/ors.html",
-      "/talks/presentations/ifors.html",
-      "/talks/presentations/exeter_visit.html",
-      "/talks/presentations/phd_forum.html",
-      "/talks/presentations/qqf.html",
-      "/talks/presentations/sword.html",
-      "/talks/presentations/wgsss.html"
-    ]
-  },
-  {
     "listing": "/learn/index.html",
     "items": [
       "/learn/prob_stats/mc_integration.html",
@@ -31,6 +19,19 @@
       "/workshops/trainings/causal_ml.html",
       "/workshops/trainings/rl_index.html",
       "/workshops/trainings/py_index.html"
+    ]
+  },
+  {
+    "listing": "/talks/index.html",
+    "items": [
+      "/talks/presentations/sphere.html",
+      "/talks/presentations/ors.html",
+      "/talks/presentations/ifors.html",
+      "/talks/presentations/exeter_visit.html",
+      "/talks/presentations/phd_forum.html",
+      "/talks/presentations/qqf.html",
+      "/talks/presentations/sword.html",
+      "/talks/presentations/wgsss.html"
     ]
   },
   {
