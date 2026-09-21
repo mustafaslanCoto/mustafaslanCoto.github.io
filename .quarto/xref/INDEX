@@ -90,5 +90,11 @@
   },
   "talks/sword/sword_slides.qmd": {
     "sword_slides.html": "c7dc7e19"
+  },
+  "talks/sphere/present.qmd": {
+    "present.html": "6d9975b8"
+  },
+  "talks/presentations/sphere.qmd": {
+    "sphere.html": "0a3b5210"
   }
 }

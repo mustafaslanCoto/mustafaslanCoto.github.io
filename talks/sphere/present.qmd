@@ -1,0 +1,1551 @@
+---
+jupyter: python3
+external-env: true
+format:
+  revealjs:
+    css: style.css
+    width: 1920
+    height: 1080
+    footer: "[Markov-Switching AutoRegressive Regression | Data Lab for Social Good](https://mustafaslancoto.github.io/peshbeen/guide/01_model_zoo.html#forecasting-with-ms-arr-capturing-regime-changes)"
+    slide-number: c/t
+    preview-links: auto
+    html-math-method: mathjax
+    code-block-height: 900px
+---
+
+{{< include title-slide.html >}}
+
+## {background-image="images/kcolor5.jpeg" background-size="30% 100%" background-position="left"}
+
+:::: {.columns}
+::: {.column width="30%"}
+<!-- Spacer for left-aligned background image -->
+:::
+
+::: {.column width="70%"}
+
+<br>
+
+[Outline]{.mimic-h2}
+
+:::{style="font-weight: bold; font-size: 1.2em; line-height: 1.75;"}
+- [What Are We Forecasting?]{style="color: #20808D;"}
+- [Model: Markov-Switching AutoRegressive Regression (MS-ARR)]{style="color: #999;"}
+- [Model Results]{style="color: #999;"}
+- [Data Preparation & How to Forecast Next Days in Python]{style="color: #999;"}
+- [Beyond Point Forecasting]{style="color: #999;"}
+
+:::
+:::
+::::
+
+## What Are We Forecasting?
+
+
+::::{.columns style="display: flex; align-items: stretch; gap: 28px;"}
+
+:::{.column width="49%" .fragment style="border: 2px solid #20808D; border-radius: 10px; padding: 18px 22px; background: #FFFFFF;"}
+[The Target Outcome Variable]{.badge-teal}
+
+- **Target Variable ($y_t$):** Daily **Estimated Avoidable Deaths (EAD)**
+  $$\text{EAD}_t = \sum_{i \in \text{Admissions}_t} \Big[ p_i(\text{delay}_i, \mathbf{z}_i) - p_i(0, \mathbf{z}_i) \Big]$$
+  - $\mathbf{z}_i$: Baseline patient case-mix vector (age, triage acuity, comorbidities).
+  - $\text{delay}_i$: Hours delayed in ED awaiting an inpatient bed.
+  - $p_i(\cdot)$: 30-day mortality risk
+- **Forecasting Objective:** Daily forecasts over a **10-day horizon** ($h = 1, \dots, 10$ days ahead) using near-real-time operational data.
+- **Evaluation:** **Days 1–5** ($\text{MSE}_{1\text{–}5\text{d}}$) & **Days 6–10** ($\text{MSE}_{6\text{–}10\text{d}}$).
+
+:::
+
+:::{.column width="49%" .fragment style="border: 2px solid #20808D; border-radius: 10px; padding: 18px 22px; background: #FFFFFF;"}
+
+[Key Forecasting Constraints & Rules]{.badge-teal}
+
+- **Midday Forecasting Cut-off:** Forecasts for days $D+1$ to $D+10$ can only use information available up to midday on day $D$.
+- **Strict 3-Day Reporting Lag:**  
+  Because of verification lags, the target variable $y$ is only known up to **$D-3$**.
+  - On Day $D$, the most recent observed target value is **$y_{D-3}$**.
+- **Sliding Evaluation Windows:** 131 sliding 10-day forecast windows evaluated over the hold-out test period (October 2025 – March 2026).
+
+:::
+
+::::
+
+## {background-image="images/kcolor5.jpeg" background-size="30% 100%" background-position="left"}
+
+:::: {.columns}
+::: {.column width="30%"}
+<!-- Spacer for left-aligned background image -->
+:::
+
+::: {.column width="70%"}
+
+<br>
+
+[Outline]{.mimic-h2}
+
+:::{style="font-weight: bold; font-size: 1.2em; line-height: 1.75;"}
+- [What Are We Forecasting?]{style="color: #999;"}
+- [Model: Markov-Switching AutoRegressive Regression (MS-ARR)]{style="color: #20808D;"}
+- [Model Results]{style="color: #999;"}
+- [Data Preparation & How to Forecast Next Days in Python]{style="color: #999;"}
+- [Beyond Point Forecasting]{style="color: #999;"}
+
+:::
+:::
+::::
+
+
+##
+
+:::: {.columns style="display: flex; gap: 30px;"}
+
+
+::: {.column style="width: 64%; border-right: 2px solid #D2DFDF; padding-right: 25px;"}
+
+### MS-ARR Formulation
+
+$$
+y_t \mid (r_t = r) = \beta_{0}^{(r)} + \sum_{i=1}^{p} \beta_{i}^{(r)} \, y_{t-i} + \sum_{m=p+1}^{M} \beta_{m}^{(r)} X_{tm} + \epsilon_t
+$$
+
+[where $\epsilon_t \sim \mathcal{N}\!\left(0, \sigma_r^2\right)$ is $i.i.d.$ noise.]{style="display: block; padding-left: 1.5em;"}
+
+- To model regime dynamics, we assume that the latent process $\{r_t\}$ satisfies the Markov property:
+
+$$
+P(r_t = j \mid r_{1:t-1}) = P(r_t = j \mid r_{t-1}),
+\qquad
+j \in \mathcal{R}, \; t \ge 2.
+$$
+
+- The transition probabilities are defined as:
+
+$$
+P =
+\begin{pmatrix}
+p_{11} & \cdots & p_{1K} \\
+\vdots & \ddots & \vdots \\
+p_{K1} & \cdots & p_{KK}
+\end{pmatrix}.
+$$
+
+:::
+
+::: {.column style="width: 36%; padding-left: 15px; font-size: 0.95em; line-height: 1.45;"}
+
+### Notation & Definitions
+
+- $y_t$ is the observed number of avoidable deaths at time $t$,
+- $r_t$ is the unobserved (hidden) regime at time $t$,
+- $X_{tm}$ are the exogenous predictors.
+- $\beta_{0}^{(r)}$ is the regime-specific intercept
+- $\beta_{i}^{(r)}$ are the autoregressive coefficients associated with the $i$-th lag in regime $r$
+- $\beta_{m}^{(r)}$ are the coefficients for the exogenous covariates in regime $r$
+- $K$ is the total number of regimes. Set of regimes is $\mathcal{R} = \{1, 2, \ldots, K\}$.
+:::
+::::
+
+---
+
+## {.smaller}
+
+<br>
+<br>
+
+::::{.columns}
+::: {.column width="50%" .fragment}
+
+[Parameter Estimation of MS-ARR]{.mimic-h2}
+
+Model parameters are estimated using the Expectation–Maximization (EM) algorithm, which iteratively refines the parameter vector
+
+$$
+\theta = \{\beta^{(r)}, \sigma_r^2, P, \pi \}_{r \in \mathcal{R}}
+$$
+
+by maximising the likelihood of the observed EAD time series $y_{1:T} = (y_1, \ldots, y_T)$.
+
+::: {.callout-note icon="false"}
+## EM Algorithm (The Forward-Backward Algorithm - Baum-Welch)
+
+Let $k$ denote the iteration index. The EM algorithm proceeds as follows:
+
+$$
+\begin{aligned}
+&\textbf{E-step:} \\[4pt]
+&\quad 
+Q(\theta \mid \theta^{(k)}) 
+=
+\mathbb{E}_{\,r_{1:T} \mid y_{1:T},\, \theta^{(k)}} 
+\left[
+\log p(y_{1:T}, r_{1:T} \mid \theta)
+\right]
+\\[14pt]
+&\textbf{M-step:} \\[4pt]
+&\quad 
+\theta^{(k+1)} 
+=
+\arg\max_{\theta}\,
+Q(\theta \mid \theta^{(k)})
+\\[14pt]
+&\textbf{Iterate until convergence:} \\[4pt]
+&\quad 
+\theta^{(0)}
+\;\rightarrow\;
+\text{E-step}
+\;\rightarrow\;
+\text{M-step}
+\;\rightarrow\;
+\theta^{(1)}
+\;\rightarrow\;
+\cdots
+\;\rightarrow\;
+\theta^{(k+1)}
+\end{aligned}
+$$
+:::
+
+:::
+
+:::{ .column width="50%" .fragment}
+
+[Forecasting with MS-ARR]{.mimic-h2}
+
+$P(r_T = i \mid O_{1:T})$ denote the filtered probability of being in regime $i$ at time $T$. The $h$-step-ahead regime probabilities are obtained according to
+
+$$
+P(r_{T+h} = j \mid O_{1:T})
+=
+\sum_{i=1}^{K}
+P(r_{T+h-1} = i \mid O_{1:T}) \, p_{ij},
+\qquad h \ge 1.
+$$
+
+Conditional on regime $r_{T+h} = r$, the $h$-step-ahead forecast of the occupancy process is obtained from the regime-specific autoregressive model,
+
+$$
+\hat{y}_{T+h}^{(r)}
+=
+\beta_{0}^{(r)}
++
+\sum_{i=1}^{p}
+\beta_{i}^{(r)} \, y_{T+h-i}
++
+\sum_{m=1}^{M}
+\beta_{p+m}^{(r)} \, X_{T+h,m},
+$$
+
+<!-- where lagged observations are replaced by their observed or recursively forecasted values when $h > 1$. -->
+
+The final point forecast at horizon $h$ is computed as a probability-weighted average of the regime-specific forecasts,
+
+$$
+\hat{y}_{T+h}
+=
+\sum_{r=1}^{K}
+P(r_{T+h} = r \mid y_{1:T}) \, \hat{y}_{T+h}^{(r)}.
+$$
+
+<!-- This formulation yields forecasts that jointly reflect regime-dependent dynamics and uncertainty regarding future regime transitions. -->
+:::
+::::
+
+
+## {background-image="images/kcolor5.jpeg" background-size="30% 100%" background-position="left"}
+
+:::: {.columns}
+::: {.column width="30%"}
+<!-- Spacer for left-aligned background image -->
+:::
+
+::: {.column width="70%"}
+
+<br>
+
+[Outline]{.mimic-h2}
+
+:::{style="font-weight: bold; font-size: 1.2em; line-height: 1.75;"}
+- [What We Are Forecasting]{style="color: #999;"}
+- [Model: Markov-Switching AutoRegressive Regression (MS-ARR)]{style="color: #999;"}
+- [Model Results]{style="color: #20808D;"}
+- [Data Preparation & How to Forecast Next Days in Python]{style="color: #999;"}
+- [Beyond Point Forecasting]{style="color: #999;"}
+
+:::
+:::
+::::
+
+---
+
+## Regime Switches in EAD History
+
+```{python}
+#| fig-align: center
+#| out-width: 100%
+
+import pickle
+import matplotlib.pyplot as plt
+from matplotlib.collections import LineCollection
+from matplotlib.colors import LinearSegmentedColormap
+import pandas as pd
+import numpy as np
+
+with open('ms_arr_model_results.pkl', 'rb') as f:
+    model_res = pickle.load(f)
+
+hmm_df = model_res['hmm_df']
+last180 = hmm_df.iloc[-180:].copy()
+dates = last180.index
+target = last180['ead'].values
+prob_surge = last180['regime_2'].values
+
+# Custom colormap from teal (0 = Normal) to amber (0.5) to coral/crimson (1 = Surge)
+cmap = LinearSegmentedColormap.from_list('regime_cmap', ['#20808D', '#D97706', '#C93B2B'])
+
+fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(26, 10), sharex=True, gridspec_kw={'height_ratios': [1.15, 1]})
+fig.patch.set_facecolor('#FBFAF4')
+# ax1.set_facecolor('#ffffff')
+# ax2.set_facecolor('#ffffff')
+
+plt.rcParams['figure.facecolor'] = "#FBFAF4"
+plt.rcParams['axes.facecolor'] = "#FBFAF4"
+
+
+# --- SUBPLOT 1: Time Series colored by continuous probability ---
+norm_dates = np.arange(len(dates))
+ax1.fill_between(norm_dates, 0, target, color='#20808D', alpha=0.06)
+
+points = np.array([norm_dates, target]).T.reshape(-1, 1, 2)
+segments = np.concatenate([points[:-1], points[1:]], axis=1)
+
+lc = LineCollection(segments, cmap=cmap, linewidth=3.5, zorder=5)
+lc.set_array(prob_surge)
+ax1.add_collection(lc)
+ax1.set_xlim(0, len(dates)-1)
+ax1.set_ylim(0, max(target) * 1.15)
+
+# Add scatter points on the actual observations
+ax1.scatter(norm_dates, target, c=prob_surge, cmap=cmap, s=45, zorder=6, edgecolor='white', linewidth=0.8)
+
+ax1.set_ylabel('Avoidable Deaths', fontsize=20, fontweight='bold', color='#0B363C')
+ax1.set_title('Estimated Avoidable Deaths (180 Days) with Regime Changes (Teal = Normal, Red = Peak Risk)', fontsize=22, fontweight='bold', color='#0B363C', pad=12)
+ax1.grid(True, linestyle='--', alpha=0.35, color='#cbd5e1')
+ax1.tick_params(labelsize=16)
+
+# --- SUBPLOT 2: Continuous Posterior Probability P(Surge) ---
+ax2.plot(norm_dates, prob_surge, color='#C93B2B', linewidth=3.0, zorder=5, label='Filtered Probability P(Peak Risk | Past Observations)')
+ax2.fill_between(norm_dates, 0, prob_surge, color='#C93B2B', alpha=0.25, zorder=2)
+ax2.fill_between(norm_dates, prob_surge, 1, color='#20808D', alpha=0.08, zorder=2)
+
+# ax2.axhline(0.50, color='#64748b', linestyle='--', linewidth=2.0, alpha=0.85, label='Equilibrium Baseline (0.50)')
+# ax2.axhline(0.80, color='#C93B2B', linestyle=':', linewidth=2.5, alpha=0.9, label='Critical Escalation Trigger (0.80)')
+
+# Key date ticks
+tick_locs = np.linspace(0, len(dates)-1, 7, dtype=int)
+ax2.set_xticks(tick_locs)
+ax2.set_xticklabels([dates[i].strftime('%b %d, %Y') for i in tick_locs], fontsize=16)
+
+ax2.set_ylabel('Peak Risk Probability', fontsize=20, fontweight='bold', color='#0B363C')
+ax2.set_xlabel('Date', fontsize=20, fontweight='bold', color='#0B363C')
+ax2.set_ylim(0, 1.05)
+ax2.grid(True, linestyle='--', alpha=0.35, color='#cbd5e1')
+ax2.tick_params(labelsize=16)
+ax2.legend(loc='upper left', frameon=True, facecolor='#ffffff', edgecolor='#cbd5e1', fontsize=16)
+
+# Colorbar for Top Plot
+cbar_ax = fig.add_axes([0.915, 0.54, 0.015, 0.35])
+cbar = fig.colorbar(lc, cax=cbar_ax)
+cbar.set_label('Peak Risk Probability', fontsize=16, fontweight='bold', color='#0B363C')
+cbar.ax.tick_params(labelsize=14)
+
+plt.subplots_adjust(left=0.07, right=0.90, hspace=0.14, top=0.92, bottom=0.11)
+plt.show()
+```
+
+---
+
+
+
+## Regime Dynamics
+
+:::: {.columns style="display: flex; align-items: stretch; gap: 24px;"}
+
+::: {.column width="50%" .fragment}
+
+:::{.fragment}
+```{python}
+#| fig-align: center
+#| out-width: 100%
+
+import pickle
+import matplotlib.pyplot as plt
+import matplotlib.patches as patches
+import numpy as np
+
+with open('ms_arr_model_results.pkl', 'rb') as f:
+    model_res = pickle.load(f)
+
+reg_vars = model_res['regime_vars'].values.flatten()
+v1, v2 = reg_vars[0], reg_vars[1]
+std1, std2 = np.sqrt(v1), np.sqrt(v2)
+ratio = v2 / v1
+
+BG_COLOR = "#FBFAF4"
+TEAL = "#20808D"
+DARK_TEAL = "#0B363C"
+RED = "#C93B2B"
+
+fig, ax = plt.subplots(figsize=(12.5, 2.3), facecolor=BG_COLOR)
+ax.set_facecolor(BG_COLOR)
+ax.set_xlim(0, 2)
+ax.set_ylim(0, 1)
+ax.axis('off')
+
+ax.text(1.0, 0.95, "Regime Residual Error Variance Comparison", 
+        fontsize=16, fontweight='bold', color=DARK_TEAL, ha='center', va='top')
+
+box1 = patches.FancyBboxPatch((0.04, 0.08), 0.90, 0.66, boxstyle="round,pad=0.03,rounding_size=0.08", 
+                              facecolor="#E6F4F6", edgecolor=TEAL, linewidth=1.6)
+ax.add_patch(box1)
+ax.text(0.49, 0.52, "Regime 1: Normal", fontsize=13, fontweight='bold', color=DARK_TEAL, ha='center', va='center')
+ax.text(0.49, 0.25, f"σ² = {v1:.3f}", fontsize=14.5, fontweight='black', color=TEAL, ha='center', va='center')
+
+box2 = patches.FancyBboxPatch((1.06, 0.08), 0.90, 0.66, boxstyle="round,pad=0.03,rounding_size=0.08", 
+                              facecolor="#FEE2E2", edgecolor=RED, linewidth=1.6)
+ax.add_patch(box2)
+ax.text(1.51, 0.52, "Regime 2: Peak Risk", fontsize=13, fontweight='bold', color="#991B1B", ha='center', va='center')
+ax.text(1.51, 0.25, f"σ² = {v2:.3f}", fontsize=14.5, fontweight='black', color=RED, ha='center', va='center')
+
+plt.subplots_adjust(left=0.02, right=0.98, top=0.96, bottom=0.04)
+plt.show()
+```
+
+:::
+
+:::{.fragment}
+```{python}
+#| fig-align: center
+#| out-width: 100%
+
+import pickle
+import matplotlib.pyplot as plt
+import matplotlib.patches as patches
+import numpy as np
+
+with open('ms_arr_model_results.pkl', 'rb') as f:
+    model_res = pickle.load(f)
+
+trans_mat = model_res['transition_matrix'].values
+
+BG_COLOR = "#FBFAF4"
+TEAL = "#20808D"
+DARK_TEAL = "#0B363C"
+RED = "#C93B2B"
+GRAY = "#64748B"
+
+fig, ax = plt.subplots(figsize=(12.5, 6.6), facecolor=BG_COLOR)
+ax.set_facecolor(BG_COLOR)
+ax.set_xlim(-0.65, 2.25)
+ax.set_ylim(-0.15, 2.38)
+ax.axis('off')
+
+# Titles
+ax.text(0.95, 2.30, r"Transition Probability Matrix $\mathbf{P}$", 
+        fontsize=20, fontweight='bold', color=DARK_TEAL, ha='center', va='bottom')
+ax.text(0.95, 2.14, r"$p_{ij} = P(r_t = j \mid r_{t-1} = i)$ — Daily Switching Probabilities", 
+        fontsize=13.5, color=GRAY, ha='center', va='bottom')
+
+# Column Headers (Target: To Regime)
+ax.text(0.40, 1.95, "To Normal (r=1)", fontsize=14.5, fontweight='bold', color=TEAL, ha='center')
+ax.text(1.50, 1.95, "To Peak Risk (r=2)", fontsize=14.5, fontweight='bold', color=RED, ha='center')
+
+# Row Headers (Origin: From Regime)
+ax.text(-0.08, 1.38, "From Normal\n(r=1)", fontsize=14.5, fontweight='bold', color=TEAL, ha='right', va='center')
+ax.text(-0.08, 0.48, "From Peak Risk\n(r=2)", fontsize=14.5, fontweight='bold', color=RED, ha='right', va='center')
+
+def draw_cell(ax, x, y, width, height, bg_color, border_color, pct_text, pct_color, title_text, title_color, desc_text, desc_color):
+    box = patches.FancyBboxPatch((x, y), width, height, boxstyle="round,pad=0.04,rounding_size=0.08",
+                                 facecolor=bg_color, edgecolor=border_color, linewidth=2.2, zorder=2)
+    ax.add_patch(box)
+    cx = x + width / 2.0
+    ax.text(cx, y + height * 0.70, pct_text, fontsize=31, fontweight='black', color=pct_color, ha='center', va='center', zorder=3)
+    ax.text(cx, y + height * 0.42, title_text, fontsize=12.5, fontweight='bold', color=title_color, ha='center', va='center', zorder=3)
+    ax.text(cx, y + height * 0.18, desc_text, fontsize=11.5, color=desc_color, ha='center', va='center', zorder=3)
+
+# Cell (0,0): Normal -> Normal (88%)
+draw_cell(ax, -0.02, 0.94, 0.85, 0.88, TEAL, DARK_TEAL, 
+          f"{trans_mat[0,0]*100:.0f}%", "white", 
+          "HIGH PERSISTENCE", "#CCECEF", 
+          "Normal state continues", "#E6F4F6")
+
+# Cell (0,1): Normal -> Peak Risk (12%)
+draw_cell(ax, 1.08, 0.94, 0.85, 0.88, "#FFF7ED", "#FDBA74", 
+          f"{trans_mat[0,1]*100:.0f}%", "#C2410C", 
+          "PEAK RISK ESCALATION", "#9A3412", 
+          f"{trans_mat[0,1]*100:.0f}% daily risk of peak", "#7C2D12")
+
+# Cell (1,0): Peak Risk -> Normal (11%)
+draw_cell(ax, -0.02, 0.04, 0.85, 0.88, "#F8FAFC", "#CBD5E1", 
+          f"{trans_mat[1,0]*100:.0f}%", "#475569", 
+          "RECOVERY RATE", "#334155", 
+          f"{trans_mat[1,0]*100:.0f}% daily de-escalation", "#64748B")
+
+# Cell (1,1): Peak Risk -> Peak Risk (89%)
+draw_cell(ax, 1.08, 0.04, 0.85, 0.88, RED, "#991B1B", 
+          f"{trans_mat[1,1]*100:.0f}%", "white", 
+          "PEAK RISK LOCK-IN", "#FEE2E2", 
+          "Peak state persists", "#FECACA")
+
+plt.subplots_adjust(left=0.06, right=0.96, top=0.96, bottom=0.04)
+plt.show()
+```
+
+:::
+
+:::
+
+::: {.column width="50%" .fragment}
+
+```{python}
+#| fig-align: center
+#| out-width: 100%
+
+import pickle
+import matplotlib.pyplot as plt
+import matplotlib.patches as patches
+import numpy as np
+
+with open('ms_arr_model_results.pkl', 'rb') as f:
+    model_res = pickle.load(f)
+
+trans_mat = model_res['transition_matrix'].values
+reg_probs = model_res['regime_probs'].values.flatten()
+
+BG_COLOR = "#FBFAF4"
+TEAL = "#20808D"
+DARK_TEAL = "#0B363C"
+RED = "#C93B2B"
+GRAY = "#64748B"
+
+fig = plt.figure(figsize=(13, 9.2), facecolor=BG_COLOR)
+gs = fig.add_gridspec(2, 1, height_ratios=[1.35, 0.85], hspace=0.38)
+
+# Sub-panel 2A: Expected Duration Bar Chart
+ax2a = fig.add_subplot(gs[0])
+ax2a.set_facecolor(BG_COLOR)
+
+dur_normal = 1.0 / (1.0 - trans_mat[0,0])
+dur_surge = 1.0 / (1.0 - trans_mat[1,1])
+
+bars = ax2a.barh(['Regime 2:\nPeak Risk', 'Regime 1:\nNormal Baseline'], 
+                 [dur_surge, dur_normal], 
+                 color=[RED, TEAL], height=0.48, edgecolor=DARK_TEAL, linewidth=1.5, alpha=0.92)
+
+for bar, dur, col in zip(bars, [dur_surge, dur_normal], [RED, TEAL]):
+    w = bar.get_width()
+    ax2a.text(w + 0.3, bar.get_y() + bar.get_height()/2.0, 
+              f"{dur:.2f} Days", fontsize=16, fontweight='bold', color=col, va='center')
+
+ax2a.set_xlim(0, 11.5)
+ax2a.set_xlabel(r"Expected Consecutive Duration:  $E[D_i] = \frac{1}{1 - p_{ii}}$ (Days)", fontsize=14, fontweight='bold', color=DARK_TEAL)
+ax2a.set_title("Regime Inertia: Peak Episodes Last > 8 Days Once Triggered", fontsize=17, fontweight='bold', color=DARK_TEAL, pad=12)
+ax2a.grid(True, linestyle='--', alpha=0.4, axis='x')
+ax2a.tick_params(labelsize=14)
+ax2a.spines['top'].set_visible(False)
+ax2a.spines['right'].set_visible(False)
+ax2a.spines['left'].set_color(DARK_TEAL)
+ax2a.spines['bottom'].set_color(DARK_TEAL)
+
+# Sub-panel 2B: Long-Run Steady State Proportion Bar
+ax2b = fig.add_subplot(gs[1])
+ax2b.set_facecolor(BG_COLOR)
+ax2b.set_xlim(0, 100)
+ax2b.set_ylim(-0.2, 1.4)
+ax2b.axis('off')
+
+# ax2b.text(50, 1.25, r"Long-Run Equilibrium Occupancy (Stationary Distribution $\boldsymbol{\pi}$)", 
+#           fontsize=15, fontweight='bold', color=DARK_TEAL, ha='center', va='bottom')
+ax2b.text(50, 1.05, "The health system operates in near-equal balance between calm and peak risk", 
+          fontsize=15, fontweight='bold', color=DARK_TEAL, ha='center', va='bottom')
+
+p_norm = reg_probs[0] * 100
+p_surg = reg_probs[1] * 100
+
+bar_n = patches.FancyBboxPatch((2, 0.15), p_norm - 2.5, 0.65, boxstyle="round,pad=0.02,rounding_size=0.05",
+                               facecolor=TEAL, edgecolor="none", zorder=3)
+ax2b.add_patch(bar_n)
+ax2b.text(2 + (p_norm - 2.5)/2.0, 0.475, f"Normal Baseline: {p_norm:.0f}%", 
+          fontsize=14, fontweight='bold', color="white", ha='center', va='center', zorder=4)
+
+bar_s = patches.FancyBboxPatch((p_norm + 0.5, 0.15), p_surg - 2.5, 0.65, boxstyle="round,pad=0.02,rounding_size=0.05",
+                               facecolor=RED, edgecolor="none", zorder=3)
+ax2b.add_patch(bar_s)
+ax2b.text(p_norm + 0.5 + (p_surg - 2.5)/2.0, 0.475, f"Peak Risk: {p_surg:.0f}%", 
+          fontsize=14, fontweight='bold', color="white", ha='center', va='center', zorder=4)
+
+plt.subplots_adjust(left=0.08, right=0.95, top=0.92, bottom=0.08)
+plt.show()
+```
+
+:::
+
+::::
+
+---
+
+## {background-image="images/kcolor5.jpeg" background-size="30% 100%" background-position="left"}
+
+:::: {.columns}
+::: {.column width="30%"}
+<!-- Spacer for left-aligned background image -->
+:::
+
+::: {.column width="70%"}
+
+<br>
+
+[Outline]{.mimic-h2}
+
+:::{style="font-weight: bold; font-size: 1.2em; line-height: 1.75;"}
+- [What Are We Forecasting?]{style="color: #999;"}
+- [Model: Markov-Switching AutoRegressive Regression (MS-ARR)]{style="color: #999;"}
+- [Model Results]{style="color: #999;"}
+- [Data Preparation & How to Forecast Next Days in Python]{style="color: #20808D;"}
+- [Beyond Point Forecasting]{style="color: #999;"}
+
+:::
+:::
+::::
+
+##
+
+:::: {.columns style="display: flex; align-items: stretch; gap: 25px;"}
+
+::: {.column width="54%" .fragment style="border: 2px solid #20808D; border-radius: 10px; padding: 18px 22px; background: #FFFFFF;"}
+
+[Data Preparation & Feature Engineering]{.badge-teal}
+
+```{python}
+import pandas as pd
+from itables import show
+
+ead_dff = pd.read_csv("ead_data.csv")
+ead_dff.rename(columns={'sin_1_365.25': 'sin_365 (Annual)'}, inplace=True)
+
+for col in ead_dff.columns:
+    if ead_dff[col].dtype == 'float64':
+        if col == 'sin_365 (Annual)':
+            ead_dff[col] = ead_dff[col].round(4)
+        else:
+            ead_dff[col] = ead_dff[col].round(2)
+
+show(
+    ead_dff,
+    classes="display nowrap compact",
+    style="width:100%; table-layout:auto;"
+)
+```
+:::
+
+::: {.column width="46%" .fragment style="border: 2px solid #20808D; border-radius: 10px; padding: 18px 22px; background: #FFFFFF;"}
+
+[Forecasting Pipeline]{.badge-teal}
+
+```{.python code-line-numbers="|1|2|3|4|5|6|7|8|9|10-12|13-16|17-23|24|25"}
+from peshbeen.models import ms_arr
+from peshbeen.transformations import rolling_quantile
+from sklearn.preprocessing import OneHotEncoder
+ead_dff = pd.read_csv("ead_data.csv", index_col="date")
+H = 5
+target_var = "ead"
+cat_vars = ["day", "month", "holiday"]
+train_ead = ead_dff[:-H]
+future_exog = ead_dff[-H:].drop(columns=target_var)
+ohe_encoder = OneHotEncoder(sparse_output=False,
+                            handle_unknown='ignore',
+                            drop='first')
+transformation_function = [rolling_quantile(
+                            window_size=49,
+                            quantile=0.2,
+                            shift=10, min_samples=49)]
+ms_mod = ms_arr(n_components=2, lags=[4, 8, 10],
+                target_col=target_var,
+                cat_variables=cat_vars,
+                categorical_encoder=ohe_encoder,
+                n_iter=100,
+                lag_transform=transformation_function,
+                random_state=42)
+ms_mod.fit(train_ead)
+forecasts = ms_mod.forecast(H = H, exog=future_exog)
+```
+:::
+
+::::
+
+---
+
+## Point Forecast Evaluation: 120-Day Out-of-Sample Horizon (example)
+
+
+```{python}
+#| fig-align: center
+#| out-width: 100%
+
+import pickle
+import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
+import pandas as pd
+import numpy as np
+
+with open('cv_results.pkl', 'rb') as f:
+    data = pickle.load(f)
+
+train_last90 = data['training_last90']
+cv_df = data['cv_results']
+origin_date = train_last90.index[-1]
+n_total = len(cv_df)
+
+fig, ax = plt.subplots(figsize=(24, 10), facecolor='#FBFAF4')
+ax.set_facecolor('#FBFAF4')
+
+# 1. Historical Training Data (Last 90 Days)
+ax.plot(train_last90.index, train_last90['ead'], color='#64748b', linewidth=2.4, label='Historical Training EAD (Last 90 Days)', zorder=3)
+ax.fill_between(train_last90.index, 0, train_last90['ead'], color='#64748b', alpha=0.06, zorder=2)
+
+# Major separator between training and CV evaluation
+ax.axvline(origin_date, color='#0B363C', linestyle='--', linewidth=2.8, zorder=8, label=f'Forecast Origin ({origin_date.strftime("%b %d, %Y")})')
+
+# 2. Out-of-Sample Actuals (Continuous line across all 120 days)
+conn_dates = [origin_date] + list(cv_df['fold_index'])
+conn_actuals = [train_last90['ead'].iloc[-1]] + list(cv_df['y_true'])
+ax.plot(conn_dates, conn_actuals, color='#0B363C', linewidth=3.2, marker='o', markersize=4.5, label='Actual Observed EAD (Out-of-Sample)', zorder=6)
+
+# 3. Continuous Forecast Line across 120 days future
+ax.plot(cv_df['fold_index'], cv_df['y_pred'], color='#C93B2B', linewidth=3.2, marker='s', markersize=4.0, zorder=7, 
+        label='MS-ARR Out-of-Sample Forecast (y_pred)')
+
+# Overall Metrics
+mse = ((cv_df['y_true'] - cv_df['y_pred'])**2).mean()
+mae = (cv_df['y_true'] - cv_df['y_pred']).abs().mean()
+rmse = np.sqrt(mse)
+
+# Informational Note Box on the left
+# note_text = (f'120-Day Rolling Evaluation Horizon (Aug 22 – Dec 19, 2025)\n'
+#              f'• Performance: RMSE: {rmse:.4f} | MAE: {mae:.4f} | MSE: {mse:.4f}')
+# ax.text(0.015, 0.96, note_text, transform=ax.transAxes, fontsize=13.5, fontweight='bold', color='#0B363C',
+#         va='top', bbox=dict(boxstyle='round,pad=0.55', facecolor='#ffffff', edgecolor='#20808D', linewidth=1.8, alpha=0.96), zorder=10)
+
+# Legend placed cleanly next to the note box
+ax.legend(loc='upper left', frameon=True, facecolor='#ffffff', edgecolor='#cbd5e1', fontsize=13, ncol=1)
+
+ax.set_ylabel('Avoidable Deaths (EAD)', fontsize=18, fontweight='bold', color='#0B363C')
+ax.set_title('Out-of-Sample Evaluation: 120-Day Horizon Forecast vs. Actual EAD', 
+             fontsize=22, fontweight='bold', color='#0B363C', pad=22)
+
+ax.grid(True, linestyle='--', alpha=0.35, color='#cbd5e1')
+ax.tick_params(labelsize=15)
+ax.xaxis.set_major_locator(mdates.WeekdayLocator(interval=3))
+ax.xaxis.set_major_formatter(mdates.DateFormatter('%b %d, %Y'))
+fig.autofmt_xdate(rotation=0, ha='center')
+
+ax.set_ylim(0, 1.88)
+ax.set_xlim(train_last90.index[0] - pd.Timedelta(days=2), cv_df['fold_index'].iloc[-1] + pd.Timedelta(days=2))
+
+plt.subplots_adjust(left=0.05, right=0.97, top=0.90, bottom=0.12)
+plt.show()
+```
+
+[**Note: Forecasts are generated once every 5 days, 24 times across 120 days.**]{style="font-size: 18px; color: #0B363C; font-weight: bold; margin-top: 12px;"}
+
+---
+
+## {background-image="images/kcolor5.jpeg" background-size="30% 100%" background-position="left"}
+
+:::: {.columns}
+::: {.column width="30%"}
+<!-- Spacer for left-aligned background image -->
+:::
+
+::: {.column width="70%"}
+
+<br>
+
+[Outline]{.mimic-h2}
+
+:::{style="font-weight: bold; font-size: 1.2em; line-height: 1.75;"}
+- [What Are We Forecasting?]{style="color: #999;"}
+- [Model: Markov-Switching AutoRegressive Regression (MS-ARR)]{style="color: #999;"}
+- [Model Results]{style="color: #999;"}
+- [Data Preparation & How to Forecast Next Days in Python]{style="color: #999;"}
+- [Beyond Point Forecasting]{style="color: #20808D;"}
+
+:::
+:::
+::::
+
+
+## Can Point Forecasts Capture Peak Dynamics?
+
+```{python}
+#| fig-align: center
+#| out-width: 100%
+
+import pickle
+import numpy as np
+import pandas as pd
+import plotly.graph_objects as go
+
+# 1. Load Data
+with open('probabilistic_forecast_results.pkl', 'rb') as f:
+    prob_data = pickle.load(f)
+
+train_pr = prob_data['train_example']
+test_pr = prob_data['test_example']
+forecasts = prob_data['forecast_example']
+scenarios_df = prob_data['probabilistic_scenarios']
+
+# 2. Extract Forecast Origin & Bridge Continuation
+# Connect the last observation of train to the forecast origin so paths flow seamlessly
+origin_date = train_pr.index[-1]
+origin_y = float(train_pr['ead'].iloc[-1])
+
+# Use clean ISO date strings for robust continuous timeline mapping
+train_dates = [d.strftime('%Y-%m-%d') for d in train_pr.index]
+train_y = train_pr['ead'].to_numpy(dtype=np.float32)
+
+conn_dates = [origin_date.strftime('%Y-%m-%d')] + [d.strftime('%Y-%m-%d') for d in test_pr.index]
+conn_actual_y = np.array([origin_y] + list(test_pr['ead']), dtype=np.float32)
+conn_point_y = np.array([origin_y] + list(forecasts), dtype=np.float32)
+
+scenarios_matrix = scenarios_df.to_numpy(dtype=np.float32)  # (10000, 5)
+origin_col = np.full((scenarios_matrix.shape[0], 1), origin_y, dtype=np.float32)
+conn_scenarios = np.hstack([origin_col, scenarios_matrix])   # (10000, 6)
+
+# Milestones for interactive slider
+milestones = [1, 2, 5, 10, 50, 100, 250, 500, 1000, 2500, 5000, 7500, 10000]
+total_scenarios = len(conn_scenarios)
+milestones = [m for m in milestones if m <= total_scenarios]
+if total_scenarios not in milestones:
+    milestones.append(total_scenarios)
+
+# 3. Assemble Plotly Figure
+fig = go.Figure()
+
+# Trace 0: Historical Training Observations (Last 28 Days)
+fig.add_trace(
+    go.Scatter(
+        x=train_dates,
+        y=train_y,
+        mode="lines",
+        name="Historical Train (Last 28d)",
+        line=dict(color="#64748b", width=2.4),
+        hovertemplate="<b>Train Actual:</b> %{y:.2f}<br>Date: %{x}<extra></extra>"
+    )
+)
+
+# Trace 1: Test Actuals (Bridged from Origin)
+fig.add_trace(
+    go.Scatter(
+        x=conn_dates,
+        y=conn_actual_y,
+        mode="lines+markers",
+        name="Actual Observed EAD",
+        line=dict(color="#C93B2B", width=3.2),
+        marker=dict(size=7.5, color="#C93B2B"),
+        hovertemplate="<b>Actual EAD:</b> %{y:.2f}<br>Date: %{x}<extra></extra>"
+    )
+)
+
+# Trace 2: Point Forecast (Bridged from Origin)
+fig.add_trace(
+    go.Scatter(
+        x=conn_dates,
+        y=conn_point_y,
+        mode="lines+markers",
+        name="Point Forecast",
+        line=dict(color="#2563EB", width=2.8, dash="dash"),
+        marker=dict(size=8, symbol="diamond", color="#2563EB"),
+        hovertemplate="<b>Point Forecast:</b> %{y:.2f}<br>Date: %{x}<extra></extra>"
+    )
+)
+
+# Vectorized scenario chunk traces with NaN delimiter
+x_template = np.append(np.array(conn_dates), [None])
+num_fixed_traces = 3
+default_step_idx = 0  # Default to showing the first two chunks (1 and 2 scenarios) on initial load
+prev_idx = 0
+
+for i, count in enumerate(milestones):
+    chunk_slice = conn_scenarios[prev_idx:count, :]
+    m_chunk = chunk_slice.shape[0]
+
+    nan_col = np.full((m_chunk, 1), np.nan, dtype=np.float32)
+    y_chunk = np.hstack([chunk_slice, nan_col]).ravel()
+    x_chunk = np.tile(x_template, m_chunk)
+
+    is_visible = (i <= default_step_idx)
+
+    fig.add_trace(
+        go.Scattergl(
+            x=x_chunk,
+            y=y_chunk,
+            mode="lines",
+            name="Forecast Scenarios" if i == 0 else None,
+            showlegend=(i == 0),
+            line=dict(color="rgba(32, 128, 141, 0.12)", width=0.9),
+            hoverinfo="skip",
+            visible=is_visible
+        )
+    )
+
+
+    prev_idx = count
+
+# 4. Slider Controls
+num_chunks = len(milestones)
+slider_steps = []
+
+for i, count in enumerate(milestones):
+    visibility_mask = [True] * num_fixed_traces + [k <= i for k in range(num_chunks)]
+    step = dict(
+        method="update",
+        args=[{"visible": visibility_mask}],
+        label=f"{count:,}"
+    )
+    slider_steps.append(step)
+
+slider_control = dict(
+    active=default_step_idx,
+    currentvalue={
+        "prefix": "Number of Forecast Scenarios: ",
+        "font": {"size": 20, "color": "#0B363C", "family": "Inter, sans-serif"}
+    },
+    font={"size": 20, "color": "#334155"},  # <-- ADD THIS LINE (increase size as desired, e.g., 16 or 18)
+    pad={"t": 30, "b": 10},
+    steps=slider_steps,
+    bgcolor="#E2E8F0",
+    activebgcolor="#20808D"
+)
+
+# Vertical line annotation at Forecast Origin
+origin_str = origin_date.strftime('%Y-%m-%d')
+fig.add_shape(
+    type="line",
+    x0=origin_str, x1=origin_str,
+    y0=0, y1=2.1,
+    line=dict(color="#0B363C", width=1.8, dash="dot")
+)
+fig.add_annotation(
+    x=origin_str,
+    y=2.02,
+    text="<b>Forecast Origin</b> (Nov 24)",
+    showarrow=False,
+    xanchor="right",
+    xshift=-8,
+    font=dict(size=14, color="#0B363C")
+)
+
+# Clean, evenly spaced date ticks across timeline
+all_dates = list(train_pr.index) + list(test_pr.index)
+tick_dt = all_dates[::4]
+if test_pr.index[-1] not in tick_dt:
+    tick_dt.append(test_pr.index[-1])
+if origin_date not in tick_dt:
+    tick_dt.append(origin_date)
+tick_dt = sorted(list(set(tick_dt)))
+
+tick_vals = [d.strftime('%Y-%m-%d') for d in tick_dt]
+tick_text = [d.strftime('%b %d') for d in tick_dt]
+
+fig.update_layout(
+    height=950,
+    width=1820,
+    xaxis=dict(
+        title=dict(text="Date", font=dict(size=20, color="#0B363C")),
+        type="date",
+        tickmode="array",
+        tickvals=tick_vals,
+        ticktext=tick_text,
+        tickangle=0,
+        tickfont=dict(size=18, color="#334155"),
+        gridcolor="#E2E8F0",
+        showgrid=True
+    ),
+    yaxis=dict(
+        title=dict(text="Estimated Avoidable Deaths (EAD)", font=dict(size=20, color="#0B363C")),
+        tickfont=dict(size=18, color="#334155"),
+        gridcolor="#E2E8F0",
+        showgrid=True,
+        range=[0.1, 2.15]
+    ),
+    sliders=[slider_control],
+    paper_bgcolor="#FBFAF4",
+    plot_bgcolor="#FBFAF4",
+    hovermode="x unified",
+    legend=dict(
+        orientation="h",
+        yanchor="bottom",
+        y=1.03,
+        xanchor="right",
+        x=1,
+        font=dict(size=18, color="#0B363C"),
+        bgcolor="rgba(251, 250, 244, 0.85)"
+    ),
+    margin=dict(l=60, r=40, t=80, b=50)
+)
+
+fig.show()
+```
+
+---
+
+## Forecast Distribution Across Forecast Horizons ($h = 1 \dots 5$)
+
+```{python}
+#| fig-align: center
+#| out-width: 100%
+
+import pickle
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+from scipy.stats import gaussian_kde
+
+# 1. Load Data
+with open('probabilistic_forecast_results.pkl', 'rb') as f:
+    prob_data = pickle.load(f)
+
+test_pr = prob_data['test_example']
+forecasts = prob_data['forecast_example']
+scenarios_df = prob_data['probabilistic_scenarios']
+
+# Cohesive teal color gradient matching slide theme
+palette = ['#0F4C5C', '#1B6B7A', '#20808D', '#2FA39F', '#5BBFBA']
+
+fig, ax = plt.subplots(figsize=(24, 10), facecolor='#FBFAF4')
+ax.set_facecolor('#FBFAF4')
+
+overlap = 0.68
+x_eval = np.linspace(0.0, 2.35, 450)
+n_horizons = 5
+
+# Order from Horizon 1 at the bottom to Horizon 5 at the top
+for i in range(n_horizons):
+    y_base = i * overlap
+    vals = scenarios_df.iloc[:, i].to_numpy()
+    kde = gaussian_kde(vals)
+    density = kde(x_eval)
+    peak = density.max()
+    density_norm = (density / peak) * 0.90
+
+    # 1. Baseline horizontal axis line
+    ax.plot([0.0, 2.35], [y_base, y_base], color='#94a3b8', linewidth=1.5, alpha=0.6, zorder=i*4+1)
+
+    # 2. Filled density curve (Ridgeline)
+    ax.fill_between(x_eval, y_base, y_base + density_norm, color=palette[i], alpha=0.55, zorder=i*4+2)
+    ax.plot(x_eval, y_base + density_norm, color='#0B363C', linewidth=2.2, zorder=i*4+3)
+
+    # 3. Statistics & Values
+    act_val = float(test_pr['ead'].iloc[i])
+    fc_val = float(forecasts[i])
+    q95_val = float(np.percentile(vals, 95))
+
+    act_h = float(kde(act_val)[0] / peak * 0.90)
+    fc_h = float(kde(fc_val)[0] / peak * 0.90)
+    q95_h = float(kde(q95_val)[0] / peak * 0.90)
+
+    # Actual Observed line & circular marker
+    ax.plot([act_val, act_val], [y_base, y_base + act_h], color='#C93B2B', linewidth=3.2, zorder=i*4+4,
+            label='Actual Observed EAD' if i == 0 else None)
+    ax.scatter([act_val], [y_base + act_h], color='#C93B2B', s=75, zorder=i*4+5, edgecolor='#ffffff', linewidth=1.2)
+
+    # Point Forecast line & diamond marker
+    ax.plot([fc_val, fc_val], [y_base, y_base + fc_h], color='#2563EB', linewidth=2.8, linestyle='--', zorder=i*4+4,
+            label='Point Forecast' if i == 0 else None)
+    ax.scatter([fc_val], [y_base + fc_h], color='#2563EB', s=80, marker='D', zorder=i*4+5, edgecolor='#ffffff', linewidth=1.2)
+
+    # 95th Percentile line & triangular marker
+    ax.plot([q95_val, q95_val], [y_base, y_base + q95_h], color='#D97706', linewidth=2.6, linestyle=':', zorder=i*4+4,
+            label='95th Percentile' if i == 0 else None)
+    ax.scatter([q95_val], [y_base + q95_h], color='#D97706', s=75, marker='^', zorder=i*4+5, edgecolor='#ffffff', linewidth=1.2)
+
+    # Dynamic non-overlapping offsets for metric labels
+    if abs(act_val - fc_val) < 0.08:
+        act_y_txt = y_base + act_h + 0.12
+        fc_y_txt = y_base + fc_h + 0.04
+    else:
+        act_y_txt = y_base + act_h + 0.06
+        fc_y_txt = y_base + fc_h + 0.06
+    q95_y_txt = y_base + q95_h + 0.06
+
+    ax.text(act_val, act_y_txt, f'{act_val:.2f}', color='#C93B2B', fontsize=12.5, fontweight='bold',
+            ha='center', va='bottom', bbox=dict(boxstyle='round,pad=0.18', facecolor='#ffffff', edgecolor='#C93B2B', linewidth=1, alpha=0.92), zorder=i*4+6)
+    ax.text(fc_val, fc_y_txt, f'{fc_val:.2f}', color='#2563EB', fontsize=12.5, fontweight='bold',
+            ha='center', va='bottom', bbox=dict(boxstyle='round,pad=0.18', facecolor='#ffffff', edgecolor='#2563EB', linewidth=1, alpha=0.92), zorder=i*4+6)
+    ax.text(q95_val, q95_y_txt, f'{q95_val:.2f}', color='#D97706', fontsize=12.5, fontweight='bold',
+            ha='center', va='bottom', bbox=dict(boxstyle='round,pad=0.18', facecolor='#ffffff', edgecolor='#D97706', linewidth=1, alpha=0.92), zorder=i*4+6)
+
+    # Clean Y-axis label text: Horizon 1 to Horizon 5
+    ax.text(-0.03, y_base + 0.18, f'Horizon {i+1}', fontsize=17, fontweight='bold',
+            color='#0B363C', ha='right', va='center', family='sans-serif')
+
+ax.set_xlim(-0.02, 2.35)
+ax.set_ylim(-0.1, (n_horizons - 1) * overlap + 1.25)
+ax.set_xlabel('Estimated Avoidable Deaths (EAD)', fontsize=19, fontweight='bold', color='#0B363C', labelpad=14)
+# ax.set_title('Probabilistic Predictive Distributions Across 5 Forecast Horizons (10,000 Scenarios)', 
+#              fontsize=23, fontweight='bold', color='#0B363C', pad=22)
+
+ax.set_yticks([])
+ax.tick_params(axis='x', labelsize=16, colors='#334155')
+ax.grid(axis='x', linestyle='--', alpha=0.45, color='#cbd5e1')
+for spine in ['top', 'left', 'right']:
+    ax.spines[spine].set_visible(False)
+ax.spines['bottom'].set_color('#94a3b8')
+ax.spines['bottom'].set_linewidth(1.4)
+
+ax.legend(loc='upper right', frameon=True, facecolor='#ffffff', edgecolor='#cbd5e1', fontsize=15, framealpha=0.95)
+
+plt.tight_layout()
+plt.show()
+```
+
+---
+
+## Can Calibrated Uncertainty Bounds Capture Peaks in EAD?
+
+```{python}
+#| fig-align: center
+#| out-width: 100%
+
+import pickle
+import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
+import pandas as pd
+import numpy as np
+
+with open('cv_results.pkl', 'rb') as f:
+    data = pickle.load(f)
+
+train_last90 = data['training_last90']
+cv_df = data['cv_results']
+origin_date = train_last90.index[-1]
+n_total = len(cv_df)
+
+fig, ax = plt.subplots(figsize=(24, 10), facecolor='#FBFAF4')
+ax.set_facecolor('#FBFAF4')
+
+# 1. Historical Training Data (Last 90 Days)
+ax.plot(train_last90.index, train_last90['ead'], color='#64748b', linewidth=2.4, label='Historical Training EAD (Last 90 Days)', zorder=3)
+ax.fill_between(train_last90.index, 0, train_last90['ead'], color='#64748b', alpha=0.06, zorder=2)
+
+# Major separator between training and CV evaluation
+ax.axvline(origin_date, color='#0B363C', linestyle='--', linewidth=2.8, zorder=8, label=f'Forecast Origin ({origin_date.strftime("%b %d, %Y")})')
+
+# 2. Continuous Prediction Interval Bands across all 120 days
+ax.fill_between(cv_df['fold_index'], cv_df['lower_90'], cv_df['upper_90'], color='#20808D', alpha=0.15, zorder=4, label='90% Prediction Interval')
+ax.fill_between(cv_df['fold_index'], cv_df['lower_80'], cv_df['upper_80'], color='#20808D', alpha=0.28, zorder=5, label='80% Prediction Interval')
+
+# Continuous Forecast line
+ax.plot(cv_df['fold_index'], cv_df['y_pred'], color='#2563EB', linewidth=3.0, linestyle='--', 
+        marker='s', markersize=4.8, markerfacecolor='#2563EB', markeredgecolor='#ffffff', markeredgewidth=1.0, 
+        zorder=7, label='MS-ARR Point Forecast (y_pred)')
+
+# 3. Out-of-Sample Actuals (Continuous line across all 120 days)
+conn_dates = [origin_date] + list(cv_df['fold_index'])
+conn_actuals = [train_last90['ead'].iloc[-1]] + list(cv_df['y_true'])
+ax.plot(conn_dates, conn_actuals, color='#C93B2B', linewidth=3.2, marker='o', markersize=4.8, label='Actual Observed EAD (Out-of-Sample)', zorder=8)
+
+# Coverage stats
+cov_80_s = (cv_df['y_true'] >= cv_df['lower_80']) & (cv_df['y_true'] <= cv_df['upper_80'])
+cov_90_s = (cv_df['y_true'] >= cv_df['lower_90']) & (cv_df['y_true'] <= cv_df['upper_90'])
+cov_80 = cov_80_s.mean() * 100
+cov_90 = cov_90_s.mean() * 100
+cnt_80 = int(cov_80_s.sum())
+cnt_90 = int(cov_90_s.sum())
+
+# Metric Badge Box on the left
+metric_text = (f'Probabilistic Calibration & Reliability (120-Day Horizon):\n'
+               f'• 90% Empirical Coverage: {cov_90:.1f}% ({cnt_90}/{n_total} days)\n'
+               f'• 80% Empirical Coverage: {cov_80:.1f}% ({cnt_80}/{n_total} days)')
+ax.text(0.015, 0.96, metric_text, transform=ax.transAxes, fontsize=13.5, fontweight='bold', color='#0B363C',
+        va='top', bbox=dict(boxstyle='round,pad=0.55', facecolor='#ffffff', edgecolor='#20808D', linewidth=2.0, alpha=0.96), zorder=10)
+
+# Legend placed cleanly in the upper center-left
+ax.legend(loc='upper left', bbox_to_anchor=(0.34, 0.96), frameon=True, facecolor='#ffffff', edgecolor='#cbd5e1', fontsize=13, ncol=2)
+
+ax.set_ylabel('Avoidable Deaths (EAD)', fontsize=18, fontweight='bold', color='#0B363C')
+ax.set_title('80% & 90% Calibrated Prediction Intervals vs. Actual EAD', 
+             fontsize=22, fontweight='bold', color='#0B363C', pad=22)
+
+ax.grid(True, linestyle='--', alpha=0.35, color='#cbd5e1')
+ax.tick_params(labelsize=15)
+ax.xaxis.set_major_locator(mdates.WeekdayLocator(interval=3))
+ax.xaxis.set_major_formatter(mdates.DateFormatter('%b %d, %Y'))
+fig.autofmt_xdate(rotation=0, ha='center')
+
+ax.set_ylim(0, 1.92)
+ax.set_xlim(train_last90.index[0] - pd.Timedelta(days=2), cv_df['fold_index'].iloc[-1] + pd.Timedelta(days=2))
+
+plt.subplots_adjust(left=0.05, right=0.97, top=0.90, bottom=0.12)
+plt.show()
+```
+
+[**Note: Forecasts are generated once every 5 days, 24 times across 120 days.**]{style="font-size: 18px; color: #0B363C; font-weight: bold; margin-top: 12px;"}
+
+---
+
+
+
+
+## Operationalizing Probabilistic Forecasts into Actionable [Peak]{style="color: #BF505C; font-weight: bold;"} Signals
+
+
+```{python}
+#| fig-align: center
+#| out-width: 100%
+
+import pickle
+import pandas as pd
+import numpy as np
+import plotly.graph_objects as go
+
+with open('cv_results.pkl', 'rb') as f:
+    cv_df = pickle.load(f)['cv_results']
+
+n_total = len(cv_df)
+thresholds = [0.8, 0.9, 1.0, 1.1, 1.2]
+bounds = ['90', '80']
+
+fig = go.Figure()
+
+# 1. Base Traces (Ground Truth & Point Forecast)
+# Trace 0: Actual Observed Ground Truth
+fig.add_trace(go.Scatter(
+    x=cv_df['fold_index'], y=cv_df['y_true'],
+    mode='lines+markers', name='Actual Observed EAD',
+    line=dict(color='#C93B2B', width=3.5),
+    marker=dict(size=8, color='#C93B2B'),
+    hovertemplate='<b>Actual EAD:</b> %{y:.2f}<br>Date: %{x|%b %d, %Y}<extra></extra>'
+))
+
+# Trace 1: MS-ARR Point Forecast
+fig.add_trace(go.Scatter(
+    x=cv_df['fold_index'], y=cv_df['y_pred'],
+    mode='lines+markers', name='Point Forecast (y_pred)',
+    line=dict(color='#2563EB', width=2.8, dash='dash'),
+    marker=dict(symbol='square', size=7.5, color='#2563EB'),
+    hovertemplate='<b>Point Forecast:</b> %{y:.2f}<br>Date: %{x|%b %d, %Y}<extra></extra>'
+))
+
+# Trace 2: Upper 90% Bound (Ceiling)
+fig.add_trace(go.Scatter(
+    x=cv_df['fold_index'], y=cv_df['upper_90'],
+    mode='lines+markers', name='Upper 90% Bound',
+    line=dict(color='#0B363C', width=2.8),
+    marker=dict(symbol='triangle-up', size=6.5, color='#0B363C'),
+    hovertemplate='<b>Upper 90% Bound:</b> %{y:.2f}<extra></extra>',
+    visible=True
+))
+
+# Trace 3: Upper 80% Bound
+fig.add_trace(go.Scatter(
+    x=cv_df['fold_index'], y=cv_df['upper_80'],
+    mode='lines+markers', name='Upper 80% Bound',
+    line=dict(color='#20808D', width=2.5, dash='dot'),
+    marker=dict(symbol='triangle-down', size=6.5, color='#20808D'),
+    hovertemplate='<b>Upper 80% Bound:</b> %{y:.2f}<extra></extra>',
+    visible=False
+))
+
+# 2. Dynamic Parametric Scatter Traces
+combo_traces = {}
+curr_idx = 4
+
+for b in bounds:
+    col = f'upper_{b}'
+    for th in thresholds:
+        th = round(th, 2)
+        surges = cv_df['y_true'] > th
+        normal = cv_df['y_true'] <= th
+        
+        safe_mask = (cv_df['y_true'] <= cv_df[col]) & normal
+        correct_mask = (cv_df['y_true'] <= cv_df[col]) & surges
+        wrong_mask = (cv_df['y_true'] > cv_df[col]) & surges
+        pt_miss_mask = (cv_df['y_pred'] <= th) & surges
+        
+        # Sub-trace 0: Safe Demand
+        fig.add_trace(go.Scatter(
+            x=cv_df.loc[safe_mask, 'fold_index'], y=cv_df.loc[safe_mask, 'y_true'],
+            mode='markers', name='Safe Demand',
+            marker=dict(color='#10B981', size=8.5),
+            hovertemplate='<b>Safe Demand</b><br>Actual: %{y:.2f} EAD<extra></extra>',
+            visible=False
+        ))
+        # Sub-trace 1: Correct Surge Signal
+        fig.add_trace(go.Scatter(
+            x=cv_df.loc[correct_mask, 'fold_index'], y=cv_df.loc[correct_mask, 'y_true'],
+            mode='markers', name=f'Correct Surge (≤ Upper {b}%)',
+            marker=dict(symbol='diamond', color='#0284C7', size=10),
+            hovertemplate='<b>Surge Enveloped</b><br>Actual: %{y:.2f} EAD<extra></extra>',
+            visible=False
+        ))
+        # Sub-trace 2: Wrong Signal / Overrun
+        fig.add_trace(go.Scatter(
+            x=cv_df.loc[wrong_mask, 'fold_index'], y=cv_df.loc[wrong_mask, 'y_true'],
+            mode='markers', name=f'Overrun Breach (> Upper {b}%)',
+            marker=dict(symbol='x', color='#DC2626', size=12, line=dict(width=2.4)),
+            hovertemplate='<b>Surge Overrun Breach</b><br>Actual: %{y:.2f} EAD<extra></extra>',
+            visible=False
+        ))
+        # Sub-trace 3: Point Forecast Miss
+        fig.add_trace(go.Scatter(
+            x=cv_df.loc[pt_miss_mask, 'fold_index'], y=cv_df.loc[pt_miss_mask, 'y_true'],
+            mode='markers', name='Point Forecast Miss',
+            marker=dict(symbol='circle-open', color='#DC2626', size=17, line=dict(width=2.6)),
+            hovertemplate='<b>Point Missed Surge!</b><br>Actual: %{y:.2f} EAD<extra></extra>',
+            visible=False
+        ))
+        
+        combo_traces[(b, th)] = list(range(curr_idx, curr_idx + 4))
+        curr_idx += 4
+
+total_traces = len(fig.data)
+
+# 3. Helper to format the Surge Containment Rate KPI card
+
+# 3. Helper to format the Surge Containment Rate KPI card
+def get_kpi_text(target_b, th):
+    n_surges = int((cv_df['y_true'] > th).sum())
+    col = f'upper_{target_b}'
+    corr = int(((cv_df['y_true'] <= cv_df[col]) & (cv_df['y_true'] > th)).sum())
+    wrong = int(((cv_df['y_true'] > cv_df[col]) & (cv_df['y_true'] > th)).sum())
+    safe = int(((cv_df['y_true'] <= cv_df[col]) & (cv_df['y_true'] <= th)).sum())
+    pt_miss = int(((cv_df['y_pred'] <= th) & (cv_df['y_true'] > th)).sum())
+    
+    denom = corr + wrong
+    containment_rate = (corr / denom * 100) if denom > 0 else 100.0
+    pt_miss_pct = (pt_miss / n_surges * 100) if n_surges > 0 else 0.0
+    status_color = '#10B981' if wrong == 0 else '#DC2626'
+    
+    return (
+        f"<span style='font-size:23px;'><b>Peak Containment Rate [Correct / (Wrong + Correct)]:</b></span> "
+        f"<span style='color:#2CA0AB; font-size:30px;'><b>{containment_rate:.1f}%</b></span>  "
+        f"<span style='font-size:21px; color:#0B363C;'><b>({corr}/{denom} surges)</b></span><br>"
+        f"<span style='font-size:10px;'>&#160;</span><br>"
+        f"<span style='font-size:15.5px;'>"
+        f"• Safe EAD: <b style='font-size:17.5px;'>{safe}/{n_total} ({safe/n_total*100:.1f}%)</b> &nbsp;|&nbsp; "
+        f"• Correct Signals: <b style='font-size:17.5px; color:#2CA0AB;'>{corr}/{n_total} ({corr/n_total*100:.1f}%)</b> &nbsp;|&nbsp; "
+        f"• Wrong Signals: <b style='font-size:17.5px; color:{status_color};'>{wrong}/{n_total} ({wrong/n_total*100:.1f}%)</b> &nbsp;|&nbsp; "
+        f"• Point Forecast Miss: <b style='font-size:17.5px; color:#DC2626;'>{pt_miss}/{n_surges} ({pt_miss_pct:.0f}%)</b>"
+        f"</span>"
+    )
+
+# 4. Build Parametric Slider Steps
+def make_slider_steps(target_b):
+    steps = []
+    for th in thresholds:
+        th = round(th, 2)
+        vis = [False] * total_traces
+        vis[0] = True # Actual
+        vis[1] = True # Point
+        vis[2] = (target_b == '90')
+        vis[3] = (target_b == '80')
+        for idx in combo_traces[(target_b, th)]:
+            vis[idx] = True
+            
+        shape = dict(
+            type='line', xref='paper', x0=0, x1=1,
+            y0=th, y1=th, line=dict(color='#DC2626', width=2.2, dash='dash')
+        )
+        
+        # Position threshold badge cleanly on the FAR RIGHT of the dashed line
+        ann_threshold = dict(
+            xref='paper', x=0.99, y=th,
+            xanchor='right', yanchor='bottom',
+            text=f'  Alert Threshold: {th:.1f} EAD  ',
+            showarrow=False,
+            font=dict(color='#DC2626', size=18, family='Arial Black'),
+            bgcolor='rgba(255, 255, 255, 0.92)',
+            bordercolor='#DC2626',
+            borderwidth=1.2,
+            borderpad=3
+        )
+        
+        # KPI box cleanly on the bottom-left beside the slider
+        ann_kpi = dict(
+            xref='paper', yref='paper',
+            x=0.0, y=-0.24,
+            xanchor='left', yanchor='middle',
+            text=get_kpi_text(target_b, th),
+            showarrow=False,
+            align='left',
+            font=dict(size=12.5, color='#0B363C'),
+            bgcolor='#ffffff',
+            bordercolor='#20808D',
+            borderwidth=1.8,
+            borderpad=9
+        )
+        
+        steps.append({
+            'method': 'update',
+            'label': f'{th:.1f} EAD',
+            'args': [
+                {'visible': vis},
+                {
+                    'shapes': [shape],
+                    'annotations': [ann_threshold, ann_kpi]
+                }
+            ]
+        })
+    return steps
+
+steps_90 = make_slider_steps('90')
+steps_80 = make_slider_steps('80')
+
+slider_90 = dict(
+    active=2,
+    # 1. Headline text above the bar:
+    currentvalue=dict(
+        prefix='Alert Threshold (th): ',
+        font=dict(size=17, color='#0B363C', family='Arial Black')
+    ),
+    # 2. Axis text / tick labels below the bar ('0.8 EAD', '0.9 EAD', etc.):
+    font=dict(size=14, color='#0B363C', family='Arial Black'),
+    
+    # 3. Bar & Handle Colors:
+    bgcolor='#e2e8f0',            # Track rail color
+    activebgcolor='#20808D',      # Active drag handle knob color
+    bordercolor='#20808D',        # Track border color
+    borderwidth=1.5,              # Track border width
+    tickcolor='#0B363C',          # Tick mark lines color
+    ticklen=6,                    # Tick mark length
+    tickwidth=1.5,                # Tick mark thickness
+    
+    pad=dict(t=20, b=5),
+    steps=steps_90,
+    len=0.36,
+    x=0.63,
+    y=-0.14
+)
+slider_80 = dict(
+    active=2,
+    # 1. Headline text above the bar:
+    currentvalue=dict(
+        prefix='Alert Threshold (th): ',
+        font=dict(size=17, color='#0B363C', family='Arial Black')
+    ),
+    # 2. Axis text / tick labels below the bar ('0.8 EAD', '0.9 EAD', etc.):
+    font=dict(size=14, color='#0B363C', family='Arial Black'),
+    
+    # 3. Bar & Handle Colors:
+    bgcolor='#e2e8f0',            # Track rail color
+    activebgcolor='#20808D',      # Active drag handle knob color
+    bordercolor='#20808D',        # Track border color
+    borderwidth=1.5,              # Track border width
+    tickcolor='#0B363C',          # Tick mark lines color
+    ticklen=6,                    # Tick mark length
+    tickwidth=1.5,                # Tick mark thickness
+    
+    pad=dict(t=20, b=5),
+    steps=steps_80,
+   len=0.36,              # <--- Fits perfectly on the right
+    x=0.63,                # <--- Leaves clear gap from the card
+    y=-0.14                # <--- Exactly level with the card's y=-0.24
+)
+
+
+# Initial state: Upper 90% Bound at th = 1.0 EAD (step 2)
+init_step = steps_90[2]
+initial_vis = init_step['args'][0]['visible']
+for i, v in enumerate(initial_vis):
+    fig.data[i].visible = v
+
+# Top Row: Buttons on row 1 (y=1.14)
+updatemenus = [
+    dict(
+        type='buttons',
+        direction='right',
+        x=0.0,
+        y=1.14,
+        yanchor='bottom',
+        xanchor='left',
+        showactive=True,
+        active=0,
+        bgcolor='#ffffff',
+        bordercolor='#20808D',
+        borderwidth=1.8,
+        font=dict(size=14, color='#0B363C', family='Arial Black'),
+        pad=dict(r=8, t=0, b=0, l=0),
+        buttons=[
+            dict(
+                label='  Upper 90% Bound (Ceiling)  ',
+                method='update',
+                args=[
+                    {'visible': steps_90[2]['args'][0]['visible']},
+                    {
+                        'shapes': steps_90[2]['args'][1]['shapes'],
+                        'annotations': steps_90[2]['args'][1]['annotations'],
+                        'sliders': [slider_90]
+                    }
+                ]
+            ),
+            dict(
+                label='  Upper 80% Bound  ',
+                method='update',
+                args=[
+                    {'visible': steps_80[2]['args'][0]['visible']},
+                    {
+                        'shapes': steps_80[2]['args'][1]['shapes'],
+                        'annotations': steps_80[2]['args'][1]['annotations'],
+                        'sliders': [slider_80]
+                    }
+                ]
+            )
+        ]
+    )
+]
+
+fig.update_layout(
+    shapes=steps_90[2]['args'][1]['shapes'],
+    annotations=steps_90[2]['args'][1]['annotations'],
+    updatemenus=updatemenus,
+    sliders=[slider_90],
+    xaxis=dict(
+        title=dict(text='Date (Rolling 120-Day Evaluation Horizon | 24 updates × 5 days)', font=dict(size=16, color='#0B363C'), standoff=12),
+        gridcolor='#E2E8F0',
+        tickfont=dict(size=14, color='#0B363C')
+    ),
+    yaxis=dict(
+        title=dict(text='Emergency Avoidable Deaths (EAD)', font=dict(size=16, color='#0B363C')),
+        range=[0.15, 1.90],
+        gridcolor='#E2E8F0',
+        tickfont=dict(size=14, color='#0B363C')
+    ),
+    plot_bgcolor='#FBFAF4',
+    paper_bgcolor='#FBFAF4',
+    height=950,
+    width=1820,
+   margin=dict(l=60, r=40, t=110, b=170),
+    # Row 2 (y=1.02): Legend right above the chart, completely below the buttons
+    legend=dict(
+        orientation='h',
+        yanchor='bottom',
+        y=1.02,
+        xanchor='left',
+        x=0.0,
+        font=dict(size=16, color='#0B363C'),
+        bgcolor='rgba(255,255,255,0.92)',
+        bordercolor='#CBD5E1',
+        borderwidth=1.2
+    )
+)
+
+fig.show()
+```
+
+
+
+# Any questions or thoughts? 💬
+
+![](images/follow_us.png){fig-align="center"}

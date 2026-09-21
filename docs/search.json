@@ -179,7 +179,7 @@
     "href": "talks/index.html",
     "title": "MUSTAFA ASLAN",
     "section": "",
-    "text": "Forecast all at once: A multi-series forecasting approach for hospital discharges and admissions\n\n\nThe Operational Research Society\n\n\n\n\n\nSep 10, 2026\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nIntegrating Regime-Switching Probabilistic Forecasts into Stochastic Optimization for Nurse Rostering in Mental Health Wards\n\n\nThe 24th Conference of the International Federation of Operational Research Societies\n\n\n\n\n\nJul 13, 2026\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nFrom Admission to Discharge: Dynamically Updating Length of Stay Forecasts with Causal Diagnostic and Operational Penalties\n\n\nUniversity of Exeter, UK - July 11 2026\n\n\n\n\n\nJun 11, 2026\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nAI in Research & Social Care\n\n\nCare PhD Forum\n\n\n\n\n\nApr 23, 2026\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nForecast-Driven Two-Stage Stochastic Programming for Nurse Rostering in Mental Healthcare\n\n\nQuarterly Forecasting Forum\n\n\n\n\n\nMar 13, 2026\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nEnhancing Discharge Care Planning: A Probabilistic Data-Driven Approach\n\n\nSWORD Network Event - Postgraduate OR Presentations\n\n\n\n\n\nOct 9, 2025\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nForecasting Mental Health Hospital Bed Occupancy: A Regime-Switching AutoRegressive Hidden Markov Model Approach\n\n\n5th Welsh Postgraduate Research Cluster Workshop in Economy, Enterprise and Productivity\n\n\n\n\n\nSep 16, 2025\n\n\nMustafa Aslan\n\n\n\n\n\nNo matching items"
+    "text": "Forecasting Severe Acute Patient Harm Resulting from Emergency Department Delays\n\n\n\n\n\n\n\n\nSep 23, 2026\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nForecast all at once: A multi-series forecasting approach for hospital discharges and admissions\n\n\nThe Operational Research Society\n\n\n\n\n\nSep 10, 2026\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nIntegrating Regime-Switching Probabilistic Forecasts into Stochastic Optimization for Nurse Rostering in Mental Health Wards\n\n\nThe 24th Conference of the International Federation of Operational Research Societies\n\n\n\n\n\nJul 13, 2026\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nFrom Admission to Discharge: Dynamically Updating Length of Stay Forecasts with Causal Diagnostic and Operational Penalties\n\n\nUniversity of Exeter, UK - July 11 2026\n\n\n\n\n\nJun 11, 2026\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nAI in Research & Social Care\n\n\nCare PhD Forum\n\n\n\n\n\nApr 23, 2026\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nForecast-Driven Two-Stage Stochastic Programming for Nurse Rostering in Mental Healthcare\n\n\nQuarterly Forecasting Forum\n\n\n\n\n\nMar 13, 2026\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nEnhancing Discharge Care Planning: A Probabilistic Data-Driven Approach\n\n\nSWORD Network Event - Postgraduate OR Presentations\n\n\n\n\n\nOct 9, 2025\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nForecasting Mental Health Hospital Bed Occupancy: A Regime-Switching AutoRegressive Hidden Markov Model Approach\n\n\n5th Welsh Postgraduate Research Cluster Workshop in Economy, Enterprise and Productivity\n\n\n\n\n\nSep 16, 2025\n\n\nMustafa Aslan\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "talks/index.html#probability-and-statistics",
@@ -8395,141 +8395,274 @@
   {
     "objectID": "talks/ors/present.html#section",
     "href": "talks/ors/present.html#section",
-    "title": "MUSTAFA ASLAN",
+    "title": "\n    Forcast all at once: A multi-series forecasting approach for hospital discharges and admissions\n  ",
     "section": "",
     "text": "Outline\n\n\nProblem & Motivation\nThe Methodology\nExperimental Setup\nEmpirical Results\nNext Steps"
   },
   {
     "objectID": "talks/ors/present.html#the-clinical-operational-problem",
     "href": "talks/ors/present.html#the-clinical-operational-problem",
-    "title": "MUSTAFA ASLAN",
+    "title": "\n    Forcast all at once: A multi-series forecasting approach for hospital discharges and admissions\n  ",
     "section": "The Clinical & Operational Problem",
     "text": "The Clinical & Operational Problem\n\n\n\n\n\nInterconnected Specialties: Dozens of acute clinical services continuously share and compete for hospital bed capacity.\nRipple Effects & Bed Blocking: Medical discharge delays directly block acute surgical transfers from recovery units.\nPatient Off-Placement: When target wards are full, patients are boarded in the “wrong” specialty beds—inflating length of stay and compounding hospital gridlock."
   },
   {
     "objectID": "talks/ors/present.html#the-scale-of-the-challenge",
     "href": "talks/ors/present.html#the-scale-of-the-challenge",
-    "title": "MUSTAFA ASLAN",
+    "title": "\n    Forcast all at once: A multi-series forecasting approach for hospital discharges and admissions\n  ",
     "section": "The Scale of the Challenge",
-    "text": "The Scale of the Challenge\nCapturing system-wide dynamics across 58 interdependent time series\n\n\n\n\n29 Clinical Specialties Medicine, Surgery, Trauma, Cardiology, Haematology, ICU, etc.\n\n\n\n2 Flow Types Admissions & Discharges Coupled daily inflows and outflows\n\n\n\n58 Series Simultaneous Time Series 5 years of daily data (\\(&gt;133,000\\) hospital observations)\n\n\n\n\nHow should we forecast these 58 streams for next planning periods?"
+    "text": "The Scale of the Challenge\n\nCapturing system-wide dynamics across 58 interdependent time series\n\n\n\n\n29 Clinical Specialties Medicine, Surgery, Trauma, Cardiology, Haematology, ICU, etc.\n\n\n\n2 Flow Types Admissions & Discharges Coupled daily inflows and outflows\n\n\n\n58 Series Simultaneous Time Series 5 years of daily data (\\(&gt;133,000\\) hospital observations)\n\n\n\n\n\nHow should we forecast these 58 streams for next planning periods?"
   },
   {
     "objectID": "talks/ors/present.html#the-traditional-approach-58-univariate-forecasting-models",
     "href": "talks/ors/present.html#the-traditional-approach-58-univariate-forecasting-models",
-    "title": "MUSTAFA ASLAN",
+    "title": "\n    Forcast all at once: A multi-series forecasting approach for hospital discharges and admissions\n  ",
     "section": "The Traditional Approach: 58 Univariate Forecasting Models",
-    "text": "The Traditional Approach: 58 Univariate Forecasting Models\n\n\n\n\n\n\nUnivariate Modeling\n\n\n\nFit 58 separate forecasting models (one per specialty and flow).\nMaintain and monitor model performance for each series independently.\n\nFor example, Hyperparameter tuning repeated for 58 independent times.\n\nEach model conditioned exclusively on its own past values: \\[\n\\hat{y}_{t+1}^{(i)} = f_i\\left(y_t^{(i)}, y_{t-1}^{(i)}, \\dots, y_{t-p}^{(i)}, \\mathbf{X}_t^{\\text{calendar}}\\right)\n\\]\n\n\n\n\n\n\n\n\nOperational Realities\n\n\n\nInformation Interdependencies: Admissions and discharges are strongly correlated across specialties (\\(r \\approx 0.85-1.0\\)). Ignoring cross-specialty spillovers creates blind spots in operational planning.\nTechnical Debt & Scalability Issues: Maintaining 58 separate models is resource-intensive and error-prone, especially when each model requires independent hyperparameter tuning and monitoring.\n\n\n\n\n\n\n\n➜ What if we could train ONE model that forecasts all 58 series at once?"
+    "text": "The Traditional Approach: 58 Univariate Forecasting Models\n\n\n\n\n\n\n\n\n\nWarningUnivariate Modeling\n\n\n\n\nFit 58 separate forecasting models (one per specialty and flow).\nMaintain and monitor model performance for each series independently.\n\nFor example, Hyperparameter tuning repeated for 58 independent times.\n\nEach model conditioned exclusively on its own past values: \\[\n\\hat{y}_{t+1}^{(i)} = f_i\\left(y_t^{(i)}, y_{t-1}^{(i)}, \\dots, y_{t-p}^{(i)}, \\mathbf{X}_t^{\\text{calendar}}\\right)\n\\]\n\n\n\n\n\n\n\n\n\n\nImportantOperational Realities\n\n\n\n\nInformation Interdependencies: Admissions and discharges are strongly correlated across specialties (\\(r \\approx 0.85-1.0\\)). Ignoring cross-specialty spillovers creates blind spots in operational planning.\nTechnical Debt & Scalability Issues: Maintaining 58 separate models is resource-intensive and error-prone, especially when each model requires independent hyperparameter tuning and monitoring.\n\n\n\n\n\n\n\n➜ What if we could train ONE model that forecasts all 58 series at once?"
   },
   {
     "objectID": "talks/ors/present.html#section-1",
     "href": "talks/ors/present.html#section-1",
-    "title": "MUSTAFA ASLAN",
+    "title": "\n    Forcast all at once: A multi-series forecasting approach for hospital discharges and admissions\n  ",
     "section": "",
     "text": "Outline\n\n\nProblem & Motivation\nThe Methodology\nExperimental Setup\nEmpirical Results\nNext Steps"
   },
   {
     "objectID": "talks/ors/present.html#mathematical-formulation-multi-series-global-model",
     "href": "talks/ors/present.html#mathematical-formulation-multi-series-global-model",
-    "title": "MUSTAFA ASLAN",
+    "title": "\n    Forcast all at once: A multi-series forecasting approach for hospital discharges and admissions\n  ",
     "section": "Mathematical Formulation: Multi-Series Global Model",
     "text": "Mathematical Formulation: Multi-Series Global Model\n\n\n\n\nGlobal Functional Mapping:\nRather than fitting 58 single-series models, a single function \\(\\mathcal{M}\\) predicts discharge volume \\(y_{i,t}\\): \\[y_{i, t} = \\mathcal{M}\\left( s_i, \\, \\mathbf{X}_{t}^{\\text{cross}}, \\, \\mathbf{Z}_{t} \\right) + \\epsilon_{i, t}, \\qquad i = 1, \\dots, N\\]\nCross-Specialty Feature Vector:\nCaptures systemic “ripple effects” by concatenating \\(p\\) autoregressive lags across all \\(M\\) clinical specialties: \\[\\mathbf{X}_{t}^{\\text{cross}} = \\left[\\mathbf{y}_{t-1:t-p}^{(1)}, \\, \\mathbf{y}_{t-1:t-p}^{(2)}, \\, \\dots, \\, \\mathbf{y}_{t-1:t-p}^{(M)}\\right] \\in \\mathbb{R}^{M \\cdot p}\\]\nPooled Empirical Risk Minimization:\nThe global estimator \\(\\mathcal{M}^*\\) is learned jointly across all series and time points: \\[\\min_{\\mathcal{M}} \\sum_{i=1}^{N} \\sum_{t=p+1}^{T} \\mathcal{L}\\left( y_{i, t}, \\, \\mathcal{M}\\left(s_i, \\, \\mathbf{X}_{t}^{\\text{cross}}, \\, \\mathbf{Z}_{t}\\right) \\right) + \\Omega(\\mathcal{M})\\]\n\n\n\n\nNotation & Dimensions:\n\n\\(y_{i,t}\\): Discharge volume for series \\(i\\) on day \\(t\\)\n\\(N\\): Total target streams (29 specialties \\(\\times\\) 2 flow types)\n\\(s_i \\in \\{1, \\dots, N\\}\\): Categorical series identifier\n\\(M\\): Number of clinical specialties\n\\(p\\): Autoregressive lag depth\n\\(\\mathbf{Z}_t\\): Exogenous covariates (calendar, holidays, capacity expansion)\n\\(\\mathcal{M}(\\cdot)\\): Global non-linear learner (LightGBM GBDT)"
   },
   {
     "objectID": "talks/ors/present.html#the-multi-series-training-matrix-architecture",
     "href": "talks/ors/present.html#the-multi-series-training-matrix-architecture",
-    "title": "MUSTAFA ASLAN",
+    "title": "\n    Forcast all at once: A multi-series forecasting approach for hospital discharges and admissions\n  ",
     "section": "The Multi-Series Training Matrix Architecture",
     "text": "The Multi-Series Training Matrix Architecture\n\n\n\n\n\n  \n    \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTime\nSeries ID (id_col)\nSpecialty A Lags\nSpecialty B Lags\nSpecialty C Lags\n…\nExog\nTarget (Y)\nFlow\n\n\nlag 3\nlag 2\nlag 1\nlag 3\nlag 2\nlag 1\nlag 3\nlag 2\nlag 1\n\n\n\n\nt1\nSpecialty A\n49\n52\n58\n15\n18\n20\n10\n12\n14\n…\nexog1\n65\n\n\nt2\nSpecialty A\n52\n58\n65\n18\n20\n22\n12\n14\n16\n…\nexog2\n71\n\n\nt3\nSpecialty A\n58\n65\n71\n20\n22\n19\n14\n16\n14\n…\nexog3\n68\n\n\n↓\nid_col switches →\n← Cross-Lag Features (X) Repeat Identically Across Series →\nTarget switches ↓\n\n\n\nt1\nSpecialty B\n49\n52\n58\n15\n18\n20\n10\n12\n14\n…\nexog1\n22\n\n\nt2\nSpecialty B\n52\n58\n65\n18\n20\n22\n12\n14\n16\n…\nexog2\n19\n\n\nt3\nSpecialty B\n58\n65\n71\n20\n22\n19\n14\n16\n14\n…\nexog3\n21\n\n\n↓\nid_col switches →\n← Cross-Lag Features (X) Repeat Identically Across Series →\nTarget switches ↓\n\n\n\nt1\nSpecialty C\n49\n52\n58\n15\n18\n20\n10\n12\n14\n…\nexog1\n16\n\n\nt2\nSpecialty C\n52\n58\n65\n18\n20\n22\n12\n14\n16\n…\nexog2\n14\n\n\nt3\nSpecialty C\n58\n65\n71\n20\n22\n19\n14\n16\n14\n…\nexog3\n15\n\n\n⋮\n⋮ (all 58 streams)\n⋮ (cross-lags repeated identically per date across streams)\n⋮"
   },
   {
     "objectID": "talks/ors/present.html#recursive-multi-step-ahead-forecasting-h-42-days",
     "href": "talks/ors/present.html#recursive-multi-step-ahead-forecasting-h-42-days",
-    "title": "MUSTAFA ASLAN",
+    "title": "\n    Forcast all at once: A multi-series forecasting approach for hospital discharges and admissions\n  ",
     "section": "Recursive Multi-Step Ahead Forecasting (\\(H = 42\\) Days)",
-    "text": "Recursive Multi-Step Ahead Forecasting (\\(H = 42\\) Days)\nPropagating dynamic feedback loops across the forecasting horizon\n\n\n\n\nStep \\(h = 1\\) (Known History)\n1. Known Observations: Model ingests historical observations up to time \\(t\\): \\[\\mathbf{X}_{t} = \\left[\\mathbf{y}_{t:t-6}^{(1)}, \\dots, \\mathbf{y}_{t:t-6}^{(29)}, \\mathbf{Z}_{t+1}\\right]\\]\n2. Forecast Generation: \\[\\hat{\\mathbf{y}}_{t+1} = \\mathcal{M}\\left(\\mathbf{X}_t\\right)\\] Generates 1-step ahead forecasts for all 58 series simultaneously.\n\n\n\nStep \\(h = 2\\) (AutoReg Roll)\n1. Lag Update Feedback: Predicted values \\(\\hat{\\mathbf{y}}_{t+1}\\) roll into the most recent lag position: \\[\\text{Lag}_1 \\leftarrow \\hat{\\mathbf{y}}_{t+1}, \\quad \\text{Lag}_2 \\leftarrow \\mathbf{y}_t\\]\n2. Step-2 Prediction: \\[\\hat{\\mathbf{y}}_{t+2} = \\mathcal{M}\\left(\\mathbf{X}_{t+1}\\right)\\] Generates 2-step ahead forecasts for all 58 series simultaneously. Mutual cross-specialty dependencies feed directly into day 2.\n\n\n\nStep \\(h = 3 \\dots H\\) (\\(H = 42\\))\n1. Recursive Progression: Repeated iteratively for all 42 days of the operational roster horizon.\n2. Full Joint Trajectory: Produces a coherent \\(42 \\times 58\\) matrix of forecasts: \\[\\hat{\\mathbf{Y}}_{t+1:t+42} \\in \\mathbb{R}^{42 \\times 58}\\]"
+    "text": "Recursive Multi-Step Ahead Forecasting (\\(H = 42\\) Days)\n\nPropagating dynamic feedback loops across the forecasting horizon\n\n\n\n\nStep \\(h = 1\\) (Known History)\n1. Known Observations: Model ingests historical observations up to time \\(t\\): \\[\\mathbf{X}_{t} = \\left[\\mathbf{y}_{t:t-6}^{(1)}, \\dots, \\mathbf{y}_{t:t-6}^{(29)}, \\mathbf{Z}_{t+1}\\right]\\]\n2. Forecast Generation: \\[\\hat{\\mathbf{y}}_{t+1} = \\mathcal{M}\\left(\\mathbf{X}_t\\right)\\] Generates 1-step ahead forecasts for all 58 series simultaneously.\n\n\n\nStep \\(h = 2\\) (AutoReg Roll)\n1. Lag Update Feedback: Predicted values \\(\\hat{\\mathbf{y}}_{t+1}\\) roll into the most recent lag position: \\[\\text{Lag}_1 \\leftarrow \\hat{\\mathbf{y}}_{t+1}, \\quad \\text{Lag}_2 \\leftarrow \\mathbf{y}_t\\]\n2. Step-2 Prediction: \\[\\hat{\\mathbf{y}}_{t+2} = \\mathcal{M}\\left(\\mathbf{X}_{t+1}\\right)\\] Generates 2-step ahead forecasts for all 58 series simultaneously. Mutual cross-specialty dependencies feed directly into day 2.\n\n\n\nStep \\(h = 3 \\dots H\\) (\\(H = 42\\))\n1. Recursive Progression: Repeated iteratively for all 42 days of the operational roster horizon.\n2. Full Joint Trajectory: Produces a coherent \\(42 \\times 58\\) matrix of forecasts: \\[\\hat{\\mathbf{Y}}_{t+1:t+42} \\in \\mathbb{R}^{42 \\times 58}\\]"
   },
   {
     "objectID": "talks/ors/present.html#section-2",
     "href": "talks/ors/present.html#section-2",
-    "title": "MUSTAFA ASLAN",
+    "title": "\n    Forcast all at once: A multi-series forecasting approach for hospital discharges and admissions\n  ",
     "section": "",
     "text": "Outline\n\n\nProblem & Motivation\nThe Methodology\nExperimental Setup\nEmpirical Results\nNext Steps"
   },
   {
     "objectID": "talks/ors/present.html#experimental-setup-benchmarking",
     "href": "talks/ors/present.html#experimental-setup-benchmarking",
-    "title": "MUSTAFA ASLAN",
+    "title": "\n    Forcast all at once: A multi-series forecasting approach for hospital discharges and admissions\n  ",
     "section": "Experimental Setup & Benchmarking",
-    "text": "Experimental Setup & Benchmarking\n\n\n\n\nNHS Inpatient Dataset & Evaluation Protocol\n\n\nData Source: NHS Inpatient dataset (Jan 2021 – Feb 2026).\nTarget Dimensions: 29 clinical specialties \\(\\times\\) 2 flow types \\(= \\mathbf{58}\\) time series.\nCross-Lag Features: 29 dominant flow series \\(\\times\\) 7 lags \\(= \\mathbf{203}\\) dynamic features.\nExogenous Variables: Calendar (dow, month), bank holidays, and General Medicine capacity expansion (gm_ch).\nRolling-Origin Cross-Validation:\n\nReserve the last year of data for out-of-sample evaluation.\n30 rolling evaluation splits, horizon \\(H = 42\\) days (step \\(= 12\\) days).\nPrimary metric: Root Mean Squared Scaled Error (RMSSE).\n\n\n\n\n\n\nCompeting Models & Benchmarking Protocol\n\n\nModel Families Evaluated:\n\nLightGBM (lgb): Fast histogram GBDT with native categorical series handling.\nXGBoost (xgb): Level-wise gradient boosting with one-hot series encoding.\nRidge Regression (ridge): Linear \\(L_2\\) regression with Fourier seasonality terms.\n\nSingle-Series Benchmark (Status Quo):\n\n58 independent models per family, tuned with Optuna (75 trials \\(\\times 58 = 4,350\\) CV fits).\n\nMulti-Series Model (Proposed):\n\n1 unified model trained on the pooled cross-lag matrix (\\(203\\) features)."
+    "text": "Experimental Setup & Benchmarking\n\n\n\n\nNHS Inpatient Dataset & Evaluation Protocol\n\n\nData Source: NHS Inpatient dataset (Jan 2021 – Feb 2026).\nTarget Dimensions: 29 clinical specialties \\(\\times\\) 2 flow types \\(= \\mathbf{58}\\) time series.\nCross-Lag Features: 29 dominant flow series \\(\\times\\) 7 lags \\(= \\mathbf{203}\\) dynamic features.\nExogenous Variables: Calendar (dow, month), bank holidays, and General Medicine capacity expansion (gm_ch).\nRolling-Origin Cross-Validation:\n\nReserve the last year of data for out-of-sample evaluation.\n30 rolling evaluation splits, horizon \\(H = 42\\) days (step \\(= 12\\) days).\nPrimary metric: Root Mean Squared Scaled Error (RMSSE).\n\n\n\n\n\n\nCompeting Models & Benchmarking Protocol\n\n\nModel Families Evaluated:\n\nLightGBM (lgb): Fast histogram GBDT with native categorical series handling.\nXGBoost (xgb): Level-wise gradient boosting with one-hot series encoding.\nRidge Regression (ridge): Linear \\(L_2\\) regression with Fourier seasonality terms.\n\nSingle-Series Benchmark:\n\n58 independent models per family, tuned with Optuna and cross-validation on test data.\n\nMulti-Series Model (Proposed):\n\n1 unified model per family, tuned with Optuna and cross-validation on test data."
   },
   {
     "objectID": "talks/ors/present.html#section-3",
     "href": "talks/ors/present.html#section-3",
-    "title": "MUSTAFA ASLAN",
+    "title": "\n    Forcast all at once: A multi-series forecasting approach for hospital discharges and admissions\n  ",
     "section": "",
     "text": "Outline\n\n\nProblem & Motivation\nThe Methodology\nExperimental Setup\nEmpirical Results\nNext Steps"
   },
   {
     "objectID": "talks/ors/present.html#forecast-evaluation-metrics",
     "href": "talks/ors/present.html#forecast-evaluation-metrics",
-    "title": "MUSTAFA ASLAN",
+    "title": "\n    Forcast all at once: A multi-series forecasting approach for hospital discharges and admissions\n  ",
     "section": "Forecast Evaluation Metrics",
-    "text": "Forecast Evaluation Metrics\nAssessing point accuracy and distributional calibration across heterogeneous streams\n\n\n\nRoot Mean Squared Scaled Error (RMSSE)\n\\[\\text{RMSSE} = \\sqrt{\\frac{\\frac{1}{H}\\sum_{h=1}^{H}\\left(y_{t+h} - \\hat{y}_{t+h}\\right)^2}{\\frac{1}{T-1}\\sum_{t=2}^{T}\\left(y_t - y_{t-1}\\right)^2}}\\]\n\n\nScale-Independent: Discharges vary widely across series (e.g., 2 vs. 70 patients/day); errors are scaled by naïve random walk to enable fair multi-series comparison.\nOutlier Penalty: Quadratic loss penalizes large misforecasts during critical patient surges.\n\n\n\n\n\nContinuous Ranked Probability Skill Score (CRPSS)\n\\[\\text{CRPS}(F, y) = \\int_{-\\infty}^{\\infty}\\left(F(x) - \\mathbf{1}(x \\ge y)\\right)^2 dx\\] \\[\\text{CRPSS} = 1 - \\frac{\\text{CRPS}_{\\text{Multi}}}{\\text{CRPS}_{\\text{Single}}}\\]\n\n\nContinuous Ranked Probability Score (CRPS): Evaluates sharpness and calibration across all quantiles (probabilistic analogue of MAE).\nRelative Skill Gain (CRPSS): Benchmarks multi-series against single-series models (\\(\\text{CRPSS} &gt; 0\\) indicates percentage improvement)."
+    "text": "Forecast Evaluation Metrics\n\nAssessing point accuracy and distributional calibration across heterogeneous streams\n\n\n\nRoot Mean Squared Scaled Error (RMSSE)\n\\[\\text{RMSSE} = \\sqrt{\\frac{\\frac{1}{H}\\sum_{h=1}^{H}\\left(y_{t+h} - \\hat{y}_{t+h}\\right)^2}{\\frac{1}{T-1}\\sum_{t=2}^{T}\\left(y_t - y_{t-1}\\right)^2}}\\]\n\n\nScale-Independent: Discharges vary widely across series (e.g., 2 vs. 70 patients/day); errors are scaled by naïve random walk to enable fair multi-series comparison.\nOutlier Penalty: Quadratic loss penalizes large misforecasts during critical patient surges.\n\n\n\n\n\nContinuous Ranked Probability Skill Score (CRPSS)\n\\[\\text{CRPS}(F, y) = \\int_{-\\infty}^{\\infty}\\left(F(x) - \\mathbf{1}(x \\ge y)\\right)^2 dx\\] \\[\\text{CRPSS} = 1 - \\frac{\\text{CRPS}_{\\text{Multi}}}{\\text{CRPS}_{\\text{Single}}}\\]\n\n\nContinuous Ranked Probability Score (CRPS): Evaluates sharpness and calibration across all quantiles (probabilistic analogue of MAE).\nRelative Skill Gain (CRPSS): Benchmarks multi-series against single-series models (\\(\\text{CRPSS} &gt; 0\\) indicates percentage improvement)."
   },
   {
     "objectID": "talks/ors/present.html#point-forecast-results",
     "href": "talks/ors/present.html#point-forecast-results",
-    "title": "MUSTAFA ASLAN",
+    "title": "\n    Forcast all at once: A multi-series forecasting approach for hospital discharges and admissions\n  ",
     "section": "Point Forecast Results",
-    "text": "Point Forecast Results"
+    "text": "Point Forecast Results\n\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\nimport numpy as np\n\n# Load benchmark results\ndf = pd.read_csv('tables/point_comparison.csv')\n\nplt.rcParams['figure.facecolor'] = '#FBFAF4'\nplt.rcParams['axes.facecolor'] = '#FBFAF4'\nplt.rcParams['font.sans-serif'] = 'Helvetica'\n\nfig, axes = plt.subplots(1, 2, figsize=(22, 10))\n\n# --- PLOT 1: Bar Chart of Mean RMSSE ---\nmodel_summary = df.groupby('model').agg(\n    RMSSE_sing=('RMSSE_sing', 'mean'),\n    RMSSE_multi=('RMSSE_multi', 'mean'),\n    Imp=('improvement_pct', 'mean')\n).loc[['lgb', 'xgb', 'ridge']]\n\nx = np.arange(len(model_summary))\nwidth = 0.32\nax = axes[0]\nr1 = ax.bar(x - width/2, model_summary['RMSSE_sing'], width, label='Single-Series (Tuned per series)', color='#0B363C', alpha=0.92)\nr2 = ax.bar(x + width/2, model_summary['RMSSE_multi'], width, label='Multi-Series (All at once)', color='#20808D', alpha=0.92)\n\nax.set_xticks(x)\nax.set_xticklabels(['LightGBM\\n(LGB)', 'XGBoost\\n(XGB)', 'Ridge\\nRegression'], fontsize=18, fontweight='bold')\nax.set_ylabel('Mean RMSSE', fontsize=18, fontweight='bold')\nax.set_title('Single vs. Multi-Series Performance Across Models', fontsize=22, fontweight='bold', pad=15)\nax.legend(fontsize=20, loc='upper left')\nax.grid(axis='y', alpha=0.3)\nax.tick_params(labelsize=16)\n\n# Set clean axis limits\nax.set_ylim(0, 1.05)\n\n# Annotate values\nfor rects, col in [(r1, '#0B363C'), (r2, '#20808D')]:\n    for r in rects:\n        h = r.get_height()\n        ax.annotate(f'{h:.3f}', xy=(r.get_x() + r.get_width()/2, h),\n                    xytext=(0, 6), textcoords='offset points', ha='center', va='bottom',\n                    fontsize=16, fontweight='bold', color=col)\n\n# Annotate percentage delta cleanly\nax.annotate('Best Overall\\n+7.01% Win', xy=(0 + width/2, 0.561), xytext=(-0.25, 0.76),\n            arrowprops=dict(facecolor='#20808D', edgecolor='#20808D', shrink=0.08, width=2, headwidth=7),\n            fontsize=15, fontweight='bold', color='#20808D',\n            bbox=dict(boxstyle='round,pad=0.4', facecolor='#E8F7F8', edgecolor='#20808D', linewidth=1.5))\n\nax.annotate('Curse of Dim.\\n-47.55% Drop', xy=(2 + width/2, 0.829), xytext=(1.5, 0.91),\n            arrowprops=dict(facecolor='#BF505C', edgecolor='#BF505C', shrink=0.08, width=2, headwidth=7),\n            fontsize=15, fontweight='bold', color='#BF505C',\n            bbox=dict(boxstyle='round,pad=0.4', facecolor='#FDE8E8', edgecolor='#BF505C', linewidth=1.5))\n\n# --- PLOT 2: Improvement Distribution ---\nax2 = axes[1]\ncolors = {'lgb': '#20808D', 'xgb': '#E69F00', 'ridge': '#BF505C'}\nnames = {'lgb': 'LightGBM: Mean +7.01% (55/58 improved)',\n         'xgb': 'XGBoost: Mean -4.08% (13/58 improved)',\n         'ridge': 'Ridge: Mean -47.55% (2/58 improved)'}\n\nfor m in ['lgb', 'xgb', 'ridge']:\n    sub = df[df['model'] == m]['improvement_pct']\n    sns.kdeplot(sub, ax=ax2, label=names[m], color=colors[m], fill=True, alpha=0.25, linewidth=3.5)\n\nax2.axvline(0, color='black', linestyle='--', linewidth=2, alpha=0.7, label='Zero Improvement Threshold')\nax2.set_xlim(-100, 35)\nax2.set_xlabel('Improvement % in RMSSE (Positive = Multi-Series Outperforms)', fontsize=18, fontweight='bold')\nax2.set_ylabel('Density', fontsize=18, fontweight='bold')\nax2.set_title('Distribution of Relative Forecast Accuracy Gains', fontsize=22, fontweight='bold', pad=15)\nax2.legend(fontsize=20, loc='upper left')\nax2.grid(True, alpha=0.3)\nax2.tick_params(labelsize=16)\n\nplt.tight_layout()\nplt.show()"
   },
   {
     "objectID": "talks/ors/present.html#system-wide-superiority-94-of-inpatient-streams-improved",
     "href": "talks/ors/present.html#system-wide-superiority-94-of-inpatient-streams-improved",
-    "title": "MUSTAFA ASLAN",
+    "title": "\n    Forcast all at once: A multi-series forecasting approach for hospital discharges and admissions\n  ",
     "section": "System-Wide Superiority: 94% of Inpatient Streams Improved",
-    "text": "System-Wide Superiority: 94% of Inpatient Streams Improved"
+    "text": "System-Wide Superiority: 94% of Inpatient Streams Improved\n\n\nlgb_df = df[df['model'] == 'lgb'].copy()\nlgb_df['flow_type'] = lgb_df['series'].apply(lambda s: 'Discharge' if s.startswith('dis_') else 'Admission')\nlgb_df['clean_name'] = lgb_df['series'].apply(lambda s: s.replace('adm_', '').replace('dis_', '').replace('_', ' ').title())\n\n# Sort top 18 improved series\ntop_improved = lgb_df.sort_values('improvement_pct', ascending=True).tail(18)\n\nfig, ax = plt.subplots(figsize=(24, 9))\n\ny_pos = np.arange(len(top_improved))\ncolors = ['#20808D' if f == 'Discharge' else '#0B363C' for f in top_improved['flow_type']]\n\nbars = ax.barh(y_pos, top_improved['improvement_pct'], color=colors, height=0.65, alpha=0.9)\n\nax.set_yticks(y_pos)\nax.set_yticklabels([f\"{name} ({ft[:3]})\" for name, ft in zip(top_improved['clean_name'], top_improved['flow_type'])], fontsize=20, fontweight='bold')\nax.set_xlabel('Improvement in RMSSE over Individually Tuned Baseline (%)', fontsize=20, fontweight='bold')\nax.set_title('Top Specialties Gaining from Hospital-Wide Multi-Series Forecasting (LightGBM)', fontsize=24, fontweight='bold', pad=15)\nax.axvline(0, color='black', linewidth=1)\nax.grid(axis='x', alpha=0.3)\nax.tick_params(labelsize=16)\n\nfor bar in bars: # Annotate each bar with the improvement percentage\n    w = bar.get_width()\n    ax.annotate(f'+{w:.1f}%', xy=(w, bar.get_y() + bar.get_height()/2),\n                xytext=(6, 0), textcoords='offset points', ha='left', va='center',\n                fontsize=18, fontweight='bold', color='#0B363C')\n\n# Custom Legend\nfrom matplotlib.patches import Patch\nlegend_elements = [\n    Patch(facecolor='#20808D', label='Discharge Series (Mean Gain: +7.83%, 28/29 Improved)'),\n    Patch(facecolor='#0B363C', label='Admission Series (Mean Gain: +6.19%, 27/29 Improved)')\n]\nax.legend(handles=legend_elements, fontsize=20, loc='lower right')\n\nplt.tight_layout()\nplt.show()"
   },
   {
     "objectID": "talks/ors/present.html#probabilistic-forecast-results",
     "href": "talks/ors/present.html#probabilistic-forecast-results",
-    "title": "MUSTAFA ASLAN",
+    "title": "\n    Forcast all at once: A multi-series forecasting approach for hospital discharges and admissions\n  ",
     "section": "Probabilistic Forecast Results",
-    "text": "Probabilistic Forecast Results"
+    "text": "Probabilistic Forecast Results\n\n\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\nimport numpy as np\nfrom matplotlib.patches import Patch\n\n# Load probabilistic scores (PSCORE = CRPS over 30 CV test sets)\ncrps_raw = pd.read_csv('tables/pscore_summary.csv')\n\n# Mean CRPS across 30 CV folds for each combination\nmean_crps = crps_raw.groupby(['model', 'method', 'horizon_range', 'specialty'])['pscore'].mean().reset_index()\ncrps_piv = mean_crps.pivot(index=['model', 'horizon_range', 'specialty'], columns='method', values='pscore').reset_index()\n\n# Continuous Ranked Probability Skill Score (CRPSS %: positive = multi-series outperforms univariate)\ncrps_piv['CRPSS'] = (1 - crps_piv['Multi'] / crps_piv['Single']) * 100\n\nhorizon_order = ['1-7', '8-14', '15-21', '22-42']\nhorizon_labels = ['Days 1–7\\n(Immediate)', 'Days 8–14\\n(Week 2)', 'Days 15–21\\n(Week 3)', 'Days 22–42\\n(Weeks 4–6)']\n\nplt.rcParams['figure.facecolor'] = '#FBFAF4'\nplt.rcParams['axes.facecolor'] = '#FBFAF4'\nplt.rcParams['font.sans-serif'] = 'Helvetica'\n\nfig, axes = plt.subplots(1, 2, figsize=(24, 8))\n\n# --- PANEL 1: Model Comparison by Horizon ---\nax1 = axes[0]\nmodels = ['lgb', 'xgb', 'ridge']\nm_labels = {'lgb': 'LightGBM (Multi-Series)', 'xgb': 'XGBoost', 'ridge': 'Ridge Regression'}\nm_colors = {'lgb': '#20808D', 'xgb': '#E69F00', 'ridge': '#BF505C'}\n\nx = np.arange(len(horizon_order))\nwidth = 0.26\n\nfor idx, m in enumerate(models):\n    sub = crps_piv[crps_piv['model'] == m]\n    means = [sub[sub['horizon_range'] == h]['CRPSS'].mean() for h in horizon_order]\n    bars = ax1.bar(x + (idx - 1)*width, means, width, label=m_labels[m], color=m_colors[m], alpha=0.92)\n    for b in bars:\n        h = b.get_height()\n        va = 'bottom' if h &gt;= 0 else 'top'\n        ax1.annotate(f'{h:+.1f}%', xy=(b.get_x() + b.get_width()/2, h),\n                     xytext=(0, 5 if h&gt;=0 else -14), textcoords='offset points',\n                     ha='center', va=va, fontsize=13, fontweight='bold',\n                     color=m_colors[m])\n\nax1.axhline(0, color='black', linestyle='--', linewidth=1.5, alpha=0.7)\nax1.set_xticks(x)\nax1.set_xticklabels(horizon_labels, fontsize=18, fontweight='bold')\nax1.set_ylabel('Mean CRPSS Skill Score (%)\\n(Positive = Multi-Series Outperforms Univariate)', fontsize=18, fontweight='bold')\nax1.set_title('Probabilistic Skill Score (CRPSS) across Planning Horizons', fontsize=22, fontweight='bold', pad=14)\nax1.set_ylim(-55, 23)\nax1.set_xlabel('')\nax1.legend(fontsize=13, loc='lower right', framealpha=0.9)\nax1.grid(axis='y', alpha=0.3)\nax1.tick_params(labelsize=14)\n\nax1.text(0.03, 0.95, 'LightGBM Multi-Series: Sustained +4.7% to +7.7% gain across all horizons\\nXGBoost fails to benefit (-1.6% to -3.6%) | Ridge collapses (-36% to -47%)',\n         transform=ax1.transAxes, fontsize=16, fontweight='bold', va='top', color='#0B363C',\n         bbox=dict(boxstyle='round,pad=0.4', facecolor='#E8F7F8', edgecolor='#20808D', alpha=0.95))\n\n# --- PANEL 2: Distribution Across All 58 Streams (LightGBM) ---\nax2 = axes[1]\nlgb = crps_piv[crps_piv['model'] == 'lgb'].copy()\nlgb['flow_type'] = lgb['specialty'].apply(lambda s: 'Discharge' if s.startswith('dis_') else 'Admission')\n\nsns.boxplot(data=lgb, x='horizon_range', y='CRPSS', ax=ax2, order=horizon_order,\n            color='#E8F7F8', boxprops=dict(edgecolor='#0B363C', linewidth=1.5),\n            medianprops=dict(color='#B2582D', linewidth=2.5), whiskerprops=dict(color='#0B363C'),\n            capprops=dict(color='#0B363C'), width=0.45)\n\nsns.stripplot(data=lgb, x='horizon_range', y='CRPSS', hue='flow_type', ax=ax2, order=horizon_order,\n              palette={'Discharge': '#20808D', 'Admission': '#0B363C'}, alpha=0.75, size=8, jitter=0.22)\n\nax2.axhline(0, color='black', linestyle='--', linewidth=1.5, alpha=0.7)\nax2.set_xticks(range(len(horizon_order)))\nax2.set_xticklabels(horizon_labels, fontsize=18, fontweight='bold')\nax2.set_ylabel('LightGBM CRPSS Skill Score (%) per Stream', fontsize=18, fontweight='bold')\nax2.set_title('Distribution of Probabilistic Gains Across 58 Clinical Streams (LightGBM)', fontsize=22, fontweight='bold', pad=14)\nax2.grid(axis='y', alpha=0.3)\nax2.tick_params(labelsize=14)\nax2.set_ylim(-10, 36)\nax2.set_xlabel('')\n\npct_pos = [(lgb[lgb['horizon_range'] == h]['CRPSS'] &gt; 0).mean()*100 for h in horizon_order]\nfor idx, p in enumerate(pct_pos):\n    ax2.annotate(f'{p:.0f}% Streams\\nImproved', xy=(idx, 32.5), ha='center', fontsize=16,\n                 fontweight='bold', color='#0B363C',\n                 bbox=dict(boxstyle='round,pad=0.3', facecolor='#FBFAF4', edgecolor='#20808D', alpha=0.9))\n\nax2.annotate('Clinical Haematology (+27.8%)', xy=(0, 27.8), xytext=(0.15, 29.5),\n             arrowprops=dict(arrowstyle='-&gt;', color='#20808D', lw=1.5),\n             fontsize=16, fontweight='bold', color='#20808D')\nax2.annotate('Ophthalmology (+25.2%)', xy=(3, 25.2), xytext=(2.15, 28.5),\n             arrowprops=dict(arrowstyle='-&gt;', color='#20808D', lw=1.5),\n             fontsize=16, fontweight='bold', color='#20808D')\n\nlegend_elements = [\n    Patch(facecolor='#20808D', label='Discharge Streams: 100% (29/29) Improved (Mean +7.8%)'),\n    Patch(facecolor='#0B363C', label='Admission Streams: 79.3% (23/29) Improved (Mean +5.4%)')\n]\nax2.legend(handles=legend_elements, fontsize=16, loc='lower left', framealpha=0.9)\n\nplt.tight_layout()\nplt.show()"
   },
   {
     "objectID": "talks/ors/present.html#system-wide-probabilistic-calibration",
     "href": "talks/ors/present.html#system-wide-probabilistic-calibration",
-    "title": "MUSTAFA ASLAN",
+    "title": "\n    Forcast all at once: A multi-series forecasting approach for hospital discharges and admissions\n  ",
     "section": "System-Wide Probabilistic Calibration",
-    "text": "System-Wide Probabilistic Calibration"
+    "text": "System-Wide Probabilistic Calibration\n\nfig2, axes2 = plt.subplots(1, 2, figsize=(24, 9.0))\nlgb_clean = lgb.copy()\nlgb_clean['clean_name'] = lgb_clean['specialty'].apply(lambda s: s.replace('adm_', '').replace('dis_', '').replace('_', ' ').title())\n\nfor idx, ft in enumerate(['Discharge', 'Admission']):\n    ax = axes2[idx]\n    sub = lgb_clean[lgb_clean['flow_type'] == ft].pivot(index='clean_name', columns='horizon_range', values='CRPSS')[['1-7', '8-14', '15-21', '22-42']]\n    sub['Mean'] = sub.mean(axis=1)\n    sub = sub.sort_values('Mean', ascending=False)\n    \n    cmap = sns.diverging_palette(10, 185, s=85, l=45, as_cmap=True)\n    sns.heatmap(sub, ax=ax, cmap=cmap, center=0, annot=True, fmt='.1f',\n                cbar_kws={'label': 'CRPSS (%)'}, linewidths=0.4, annot_kws={'size': 9, 'weight': 'bold'},\n                vmin=-10, vmax=25)\n    \n    win_count = (sub['Mean'] &gt; 0).sum()\n    ax.set_title(f'{ft} Streams (LightGBM CRPSS %)\\n{win_count}/29 Positive ({win_count/29*100:.1f}%) | Mean CRPSS: +{sub[\"Mean\"].mean():.1f}%',\n                 fontsize=20, fontweight='bold', pad=12)\n    ax.set_xlabel('Forecasting Horizon Range', fontsize=13, fontweight='bold')\n    ax.set_ylabel('Clinical Specialty' if idx == 0 else '', fontsize=13, fontweight='bold')\n    ax.set_xticklabels(['Days 1–7', 'Days 8–14', 'Days 15–21', 'Days 22–42', 'Mean (1–42)'], fontsize=12, fontweight='bold')\n    ax.tick_params(axis='y', labelsize=9.5)\n\nplt.tight_layout()\nplt.show()"
   },
   {
     "objectID": "talks/ors/present.html#model-vs.-58-models",
     "href": "talks/ors/present.html#model-vs.-58-models",
-    "title": "MUSTAFA ASLAN",
+    "title": "\n    Forcast all at once: A multi-series forecasting approach for hospital discharges and admissions\n  ",
     "section": "1 Model vs. 58 Models",
-    "text": "1 Model vs. 58 Models\n\n\n\n\n\n\n\n\n\n\nOperational Dimension\nSingle-Series Models\nProposed Multi-Series\nOperational Benefit\n\n\n\n\nModel Footprint\n58 separate models\n1 unified model\nSingle model to maintain\n\n\nHyperparameter Tuning\n58 Optuna studies (\\(4,350\\) CV fits)\n1 Optuna study (\\(75\\) CV fits)\nSubstantially faster tuning process\n\n\nData Utilization\n\\(58 \\times 2,300\\) isolated observations\n\\(133,000+\\) collective panel rows\nGreater statistical power\n\n\nDrift Monitoring\n58 separate pipelines to track\n1 consolidated pipeline\nMinimal maintenance overhead\n\n\nCross-Specialty Awareness\nLimited to own series history\nFull cross-series lag visibility\nCaptures inter-specialty spillover\n\n\nForecast Accuracy\nMean RMSSE: 0.5989\nMean RMSSE: 0.5610\n+7.01% average gain across 58 series"
+    "text": "1 Model vs. 58 Models\n\n\n\n\n\n\n\n\n\n\nOperational Dimension\nSingle-Series Models\nProposed Multi-Series\nOperational Benefit\n\n\n\n\nModel Footprint\n58 separate models\n1 unified model\nSingle model to maintain\n\n\nHyperparameter Tuning\n58 Optuna studies (\\(4,350\\) CV fits)\n1 Optuna study (\\(75\\) CV fits)\nSubstantially faster tuning process\n\n\nData Utilization\n\\(58 \\times 2,300\\) observations\n\\(133,000+\\) collective panel rows\nGreater statistical power\n\n\nDrift Monitoring\n58 separate pipelines to track\n1 consolidated pipeline\nMinimal maintenance overhead\n\n\nCross-Specialty Awareness\nLimited to own series history\nFull cross-series lag visibility\nCaptures inter-specialty spillover\n\n\nForecast Accuracy\nMean RMSSE: 0.5989\nMean RMSSE: 0.5610\n+7.01% average gain across 58 series"
   },
   {
     "objectID": "talks/ors/present.html#section-4",
     "href": "talks/ors/present.html#section-4",
-    "title": "MUSTAFA ASLAN",
+    "title": "\n    Forcast all at once: A multi-series forecasting approach for hospital discharges and admissions\n  ",
     "section": "",
     "text": "Outline\n\n\nProblem & Motivation\nThe Methodology\nExperimental Setup\nEmpirical Results\nNext Steps"
   },
   {
     "objectID": "talks/ors/present.html#next-steps",
     "href": "talks/ors/present.html#next-steps",
-    "title": "MUSTAFA ASLAN",
+    "title": "\n    Forcast all at once: A multi-series forecasting approach for hospital discharges and admissions\n  ",
     "section": "Next Steps",
-    "text": "Next Steps\nFrom well-calibrated probabilistic forecasts to stochastic bed allocation\n\n\n\nProbabilistic Scenarios: Generate joint scenario paths across all specialties to capture uncertainty and cross-specialty admission&discharge surges.\nBed Allocation & Reservation Simulation: Simulate downstream bed availability to evaluate proactive reservation policies across clinical wards.\nStochastic Optimization: Formulate stochastic programming models for dynamic bed allocation under uncertainty to reduce patient off-placement."
+    "text": "Next Steps\n\nFrom well-calibrated probabilistic forecasts to stochastic bed allocation\n\n\n\nProbabilistic Scenarios: Generate joint scenario paths across all specialties to capture uncertainty and cross-specialty admission&discharge surges.\nStochastic Optimization and Bed Reservation: Formulate stochastic programming models for dynamic bed reservation under uncertainty to reduce patient off-placement."
   },
   {
     "objectID": "talks/ors/present.html#peshbeen",
     "href": "talks/ors/present.html#peshbeen",
-    "title": "MUSTAFA ASLAN",
+    "title": "\n    Forcast all at once: A multi-series forecasting approach for hospital discharges and admissions\n  ",
     "section": "peshbeen",
     "text": "peshbeen\n\nA Probabilistic Forecasting Package\nOpen-source Python package implementing various forecasting frameworks(e.g., any sklearn-compatible regressor, ARIMA, ETS, etc.) for univariate and multi-series time series forecasting.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nScan for documentation\nmustafaslancoto.github.io/peshbeen"
+  },
+  {
+    "objectID": "talks/sphere/present.html#section",
+    "href": "talks/sphere/present.html#section",
+    "title": "MUSTAFA ASLAN",
+    "section": "",
+    "text": "Outline\n\n\nWhat Are We Forecasting?\nModel: Markov-Switching AutoRegressive Regression (MS-ARR)\nModel Results\nData Preparation & How to Forecast Next Days in Python\nBeyond Point Forecasting"
+  },
+  {
+    "objectID": "talks/sphere/present.html#what-are-we-forecasting",
+    "href": "talks/sphere/present.html#what-are-we-forecasting",
+    "title": "MUSTAFA ASLAN",
+    "section": "What Are We Forecasting?",
+    "text": "What Are We Forecasting?\n\n\nThe Target Outcome Variable\n\nTarget Variable (\\(y_t\\)): Daily Estimated Avoidable Deaths (EAD) \\[\\text{EAD}_t = \\sum_{i \\in \\text{Admissions}_t} \\Big[ p_i(\\text{delay}_i, \\mathbf{z}_i) - p_i(0, \\mathbf{z}_i) \\Big]\\]\n\n\\(\\mathbf{z}_i\\): Baseline patient case-mix vector (age, triage acuity, comorbidities).\n\\(\\text{delay}_i\\): Hours delayed in ED awaiting an inpatient bed.\n\\(p_i(\\cdot)\\): 30-day mortality risk\n\nForecasting Objective: Daily forecasts over a 10-day horizon (\\(h = 1, \\dots, 10\\) days ahead) using near-real-time operational data.\nEvaluation: Days 1–5 (\\(\\text{MSE}_{1\\text{–}5\\text{d}}\\)) & Days 6–10 (\\(\\text{MSE}_{6\\text{–}10\\text{d}}\\)).\n\n\nKey Forecasting Constraints & Rules\n\nMidday Forecasting Cut-off: Forecasts for days \\(D+1\\) to \\(D+10\\) can only use information available up to midday on day \\(D\\).\nStrict 3-Day Reporting Lag:\nBecause of verification lags, the target variable \\(y\\) is only known up to \\(D-3\\).\n\nOn Day \\(D\\), the most recent observed target value is \\(y_{D-3}\\).\n\nSliding Evaluation Windows: 131 sliding 10-day forecast windows evaluated over the hold-out test period (October 2025 – March 2026)."
+  },
+  {
+    "objectID": "talks/sphere/present.html#section-1",
+    "href": "talks/sphere/present.html#section-1",
+    "title": "MUSTAFA ASLAN",
+    "section": "",
+    "text": "Outline\n\n\nWhat Are We Forecasting?\nModel: Markov-Switching AutoRegressive Regression (MS-ARR)\nModel Results\nData Preparation & How to Forecast Next Days in Python\nBeyond Point Forecasting"
+  },
+  {
+    "objectID": "talks/sphere/present.html#section-2",
+    "href": "talks/sphere/present.html#section-2",
+    "title": "MUSTAFA ASLAN",
+    "section": "",
+    "text": "MS-ARR Formulation\n\\[\ny_t \\mid (r_t = r) = \\beta_{0}^{(r)} + \\sum_{i=1}^{p} \\beta_{i}^{(r)} \\, y_{t-i} + \\sum_{m=p+1}^{M} \\beta_{m}^{(r)} X_{tm} + \\epsilon_t\n\\]\nwhere \\(\\epsilon_t \\sim \\mathcal{N}\\!\\left(0, \\sigma_r^2\\right)\\) is \\(i.i.d.\\) noise.\n\nTo model regime dynamics, we assume that the latent process \\(\\{r_t\\}\\) satisfies the Markov property:\n\n\\[\nP(r_t = j \\mid r_{1:t-1}) = P(r_t = j \\mid r_{t-1}),\n\\qquad\nj \\in \\mathcal{R}, \\; t \\ge 2.\n\\]\n\nThe transition probabilities are defined as:\n\n\\[\nP =\n\\begin{pmatrix}\np_{11} & \\cdots & p_{1K} \\\\\n\\vdots & \\ddots & \\vdots \\\\\np_{K1} & \\cdots & p_{KK}\n\\end{pmatrix}.\n\\]\n\nNotation & Definitions\n\n\\(y_t\\) is the observed number of avoidable deaths at time \\(t\\),\n\\(r_t\\) is the unobserved (hidden) regime at time \\(t\\),\n\\(X_{tm}\\) are the exogenous predictors.\n\\(\\beta_{0}^{(r)}\\) is the regime-specific intercept\n\\(\\beta_{i}^{(r)}\\) are the autoregressive coefficients associated with the \\(i\\)-th lag in regime \\(r\\)\n\\(\\beta_{m}^{(r)}\\) are the coefficients for the exogenous covariates in regime \\(r\\)\n\\(K\\) is the total number of regimes. Set of regimes is \\(\\mathcal{R} = \\{1, 2, \\ldots, K\\}\\)."
+  },
+  {
+    "objectID": "talks/sphere/present.html#section-3",
+    "href": "talks/sphere/present.html#section-3",
+    "title": "MUSTAFA ASLAN",
+    "section": "",
+    "text": "Parameter Estimation of MS-ARR\nModel parameters are estimated using the Expectation–Maximization (EM) algorithm, which iteratively refines the parameter vector\n\\[\n\\theta = \\{\\beta^{(r)}, \\sigma_r^2, P, \\pi \\}_{r \\in \\mathcal{R}}\n\\]\nby maximising the likelihood of the observed EAD time series \\(y_{1:T} = (y_1, \\ldots, y_T)\\).\n\n\n\nEM Algorithm (The Forward-Backward Algorithm - Baum-Welch)\n\n\nLet \\(k\\) denote the iteration index. The EM algorithm proceeds as follows:\n\\[\n\\begin{aligned}\n&\\textbf{E-step:} \\\\[4pt]\n&\\quad\nQ(\\theta \\mid \\theta^{(k)})\n=\n\\mathbb{E}_{\\,r_{1:T} \\mid y_{1:T},\\, \\theta^{(k)}}\n\\left[\n\\log p(y_{1:T}, r_{1:T} \\mid \\theta)\n\\right]\n\\\\[14pt]\n&\\textbf{M-step:} \\\\[4pt]\n&\\quad\n\\theta^{(k+1)}\n=\n\\arg\\max_{\\theta}\\,\nQ(\\theta \\mid \\theta^{(k)})\n\\\\[14pt]\n&\\textbf{Iterate until convergence:} \\\\[4pt]\n&\\quad\n\\theta^{(0)}\n\\;\\rightarrow\\;\n\\text{E-step}\n\\;\\rightarrow\\;\n\\text{M-step}\n\\;\\rightarrow\\;\n\\theta^{(1)}\n\\;\\rightarrow\\;\n\\cdots\n\\;\\rightarrow\\;\n\\theta^{(k+1)}\n\\end{aligned}\n\\]\n\n\n\n\nForecasting with MS-ARR\n\\(P(r_T = i \\mid O_{1:T})\\) denote the filtered probability of being in regime \\(i\\) at time \\(T\\). The \\(h\\)-step-ahead regime probabilities are obtained according to\n\\[\nP(r_{T+h} = j \\mid O_{1:T})\n=\n\\sum_{i=1}^{K}\nP(r_{T+h-1} = i \\mid O_{1:T}) \\, p_{ij},\n\\qquad h \\ge 1.\n\\]\nConditional on regime \\(r_{T+h} = r\\), the \\(h\\)-step-ahead forecast of the occupancy process is obtained from the regime-specific autoregressive model,\n\\[\n\\hat{y}_{T+h}^{(r)}\n=\n\\beta_{0}^{(r)}\n+\n\\sum_{i=1}^{p}\n\\beta_{i}^{(r)} \\, y_{T+h-i}\n+\n\\sum_{m=1}^{M}\n\\beta_{p+m}^{(r)} \\, X_{T+h,m},\n\\]\n\nThe final point forecast at horizon \\(h\\) is computed as a probability-weighted average of the regime-specific forecasts,\n\\[\n\\hat{y}_{T+h}\n=\n\\sum_{r=1}^{K}\nP(r_{T+h} = r \\mid y_{1:T}) \\, \\hat{y}_{T+h}^{(r)}.\n\\]"
+  },
+  {
+    "objectID": "talks/sphere/present.html#section-4",
+    "href": "talks/sphere/present.html#section-4",
+    "title": "MUSTAFA ASLAN",
+    "section": "",
+    "text": "Outline\n\n\nWhat We Are Forecasting\nModel: Markov-Switching AutoRegressive Regression (MS-ARR)\nModel Results\nData Preparation & How to Forecast Next Days in Python\nBeyond Point Forecasting"
+  },
+  {
+    "objectID": "talks/sphere/present.html#regime-switches-in-ead-history",
+    "href": "talks/sphere/present.html#regime-switches-in-ead-history",
+    "title": "MUSTAFA ASLAN",
+    "section": "Regime Switches in EAD History",
+    "text": "Regime Switches in EAD History"
+  },
+  {
+    "objectID": "talks/sphere/present.html#regime-dynamics",
+    "href": "talks/sphere/present.html#regime-dynamics",
+    "title": "MUSTAFA ASLAN",
+    "section": "Regime Dynamics",
+    "text": "Regime Dynamics"
+  },
+  {
+    "objectID": "talks/sphere/present.html#section-5",
+    "href": "talks/sphere/present.html#section-5",
+    "title": "MUSTAFA ASLAN",
+    "section": "",
+    "text": "Outline\n\n\nWhat Are We Forecasting?\nModel: Markov-Switching AutoRegressive Regression (MS-ARR)\nModel Results\nData Preparation & How to Forecast Next Days in Python\nBeyond Point Forecasting"
+  },
+  {
+    "objectID": "talks/sphere/present.html#section-6",
+    "href": "talks/sphere/present.html#section-6",
+    "title": "MUSTAFA ASLAN",
+    "section": "",
+    "text": "Data Preparation & Feature Engineering\n\n\n\n\n  \n    \n      \n    \n        \n        \n        \n        \n        \n        \n        \n        \n    \n    \n   \n    \n      \n  \n        \n    \n    \n  \n        \n    \n    \n  \n        \n    \n      \n  \n        \n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n        \n    \n\n\n        Loading ITables v2.9.1 from the internet...\n        (need help?)\n      \n    \n  \n\n    \n      🔒ⓘdate\n      ead\n      day\n      month\n      holiday\n      sin_365 (Annual)\n    \n2023-03-160.343300.0000\n2023-03-170.484300.0172\n2023-03-180.575300.0344\n2023-03-190.506300.0516\n2023-03-200.830300.0688\n2023-03-211.121300.0859\n2023-03-221.102300.1030\n2023-03-230.983300.1201\n2023-03-241.514300.1372\n2023-03-250.545300.1542\n(1,060 more rows not shown)\n\n\n\n\n\nForecasting Pipeline\nfrom peshbeen.models import ms_arr\nfrom peshbeen.transformations import rolling_quantile\nfrom sklearn.preprocessing import OneHotEncoder\nead_dff = pd.read_csv(\"ead_data.csv\", index_col=\"date\")\nH = 5\ntarget_var = \"ead\"\ncat_vars = [\"day\", \"month\", \"holiday\"]\ntrain_ead = ead_dff[:-H]\nfuture_exog = ead_dff[-H:].drop(columns=target_var)\nohe_encoder = OneHotEncoder(sparse_output=False,\n                            handle_unknown='ignore',\n                            drop='first')\ntransformation_function = [rolling_quantile(\n                            window_size=49,\n                            quantile=0.2,\n                            shift=10, min_samples=49)]\nms_mod = ms_arr(n_components=2, lags=[4, 8, 10],\n                target_col=target_var,\n                cat_variables=cat_vars,\n                categorical_encoder=ohe_encoder,\n                n_iter=100,\n                lag_transform=transformation_function,\n                random_state=42)\nms_mod.fit(train_ead)\nforecasts = ms_mod.forecast(H = H, exog=future_exog)"
+  },
+  {
+    "objectID": "talks/sphere/present.html#point-forecast-evaluation-120-day-out-of-sample-horizon-example",
+    "href": "talks/sphere/present.html#point-forecast-evaluation-120-day-out-of-sample-horizon-example",
+    "title": "MUSTAFA ASLAN",
+    "section": "Point Forecast Evaluation: 120-Day Out-of-Sample Horizon (example)",
+    "text": "Point Forecast Evaluation: 120-Day Out-of-Sample Horizon (example)\n\n\n\n\n\n\n\n\n\nNote: Forecasts are generated once every 5 days, 24 times across 120 days."
+  },
+  {
+    "objectID": "talks/sphere/present.html#section-7",
+    "href": "talks/sphere/present.html#section-7",
+    "title": "MUSTAFA ASLAN",
+    "section": "",
+    "text": "Outline\n\n\nWhat Are We Forecasting?\nModel: Markov-Switching AutoRegressive Regression (MS-ARR)\nModel Results\nData Preparation & How to Forecast Next Days in Python\nBeyond Point Forecasting"
+  },
+  {
+    "objectID": "talks/sphere/present.html#can-point-forecasts-capture-peak-dynamics",
+    "href": "talks/sphere/present.html#can-point-forecasts-capture-peak-dynamics",
+    "title": "MUSTAFA ASLAN",
+    "section": "Can Point Forecasts Capture Peak Dynamics?",
+    "text": "Can Point Forecasts Capture Peak Dynamics?"
+  },
+  {
+    "objectID": "talks/sphere/present.html#forecast-distribution-across-forecast-horizons-h-1-dots-5",
+    "href": "talks/sphere/present.html#forecast-distribution-across-forecast-horizons-h-1-dots-5",
+    "title": "MUSTAFA ASLAN",
+    "section": "Forecast Distribution Across Forecast Horizons (\\(h = 1 \\dots 5\\))",
+    "text": "Forecast Distribution Across Forecast Horizons (\\(h = 1 \\dots 5\\))"
+  },
+  {
+    "objectID": "talks/sphere/present.html#can-calibrated-uncertainty-bounds-capture-peaks-in-ead",
+    "href": "talks/sphere/present.html#can-calibrated-uncertainty-bounds-capture-peaks-in-ead",
+    "title": "MUSTAFA ASLAN",
+    "section": "Can Calibrated Uncertainty Bounds Capture Peaks in EAD?",
+    "text": "Can Calibrated Uncertainty Bounds Capture Peaks in EAD?\n\n\n\n\n\n\n\n\n\nNote: Forecasts are generated once every 5 days, 24 times across 120 days."
+  },
+  {
+    "objectID": "talks/sphere/present.html#operationalizing-probabilistic-forecasts-into-actionable-peak-signals",
+    "href": "talks/sphere/present.html#operationalizing-probabilistic-forecasts-into-actionable-peak-signals",
+    "title": "MUSTAFA ASLAN",
+    "section": "Operationalizing Probabilistic Forecasts into Actionable Peak Signals",
+    "text": "Operationalizing Probabilistic Forecasts into Actionable Peak Signals"
+  },
+  {
+    "objectID": "talks/presentations/sphere.html",
+    "href": "talks/presentations/sphere.html",
+    "title": "Forecasting Severe Acute Patient Harm Resulting from Emergency Department Delays",
+    "section": "",
+    "text": "Slides\nDate: September 23 2026 14:45\nEvent: NHS SPHERE-PPL Forecasting Contest\nOrganizer: NHS Bristol, North Somerset and South Gloucestershire ICB"
+  },
+  {
+    "objectID": "talks/presentations/sphere.html#context",
+    "href": "talks/presentations/sphere.html#context",
+    "title": "Forecasting Severe Acute Patient Harm Resulting from Emergency Department Delays",
+    "section": "Context",
+    "text": "Context\nIn this presentation, I shared our joint 1st-place winning solution for the NHS SPHERE-PPL Forecasting Contest (1–5 Day Horizon Category), developed by our team at the Data Lab for Social Good (Cardiff University).\nWe tackled the challenge of forecasting daily Estimated Avoidable Deaths (EAD)—a critical outcome metric measuring acute patient mortality risk caused by prolonged emergency department (ED) delays awaiting inpatient beds. Standard linear and single-regime models fail because hospital operations experience extreme regime shifts and severe heteroskedasticity explosion in error variance during operational crisis states.\nTo address this, we developed a Markov-Switching AutoRegressive Regression (MS-ARR) model. By coupling regime-switching filters and the Forward-Backward algorithm, the framework captures persistent crisis lock-in, tracks daily regime escalation risks, and delivers actionable reliable forecasts for NHS trust capacity planning and clinical bed management."
+  },
+  {
+    "objectID": "talks/ors/present.html",
+    "href": "talks/ors/present.html",
+    "title": "\n    Forcast all at once: A multi-series forecasting approach for hospital discharges and admissions\n  ",
+    "section": "",
+    "text": "ORS Annual Conference 2026\n  \n\n  Mustafa Aslan\n  Data Lab for Social Good, Cardiff University, UK\n\n  \n    Lead supervisor: Prof. Bahman Rostami-Tabar\n    Co-supervisor: Dr. Jeremy Dixon\n  \n\n  10 Sept 2026"
   }
 ]

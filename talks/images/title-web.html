@@ -1,0 +1,233 @@
+```{=html}
+<style>
+  .title-slide-custom {
+    text-align: center;
+    padding: 0 40px;
+  }
+
+  /* Centered logo bar with 3 logos */
+  .title-slide-custom .logo-bar-centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3em;
+    width: 100%;
+    margin-top: 0.2em;
+    margin-bottom: 1.8em;
+  }
+
+  .title-slide-custom .logo-bar-centered img {
+    height: 75px;
+    width: auto;
+    object-fit: contain;
+    background: none;
+    transition: transform 0.2s ease;
+  }
+
+  .title-slide-custom .logo-cu {
+    height: 100px !important;
+  }
+
+  .title-slide-custom .logo-dlsg {
+    height: 110px !important;
+  }
+
+  .title-slide-custom .logo-nhs {
+    height: 100px !important;
+  }
+
+  /* Award badge */
+  .title-slide-custom .award-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7em;
+    background: #E8F4F5;
+    border: 1.5px solid #20808D;
+    color: #0B363C;
+    padding: 0.35em 1.2em;
+    border-radius: 30px;
+    font-size: 0.78em;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    margin-bottom: 1.1em;
+    box-shadow: 0 2px 8px rgba(32, 128, 141, 0.12);
+  }
+
+  .title-slide-custom .badge-tag {
+    background: #BF505C;
+    color: #FFFFFF;
+    font-weight: 800;
+    font-size: 0.82em;
+    padding: 3px 10px;
+    border-radius: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* Title — main size knob */
+  .title-slide-custom .talk-title {
+    font-size: 1.4em !important;
+    font-weight: 800;
+    line-height: 1.25;
+    text-transform: none;
+    max-width: 90%;
+    text-wrap: balance;
+    color: #091717;
+    margin: 0 auto 0.6em auto;
+  }
+
+  .title-slide-custom .talk-subtitle {
+    color: #20808D;
+    font-weight: 700;
+    font-size: 0.82em;
+    display: block;
+    margin-top: 0.2em;
+  }
+
+  /* Accent rule */
+  .title-slide-custom .accent-rule {
+    width: 100px;
+    height: 4px;
+    background: #20808D;
+    border: none;
+    margin: 0.5em auto 1.4em auto;
+    border-radius: 2px;
+  }
+
+  /* Team Container & Cards */
+  .title-slide-custom .team-container {
+    max-width: 92%;
+    margin: 0 auto;
+  }
+
+  .title-slide-custom .team-heading {
+    font-size: 0.75em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #20808D;
+    margin-bottom: 0.8em;
+  }
+
+  .title-slide-custom .team-grid {
+    display: flex;
+    justify-content: center;
+    gap: 1.5em;
+    margin-bottom: 1.2em;
+  }
+
+  .title-slide-custom .team-member {
+    flex: 1;
+    background: #FFFFFF;
+    border: 1.5px solid #D2DFDF;
+    border-radius: 10px;
+    padding: 14px 16px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    position: relative;
+  }
+
+  .title-slide-custom .team-member.presenter-card {
+    border: 2px solid #20808D;
+    background: #F4FBFB;
+  }
+
+  .title-slide-custom .presenter-badge {
+    position: absolute;
+    top: -10px;
+    right: 15px;
+    background: #20808D;
+    color: #FFFFFF;
+    font-size: 0.62em;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 2px 9px;
+    border-radius: 10px;
+  }
+
+  .title-slide-custom .member-name {
+    font-weight: 800;
+    font-size: 0.78em;
+    color: #091717;
+    margin-bottom: 3px;
+  }
+
+  .title-slide-custom .member-role {
+    font-size: 0.68em;
+    font-weight: 700;
+    color: #20808D;
+    line-height: 1.35;
+    margin-bottom: 4px;
+  }
+
+  .title-slide-custom .member-affil {
+    font-size: 0.62em;
+    color: #555555;
+    line-height: 1.3;
+  }
+
+  /* Footer meta */
+  .title-slide-custom .talk-footer-meta {
+    font-size: 0.68em;
+    color: #666666;
+    margin-top: 0.8em;
+    font-weight: 600;
+  }
+</style>
+
+<div class="title-slide-custom">
+
+  <!-- Centered 3 logos: Cardiff Uni, Data Lab for Social Good, NHS BNSSG ICB -->
+  <div class="logo-bar-centered">
+    <img src="cu.png" alt="Cardiff University" class="logo-cu">
+    <img src="dlsg.png" alt="Data Lab for Social Good" class="logo-dlsg">
+    <img src="nhs_bristol_integrated_care_board_logo1.png"
+      alt="NHS Bristol, North Somerset and South Gloucestershire ICB" class="logo-nhs">
+  </div>
+
+  <div class="award-badge">
+    <span class="badge-tag">Winner &bull; Joint 1st</span>
+    <span>SPHERE-PPL Forecasting Contest &bull; NHS Acute Patient Harm (1–5 Day Category)</span>
+  </div>
+
+  <h1 class="talk-title">
+    Markov-Switching AutoRegressive Regression (MS-ARR)
+    <span class="talk-subtitle">Forecasting Severe Acute Patient Harm Resulting from Emergency Department Delays</span>
+  </h1>
+
+  <hr class="accent-rule">
+
+  <!-- Winning Team Section -->
+  <div class="team-container">
+    <div class="team-heading">Winning Team &bull; Data Lab for Social Good</div>
+    <div class="team-grid">
+      <div class="team-member">
+        <div class="member-name">Prof. Bahman Rostami-Tabar</div>
+        <div class="member-role">Professor of Analytics &amp; Decision Sciences</div>
+        <div class="member-affil">Data Lab for Social Good Research Group<br>Cardiff Business School, Cardiff University
+        </div>
+      </div>
+      <div class="team-member">
+        <!-- <div class="team-member presenter-card"> -->
+        <!-- <div class="presenter-badge">Presenter</div> -->
+        <div class="member-name">Mustafa Aslan</div>
+        <div class="member-role">PhD Student</div>
+        <div class="member-affil">Data Lab for Social Good Research Group<br>Cardiff Business School, Cardiff University
+        </div>
+      </div>
+      <div class="team-member">
+        <div class="member-name">Harsha Halgamuwe Hewage</div>
+        <div class="member-role">PhD Student</div>
+        <div class="member-affil">Data Lab for Social Good Research Group<br>Cardiff Business School, Cardiff University
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="talk-footer-meta">
+    23 September 2026
+  </div>
+
+</div>
+```
