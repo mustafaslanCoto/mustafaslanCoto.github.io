@@ -29,6 +29,31 @@ format:
 [Outline]{.mimic-h2}
 
 :::{style="font-weight: bold; font-size: 1.2em; line-height: 1.75;"}
+- [What Are We Forecasting?]{style="color: #999;"}
+- [Model: Markov-Switching AutoRegressive Regression (MS-ARR)]{style="color: #999;"}
+- [Model Results]{style="color: #999;"}
+- [Data Preparation & How to Forecast Next Days in Python]{style="color: #999;"}
+- [Beyond Point Forecasting]{style="color: #999;"}
+
+:::
+:::
+::::
+
+
+## {background-image="images/kcolor5.jpeg" background-size="30% 100%" background-position="left"}
+
+:::: {.columns}
+::: {.column width="30%"}
+<!-- Spacer for left-aligned background image -->
+:::
+
+::: {.column width="70%"}
+
+<br>
+
+[Outline]{.mimic-h2}
+
+:::{style="font-weight: bold; font-size: 1.2em; line-height: 1.75;"}
 - [What Are We Forecasting?]{style="color: #20808D;"}
 - [Model: Markov-Switching AutoRegressive Regression (MS-ARR)]{style="color: #999;"}
 - [Model Results]{style="color: #999;"}
