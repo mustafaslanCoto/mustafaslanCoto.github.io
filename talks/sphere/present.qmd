@@ -826,7 +826,7 @@ import plotly.graph_objects as go
 with open('probabilistic_forecast_results.pkl', 'rb') as f:
     prob_data = pickle.load(f)
 
-train_pr = prob_data['train_example']
+train_pr = prob_data['train_example'][-8:]  # Last 8 days of training data
 test_pr = prob_data['test_example']
 forecasts = prob_data['forecast_example']
 scenarios_df = prob_data['probabilistic_scenarios']
