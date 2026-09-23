@@ -677,23 +677,24 @@ show(
 
 [Forecasting Pipeline]{.badge-teal}
 
-```{.python code-line-numbers="|1|2|3|4|5|6|7|8|9|10-12|13-16|17-23|24|25"}
-from peshbeen.models import ms_arr
-from peshbeen.transformations import rolling_quantile
-from sklearn.preprocessing import OneHotEncoder
+```{.python code-line-numbers="|1-2|3|4|5|6|7|8-11|12-16|17-24|25|26"}
+import pandas as pd
 ead_dff = pd.read_csv("ead_data.csv", index_col="date")
 H = 5
 target_var = "ead"
 cat_vars = ["day", "month", "holiday"]
 train_ead = ead_dff[:-H]
 future_exog = ead_dff[-H:].drop(columns=target_var)
+from sklearn.preprocessing import OneHotEncoder
 ohe_encoder = OneHotEncoder(sparse_output=False,
                             handle_unknown='ignore',
                             drop='first')
+from peshbeen.transformations import rolling_quantile                            
 transformation_function = [rolling_quantile(
                             window_size=49,
                             quantile=0.2,
                             shift=10, min_samples=49)]
+from peshbeen.models import ms_arr
 ms_mod = ms_arr(n_components=2, lags=[4, 8, 10],
                 target_col=target_var,
                 cat_variables=cat_vars,
@@ -1346,11 +1347,11 @@ def get_kpi_text(target_b, th):
     corr = int(((cv_df['y_true'] <= cv_df[col]) & (cv_df['y_true'] > th)).sum())
     wrong = int(((cv_df['y_true'] > cv_df[col]) & (cv_df['y_true'] > th)).sum())
     safe = int(((cv_df['y_true'] <= cv_df[col]) & (cv_df['y_true'] <= th)).sum())
-    pt_miss = int(((cv_df['y_pred'] <= th) & (cv_df['y_true'] > th)).sum())
+    pt_capt = int(((cv_df['y_pred'] >= th) & (cv_df['y_true'] > th)).sum())
     
     denom = corr + wrong
     containment_rate = (corr / denom * 100) if denom > 0 else 100.0
-    pt_miss_pct = (pt_miss / n_surges * 100) if n_surges > 0 else 0.0
+    pt_capt_pct = (pt_capt / n_surges * 100) if n_surges > 0 else 0.0
     status_color = '#10B981' if wrong == 0 else '#DC2626'
     
     return (
@@ -1362,7 +1363,7 @@ def get_kpi_text(target_b, th):
         f"• Safe EAD: <b style='font-size:17.5px;'>{safe}/{n_total} ({safe/n_total*100:.1f}%)</b> &nbsp;|&nbsp; "
         f"• Correct Signals: <b style='font-size:17.5px; color:#2CA0AB;'>{corr}/{n_total} ({corr/n_total*100:.1f}%)</b> &nbsp;|&nbsp; "
         f"• Wrong Signals: <b style='font-size:17.5px; color:{status_color};'>{wrong}/{n_total} ({wrong/n_total*100:.1f}%)</b> &nbsp;|&nbsp; "
-        f"• Point Forecast Miss: <b style='font-size:17.5px; color:#DC2626;'>{pt_miss}/{n_surges} ({pt_miss_pct:.0f}%)</b>"
+        f"• Point Forecast Capture: <b style='font-size:17.5px; color:#DC2626;'>{pt_capt}/{n_surges} ({pt_capt_pct:.0f}%)</b>"
         f"</span>"
     )
 
