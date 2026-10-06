@@ -10,6 +10,7 @@
   {
     "listing": "/talks/index.html",
     "items": [
+      "/talks/presentations/kurd_conf.html",
       "/talks/presentations/sphere.html",
       "/talks/presentations/ors.html",
       "/talks/presentations/ifors.html",
