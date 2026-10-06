@@ -711,6 +711,31 @@ forecasts = ms_mod.forecast(H = H, exog=future_exog)
 
 ---
 
+## How Do Data Looks Like Before Passing to the Model?
+
+```{python}
+import pandas as pd
+from itables import show
+
+full_dff = pd.read_csv("ms_arr_model_data_prep.csv")
+full_dff.rename(columns={'sin_1_365.25': 'sin_365 (Annual)'}, inplace=True)
+
+for col in full_dff.columns:
+    if full_dff[col].dtype == 'float64':
+        if col == 'sin_365 (Annual)':
+            full_dff[col] = full_dff[col].round(4)
+        else:
+            full_dff[col] = full_dff[col].round(2)
+
+show(
+    full_dff,
+    style="width:100%; table-layout:auto;"
+)
+```
+
+
+
+
 ## Point Forecast Evaluation: 120-Day Out-of-Sample Horizon (example)
 
 

@@ -179,7 +179,7 @@
     "href": "talks/index.html",
     "title": "MUSTAFA ASLAN",
     "section": "",
-    "text": "Forecasting Severe Acute Patient Harm Resulting from Emergency Department Delays\n\n\n\n\n\n\n\n\nSep 23, 2026\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nForecast all at once: A multi-series forecasting approach for hospital discharges and admissions\n\n\nThe Operational Research Society\n\n\n\n\n\nSep 10, 2026\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nIntegrating Regime-Switching Probabilistic Forecasts into Stochastic Optimization for Nurse Rostering in Mental Health Wards\n\n\nThe 24th Conference of the International Federation of Operational Research Societies\n\n\n\n\n\nJul 13, 2026\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nFrom Admission to Discharge: Dynamically Updating Length of Stay Forecasts with Causal Diagnostic and Operational Penalties\n\n\nUniversity of Exeter, UK - July 11 2026\n\n\n\n\n\nJun 11, 2026\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nAI in Research & Social Care\n\n\nCare PhD Forum\n\n\n\n\n\nApr 23, 2026\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nForecast-Driven Two-Stage Stochastic Programming for Nurse Rostering in Mental Healthcare\n\n\nQuarterly Forecasting Forum\n\n\n\n\n\nMar 13, 2026\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nEnhancing Discharge Care Planning: A Probabilistic Data-Driven Approach\n\n\nSWORD Network Event - Postgraduate OR Presentations\n\n\n\n\n\nOct 9, 2025\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nForecasting Mental Health Hospital Bed Occupancy: A Regime-Switching AutoRegressive Hidden Markov Model Approach\n\n\n5th Welsh Postgraduate Research Cluster Workshop in Economy, Enterprise and Productivity\n\n\n\n\n\nSep 16, 2025\n\n\nMustafa Aslan\n\n\n\n\n\nNo matching items"
+    "text": "Discharge Care Coordination in Healthcare: Leveraging AI for Improved Patient Outcomes\n\n\nKurdish Annual Conference 2026\n\n\n\n\n\nOct 7, 2026\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nForecasting Severe Acute Patient Harm Resulting from Emergency Department Delays\n\n\n\n\n\n\n\n\nSep 23, 2026\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nForecast all at once: A multi-series forecasting approach for hospital discharges and admissions\n\n\nThe Operational Research Society\n\n\n\n\n\nSep 10, 2026\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nIntegrating Regime-Switching Probabilistic Forecasts into Stochastic Optimization for Nurse Rostering in Mental Health Wards\n\n\nThe 24th Conference of the International Federation of Operational Research Societies\n\n\n\n\n\nJul 13, 2026\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nFrom Admission to Discharge: Dynamically Updating Length of Stay Forecasts with Causal Diagnostic and Operational Penalties\n\n\nUniversity of Exeter, UK - July 11 2026\n\n\n\n\n\nJun 11, 2026\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nAI in Research & Social Care\n\n\nCare PhD Forum\n\n\n\n\n\nApr 23, 2026\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nForecast-Driven Two-Stage Stochastic Programming for Nurse Rostering in Mental Healthcare\n\n\nQuarterly Forecasting Forum\n\n\n\n\n\nMar 13, 2026\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nEnhancing Discharge Care Planning: A Probabilistic Data-Driven Approach\n\n\nSWORD Network Event - Postgraduate OR Presentations\n\n\n\n\n\nOct 9, 2025\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nForecasting Mental Health Hospital Bed Occupancy: A Regime-Switching AutoRegressive Hidden Markov Model Approach\n\n\n5th Welsh Postgraduate Research Cluster Workshop in Economy, Enterprise and Productivity\n\n\n\n\n\nSep 16, 2025\n\n\nMustafa Aslan\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "talks/index.html#probability-and-statistics",
@@ -8671,5 +8671,110 @@
     "title": "MUSTAFA ASLAN",
     "section": "",
     "text": "Outline\n\n\nWhat Are We Forecasting?\nModel: Markov-Switching AutoRegressive Regression (MS-ARR)\nModel Results\nData Preparation & How to Forecast Next Days in Python\nBeyond Point Forecasting"
+  },
+  {
+    "objectID": "talks/sphere/present.html#how-do-data-looks-like-before-passing-to-the-model",
+    "href": "talks/sphere/present.html#how-do-data-looks-like-before-passing-to-the-model",
+    "title": "MUSTAFA ASLAN",
+    "section": "How Do Data Looks Like Before Passing to the Model?",
+    "text": "How Do Data Looks Like Before Passing to the Model?\n\n\n\n\n  \n    \n      \n    \n        \n        \n        \n        \n        \n        \n        \n        \n    \n    \n   \n    \n      \n  \n        \n    \n    \n  \n        \n    \n    \n  \n        \n    \n      \n  \n        \n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n        \n    \n\n\n        Loading ITables v2.9.1 from the internet...\n        (need help?)\n      \n    \n  \n\n    \n      🔒ⓘdate\n      ead\n      day_1\n      day_2\n      day_3\n      day_4\n      day_5\n      day_6\n      month_2\n      month_3\n      month_4\n      month_5\n      month_6\n      month_7\n      month_8\n      month_9\n      month_10\n      month_11\n      month_12\n      holiday_1\n      holiday_2\n      holiday_3\n      sin_365 (Annual)\n      ead_lag_4\n      ead_lag_8\n      ead_lag_10\n      rolling_quantile_49_shift_10_q0.2\n    \n2023-05-130.530.00.00.00.01.00.00.00.00.01.00.00.00.00.00.00.00.00.00.00.00.84020.940.901.160.54\n2023-05-140.610.00.00.00.00.01.00.00.00.01.00.00.00.00.00.00.00.00.00.00.00.84951.330.380.860.54\n2023-05-150.850.00.00.00.00.00.00.00.00.01.00.00.00.00.00.00.00.00.00.00.00.85841.120.520.900.54\n2023-05-160.641.00.00.00.00.00.00.00.00.01.00.00.00.00.00.00.00.00.00.00.00.86710.790.970.380.54\n2023-05-170.460.01.00.00.00.00.00.00.00.01.00.00.00.00.00.00.00.00.00.00.00.87550.530.940.520.54\n2023-05-180.390.00.01.00.00.00.00.00.00.01.00.00.00.00.00.00.00.00.00.00.00.88370.611.330.970.54\n2023-05-190.300.00.00.01.00.00.00.00.00.01.00.00.00.00.00.00.00.00.00.00.00.89160.851.120.940.54\n2023-05-200.310.00.00.00.01.00.00.00.00.01.00.00.00.00.00.00.00.00.00.00.00.89930.640.791.330.54\n2023-05-210.330.00.00.00.00.01.00.00.00.01.00.00.00.00.00.00.00.00.00.00.00.90670.460.531.120.54\n2023-05-220.360.00.00.00.00.00.00.00.00.01.00.00.00.00.00.00.00.00.00.00.00.91380.390.610.790.54\n(942 more rows not shown)"
+  },
+  {
+    "objectID": "talks/presentations/kurd_conf.html",
+    "href": "talks/presentations/kurd_conf.html",
+    "title": "Discharge Care Coordination in Healthcare: Leveraging AI for Improved Patient Outcomes",
+    "section": "",
+    "text": "Slides\nDate: Oct 7 2026 13:00-17:00\nEvent: Kurdish Annual Conference 2026\nLocation: University of South Wales, Cardiff UK"
+  },
+  {
+    "objectID": "talks/presentations/kurd_conf.html#context",
+    "href": "talks/presentations/kurd_conf.html#context",
+    "title": "Discharge Care Coordination in Healthcare: Leveraging AI for Improved Patient Outcomes",
+    "section": "Context",
+    "text": "Context\nIn this talk, I will briefly talk about my journey in UK and what I am doing in my PhD research."
+  },
+  {
+    "objectID": "talks/kurdish_aademic_conf/present.html#section",
+    "href": "talks/kurdish_aademic_conf/present.html#section",
+    "title": "MUSTAFA ASLAN",
+    "section": "",
+    "text": "Outline\n\n\nWho am I?\nMy PhD Project\nProject: Understanding Causal Impact of Diagnosis\nProject: From Forecasting Competition to Impact in NHS Bristol"
+  },
+  {
+    "objectID": "talks/kurdish_aademic_conf/present.html#section-1",
+    "href": "talks/kurdish_aademic_conf/present.html#section-1",
+    "title": "MUSTAFA ASLAN",
+    "section": "",
+    "text": "Outline\n\n\nWho am I?\nMy PhD Project\nProject: Understanding Causal Impact of Diagnosis\nProject: From Forecasting Competition to Impact in NHS Bristol"
+  },
+  {
+    "objectID": "talks/kurdish_aademic_conf/present.html#section-2",
+    "href": "talks/kurdish_aademic_conf/present.html#section-2",
+    "title": "MUSTAFA ASLAN",
+    "section": "",
+    "text": "My Journey\nBorn: Xirabreşk - Close to Girê Mirazan (Göbekli Tepe), Urfa, Turkey\n\nEducation: 📚\n→ Moved to Ankara for university in 2010\n→ BSc in Business Administration (METU, 2015)\n→ MSc in Financial Mathematics (METU, 2021)\n\n\n\nIndustry (9 years of experience): 💼\n→ Worked while completing Master’s degree\n→ Built expertise in forecasting, ML, and data analytics\n\n\n\nCurrent: 🎓\n→ PhD at Cardiff University (Oct 2024 – Present)\n- Focus: Probabilistic Modeling in Healthcare\n- WGSSS-ESRC Studentship Award recipient"
+  },
+  {
+    "objectID": "talks/kurdish_aademic_conf/present.html#my-cv-at-a-glance",
+    "href": "talks/kurdish_aademic_conf/present.html#my-cv-at-a-glance",
+    "title": "MUSTAFA ASLAN",
+    "section": "My CV at a Glance",
+    "text": "My CV at a Glance\n\n\n🎓 Education\nPhD in Probabilistic Modeling in Healthcare\nCardiff University, UK | Oct 2024 – Present\n✓ WGSSS-ESRC Studentship Award\nMSc in Financial Mathematics\nMETU, Turkey | 2017–2021\nBSc in Business Administration\nMETU, Turkey | 2011–2015\n\n💼 Work Experience\nData Analytics Executive | AKBANK, Istanbul\nJun 2022 – Sep 2024\n→ Predictive modeling & forecasting\nResearch Associate | Economic Policy Research Foundation\nJan 2022 – Apr 2024\n→ Statistical inference & modeling\nSenior Process Analyst | ETI GIDA\nJun 2019 – Jan 2022\n→ ERP & BI tools, process optimization\n\n🏆 Achievements & Awards\nSPHERE-PPL Forecasting Contest (2026)\n🥇 1st Place (1–5 day horizon)\n🥈 2nd Place (5–10 day horizon)\n→ Predicting avoidable NHS hospital deaths\nBest Presentation Award\n5th Welsh Postgraduate Research Cluster\nWorkshop (Sep 2025)\n\n🛠️ Skills & Expertise\nExpertise: ML, Time Series Forecasting, Probabilistic Forecasting, Stochastic Optimization, Statistical Modeling\nProgramming: Python, SQL\nLanguages: English (Fluent) • Kurdish (Mother Tongue) • Turkish (Native)"
+  },
+  {
+    "objectID": "talks/kurdish_aademic_conf/present.html#section-3",
+    "href": "talks/kurdish_aademic_conf/present.html#section-3",
+    "title": "MUSTAFA ASLAN",
+    "section": "",
+    "text": "Outline\n\n\nWho am I?\nMy PhD Project\nProject: Understanding Causal Impact of Diagnosis\nProject: From Forecasting Competition to Impact in NHS Bristol"
+  },
+  {
+    "objectID": "talks/kurdish_aademic_conf/present.html#section-4",
+    "href": "talks/kurdish_aademic_conf/present.html#section-4",
+    "title": "MUSTAFA ASLAN",
+    "section": "",
+    "text": "Very Brief Overview\n\nProject 1: Staffing Required Number of Nurses in a Mental Health Hospital using Probabilistic Forecasting and Optimization\n\n\n\nProject 2: From Causal Impacts of Diagnosis to Reclaimed Hospital Capacity using Causal AI\n\n\n\nProject 3: Forecasting Daily Number of Hospital Admissions&Discharges per Specialty (40+ Specialties) using ONE Forecasting Model to Improve Hospital Capacity Planning and Resource Allocation"
+  },
+  {
+    "objectID": "talks/kurdish_aademic_conf/present.html#section-5",
+    "href": "talks/kurdish_aademic_conf/present.html#section-5",
+    "title": "MUSTAFA ASLAN",
+    "section": "",
+    "text": "Outline\n\n\nWho am I?\nMy PhD Project\nProject: Understanding Causal Impact of Diagnosis\nProject: From Forecasting Competition to Impact in NHS Bristol"
+  },
+  {
+    "objectID": "talks/kurdish_aademic_conf/present.html#patients-come-to-hospital-with-a-diagnosis-reason-and-what-is-the-impact-of-diagnosis-on-length-of-stay-los",
+    "href": "talks/kurdish_aademic_conf/present.html#patients-come-to-hospital-with-a-diagnosis-reason-and-what-is-the-impact-of-diagnosis-on-length-of-stay-los",
+    "title": "MUSTAFA ASLAN",
+    "section": "Patients Come to Hospital with a Diagnosis (Reason) and What is the Impact of Diagnosis on Length of Stay (LoS)?",
+    "text": "Patients Come to Hospital with a Diagnosis (Reason) and What is the Impact of Diagnosis on Length of Stay (LoS)?\n\nAim: To quantify the causal impact of diagnosis on Length of Stay (LoS) in Hospital using Causal AI."
+  },
+  {
+    "objectID": "talks/kurdish_aademic_conf/present.html#section-6",
+    "href": "talks/kurdish_aademic_conf/present.html#section-6",
+    "title": "MUSTAFA ASLAN",
+    "section": "",
+    "text": "Outline\n\n\nWho am I?\nMy PhD Project\nProject: Understanding Causal Impact of Diagnosis\nProject: From Forecasting Competition to Impact in NHS Bristol"
+  },
+  {
+    "objectID": "talks/kurdish_aademic_conf/present.html#organized-by-sphere-spatial-health-environmental-research",
+    "href": "talks/kurdish_aademic_conf/present.html#organized-by-sphere-spatial-health-environmental-research",
+    "title": "MUSTAFA ASLAN",
+    "section": "Organized by SPHERE (SPatial, Health & Environmental REsearch)",
+    "text": "Organized by SPHERE (SPatial, Health & Environmental REsearch)\n \n\n\nThe Real Problem 🏥\nEmergency Department Delays & Patient Lives\nWhen patients wait for hospital beds:\n\nRisk of harm increases significantly\n~25 preventable deaths/month in Bristol NHS due to waiting\nStaff need early warning to prevent these delays\n\n\nThe Competition Challenge 📊\nPredict hospital harm 10 days in advance\n\nUsing: Real hospital data from Bristol NHS\nGoal: Give hospital managers early warning so they can take pre-emptive action\nData source: 24 months of real hospital records"
+  },
+  {
+    "objectID": "talks/kurdish_aademic_conf/present.html#forecast-evaluation-furure-120-days-example",
+    "href": "talks/kurdish_aademic_conf/present.html#forecast-evaluation-furure-120-days-example",
+    "title": "MUSTAFA ASLAN",
+    "section": "Forecast Evaluation: Furure 120-Days (example)",
+    "text": "Forecast Evaluation: Furure 120-Days (example)\n\n\n\n\n\n\n\n\n\nNote: Forecasts are generated once every 5 days, 24 times across 120 days."
+  },
+  {
+    "objectID": "talks/kurdish_aademic_conf/present.html#can-point-forecasts-capture-peak-dynamics",
+    "href": "talks/kurdish_aademic_conf/present.html#can-point-forecasts-capture-peak-dynamics",
+    "title": "MUSTAFA ASLAN",
+    "section": "Can Point Forecasts Capture Peak Dynamics?",
+    "text": "Can Point Forecasts Capture Peak Dynamics?"
   }
 ]

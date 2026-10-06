@@ -96,5 +96,11 @@
   },
   "talks/presentations/sphere.qmd": {
     "sphere.html": "0a3b5210"
+  },
+  "talks/presentations/kurd_conf.qmd": {
+    "kurd_conf.html": "d09fa186"
+  },
+  "talks/kurdish_aademic_conf/present.qmd": {
+    "present.html": "5916fdeb"
   }
 }

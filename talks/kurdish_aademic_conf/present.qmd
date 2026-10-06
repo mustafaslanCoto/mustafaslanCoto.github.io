@@ -1,0 +1,628 @@
+---
+jupyter: python3
+external-env: true
+format:
+  revealjs:
+    css: style.css
+    width: 1920
+    height: 1080
+    footer: "<i class='fa-brands fa-github'></i> [mustafaslanCoto](https://github.com/mustafaslanCoto) <i class='fa-brands fa-linkedin'></i> [aslanmu](https://www.linkedin.com/in/aslanmu/) 🌐 [mustafaslancoto.github.io](https://mustafaslancoto.github.io/)"
+    slide-number: c/t
+    preview-links: auto
+    html-math-method: mathjax
+    code-block-height: 900px
+    include-in-header:
+      - text: |
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+---
+
+{{< include title-slide.html >}}
+
+
+## {background-image="images/kcolor5.jpeg" background-size="30% 100%" background-position="left"}
+
+:::: {.columns}
+::: {.column width="30%"}
+<!-- Spacer for left-aligned background image -->
+:::
+
+::: {.column width="70%"}
+
+<br>
+
+[Outline]{.mimic-h2}
+
+:::{style="font-weight: bold; font-size: 1.2em; line-height: 1.75;"}
+- [Who am I?]{style="color: #999;"}
+- [My PhD Project]{style="color: #999;"}
+- [Project: Understanding Causal Impact of Diagnosis]{style="color: #999;"}
+- [Project: From Forecasting Competition to Impact in NHS Bristol]{style="color: #999;"}
+
+:::
+:::
+::::
+
+
+
+## {background-image="images/kcolor5.jpeg" background-size="30% 100%" background-position="left"}
+
+:::: {.columns}
+::: {.column width="30%"}
+<!-- Spacer for left-aligned background image -->
+:::
+
+::: {.column width="70%"}
+
+<br>
+
+[Outline]{.mimic-h2}
+
+:::{style="font-weight: bold; font-size: 1.2em; line-height: 1.75;"}
+- [Who am I?]{style="color: #20808D;"}
+- [My PhD Project]{style="color: #999;"}
+- [Project: Understanding Causal Impact of Diagnosis]{style="color: #999;"}
+- [Project: From Forecasting Competition to Impact in NHS Bristol]{style="color: #999;"}
+
+:::
+:::
+::::
+
+## {background-image="images/gobeklitepe.jpg" background-size="40% 100%" background-position="left"}
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+
+:::
+
+::: {.column width="60%"}
+
+### My Journey
+
+**Born:** [Xirabreşk - Close to Girê Mirazan (Göbekli Tepe)]{style="color: #20808D;"}, Urfa, Turkey
+
+:::{style="font-size: 0.9em; background-color: #f0f0f0; padding: 1em; border-radius: 8px;" .fragment}
+
+**Education:** 📚  
+→ Moved to **Ankara** for university in 2010  
+→ BSc in Business Administration (METU, 2015)  
+→ MSc in Financial Mathematics (METU, 2021)
+
+:::
+
+<br>
+
+:::{style="font-size: 0.9em; background-color: #f0f0f0; padding: 1em; border-radius: 8px;" .fragment}
+**Industry (9 years of experience):** 💼  
+→ Worked while completing Master's degree  
+→ Built expertise in forecasting, ML, and data analytics
+:::
+
+<br>
+
+:::{style="font-size: 0.9em; background-color: #f0f0f0; padding: 1em; border-radius: 8px;" .fragment}
+**Current:** 🎓  
+→ **PhD at Cardiff University** (Oct 2024 -- Present)  
+    - Focus: Probabilistic Modeling in Healthcare  
+    - WGSSS-ESRC Studentship Award recipient
+:::
+
+:::
+
+::::
+
+## My CV at a Glance {.smaller}
+
+::::{.columns}
+
+:::{.column width="48%"}
+
+### 🎓 **Education**
+
+**PhD in Probabilistic Modeling in Healthcare**  
+*Cardiff University, UK* | Oct 2024 -- Present  
+✓ WGSSS-ESRC Studentship Award
+
+**MSc in Financial Mathematics**  
+*METU, Turkey* | 2017--2021  
+
+**BSc in Business Administration**  
+*METU, Turkey* | 2011--2015
+
+---
+
+### 💼 **Work Experience**
+
+**Data Analytics Executive** | AKBANK, Istanbul  
+*Jun 2022 -- Sep 2024*  
+→ Predictive modeling & forecasting 
+
+**Research Associate** | Economic Policy Research Foundation  
+*Jan 2022 -- Apr 2024*  
+→ Statistical inference & modeling
+
+**Senior Process Analyst** | ETI GIDA  
+*Jun 2019 -- Jan 2022*  
+→ ERP & BI tools, process optimization
+
+:::
+
+:::{.column width="48%"}
+
+### 🏆 **Achievements & Awards**
+
+**SPHERE-PPL Forecasting Contest (2026)**  
+🥇 1st Place (1--5 day horizon)  
+🥈 2nd Place (5--10 day horizon)  
+→ Predicting avoidable NHS hospital deaths
+
+**Best Presentation Award**  
+5th Welsh Postgraduate Research Cluster  
+Workshop (Sep 2025)
+
+---
+
+### 🛠️ **Skills & Expertise**
+
+**Expertise:** ML, Time Series Forecasting, Probabilistic Forecasting, Stochastic Optimization, Statistical Modeling
+
+**Programming:** Python, SQL
+
+**Languages:** English (Fluent) • Kurdish (Mother Tongue) • Turkish (Native)
+
+:::
+
+::::
+
+## {background-image="images/kcolor5.jpeg" background-size="30% 100%" background-position="left"}
+
+:::: {.columns}
+::: {.column width="30%"}
+<!-- Spacer for left-aligned background image -->
+:::
+
+::: {.column width="70%"}
+
+<br>
+
+[Outline]{.mimic-h2}
+
+:::{style="font-weight: bold; font-size: 1.2em; line-height: 1.75;"}
+- [Who am I?]{style="color: #999;"}
+- [My PhD Project]{style="color: #20808D;"}
+- [Project: Understanding Causal Impact of Diagnosis]{style="color: #999;"}
+- [Project: From Forecasting Competition to Impact in NHS Bristol]{style="color: #999;"}
+
+:::
+:::
+::::
+
+## {background-image="images/hospital_bed.jpg" background-size="40% 100%" background-position="left"}
+
+:::: {.columns}
+::: {.column width="40%"}
+<!-- Spacer for left-aligned background image -->
+:::
+
+
+::: {.column width="60%"}
+
+### Very Brief Overview
+
+:::{style="font-size: 0.9em; background-color: #b7d5da; padding: 1em; border-radius: 8px;" .fragment}
+**Project 1:** Staffing Required Number of Nurses in a Mental Health Hospital using Probabilistic Forecasting and Optimization
+:::
+
+<br>
+
+:::{style="font-size: 0.9em; background-color: #cbd5e1; padding: 1em; border-radius: 8px;" .fragment}
+**Project 2:** From Causal Impacts of Diagnosis to Reclaimed Hospital Capacity using Causal AI
+:::
+
+<br>
+
+:::{style="font-size: 0.9em; background-color: #cbd5e1; padding: 1em; border-radius: 8px;" .fragment}
+**Project 3:** Forecasting Daily Number of Hospital Admissions&Discharges per Specialty (40+ Specialties) using ONE Forecasting Model to Improve Hospital Capacity Planning and Resource Allocation
+:::
+
+:::
+::::
+
+
+
+## {background-image="images/kcolor5.jpeg" background-size="30% 100%" background-position="left"}
+
+:::: {.columns}
+::: {.column width="30%"}
+<!-- Spacer for left-aligned background image -->
+:::
+
+::: {.column width="70%"}
+
+<br>
+
+[Outline]{.mimic-h2}
+
+:::{style="font-weight: bold; font-size: 1.2em; line-height: 1.75;"}
+- [Who am I?]{style="color: #999;"}
+- [My PhD Project]{style="color: #999;"}
+- [Project: Understanding Causal Impact of Diagnosis]{style="color: #20808D;"}
+- [Project: From Forecasting Competition to Impact in NHS Bristol]{style="color: #999;"}
+
+:::
+:::
+::::
+
+## Patients Come to Hospital with a Diagnosis (Reason) and What is the Impact of Diagnosis on Length of Stay (LoS)?
+
+:::{style="text-align: center; font-size: 0.95em; color: #081F22; margin-bottom: 0.8em;"}
+**Aim:** To quantify the causal impact of diagnosis on Length of Stay (LoS) in Hospital using Causal AI.
+:::
+
+```{python}
+#| fig-align: center
+#| fig-width: 18
+#| fig-height: 9.5
+#| echo: false
+import generate_causal_plot
+fig = generate_causal_plot.generate_plot(return_fig=True)
+```
+
+---
+
+
+
+## {background-image="images/kcolor5.jpeg" background-size="30% 100%" background-position="left"}
+
+:::: {.columns}
+::: {.column width="30%"}
+<!-- Spacer for left-aligned background image -->
+:::
+
+::: {.column width="70%"}
+
+<br>
+
+[Outline]{.mimic-h2}
+
+:::{style="font-weight: bold; font-size: 1.2em; line-height: 1.75;"}
+- [Who am I?]{style="color: #999;"}
+- [My PhD Project]{style="color: #999;"}
+- [Project: Understanding Causal Impact of Diagnosis]{style="color: #999;"}
+- [Project: From Forecasting Competition to Impact in NHS Bristol]{style="color: #20808D;"}
+
+:::
+:::
+::::
+
+#
+
+{{< include title-slide_winner.html >}}
+
+## Organized by SPHERE (SPatial, Health & Environmental REsearch)
+
+<br>
+<br>
+
+::::{.columns}
+:::{.column width="50%" .fragment}
+
+### The Real Problem 🏥
+
+**Emergency Department Delays & Patient Lives**
+
+When patients wait for hospital beds:
+
+- Risk of harm increases significantly
+- ~25 preventable deaths/month in Bristol NHS due to waiting
+- Staff need early warning to prevent these delays
+
+:::
+
+:::{.column width="50%" .fragment}
+
+### The Competition Challenge 📊
+
+**Predict hospital harm 10 days in advance**
+
+- **Using:** Real hospital data from Bristol NHS
+- **Goal:** Give hospital managers early warning so they can take pre-emptive action
+- **Data source:** 24 months of real hospital records
+
+:::
+::::
+
+## Forecast Evaluation: Furure 120-Days (example)
+
+
+```{python}
+#| fig-align: center
+#| out-width: 100%
+
+import pickle
+import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
+import pandas as pd
+import numpy as np
+
+with open('cv_results.pkl', 'rb') as f:
+    data = pickle.load(f)
+
+train_last90 = data['training_last90']
+cv_df = data['cv_results']
+origin_date = train_last90.index[-1]
+n_total = len(cv_df)
+
+fig, ax = plt.subplots(figsize=(24, 10), facecolor='#FBFAF4')
+ax.set_facecolor('#FBFAF4')
+
+# 1. Historical Training Data (Last 90 Days)
+ax.plot(train_last90.index, train_last90['ead'], color='#64748b', linewidth=2.4, label='Historical Training EAD (Last 90 Days)', zorder=3)
+ax.fill_between(train_last90.index, 0, train_last90['ead'], color='#64748b', alpha=0.06, zorder=2)
+
+# Major separator between training and CV evaluation
+ax.axvline(origin_date, color='#0B363C', linestyle='--', linewidth=2.8, zorder=8, label=f'Forecast Origin ({origin_date.strftime("%b %d, %Y")})')
+
+# 2. Out-of-Sample Actuals (Continuous line across all 120 days)
+conn_dates = [origin_date] + list(cv_df['fold_index'])
+conn_actuals = [train_last90['ead'].iloc[-1]] + list(cv_df['y_true'])
+ax.plot(conn_dates, conn_actuals, color='#0B363C', linewidth=3.2, marker='o', markersize=4.5, label='Actual Observed EAD (Out-of-Sample)', zorder=6)
+
+# 3. Continuous Forecast Line across 120 days future
+ax.plot(cv_df['fold_index'], cv_df['y_pred'], color='#C93B2B', linewidth=3.2, marker='s', markersize=4.0, zorder=7, 
+        label='MS-ARR Out-of-Sample Forecast (y_pred)')
+
+# Overall Metrics
+mse = ((cv_df['y_true'] - cv_df['y_pred'])**2).mean()
+mae = (cv_df['y_true'] - cv_df['y_pred']).abs().mean()
+rmse = np.sqrt(mse)
+
+# Informational Note Box on the left
+# note_text = (f'120-Day Rolling Evaluation Horizon (Aug 22 – Dec 19, 2025)\n'
+#              f'• Performance: RMSE: {rmse:.4f} | MAE: {mae:.4f} | MSE: {mse:.4f}')
+# ax.text(0.015, 0.96, note_text, transform=ax.transAxes, fontsize=13.5, fontweight='bold', color='#0B363C',
+#         va='top', bbox=dict(boxstyle='round,pad=0.55', facecolor='#ffffff', edgecolor='#20808D', linewidth=1.8, alpha=0.96), zorder=10)
+
+# Legend placed cleanly next to the note box
+ax.legend(loc='upper left', frameon=True, facecolor='#ffffff', edgecolor='#cbd5e1', fontsize=13, ncol=1)
+
+ax.set_ylabel('Avoidable Deaths (EAD)', fontsize=18, fontweight='bold', color='#0B363C')
+ax.set_title('Out-of-Sample Evaluation: 120-Day Horizon Forecast vs. Actual EAD', 
+             fontsize=22, fontweight='bold', color='#0B363C', pad=22)
+
+ax.grid(True, linestyle='--', alpha=0.35, color='#cbd5e1')
+ax.tick_params(labelsize=15)
+ax.xaxis.set_major_locator(mdates.WeekdayLocator(interval=3))
+ax.xaxis.set_major_formatter(mdates.DateFormatter('%b %d, %Y'))
+fig.autofmt_xdate(rotation=0, ha='center')
+
+ax.set_ylim(0, 1.88)
+ax.set_xlim(train_last90.index[0] - pd.Timedelta(days=2), cv_df['fold_index'].iloc[-1] + pd.Timedelta(days=2))
+
+plt.subplots_adjust(left=0.05, right=0.97, top=0.90, bottom=0.12)
+plt.show()
+```
+
+[**Note: Forecasts are generated once every 5 days, 24 times across 120 days.**]{style="font-size: 18px; color: #0B363C; font-weight: bold; margin-top: 12px;"}
+
+---
+
+
+## Can Point Forecasts Capture Peak Dynamics?
+
+```{python}
+#| fig-align: center
+#| out-width: 100%
+
+import pickle
+import numpy as np
+import pandas as pd
+import plotly.graph_objects as go
+
+# 1. Load Data
+with open('probabilistic_forecast_results.pkl', 'rb') as f:
+    prob_data = pickle.load(f)
+
+train_pr = prob_data['train_example'][-8:]  # Last 8 days of training data
+test_pr = prob_data['test_example']
+forecasts = prob_data['forecast_example']
+scenarios_df = prob_data['probabilistic_scenarios']
+
+# 2. Extract Forecast Origin & Bridge Continuation
+# Connect the last observation of train to the forecast origin so paths flow seamlessly
+origin_date = train_pr.index[-1]
+origin_y = float(train_pr['ead'].iloc[-1])
+
+# Use clean ISO date strings for robust continuous timeline mapping
+train_dates = [d.strftime('%Y-%m-%d') for d in train_pr.index]
+train_y = train_pr['ead'].to_numpy(dtype=np.float32)
+
+conn_dates = [origin_date.strftime('%Y-%m-%d')] + [d.strftime('%Y-%m-%d') for d in test_pr.index]
+conn_actual_y = np.array([origin_y] + list(test_pr['ead']), dtype=np.float32)
+conn_point_y = np.array([origin_y] + list(forecasts), dtype=np.float32)
+
+scenarios_matrix = scenarios_df.to_numpy(dtype=np.float32)  # (10000, 5)
+origin_col = np.full((scenarios_matrix.shape[0], 1), origin_y, dtype=np.float32)
+conn_scenarios = np.hstack([origin_col, scenarios_matrix])   # (10000, 6)
+
+# Milestones for interactive slider
+milestones = [1, 2, 5, 10, 50, 100, 250, 500, 1000, 2500, 5000, 7500, 10000]
+total_scenarios = len(conn_scenarios)
+milestones = [m for m in milestones if m <= total_scenarios]
+if total_scenarios not in milestones:
+    milestones.append(total_scenarios)
+
+# 3. Assemble Plotly Figure
+fig = go.Figure()
+
+# Trace 0: Historical Training Observations (Last 28 Days)
+fig.add_trace(
+    go.Scatter(
+        x=train_dates,
+        y=train_y,
+        mode="lines",
+        name="Historical Train (Last 28d)",
+        line=dict(color="#64748b", width=2.4),
+        hovertemplate="<b>Train Actual:</b> %{y:.2f}<br>Date: %{x}<extra></extra>"
+    )
+)
+
+# Trace 1: Test Actuals (Bridged from Origin)
+fig.add_trace(
+    go.Scatter(
+        x=conn_dates,
+        y=conn_actual_y,
+        mode="lines+markers",
+        name="Actual Observed EAD",
+        line=dict(color="#C93B2B", width=3.2),
+        marker=dict(size=7.5, color="#C93B2B"),
+        hovertemplate="<b>Actual EAD:</b> %{y:.2f}<br>Date: %{x}<extra></extra>"
+    )
+)
+
+# Trace 2: Point Forecast (Bridged from Origin)
+fig.add_trace(
+    go.Scatter(
+        x=conn_dates,
+        y=conn_point_y,
+        mode="lines+markers",
+        name="Point Forecast",
+        line=dict(color="#2563EB", width=2.8, dash="dash"),
+        marker=dict(size=8, symbol="diamond", color="#2563EB"),
+        hovertemplate="<b>Point Forecast:</b> %{y:.2f}<br>Date: %{x}<extra></extra>"
+    )
+)
+
+# Vectorized scenario chunk traces with NaN delimiter
+x_template = np.append(np.array(conn_dates), [None])
+num_fixed_traces = 3
+default_step_idx = 0  # Default to showing the first two chunks (1 and 2 scenarios) on initial load
+prev_idx = 0
+
+for i, count in enumerate(milestones):
+    chunk_slice = conn_scenarios[prev_idx:count, :]
+    m_chunk = chunk_slice.shape[0]
+
+    nan_col = np.full((m_chunk, 1), np.nan, dtype=np.float32)
+    y_chunk = np.hstack([chunk_slice, nan_col]).ravel()
+    x_chunk = np.tile(x_template, m_chunk)
+
+    is_visible = (i <= default_step_idx)
+
+    fig.add_trace(
+        go.Scattergl(
+            x=x_chunk,
+            y=y_chunk,
+            mode="lines",
+            name="Forecast Scenarios" if i == 0 else None,
+            showlegend=(i == 0),
+            line=dict(color="rgba(32, 128, 141, 0.12)", width=0.9),
+            hoverinfo="skip",
+            visible=is_visible
+        )
+    )
+
+
+    prev_idx = count
+
+# 4. Slider Controls
+num_chunks = len(milestones)
+slider_steps = []
+
+for i, count in enumerate(milestones):
+    visibility_mask = [True] * num_fixed_traces + [k <= i for k in range(num_chunks)]
+    step = dict(
+        method="update",
+        args=[{"visible": visibility_mask}],
+        label=f"{count:,}"
+    )
+    slider_steps.append(step)
+
+slider_control = dict(
+    active=default_step_idx,
+    currentvalue={
+        "prefix": "Number of Forecast Scenarios: ",
+        "font": {"size": 20, "color": "#0B363C", "family": "Inter, sans-serif"}
+    },
+    font={"size": 20, "color": "#334155"},  # <-- ADD THIS LINE (increase size as desired, e.g., 16 or 18)
+    pad={"t": 30, "b": 10},
+    steps=slider_steps,
+    bgcolor="#E2E8F0",
+    activebgcolor="#20808D"
+)
+
+# Vertical line annotation at Forecast Origin
+origin_str = origin_date.strftime('%Y-%m-%d')
+fig.add_shape(
+    type="line",
+    x0=origin_str, x1=origin_str,
+    y0=0, y1=2.1,
+    line=dict(color="#0B363C", width=1.8, dash="dot")
+)
+fig.add_annotation(
+    x=origin_str,
+    y=2.02,
+    text="<b>Forecast Origin</b> (Nov 24)",
+    showarrow=False,
+    xanchor="right",
+    xshift=-8,
+    font=dict(size=14, color="#0B363C")
+)
+
+# Clean, evenly spaced date ticks across timeline
+all_dates = list(train_pr.index) + list(test_pr.index)
+tick_dt = all_dates[::4]
+if test_pr.index[-1] not in tick_dt:
+    tick_dt.append(test_pr.index[-1])
+if origin_date not in tick_dt:
+    tick_dt.append(origin_date)
+tick_dt = sorted(list(set(tick_dt)))
+
+tick_vals = [d.strftime('%Y-%m-%d') for d in tick_dt]
+tick_text = [d.strftime('%b %d') for d in tick_dt]
+
+fig.update_layout(
+    height=950,
+    width=1820,
+    xaxis=dict(
+        title=dict(text="Date", font=dict(size=20, color="#0B363C")),
+        type="date",
+        tickmode="array",
+        tickvals=tick_vals,
+        ticktext=tick_text,
+        tickangle=0,
+        tickfont=dict(size=18, color="#334155"),
+        gridcolor="#E2E8F0",
+        showgrid=True
+    ),
+    yaxis=dict(
+        title=dict(text="Estimated Avoidable Deaths (EAD)", font=dict(size=20, color="#0B363C")),
+        tickfont=dict(size=18, color="#334155"),
+        gridcolor="#E2E8F0",
+        showgrid=True,
+        range=[0.1, 2.15]
+    ),
+    sliders=[slider_control],
+    paper_bgcolor="#FBFAF4",
+    plot_bgcolor="#FBFAF4",
+    hovermode="x unified",
+    legend=dict(
+        orientation="h",
+        yanchor="bottom",
+        y=1.03,
+        xanchor="right",
+        x=1,
+        font=dict(size=18, color="#0B363C"),
+        bgcolor="rgba(251, 250, 244, 0.85)"
+    ),
+    margin=dict(l=60, r=40, t=80, b=50)
+)
+
+fig.show()
+```
+
+
+# Any questions or thoughts? 💬
+
+![](images/follow_us.png){fig-align="center"}
