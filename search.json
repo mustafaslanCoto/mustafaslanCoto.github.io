@@ -1582,11 +1582,11 @@
     "text": "Organized by SPHERE (SPatial, Health & Environmental REsearch)\n \n\n\nThe Real Problem 🏥\nEmergency Department Delays & Patient Lives\nWhen patients wait for hospital beds:\n\nRisk of harm increases significantly\n~25 preventable deaths/month in Bristol NHS due to waiting\nStaff need early warning to prevent these delays\n\n\nThe Competition Challenge 📊\nPredict hospital harm 10 days in advance\n\nUsing: Real hospital data from Bristol NHS\nGoal: Give hospital managers early warning so they can take pre-emptive action\nData source: 24 months of real hospital records"
   },
   {
-    "objectID": "talks/kurdish_aademic_conf/present.html#forecast-evaluation-furure-120-days-example",
-    "href": "talks/kurdish_aademic_conf/present.html#forecast-evaluation-furure-120-days-example",
+    "objectID": "talks/kurdish_aademic_conf/present.html#forecast-evaluation-future-120-days-example",
+    "href": "talks/kurdish_aademic_conf/present.html#forecast-evaluation-future-120-days-example",
     "title": "MUSTAFA ASLAN",
-    "section": "Forecast Evaluation: Furure 120-Days (example)",
-    "text": "Forecast Evaluation: Furure 120-Days (example)\n\n\n\n\n\n\n\n\n\nNote: Forecasts are generated once every 5 days, 24 times across 120 days."
+    "section": "Forecast Evaluation: Future 120-Days (example)",
+    "text": "Forecast Evaluation: Future 120-Days (example)\n\n\n\n\n\n\n\n\n\nNote: Forecasts are generated once every 5 days, 24 times across 120 days."
   },
   {
     "objectID": "talks/kurdish_aademic_conf/present.html#can-point-forecasts-capture-peak-dynamics",
