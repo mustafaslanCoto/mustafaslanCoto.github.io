@@ -333,7 +333,7 @@ When patients wait for hospital beds:
 :::
 ::::
 
-## Forecast Evaluation: Furure 120-Days (example)
+## Forecast Evaluation: Future 120-Days (example)
 
 
 ```{python}
