@@ -14,8 +14,18 @@
     ]
   },
   {
+    "listing": "/blog/index.html",
+    "items": [
+      "/blog/prob_stats/copul.html",
+      "/blog/prob_stats/mc_integration.html",
+      "/blog/prob_stats/cond_index.html",
+      "/blog/prob_stats/dists_index.html"
+    ]
+  },
+  {
     "listing": "/talks/index.html",
     "items": [
+      "/talks/presentations/sword2026.html",
       "/talks/presentations/kurd_conf.html",
       "/talks/presentations/sphere.html",
       "/talks/presentations/ors.html",
@@ -25,15 +35,6 @@
       "/talks/presentations/qqf.html",
       "/talks/presentations/sword.html",
       "/talks/presentations/wgsss.html"
-    ]
-  },
-  {
-    "listing": "/blog/index.html",
-    "items": [
-      "/blog/prob_stats/copul.html",
-      "/blog/prob_stats/mc_integration.html",
-      "/blog/prob_stats/cond_index.html",
-      "/blog/prob_stats/dists_index.html"
     ]
   },
   {
