@@ -30,6 +30,38 @@ def _():
 
 @app.cell(hide_code=True)
 def _(mo):
+    import re
+    import sys
+
+    _RAW = "https://raw.githubusercontent.com/mustafaslanCoto/mustafaslanCoto.github.io/main/talks"
+
+    if sys.platform == "emscripten":
+        # exported HTML: read the include and logos straight from the repo
+        from pyodide.http import open_url
+
+        _html = open_url(f"{_RAW}/sword2026/title-slide.html").read()
+        _src = lambda m: f'src="{_RAW}/{m.group(1)}"'
+    else:
+        import base64
+        import mimetypes
+
+        _dir = mo.notebook_dir()
+        _html = (_dir / "title-slide.html").read_text()
+
+        def _src(m):
+            _p = _dir.parent / m.group(1)
+            _mime = mimetypes.guess_type(_p.name)[0] or "image/png"
+            return f'src="data:{_mime};base64,{base64.b64encode(_p.read_bytes()).decode()}"'
+
+    # drop Quarto's ```{=html} fences; logos live in talks/images
+    _html = re.sub(r"^```.*$", "", _html, flags=re.M)
+    _html = re.sub(r'src="(images/[^"]+)"', _src, _html)
+    mo.Html(_html)
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
     mo.md(r"""
     ## Grouping diagnosis
 
@@ -110,49 +142,35 @@ def _(mo):
 
 
 @app.cell
-def _(io, mo, urllib):
+def _():
+    import io as _io
+    from urllib.request import urlopen as _urlopen
+
     import pandas as pd
     import numpy as np
-    def fetch(path):
-        """Read a data file into memory before handing it to pandas.
 
-        Under WASM these files are served over HTTP, and GitHub Pages responds
-        with `Content-Encoding: gzip`. The browser has already decompressed the
-        body by the time pandas sees it, but pandas reads that header and
-        gunzips a second time, raising BadGzipFile. Passing an in-memory buffer
-        skips pandas' URL handling entirely. Local paths pass straight through.
+    def fetch(url):
+        """Fetch remote data into memory before passing it to pandas.
+
+        Passing an in-memory buffer avoids pandas handling the compressed HTTP
+        response itself in the browser.
         """
-        location = str(path)
-        if location.startswith(("http://", "https://")):
-            with urllib.request.urlopen(location) as response:
-                return io.BytesIO(response.read())
-        return path
+        with _urlopen(url) as response:
+            return _io.BytesIO(response.read())
 
 
-    _data_path = mo.notebook_location()
-    if str(_data_path).startswith("blob:"):
-        _data_path = (
-            "https://raw.githubusercontent.com/"
-            "mustafaslanCoto/mustafaslanCoto.github.io/main/"
-            "talks/sword2026/public"
-        )
-    else:
-        _data_path = _data_path / "public"
-
-    def data_file(filename):
-        if isinstance(_data_path, str):
-            return f"{_data_path}/{filename}"
-        return _data_path / filename
-
-    order_df = pd.read_csv(fetch(data_file("diagnosis_order.csv")), sep=None, engine='python')       # Use the more robust engine)
-    diags = pd.read_csv(fetch(data_file("caus_hrg_lgb.csv")), sep=None, engine='python')
+    data_url = (
+        "https://raw.githubusercontent.com/"
+        "mustafaslanCoto/mustafaslanCoto.github.io/main/"
+        "talks/sword2026/public"
+    )
+    order_df = pd.read_csv(fetch(f"{data_url}/diagnosis_order.csv"), sep=None, engine='python')
+    diags = pd.read_csv(fetch(f"{data_url}/caus_hrg_lgb.csv"), sep=None, engine='python')
     diags = diags.merge(order_df, on='profile', how ='left')
     diags.rename(columns={"proportion": "dominance"}, inplace=True)
     diags.sort_values("dominance", ascending=False, inplace=True)
     # diags["dominance"] = diags["dominance"]*100
-    cleand_df = pd.read_parquet(fetch(data_file("clean_df_present.parquet")))
-    # cleand_df.to_csv(data_path / "clean_df_present.csv", index=False)
-    # cleand_df = pd.read_csv(data_path / "clean_df_present.csv")
+    cleand_df = pd.read_parquet(fetch(f"{data_url}/clean_df_present.parquet"))
     exist_codes = cleand_df[cleand_df["code"]!= "$$X"]["code"].drop_duplicates().tolist()
 
     diags = diags.drop(columns=["variance"])
@@ -166,8 +184,8 @@ def _(io, mo, urllib):
     # sort by it
     diags = diags.sort_values("profile").reset_index(drop=True)
 
-    confounders = pd.read_csv(fetch(data_file("confounders.csv")), sep=None, engine='python')
-    return cleand_df, confounders, data_file, diags, exist_codes, fetch, np, pd
+    confounders = pd.read_csv(fetch(f"{data_url}/confounders.csv"), sep=None, engine='python')
+    return cleand_df, confounders, data_url, diags, exist_codes, fetch, np, pd
 
 
 @app.cell
@@ -177,8 +195,8 @@ def _(diags):
 
 
 @app.cell
-def _(data_file, exist_codes, fetch, pd):
-    hrg = pd.read_csv(fetch(data_file("nhs_group.csv")))[["code", "HRG 1","Code Description"]].drop_duplicates().rename(columns={"code":"ICD_code", "HRG 1": "HRG", "Code Description": "ICD_description"})
+def _(data_url, exist_codes, fetch, pd):
+    hrg = pd.read_csv(fetch(f"{data_url}/nhs_group.csv"))[["code", "HRG 1","Code Description"]].drop_duplicates().rename(columns={"code":"ICD_code", "HRG 1": "HRG", "Code Description": "ICD_description"})
     ## filter ICD
     hrg = hrg[hrg["ICD_code"].isin(exist_codes)]
     hrg["HRG2"] = hrg["HRG"].str[:2]

@@ -20,7 +20,7 @@ link-external-newwindow: true
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 
-<!-- [<i class="fas fa-bookmark"></i> Slides](../sword2026/causp_slide.html){.btn .btn-sm .btn-outline-primary} -->
+[<i class="fas fa-bookmark"></i> Slides](../sword2026/causp_slide.html){.btn .btn-sm .btn-outline-primary}
 
 **Date:** Oct 14 2026 18:15 PM\
 **Event:** SWORD network event\
