@@ -129,14 +129,28 @@ def _(io, mo, urllib):
         return path
 
 
-    data_path = mo.notebook_location() / "data"
-    order_df = pd.read_csv(fetch(data_path / "diagnosis_order.csv"), sep=None, engine='python')       # Use the more robust engine)
-    diags = pd.read_csv(fetch(data_path / "caus_hrg_lgb.csv"), sep=None, engine='python')
+    _data_path = mo.notebook_location()
+    if str(_data_path).startswith("blob:"):
+        _data_path = (
+            "https://raw.githubusercontent.com/"
+            "mustafaslanCoto/mustafaslanCoto.github.io/main/"
+            "talks/sword2026/public"
+        )
+    else:
+        _data_path = _data_path / "public"
+
+    def data_file(filename):
+        if isinstance(_data_path, str):
+            return f"{_data_path}/{filename}"
+        return _data_path / filename
+
+    order_df = pd.read_csv(fetch(data_file("diagnosis_order.csv")), sep=None, engine='python')       # Use the more robust engine)
+    diags = pd.read_csv(fetch(data_file("caus_hrg_lgb.csv")), sep=None, engine='python')
     diags = diags.merge(order_df, on='profile', how ='left')
     diags.rename(columns={"proportion": "dominance"}, inplace=True)
     diags.sort_values("dominance", ascending=False, inplace=True)
     # diags["dominance"] = diags["dominance"]*100
-    cleand_df = pd.read_parquet(fetch(data_path /"clean_df_present.parquet"))
+    cleand_df = pd.read_parquet(fetch(data_file("clean_df_present.parquet")))
     # cleand_df.to_csv(data_path / "clean_df_present.csv", index=False)
     # cleand_df = pd.read_csv(data_path / "clean_df_present.csv")
     exist_codes = cleand_df[cleand_df["code"]!= "$$X"]["code"].drop_duplicates().tolist()
@@ -152,8 +166,8 @@ def _(io, mo, urllib):
     # sort by it
     diags = diags.sort_values("profile").reset_index(drop=True)
 
-    confounders = pd.read_csv(fetch(data_path / "confounders.csv"), sep=None, engine='python')
-    return cleand_df, confounders, data_path, diags, exist_codes, fetch, np, pd
+    confounders = pd.read_csv(fetch(data_file("confounders.csv")), sep=None, engine='python')
+    return cleand_df, confounders, data_file, diags, exist_codes, fetch, np, pd
 
 
 @app.cell
@@ -163,8 +177,8 @@ def _(diags):
 
 
 @app.cell
-def _(data_path, exist_codes, fetch, pd):
-    hrg = pd.read_csv(fetch(data_path / "nhs_group.csv"))[["code", "HRG 1","Code Description"]].drop_duplicates().rename(columns={"code":"ICD_code", "HRG 1": "HRG", "Code Description": "ICD_description"})
+def _(data_file, exist_codes, fetch, pd):
+    hrg = pd.read_csv(fetch(data_file("nhs_group.csv")))[["code", "HRG 1","Code Description"]].drop_duplicates().rename(columns={"code":"ICD_code", "HRG 1": "HRG", "Code Description": "ICD_description"})
     ## filter ICD
     hrg = hrg[hrg["ICD_code"].isin(exist_codes)]
     hrg["HRG2"] = hrg["HRG"].str[:2]
