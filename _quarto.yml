@@ -1,6 +1,7 @@
 project:
   type: website
   output-dir: docs
+  pre-render: node scripts/export_all_marimo.mjs
  
 website:
   title: "MUSTAFA ASLAN"
@@ -8,8 +9,8 @@ website:
   page-footer: "Made with ❤️ and Quarto"
   navbar:
     right:
-      - href: learn/index.qmd
-        text: LEARN
+      - href: blog/index.qmd
+        text: BLOG
  
       - href: projects/index.qmd  # Add this line
         text: PROJECTS

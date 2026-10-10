@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="./favicon.ico" />
+    <!-- Preload is necessary because we show these images when we disconnect from the server,
+    but at that point we cannot load these images from the server -->
+    <link rel="preload" href="./assets/gradient-yHQUC_QB.png" as="image" />
+    <link rel="preload" href="./assets/noise-60BoTA8O.png" as="image" />
+    <!-- Preload the fonts -->
+    <link rel="preload" href="./assets/Lora-VariableFont_wght-CZceb_kH.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/PTSans-Regular-Bam3NpBI.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/PTSans-Bold-C_DwAp7Z.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/FiraMono-Regular-CEsLFVD9.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/FiraMono-Medium-D5MAsWEG.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/FiraMono-Bold-C6PDArdf.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="a marimo app" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <link rel="manifest" href="./manifest.json" />
+
+    <script data-marimo="true">
+      function __resizeIframe(obj) {
+        const scrollbarHeight = 20; // Max between windows, mac, and linux
+
+        function setHeight() {
+          // Guard against race condition where iframe isn't ready
+          if (!obj.contentWindow?.document?.documentElement) {
+            return;
+          }
+          const element = obj.contentWindow.document.documentElement;
+          // If there is no vertical scrollbar, we don't need to resize the iframe
+          if (element.scrollHeight === element.clientHeight) {
+            return;
+          }
+
+          // Create a new height that includes the scrollbar height if it's visible
+          const hasHorizontalScrollbar = element.scrollWidth > element.clientWidth;
+          const newHeight = element.scrollHeight + (hasHorizontalScrollbar ? scrollbarHeight : 0);
+
+          // Only update the height if it's different from the current height
+          if (obj.style.height !== `${newHeight}px`) {
+            obj.style.height = `${newHeight}px`;
+          }
+        }
+
+        // Resize the iframe to the height of the content and bottom scrollbar height
+        setHeight();
+
+        // Resize the iframe when the content changes
+        const resizeObserver = new ResizeObserver((_entries) => {
+          setHeight();
+        });
+        // Only observe if iframe content is ready
+        if (obj.contentWindow?.document?.body) {
+          resizeObserver.observe(obj.contentWindow.document.body);
+        }
+      }
+    </script>
+    <marimo-filename hidden>notebook.py</marimo-filename>
+    <!-- TODO(Trevor): Legacy, required by VS Code plugin. Remove when plugin is updated (see marimo/server/_templates/template.py) -->
+    <marimo-version data-version="{{ version }}" hidden></marimo-version>
+    <marimo-user-config data-config="{{ user_config }}" hidden></marimo-user-config>
+    <marimo-server-token data-token="{{ server_token }}" hidden></marimo-server-token>
+    <!-- /TODO -->
+    <title>marimo blog</title>
+    <script type="module" crossorigin src="./assets/index-DafnX1Xx.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/rolldown-runtime-B0Z9INg1.js">
+    <link rel="modulepreload" crossorigin href="./assets/react-CUdNIagt.js">
+    <link rel="modulepreload" crossorigin href="./assets/compiler-runtime-BQ9S8nyo.js">
+    <link rel="modulepreload" crossorigin href="./assets/useEvent-Dc9HkKI2.js">
+    <link rel="modulepreload" crossorigin href="./assets/react-dom-CKsE8sC1.js">
+    <link rel="modulepreload" crossorigin href="./assets/schemas-BL-NsLlF.js">
+    <link rel="modulepreload" crossorigin href="./assets/isObject-BCaOs5rp.js">
+    <link rel="modulepreload" crossorigin href="./assets/isSymbol-oX0TOjjx.js">
+    <link rel="modulepreload" crossorigin href="./assets/now-Cmx0b_zA.js">
+    <link rel="modulepreload" crossorigin href="./assets/debounce-aFmHgJZY.js">
+    <link rel="modulepreload" crossorigin href="./assets/isArrayLikeObject-DnwgSs_Z.js">
+    <link rel="modulepreload" crossorigin href="./assets/_baseMerge-CQpUq7ep.js">
+    <link rel="modulepreload" crossorigin href="./assets/objects-snlMn4yk.js">
+    <link rel="modulepreload" crossorigin href="./assets/jsx-runtime-B74pBk57.js">
+    <link rel="modulepreload" crossorigin href="./assets/useEventListener-BdZUApHd.js">
+    <link rel="modulepreload" crossorigin href="./assets/invariant-Ci2dTZ72.js">
+    <link rel="modulepreload" crossorigin href="./assets/config-BxZgoFvi.js">
+    <link rel="modulepreload" crossorigin href="./assets/utils-B4K466FK.js">
+    <link rel="modulepreload" crossorigin href="./assets/session-DXKMv4Bs.js">
+    <link rel="modulepreload" crossorigin href="./assets/Deferred-CrTnjj37.js">
+    <link rel="modulepreload" crossorigin href="./assets/config-DpGPGznL.js">
+    <link rel="modulepreload" crossorigin href="./assets/clsx-DB0hHKMi.js">
+    <link rel="modulepreload" crossorigin href="./assets/cn-ldLVeaqm.js">
+    <link rel="modulepreload" crossorigin href="./assets/fullscreen-BmzAqMKq.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-CyYN7zJg.js">
+    <link rel="modulepreload" crossorigin href="./assets/menu-items-BBdeXCvU.js">
+    <link rel="modulepreload" crossorigin href="./assets/use-restore-focus-B98SEiGc.js">
+    <link rel="modulepreload" crossorigin href="./assets/button-BoklZTGL.js">
+    <link rel="modulepreload" crossorigin href="./assets/createLucideIcon-rHn2EdoM.js">
+    <link rel="modulepreload" crossorigin href="./assets/check-Wea4hZ6R.js">
+    <link rel="modulepreload" crossorigin href="./assets/context-BFOBKCJB.js">
+    <link rel="modulepreload" crossorigin href="./assets/useNumberFormatter-C4-_TnkF.js">
+    <link rel="modulepreload" crossorigin href="./assets/select-BplWpfFo.js">
+    <link rel="modulepreload" crossorigin href="./assets/circle-CeQt3rdW.js">
+    <link rel="modulepreload" crossorigin href="./assets/toast-KNfsFUiB.js">
+    <link rel="modulepreload" crossorigin href="./assets/tooltip-DR2Z2N4w.js">
+    <link rel="modulepreload" crossorigin href="./assets/paths-CzfpItSz.js">
+    <link rel="modulepreload" crossorigin href="./assets/useLifecycle-DKSBdWUf.js">
+    <link rel="modulepreload" crossorigin href="./assets/toDate-BbJ1_N2T.js">
+    <link rel="modulepreload" crossorigin href="./assets/database-zap-CrkOvbyN.js">
+    <link rel="modulepreload" crossorigin href="./assets/alert-dialog-CeE3i3Qa.js">
+    <link rel="modulepreload" crossorigin href="./assets/arrays-BqUx5USx.js">
+    <link rel="modulepreload" crossorigin href="./assets/once-Haz_uxEL.js">
+    <link rel="modulepreload" crossorigin href="./assets/numbers-DsgsDslU.js">
+    <link rel="modulepreload" crossorigin href="./assets/useDebounce-DMbg9X18.js">
+    <link rel="modulepreload" crossorigin href="./assets/input-BDakodZ2.js">
+    <link rel="modulepreload" crossorigin href="./assets/use-toast-CC89xOwH.js">
+    <link rel="modulepreload" crossorigin href="./assets/requests-yTHMxhVa.js">
+    <link rel="modulepreload" crossorigin href="./assets/uuid-k9DpjH68.js">
+    <link rel="modulepreload" crossorigin href="./assets/write-secret-modal-BiG2tahJ.js">
+    <link rel="modulepreload" crossorigin href="./assets/plus-gbN72xHe.js">
+    <link rel="modulepreload" crossorigin href="./assets/trash-2-BJG-7Qob.js">
+    <link rel="modulepreload" crossorigin href="./assets/preload-helper-HclGiUj8.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-BczecT6V.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-BTskHGpb.js">
+    <link rel="modulepreload" crossorigin href="./assets/capabilities-Bj3s1hGN.js">
+    <link rel="modulepreload" crossorigin href="./assets/cjs-C49f7GXV.js">
+    <link rel="modulepreload" crossorigin href="./assets/createReducer-BPvK7C_R.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-Ccyblc8N.js">
+    <link rel="modulepreload" crossorigin href="./assets/marked.esm-B_3iMIUq.js">
+    <link rel="modulepreload" crossorigin href="./assets/strings-BHZPE0Mc.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-BN-7G8qZ.js">
+    <link rel="modulepreload" crossorigin href="./assets/badge-DFf033uX.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-CiUBikfn.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-MRn68vX1.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-Bviq_Dee.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-DBqBVprh.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-DueXZKz9.js">
+    <link rel="modulepreload" crossorigin href="./assets/stex-CJTNBbet.js">
+    <link rel="modulepreload" crossorigin href="./assets/useTheme-DcnXlv0_.js">
+    <link rel="modulepreload" crossorigin href="./assets/useAsyncData-DucTwMkf.js">
+    <link rel="modulepreload" crossorigin href="./assets/purify.es-CYRiAeUx.js">
+    <link rel="modulepreload" crossorigin href="./assets/cells-CzugpTQu.js">
+    <link rel="modulepreload" crossorigin href="./assets/get-DjNf4SIX.js">
+    <link rel="modulepreload" crossorigin href="./assets/copy-RyCOE8jo.js">
+    <link rel="modulepreload" crossorigin href="./assets/copy-BhJktFeI.js">
+    <link rel="modulepreload" crossorigin href="./assets/copy-icon-DFhUGBjO.js">
+    <link rel="modulepreload" crossorigin href="./assets/ErrorBoundary-BeE1cdgM.js">
+    <link rel="modulepreload" crossorigin href="./assets/config-B4VJJibu.js">
+    <link rel="modulepreload" crossorigin href="./assets/chevron-right-DOPs2jx8.js">
+    <link rel="modulepreload" crossorigin href="./assets/dropdown-menu-VuyoeQOD.js">
+    <link rel="modulepreload" crossorigin href="./assets/LazyAnyLanguageCodeMirror-B_IYTCX5.js">
+    <link rel="modulepreload" crossorigin href="./assets/hat-glasses-DVgK5i5l.js">
+    <link rel="modulepreload" crossorigin href="./assets/package-BeYhVWvM.js">
+    <link rel="modulepreload" crossorigin href="./assets/errors-D9vyuMar.js">
+    <link rel="modulepreload" crossorigin href="./assets/defaultLocale-CNPGWpMu.js">
+    <link rel="modulepreload" crossorigin href="./assets/precisionRound-Bq_nmf5u.js">
+    <link rel="modulepreload" crossorigin href="./assets/defaultLocale-D5bOh7g6.js">
+    <link rel="modulepreload" crossorigin href="./assets/vega-loader.browser-CLRkNgm7.js">
+    <link rel="modulepreload" crossorigin href="./assets/tooltip-PLkI_UfK.js">
+    <link rel="modulepreload" crossorigin href="./assets/filename-fxG7K_MU.js">
+    <link rel="modulepreload" crossorigin href="./assets/micromark-factory-space-D9Dr-k4J.js">
+    <link rel="modulepreload" crossorigin href="./assets/chunk-YOKDWASO-CaoEAGJk.js">
+    <link rel="stylesheet" crossorigin href="./assets/cells-0PFKL3SH.css">
+    <link rel="stylesheet" crossorigin href="./assets/index--sT8xf-8.css">
+  <marimo-wasm hidden=""></marimo-wasm>
+    <script>
+        if (window.location.protocol === 'file:') {
+            alert('Warning: This file must be served by an HTTP server to function correctly.');
+        }
+    </script>
+    
+    <style>
+        #save-button {
+            display: none !important;
+        }
+        #filename-input {
+            display: none !important;
+        }
+    </style>
+    
+<script data-marimo="true">
+    Object.defineProperty(window, "__MARIMO_EXPORT_CONTEXT__", {
+        value: Object.freeze({
+            trusted: true,
+            notebookCode: "import marimo\n\n__generated_with = \"0.25.1\"\napp = marimo.App(width=\"full\")\n\n\n@app.cell\ndef _():\n    import marimo as mo\n\n    return (mo,)\n\n\n@app.cell\ndef _():\n    from scipy.optimize import linprog\n    import altair as alt\n    import pandas as pd\n    import numpy as np\n\n    return alt, linprog, pd\n\n\n@app.cell\ndef _(mo):\n    mo.md(r\"\"\"\n    # Two-Stage Stochastic Programming\n\n    In many real-world decision problems, decisions must be made before uncertainties are resolved:\n    1. **First-Stage Decisions ($x$):** Made *\"here-and-now\"* before observing random outcomes (e.g., how much capacity or stock to build).\n    2. **Second-Stage (Recourse) Decisions ($y$):** Made *\"wait-and-see\"* after the scenario $$\\xi$$ is realized to compensate for any imbalances.\n\n    ### General Formulation\n\n    The problem is formulated as minimizing the first-stage cost plus the expected recourse cost:\n\n    $$\\min_{x} \\quad c^T x + \\mathbb{E}_{\\xi}[Q(x, \\xi)]$$\n\n    subject to:\n\n    $$\n    A x = b, \\quad x \\ge 0\n    $$\n\n    Where the second-stage recourse function for a realized scenario $\\xi = (q, T, W, h)$ is:\n\n    $$\n    Q(x, \\xi) = \\min_{y} \\quad q^T y \\quad \\text{s.t.} \\quad W y = h - T x, \\quad y \\ge 0\n    $$\n    \"\"\")\n    return\n\n\n@app.cell\ndef _(mo):\n    mo.md(r\"\"\"\n    ## Benders Decomposition (The L-Shaped Method)\n\n    When the number of scenarios is large, solving the deterministic equivalent directly becomes computationally prohibitive. **Benders Decomposition** splits the problem into:\n\n    1. **Master Problem:** Decides first-stage variable $x$ and approximates the expected future recourse cost $\\theta \\ge \\mathbb{E}[Q(x, \\xi)]$.\n    2. **Subproblems:** Given a candidate $x^{(k)}$, solve the dual of the second-stage recourse problem for each scenario $$s$$:\n\n    $$\\max_{\\pi_s} \\quad \\pi_s^T (h_s - T_s x^{(k)}) \\quad \\text{s.t.} \\quad W^T \\pi_s \\le q_s$$\n\n    3. **Optimality Cut:** If $$\\theta^{(k)} \u003C \\sum_{s} p_s Q(x^{(k)}, \\xi_s)$$, generate an optimality cut and add it to the master problem:\n\n    $$\\theta \\ge \\sum_{s} p_s (\\pi_s^{(k)})^T (h_s - T_s x)$$\n\n    This iteratively tightens the lower bound ($$\\text{LB}$$) and upper bound ($$\\text{UB}$$) until convergence:\n\n    $$|\\text{UB} - \\text{LB}| \\le \\epsilon$$\n    \"\"\")\n    return\n\n\n@app.cell\ndef _(mo):\n    c_cost_slider = mo.ui.slider(start=1.0, stop=10.0, step=0.5, value=3.0, label=\"1st Stage Unit Cost (c)\")\n    penalty_slider = mo.ui.slider(start=5.0, stop=25.0, step=1.0, value=12.0, label=\"Shortage Penalty (q_short)\")\n    budget_slider = mo.ui.slider(start=20.0, stop=150.0, step=10.0, value=80.0, label=\"Capacity Limit (x_max)\")\n\n    mo.vstack([\n        mo.md(\"### \ud83c\udf9b\ufe0f Interactive Model Parameters\"),\n        mo.hstack([c_cost_slider, penalty_slider, budget_slider], justify=\"start\")\n    ])\n    return budget_slider, c_cost_slider, penalty_slider\n\n\n@app.cell\ndef _(budget_slider, c_cost_slider, linprog, pd, penalty_slider):\n    # Model Setup:\n    # First stage: choose capacity x in [0, x_max] with unit cost c.\n    # Scenarios: Demands with probabilities:\n    _scenarios = [\n        {\"prob\": 0.25, \"demand\": 15.0},\n        {\"prob\": 0.50, \"demand\": 45.0},\n        {\"prob\": 0.25, \"demand\": 70.0},\n    ]\n\n    _c = c_cost_slider.value\n    _q_short = penalty_slider.value\n    _x_max = budget_slider.value\n    _q_surplus = 1.0  # Holding cost for excess\n\n    # Store cuts: each cut is theta \u003E= alpha + beta * x\n    # which translates to: -beta * x + theta \u003E= alpha\n    _cuts_alpha = []\n    _cuts_beta = []\n\n    # Convergence tracking\n    _history = []\n    _x_val = 0.0\n    _theta_val = -1e5\n    _tol = 1e-3\n    _max_iter = 20\n\n    for _it in range(1, _max_iter + 1):\n        # Step 1: Solve Master Problem\n        # Variables: [x, theta]\n        # Minimize: c * x + theta\n        # Subject to: 0 \u003C= x \u003C= x_max, and cuts: -beta * x + theta \u003E= alpha -\u003E beta * x - theta \u003C= -alpha\n        _c_master = [_c, 1.0]\n        _A_ub = []\n        _b_ub = []\n\n        for _alpha, _beta in zip(_cuts_alpha, _cuts_beta):\n            _A_ub.append([_beta, -1.0])\n            _b_ub.append(-_alpha)\n\n        _bounds = [(0, _x_max), (-1e5, None)]\n\n        if _A_ub:\n            _res_master = linprog(_c_master, A_ub=_A_ub, b_ub=_b_ub, bounds=_bounds, method=\"highs\")\n            _x_val = _res_master.x[0]\n            _theta_val = _res_master.x[1]\n            _lb = _res_master.fun\n        else:\n            _x_val = 0.0\n            _theta_val = 0.0\n            _lb = 0.0\n\n        # Step 2: Solve Subproblems for each scenario\n        # Recourse: y_short, y_surplus \u003E= 0 such that: x + y_short - y_surplus = demand\n        # Dual: pi in [-q_surplus, q_short]\n        _expected_recourse = 0.0\n        _agg_alpha = 0.0\n        _agg_beta = 0.0\n\n        for _sc in _scenarios:\n            _p = _sc[\"prob\"]\n            _d = _sc[\"demand\"]\n    \n            # Dual formulation for 1D demand:\n            # max pi * (d - x) s.t. -q_surplus \u003C= pi \u003C= q_short\n            if _d \u003E= _x_val:\n                _pi = _q_short\n                _q_val = _q_short * (_d - _x_val)\n            else:\n                _pi = -_q_surplus\n                _q_val = -_q_surplus * (_d - _x_val)\n\n            _expected_recourse += _p * _q_val\n            _agg_alpha += _p * (_pi * _d)\n            _agg_beta += _p * (-_pi)\n\n        _ub = _c * _x_val + _expected_recourse\n        _history.append({\"Iteration\": _it, \"x\": _x_val, \"LB\": _lb, \"UB\": _ub, \"Gap\": max(0.0, _ub - _lb)})\n\n        # Step 3: Check convergence\n        if abs(_ub - _lb) \u003C= _tol:\n            break\n\n        # Add optimality cut\n        _cuts_alpha.append(_agg_alpha)\n        _cuts_beta.append(_agg_beta)\n\n    benders_df = pd.DataFrame(_history)\n    optimal_x = _x_val\n    optimal_cost = _ub\n    return benders_df, optimal_cost, optimal_x\n\n\n@app.cell\ndef _(alt, benders_df, mo, optimal_cost, optimal_x):\n    _chart_data = benders_df.melt(\n        id_vars=[\"Iteration\"],\n        value_vars=[\"LB\", \"UB\"],\n        var_name=\"Bound\",\n        value_name=\"Objective\"\n    )\n\n    _chart = alt.Chart(_chart_data).mark_line(point=True).encode(\n        x=alt.X(\"Iteration:O\", title=\"Iteration\"),\n        y=alt.Y(\"Objective:Q\", title=\"Total Expected Cost\", scale=alt.Scale(zero=False)),\n        color=alt.Color(\"Bound:N\", scale=alt.Scale(domain=[\"LB\", \"UB\"], range=[\"#1f77b4\", \"#ff7f0e\"])),\n        tooltip=[\"Iteration\", \"Bound\", \"Objective\"]\n    ).properties(\n        title=\"Benders Decomposition Convergence\",\n        width=550,\n        height=280\n    )\n\n    mo.vstack([\n        mo.md(f\"\"\"\n        ### \ud83c\udfaf Optimization Summary\n        - **Optimal 1st Stage Decision ($$x^*$$):** `{optimal_x:.2f}` units\n        - **Minimum Expected Total Cost:** `${optimal_cost:.2f}`\n        - **Iterations to converge:** `{len(benders_df)}`\n        \"\"\"),\n        _chart,\n        mo.ui.table(benders_df)\n    ])\n    return\n\n\nif __name__ == \"__main__\":\n    app.run()\n",
+        }),
+        writable: false,
+        configurable: false,
+    });
+</script>
+<marimo-code hidden="">import%20marimo%0A%0A__generated_with%20%3D%20%220.25.1%22%0Aapp%20%3D%20marimo.App(width%3D%22full%22)%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20import%20marimo%20as%20mo%0A%0A%20%20%20%20return%20(mo%2C)%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20from%20scipy.optimize%20import%20linprog%0A%20%20%20%20import%20altair%20as%20alt%0A%20%20%20%20import%20pandas%20as%20pd%0A%20%20%20%20import%20numpy%20as%20np%0A%0A%20%20%20%20return%20alt%2C%20linprog%2C%20pd%0A%0A%0A%40app.cell%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(r%22%22%22%0A%20%20%20%20%23%20Two-Stage%20Stochastic%20Programming%0A%0A%20%20%20%20In%20many%20real-world%20decision%20problems%2C%20decisions%20must%20be%20made%20before%20uncertainties%20are%20resolved%3A%0A%20%20%20%201.%20**First-Stage%20Decisions%20(%24x%24)%3A**%20Made%20*%22here-and-now%22*%20before%20observing%20random%20outcomes%20(e.g.%2C%20how%20much%20capacity%20or%20stock%20to%20build).%0A%20%20%20%202.%20**Second-Stage%20(Recourse)%20Decisions%20(%24y%24)%3A**%20Made%20*%22wait-and-see%22*%20after%20the%20scenario%20%24%24%5Cxi%24%24%20is%20realized%20to%20compensate%20for%20any%20imbalances.%0A%0A%20%20%20%20%23%23%23%20General%20Formulation%0A%0A%20%20%20%20The%20problem%20is%20formulated%20as%20minimizing%20the%20first-stage%20cost%20plus%20the%20expected%20recourse%20cost%3A%0A%0A%20%20%20%20%24%24%5Cmin_%7Bx%7D%20%5Cquad%20c%5ET%20x%20%2B%20%5Cmathbb%7BE%7D_%7B%5Cxi%7D%5BQ(x%2C%20%5Cxi)%5D%24%24%0A%0A%20%20%20%20subject%20to%3A%0A%0A%20%20%20%20%24%24%0A%20%20%20%20A%20x%20%3D%20b%2C%20%5Cquad%20x%20%5Cge%200%0A%20%20%20%20%24%24%0A%0A%20%20%20%20Where%20the%20second-stage%20recourse%20function%20for%20a%20realized%20scenario%20%24%5Cxi%20%3D%20(q%2C%20T%2C%20W%2C%20h)%24%20is%3A%0A%0A%20%20%20%20%24%24%0A%20%20%20%20Q(x%2C%20%5Cxi)%20%3D%20%5Cmin_%7By%7D%20%5Cquad%20q%5ET%20y%20%5Cquad%20%5Ctext%7Bs.t.%7D%20%5Cquad%20W%20y%20%3D%20h%20-%20T%20x%2C%20%5Cquad%20y%20%5Cge%200%0A%20%20%20%20%24%24%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(r%22%22%22%0A%20%20%20%20%23%23%20Benders%20Decomposition%20(The%20L-Shaped%20Method)%0A%0A%20%20%20%20When%20the%20number%20of%20scenarios%20is%20large%2C%20solving%20the%20deterministic%20equivalent%20directly%20becomes%20computationally%20prohibitive.%20**Benders%20Decomposition**%20splits%20the%20problem%20into%3A%0A%0A%20%20%20%201.%20**Master%20Problem%3A**%20Decides%20first-stage%20variable%20%24x%24%20and%20approximates%20the%20expected%20future%20recourse%20cost%20%24%5Ctheta%20%5Cge%20%5Cmathbb%7BE%7D%5BQ(x%2C%20%5Cxi)%5D%24.%0A%20%20%20%202.%20**Subproblems%3A**%20Given%20a%20candidate%20%24x%5E%7B(k)%7D%24%2C%20solve%20the%20dual%20of%20the%20second-stage%20recourse%20problem%20for%20each%20scenario%20%24%24s%24%24%3A%0A%0A%20%20%20%20%24%24%5Cmax_%7B%5Cpi_s%7D%20%5Cquad%20%5Cpi_s%5ET%20(h_s%20-%20T_s%20x%5E%7B(k)%7D)%20%5Cquad%20%5Ctext%7Bs.t.%7D%20%5Cquad%20W%5ET%20%5Cpi_s%20%5Cle%20q_s%24%24%0A%0A%20%20%20%203.%20**Optimality%20Cut%3A**%20If%20%24%24%5Ctheta%5E%7B(k)%7D%20%3C%20%5Csum_%7Bs%7D%20p_s%20Q(x%5E%7B(k)%7D%2C%20%5Cxi_s)%24%24%2C%20generate%20an%20optimality%20cut%20and%20add%20it%20to%20the%20master%20problem%3A%0A%0A%20%20%20%20%24%24%5Ctheta%20%5Cge%20%5Csum_%7Bs%7D%20p_s%20(%5Cpi_s%5E%7B(k)%7D)%5ET%20(h_s%20-%20T_s%20x)%24%24%0A%0A%20%20%20%20This%20iteratively%20tightens%20the%20lower%20bound%20(%24%24%5Ctext%7BLB%7D%24%24)%20and%20upper%20bound%20(%24%24%5Ctext%7BUB%7D%24%24)%20until%20convergence%3A%0A%0A%20%20%20%20%24%24%7C%5Ctext%7BUB%7D%20-%20%5Ctext%7BLB%7D%7C%20%5Cle%20%5Cepsilon%24%24%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(mo)%3A%0A%20%20%20%20c_cost_slider%20%3D%20mo.ui.slider(start%3D1.0%2C%20stop%3D10.0%2C%20step%3D0.5%2C%20value%3D3.0%2C%20label%3D%221st%20Stage%20Unit%20Cost%20(c)%22)%0A%20%20%20%20penalty_slider%20%3D%20mo.ui.slider(start%3D5.0%2C%20stop%3D25.0%2C%20step%3D1.0%2C%20value%3D12.0%2C%20label%3D%22Shortage%20Penalty%20(q_short)%22)%0A%20%20%20%20budget_slider%20%3D%20mo.ui.slider(start%3D20.0%2C%20stop%3D150.0%2C%20step%3D10.0%2C%20value%3D80.0%2C%20label%3D%22Capacity%20Limit%20(x_max)%22)%0A%0A%20%20%20%20mo.vstack(%5B%0A%20%20%20%20%20%20%20%20mo.md(%22%23%23%23%20%F0%9F%8E%9B%EF%B8%8F%20Interactive%20Model%20Parameters%22)%2C%0A%20%20%20%20%20%20%20%20mo.hstack(%5Bc_cost_slider%2C%20penalty_slider%2C%20budget_slider%5D%2C%20justify%3D%22start%22)%0A%20%20%20%20%5D)%0A%20%20%20%20return%20budget_slider%2C%20c_cost_slider%2C%20penalty_slider%0A%0A%0A%40app.cell%0Adef%20_(budget_slider%2C%20c_cost_slider%2C%20linprog%2C%20pd%2C%20penalty_slider)%3A%0A%20%20%20%20%23%20Model%20Setup%3A%0A%20%20%20%20%23%20First%20stage%3A%20choose%20capacity%20x%20in%20%5B0%2C%20x_max%5D%20with%20unit%20cost%20c.%0A%20%20%20%20%23%20Scenarios%3A%20Demands%20with%20probabilities%3A%0A%20%20%20%20_scenarios%20%3D%20%5B%0A%20%20%20%20%20%20%20%20%7B%22prob%22%3A%200.25%2C%20%22demand%22%3A%2015.0%7D%2C%0A%20%20%20%20%20%20%20%20%7B%22prob%22%3A%200.50%2C%20%22demand%22%3A%2045.0%7D%2C%0A%20%20%20%20%20%20%20%20%7B%22prob%22%3A%200.25%2C%20%22demand%22%3A%2070.0%7D%2C%0A%20%20%20%20%5D%0A%0A%20%20%20%20_c%20%3D%20c_cost_slider.value%0A%20%20%20%20_q_short%20%3D%20penalty_slider.value%0A%20%20%20%20_x_max%20%3D%20budget_slider.value%0A%20%20%20%20_q_surplus%20%3D%201.0%20%20%23%20Holding%20cost%20for%20excess%0A%0A%20%20%20%20%23%20Store%20cuts%3A%20each%20cut%20is%20theta%20%3E%3D%20alpha%20%2B%20beta%20*%20x%0A%20%20%20%20%23%20which%20translates%20to%3A%20-beta%20*%20x%20%2B%20theta%20%3E%3D%20alpha%0A%20%20%20%20_cuts_alpha%20%3D%20%5B%5D%0A%20%20%20%20_cuts_beta%20%3D%20%5B%5D%0A%0A%20%20%20%20%23%20Convergence%20tracking%0A%20%20%20%20_history%20%3D%20%5B%5D%0A%20%20%20%20_x_val%20%3D%200.0%0A%20%20%20%20_theta_val%20%3D%20-1e5%0A%20%20%20%20_tol%20%3D%201e-3%0A%20%20%20%20_max_iter%20%3D%2020%0A%0A%20%20%20%20for%20_it%20in%20range(1%2C%20_max_iter%20%2B%201)%3A%0A%20%20%20%20%20%20%20%20%23%20Step%201%3A%20Solve%20Master%20Problem%0A%20%20%20%20%20%20%20%20%23%20Variables%3A%20%5Bx%2C%20theta%5D%0A%20%20%20%20%20%20%20%20%23%20Minimize%3A%20c%20*%20x%20%2B%20theta%0A%20%20%20%20%20%20%20%20%23%20Subject%20to%3A%200%20%3C%3D%20x%20%3C%3D%20x_max%2C%20and%20cuts%3A%20-beta%20*%20x%20%2B%20theta%20%3E%3D%20alpha%20-%3E%20beta%20*%20x%20-%20theta%20%3C%3D%20-alpha%0A%20%20%20%20%20%20%20%20_c_master%20%3D%20%5B_c%2C%201.0%5D%0A%20%20%20%20%20%20%20%20_A_ub%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20_b_ub%20%3D%20%5B%5D%0A%0A%20%20%20%20%20%20%20%20for%20_alpha%2C%20_beta%20in%20zip(_cuts_alpha%2C%20_cuts_beta)%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20_A_ub.append(%5B_beta%2C%20-1.0%5D)%0A%20%20%20%20%20%20%20%20%20%20%20%20_b_ub.append(-_alpha)%0A%0A%20%20%20%20%20%20%20%20_bounds%20%3D%20%5B(0%2C%20_x_max)%2C%20(-1e5%2C%20None)%5D%0A%0A%20%20%20%20%20%20%20%20if%20_A_ub%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20_res_master%20%3D%20linprog(_c_master%2C%20A_ub%3D_A_ub%2C%20b_ub%3D_b_ub%2C%20bounds%3D_bounds%2C%20method%3D%22highs%22)%0A%20%20%20%20%20%20%20%20%20%20%20%20_x_val%20%3D%20_res_master.x%5B0%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20_theta_val%20%3D%20_res_master.x%5B1%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20_lb%20%3D%20_res_master.fun%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20_x_val%20%3D%200.0%0A%20%20%20%20%20%20%20%20%20%20%20%20_theta_val%20%3D%200.0%0A%20%20%20%20%20%20%20%20%20%20%20%20_lb%20%3D%200.0%0A%0A%20%20%20%20%20%20%20%20%23%20Step%202%3A%20Solve%20Subproblems%20for%20each%20scenario%0A%20%20%20%20%20%20%20%20%23%20Recourse%3A%20y_short%2C%20y_surplus%20%3E%3D%200%20such%20that%3A%20x%20%2B%20y_short%20-%20y_surplus%20%3D%20demand%0A%20%20%20%20%20%20%20%20%23%20Dual%3A%20pi%20in%20%5B-q_surplus%2C%20q_short%5D%0A%20%20%20%20%20%20%20%20_expected_recourse%20%3D%200.0%0A%20%20%20%20%20%20%20%20_agg_alpha%20%3D%200.0%0A%20%20%20%20%20%20%20%20_agg_beta%20%3D%200.0%0A%0A%20%20%20%20%20%20%20%20for%20_sc%20in%20_scenarios%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20_p%20%3D%20_sc%5B%22prob%22%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20_d%20%3D%20_sc%5B%22demand%22%5D%0A%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Dual%20formulation%20for%201D%20demand%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20max%20pi%20*%20(d%20-%20x)%20s.t.%20-q_surplus%20%3C%3D%20pi%20%3C%3D%20q_short%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20_d%20%3E%3D%20_x_val%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20_pi%20%3D%20_q_short%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20_q_val%20%3D%20_q_short%20*%20(_d%20-%20_x_val)%0A%20%20%20%20%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20_pi%20%3D%20-_q_surplus%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20_q_val%20%3D%20-_q_surplus%20*%20(_d%20-%20_x_val)%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20_expected_recourse%20%2B%3D%20_p%20*%20_q_val%0A%20%20%20%20%20%20%20%20%20%20%20%20_agg_alpha%20%2B%3D%20_p%20*%20(_pi%20*%20_d)%0A%20%20%20%20%20%20%20%20%20%20%20%20_agg_beta%20%2B%3D%20_p%20*%20(-_pi)%0A%0A%20%20%20%20%20%20%20%20_ub%20%3D%20_c%20*%20_x_val%20%2B%20_expected_recourse%0A%20%20%20%20%20%20%20%20_history.append(%7B%22Iteration%22%3A%20_it%2C%20%22x%22%3A%20_x_val%2C%20%22LB%22%3A%20_lb%2C%20%22UB%22%3A%20_ub%2C%20%22Gap%22%3A%20max(0.0%2C%20_ub%20-%20_lb)%7D)%0A%0A%20%20%20%20%20%20%20%20%23%20Step%203%3A%20Check%20convergence%0A%20%20%20%20%20%20%20%20if%20abs(_ub%20-%20_lb)%20%3C%3D%20_tol%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20break%0A%0A%20%20%20%20%20%20%20%20%23%20Add%20optimality%20cut%0A%20%20%20%20%20%20%20%20_cuts_alpha.append(_agg_alpha)%0A%20%20%20%20%20%20%20%20_cuts_beta.append(_agg_beta)%0A%0A%20%20%20%20benders_df%20%3D%20pd.DataFrame(_history)%0A%20%20%20%20optimal_x%20%3D%20_x_val%0A%20%20%20%20optimal_cost%20%3D%20_ub%0A%20%20%20%20return%20benders_df%2C%20optimal_cost%2C%20optimal_x%0A%0A%0A%40app.cell%0Adef%20_(alt%2C%20benders_df%2C%20mo%2C%20optimal_cost%2C%20optimal_x)%3A%0A%20%20%20%20_chart_data%20%3D%20benders_df.melt(%0A%20%20%20%20%20%20%20%20id_vars%3D%5B%22Iteration%22%5D%2C%0A%20%20%20%20%20%20%20%20value_vars%3D%5B%22LB%22%2C%20%22UB%22%5D%2C%0A%20%20%20%20%20%20%20%20var_name%3D%22Bound%22%2C%0A%20%20%20%20%20%20%20%20value_name%3D%22Objective%22%0A%20%20%20%20)%0A%0A%20%20%20%20_chart%20%3D%20alt.Chart(_chart_data).mark_line(point%3DTrue).encode(%0A%20%20%20%20%20%20%20%20x%3Dalt.X(%22Iteration%3AO%22%2C%20title%3D%22Iteration%22)%2C%0A%20%20%20%20%20%20%20%20y%3Dalt.Y(%22Objective%3AQ%22%2C%20title%3D%22Total%20Expected%20Cost%22%2C%20scale%3Dalt.Scale(zero%3DFalse))%2C%0A%20%20%20%20%20%20%20%20color%3Dalt.Color(%22Bound%3AN%22%2C%20scale%3Dalt.Scale(domain%3D%5B%22LB%22%2C%20%22UB%22%5D%2C%20range%3D%5B%22%231f77b4%22%2C%20%22%23ff7f0e%22%5D))%2C%0A%20%20%20%20%20%20%20%20tooltip%3D%5B%22Iteration%22%2C%20%22Bound%22%2C%20%22Objective%22%5D%0A%20%20%20%20).properties(%0A%20%20%20%20%20%20%20%20title%3D%22Benders%20Decomposition%20Convergence%22%2C%0A%20%20%20%20%20%20%20%20width%3D550%2C%0A%20%20%20%20%20%20%20%20height%3D280%0A%20%20%20%20)%0A%0A%20%20%20%20mo.vstack(%5B%0A%20%20%20%20%20%20%20%20mo.md(f%22%22%22%0A%20%20%20%20%20%20%20%20%23%23%23%20%F0%9F%8E%AF%20Optimization%20Summary%0A%20%20%20%20%20%20%20%20-%20**Optimal%201st%20Stage%20Decision%20(%24%24x%5E*%24%24)%3A**%20%60%7Boptimal_x%3A.2f%7D%60%20units%0A%20%20%20%20%20%20%20%20-%20**Minimum%20Expected%20Total%20Cost%3A**%20%60%24%7Boptimal_cost%3A.2f%7D%60%0A%20%20%20%20%20%20%20%20-%20**Iterations%20to%20converge%3A**%20%60%7Blen(benders_df)%7D%60%0A%20%20%20%20%20%20%20%20%22%22%22)%2C%0A%20%20%20%20%20%20%20%20_chart%2C%0A%20%20%20%20%20%20%20%20mo.ui.table(benders_df)%0A%20%20%20%20%5D)%0A%20%20%20%20return%0A%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20app.run()%0A</marimo-code></head>
+  <body>
+    <div id="root"></div>
+    <script data-marimo="true">
+      Object.defineProperty(window, "__MARIMO_MOUNT_CONFIG__", {
+        value: Object.freeze({
+            "filename": "notebook.py",
+            "cwd": "",
+            "lspWorkspace": null,
+            "mode": "read",
+            "version": "0.25.1",
+            "serverToken": "unused",
+            "config": {"ai": {"allow_provider_config": true, "custom_providers": {}, "enabled": true, "models": {"custom_models": [], "displayed_models": []}}, "completion": {"activate_on_typing": true, "auto_close_pairs": true, "copilot": false, "signature_hint_on_typing": false}, "diagnostics": {"sql_linter": true}, "display": {"cell_output": "below", "code_editor_font_size": 15, "code_lens": true, "dataframes": "rich", "default_table_max_columns": 50, "default_table_page_size": 10, "default_width": "full", "reference_highlighting": true, "theme": "light"}, "formatting": {"line_length": 79}, "keymap": {"overrides": {}, "preset": "default"}, "language_servers": {"pylsp": {"enable_flake8": false, "enable_mypy": true, "enable_pydocstyle": false, "enable_pyflakes": false, "enable_pylint": false, "enable_ruff": true, "enabled": false}}, "mcp": {"mcpServers": {}, "presets": []}, "package_management": {"manager": "pip"}, "runtime": {"auto_instantiate": false, "auto_reload": "off", "default_csv_encoding": "utf-8", "default_sql_output": "auto", "on_cell_change": "autorun", "output_max_bytes": 8000000, "reactive_tests": true, "show_tracebacks": false, "std_stream_max_bytes": 1000000, "watcher_on_save": "lazy"}, "save": {"autosave": "off", "autosave_delay": 1000, "format_on_save": false}, "server": {"browser": "default", "follow_symlink": false}, "snippets": {"custom_paths": [], "include_default_snippets": true}},
+            "configOverrides": {},
+            "appConfig": {"sql_output": "auto", "width": "full"},
+            "layout": null,
+            "view": {"showAppCode": false},
+            "notebook": null,
+            "session": null,
+            "runtimeConfig": null
+        }),
+        writable: false,
+        configurable: false,
+      });
+    </script>
+  </body>
+</html>

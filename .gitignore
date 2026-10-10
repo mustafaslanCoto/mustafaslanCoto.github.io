@@ -1,3 +1,9 @@
 /.quarto/
 
 **/*.quarto_ipynb
+blog/**/**_read.html
+blog/**/**_slide.html
+blog/**/**_edit.html
+talks/**/**_read.html
+talks/**/**_slide.html
+talks/**/**_edit.html

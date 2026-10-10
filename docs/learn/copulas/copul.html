@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/favicon.ico" />
+    <!-- Preload is necessary because we show these images when we disconnect from the server,
+    but at that point we cannot load these images from the server -->
+    <link rel="preload" crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/gradient-yHQUC_QB.png" as="image" />
+    <link rel="preload" crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/noise-60BoTA8O.png" as="image" />
+    <!-- Preload the fonts -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/Lora-VariableFont_wght-CZceb_kH.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/PTSans-Regular-Bam3NpBI.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/PTSans-Bold-C_DwAp7Z.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/FiraMono-Regular-CEsLFVD9.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/FiraMono-Medium-D5MAsWEG.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/FiraMono-Bold-C6PDArdf.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="a marimo app" />
+    <link rel="apple-touch-icon" crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/apple-touch-icon.png" />
+    <link rel="manifest" crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/manifest.json" />
+
+    <script data-marimo="true">
+      function __resizeIframe(obj) {
+        const scrollbarHeight = 20; // Max between windows, mac, and linux
+
+        function setHeight() {
+          // Guard against race condition where iframe isn't ready
+          if (!obj.contentWindow?.document?.documentElement) {
+            return;
+          }
+          const element = obj.contentWindow.document.documentElement;
+          // If there is no vertical scrollbar, we don't need to resize the iframe
+          if (element.scrollHeight === element.clientHeight) {
+            return;
+          }
+
+          // Create a new height that includes the scrollbar height if it's visible
+          const hasHorizontalScrollbar = element.scrollWidth > element.clientWidth;
+          const newHeight = element.scrollHeight + (hasHorizontalScrollbar ? scrollbarHeight : 0);
+
+          // Only update the height if it's different from the current height
+          if (obj.style.height !== `${newHeight}px`) {
+            obj.style.height = `${newHeight}px`;
+          }
+        }
+
+        // Resize the iframe to the height of the content and bottom scrollbar height
+        setHeight();
+
+        // Resize the iframe when the content changes
+        const resizeObserver = new ResizeObserver((_entries) => {
+          setHeight();
+        });
+        // Only observe if iframe content is ready
+        if (obj.contentWindow?.document?.body) {
+          resizeObserver.observe(obj.contentWindow.document.body);
+        }
+      }
+    </script>
+    <marimo-filename hidden>notebook.py</marimo-filename>
+    <!-- TODO(Trevor): Legacy, required by VS Code plugin. Remove when plugin is updated (see marimo/server/_templates/template.py) -->
+    <marimo-version data-version="{{ version }}" hidden></marimo-version>
+    <marimo-user-config data-config="{{ user_config }}" hidden></marimo-user-config>
+    <marimo-server-token data-token="{{ server_token }}" hidden></marimo-server-token>
+    <!-- /TODO -->
+    <title>copul</title>
+    <script type="module" crossorigin src="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/index-DafnX1Xx.js"></script>
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/rolldown-runtime-B0Z9INg1.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/react-CUdNIagt.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/compiler-runtime-BQ9S8nyo.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/useEvent-Dc9HkKI2.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/react-dom-CKsE8sC1.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/schemas-BL-NsLlF.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/isObject-BCaOs5rp.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/isSymbol-oX0TOjjx.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/now-Cmx0b_zA.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/debounce-aFmHgJZY.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/isArrayLikeObject-DnwgSs_Z.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/_baseMerge-CQpUq7ep.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/objects-snlMn4yk.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/jsx-runtime-B74pBk57.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/useEventListener-BdZUApHd.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/invariant-Ci2dTZ72.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/config-BxZgoFvi.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/utils-B4K466FK.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/session-DXKMv4Bs.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/Deferred-CrTnjj37.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/config-DpGPGznL.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/clsx-DB0hHKMi.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/cn-ldLVeaqm.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/fullscreen-BmzAqMKq.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/dist-CyYN7zJg.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/menu-items-BBdeXCvU.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/use-restore-focus-B98SEiGc.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/button-BoklZTGL.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/createLucideIcon-rHn2EdoM.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/check-Wea4hZ6R.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/context-BFOBKCJB.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/useNumberFormatter-C4-_TnkF.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/select-BplWpfFo.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/circle-CeQt3rdW.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/toast-KNfsFUiB.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/tooltip-DR2Z2N4w.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/paths-CzfpItSz.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/useLifecycle-DKSBdWUf.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/toDate-BbJ1_N2T.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/database-zap-CrkOvbyN.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/alert-dialog-CeE3i3Qa.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/arrays-BqUx5USx.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/once-Haz_uxEL.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/numbers-DsgsDslU.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/useDebounce-DMbg9X18.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/input-BDakodZ2.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/use-toast-CC89xOwH.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/requests-yTHMxhVa.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/uuid-k9DpjH68.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/write-secret-modal-BiG2tahJ.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/plus-gbN72xHe.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/trash-2-BJG-7Qob.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/preload-helper-HclGiUj8.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/dist-BczecT6V.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/dist-BTskHGpb.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/capabilities-Bj3s1hGN.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/cjs-C49f7GXV.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/createReducer-BPvK7C_R.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/dist-Ccyblc8N.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/marked.esm-B_3iMIUq.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/strings-BHZPE0Mc.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/dist-BN-7G8qZ.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/badge-DFf033uX.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/dist-CiUBikfn.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/dist-MRn68vX1.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/dist-Bviq_Dee.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/dist-DBqBVprh.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/dist-DueXZKz9.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/stex-CJTNBbet.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/useTheme-DcnXlv0_.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/useAsyncData-DucTwMkf.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/purify.es-CYRiAeUx.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/cells-CzugpTQu.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/get-DjNf4SIX.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/copy-RyCOE8jo.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/copy-BhJktFeI.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/copy-icon-DFhUGBjO.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/ErrorBoundary-BeE1cdgM.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/config-B4VJJibu.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/chevron-right-DOPs2jx8.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/dropdown-menu-VuyoeQOD.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/LazyAnyLanguageCodeMirror-B_IYTCX5.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/hat-glasses-DVgK5i5l.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/package-BeYhVWvM.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/errors-D9vyuMar.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/defaultLocale-CNPGWpMu.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/precisionRound-Bq_nmf5u.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/defaultLocale-D5bOh7g6.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/vega-loader.browser-CLRkNgm7.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/tooltip-PLkI_UfK.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/filename-fxG7K_MU.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/micromark-factory-space-D9Dr-k4J.js">
+    <link rel="modulepreload" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/chunk-YOKDWASO-CaoEAGJk.js">
+    <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/cells-0PFKL3SH.css">
+    <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.25.1/dist/assets/index--sT8xf-8.css">
+  <marimo-wasm hidden=""></marimo-wasm>
+    <style>
+        #save-button {
+            display: none !important;
+        }
+        #filename-input {
+            display: none !important;
+        }
+    </style>
+    <style title='marimo-custom'>/* ==========================================
+   1. VIEWPORT & MAIN PRESENTATION BACKGROUND
+   ========================================== */
+.reveal-viewport, 
+.reveal, 
+.reveal .slides section {
+  background-color: #FBFAF4 !important;
+}
+
+.reveal {
+  color: #091717;
+}
+
+/* ==========================================
+   2. HEADINGS & TYPOGRAPHY
+   ========================================== */
+.reveal h1, 
+.reveal h1.title {
+  color: #091717 !important;
+  font-size: 1.8em !important;
+  font-weight: 700;
+}
+
+.reveal h2 {
+  color: #091717 !important;
+}
+
+.reveal h3 {
+  color: #091717 !important;
+}
+
+.reveal .subtitle {
+  text-align: left !important;
+}
+
+.mimic-h2 {
+  display: block;
+  font-family: var(--heading-font, inherit);
+  font-weight: 600;
+  color: #091717;
+  font-size: 1.6em;
+  line-height: 1.2;
+  margin-bottom: 0.5em;
+}
+
+.cust_title {
+  font-size: 1em;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 0.5em;
+  margin-top: 0;
+  color: inherit;
+  display: block;
+}
+
+/* ==========================================
+   3. PROGRESS BAR & CONTROLS
+   ========================================== */
+.reveal .progress {
+  height: 8px !important;
+  background: rgba(32, 128, 141, 0.2) !important;
+}
+
+.reveal .progress span {
+  background: #20808D !important;
+  height: 100% !important;
+}
+
+.reveal .slide-number {
+  color: #20808D !important;
+}
+
+.reveal .slide-menu-button .fa-bars::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2320808D" class="bi bi-list" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/></svg>') !important;
+}
+
+/* ==========================================
+   4. HYPERLINKS & FOOTERS
+   ========================================== */
+.reveal a,
+.reveal a.citation,
+.reveal a.quarto-xref,
+.reveal a.no-external {
+  color: #0B363C !important;
+  text-decoration: none;
+}
+
+.reveal a:hover, 
+.reveal a.quarto-xref:hover,
+.reveal a.no-external:hover {
+  color: #92DCE2 !important; 
+  text-decoration: underline;
+}
+
+.reveal .footer {
+  color: #20808D !important;
+}
+
+.reveal .footer a {
+  color: #20808D !important;
+  text-decoration: none;
+}
+
+.reveal .footer a:hover,
+.reveal .footer a:focus {
+  color: #16606A !important;
+}
+
+/* ==========================================
+   5. CALLOUTS, BOXES & IMAGES
+   ========================================== */
+div.callout,
+.callout {
+  border-left: 8px solid #20808D !important;
+  background-color: #f4fafb;
+  margin: 1em 0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+div.callout .callout-title,
+.callout .callout-title {
+  background-color: #BADFDE !important;
+  padding: 8px 12px;
+  font-weight: 600;
+  color: #091717;
+}
+
+.callout .callout-content {
+  padding: 10px 12px;
+}
+
+.border-box {
+  padding: 15px;
+  border-radius: 5px;
+  background-color: #DEF7F9;
+  border: 1px solid #c2eeef;
+}
+
+.left-border {
+  border-left: 2px solid rgba(0,0,0,0.12) !important;
+  border-radius: 0 !important;
+  border-top: none !important;
+  border-right: none !important;
+  border-bottom: none !important;
+  padding-left: 14px !important;
+  background: none !important;
+}
+
+.reveal img {
+  background-color: #FBFAF4 !important;
+}
+
+/* ==========================================
+   6. CUSTOM LIST STYLES (POSITIVE / NEGATIVE / SPACED)
+   ========================================== */
+.reveal .positive ul,
+.reveal ul.positive {
+  list-style: none !important;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+
+.reveal .positive li,
+.reveal ul.positive li {
+  margin-left: 0 !important;
+}
+
+.reveal .positive li::before,
+.reveal ul.positive li::before {
+  content: "✓ ";
+  color: #2CA0AB;
+  font-weight: 700;
+  display: inline-block;
+  width: 1.2em;
+}
+
+.reveal .negative ul,
+.reveal ul.negative {
+  list-style: none !important;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+
+.reveal .negative li,
+.reveal ul.negative li {
+  margin-left: 0 !important;
+}
+
+.reveal .negative li::before,
+.reveal ul.negative li::before {
+  content: "✗ ";
+  color: #BF505C;
+  font-weight: 700;
+  display: inline-block;
+  width: 1.2em;
+}
+
+.reveal .spaced li {
+  margin-bottom: 1.5em !important;
+}
+
+/* ==========================================
+   7. FULL-SLIDE TABLES
+   ========================================== */
+.reveal .slides section.tables-full-slide .columns {
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.reveal .slides section.tables-full-slide .column {
+  min-width: 0;
+}
+
+.reveal .slides section.tables-full-slide .gt_table {
+  width: 100% !important;
+  margin: 0 auto;
+}
+
+.reveal .slides section.tables-full-slide .gt_col_heading {
+  white-space: nowrap;
+}
+
+/* ==========================================
+   8. NAVIGATION BUTTONS (< and >)
+   ========================================== */
+
+/* Target navigation buttons and controls */
+.reveal .controls,
+.reveal .controls button,
+.reveal .controls .navigate-left,
+.reveal .controls .navigate-right,
+.reveal .controls .controls-arrow {
+  color: #20808D !important;
+  opacity: 0.85 !important;
+}
+
+/* Target SVG icons inside the navigation buttons */
+.reveal .controls button svg,
+.reveal .controls svg {
+  fill: #20808D !important;
+  color: #20808D !important;
+}
+
+.reveal .controls button svg path,
+.reveal .controls svg path {
+  fill: #20808D !important;
+  stroke: #20808D !important;
+}
+
+/* Hover effect on navigation arrows */
+.reveal .controls button:hover,
+.reveal .controls .navigate-left:hover,
+.reveal .controls .navigate-right:hover {
+  color: #16606A !important;
+  opacity: 1 !important;
+}
+
+.reveal .controls button:hover svg path,
+.reveal .controls svg:hover path {
+  fill: #16606A !important;
+  stroke: #16606A !important;
+}
+
+
+/* ==========================================
+   9. SLIDE NUMBERS
+   ========================================== */
+
+.reveal .slides {
+  counter-reset: copula-slide;
+}
+
+.reveal .slides > section {
+  counter-increment: copula-slide;
+}
+
+.reveal .slides > section.present::after {
+  content: counter(copula-slide);
+  position: absolute;
+  right: 44px;
+  bottom: 12px;
+  z-index: 60;
+  color: #20808D;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1;
+  pointer-events: none;
+}</style>
+<script data-marimo="true">
+    Object.defineProperty(window, "__MARIMO_EXPORT_CONTEXT__", {
+        value: Object.freeze({
+            trusted: true,
+            notebookCode: "import marimo\n\n__generated_with = \"0.25.1\"\napp = marimo.App(\n    width=\"full\",\n    layout_file=\"data:application/json;base64,eyJ0eXBlIjogInNsaWRlcyIsICJkYXRhIjogeyJjZWxscyI6IFt7fSwge30sIHt9LCB7fV0sICJkZWNrIjoge319fQ==\",\n    css_file=\"css/custom.css\",\n    auto_download=[\"html\"],\n)\n\n\n@app.cell\ndef _():\n    import marimo as mo\n    import matplotlib.pyplot as plt\n    import numpy as np\n    from scipy.stats import kendalltau, norm, spearmanr\n\n    return kendalltau, mo, norm, np, plt, spearmanr\n\n\n@app.cell\ndef _(mo):\n    mo.md(r\"\"\"\n    # Copulas: separating marginals from dependence\n\n    A copula describes how random variables depend on one another, separately\n    from the shape of each variable's distribution. This is useful when two\n    variables have very different marginal distributions but their outcomes\n    still move together.\n\n    **Sklar's theorem** says a joint distribution can be written as\n    \\(F_{X,Y}(x,y) = C(F_X(x), F_Y(y))\\), where \\(F_X\\) and \\(F_Y\\) are the\n    marginal CDFs and \\(C\\) is a copula.\n\n    Use the controls to change the dependence in a Gaussian copula. The\n    resulting variables keep an exponential and a Weibull marginal,\n    respectively.\n    \"\"\")\n    return\n\n\n@app.cell\ndef _(mo):\n    rho = mo.ui.slider(\n        start=-0.95,\n        stop=0.95,\n        step=0.05,\n        value=0.65,\n        label=\"Latent Gaussian correlation\",\n    )\n    n_samples = mo.ui.slider(\n        start=200,\n        stop=3000,\n        step=200,\n        value=1000,\n        label=\"Number of observations\",\n    )\n    mo.hstack([rho, n_samples], justify=\"start\", gap=2)\n    return n_samples, rho\n\n\n@app.cell\ndef _(kendalltau, mo, n_samples, norm, np, plt, rho, spearmanr):\n    _latent = np.random.default_rng(2026).multivariate_normal(\n        mean=[0.0, 0.0],\n        cov=[[1.0, rho.value], [rho.value, 1.0]],\n        size=n_samples.value,\n    )\n    _uniform = norm.cdf(_latent)\n\n    # Inverse CDF transforms change the marginals without changing the copula.\n    _x = -np.log1p(-_uniform[:, 0])\n    _y = (-np.log1p(-_uniform[:, 1])) ** (1 / 1.5)\n\n    _fig, _axes = plt.subplots(\n        1,\n        3,\n        figsize=(14, 4),\n        gridspec_kw={\"width_ratios\": [3, 1, 1]},\n    )\n    _axes[0].scatter(_x, _y, alpha=0.45, s=16, edgecolors=\"none\")\n    _axes[0].set(\n        xlabel=\"X (Exponential, rate 1)\",\n        ylabel=\"Y (Weibull, shape 1.5)\",\n        title=\"Joint sample\",\n    )\n    _axes[1].hist(_x, bins=25, density=True, color=\"#3973ac\", alpha=0.8)\n    _axes[1].set(title=\"X marginal\", xlabel=\"X\", ylabel=\"Density\")\n    _axes[2].hist(_y, bins=25, density=True, color=\"#d17a22\", alpha=0.8)\n    _axes[2].set(title=\"Y marginal\", xlabel=\"Y\")\n    _fig.tight_layout()\n\n    _tau = kendalltau(_x, _y).statistic\n    _rho_s = spearmanr(_x, _y).statistic\n    _theoretical_tau = 2 / np.pi * np.arcsin(rho.value)\n    figure = _fig\n    dependence_summary = mo.md(\n        f\"\"\"\n        **Dependence summary** \u2014 sample Kendall's \\\\(\\\\tau\\\\): **{_tau:.3f}**\n        (Gaussian-copula value: **{_theoretical_tau:.3f}**);\n        sample Spearman's \\\\(\\\\rho_s\\\\): **{_rho_s:.3f}**.\n\n        Changing the copula parameter changes the association, not the\n        marginal distribution families.\n        \"\"\"\n    )\n    mo.vstack([figure, dependence_summary])\n    return\n\n\nif __name__ == \"__main__\":\n    app.run()\n",
+        }),
+        writable: false,
+        configurable: false,
+    });
+</script>
+<marimo-code hidden="">import%20marimo%0A%0A__generated_with%20%3D%20%220.25.1%22%0Aapp%20%3D%20marimo.App(%0A%20%20%20%20width%3D%22full%22%2C%0A%20%20%20%20layout_file%3D%22data%3Aapplication%2Fjson%3Bbase64%2CeyJ0eXBlIjogInNsaWRlcyIsICJkYXRhIjogeyJjZWxscyI6IFt7fSwge30sIHt9LCB7fV0sICJkZWNrIjoge319fQ%3D%3D%22%2C%0A%20%20%20%20css_file%3D%22css%2Fcustom.css%22%2C%0A%20%20%20%20auto_download%3D%5B%22html%22%5D%2C%0A)%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20import%20marimo%20as%20mo%0A%20%20%20%20import%20matplotlib.pyplot%20as%20plt%0A%20%20%20%20import%20numpy%20as%20np%0A%20%20%20%20from%20scipy.stats%20import%20kendalltau%2C%20norm%2C%20spearmanr%0A%0A%20%20%20%20return%20kendalltau%2C%20mo%2C%20norm%2C%20np%2C%20plt%2C%20spearmanr%0A%0A%0A%40app.cell%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(r%22%22%22%0A%20%20%20%20%23%20Copulas%3A%20separating%20marginals%20from%20dependence%0A%0A%20%20%20%20A%20copula%20describes%20how%20random%20variables%20depend%20on%20one%20another%2C%20separately%0A%20%20%20%20from%20the%20shape%20of%20each%20variable's%20distribution.%20This%20is%20useful%20when%20two%0A%20%20%20%20variables%20have%20very%20different%20marginal%20distributions%20but%20their%20outcomes%0A%20%20%20%20still%20move%20together.%0A%0A%20%20%20%20**Sklar's%20theorem**%20says%20a%20joint%20distribution%20can%20be%20written%20as%0A%20%20%20%20%5C(F_%7BX%2CY%7D(x%2Cy)%20%3D%20C(F_X(x)%2C%20F_Y(y))%5C)%2C%20where%20%5C(F_X%5C)%20and%20%5C(F_Y%5C)%20are%20the%0A%20%20%20%20marginal%20CDFs%20and%20%5C(C%5C)%20is%20a%20copula.%0A%0A%20%20%20%20Use%20the%20controls%20to%20change%20the%20dependence%20in%20a%20Gaussian%20copula.%20The%0A%20%20%20%20resulting%20variables%20keep%20an%20exponential%20and%20a%20Weibull%20marginal%2C%0A%20%20%20%20respectively.%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(mo)%3A%0A%20%20%20%20rho%20%3D%20mo.ui.slider(%0A%20%20%20%20%20%20%20%20start%3D-0.95%2C%0A%20%20%20%20%20%20%20%20stop%3D0.95%2C%0A%20%20%20%20%20%20%20%20step%3D0.05%2C%0A%20%20%20%20%20%20%20%20value%3D0.65%2C%0A%20%20%20%20%20%20%20%20label%3D%22Latent%20Gaussian%20correlation%22%2C%0A%20%20%20%20)%0A%20%20%20%20n_samples%20%3D%20mo.ui.slider(%0A%20%20%20%20%20%20%20%20start%3D200%2C%0A%20%20%20%20%20%20%20%20stop%3D3000%2C%0A%20%20%20%20%20%20%20%20step%3D200%2C%0A%20%20%20%20%20%20%20%20value%3D1000%2C%0A%20%20%20%20%20%20%20%20label%3D%22Number%20of%20observations%22%2C%0A%20%20%20%20)%0A%20%20%20%20mo.hstack(%5Brho%2C%20n_samples%5D%2C%20justify%3D%22start%22%2C%20gap%3D2)%0A%20%20%20%20return%20n_samples%2C%20rho%0A%0A%0A%40app.cell%0Adef%20_(kendalltau%2C%20mo%2C%20n_samples%2C%20norm%2C%20np%2C%20plt%2C%20rho%2C%20spearmanr)%3A%0A%20%20%20%20_latent%20%3D%20np.random.default_rng(2026).multivariate_normal(%0A%20%20%20%20%20%20%20%20mean%3D%5B0.0%2C%200.0%5D%2C%0A%20%20%20%20%20%20%20%20cov%3D%5B%5B1.0%2C%20rho.value%5D%2C%20%5Brho.value%2C%201.0%5D%5D%2C%0A%20%20%20%20%20%20%20%20size%3Dn_samples.value%2C%0A%20%20%20%20)%0A%20%20%20%20_uniform%20%3D%20norm.cdf(_latent)%0A%0A%20%20%20%20%23%20Inverse%20CDF%20transforms%20change%20the%20marginals%20without%20changing%20the%20copula.%0A%20%20%20%20_x%20%3D%20-np.log1p(-_uniform%5B%3A%2C%200%5D)%0A%20%20%20%20_y%20%3D%20(-np.log1p(-_uniform%5B%3A%2C%201%5D))%20**%20(1%20%2F%201.5)%0A%0A%20%20%20%20_fig%2C%20_axes%20%3D%20plt.subplots(%0A%20%20%20%20%20%20%20%201%2C%0A%20%20%20%20%20%20%20%203%2C%0A%20%20%20%20%20%20%20%20figsize%3D(14%2C%204)%2C%0A%20%20%20%20%20%20%20%20gridspec_kw%3D%7B%22width_ratios%22%3A%20%5B3%2C%201%2C%201%5D%7D%2C%0A%20%20%20%20)%0A%20%20%20%20_axes%5B0%5D.scatter(_x%2C%20_y%2C%20alpha%3D0.45%2C%20s%3D16%2C%20edgecolors%3D%22none%22)%0A%20%20%20%20_axes%5B0%5D.set(%0A%20%20%20%20%20%20%20%20xlabel%3D%22X%20(Exponential%2C%20rate%201)%22%2C%0A%20%20%20%20%20%20%20%20ylabel%3D%22Y%20(Weibull%2C%20shape%201.5)%22%2C%0A%20%20%20%20%20%20%20%20title%3D%22Joint%20sample%22%2C%0A%20%20%20%20)%0A%20%20%20%20_axes%5B1%5D.hist(_x%2C%20bins%3D25%2C%20density%3DTrue%2C%20color%3D%22%233973ac%22%2C%20alpha%3D0.8)%0A%20%20%20%20_axes%5B1%5D.set(title%3D%22X%20marginal%22%2C%20xlabel%3D%22X%22%2C%20ylabel%3D%22Density%22)%0A%20%20%20%20_axes%5B2%5D.hist(_y%2C%20bins%3D25%2C%20density%3DTrue%2C%20color%3D%22%23d17a22%22%2C%20alpha%3D0.8)%0A%20%20%20%20_axes%5B2%5D.set(title%3D%22Y%20marginal%22%2C%20xlabel%3D%22Y%22)%0A%20%20%20%20_fig.tight_layout()%0A%0A%20%20%20%20_tau%20%3D%20kendalltau(_x%2C%20_y).statistic%0A%20%20%20%20_rho_s%20%3D%20spearmanr(_x%2C%20_y).statistic%0A%20%20%20%20_theoretical_tau%20%3D%202%20%2F%20np.pi%20*%20np.arcsin(rho.value)%0A%20%20%20%20figure%20%3D%20_fig%0A%20%20%20%20dependence_summary%20%3D%20mo.md(%0A%20%20%20%20%20%20%20%20f%22%22%22%0A%20%20%20%20%20%20%20%20**Dependence%20summary**%20%E2%80%94%20sample%20Kendall's%20%5C%5C(%5C%5Ctau%5C%5C)%3A%20**%7B_tau%3A.3f%7D**%0A%20%20%20%20%20%20%20%20(Gaussian-copula%20value%3A%20**%7B_theoretical_tau%3A.3f%7D**)%3B%0A%20%20%20%20%20%20%20%20sample%20Spearman's%20%5C%5C(%5C%5Crho_s%5C%5C)%3A%20**%7B_rho_s%3A.3f%7D**.%0A%0A%20%20%20%20%20%20%20%20Changing%20the%20copula%20parameter%20changes%20the%20association%2C%20not%20the%0A%20%20%20%20%20%20%20%20marginal%20distribution%20families.%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20)%0A%20%20%20%20mo.vstack(%5Bfigure%2C%20dependence_summary%5D)%0A%20%20%20%20return%0A%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20app.run()%0A</marimo-code>
+<style>
+.reveal .slides > section.present {
+  padding-bottom: 48px !important;
+  box-sizing: border-box;
+}
+.reveal .marimo-footer {
+  position: absolute;
+  left: 50%;
+  bottom: 12px;
+  z-index: 60;
+  transform: translateX(-50%);
+  color: #20808D;
+  font-size: 18px;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  max-width: calc(100% - 120px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.reveal .marimo-footer:hover,
+.reveal .marimo-footer:focus {
+  color: #16606A;
+  text-decoration: underline;
+}
+</style>
+</head>
+  <body>
+    <div id="root"></div>
+    <script data-marimo="true">
+      Object.defineProperty(window, "__MARIMO_MOUNT_CONFIG__", {
+        value: Object.freeze({
+            "filename": "notebook.py",
+            "cwd": "",
+            "lspWorkspace": null,
+            "mode": "read",
+            "version": "0.25.1",
+            "serverToken": "unused",
+            "config": {"ai": {"allow_provider_config": true, "custom_providers": {}, "enabled": true, "models": {"custom_models": [], "displayed_models": []}}, "completion": {"activate_on_typing": true, "auto_close_pairs": true, "copilot": false, "signature_hint_on_typing": false}, "diagnostics": {"sql_linter": true}, "display": {"cell_output": "below", "code_editor_font_size": 15, "code_lens": true, "dataframes": "rich", "default_table_max_columns": 50, "default_table_page_size": 10, "default_width": "full", "reference_highlighting": true, "theme": "light"}, "formatting": {"line_length": 79}, "keymap": {"overrides": {}, "preset": "default"}, "language_servers": {"pylsp": {"enable_flake8": false, "enable_mypy": true, "enable_pydocstyle": false, "enable_pyflakes": false, "enable_pylint": false, "enable_ruff": true, "enabled": false}}, "mcp": {"mcpServers": {}, "presets": []}, "package_management": {"manager": "pip"}, "runtime": {"auto_instantiate": false, "auto_reload": "off", "default_csv_encoding": "utf-8", "default_sql_output": "auto", "on_cell_change": "autorun", "output_max_bytes": 8000000, "reactive_tests": true, "show_tracebacks": false, "std_stream_max_bytes": 1000000, "watcher_on_save": "lazy"}, "save": {"autosave": "off", "autosave_delay": 1000, "format_on_save": false}, "server": {"browser": "default", "follow_symlink": false}, "snippets": {"custom_paths": [], "include_default_snippets": true}},
+            "configOverrides": {},
+            "appConfig": {"auto_download": ["html"], "css_file": "css/custom.css", "layout_file": "data:application/json;base64,eyJ0eXBlIjogInNsaWRlcyIsICJkYXRhIjogeyJjZWxscyI6IFt7fSwge30sIHt9LCB7fV0sICJkZWNrIjoge319fQ==", "sql_output": "auto", "width": "full"},
+            "layout": {"data": {"cells": [{}, {}, {}, {}], "deck": {}}, "type": "slides"},
+            "view": {"showAppCode": false},
+            "notebook": null,
+            "session": null,
+            "runtimeConfig": null
+        }),
+        writable: false,
+        configurable: false,
+      });
+    </script>
+  
+<script>
+(() => {
+  const config = {"text":"Copulas | Data Lab for Social Good","url":"copul.html"};
+  const installFooter = () => {
+    const reveal = document.querySelector(".reveal");
+    if (!reveal || reveal.querySelector(":scope > .marimo-footer")) return false;
+    const footer = document.createElement("a");
+    footer.className = "marimo-footer";
+    footer.href = config.url;
+    footer.textContent = config.text;
+    reveal.appendChild(footer);
+    return true;
+  };
+  if (!installFooter()) {
+    const observer = new MutationObserver(() => {
+      if (installFooter()) observer.disconnect();
+    });
+    observer.observe(document.documentElement, { childList: true, subtree: true });
+  }
+})();
+</script>
+</body>
+</html>

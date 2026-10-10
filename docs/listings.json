@@ -31,6 +31,7 @@
   {
     "listing": "/learn/index.html",
     "items": [
+      "/learn/prob_stats/copul.html",
       "/learn/prob_stats/mc_integration.html",
       "/learn/prob_stats/cond_index.html",
       "/learn/prob_stats/dists_index.html"
@@ -59,7 +60,6 @@
   {
     "listing": "/projects/index.html",
     "items": [
-      "/projects/hosp_marimo.html",
       "/projects/peshbeen.html"
     ]
   },
@@ -67,6 +67,15 @@
     "listing": "/presentations/index.html",
     "items": [
       "/presentations/hosp_marimo.html"
+    ]
+  },
+  {
+    "listing": "/blog/index.html",
+    "items": [
+      "/blog/prob_stats/copul.html",
+      "/blog/prob_stats/mc_integration.html",
+      "/blog/prob_stats/cond_index.html",
+      "/blog/prob_stats/dists_index.html"
     ]
   }
 ]

@@ -1,0 +1,23 @@
+---
+title: "Copulas: Separating Marginals from Dependence"
+description: "An interactive introduction to Gaussian copulas and marginal distributions."
+author: "Mustafa Aslan"
+date: "2026-10-10"
+categories:
+  - Statistics
+  - Probability
+  - Python
+---
+
+Copulas let us model dependence separately from the marginal distributions. In this notebook, adjust a Gaussian copula's dependence parameter and sample size, while keeping an exponential and a Weibull marginal.
+
+## Explore the notebook
+
+
+[<i class="fas fa-bookmark"></i> Read-only Notebook](../copulas/copul_read.html){.btn .btn-sm .btn-outline-primary}
+[<i class="fas fa-bookmark"></i> Slide Presentation](../copulas/copul_slide.html){.btn .btn-sm .btn-outline-primary}
+[<i class="fas fa-bookmark"></i> Editable Notebook](../copulas/copul_edit.html){.btn .btn-sm .btn-outline-primary}
+<!-- [<i class="fas fa-download"></i> Download marimo source](../copulas/copul.py){.btn .btn-sm .btn-outline-secondary} -->
+
+To edit the notebook locally, install the project requirements and run
+`marimo edit ../copulas/copul.py`.

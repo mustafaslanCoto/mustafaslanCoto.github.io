@@ -3581,7 +3581,7 @@
     "href": "learn/index.html",
     "title": "MUSTAFA ASLAN",
     "section": "",
-    "text": "Monte Carlo Integration\n\n\nlearning material\n\n\n\n\n\nAug 9, 2025\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nConditional Probability and Conditional Expectation\n\n\nlearning material\n\n\n\n\n\nApr 30, 2025\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nRandom Variables\n\n\nlearning material\n\n\n\n\n\nApr 30, 2025\n\n\nMustafa Aslan\n\n\n\n\n\nNo matching items"
+    "text": "Copulas: Separating Marginals from Dependence\n\n\nAn interactive introduction to Gaussian copulas and marginal distributions.\n\n\n\n\n\nOct 10, 2026\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nMonte Carlo Integration\n\n\nlearning material\n\n\n\n\n\nAug 9, 2025\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nConditional Probability and Conditional Expectation\n\n\nlearning material\n\n\n\n\n\nApr 30, 2025\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nRandom Variables\n\n\nlearning material\n\n\n\n\n\nApr 30, 2025\n\n\nMustafa Aslan\n\n\n\n\n\nNo matching items\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "learn/stats_ml/cond_dists/cond_dists.html",
@@ -7606,7 +7606,7 @@
     "href": "projects/index.html",
     "title": "MUSTAFA ASLAN",
     "section": "",
-    "text": "Explore my open-source contributions and research projects.\n\n\n\n\n\n\n\n\n\n\n\n\npeshbeen\n\n\n\nTime Series Forecasting\n\nPython\n\nMachine Learning\n\n\n\nA Python package for forecasting that unifies traditional and modern machine learning approaches with automated feature engineering and robust uncertainty quantification.\n\n\n\n\n\n\nAug 6, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\npeshbeen\n\n\n\nForecasting\n\nMachine Learning\n\nPython\n\n\n\nA Python package for forecasting that unifies traditional and modern machine learning approaches with automated feature engineering and robust uncertainty quantification.\n\n\n\n\n\n\nApr 1, 2026\n\n\n\n\n\n\nNo matching items"
+    "text": "Explore my open-source contributions and research projects.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\npeshbeen\n\n\n\nForecasting\n\nMachine Learning\n\nPython\n\n\n\nA Python package for forecasting that unifies traditional and modern machine learning approaches with automated feature engineering and robust uncertainty quantification.\n\n\n\n\n\n\nApr 1, 2026\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "projects/peshbeen.html",
@@ -8696,72 +8696,72 @@
   {
     "objectID": "talks/kurdish_aademic_conf/present.html#section",
     "href": "talks/kurdish_aademic_conf/present.html#section",
-    "title": "MUSTAFA ASLAN",
+    "title": "\n    PhD Project: Improving Discharge Care Coordination in Hospitals using Machine Learning and Probabilistic Data-Driven Approaches\n  ",
     "section": "",
     "text": "Outline\n\n\nWho am I?\nMy PhD Project\nProject: Understanding Causal Impact of Diagnosis\nProject: From Forecasting Competition to Impact in NHS Bristol"
   },
   {
     "objectID": "talks/kurdish_aademic_conf/present.html#section-1",
     "href": "talks/kurdish_aademic_conf/present.html#section-1",
-    "title": "MUSTAFA ASLAN",
+    "title": "\n    PhD Project: Improving Discharge Care Coordination in Hospitals using Machine Learning and Probabilistic Data-Driven Approaches\n  ",
     "section": "",
     "text": "Outline\n\n\nWho am I?\nMy PhD Project\nProject: Understanding Causal Impact of Diagnosis\nProject: From Forecasting Competition to Impact in NHS Bristol"
   },
   {
     "objectID": "talks/kurdish_aademic_conf/present.html#section-2",
     "href": "talks/kurdish_aademic_conf/present.html#section-2",
-    "title": "MUSTAFA ASLAN",
+    "title": "\n    PhD Project: Improving Discharge Care Coordination in Hospitals using Machine Learning and Probabilistic Data-Driven Approaches\n  ",
     "section": "",
     "text": "My Journey\nBorn: Xirabreşk - Close to Girê Mirazan (Göbekli Tepe), Urfa, Turkey\n\nEducation: 📚\n→ Moved to Ankara for university in 2010\n→ BSc in Business Administration (METU, 2015)\n→ MSc in Financial Mathematics (METU, 2021)\n\n\n\nIndustry (9 years of experience): 💼\n→ Worked while completing Master’s degree\n→ Built expertise in forecasting, ML, and data analytics\n\n\n\nCurrent: 🎓\n→ PhD at Cardiff University (Oct 2024 – Present)\n- Focus: Probabilistic Modeling in Healthcare\n- WGSSS-ESRC Studentship Award recipient"
   },
   {
     "objectID": "talks/kurdish_aademic_conf/present.html#my-cv-at-a-glance",
     "href": "talks/kurdish_aademic_conf/present.html#my-cv-at-a-glance",
-    "title": "MUSTAFA ASLAN",
+    "title": "\n    PhD Project: Improving Discharge Care Coordination in Hospitals using Machine Learning and Probabilistic Data-Driven Approaches\n  ",
     "section": "My CV at a Glance",
-    "text": "My CV at a Glance\n\n\n🎓 Education\nPhD in Probabilistic Modeling in Healthcare\nCardiff University, UK | Oct 2024 – Present\n✓ WGSSS-ESRC Studentship Award\nMSc in Financial Mathematics\nMETU, Turkey | 2017–2021\nBSc in Business Administration\nMETU, Turkey | 2011–2015\n\n💼 Work Experience\nData Analytics Executive | AKBANK, Istanbul\nJun 2022 – Sep 2024\n→ Predictive modeling & forecasting\nResearch Associate | Economic Policy Research Foundation\nJan 2022 – Apr 2024\n→ Statistical inference & modeling\nSenior Process Analyst | ETI GIDA\nJun 2019 – Jan 2022\n→ ERP & BI tools, process optimization\n\n🏆 Achievements & Awards\nSPHERE-PPL Forecasting Contest (2026)\n🥇 1st Place (1–5 day horizon)\n🥈 2nd Place (5–10 day horizon)\n→ Predicting avoidable NHS hospital deaths\nBest Presentation Award\n5th Welsh Postgraduate Research Cluster\nWorkshop (Sep 2025)\n\n🛠️ Skills & Expertise\nExpertise: ML, Time Series Forecasting, Probabilistic Forecasting, Stochastic Optimization, Statistical Modeling\nProgramming: Python, SQL\nLanguages: English (Fluent) • Kurdish (Mother Tongue) • Turkish (Native)"
+    "text": "My CV at a Glance\n\n\n\n🎓 Education\nPhD in Probabilistic Modeling in Healthcare\nCardiff University, UK | Oct 2024 – Present\n✓ WGSSS-ESRC Studentship Award\nMSc in Financial Mathematics\nMETU, Turkey | 2017–2021\nBSc in Business Administration\nMETU, Turkey | 2011–2015\n\n\n\n💼 Work Experience\nData Analytics Executive | AKBANK, Istanbul\nJun 2022 – Sep 2024\n→ Predictive modeling & forecasting\nResearch Associate | Economic Policy Research Foundation\nJan 2022 – Apr 2024\n→ Statistical inference & modeling\nSenior Process Analyst | ETI GIDA\nJun 2019 – Jan 2022\n→ ERP & BI tools, process optimization\n\n\n\n🏆 Achievements & Awards\nSPHERE-PPL Forecasting Contest (2026)\n🥇 1st Place (1–5 day horizon)\n🥈 2nd Place (5–10 day horizon)\n→ Predicting avoidable NHS hospital deaths\nBest Presentation Award\n5th Welsh Postgraduate Research Cluster\nWorkshop (Sep 2025)\n\n\n\n🛠️ Skills & Expertise\nExpertise: ML, Time Series Forecasting, Probabilistic Forecasting, Stochastic Optimization, Statistical Modeling\nProgramming: Python, SQL\nLanguages: English (Fluent) • Kurdish (Mother Tongue) • Turkish (Native)"
   },
   {
     "objectID": "talks/kurdish_aademic_conf/present.html#section-3",
     "href": "talks/kurdish_aademic_conf/present.html#section-3",
-    "title": "MUSTAFA ASLAN",
+    "title": "\n    PhD Project: Improving Discharge Care Coordination in Hospitals using Machine Learning and Probabilistic Data-Driven Approaches\n  ",
     "section": "",
     "text": "Outline\n\n\nWho am I?\nMy PhD Project\nProject: Understanding Causal Impact of Diagnosis\nProject: From Forecasting Competition to Impact in NHS Bristol"
   },
   {
     "objectID": "talks/kurdish_aademic_conf/present.html#section-4",
     "href": "talks/kurdish_aademic_conf/present.html#section-4",
-    "title": "MUSTAFA ASLAN",
+    "title": "\n    PhD Project: Improving Discharge Care Coordination in Hospitals using Machine Learning and Probabilistic Data-Driven Approaches\n  ",
     "section": "",
     "text": "Very Brief Overview\n\nProject 1: Staffing Required Number of Nurses in a Mental Health Hospital using Probabilistic Forecasting and Optimization\n\n\n\nProject 2: From Causal Impacts of Diagnosis to Reclaimed Hospital Capacity using Causal AI\n\n\n\nProject 3: Forecasting Daily Number of Hospital Admissions&Discharges per Specialty (40+ Specialties) using ONE Forecasting Model to Improve Hospital Capacity Planning and Resource Allocation"
   },
   {
     "objectID": "talks/kurdish_aademic_conf/present.html#section-5",
     "href": "talks/kurdish_aademic_conf/present.html#section-5",
-    "title": "MUSTAFA ASLAN",
+    "title": "\n    PhD Project: Improving Discharge Care Coordination in Hospitals using Machine Learning and Probabilistic Data-Driven Approaches\n  ",
     "section": "",
     "text": "Outline\n\n\nWho am I?\nMy PhD Project\nProject: Understanding Causal Impact of Diagnosis\nProject: From Forecasting Competition to Impact in NHS Bristol"
   },
   {
     "objectID": "talks/kurdish_aademic_conf/present.html#patients-come-to-hospital-with-a-diagnosis-reason-and-what-is-the-impact-of-diagnosis-on-length-of-stay-los",
     "href": "talks/kurdish_aademic_conf/present.html#patients-come-to-hospital-with-a-diagnosis-reason-and-what-is-the-impact-of-diagnosis-on-length-of-stay-los",
-    "title": "MUSTAFA ASLAN",
+    "title": "\n    PhD Project: Improving Discharge Care Coordination in Hospitals using Machine Learning and Probabilistic Data-Driven Approaches\n  ",
     "section": "Patients Come to Hospital with a Diagnosis (Reason) and What is the Impact of Diagnosis on Length of Stay (LoS)?",
     "text": "Patients Come to Hospital with a Diagnosis (Reason) and What is the Impact of Diagnosis on Length of Stay (LoS)?\n\nAim: To quantify the causal impact of diagnosis on Length of Stay (LoS) in Hospital using Causal AI."
   },
   {
     "objectID": "talks/kurdish_aademic_conf/present.html#section-6",
     "href": "talks/kurdish_aademic_conf/present.html#section-6",
-    "title": "MUSTAFA ASLAN",
+    "title": "\n    PhD Project: Improving Discharge Care Coordination in Hospitals using Machine Learning and Probabilistic Data-Driven Approaches\n  ",
     "section": "",
     "text": "Outline\n\n\nWho am I?\nMy PhD Project\nProject: Understanding Causal Impact of Diagnosis\nProject: From Forecasting Competition to Impact in NHS Bristol"
   },
   {
     "objectID": "talks/kurdish_aademic_conf/present.html#organized-by-sphere-spatial-health-environmental-research",
     "href": "talks/kurdish_aademic_conf/present.html#organized-by-sphere-spatial-health-environmental-research",
-    "title": "MUSTAFA ASLAN",
+    "title": "\n    PhD Project: Improving Discharge Care Coordination in Hospitals using Machine Learning and Probabilistic Data-Driven Approaches\n  ",
     "section": "Organized by SPHERE (SPatial, Health & Environmental REsearch)",
-    "text": "Organized by SPHERE (SPatial, Health & Environmental REsearch)\n \n\n\nThe Real Problem 🏥\nEmergency Department Delays & Patient Lives\nWhen patients wait for hospital beds:\n\nRisk of harm increases significantly\n~25 preventable deaths/month in Bristol NHS due to waiting\nStaff need early warning to prevent these delays\n\n\nThe Competition Challenge 📊\nPredict hospital harm 10 days in advance\n\nUsing: Real hospital data from Bristol NHS\nGoal: Give hospital managers early warning so they can take pre-emptive action\nData source: 24 months of real hospital records"
+    "text": "Organized by SPHERE (SPatial, Health & Environmental REsearch)\n \n\n\n\nThe Real Problem 🏥\nEmergency Department Delays & Patient Lives\nWhen patients wait for hospital beds:\n\nRisk of harm increases significantly\n~25 preventable deaths/month in Bristol NHS due to waiting\nStaff need early warning to prevent these delays\n\n\n\n\nThe Competition Challenge 📊\nPredict hospital harm 10 days in advance\n\nUsing: Real hospital data from Bristol NHS\nGoal: Give hospital managers early warning so they can take pre-emptive action\nData source: 24 months of real hospital records"
   },
   {
     "objectID": "talks/kurdish_aademic_conf/present.html#forecast-evaluation-furure-120-days-example",
@@ -8773,8 +8773,218 @@
   {
     "objectID": "talks/kurdish_aademic_conf/present.html#can-point-forecasts-capture-peak-dynamics",
     "href": "talks/kurdish_aademic_conf/present.html#can-point-forecasts-capture-peak-dynamics",
-    "title": "MUSTAFA ASLAN",
+    "title": "\n    PhD Project: Improving Discharge Care Coordination in Hospitals using Machine Learning and Probabilistic Data-Driven Approaches\n  ",
     "section": "Can Point Forecasts Capture Peak Dynamics?",
-    "text": "Can Point Forecasts Capture Peak Dynamics?"
+    "text": "Can Point Forecasts Capture Peak Dynamics?\n\nimport pickle\nimport numpy as np\nimport pandas as pd\nimport plotly.graph_objects as go\n\n# 1. Load Data\nwith open('probabilistic_forecast_results.pkl', 'rb') as f:\n    prob_data = pickle.load(f)\n\ntrain_pr = prob_data['train_example'][-8:]  # Last 8 days of training data\ntest_pr = prob_data['test_example']\nforecasts = prob_data['forecast_example']\nscenarios_df = prob_data['probabilistic_scenarios']\n\n# 2. Extract Forecast Origin & Bridge Continuation\n# Connect the last observation of train to the forecast origin so paths flow seamlessly\norigin_date = train_pr.index[-1]\norigin_y = float(train_pr['ead'].iloc[-1])\n\n# Use clean ISO date strings for robust continuous timeline mapping\ntrain_dates = [d.strftime('%Y-%m-%d') for d in train_pr.index]\ntrain_y = train_pr['ead'].to_numpy(dtype=np.float32)\n\nconn_dates = [origin_date.strftime('%Y-%m-%d')] + [d.strftime('%Y-%m-%d') for d in test_pr.index]\nconn_actual_y = np.array([origin_y] + list(test_pr['ead']), dtype=np.float32)\nconn_point_y = np.array([origin_y] + list(forecasts), dtype=np.float32)\n\nscenarios_matrix = scenarios_df.to_numpy(dtype=np.float32)  # (10000, 5)\norigin_col = np.full((scenarios_matrix.shape[0], 1), origin_y, dtype=np.float32)\nconn_scenarios = np.hstack([origin_col, scenarios_matrix])   # (10000, 6)\n\n# Milestones for interactive slider\nmilestones = [1, 2, 5, 10, 50, 100, 250, 500, 1000, 2500, 5000, 7500, 10000]\ntotal_scenarios = len(conn_scenarios)\nmilestones = [m for m in milestones if m &lt;= total_scenarios]\nif total_scenarios not in milestones:\n    milestones.append(total_scenarios)\n\n# 3. Assemble Plotly Figure\nfig = go.Figure()\n\n# Trace 0: Historical Training Observations (Last 28 Days)\nfig.add_trace(\n    go.Scatter(\n        x=train_dates,\n        y=train_y,\n        mode=\"lines\",\n        name=\"Historical Train (Last 28d)\",\n        line=dict(color=\"#64748b\", width=2.4),\n        hovertemplate=\"&lt;b&gt;Train Actual:&lt;/b&gt; %{y:.2f}&lt;br&gt;Date: %{x}&lt;extra&gt;&lt;/extra&gt;\"\n    )\n)\n\n# Trace 1: Test Actuals (Bridged from Origin)\nfig.add_trace(\n    go.Scatter(\n        x=conn_dates,\n        y=conn_actual_y,\n        mode=\"lines+markers\",\n        name=\"Actual Observed EAD\",\n        line=dict(color=\"#C93B2B\", width=3.2),\n        marker=dict(size=7.5, color=\"#C93B2B\"),\n        hovertemplate=\"&lt;b&gt;Actual EAD:&lt;/b&gt; %{y:.2f}&lt;br&gt;Date: %{x}&lt;extra&gt;&lt;/extra&gt;\"\n    )\n)\n\n# Trace 2: Point Forecast (Bridged from Origin)\nfig.add_trace(\n    go.Scatter(\n        x=conn_dates,\n        y=conn_point_y,\n        mode=\"lines+markers\",\n        name=\"Point Forecast\",\n        line=dict(color=\"#2563EB\", width=2.8, dash=\"dash\"),\n        marker=dict(size=8, symbol=\"diamond\", color=\"#2563EB\"),\n        hovertemplate=\"&lt;b&gt;Point Forecast:&lt;/b&gt; %{y:.2f}&lt;br&gt;Date: %{x}&lt;extra&gt;&lt;/extra&gt;\"\n    )\n)\n\n# Vectorized scenario chunk traces with NaN delimiter\nx_template = np.append(np.array(conn_dates), [None])\nnum_fixed_traces = 3\ndefault_step_idx = 0  # Default to showing the first two chunks (1 and 2 scenarios) on initial load\nprev_idx = 0\n\nfor i, count in enumerate(milestones):\n    chunk_slice = conn_scenarios[prev_idx:count, :]\n    m_chunk = chunk_slice.shape[0]\n\n    nan_col = np.full((m_chunk, 1), np.nan, dtype=np.float32)\n    y_chunk = np.hstack([chunk_slice, nan_col]).ravel()\n    x_chunk = np.tile(x_template, m_chunk)\n\n    is_visible = (i &lt;= default_step_idx)\n\n    fig.add_trace(\n        go.Scattergl(\n            x=x_chunk,\n            y=y_chunk,\n            mode=\"lines\",\n            name=\"Forecast Scenarios\" if i == 0 else None,\n            showlegend=(i == 0),\n            line=dict(color=\"rgba(32, 128, 141, 0.12)\", width=0.9),\n            hoverinfo=\"skip\",\n            visible=is_visible\n        )\n    )\n\n\n    prev_idx = count\n\n# 4. Slider Controls\nnum_chunks = len(milestones)\nslider_steps = []\n\nfor i, count in enumerate(milestones):\n    visibility_mask = [True] * num_fixed_traces + [k &lt;= i for k in range(num_chunks)]\n    step = dict(\n        method=\"update\",\n        args=[{\"visible\": visibility_mask}],\n        label=f\"{count:,}\"\n    )\n    slider_steps.append(step)\n\nslider_control = dict(\n    active=default_step_idx,\n    currentvalue={\n        \"prefix\": \"Number of Forecast Scenarios: \",\n        \"font\": {\"size\": 20, \"color\": \"#0B363C\", \"family\": \"Inter, sans-serif\"}\n    },\n    font={\"size\": 20, \"color\": \"#334155\"},  # &lt;-- ADD THIS LINE (increase size as desired, e.g., 16 or 18)\n    pad={\"t\": 30, \"b\": 10},\n    steps=slider_steps,\n    bgcolor=\"#E2E8F0\",\n    activebgcolor=\"#20808D\"\n)\n\n# Vertical line annotation at Forecast Origin\norigin_str = origin_date.strftime('%Y-%m-%d')\nfig.add_shape(\n    type=\"line\",\n    x0=origin_str, x1=origin_str,\n    y0=0, y1=2.1,\n    line=dict(color=\"#0B363C\", width=1.8, dash=\"dot\")\n)\nfig.add_annotation(\n    x=origin_str,\n    y=2.02,\n    text=\"&lt;b&gt;Forecast Origin&lt;/b&gt; (Nov 24)\",\n    showarrow=False,\n    xanchor=\"right\",\n    xshift=-8,\n    font=dict(size=14, color=\"#0B363C\")\n)\n\n# Clean, evenly spaced date ticks across timeline\nall_dates = list(train_pr.index) + list(test_pr.index)\ntick_dt = all_dates[::4]\nif test_pr.index[-1] not in tick_dt:\n    tick_dt.append(test_pr.index[-1])\nif origin_date not in tick_dt:\n    tick_dt.append(origin_date)\ntick_dt = sorted(list(set(tick_dt)))\n\ntick_vals = [d.strftime('%Y-%m-%d') for d in tick_dt]\ntick_text = [d.strftime('%b %d') for d in tick_dt]\n\nfig.update_layout(\n    height=950,\n    width=1820,\n    xaxis=dict(\n        title=dict(text=\"Date\", font=dict(size=20, color=\"#0B363C\")),\n        type=\"date\",\n        tickmode=\"array\",\n        tickvals=tick_vals,\n        ticktext=tick_text,\n        tickangle=0,\n        tickfont=dict(size=18, color=\"#334155\"),\n        gridcolor=\"#E2E8F0\",\n        showgrid=True\n    ),\n    yaxis=dict(\n        title=dict(text=\"Estimated Avoidable Deaths (EAD)\", font=dict(size=20, color=\"#0B363C\")),\n        tickfont=dict(size=18, color=\"#334155\"),\n        gridcolor=\"#E2E8F0\",\n        showgrid=True,\n        range=[0.1, 2.15]\n    ),\n    sliders=[slider_control],\n    paper_bgcolor=\"#FBFAF4\",\n    plot_bgcolor=\"#FBFAF4\",\n    hovermode=\"x unified\",\n    legend=dict(\n        orientation=\"h\",\n        yanchor=\"bottom\",\n        y=1.03,\n        xanchor=\"right\",\n        x=1,\n        font=dict(size=18, color=\"#0B363C\"),\n        bgcolor=\"rgba(251, 250, 244, 0.85)\"\n    ),\n    margin=dict(l=60, r=40, t=80, b=50)\n)\n\nfig.show()"
+  },
+  {
+    "objectID": "learn/prob_stats/2_stage_sample.html",
+    "href": "learn/prob_stats/2_stage_sample.html",
+    "title": "2 stage stochastic programming",
+    "section": "",
+    "text": "Open Interactive Notebook\n\n\n\n\n\n\nNote\n\n\n\nYou can also embed the interactive notebook directly below:"
+  },
+  {
+    "objectID": "talks/kurdish_aademic_conf/present.html",
+    "href": "talks/kurdish_aademic_conf/present.html",
+    "title": "\n    PhD Project: Improving Discharge Care Coordination in Hospitals using Machine Learning and Probabilistic Data-Driven Approaches\n  ",
+    "section": "",
+    "text": "Kurdish Annual Academic Conference 2026\n  \n\n  Mustafa Aslan\n  Data Lab for Social Good, Cardiff University, UK\n\n  \n    Lead supervisor: Prof. Bahman Rostami-Tabar\n    Co-supervisor: Dr. Jeremy Dixon\n  \n\n  7 October 2026"
+  },
+  {
+    "objectID": "talks/kurdish_aademic_conf/present.html#forecast-evaluation-future-120-days-example",
+    "href": "talks/kurdish_aademic_conf/present.html#forecast-evaluation-future-120-days-example",
+    "title": "\n    PhD Project: Improving Discharge Care Coordination in Hospitals using Machine Learning and Probabilistic Data-Driven Approaches\n  ",
+    "section": "Forecast Evaluation: Future 120-Days (example)",
+    "text": "Forecast Evaluation: Future 120-Days (example)\n\nimport pickle\nimport matplotlib.pyplot as plt\nimport matplotlib.dates as mdates\nimport pandas as pd\nimport numpy as np\n\nwith open('cv_results.pkl', 'rb') as f:\n    data = pickle.load(f)\n\ntrain_last90 = data['training_last90']\ncv_df = data['cv_results']\norigin_date = train_last90.index[-1]\nn_total = len(cv_df)\n\nfig, ax = plt.subplots(figsize=(24, 10), facecolor='#FBFAF4')\nax.set_facecolor('#FBFAF4')\n\n# 1. Historical Training Data (Last 90 Days)\nax.plot(train_last90.index, train_last90['ead'], color='#64748b', linewidth=2.4, label='Historical Training EAD (Last 90 Days)', zorder=3)\nax.fill_between(train_last90.index, 0, train_last90['ead'], color='#64748b', alpha=0.06, zorder=2)\n\n# Major separator between training and CV evaluation\nax.axvline(origin_date, color='#0B363C', linestyle='--', linewidth=2.8, zorder=8, label=f'Forecast Origin ({origin_date.strftime(\"%b %d, %Y\")})')\n\n# 2. Out-of-Sample Actuals (Continuous line across all 120 days)\nconn_dates = [origin_date] + list(cv_df['fold_index'])\nconn_actuals = [train_last90['ead'].iloc[-1]] + list(cv_df['y_true'])\nax.plot(conn_dates, conn_actuals, color='#0B363C', linewidth=3.2, marker='o', markersize=4.5, label='Actual Observed EAD (Out-of-Sample)', zorder=6)\n\n# 3. Continuous Forecast Line across 120 days future\nax.plot(cv_df['fold_index'], cv_df['y_pred'], color='#C93B2B', linewidth=3.2, marker='s', markersize=4.0, zorder=7, \n        label='MS-ARR Out-of-Sample Forecast (y_pred)')\n\n# Overall Metrics\nmse = ((cv_df['y_true'] - cv_df['y_pred'])**2).mean()\nmae = (cv_df['y_true'] - cv_df['y_pred']).abs().mean()\nrmse = np.sqrt(mse)\n\n# Informational Note Box on the left\n# note_text = (f'120-Day Rolling Evaluation Horizon (Aug 22 – Dec 19, 2025)\\n'\n#              f'• Performance: RMSE: {rmse:.4f} | MAE: {mae:.4f} | MSE: {mse:.4f}')\n# ax.text(0.015, 0.96, note_text, transform=ax.transAxes, fontsize=13.5, fontweight='bold', color='#0B363C',\n#         va='top', bbox=dict(boxstyle='round,pad=0.55', facecolor='#ffffff', edgecolor='#20808D', linewidth=1.8, alpha=0.96), zorder=10)\n\n# Legend placed cleanly next to the note box\nax.legend(loc='upper left', frameon=True, facecolor='#ffffff', edgecolor='#cbd5e1', fontsize=13, ncol=1)\n\nax.set_ylabel('Avoidable Deaths (EAD)', fontsize=18, fontweight='bold', color='#0B363C')\nax.set_title('Out-of-Sample Evaluation: 120-Day Horizon Forecast vs. Actual EAD', \n             fontsize=22, fontweight='bold', color='#0B363C', pad=22)\n\nax.grid(True, linestyle='--', alpha=0.35, color='#cbd5e1')\nax.tick_params(labelsize=15)\nax.xaxis.set_major_locator(mdates.WeekdayLocator(interval=3))\nax.xaxis.set_major_formatter(mdates.DateFormatter('%b %d, %Y'))\nfig.autofmt_xdate(rotation=0, ha='center')\n\nax.set_ylim(0, 1.88)\nax.set_xlim(train_last90.index[0] - pd.Timedelta(days=2), cv_df['fold_index'].iloc[-1] + pd.Timedelta(days=2))\n\nplt.subplots_adjust(left=0.05, right=0.97, top=0.90, bottom=0.12)\nplt.show()\n\n\n\n\n\n\n\n\nNote: Forecasts are generated once every 5 days, 24 times across 120 days."
+  },
+  {
+    "objectID": "learn/copulas/index.html",
+    "href": "learn/copulas/index.html",
+    "title": "Copulas: Separating Marginals from Dependence",
+    "section": "",
+    "text": "Copulas let us model dependence separately from the marginal distributions. In this notebook, adjust a Gaussian copula’s dependence parameter and sample size, while keeping an exponential and a Weibull marginal."
+  },
+  {
+    "objectID": "learn/copulas/index.html#explore-the-notebook",
+    "href": "learn/copulas/index.html#explore-the-notebook",
+    "title": "Copulas: Separating Marginals from Dependence",
+    "section": "Explore the notebook",
+    "text": "Explore the notebook\n Interactive Notebook \nTo edit the notebook locally, install the project requirements and run marimo edit learn/copulas/copul.py."
+  },
+  {
+    "objectID": "learn/prob_stats/copul.html",
+    "href": "learn/prob_stats/copul.html",
+    "title": "Copulas: Separating Marginals from Dependence",
+    "section": "",
+    "text": "Copulas let us model dependence separately from the marginal distributions. In this notebook, adjust a Gaussian copula’s dependence parameter and sample size, while keeping an exponential and a Weibull marginal."
+  },
+  {
+    "objectID": "learn/prob_stats/copul.html#explore-the-notebook",
+    "href": "learn/prob_stats/copul.html#explore-the-notebook",
+    "title": "Copulas: Separating Marginals from Dependence",
+    "section": "Explore the notebook",
+    "text": "Explore the notebook\n Read-only Notebook  Slide Presentation  Editable Notebook \nTo edit the notebook locally, install the project requirements and run marimo edit ../copulas/copul.py."
+  },
+  {
+    "objectID": "blog/distributions/dists_notebook.html",
+    "href": "blog/distributions/dists_notebook.html",
+    "title": "Random Variables",
+    "section": "",
+    "text": "For a discrete random variable \\(X\\), we define the probability mass function \\(p(\\alpha)\\) of \\(X\\) by\n\\[\np(\\alpha) = P(X = \\alpha)\n\\]\nThe probability mass function \\(p(\\alpha)\\) is positive for at most a countable number of values of \\(a\\). That is, if \\(X\\) must assume one of the values \\(x_1, x_2,\\dots ,\\) then\n\\[\np(x_i) \\geq 0 \\text{ for } i = 1, 2, \\dots\n\\]\nand\n\\[\n\\sum_{i=1}^{\\infty} p(x_i) = 1\n\\]\nThe cumulative distribution function \\(F(x)\\) can be expressed in terms of \\(p(\\alpha)\\) by\n\\[\nF(\\alpha) = P(X \\leq \\alpha) = \\sum_{x_i \\leq \\alpha} p(x_i)\n\\]\n\n\nIf \\(X\\) is a discrete random variable having a probability mass function \\(p(x)\\), then the expected value of \\(X\\) is defined by\n\\[\nE(X) = \\sum_{x_i} x_i p(x_i)\n\\]\n\n\n\nA Bernoulli random variable is a discrete random variable that takes the value 1 with probability \\(p\\) and the value 0 with probability \\(1-p\\). The probability mass function of a Bernoulli random variable \\(X\\) is given by \\[\np(x) = \\begin{cases}\n1-p & \\text{if } x = 0 \\\\\np & \\text{if } x = 1\n\\end{cases}\n\\]\nThe expected value of a Bernoulli random variable is given by \\[\nE(X) = 0 \\cdot (1-p) + 1 \\cdot p = p\n\\]\nThe variance of a Bernoulli random variable is given by \\[\nVar(X) = E(X^2) - (E(X))^2 = p - p^2 = p(1-p)\n\\]\n\n# Necessary packages\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n# from scipy.stats import poisson\n\n\ndef bernoulli(p):\n    \"\"\"\n    Bernoulli distribution with parameter p.\n    \"\"\"\n    return np.random.binomial(1, p)\ndef binomial(n, p):\n    \"\"\"\n    Binomial distribution with parameters n and p.\n    \"\"\"\n    return np.random.binomial(n, p)\ndef geometric(p):\n    \"\"\"\n    Geometric distribution with parameter p.\n    \"\"\"\n    return np.random.geometric(p)\ndef negative_binomial(n, p):\n    \"\"\"\n    Negative binomial distribution with parameters n and p.\n    \"\"\"\n    return np.random.negative_binomial(n, p)\n\n\n\n\nSuppose that \\(n\\) independent trials, each of which results in a “success” with probability \\(p\\) and in a “failure” with probability \\(1−p\\), are to be performed. If \\(X\\) represents the number of successes that occur in the \\(n\\) trials, then \\(X\\) is said to be a binomial random variable with parameters \\(n, p\\). The probability mass function of a binomial random variable having parameters \\((n, p)\\) is given by\n\\[\np(x) = \\binom{n}{x} p^x (1-p)^{n-x}, \\quad x = 0, 1, \\dots, n\n\\]\nwhere \\(\\binom{n}{x} = \\frac{n!}{x!(n-x)!}\\) is the binomial coefficient, which counts the number of ways to choose \\(x\\) successes from \\(n\\) trials.\n\n\nIf \\(X\\) is a binomial random variable with parameters \\(n\\) and \\(p\\), then the expected value of \\(X\\) is given by \\[\nE(X) = np\n\\] ### Variance of a Binomial Random Variable If \\(X\\) is a binomial random variable with parameters \\(n\\) and \\(p\\), then the variance of \\(X\\) is given by \\[\nVar(X) = np(1-p)\n\\]\n\n\n\n\nA random variable \\(X\\) taking on one of the values \\(0, 1, 2, \\dots,\\) is said to be a Poisson random variable with parameter \\(\\lambda\\), if for some \\(\\lambda &gt; 0\\),\n\\[\np(i) = P \\{ X = i \\} = e^{-\\lambda} \\frac{\\lambda^i}{i!}, \\quad i = 0, 1, \\ldots\n\\]\n\n\nIf \\(X\\) is a Poisson random variable with parameter \\(\\lambda\\), then the expected value of \\(X\\) is given by\n\\[\nE(X) = \\sum_{i=0}^{\\infty} i e^{-\\lambda} \\frac{\\lambda^i}{i!}\n= e^{-\\lambda} \\sum_{i=1}^{\\infty} \\frac{\\lambda^i}{(i-1)!}\n= e^{-\\lambda} \\lambda \\sum_{i=0}^{\\infty} \\frac{\\lambda^i}{i!}\n= e^{-\\lambda} \\lambda e^{\\lambda}\n= \\lambda\n\\]\nwhere we have used the identity \\(\\sum_{i=0}^{\\infty} \\frac{\\lambda^i}{i!} = e^{\\lambda}\\).\n\ndef poisson(m, k):\n    \"\"\"\n    Calculate the Poisson probability of observing k events in an interval\n    given the average rate of occurrence n.\n\n    :param m: Average rate of occurrence (lambda)\n    :param k: Number of events\n    :return: Probability of observing k events\n    \"\"\"\n    from math import exp, factorial\n\n    return (m ** k) * exp(-m) / factorial(k)\n\n\n# Example usage\nx = np.arange(0, 20) # Average rate of occurrence\nlambdas = [1, 3, 5, 7, 10, 12,15] # Different values of lambda\n\n           \nplt.figure(figsize=(8, 6))\n\nfor lam in lambdas:\n    pmf = [poisson(lam, k) for k in x]\n    # Using scipy's poisson distribution for comparison\n    # pmf_scy = poisson.pmf(x, lam)\n    plt.plot(x, pmf, marker='o', label=f'λ = {lam}')\n\nplt.xlabel('Number of events (k)')\nplt.ylabel('Probability')\nplt.title('Poisson Distribution')\nplt.grid(axis=  \"y\" , linestyle='--')\nplt.legend()\nplt.show()"
+  },
+  {
+    "objectID": "blog/distributions/dists_notebook.html#bernoulli-random-variable",
+    "href": "blog/distributions/dists_notebook.html#bernoulli-random-variable",
+    "title": "Random Variables",
+    "section": "",
+    "text": "A Bernoulli random variable is a discrete random variable that takes the value 1 with probability \\(p\\) and the value 0 with probability \\(1-p\\). The probability mass function of a Bernoulli random variable \\(X\\) is given by \\[\np(x) = \\begin{cases}\n1-p & \\text{if } x = 0 \\\\\np & \\text{if } x = 1\n\\end{cases}\n\\]\nThe expected value of a Bernoulli random variable is given by \\[\nE(X) = 0 \\cdot (1-p) + 1 \\cdot p = p\n\\]\nThe variance of a Bernoulli random variable is given by \\[\nVar(X) = E(X^2) - (E(X))^2 = p - p^2 = p(1-p)\n\\]\n\n# Necessary packages\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n# from scipy.stats import poisson\n\n\ndef bernoulli(p):\n    \"\"\"\n    Bernoulli distribution with parameter p.\n    \"\"\"\n    return np.random.binomial(1, p)\ndef binomial(n, p):\n    \"\"\"\n    Binomial distribution with parameters n and p.\n    \"\"\"\n    return np.random.binomial(n, p)\ndef geometric(p):\n    \"\"\"\n    Geometric distribution with parameter p.\n    \"\"\"\n    return np.random.geometric(p)\ndef negative_binomial(n, p):\n    \"\"\"\n    Negative binomial distribution with parameters n and p.\n    \"\"\"\n    return np.random.negative_binomial(n, p)"
+  },
+  {
+    "objectID": "blog/distributions/dists_notebook.html#binomial-random-variable",
+    "href": "blog/distributions/dists_notebook.html#binomial-random-variable",
+    "title": "Random Variables",
+    "section": "",
+    "text": "Suppose that \\(n\\) independent trials, each of which results in a “success” with probability \\(p\\) and in a “failure” with probability \\(1−p\\), are to be performed. If \\(X\\) represents the number of successes that occur in the \\(n\\) trials, then \\(X\\) is said to be a binomial random variable with parameters \\(n, p\\). The probability mass function of a binomial random variable having parameters \\((n, p)\\) is given by\n\\[\np(x) = \\binom{n}{x} p^x (1-p)^{n-x}, \\quad x = 0, 1, \\dots, n\n\\]\nwhere \\(\\binom{n}{x} = \\frac{n!}{x!(n-x)!}\\) is the binomial coefficient, which counts the number of ways to choose \\(x\\) successes from \\(n\\) trials.\n\n\nIf \\(X\\) is a binomial random variable with parameters \\(n\\) and \\(p\\), then the expected value of \\(X\\) is given by \\[\nE(X) = np\n\\] ### Variance of a Binomial Random Variable If \\(X\\) is a binomial random variable with parameters \\(n\\) and \\(p\\), then the variance of \\(X\\) is given by \\[\nVar(X) = np(1-p)\n\\]"
+  },
+  {
+    "objectID": "blog/distributions/dists_notebook.html#the-poisson-random-variable",
+    "href": "blog/distributions/dists_notebook.html#the-poisson-random-variable",
+    "title": "Random Variables",
+    "section": "",
+    "text": "A random variable \\(X\\) taking on one of the values \\(0, 1, 2, \\dots,\\) is said to be a Poisson random variable with parameter \\(\\lambda\\), if for some \\(\\lambda &gt; 0\\),\n\\[\np(i) = P \\{ X = i \\} = e^{-\\lambda} \\frac{\\lambda^i}{i!}, \\quad i = 0, 1, \\ldots\n\\]\n\n\nIf \\(X\\) is a Poisson random variable with parameter \\(\\lambda\\), then the expected value of \\(X\\) is given by\n\\[\nE(X) = \\sum_{i=0}^{\\infty} i e^{-\\lambda} \\frac{\\lambda^i}{i!}\n= e^{-\\lambda} \\sum_{i=1}^{\\infty} \\frac{\\lambda^i}{(i-1)!}\n= e^{-\\lambda} \\lambda \\sum_{i=0}^{\\infty} \\frac{\\lambda^i}{i!}\n= e^{-\\lambda} \\lambda e^{\\lambda}\n= \\lambda\n\\]\nwhere we have used the identity \\(\\sum_{i=0}^{\\infty} \\frac{\\lambda^i}{i!} = e^{\\lambda}\\).\n\ndef poisson(m, k):\n    \"\"\"\n    Calculate the Poisson probability of observing k events in an interval\n    given the average rate of occurrence n.\n\n    :param m: Average rate of occurrence (lambda)\n    :param k: Number of events\n    :return: Probability of observing k events\n    \"\"\"\n    from math import exp, factorial\n\n    return (m ** k) * exp(-m) / factorial(k)\n\n\n# Example usage\nx = np.arange(0, 20) # Average rate of occurrence\nlambdas = [1, 3, 5, 7, 10, 12,15] # Different values of lambda\n\n           \nplt.figure(figsize=(8, 6))\n\nfor lam in lambdas:\n    pmf = [poisson(lam, k) for k in x]\n    # Using scipy's poisson distribution for comparison\n    # pmf_scy = poisson.pmf(x, lam)\n    plt.plot(x, pmf, marker='o', label=f'λ = {lam}')\n\nplt.xlabel('Number of events (k)')\nplt.ylabel('Probability')\nplt.title('Poisson Distribution')\nplt.grid(axis=  \"y\" , linestyle='--')\nplt.legend()\nplt.show()"
+  },
+  {
+    "objectID": "blog/distributions/dists_notebook.html#exponential-random-variables",
+    "href": "blog/distributions/dists_notebook.html#exponential-random-variables",
+    "title": "Random Variables",
+    "section": "2.1 Exponential Random Variables",
+    "text": "2.1 Exponential Random Variables\nA continuous random variable whose probability density function is given, for some \\(\\lambda &gt; 0\\), by: \\[\nf(x) = \\begin{cases}\n\\lambda e^{-\\lambda x} & x \\geq 0 \\\\\n0 & x &lt; 0\n\\end{cases}\n\\]\nis said to be an exponential random variable with parameter \\(\\lambda\\), which is the mean of the distribution. The cumulative distribution function is given by\n\\[\nF(\\alpha) =  \\int_0^\\alpha \\lambda e^{-\\lambda x} \\, dx, = 1-e^{-\\lambda \\alpha}  \\quad \\alpha \\geq 0\n\\]\nNote that \\(F(\\infty) = \\int_0^\\infty \\lambda e^{-\\lambda x} \\, dx = 1\\).\n\nExpectation of an Exponential Random Variable\nIf \\(X\\) is an exponential random variable with parameter \\(\\lambda\\), then the expected value of \\(X\\) is given by \\[\nE(X) = \\int_0^\\infty x \\lambda e^{-\\lambda x} \\, dx\n\\]\nIntegration by parts (\\(dv = \\lambda e^{-\\lambda x}, u = x\\)) yields \\[\nE(X) = \\left[ -\\frac{x}{\\lambda} e^{-\\lambda x} \\right]_0^\\infty + \\frac{1}{\\lambda} \\int_0^\\infty e^{-\\lambda x} \\, dx\n= 0 + \\frac{1}{\\lambda} \\cdot \\frac{1}{\\lambda} = \\frac{1}{\\lambda}\n\\]\n\ndef exponential(x, m):\n    \"\"\"\n    Calculate the Exponential probability density function (PDF) for a given x and rate parameter m.\n\n    :param x: Value at which to evaluate the PDF\n    :param m: Rate parameter (1/lambda)\n    :return: Probability density at x\n    \"\"\"\n    from math import exp\n\n    return m * exp(-m * x) if x &gt;= 0 else 0\n\n\nx = np.linspace(0, 10, 50)\nlamdas = [0.1, 0.5, 1, 3, 5] # Different values of lambda\n\nplt.figure(figsize=(8, 6))# Plotting the Exponential distribution\nfor lam in lamdas:\n    pdf = [exponential(i, lam) for i in x]\n    plt.plot(x, pdf, marker='o', label=f'λ = {lam}')\nplt.xlabel('x')\nplt.ylabel('Probability Density')\nplt.title('Exponential Distribution')\nplt.grid(axis=  \"y\" , linestyle='--')\nplt.legend()\nplt.show()"
+  },
+  {
+    "objectID": "blog/distributions/dists_notebook.html#gamma-random-variables",
+    "href": "blog/distributions/dists_notebook.html#gamma-random-variables",
+    "title": "Random Variables",
+    "section": "2.2 Gamma Random Variables",
+    "text": "2.2 Gamma Random Variables\nA continuous random variable whose density is given by: \\[\nf(x) = \\begin{cases}\n\\frac{\\lambda e^{- \\lambda x} {(\\lambda x)}^{\\alpha-1}}{\\Gamma (\\alpha)} & x \\geq 0 \\\\\n0 & x &lt; 0\n\\end{cases}\n\\]\nfor some \\(\\lambda&gt;0\\) and \\(\\alpha&gt;0\\) is said to be a gamma random variable with parameters \\(\\alpha, \\lambda\\).\nThe quantity \\(\\Gamma (\\alpha)\\) is called the gamma function and is defined by\n\\[\n\\Gamma (\\alpha) = \\int_0^\\infty e^{-x} x^{\\alpha-1} \\, dx = (\\alpha-1)!\n\\]\n\nExpectation of a Gamma Random Variable\nIf \\(X\\) is a gamma random variable with parameters \\(\\alpha\\) and \\(\\lambda\\), then the expected value of \\(X\\) is given by \\[\nE(X) = \\int_0^\\infty x \\frac{\\lambda e^{- \\lambda x} {(\\lambda x)}^{\\alpha-1}}{\\Gamma (\\alpha)} \\, dx\n= \\frac{1}{\\lambda} \\int_0^\\infty e^{-x} x^{\\alpha} \\, dx\n= \\frac{1}{\\lambda} \\cdot \\Gamma (\\alpha + 1)\n= \\frac{1}{\\lambda} \\cdot \\alpha \\Gamma (\\alpha)\n= \\frac{\\alpha}{\\lambda}\n\\]\n\ndef gamma(x, alpha, lamd):\n    \"\"\"\n    Calculate the Gamma probability density function (PDF) for a given x, shape parameter alpha, and scale parameter lamd.\n\n    :param x: Value at which to evaluate the PDF\n    :param alpha: Shape parameter (alpha)\n    :param lamd: Scale parameter (lamda)\n    :return: Probability density at x\n    \"\"\"\n    from math import exp, factorial\n\n    return (lamd*exp(-lamd*x)*((lamd*x)**(alpha-1)))/factorial(alpha) if x &gt;= 0 else 0\n\n\nx = np.linspace(0, 10, 50) # Range of x values for the gamma distribution\nalpha_values = [3, 2] # Different values of alpha (shape parameter)\nlambdas = [1.5,  2] # Different values of lambda (scale parameter)\nplt.figure(figsize=(8, 6)) # Plotting the Gamma distribution\nfor alpha in alpha_values:\n    for lam in lambdas:\n        pdf = [gamma(i, alpha, lam) for i in x]\n        plt.plot(x, pdf, marker='o', label=f'α = {alpha}, λ = {lam}')\nplt.xlabel('x')\nplt.ylabel('Probability Density')\nplt.title('Gamma Distribution')\nplt.grid(axis=  \"y\" , linestyle='--')\nplt.legend()\nplt.show()"
+  },
+  {
+    "objectID": "blog/distributions/dists_notebook.html#normal-random-variables",
+    "href": "blog/distributions/dists_notebook.html#normal-random-variables",
+    "title": "Random Variables",
+    "section": "2.3 Normal Random Variables",
+    "text": "2.3 Normal Random Variables\nWe say that \\(X\\) is a normal random variable (or simply that \\(X\\) is normally distributed) with parameters \\(\\mu\\) and \\(\\sigma ^2\\) if the density of X is given by\n\\[\nf(x) = \\frac{1}{\\sqrt{2\\pi}\\sigma} e^{-(x-\\mu)/ 2\\sigma^2} \\quad -\\infty &lt; x &lt; \\infty\n\\]\nThis density function is a bell-shaped curve that is symmetric around \\(\\mu\\).\nThe mean of the normal distribution is \\(\\mu\\) and the variance is \\(\\sigma^2\\). The cumulative distribution function is given by\n\\[\nF_X(\\alpha) = P(X \\leq \\alpha) = \\int_{-\\infty}^ \\alpha \\frac{1}{\\sqrt{2\\pi}\\sigma} e^{-(x-\\mu)/ 2\\sigma^2} \\, dx\n\\]\n\nExpectation of a Normal Random Variable\nIf \\(X\\) is a normal random variable with parameters \\(\\mu\\) and \\(\\sigma^2\\), then the expected value of \\(X\\) is given by \\[\nE(X) = \\int_{-\\infty}^\\infty x \\frac{1}{\\sqrt{2\\pi}\\sigma} e^{-(x-\\mu)/ 2\\sigma^2} \\, dx\n= \\mu \\int_{-\\infty}^\\infty \\frac{1}{\\sqrt{2\\pi}\\sigma} e^{-(x-\\mu)/ 2\\sigma^2} \\, dx\n= \\mu \\cdot 1\n= \\mu\n\\]\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\n\n\ndef normal(x, mu, sigma):\n    \"\"\"\n    Calculate the Normal probability density function (PDF) for a given x, mean mu, and standard deviation sigma.\n\n    :param x: Value at which to evaluate the PDF\n    :param mu: Mean of the distribution\n    :param sigma: Standard deviation of the distribution\n    :return: Probability density at x\n    \"\"\"\n    from math import exp, pi\n\n    return (1 / (sigma * (2 * pi) ** 0.5)) * exp(-0.5 * ((x - mu) / sigma) ** 2)\n    \n\n\n# Example usage\nmu =50 # Mean of the distribution\nstd_devs = [5, 10, 20] # Different standard deviations\n\n# X range for plotting\nx = np.linspace(0, 100, 100) \n\n# Plot each distribution\nfor sigma in std_devs:\n    # y = norm.pdf(x, loc=mu, scale=sigma)\n    y = [normal(i, mu, sigma) for i in x]\n    plt.plot(x, y, label=f'std = {sigma}')\n\nplt.title('Normal Distributions with Different Standard Deviations')\nplt.xlabel('Value')\nplt.ylabel('Density')\nplt.legend()\nplt.grid(True)\nplt.show()"
+  },
+  {
+    "objectID": "blog/distributions/dists_notebook.html#expectation-of-a-function-of-a-random-variable",
+    "href": "blog/distributions/dists_notebook.html#expectation-of-a-function-of-a-random-variable",
+    "title": "Random Variables",
+    "section": "Expectation of a Function of a Random Variable",
+    "text": "Expectation of a Function of a Random Variable\n\nIn Discrete Case\nIf \\(X\\) is a discrete random variable having a probability mass function \\(p(x)\\), and \\(g(x)\\) is a function of \\(x\\), then the expected value of \\(g(X)\\) is defined by \\[\nE(g(X)) = \\sum_{x_i} g(x_i) p(x_i)\n\\] ### In Continuous Case If \\(X\\) is a continuous random variable having a probability density function \\(f(x)\\), and \\(g(x)\\) is a function of \\(x\\), then the expected value of \\(g(X)\\) is defined by \\[\nE(g(X)) = \\int_{-\\infty}^{\\infty} g(x) f(x) \\, dx\n\\]"
+  },
+  {
+    "objectID": "blog/distributions/dists_notebook.html#independent-random-variables",
+    "href": "blog/distributions/dists_notebook.html#independent-random-variables",
+    "title": "Random Variables",
+    "section": "Independent Random Variables",
+    "text": "Independent Random Variables\nThe random variables \\(X\\) and \\(Y\\) are said to be independent if, for all \\(a, b,\\) \\[\nP(X \\leq a, Y \\leq b) = P(X \\leq a) P(Y \\leq b)\n\\]\nIn terms of the joint cumulative distribution function, this means that \\[\nF(a,b) = F_X(a) F_Y(b)\n\\]\nWhen \\(X\\) and \\(Y\\) are discrete random variables, the independence condition can be expressed as \\[\np(x,y) = p_X(x) p_Y(y)\n\\]\nWhen \\(X\\) and \\(Y\\) are joint continuous, the independence reduces to \\[\nf(x,y) = f_X(x) f_Y(y)\n\\]\n\nProof for discrete case\nSuppose that the joint probability mass function \\(p(x,y)\\), then\n\\[\n\\begin{align*}\nP(X \\leq a, Y \\leq b) &= \\sum_{y \\leq b} \\sum_{x \\leq a} p(x,y) \\\\\n&= \\sum_{y \\leq b} \\sum_{x \\leq a} p_X(x) p_Y(y) \\\\\n&= \\left( \\sum_{x \\leq a} p_X(x) \\right) \\left( \\sum_{y \\leq b} p_Y(y) \\right) \\\\\n&= P(X \\leq a) P(Y \\leq b)\n\\end{align*}\n\\]\nand so \\(X\\) and \\(Y\\) are independent.\n\n\nProof for continuous case\nSuppose that the joint probability density function \\(f(x,y)\\), then \\[\n\\begin{align*}\nP(X \\leq a, Y \\leq b) &= \\int_{-\\infty}^a \\int_{-\\infty}^b f(x,y) \\, dx \\, dy \\\\\n&= \\int_{-\\infty}^a \\int_{-\\infty}^b f_X(x) f_Y(y) \\, dx \\, dy \\\\\n&= \\left( \\int_{-\\infty}^a f_X(x) \\, dx \\right) \\left( \\int_{-\\infty}^b f_Y(y) \\, dy \\right) \\\\\n&= P(X \\leq a) P(Y \\leq b)\n\\end{align*}\n\\]"
+  },
+  {
+    "objectID": "blog/distributions/dists_notebook.html#covariance-and-variance-of-sums-of-random-variables",
+    "href": "blog/distributions/dists_notebook.html#covariance-and-variance-of-sums-of-random-variables",
+    "title": "Random Variables",
+    "section": "Covariance and Variance of Sums of Random Variables",
+    "text": "Covariance and Variance of Sums of Random Variables\nThe covariance of any two random variables \\(X\\) and \\(Y\\), denoted by \\(Cov(X,Y)\\), is defined by \\[\nCov(X,Y) = E[(X - E(X))(Y - E(Y))] = E(XY) - E(X)E(Y)\n\\] The variance of a random variable \\(X\\), denoted by \\(Var(X)\\), is defined by \\[\nVar(X) = E[(X - E(X))^2] = E(X^2) - (E(X))^2\n\\]"
+  },
+  {
+    "objectID": "blog/distributions/dists_notebook.html#moment-generating-functions",
+    "href": "blog/distributions/dists_notebook.html#moment-generating-functions",
+    "title": "Random Variables",
+    "section": "Moment Generating Functions",
+    "text": "Moment Generating Functions"
+  },
+  {
+    "objectID": "blog/prob_stats/mc_integration.html",
+    "href": "blog/prob_stats/mc_integration.html",
+    "title": "Monte Carlo Integration",
+    "section": "",
+    "text": "Slides"
+  },
+  {
+    "objectID": "blog/prob_stats/dists_index.html",
+    "href": "blog/prob_stats/dists_index.html",
+    "title": "Random Variables",
+    "section": "",
+    "text": "Slides"
+  },
+  {
+    "objectID": "blog/index.html",
+    "href": "blog/index.html",
+    "title": "MUSTAFA ASLAN",
+    "section": "",
+    "text": "Copulas: Separating Marginals from Dependence\n\n\nAn interactive introduction to Gaussian copulas and marginal distributions.\n\n\n\n\n\nOct 10, 2026\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nMonte Carlo Integration\n\n\nlearning material\n\n\n\n\n\nAug 9, 2025\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nConditional Probability and Conditional Expectation\n\n\nlearning material\n\n\n\n\n\nApr 30, 2025\n\n\nMustafa Aslan\n\n\n\n\n\n\n\n\n\n\n\n\nRandom Variables\n\n\nlearning material\n\n\n\n\n\nApr 30, 2025\n\n\nMustafa Aslan\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "blog/cond_dists/cond_dist_notebook.html",
+    "href": "blog/cond_dists/cond_dist_notebook.html",
+    "title": "Conditional Probability and Conditional Expectation",
+    "section": "",
+    "text": "For any two events \\(E\\) and \\(F\\), the conditional probability of \\(E\\) given \\(F\\) is defined, as long as \\(P(F) &gt; 0\\), by\n\\[\nP(E|F) = \\frac{P(E  F)}{P(F)}.\n\\]\nHence, if \\(X\\) and \\(Y\\) are discrete random variables, then it is natural to define the conditional probability mass function of \\(X\\) given that \\(Y = y\\), by\n\\[\n\\begin{align*}\np_{X|Y}(x|y) &= P(X = x | Y = y) \\\\\n&= \\frac{P(X = x, Y = y)}{P(Y = y)} \\\\\n&= \\frac{p(x,y)}{p_Y(y)}.\n\\end{align*}\n\\]\nSimilarly, the conditional probability distribution function of \\(X\\) given that \\(Y=y\\) is defined, for all \\(y\\) such that \\(P(Y = y) &gt; 0\\), by\n\\[\n\\begin{align*}\nF_{X|Y}(x|y) &= P(X \\leq x | Y = y) \\\\\n&= \\sum_{a \\leq x} P_{X | Y}(a | y) \\\\\n\\end{align*}\n\\]\nThe conditional expectation of \\(X\\) given that \\(Y = y\\) is defined by \\[\nE[X | Y = y] = \\sum_{x} x P(X = x | Y = y) = \\sum_{x} x p_{X|Y}(x|y).\n\\]"
+  },
+  {
+    "objectID": "blog/cond_dists/cond_dist_notebook.html#the-discrete-case",
+    "href": "blog/cond_dists/cond_dist_notebook.html#the-discrete-case",
+    "title": "Conditional Probability and Conditional Expectation",
+    "section": "",
+    "text": "For any two events \\(E\\) and \\(F\\), the conditional probability of \\(E\\) given \\(F\\) is defined, as long as \\(P(F) &gt; 0\\), by\n\\[\nP(E|F) = \\frac{P(E  F)}{P(F)}.\n\\]\nHence, if \\(X\\) and \\(Y\\) are discrete random variables, then it is natural to define the conditional probability mass function of \\(X\\) given that \\(Y = y\\), by\n\\[\n\\begin{align*}\np_{X|Y}(x|y) &= P(X = x | Y = y) \\\\\n&= \\frac{P(X = x, Y = y)}{P(Y = y)} \\\\\n&= \\frac{p(x,y)}{p_Y(y)}.\n\\end{align*}\n\\]\nSimilarly, the conditional probability distribution function of \\(X\\) given that \\(Y=y\\) is defined, for all \\(y\\) such that \\(P(Y = y) &gt; 0\\), by\n\\[\n\\begin{align*}\nF_{X|Y}(x|y) &= P(X \\leq x | Y = y) \\\\\n&= \\sum_{a \\leq x} P_{X | Y}(a | y) \\\\\n\\end{align*}\n\\]\nThe conditional expectation of \\(X\\) given that \\(Y = y\\) is defined by \\[\nE[X | Y = y] = \\sum_{x} x P(X = x | Y = y) = \\sum_{x} x p_{X|Y}(x|y).\n\\]"
+  },
+  {
+    "objectID": "blog/cond_dists/cond_dist_notebook.html#the-continuous-case",
+    "href": "blog/cond_dists/cond_dist_notebook.html#the-continuous-case",
+    "title": "Conditional Probability and Conditional Expectation",
+    "section": "The Continuous Case",
+    "text": "The Continuous Case\nIf \\(X\\) and \\(Y\\) have a joint probability density function \\(f(x, y)\\), then the conditional probability density function of \\(X\\), given that \\(Y = y\\), is defined for all values of \\(y\\) such that \\(f_Y(y) &gt; 0\\), by\n\\[\n\\begin{align*}\nf_{X|Y}(x|y) &= \\frac{f(x,y)}{f_Y(y)} \\\\\n&= \\frac{f(x,y)}{\\int_{-\\infty}^{\\infty} f(x,y) dx}.\n\\end{align*}\n\\] The conditional distribution function of \\(X\\) given that \\(Y = y\\) is defined by \\[\n\\begin{align*}\nF_{X|Y}(x|y) &= P(X \\leq x | Y = y) \\\\\n&= \\int_{-\\infty}^{x} f_{X|Y}(a|y) da \\\\\n&= \\int_{-\\infty}^{x} \\frac{f(a,y)}{f_Y(y)} da \\\\\n&= \\frac{1}{f_Y(y)} \\int_{-\\infty}^{x} f(a,y) da.\n\\end{align*}\n\\]\nThe conditional expectation of \\(X\\) given that \\(Y = y\\) is defined or all values of \\(y\\) such that \\(f_Y(y) &gt; 0\\), by \\[\n\\begin{align*}\nE[X | Y = y] &= \\int_{-\\infty}^{\\infty} x f_{X|Y}(x|y) dx \\\\\n&= \\int_{-\\infty}^{\\infty} x \\frac{f(x,y)}{f_Y(y)} dx \\\\\n&= \\frac{1}{f_Y(y)} \\int_{-\\infty}^{\\infty} x f(x,y) dx.\n\\end{align*}\n\\]"
+  },
+  {
+    "objectID": "blog/cond_dists/cond_dist_notebook.html#computing-expectations-by-conditioning",
+    "href": "blog/cond_dists/cond_dist_notebook.html#computing-expectations-by-conditioning",
+    "title": "Conditional Probability and Conditional Expectation",
+    "section": "Computing Expectations by Conditioning",
+    "text": "Computing Expectations by Conditioning\nLet us denote by \\(E[X|Y]\\) that function of the random variable \\(Y\\) whose value at \\(Y = y\\) is \\(E[X|Y = y]\\). Note that \\(E[X|Y]\\) is itself a random variable. An extremely important important property of conditional expectation is that for all random variables \\(X\\) and \\(Y\\) \\[\nE[X] = E[E[X|Y]]\n\\]\nIf \\(Y\\) is a discrete random variable, then \\[\nE[X] = \\sum_{y} E[X|Y = y] P(Y = y)\n\\]\nIf \\(Y\\) is continuous with density \\(f_Y(y)\\), then \\[\nE[X] = \\int_{-\\infty}^{\\infty} E[X|Y = y] f_Y(y) dy\n\\]"
+  },
+  {
+    "objectID": "blog/prob_stats/cond_index.html",
+    "href": "blog/prob_stats/cond_index.html",
+    "title": "Conditional Probability and Conditional Expectation",
+    "section": "",
+    "text": "Slides"
+  },
+  {
+    "objectID": "blog/prob_stats/copul.html",
+    "href": "blog/prob_stats/copul.html",
+    "title": "Copulas: Separating Marginals from Dependence",
+    "section": "",
+    "text": "Copulas let us model dependence separately from the marginal distributions. In this notebook, adjust a Gaussian copula’s dependence parameter and sample size, while keeping an exponential and a Weibull marginal."
+  },
+  {
+    "objectID": "blog/prob_stats/copul.html#explore-the-notebook",
+    "href": "blog/prob_stats/copul.html#explore-the-notebook",
+    "title": "Copulas: Separating Marginals from Dependence",
+    "section": "Explore the notebook",
+    "text": "Explore the notebook\n Read-only Notebook  Slide Presentation  Editable Notebook \nTo edit the notebook locally, install the project requirements and run marimo edit ../copulas/copul.py."
+  },
+  {
+    "objectID": "blog/monte_carlo/mc_notebook.html",
+    "href": "blog/monte_carlo/mc_notebook.html",
+    "title": "Monte Carlo Integration",
+    "section": "",
+    "text": "Monte Carlo integration is a statistical technique that allows us to approximate complex integrals using random sampling. The basic idea is to use random points in the domain of the integrand to estimate the average value of the function, which can then be scaled by the volume of the domain to obtain an estimate of the integral.\nThe steps for performing Monte Carlo integration are as follows:\nMonte Carlo integration is particularly useful for high-dimensional integrals or when the integrand is difficult to evaluate analytically. It can also be applied to problems in physics, finance, and other fields where uncertainty and randomness play a significant role."
+  },
+  {
+    "objectID": "blog/monte_carlo/mc_notebook.html#basic-monte-carlo-integration",
+    "href": "blog/monte_carlo/mc_notebook.html#basic-monte-carlo-integration",
+    "title": "Monte Carlo Integration",
+    "section": "Basic Monte Carlo Integration",
+    "text": "Basic Monte Carlo Integration\nSuppose we want to evaluate the integral\n\\[\nI = \\int_0^1 h(x) \\, dx\n\\]\nfor some function \\(h(x)\\).\nIf \\(h\\) is complicated there may be no known closed form expression for \\(I\\). In such cases, we can use Monte Carlo integration to obtain an approximate value for the integral.\nLet us begin by writing\n\\[\nI = \\int_a^b h(x) \\, dx = \\int_a^b w(x)f(x) \\, dx\n\\]\nwhere \\(w(x) = h(x)(b-a)\\) and \\(f(x) = 1/(b-a)\\). Notice that \\(f\\) is the probability density for a uniform random variable over \\((a, b)\\). Hence\n\\[\nI = \\int_a^b w(x)f(x) \\, dx = \\mathbb{E}_f[w(X)]\n\\]\nwhere \\(X\\) is a random variable uniformly distributed over \\((a, b)\\).\nIf we generate \\(N\\) independent samples \\(X_1, X_2, \\ldots, X_N\\) from the distribution of \\(X\\), we can approximate the integral using the sample average, which satisfies law of large numbers:\n\\[\n\\hat{I} \\approx \\frac{1}{N} \\sum_{i=1}^N w(X_i)\n\\]\nThis gives us a Monte Carlo estimate of the integral.\nWe can also compute the standard error of the estimate:\n\\[\n\\text{SE} = \\frac{1}{\\sqrt{N}} \\sigma_w\n\\]\nwhere\n\\[\n\\sigma_w = \\sqrt{\\frac{1}{N-1} \\sum_{i=1}^N (w(X_i) - \\hat{I})^2}\n\\]\n\nExample 1\nLet \\(h(x) = x^3\\). We want to estimate the integral\n\\[\nI = \\int_0^1 x^3 \\, dx\n\\]\nUsing the Monte Carlo method, we can approximate this integral by generating random samples from the uniform distribution over \\((0, 1)\\) which is \\((a, b)\\) in the formula.\nThe goal is the compute \\[\n\\hat{I} = \\int_0^1 x^3 \\, dx\n\\]\nAnalytical answer: \\(I = 1/4\\) (easy to compute)\nMonte Carlo estimate:\n\nSimulation steps\n\n\nGenerate \\(10,000\\) random samples \\(X_1, X_2, \\ldots, X_{10,000}\\) from the uniform distribution over \\((0, 1)\\).\nCompute for each sample \\(X_i\\) the value \\(h(X_i) = X_i^3\\).\nEstimate the integral as the average of these values: \\[\n\\hat{I} \\approx \\frac{1}{10,000} \\sum_{i=1}^{10,000} (X_i^3)\n\\]\n\nWe get \\(\\hat{I} \\approx 0.243\\).\nMonte Carlo method generates an answer that is close to the analytical solution, which is \\(0.25\\), but not exact. The accuracy of the Monte Carlo estimate improves with more samples.\n\nPython implementation\n\n# python implementation\nimport numpy as np\nnp.random.seed(42) # for reproducibility\n\n# calculate for N = 100 and increase by 50 untill 10000 to see the convergence to the true value which is 0.25\nhistory_ex1 = []\nfor N in range(100, 10001, 50):\n    X = np.random.uniform(0, 1, N)\n    H = X**3\n    I_hat = np.mean(H)\n    history_ex1.append([N, I_hat])\nhistory_ex1 = np.array(history_ex1)\n\n\n#plot history against number of samples to observe convergence\nimport matplotlib.pyplot as plt\n\nplt.figure(figsize=(10, 6))\nplt.plot(history_ex1[:, 0], history_ex1[:, 1], label='Monte Carlo Estimate')\nplt.axhline(y=0.25, color='r', linestyle='--', label='True Value')\nplt.xlabel('Number of Samples (N)')\nplt.ylabel('Estimated Integral')\nplt.title('Monte Carlo Integration Convergence')\nplt.legend()\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\nExample 2\nLet\n\\[\nf(x) = \\frac{1}{\\sqrt{2\\pi}} e^{-x^2/2}\n\\]\nbe the standard Normal pdf. Suppose we want to compute the cdf at some point \\(x\\):\n\\[\nI = \\int_{-\\infty}^x f(s) ds = \\Phi(x).\n\\]\nWrite\n\\[\nI = \\int h(s) f(s) ds\n\\]\nwhere\n\\[\nh(s) = \\begin{cases}\n1 & s &lt; x \\\\\n0 & s \\geq x\n\\end{cases}\n\\]\nNow we generate \\(X_1, \\ldots, X_N \\sim N(0,1)\\) and set\n\\[\n\\hat{I} = \\frac{1}{N} \\sum_i h(X_i) = \\frac{\\text{number of observations } \\leq x}{N}.\n\\]\nFor example, with \\(x = 2\\), the true answer is \\(\\Phi(2) = .9772\\) and the Monte Carlo estimate with \\(N = 10,\\!000\\) yields \\(.9751\\). Using \\(N = 100,\\!000\\) we get \\(.9771\\).\n\n# Python implementation\n\nimport numpy as np\nfrom scipy.stats import norm\n\nx = 2\n\n# True value\nI_true = norm.cdf(x)\n# calculate for N = 100 and increase by 50 untill 10000 to see the convergence to the true value which is 0.9772\nhistory_ex2 = []\nfor N in range(100, 10001, 50):\n    X = np.random.normal(0, 1, N)\n    h = (X &lt; x).astype(int)\n    I_hat = np.mean(h)\n    history_ex2.append([N, I_hat])\nhistory_ex2 = np.array(history_ex2)\n\n\n#plot history against number of samples to observe convergence\nimport matplotlib.pyplot as plt\n\nplt.figure(figsize=(10, 6))\nplt.plot(history_ex2[:, 0], history_ex2[:, 1], label='Monte Carlo Estimate')\nplt.axhline(y=I_true, color='r', linestyle='--', label='True Value')\nplt.xlabel('Number of Samples (N)')\nplt.ylabel('Estimated Integral')\nplt.title('Monte Carlo Integration Convergence')\nplt.legend()\nplt.show()"
   }
 ]

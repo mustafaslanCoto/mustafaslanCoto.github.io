@@ -102,5 +102,47 @@
   },
   "talks/kurdish_aademic_conf/present.qmd": {
     "present.html": "5916fdeb"
+  },
+  "learn/2_stage_stocastic/CLAUDE.md": {
+    "CLAUDE.html": "44da23e1"
+  },
+  "learn/prob_stats/2_stage_sample.qmd": {
+    "2_stage_sample.html": "31ad803c"
+  },
+  "learn/prob_stats/mc_integration.qmd": {
+    "mc_integration.html": "6b506d8e"
+  },
+  "learn/monte_carlo/mc_notebook.ipynb": {
+    "mc_notebook.html": "18b5f696"
+  },
+  "learn/copulas/index.qmd": {
+    "index.html": "773f4ef7"
+  },
+  "learn/prob_stats/copul.qmd": {
+    "copul.html": "88afcf15"
+  },
+  "blog/cond_dists/cond_dist_notebook.ipynb": {
+    "cond_dist_notebook.html": "bfc50c86"
+  },
+  "blog/index.qmd": {
+    "index.html": "be0b306a"
+  },
+  "blog/prob_stats/cond_index.qmd": {
+    "cond_index.html": "35d47c9a"
+  },
+  "blog/prob_stats/dists_index.qmd": {
+    "dists_index.html": "150763a7"
+  },
+  "blog/prob_stats/copul.qmd": {
+    "copul.html": "6455bd1f"
+  },
+  "blog/prob_stats/mc_integration.qmd": {
+    "mc_integration.html": "ce58a4ff"
+  },
+  "blog/monte_carlo/mc_notebook.ipynb": {
+    "mc_notebook.html": "81321c2b"
+  },
+  "blog/distributions/dists_notebook.ipynb": {
+    "dists_notebook.html": "92ec1f5e"
   }
 }
