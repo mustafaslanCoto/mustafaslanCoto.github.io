@@ -20,26 +20,53 @@ let exportSourcePath = sourcePath;
 let temporarySourcePath;
 
 try {
-  if (variant === "read") {
-    const source = await readFile(sourcePath, "utf8");
-    const layoutArgument =
-      /^[\t ]*layout_file[\t ]*=[\t ]*(?:"[^"\n]*"|'[^'\n]*'|None)[\t ]*,[\t ]*$/m;
-    let readSource = source.replace(layoutArgument, "");
+  const source = await readFile(sourcePath, "utf8");
+  const layoutArgument =
+    /^[\t ]*layout_file[\t ]*=[\t ]*(?:"[^"\n]*"|'[^'\n]*'|None)[\t ]*,[\t ]*$/m;
+  const hasLayoutArgument = /\blayout_file\s*=/.test(source);
+  let exportSource = source;
 
-    if (readSource === source && /\blayout_file\s*=/.test(source)) {
+  const isSlide = variant === "slide";
+  if (isSlide && !hasLayoutArgument) {
+    const appConstructor = /^[\t ]*(\w+)[\t ]*=[\t ]*(?:marimo|mo)\.App\(/m;
+    const appMatch = source.match(appConstructor);
+    if (!appMatch) {
+      throw new Error(`${sourcePath} does not have a marimo.App constructor to configure for slides`);
+    }
+    const appName = appMatch[1];
+    const cellDecorator = new RegExp(`^[\\t ]*@${appName}\\.cell\\b`, "gm");
+    const cellCount = [...source.matchAll(cellDecorator)].length;
+    if (cellCount === 0) {
+      throw new Error(`${sourcePath} does not contain any @${appName}.cell definitions`);
+    }
+
+    const slideLayout = {
+      type: "slides",
+      data: { cells: Array.from({ length: cellCount }, () => ({})), deck: {} },
+    };
+    const layoutDataUri = `data:application/json;base64,${Buffer.from(
+      JSON.stringify(slideLayout),
+    ).toString("base64")}`;
+    exportSource = source.replace(
+      appConstructor,
+      (match) => `${match}\n    layout_file=${JSON.stringify(layoutDataUri)},`,
+    );
+  } else if (variant !== "slide" && hasLayoutArgument) {
+    exportSource = source.replace(layoutArgument, "");
+    if (exportSource === source) {
       throw new Error(
-        `${sourcePath} has a non-literal or multiline layout_file; unable to create the read-only notebook variant`,
+        `${sourcePath} has a non-literal or multiline layout_file; unable to create the ${variant} notebook variant`,
       );
     }
+  }
 
-    if (readSource !== source) {
-      temporarySourcePath = join(
-        sourceDirectory,
-        `.${stem}.read-export-${process.pid}.py`,
-      );
-      await writeFile(temporarySourcePath, readSource, { flag: "wx" });
-      exportSourcePath = temporarySourcePath;
-    }
+  if (exportSource !== source) {
+    temporarySourcePath = join(
+      sourceDirectory,
+      `.${stem}.${variant}-export-${process.pid}.py`,
+    );
+    await writeFile(temporarySourcePath, exportSource, { flag: "wx" });
+    exportSourcePath = temporarySourcePath;
   }
 
   const exportMode = variant === "edit" ? "edit" : "run";
@@ -55,6 +82,7 @@ try {
       exportMode,
       "--single-file",
       "--force",
+      "--no-sandbox",
     ],
     { cwd: sourceDirectory, encoding: "utf8", stdio: "inherit" },
   );
@@ -72,7 +100,7 @@ try {
     );
   }
 
-  if (variant === "slide") {
+  if (isSlide) {
     if (await fileExists(footerConfigPath)) {
       const footer = spawnSync(
         process.execPath,

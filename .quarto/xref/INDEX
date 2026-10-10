@@ -144,5 +144,8 @@
   },
   "blog/distributions/dists_notebook.ipynb": {
     "dists_notebook.html": "92ec1f5e"
+  },
+  "talks/presentations/sword2026.qmd": {
+    "sword2026.html": "3e894d47"
   }
 }

@@ -1,0 +1,289 @@
+/* ==========================================
+   1. VIEWPORT & MAIN PRESENTATION BACKGROUND
+   ========================================== */
+.reveal-viewport, 
+.reveal, 
+.reveal .slides section {
+  background-color: #FBFAF4 !important;
+}
+
+.reveal {
+  color: #091717;
+}
+
+/* ==========================================
+   2. HEADINGS & TYPOGRAPHY
+   ========================================== */
+.reveal h1, 
+.reveal h1.title {
+  color: #091717 !important;
+  font-size: 1.8em !important;
+  font-weight: 700;
+}
+
+.reveal h2 {
+  color: #091717 !important;
+}
+
+.reveal h3 {
+  color: #091717 !important;
+}
+
+.reveal .subtitle {
+  text-align: left !important;
+}
+
+.mimic-h2 {
+  display: block;
+  font-family: var(--heading-font, inherit);
+  font-weight: 600;
+  color: #091717;
+  font-size: 1.6em;
+  line-height: 1.2;
+  margin-bottom: 0.5em;
+}
+
+.cust_title {
+  font-size: 1em;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 0.5em;
+  margin-top: 0;
+  color: inherit;
+  display: block;
+}
+
+/* ==========================================
+   3. PROGRESS BAR & CONTROLS
+   ========================================== */
+.reveal .progress {
+  height: 8px !important;
+  background: rgba(32, 128, 141, 0.2) !important;
+}
+
+.reveal .progress span {
+  background: #20808D !important;
+  height: 100% !important;
+}
+
+.reveal .slide-number {
+  color: #20808D !important;
+}
+
+.reveal .slide-menu-button .fa-bars::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2320808D" class="bi bi-list" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/></svg>') !important;
+}
+
+/* ==========================================
+   4. HYPERLINKS & FOOTERS
+   ========================================== */
+.reveal a,
+.reveal a.citation,
+.reveal a.quarto-xref,
+.reveal a.no-external {
+  color: #0B363C !important;
+  text-decoration: none;
+}
+
+.reveal a:hover, 
+.reveal a.quarto-xref:hover,
+.reveal a.no-external:hover {
+  color: #92DCE2 !important; 
+  text-decoration: underline;
+}
+
+.reveal .footer {
+  color: #20808D !important;
+}
+
+.reveal .footer a {
+  color: #20808D !important;
+  text-decoration: none;
+}
+
+.reveal .footer a:hover,
+.reveal .footer a:focus {
+  color: #16606A !important;
+}
+
+/* ==========================================
+   5. CALLOUTS, BOXES & IMAGES
+   ========================================== */
+div.callout,
+.callout {
+  border-left: 8px solid #20808D !important;
+  background-color: #f4fafb;
+  margin: 1em 0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+div.callout .callout-title,
+.callout .callout-title {
+  background-color: #BADFDE !important;
+  padding: 8px 12px;
+  font-weight: 600;
+  color: #091717;
+}
+
+.callout .callout-content {
+  padding: 10px 12px;
+}
+
+.border-box {
+  padding: 15px;
+  border-radius: 5px;
+  background-color: #DEF7F9;
+  border: 1px solid #c2eeef;
+}
+
+.left-border {
+  border-left: 2px solid rgba(0,0,0,0.12) !important;
+  border-radius: 0 !important;
+  border-top: none !important;
+  border-right: none !important;
+  border-bottom: none !important;
+  padding-left: 14px !important;
+  background: none !important;
+}
+
+.reveal img {
+  background-color: #FBFAF4 !important;
+}
+
+/* ==========================================
+   6. CUSTOM LIST STYLES (POSITIVE / NEGATIVE / SPACED)
+   ========================================== */
+.reveal .positive ul,
+.reveal ul.positive {
+  list-style: none !important;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+
+.reveal .positive li,
+.reveal ul.positive li {
+  margin-left: 0 !important;
+}
+
+.reveal .positive li::before,
+.reveal ul.positive li::before {
+  content: "✓ ";
+  color: #2CA0AB;
+  font-weight: 700;
+  display: inline-block;
+  width: 1.2em;
+}
+
+.reveal .negative ul,
+.reveal ul.negative {
+  list-style: none !important;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+
+.reveal .negative li,
+.reveal ul.negative li {
+  margin-left: 0 !important;
+}
+
+.reveal .negative li::before,
+.reveal ul.negative li::before {
+  content: "✗ ";
+  color: #BF505C;
+  font-weight: 700;
+  display: inline-block;
+  width: 1.2em;
+}
+
+.reveal .spaced li {
+  margin-bottom: 1.5em !important;
+}
+
+/* ==========================================
+   7. FULL-SLIDE TABLES
+   ========================================== */
+.reveal .slides section.tables-full-slide .columns {
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.reveal .slides section.tables-full-slide .column {
+  min-width: 0;
+}
+
+.reveal .slides section.tables-full-slide .gt_table {
+  width: 100% !important;
+  margin: 0 auto;
+}
+
+.reveal .slides section.tables-full-slide .gt_col_heading {
+  white-space: nowrap;
+}
+
+/* ==========================================
+   8. NAVIGATION BUTTONS (< and >)
+   ========================================== */
+
+/* Target navigation buttons and controls */
+.reveal .controls,
+.reveal .controls button,
+.reveal .controls .navigate-left,
+.reveal .controls .navigate-right,
+.reveal .controls .controls-arrow {
+  color: #20808D !important;
+  opacity: 0.85 !important;
+}
+
+/* Target SVG icons inside the navigation buttons */
+.reveal .controls button svg,
+.reveal .controls svg {
+  fill: #20808D !important;
+  color: #20808D !important;
+}
+
+.reveal .controls button svg path,
+.reveal .controls svg path {
+  fill: #20808D !important;
+  stroke: #20808D !important;
+}
+
+/* Hover effect on navigation arrows */
+.reveal .controls button:hover,
+.reveal .controls .navigate-left:hover,
+.reveal .controls .navigate-right:hover {
+  color: #16606A !important;
+  opacity: 1 !important;
+}
+
+.reveal .controls button:hover svg path,
+.reveal .controls svg:hover path {
+  fill: #16606A !important;
+  stroke: #16606A !important;
+}
+
+
+/* ==========================================
+   9. SLIDE NUMBERS
+   ========================================== */
+
+.reveal .slides {
+  counter-reset: slide-number;
+}
+
+.reveal .slides > section {
+  counter-increment: slide-number;
+}
+
+.reveal .slides > section.present::after {
+  content: counter(slide-number);
+  position: absolute;
+  right: 22px;
+  bottom: 9px;
+  z-index: 60;
+  color: #20808D;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1;
+  pointer-events: none;
+}

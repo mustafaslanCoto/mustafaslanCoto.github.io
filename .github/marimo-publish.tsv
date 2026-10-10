@@ -1,5 +1,8 @@
-# Notebook path (from repository root) and comma-separated exports to publish.
+# Optional per-notebook override: repository-relative path and comma-separated
+# exports to publish. The default for every discovered marimo notebook is
+# read,slide,edit.
 # Available exports: read (read-only notebook), slide (read-only presentation),
 # and edit (editable notebook). Omit the second field to publish read only.
 # Optional per-notebook footer: add <notebook-name>.footer.json beside the .py file.
 blog/copulas/copul.py read,slide,edit
+talks/sword2026/causp.py read,slide,edit

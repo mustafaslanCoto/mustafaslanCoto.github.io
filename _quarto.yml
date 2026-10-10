@@ -2,6 +2,7 @@ project:
   type: website
   output-dir: docs
   pre-render: node scripts/export_all_marimo.mjs
+  post-render: node scripts/copy_marimo_exports.mjs
  
 website:
   title: "MUSTAFA ASLAN"

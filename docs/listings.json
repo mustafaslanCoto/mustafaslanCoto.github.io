@@ -2,6 +2,7 @@
   {
     "listing": "/talks/index.html",
     "items": [
+      "/talks/presentations/sword2026.html",
       "/talks/presentations/kurd_conf.html",
       "/talks/presentations/sphere.html",
       "/talks/presentations/ors.html",

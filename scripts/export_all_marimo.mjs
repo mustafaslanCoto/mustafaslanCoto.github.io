@@ -26,7 +26,7 @@ for (const root of ["blog", "talks"]) {
   for (const notebookPath of await findMarimoApps(join(projectRoot, root))) {
     const repositoryPath = relative(projectRoot, notebookPath);
     discoveredPaths.add(repositoryPath);
-    const variants = (config.get(repositoryPath) ?? "read").split(",");
+    const variants = (config.get(repositoryPath) ?? "read,slide,edit").split(",");
     const stem = basename(notebookPath, ".py");
 
     for (const variant of variants) {
