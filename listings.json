@@ -1,10 +1,16 @@
 [
   {
-    "listing": "/learn/index.html",
+    "listing": "/presentations/index.html",
     "items": [
-      "/learn/prob_stats/mc_integration.html",
-      "/learn/prob_stats/cond_index.html",
-      "/learn/prob_stats/dists_index.html"
+      "/presentations/hosp_marimo.html"
+    ]
+  },
+  {
+    "listing": "/workshops/index.html",
+    "items": [
+      "/workshops/trainings/causal_ml.html",
+      "/workshops/trainings/rl_index.html",
+      "/workshops/trainings/py_index.html"
     ]
   },
   {
@@ -22,17 +28,12 @@
     ]
   },
   {
-    "listing": "/workshops/index.html",
+    "listing": "/blog/index.html",
     "items": [
-      "/workshops/trainings/causal_ml.html",
-      "/workshops/trainings/rl_index.html",
-      "/workshops/trainings/py_index.html"
-    ]
-  },
-  {
-    "listing": "/presentations/index.html",
-    "items": [
-      "/presentations/hosp_marimo.html"
+      "/blog/prob_stats/copul.html",
+      "/blog/prob_stats/mc_integration.html",
+      "/blog/prob_stats/cond_index.html",
+      "/blog/prob_stats/dists_index.html"
     ]
   },
   {
