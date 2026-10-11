@@ -12,9 +12,10 @@
 
 import marimo
 
-__generated_with = "0.24.2"
+__generated_with = "0.25.1"
 app = marimo.App(
     width="full",
+    layout_file="layouts/causp.slides.json",
     css_file="css/custom.css",
     html_head_file="",
     auto_download=["html"],
@@ -56,7 +57,101 @@ def _(mo):
     # drop Quarto's ```{=html} fences; logos live in talks/images
     _html = re.sub(r"^```.*$", "", _html, flags=re.M)
     _html = re.sub(r'src="(images/[^"]+)"', _src, _html)
-    mo.Html(_html)
+    # scale with the slide width (Quarto reveal does this via its 1920x1080 canvas)
+    _scale = """<style>
+      .ts-wrap { container-type: inline-size; width: 100%; overflow: hidden; }
+      .ts-wrap .title-slide-custom { font-size: 2.1cqw; }
+      .ts-wrap .title-slide-custom .logo-bar { margin-bottom: 4cqw; }
+      .ts-wrap .title-slide-custom .logo-bar img { height: 6cqw !important; width: auto !important; max-width: none; }
+    </style>"""
+    mo.Html(f'{_scale}<div class="ts-wrap">{_html}</div>')
+    return (re,)
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    _items = [
+        "Grouping diagnosis with Healthcare Resource Groups (HRGs)",
+        "Confounders",
+        "Causal effect of diagnosis (HRGs) on LoS",
+    ]
+
+    def outline(active=None):
+        def _color(i):
+            if active is None:
+                return "#999999"
+            return "#20808D" if i == active else "#999999"
+
+        _li = "".join(
+            f'<li style="color:{_color(i)};font-size:1.1em;line-height:1.9">{t}</li>' # points + bullet size
+            for i, t in enumerate(_items)
+        )
+        return mo.Html(
+            '<style>.ol-list li::marker { font-size: 1.2em; }</style>'   # bullet dot only
+            '<div style="container-type:inline-size;width:100%">'
+            '<div style="font-size:3cqw;padding:2cqw 4cqw">' # master size (everything)
+            '<h2 style="font-size:1.6em;font-weight:700;color:#091717;margin:0 0 0.6em 0">Outline</h2>'  # title only
+            f'<ul class="ol-list" style="font-weight:700;margin:0;'
+            f'padding-left:1.2em;list-style:disc">{_li}</ul>'
+            '</div></div>'
+        )
+
+    return (outline,)
+
+
+@app.cell(hide_code=True)
+def _(outline):
+    outline()
+    return
+
+
+@app.cell(hide_code=True)
+def _(outline):
+    outline(0)
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo, re):
+    def fragment_md(markdown):
+        markdown = re.sub(
+            r"(?m)^- (.+)$",
+            lambda match: f'<span class="fragment">• {match.group(1)}</span>',
+            markdown,
+        )
+        return mo.md(markdown)
+
+    _image = mo.Html(
+        '<img '
+        'src="https://raw.githubusercontent.com/mustafaslanCoto/mustafaslanCoto.github.io/main/talks/images/hospital_bed.jpg" '
+        'alt="Hospital bed" '
+        'style="display:block;width:100%;height:600px;object-position:center;border-radius:8px">'
+        # 'style="display:block;width:100%;height:auto;max-height:65vh;border-radius:8px">'
+    )
+    _text = fragment_md(r"""
+    ## Why does it matter?
+
+    - **Hidden Clinical Drivers:** The true, isolated impact of specific diagnoses on Length of Stay (LoS) remains unknown
+
+    - **Tangled Hospital Data:** Hospitals need to understand why some patients stay longer than expected, but raw records mix together clinical diagnoses, patient age, chronic illnesses, and ward congestion.
+
+    - **Correlations vs. Causes:** Standard machine learning predicts correlations, not causes: it cannot tell whether a diagnosis actively causes a delay or simply reflects why a patient arrived at the hospital in the first place.
+
+    - **Reclaiming Bed Capacity:** Identifying clear, diagnosis-specific discharge protocols early in admission is essential to taking proactive action, preventing avoidable delays, and freeing up acute hospital beds.
+
+    """)
+
+    # _text = mo.md("""
+    # ## Why does it matter?
+
+    # <ul>
+    #   <li class="fragment"><strong>Hidden Clinical Drivers:</strong> The true, isolated impact of specific diagnoses on Length of Stay (LoS) remains unknown.</li>
+    #   <li class="fragment"><strong>Tangled Hospital Data:</strong> Hospitals need to understand why some patients stay longer than expected, but raw records mix together clinical diagnoses, patient age, chronic illnesses, and ward congestion.</li>
+    #   <li class="fragment"><strong>Correlations vs. Causes:</strong> Standard machine learning predicts correlations, not causes: it cannot tell whether a diagnosis actively causes a delay or simply reflects why a patient arrived at the hospital in the first place.</li>
+    #   <li class="fragment"><strong>Reclaiming Bed Capacity:</strong> Identifying clear, diagnosis-specific discharge protocols early in admission is essential to taking proactive action, preventing avoidable delays, and freeing up acute hospital beds.</li>
+    # </ul>
+    # """)
+    mo.hstack([_image, _text], widths=[0.45, 0.55], align="center", gap=1)
     return
 
 
@@ -148,6 +243,7 @@ def _():
 
     import pandas as pd
     import numpy as np
+    # import seaborn as sns
 
     def fetch(url):
         """Fetch remote data into memory before passing it to pandas.
@@ -478,7 +574,7 @@ def _(mo):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    Reducing diagnostic ambiguity — faster coding, resolving ungroupable admissions — could free up the bed-days
+    **Reducing diagnostic ambiguity — faster coding, resolving ungroupable admissions — could free up the bed-days**
     """)
     return
 
@@ -590,35 +686,27 @@ def _(cleand_df, diags, test_cut):
     excess_bed_days = sign_diagdf["ate_days"].sum()*suc_rate
     ## calculate the percentage of excess bed-days caused by the significant diagnosis groups
     excess_percentage = (excess_bed_days / total_bed_days) * 100
-    excess_percentage
-    return excess_bed_days, sign_diagdf
-
-
-@app.cell
-def _(excess_bed_days, sign_diagdf):
-    excess_bed_days/sign_diagdf["spell_los"].quantile(0.5)
     return
 
 
 @app.cell
-def _(sign_diagdf):
-    import matplotlib.pyplot as plt
-    import seaborn as sns
+def _():
+    # import matplotlib.pyplot as plt
 
-    plt.figure(figsize=(12, 6))
+    # plt.figure(figsize=(12, 6))
 
-    sns.kdeplot(
-        sign_diagdf["spell_los"].dropna(),
-        fill=True,
-        color="skyblue",
-        alpha=0.5,
-    )
+    # sns.kdeplot(
+    #     sign_diagdf["spell_los"].dropna(),
+    #     fill=True,
+    #     color="skyblue",
+    #     alpha=0.5,
+    # )
 
-    plt.xlabel("Length of Stay (days)")
-    plt.ylabel("Density")
-    plt.title("Distribution of Length of Stay")
-    plt.tight_layout()
-    plt.show()
+    # plt.xlabel("Length of Stay (days)")
+    # plt.ylabel("Density")
+    # plt.title("Distribution of Length of Stay")
+    # plt.tight_layout()
+    # plt.show()
     return
 
 
@@ -796,18 +884,6 @@ def _():
 def _():
     # unkn = clean_test[clean_test["group"] == 'unknown'].groupby("PATIENT_SPECIALTY")["ADMIT_NUMBER"].nunique().sort_values(ascending=False)
     # knw = clean_test[clean_test["group"] != 'unknown'].groupby("PATIENT_SPECIALTY")["ADMIT_NUMBER"].nunique().sort_values(ascending=False)
-    return
-
-
-@app.cell
-def _():
-    # unkn*100/unkn.sum()
-    return
-
-
-@app.cell
-def _():
-    # knw*100/knw.sum()
     return
 
 
@@ -1036,6 +1112,31 @@ def _():
     #     # plt.close(fig)
     #     # print(f'Successfully generated: {output_path_png}')
     # generate_plot()
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    import sys as _sys
+
+    _RAW = "https://raw.githubusercontent.com/mustafaslanCoto/mustafaslanCoto.github.io/main/talks/images/follow_us.png"
+    if _sys.platform == "emscripten": ## Use raw URL for Emscripten environment, meaning we can't rely on local file paths
+        _src = _RAW
+    else:
+        import base64 as _b64 # For encoding the local image file as a base64 string
+
+        _p = mo.notebook_dir().parent / "images" / "follow_us.png"
+        _src = "data:image/png;base64," + _b64.b64encode(_p.read_bytes()).decode()
+
+    _text = mo.md("# Any questions or thoughts? 💬")
+    # _text = mo.vstack([_thanks], align="center")
+    _image = mo.Html(
+        '<div style="container-type:inline-size;width:100%">'
+        f'<img src="{_src}" style="display:block;margin:0 auto;max-height:50vh;max-width:100%">'
+        '</div>'
+    )
+
+    mo.vstack([_text, _image], align = "center")
     return
 
 

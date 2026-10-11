@@ -1,6 +1,6 @@
 ---
-title: "Causal Impact of Diagnosis on Length of Stay"
-description: "SWORD Network Event - Postgraduate OR Presentations"
+title: "Causal Impact of Diagnosis on Length of Stay at SWORDS Network Event"
+description: "SWORDS Network Event - Postgraduate OR Presentations"
 author: "Mustafa Aslan"
 date: "2026-10-14"
 image: "../images/sword_page.png"
@@ -15,7 +15,7 @@ link-external-newwindow: true
 ---
 
 
-![](../images/sword_page.png){fig-align="center"}
+![](../images/hospital_bed.jpg){fig-align="center"}
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -23,9 +23,9 @@ link-external-newwindow: true
 [<i class="fas fa-bookmark"></i> Slides](../sword2026/causp_slide.html){.btn .btn-sm .btn-outline-primary}
 
 **Date:** Oct 14 2026 18:15 PM\
-**Event:** SWORD network event\
+**Event:** SWORDS network event\
 **Location:** School of Mathematics, Cardiff University, UK
 
 ## Context
 
-At the [`SWORD Network Event`](https://www.theorsociety.com/ORS/Community/Regionals-List/South-Wales-OR-Network.aspx), we will present our PhD research on enhancing discharge care planning using a probabilistic data-driven approach. This research is designed to capture the dynamic and often unpredictable nature of patient flow and resource utilization in healthcare settings.
+At the [`SWORDS (South Wales OR) Network Event`](https://www.theorsociety.com/ORS/Community/Regionals-List/South-Wales-OR-Network.aspx), we will present one of our PhD project on Causal Impact of Diagnosis on Length of Stay. This project aims to understand how different diagnoses influence the duration of hospital stays, leveraging Double Machine Learning techniques to estimate causal effects and develop discharge planning strategies accordingly.
