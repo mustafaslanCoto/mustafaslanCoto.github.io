@@ -3,7 +3,7 @@ title: "Causal Impact of Diagnosis on Length of Stay at SWORDS Network Event"
 description: "SWORDS Network Event - Postgraduate OR Presentations"
 author: "Mustafa Aslan"
 date: "2026-10-14"
-image: "../images/sword_page.png"
+image: "../images/hospital_bed.jpg"
 categories:
   - Healthcare Management
   - Discharge Planning
