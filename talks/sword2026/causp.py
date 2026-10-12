@@ -625,7 +625,7 @@ def _(diags, mo, np, pd):
         return (
             (ambiguity_band + zero_line + error_bars + points + ambiguity_note)
             .properties(
-                width=880,
+                width=980,
                 height=max(360, len(clean_df) * 22),
                 background="transparent",
             )
@@ -654,26 +654,26 @@ def _():
 @app.cell
 def _(diags, mo):
     # 1. Dynamically build options for all groups with positive ATE days
-    pos_diags = diags[diags["ate_days"] > 0].copy()
-
-    # Clinical name mapping
+    pos_diags = diags[(diags["ate_days"] > 0) & (diags["ci_low"] > 0)].copy()
     _clin_map = globals().get("clinical_names", {})
 
-    # Use concise labels so badges never crowd the row
     my_options = {}
+
     for _, row in pos_diags.iterrows():
         prof = str(row["profile"])
+        ate = row["ate_days"]
+        dom = row["dominance"] * 100 if row["dominance"] <= 1 else row["dominance"]
         icon = "📁" if prof == "unknown" else "🏥"
 
         if prof == "unknown":
-            short_label = "📁 Uncoded"
+            label_text = "Uncoded Group"
         else:
-            clin = _clin_map.get(prof, prof)
-            short_label = (
-                f"{icon} {prof} ({clin.split('&')[0].split('/')[0].strip()[:9]})"
-            )
+            clin = _clin_map.get(prof, "")
+            clin_short = f" ({clin.split('&')[0].split('/')[0].strip()[:14]})" if clin else ""
+            label_text = f"{prof}{clin_short}"
 
-        my_options[short_label] = prof
+        display_str = f"{icon} {label_text} (+{ate:.2f}d · {dom:.1f}%)"
+        my_options[display_str] = prof
 
     label_style = "font-size: 13px; font-weight: 600; color: #475569; display: block; margin-bottom: 4px;"
 
@@ -682,27 +682,27 @@ def _(diags, mo):
         list(my_options.keys())[0],
     )
 
-    # 1. Multi-select (no inline label)
+    # 1. Multi-select with rich labels
     group_select = mo.ui.multiselect(
         options=my_options,
         value=[default_key],
         label="",
     )
 
-    # 2. Causal Estimator Dropdown (no inline label)
+    # 2. Causal Estimator Dropdown
     metric_options = {
-        "📊 Point Estimate (ATE)": "ate_days",
-        "📉 Conservative (CI Low)": "ci_low",
-        "📈 Aggressive (CI High)": "ci_high",
+        "📊 Point Estimate (ATE - Mean)": "ate_days",
+        "📉 Conservative (CI Lower Bound)": "ci_low",
+        "📈 Aggressive (CI Upper Bound)": "ci_high",
     }
 
     metric_select = mo.ui.dropdown(
         options=metric_options,
-        value="📊 Point Estimate (ATE)",
+        value="📊 Point Estimate (ATE - Mean)",
         label="",
     )
 
-    # 3. Success Rate Slider (no inline label)
+    # 3. Success Rate Slider
     success_rate = mo.ui.slider(
         start=0,
         stop=100,
@@ -711,53 +711,85 @@ def _(diags, mo):
         label="",
     )
 
-    # Place each control in an isolated column with its label on top
+    # Columns with overflow: visible so popovers and badges aren't clipped
     col1 = mo.vstack(
         [
             mo.md(f"<span style='{label_style}'>Select Diagnoses:</span>"),
             group_select,
         ],
         gap=0.3,
-    ).style({"flex": "1.3", "min-width": "0", "overflow": "hidden"})
+    ).style({"flex": "1.8", "min-width": "0", "overflow": "visible"})
 
     col2 = mo.vstack(
-        [mo.md(f"<span style='{label_style}'>Estimator:</span>"), metric_select],
+        [
+            mo.md(f"<span style='{label_style}'>Estimator:</span>"),
+            metric_select,
+        ],
         gap=0.3,
-    ).style({"flex": "0.9", "min-width": "0", "overflow": "hidden"})
+    ).style({"flex": "0.9", "min-width": "0", "overflow": "visible"})
 
     col3 = mo.vstack(
         [
-            mo.md(f"<span style='{label_style}'>Resolution Rate (%):</span>"),
+            mo.md(f"<span style='{label_style}'>Success Rate (%):</span>"),
             success_rate,
         ],
         gap=0.3,
-    ).style({"flex": "1.0", "min-width": "0"})
+    ).style({"flex": "0.9", "min-width": "0", "overflow": "visible"})
 
-    _custom_css = mo.Html("""
+    _custom_css_and_script = mo.Html("""
     <style>
-        /* Prevent multiselect from breaking its column boundary */
+        /* Ensure multiselect fits the column cleanly */
         marimo-multiselect {
             width: 100% !important;
             display: block !important;
         }
-        marimo-multiselect div[role="combobox"],
-        marimo-multiselect button {
+    
+        /* Only limit the trigger bar, NOT the buttons inside the dropdown */
+        marimo-multiselect > div,
+        marimo-multiselect div[role="combobox"] {
             max-height: 38px !important;
             overflow-x: auto !important;
             overflow-y: hidden !important;
             white-space: nowrap !important;
             flex-wrap: nowrap !important;
         }
+
+        /* Elevate popover menu above fullscreen slides */
+        [data-radix-popper-content-wrapper],
+        div[role="dialog"][data-state="open"],
+        div[role="listbox"] {
+            z-index: 9999999 !important;
+            pointer-events: auto !important;
+        }
+
         select { 
             width: 100% !important;
             font-size: 13px !important; 
-            padding: 5px 8px !important; 
+            padding: 6px 10px !important; 
+            border-radius: 6px !important;
+            border: 1px solid #cbd5e1 !important;
+            background-color: #ffffff !important;
+            cursor: pointer !important;
         }
         input[type=range] { 
             cursor: pointer;
             width: 100% !important;
         }
     </style>
+
+    <script>
+        // Prevent Reveal.js fullscreen event handlers from intercepting multiselect clicks & typing
+        (function() {
+            function stopSlideInterception(e) {
+                if (e.target && (e.target.closest('[data-radix-popper-content-wrapper]') || e.target.closest('marimo-multiselect'))) {
+                    e.stopPropagation();
+                }
+            }
+            ['pointerdown', 'mousedown', 'mouseup', 'click', 'keydown', 'keyup'].forEach(function(evt) {
+                document.addEventListener(evt, stopSlideInterception, true);
+            });
+        })();
+    </script>
     """)
 
     controls_display = mo.hstack(
@@ -772,7 +804,7 @@ def _(diags, mo):
         }
     )
 
-    mo.vstack([_custom_css, controls_display])
+    mo.vstack([_custom_css_and_script, controls_display])
     return group_select, metric_select, success_rate
 
 
