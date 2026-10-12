@@ -61,7 +61,9 @@
       {
         "type": "fragment"
       },
-      {},
+      {
+        "type": "slide"
+      },
       {},
       {},
       {},

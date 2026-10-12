@@ -339,8 +339,9 @@ def _(confounders, mo):
     return
 
 
-app._unparsable_cell(
-    r"""
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
     ## Double Machine Learning (DML): A Robust Approach to Causal Inference
 
     For each diagnosis, let $D=1$ indicate its presence and $D=0$ its absence. Let $LoS$ denote Length of Stay, and $X$ the observed confounders.
@@ -394,9 +395,8 @@ app._unparsable_cell(
     $$
 
     Here, $\mathbf{1}(\cdot)$ is an indicator function, and $H_0$ is the Horvitz-Thompson transformation.
-    """,
-    column=None, disabled=False, hide_code=True, expand_output=False, name="_"
-)
+    """)
+    return
 
 
 @app.cell

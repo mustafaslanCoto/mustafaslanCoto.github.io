@@ -12,7 +12,7 @@
         {
           "type": "data",
           "data": {
-            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><marimo-ui-element object-id='Hbol-0' random-id='4fb6fb5a-fbab-4abb-03d3-41e25767b245'><marimo-anywidget data-initial-value='{&quot;model_id&quot;:&quot;bf776fc4b481447abcf24bcf1df16044&quot;}' data-label='null' data-model-id='&quot;bf776fc4b481447abcf24bcf1df16044&quot;'></marimo-anywidget></marimo-ui-element></div>"
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><marimo-ui-element object-id='Hbol-0' random-id='51b49c9a-7a2f-eba4-480b-fcbcbf6f9dfe'><marimo-anywidget data-initial-value='{&quot;model_id&quot;:&quot;12b2ad1975ae4dee866fbfbdc77c9a13&quot;}' data-label='null' data-model-id='&quot;12b2ad1975ae4dee866fbfbdc77c9a13&quot;'></marimo-anywidget></marimo-ui-element></div>"
           }
         }
       ],
@@ -136,7 +136,7 @@
       "console": []
     },
     {
-      "id": "NvZw",
+      "id": "Kclp",
       "code_hash": "c469bdcbf05fcc427242d1b341112842",
       "outputs": [
         {
@@ -149,7 +149,7 @@
       "console": []
     },
     {
-      "id": "Kclp",
+      "id": "emfo",
       "code_hash": "8e6b5ab9652626c9ec63ef4009c80a1d",
       "outputs": [
         {
@@ -227,7 +227,7 @@
       "console": []
     },
     {
-      "id": "TqIu",
+      "id": "qnkX",
       "code_hash": "d806db65ef68ff0576a3a474accb9e2e",
       "outputs": [
         {
@@ -240,8 +240,8 @@
       "console": []
     },
     {
-      "id": "Vxnm",
-      "code_hash": "f601800b3a4f78bb82588f69b7d255c0",
+      "id": "TqIu",
+      "code_hash": "7cc387b4cd8e3f3d0656b09db831fd69",
       "outputs": [
         {
           "type": "data",
@@ -253,7 +253,7 @@
       "console": []
     },
     {
-      "id": "QNeD",
+      "id": "Vxnm",
       "code_hash": "dc7f3a06b08cf219d6bdd7904c741be4",
       "outputs": [
         {
@@ -279,7 +279,7 @@
       "console": []
     },
     {
-      "id": "ocTg",
+      "id": "ulZA",
       "code_hash": "7d0388e415d0ff55e41f80443c6529c0",
       "outputs": [
         {
@@ -292,7 +292,7 @@
       "console": []
     },
     {
-      "id": "ZBYS",
+      "id": "ecfG",
       "code_hash": "ea12cdceb7df813646635fe62d4b8220",
       "outputs": [
         {
@@ -305,7 +305,7 @@
       "console": []
     },
     {
-      "id": "nHfw",
+      "id": "Pvdt",
       "code_hash": "8c57fde7558f794c03bd32a43c651f45",
       "outputs": [
         {
@@ -318,20 +318,20 @@
       "console": []
     },
     {
-      "id": "xXTn",
+      "id": "ZBYS",
       "code_hash": "44de6c937e7a40bf3f9485516664a9ff",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'>\n<style>\n    /* Prevent multiselect from breaking its column boundary */\n    marimo-multiselect {\n        width: 100% !important;\n        display: block !important;\n    }\n    marimo-multiselect div[role=\"combobox\"],\n    marimo-multiselect button {\n        max-height: 38px !important;\n        overflow-x: auto !important;\n        overflow-y: hidden !important;\n        white-space: nowrap !important;\n        flex-wrap: nowrap !important;\n    }\n    select { \n        width: 100% !important;\n        font-size: 13px !important; \n        padding: 5px 8px !important; \n    }\n    input[type=range] { \n        cursor: pointer;\n        width: 100% !important;\n    }\n</style>\n<div style='padding:12px 18px;background-color:#f8fafc;border-radius:10px;border:1px solid #e2e8f0;width:100%'><div style='display: flex;flex: 1;flex-direction: row;justify-content: space-between;align-items: flex-start;flex-wrap: nowrap;gap: 3rem'><div style='flex:1.3;min-width:0;overflow:hidden'><div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.3rem'><span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><span style='font-size: 13px; font-weight: 600; color: #475569; display: block; margin-bottom: 4px;'>Select Diagnoses:</span></span></span><marimo-ui-element object-id='xXTn-0' random-id='564d62fb-ae4a-b7ea-3be0-987de934832f'><marimo-multiselect data-initial-value='[&quot;\ud83d\udcc1 Uncoded&quot;]' data-label='null' data-options='[&quot;\ud83d\udcc1 Uncoded&quot;,&quot;\ud83c\udfe5 DZ (Chronic R)&quot;,&quot;\ud83c\udfe5 AA (Stroke)&quot;,&quot;\ud83c\udfe5 WH (General C)&quot;,&quot;\ud83c\udfe5 EB (Valvular)&quot;,&quot;\ud83c\udfe5 DZ11 (Severe Pn)&quot;,&quot;\ud83c\udfe5 LA (Kidney)&quot;,&quot;\ud83c\udfe5 GC17 (Liver)&quot;,&quot;\ud83c\udfe5 HE (Musculosk)&quot;,&quot;\ud83c\udfe5 EB14 (Cardiomyo)&quot;,&quot;\ud83c\udfe5 AA26 (Cerebrova)&quot;,&quot;\ud83c\udfe5 HE11 (Hip)&quot;,&quot;\ud83c\udfe5 JD07 (Skin)&quot;,&quot;\ud83c\udfe5 HD (Bone)&quot;,&quot;\ud83c\udfe5 WJ (Sepsis)&quot;,&quot;\ud83c\udfe5 YQ50 (Arterial )&quot;,&quot;\ud83c\udfe5 EB10 (Heart Att)&quot;,&quot;\ud83c\udfe5 EB07 (Cardiac A)&quot;,&quot;\ud83c\udfe5 FD11 (Digestive)&quot;,&quot;\ud83c\udfe5 LA04 (Severe Ki)&quot;,&quot;\ud83c\udfe5 KC (Metabolic)&quot;,&quot;\ud83c\udfe5 HC (Spinal)&quot;]' data-full-width='false' data-disabled='false'></marimo-multiselect></marimo-ui-element></div></div><div style='flex:0.9;min-width:0;overflow:hidden'><div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.3rem'><span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><span style='font-size: 13px; font-weight: 600; color: #475569; display: block; margin-bottom: 4px;'>Estimator:</span></span></span><marimo-ui-element object-id='xXTn-1' random-id='92be7468-8385-17b3-73a1-a2337f1257ab'><marimo-dropdown data-initial-value='[&quot;\ud83d\udcca Point Estimate (ATE)&quot;]' data-label='null' data-options='[&quot;\ud83d\udcca Point Estimate (ATE)&quot;,&quot;\ud83d\udcc9 Conservative (CI Low)&quot;,&quot;\ud83d\udcc8 Aggressive (CI High)&quot;]' data-allow-select-none='false' data-searchable='false' data-full-width='false' data-disabled='false'></marimo-dropdown></marimo-ui-element></div></div><div style='flex:1.0;min-width:0'><div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.3rem'><span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><span style='font-size: 13px; font-weight: 600; color: #475569; display: block; margin-bottom: 4px;'>Resolution Rate (%):</span></span></span><marimo-ui-element object-id='xXTn-2' random-id='32e795bf-9587-4277-4188-4d2f34dcda43'><marimo-slider data-initial-value='100' data-label='null' data-start='0' data-stop='100' data-step='5' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='false' data-include-input='false' data-full-width='false'></marimo-slider></marimo-ui-element></div></div></div></div></div>"
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'>\n<style>\n    /* Prevent multiselect from breaking its column boundary */\n    marimo-multiselect {\n        width: 100% !important;\n        display: block !important;\n    }\n    marimo-multiselect div[role=\"combobox\"],\n    marimo-multiselect button {\n        max-height: 38px !important;\n        overflow-x: auto !important;\n        overflow-y: hidden !important;\n        white-space: nowrap !important;\n        flex-wrap: nowrap !important;\n    }\n    select { \n        width: 100% !important;\n        font-size: 13px !important; \n        padding: 5px 8px !important; \n    }\n    input[type=range] { \n        cursor: pointer;\n        width: 100% !important;\n    }\n</style>\n<div style='padding:12px 18px;background-color:#f8fafc;border-radius:10px;border:1px solid #e2e8f0;width:100%'><div style='display: flex;flex: 1;flex-direction: row;justify-content: space-between;align-items: flex-start;flex-wrap: nowrap;gap: 3rem'><div style='flex:1.3;min-width:0;overflow:hidden'><div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.3rem'><span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><span style='font-size: 13px; font-weight: 600; color: #475569; display: block; margin-bottom: 4px;'>Select Diagnoses:</span></span></span><marimo-ui-element object-id='ZBYS-0' random-id='a8dcb9bb-a5e9-34e1-0003-95ae987f5fe5'><marimo-multiselect data-initial-value='[&quot;\ud83d\udcc1 Uncoded&quot;]' data-label='null' data-options='[&quot;\ud83d\udcc1 Uncoded&quot;,&quot;\ud83c\udfe5 DZ (Chronic R)&quot;,&quot;\ud83c\udfe5 AA (Stroke)&quot;,&quot;\ud83c\udfe5 WH (General C)&quot;,&quot;\ud83c\udfe5 EB (Valvular)&quot;,&quot;\ud83c\udfe5 DZ11 (Severe Pn)&quot;,&quot;\ud83c\udfe5 LA (Kidney)&quot;,&quot;\ud83c\udfe5 GC17 (Liver)&quot;,&quot;\ud83c\udfe5 HE (Musculosk)&quot;,&quot;\ud83c\udfe5 EB14 (Cardiomyo)&quot;,&quot;\ud83c\udfe5 AA26 (Cerebrova)&quot;,&quot;\ud83c\udfe5 HE11 (Hip)&quot;,&quot;\ud83c\udfe5 JD07 (Skin)&quot;,&quot;\ud83c\udfe5 HD (Bone)&quot;,&quot;\ud83c\udfe5 WJ (Sepsis)&quot;,&quot;\ud83c\udfe5 YQ50 (Arterial )&quot;,&quot;\ud83c\udfe5 EB10 (Heart Att)&quot;,&quot;\ud83c\udfe5 EB07 (Cardiac A)&quot;,&quot;\ud83c\udfe5 FD11 (Digestive)&quot;,&quot;\ud83c\udfe5 LA04 (Severe Ki)&quot;,&quot;\ud83c\udfe5 KC (Metabolic)&quot;,&quot;\ud83c\udfe5 HC (Spinal)&quot;]' data-full-width='false' data-disabled='false'></marimo-multiselect></marimo-ui-element></div></div><div style='flex:0.9;min-width:0;overflow:hidden'><div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.3rem'><span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><span style='font-size: 13px; font-weight: 600; color: #475569; display: block; margin-bottom: 4px;'>Estimator:</span></span></span><marimo-ui-element object-id='ZBYS-1' random-id='8eacd8c5-7c4c-c6a6-8721-6f4b24e577fb'><marimo-dropdown data-initial-value='[&quot;\ud83d\udcca Point Estimate (ATE)&quot;]' data-label='null' data-options='[&quot;\ud83d\udcca Point Estimate (ATE)&quot;,&quot;\ud83d\udcc9 Conservative (CI Low)&quot;,&quot;\ud83d\udcc8 Aggressive (CI High)&quot;]' data-allow-select-none='false' data-searchable='false' data-full-width='false' data-disabled='false'></marimo-dropdown></marimo-ui-element></div></div><div style='flex:1.0;min-width:0'><div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.3rem'><span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><span style='font-size: 13px; font-weight: 600; color: #475569; display: block; margin-bottom: 4px;'>Resolution Rate (%):</span></span></span><marimo-ui-element object-id='ZBYS-2' random-id='63e857ff-435c-677e-6fa6-209783436b7e'><marimo-slider data-initial-value='100' data-label='null' data-start='0' data-stop='100' data-step='5' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='false' data-include-input='false' data-full-width='false'></marimo-slider></marimo-ui-element></div></div></div></div></div>"
           }
         }
       ],
       "console": []
     },
     {
-      "id": "AjVT",
+      "id": "aLJB",
       "code_hash": "9e72cf57649f0e4e5b22618a24584577",
       "outputs": [
         {
@@ -344,20 +344,20 @@
       "console": []
     },
     {
-      "id": "pHFh",
+      "id": "nHfw",
       "code_hash": "6194f886a1bc1c164e5bd906a9896d49",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><h4 id=\"counterfactual-scenario-results-for-all-positive-groups\">\ud83d\udd0d Counterfactual Scenario Results for <strong>All Positive Groups</strong></h4></span><div style='padding:14px 12px;border-radius:10px;text-align:center;flex:1;min-width:190px;border:2px solid #6366f1;background-color:#f5f3ff;color:#4338ca'><span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"patients-affected-43448-hospital-stays-across-all-22-positive-groups\">\ud83c\udfe5 <strong>Patients Affected: 43,448 Hospital Stays</strong> (across <strong>All 22 Positive Groups</strong>)</h3>\n<span class=\"paragraph\"><strong>Accounts for 67% of all admissions over the year (out of 65,284 total)</strong></span></span></div><div style='display: flex;flex: 1;flex-direction: row;justify-content: space-between;align-items: stretch;flex-wrap: nowrap;gap: 1.2rem'><div style='padding:14px 12px;border-radius:10px;text-align:center;flex:1;min-width:190px;border:2px solid #8c8c8c;background-color:#fafafa;color:#1a1a1a'><span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"359110\">\ud83d\udcc1 <strong>359,110</strong></h3>\n<span class=\"paragraph\"><strong>Total All Positive Groups Bed-Days</strong><br />\n<span style=\"font-size: 13px; font-weight: 600; color: #475569;\">(~984 beds occupied / year)</span></span></span></div><div style='padding:14px 12px;border-radius:10px;text-align:center;flex:1;min-width:190px;border:2px solid #007bc0;background-color:#f4f9fc;color:#004d7a'><span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"105663-29\">\ud83d\udecf\ufe0f <strong>105,663</strong> <span style=\"font-size: 15px; font-weight: 600; opacity: 0.9;\">(29%)</span></h3>\n<span class=\"paragraph\"><strong>Bed-Days Saved</strong><br />\n<span style=\"font-size: 13px; font-weight: 600; color: #0369a1;\">(~289 beds freed / year)</span></span></span></div><div style='padding:14px 12px;border-radius:10px;text-align:center;flex:1;min-width:190px;border:2px solid #16a34a;background-color:#f0fdf4;color:#14532d'><span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"26\">\ud83d\udcc8 <strong>26%</strong></h3>\n<span class=\"paragraph\"><strong>Saved (Entire Hospital Capacity)</strong></span></span></div></div></div>"
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><h4 id=\"counterfactual-scenario-results-for-uncoded-group\">\ud83d\udd0d Counterfactual Scenario Results for <strong>Uncoded Group</strong></h4></span><div style='padding:14px 12px;border-radius:10px;text-align:center;flex:1;min-width:190px;border:2px solid #6366f1;background-color:#f5f3ff;color:#4338ca'><span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"patients-affected-17998-hospital-stays-uncoded-group\">\ud83c\udfe5 <strong>Patients Affected: 17,998 Hospital Stays</strong> (<strong>Uncoded Group</strong>)</h3>\n<span class=\"paragraph\"><strong>Accounts for 28% of all admissions over the year (out of 65,284 total)</strong></span></span></div><div style='display: flex;flex: 1;flex-direction: row;justify-content: space-between;align-items: stretch;flex-wrap: nowrap;gap: 1.2rem'><div style='padding:14px 12px;border-radius:10px;text-align:center;flex:1;min-width:190px;border:2px solid #8c8c8c;background-color:#fafafa;color:#1a1a1a'><span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"190569\">\ud83d\udcc1 <strong>190,569</strong></h3>\n<span class=\"paragraph\"><strong>Total Uncoded Group Bed-Days</strong><br />\n<span style=\"font-size: 13px; font-weight: 600; color: #475569;\">(~522 beds occupied / year)</span></span></span></div><div style='padding:14px 12px;border-radius:10px;text-align:center;flex:1;min-width:190px;border:2px solid #007bc0;background-color:#f4f9fc;color:#004d7a'><span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"45558-24\">\ud83d\udecf\ufe0f <strong>45,558</strong> <span style=\"font-size: 15px; font-weight: 600; opacity: 0.9;\">(24%)</span></h3>\n<span class=\"paragraph\"><strong>Bed-Days Saved</strong><br />\n<span style=\"font-size: 13px; font-weight: 600; color: #0369a1;\">(~125 beds freed / year)</span></span></span></div><div style='padding:14px 12px;border-radius:10px;text-align:center;flex:1;min-width:190px;border:2px solid #16a34a;background-color:#f0fdf4;color:#14532d'><span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"11\">\ud83d\udcc8 <strong>11%</strong></h3>\n<span class=\"paragraph\"><strong>Saved (Entire Hospital Capacity)</strong></span></span></div></div></div>"
           }
         }
       ],
       "console": []
     },
     {
-      "id": "rzTX",
+      "id": "xXTn",
       "code_hash": "1e9ac5a4ef4e2f658ecc70af1455a361",
       "outputs": [
         {
@@ -370,7 +370,7 @@
       "console": []
     },
     {
-      "id": "DtlB",
+      "id": "AjVT",
       "code_hash": "ab718cf93052632a7a2d5c6672494f99",
       "outputs": [
         {
@@ -383,7 +383,7 @@
       "console": []
     },
     {
-      "id": "TRpd",
+      "id": "pHFh",
       "code_hash": "0ef018de521276ce687084a3bf40c78f",
       "outputs": [
         {
@@ -396,7 +396,7 @@
       "console": []
     },
     {
-      "id": "TXez",
+      "id": "NCOB",
       "code_hash": "6d9fcc71bd003c09711385a7cbe6e2ec",
       "outputs": [
         {
@@ -409,7 +409,7 @@
       "console": []
     },
     {
-      "id": "dNNg",
+      "id": "aqbW",
       "code_hash": "1051ac13e4f4c9c8670cccce9f64b82e",
       "outputs": [
         {
@@ -422,7 +422,7 @@
       "console": []
     },
     {
-      "id": "yCnT",
+      "id": "TRpd",
       "code_hash": "bdd9005863156f10f6a966e979a13393",
       "outputs": [
         {
@@ -435,7 +435,7 @@
       "console": []
     },
     {
-      "id": "wlCL",
+      "id": "TXez",
       "code_hash": "a37ed62f9769a299eebe16cdb13c4bd9",
       "outputs": [
         {
@@ -448,7 +448,7 @@
       "console": []
     },
     {
-      "id": "kqZH",
+      "id": "dNNg",
       "code_hash": "f333400cf80d72cd48105c8e11f50450",
       "outputs": [
         {

@@ -1,6 +1,6 @@
 import marimo
 
-__generated_with = "0.25.1"
+__generated_with = "0.24.2"
 app = marimo.App(
     width="full",
     layout_file="layouts/copul.slides.json",
@@ -107,6 +107,38 @@ def _(kendalltau, mo, n_samples, norm, np, plt, rho, spearmanr):
     )
     mo.vstack([figure, dependence_summary])
     return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    ## Title 2
+    """)
+    return
+
+
+@app.cell
+def _():
+    ## some code
+    def calculate_percentage(part, whole):
+        return (part / whole) * 100
+        # Example usage:
+    percentage = calculate_percentage(50, 200)
+    print(percentage)  # Output: 25.0
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    ## Title 3
+    """)
+    return
+
+
+@app.function
+def example_function():
+    pass
 
 
 if __name__ == "__main__":
