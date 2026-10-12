@@ -23,4 +23,5 @@ great_tables
 setuptools
 marimo
 itables
+altair
 git+https://github.com/mustafaslanCoto/peshbeen_dev.git

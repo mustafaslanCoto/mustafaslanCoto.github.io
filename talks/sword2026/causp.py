@@ -71,9 +71,12 @@ def _(mo):
 @app.cell(hide_code=True)
 def _(mo):
     _items = [
-        "Grouping diagnosis with Healthcare Resource Groups (HRGs)",
-        "Confounders",
-        "Causal effect of diagnosis (HRGs) on LoS",
+        "The Challenge: Why Patients Arrive and Why Some Stay Longer?",
+        "Why is It So Important?",
+        # "Grouping diagnosis with Healthcare Resource Groups (HRGs)",
+        "Methodology",
+        "Key Results",
+        "Next"
     ]
 
     def outline(active=None):
@@ -83,7 +86,7 @@ def _(mo):
             return "#20808D" if i == active else "#999999"
 
         _li = "".join(
-            f'<li style="color:{_color(i)};font-size:1.1em;line-height:1.9">{t}</li>' # points + bullet size
+            f'<li style="color:{_color(i)};font-size:1em;line-height:1.9">{t}</li>' # points + bullet size
             for i, t in enumerate(_items)
         )
         return mo.Html(
@@ -128,8 +131,9 @@ def _(mo, re):
         'style="display:block;width:100%;height:600px;object-position:center;border-radius:8px">'
         # 'style="display:block;width:100%;height:auto;max-height:65vh;border-radius:8px">'
     )
-    _text = fragment_md(r"""
-    ## Why does it matter?
+    _text = fragment_md("""
+
+    ## Problem
 
     - **Hidden Clinical Drivers:** The true, isolated impact of specific diagnoses on Length of Stay (LoS) remains unknown
 
@@ -152,15 +156,23 @@ def _(mo, re):
     # </ul>
     # """)
     mo.hstack([_image, _text], widths=[0.45, 0.55], align="center", gap=1)
+    return (fragment_md,)
+
+
+@app.cell
+def _(outline):
+    outline(1)
     return
 
 
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    ## Grouping diagnosis
+    ## Advancing NHS Wales *Six Goals* for Urgent Care
 
-    ### Healthcare Resource Groups (HRGs) - Why?
+    - **Goal 4 (Rapid Assessment & Cohorting):** Frontloading diagnostic clarification during the critical first 48 hours of admission.
+    - **Goal 5 (Optimal Hospital Care & Timely Discharge):** Activating diagnosis-tailored discharge readiness protocols before discharge.
+    - **Goal 6 (Home First / Step-Down):** Early social care and pharmacy coordination, avoiding costly hospital deconditioning.
     """)
     return
 
@@ -168,70 +180,63 @@ def _(mo):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    ### What are Healthcare Resource Groups (HRGs)?
+    ## Tailoring Discharge to Clinical Need
 
-    - Healthcare Resource Groups (HRGs) are designed to be standard groupings of clinically **similar treatments** which use **common levels of healthcare resource.**
-    - Crucially, they are constructed to ensure **clinical meaningfulness** while accurately reflecting **expected resource consumption**.
-
-    **How are they constructed?**
-    A strict algorithm (the NHS Local Grouper) categorizes patients based on:
-    *   **Diagnoses & Procedures** (ICD-10 and OPCS-4 codes)
-    *   **Patient & Care Context** (Age, gender, and admission/discharge methods)
-
-    **Why use HRGs over other grouping methods?**
-    We initially evaluated standard clinical groupers like the **Elixhauser Comorbidity Index**. However, Elixhauser is designed for specific comorbidities and failed to categorize almost 50% of the diagnoses in our dataset. Because the NHS designed HRGs to account for total hospital activity, using HRGs guarantees that *every* admission is mapped to a clinically valid category that reflects the true intensity of care.
+    - **Diagnosis-Tailored Discharge Bundles:** Shifting ward practice from one-size-fits-all planning to targeted, multidisciplinary pathways aligned with the patient's primary diagnosis.
+    - **First 48-Hour Protocol:** Frontloading diagnostic clarification early in the admission window to resolve clinical ambiguity before avoidable discharge delays build up.
     """)
+    return
+
+
+@app.cell
+def _(outline):
+    outline(2)
+    return
+
+
+@app.cell
+def _(mo):
+    mo.vstack([
+        mo.md("## Assumed Causal Structure for Diagnosis and Length of Stay"),
+        mo.mermaid(
+            """
+            flowchart LR
+                X["Observed Confounders <br/> (Control Variables) <br/><i style='font-family:serif;font-size:4em;'>X</i>"]
+                D["Diagnosis<br/><i style='font-family:serif;font-size:4em;'>D</i>"]
+                Y["Length of Stay<br/><i style='font-family:serif;font-size:4em;'>LoS</i>"]
+
+                X --> D
+                X --> Y
+                D --> Y
+
+                classDef covariate fill:#dcefee,stroke:#20808D,stroke-width:2px,color:#091717;
+                classDef diagnosis fill:#b7d5da,stroke:#20808D,stroke-width:2px,color:#091717;
+
+                class X,Y covariate;
+                class D diagnosis;
+            """,
+            theme="base",
+        ),
+    ])
     return
 
 
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    ### Why Use HRGs for ICD-10 Dimensionality Reduction?
-    In this study, we are estimating the causal impact of different diagnoses on **Length of Stay (LoS)**. Feeding raw diagnosis codes directly into our machine learning models (e.g., LightGBM) presents significant methodological challenges that HRGs perfectly solve:
+    <!-- ## Double Machine Learning (DML): A Robust Approach to Causal Inference
 
-    1.  **Solving Extreme Sparsity:** We have over 800 distinct ICD10 codes in our dataset. Modeling these directly results in an excessively sparse matrix, which destabilizes causal inference and inflates variance. Grouping them by their root HRG chapter collapses these 800+ codes into ~36 highly robust categories.
-    2.  **Direct Alignment with the Target Variable:** Because HRGs were explicitly engineered by the NHS to measure *healthcare resource consumption*, they inherently correlate with Length of Stay (our primary resource metric). This makes them a highly effective latent representation of the diagnosis.
-    3.  **Reproducibility & Interpretability:** Rather than using an opaque mathematical clustering technique (like PCA or autoencoders) to reduce dimensions, the HRG algorithm provides a transparent, clinically validated standard. The resulting effect sizes are directly interpretable by hospital capacity planners and stakeholders.
-    """)
-    return
+    - **Treatment:** For each diagnosis, define its presence as $(D=1)$ and absence as $(D=0)$. The outcome $Y$ is Length of Stay (LoS).
 
+    - **Adjust for confounding:** Use observed patient and admission characteristics $(X)$ to account for factors associated with both diagnosis and LoS.
 
-@app.cell(hide_code=True)
-def _(mo):
-    mo.md(r"""
-    ### The Anatomy of an HRG Code
-    Before detailing the grouping strategy, it is helpful to understand how an HRG code is structured. The characters in an HRG represent different levels of clinical granularity:
+    - **Learn with machine learning:** Estimate the expected LoS, $(g(D,X)=\mathbb{E}[Y\mid D,X])$, and the diagnosis propensity, $(m(X)=\Pr(D=1\mid X))$.
 
-    *   **2-Character HRGs (The Chapter/Sub-chapter):** This is the broader clinical umbrella. The first letter denotes the main body system or specialty (e.g., "F" for Digestive System), and the second letter denotes the sub-category. It provides a high-level grouping.
-    *   **4-Character HRGs (The Base HRG):** This adds two numbers to the sub-chapter to identify a highly specific diagnosis or procedure group (e.g., "FD10" for benign colorectal neoplasms). It provides granular, highly specific clinical detail.
-    """)
-    return
+    - **Estimate the effect:** Combine these models in a doubly robust, orthogonal score, then average the predicted contrast between diagnosis present and absent across patients.
 
+    - **Repeat for each diagnosis** to obtain diagnosis-specific average effects on LoS.
 
-@app.cell(hide_code=True)
-def _(mo):
-    mo.md(r"""
-    ### Our Methodology: Frequency-Based ICD-10 to HRG Mapping
-    To balance statistical power with clinical precision in our causal models, we did not apply a one-size-fits-all grouping. Instead, we grouped the 800+ raw ICD-10 codes based on their unique admission volumes:
-
-    1.  **The Top 99% of Admissions (High Volume):**
-        We mapped the most frequent ICD-10 codes to their highly specific **4-character HRG groups**. Because these conditions appear frequently in the dataset, our model has plenty of statistical power to handle them at a granular level.
-    2.  **The Remaining 1% of Admissions (The Long Tail):**
-        For rare, very low-volume ICD-10 codes, mapping them at the 4-character level would re-introduce the exact data sparsity problem we are trying to avoid. Instead, we rolled these rare codes up to their broader **2-character HRG chapters**.
-
-    **Why do this?**
-    This hybrid approach guarantees that **100% of the ICD-10 codes are captured and utilized** in the causal model. It preserves granular insights where we have the data to support it (the 99%), while safely capturing the long tail of rare diseases (the 1%) without destabilizing the machine learning algorithm.
-
-    ---
-
-    ### The Final Result: 36 Distinct Clinical Groups
-    After applying this frequency-based mapping strategy, we successfully collapsed the 800+ raw ICD-10 codes into just **36 robust categories**.
-
-    **The "Unknown" Cohort**
-    Crucially, this final set of 36 includes an **"unknown" group**. This category represents admissions where patients were not assigned a valid diagnosis code during their stay (often due to diagnostic ambiguity, pending test results, or coding delays).
-
-    It is important to highlight this group because it is substantial—accounting for approximately **28% of all admissions** in our dataset. Rather than dropping these records (which would introduce severe selection bias), retaining them as a distinct category allows our model to estimate the causal impact of *diagnostic uncertainty itself* on Length of Stay.
+    **Interpretation:** These are adjusted population-average effects, not individual patient-level causal effects. A causal interpretation relies on adequate confounder adjustment and overlap between diagnosis groups. -->
     """)
     return
 
@@ -260,8 +265,8 @@ def _():
         "mustafaslanCoto/mustafaslanCoto.github.io/main/"
         "talks/sword2026/public"
     )
-    order_df = pd.read_csv(fetch(f"{data_url}/diagnosis_order.csv"), sep=None, engine='python')
-    diags = pd.read_csv(fetch(f"{data_url}/caus_hrg_lgb.csv"), sep=None, engine='python')
+    order_df = pd.read_csv(fetch(f"{data_url}/diagnosis_order.csv"))
+    diags = pd.read_csv(fetch(f"{data_url}/caus_hrg_lgb.csv"))
     diags = diags.merge(order_df, on='profile', how ='left')
     diags.rename(columns={"proportion": "dominance"}, inplace=True)
     diags.sort_values("dominance", ascending=False, inplace=True)
@@ -280,7 +285,7 @@ def _():
     # sort by it
     diags = diags.sort_values("profile").reset_index(drop=True)
 
-    confounders = pd.read_csv(fetch(f"{data_url}/confounders.csv"), sep=None, engine='python')
+    confounders = pd.read_csv(fetch(f"{data_url}/confounders.csv"))
     return cleand_df, confounders, data_url, diags, exist_codes, fetch, np, pd
 
 
@@ -309,7 +314,7 @@ def _(hrg, hrg_est, np):
                 hrg_in["HRG"], 
                 hrg_in["HRG2"]
     )
-    return (hrg_in,)
+    return
 
 
 @app.cell
@@ -319,262 +324,322 @@ def _():
     return
 
 
+@app.cell
+def _(confounders, mo):
+    _names = confounders["confounder"].dropna().astype(str).tolist()
+    _mid = (len(_names) + 1) // 2
+
+    _left = mo.md("\n".join(f"- `{name}`" for name in _names[:_mid]))
+    _right = mo.md("\n".join(f"- `{name}`" for name in _names[_mid:]))
+
+    mo.vstack([
+        mo.md(f"## Confounders ({len(_names)})\n\nCovariates included in $X$"),
+        mo.hstack([_left, _right], widths=[0.5, 0.5], align="start", gap=1),
+    ])
+    return
+
+
+app._unparsable_cell(
+    r"""
+    ## Double Machine Learning (DML): A Robust Approach to Causal Inference
+
+    For each diagnosis, let $D=1$ indicate its presence and $D=0$ its absence. Let $LoS$ denote Length of Stay, and $X$ the observed confounders.
+
+    The average predictive effect, $\theta_0$, compares the expected $LoS$ with the diagnosis present versus absent, averaged over patients' observed characteristics:
+
+    $$
+    \theta_0
+    =
+    \mathbb{E}\!\left[g_0(1,X)-g_0(0,X)\right].
+    $$
+
+    The outcome and diagnosis are modelled using the following regression equations:
+
+    $$
+    \begin{aligned}
+    LoS &= g_0(D,X) + \varepsilon,
+    &\quad \mathbb{E}[\varepsilon \mid X,D] &= 0, \\
+    D &= m_0(X) + \widetilde{D},
+    &\quad \mathbb{E}[\widetilde{D} \mid X] &= 0.
+    \end{aligned}
+    $$
+
+    Here, $g_0(D,X)$ is the regression function for $LoS$, while $m_0(X)$ is the classification function for the diagnosis given the confounders.
+
+    Building on these two regression models, we construct an efficient estimator of the average predictive effect using the following orthogonal score:
+
+    $$
+    \theta_0 = \mathbb{E}\!\left[\varphi_0(W)\right],
+    \qquad W=(LoS,D,X),
+    $$
+
+    where
+
+    $$
+    \varphi_0(W)
+    =
+    g_0(1,X)-g_0(0,X)
+    +
+    \bigl(LoS-g_0(D,X)\bigr)H_0,
+    $$
+
+    and
+
+    $$
+    H_0
+    =
+    \frac{\mathbf{1}(D=1)}{m_0(X)}
+    -
+    \frac{\mathbf{1}(D=0)}{1-m_0(X)}.
+    $$
+
+    Here, $\mathbf{1}(\cdot)$ is an indicator function, and $H_0$ is the Horvitz-Thompson transformation.
+    """,
+    column=None, disabled=False, hide_code=True, expand_output=False, name="_"
+)
+
+
+@app.cell
+def _(outline):
+    outline(3)
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    ### Confounders
+    ### Causal Effect Sizes of Diagnosis on LoS
     """)
     return
 
 
 @app.cell
-def _(confounders):
-    confounders.drop(columns=["nf", "under"]).rename(columns={"c": "confounders"})
-    return
+def _(diags, mo, np, pd):
+    import altair as alt
 
+    clinical_names = {
+        'HE11': 'Hip & Femur Fractures',
+        'HE': 'Musculoskeletal Trauma',
+        'DZ11': 'Severe Pneumonia & Lung Infection',
+        'EB10': 'Heart Attack & Cardiac Shock',
+        'WJ': 'Sepsis & Severe Systemic Infection',
+        'HC': 'Spinal & Joint Disorders',
+        'AA': 'Stroke & Acute Neurological',
+        'unknown': '★ Diagnostic Ambiguity (Uncoded Stay)',
+        'HD': 'Bone & Soft-Tissue Musculoskeletal',
+        'FD11': 'Digestive & Oesophageal Cancers',
+        'AA26': 'Cerebrovascular & Nerve Disorders',
+        'LA04': 'Severe Kidney Infection / Pyelonephritis',
+        'YQ50': 'Arterial Thrombosis & Vascular Disease',
+        'EB14': 'Cardiomyopathy & Heart Disease',
+        'EB': 'Valvular & Inflammatory Heart Disease',
+        'DZ': 'Chronic Respiratory Conditions',
+        'KC': 'Metabolic & Electrolyte Disorders',
+        'LA': 'Kidney & Urinary Conditions',
+        'EB07': 'Cardiac Arrhythmias & Conduction',
+        'JD07': 'Skin & Subcutaneous Conditions',
+        'GC17': 'Liver & Pancreatic Conditions',
+        'WH': 'General Clinical Surveillance',
+        'LB38': 'Urinary Symptoms & Haematuria',
+        'MB': 'Gynaecological Conditions',
+        'CB': 'Oral & Upper Respiratory',
+        'FD': 'Gastrointestinal Infections',
+        'LB': 'Bladder & Kidney Disorders',
+        'FD10': 'General Intestinal Disorders',
+        'FD02': 'Inflammatory Bowel Disease',
+        'DZ65': 'Chronic Bronchitis & COPD',
+        'FD03': 'Peptic Ulcer & GI Bleeding',
+        'SA04': 'Iron Deficiency Anaemia',
+        'DZ19': 'Wheezing & Bronchospasm',
+        'EB12': 'Non-cardiac Chest Pain',
+        'FD05': 'Non-specific Abdominal Pain',
+        'WH52': 'Post-Surgical Cancer Surveillance'
+    }
 
-@app.cell
-def _(mo):
-    # Cell 1
-    hrg_search = mo.ui.text(
-        placeholder="Type an HRG group (e.g. FD10)",
-        label="Look up ICD codes for HRG group:",
-    )
-    return (hrg_search,)
-
-
-@app.cell(hide_code=True)
-def _(mo):
-    mo.md(r"""
-    ### Causal effect of diagnosis (HRGs) on LoS
-    """)
-    return
-
-
-@app.cell
-def _():
-    # _q = hrg_search.value.strip().upper()
-
-    # # left: results (always shown)
-    # _left = mo.vstack([
-    #     mo.md("### Effect Sizes of HRGs on LoS"),
-    #     mo.ui.table(diags.round(2), pagination=True, page_size=15),
-    # ])
-
-    # # _left = mo.ui.table(diags.round(2), pagination=True, page_size=15)
-
-    # # right: descriptions (only when a group is typed)
-    # if not _q:
-    #     _right = mo.md("*Type an HRG group to see its ICD codes here.*")
-    # else:
-    #     _filtered = hrg_in[hrg_in["HRG_final"].astype(str).str.upper() == _q][
-    #         ["ICD_code", "ICD_description"]
-    #     ].reset_index(drop=True)
-    #     if len(_filtered) == 0:
-    #         _right = mo.md(f"*No ICD codes for **{_q}**.*")
-    #     else:
-    #         _right = mo.vstack([
-    #             mo.md(f"### {_q} — {len(_filtered)} ICD codes"),
-    #             mo.ui.table(_filtered, pagination=True, page_size=15)
-    #             # mo.plain(_filtered),
-    #         ])
-
-    # mo.vstack([
-    #     hrg_search,
-    #     mo.hstack([_left, _right], widths=[0.6, 0.4], gap=1, align="start"),
-    # ])
-    return
-
-
-@app.cell
-def _(diags, hrg_in, hrg_search, mo, np, pd):
-    import plotly.graph_objects as go
-
-
-    def create_forest_plot(
-        df: pd.DataFrame, top_n: int = 20
-    ) -> go.Figure | mo.Html:
-        """Generates a production-ready interactive Forest Plot for causal effect sizes.
-
-        Incorporates categorical diagnosis dominance (%) via marker scale and hover text.
-
-        Parameters
-        ----------
-        df : pd.DataFrame
-            Data containing 'profile', 'ate_days', 'ci_low', 'ci_high', and
-            'dominance'.
-        top_n : int, optional
-            Maximum number of HRG profiles to display, sorted by absolute ATE
-            magnitude.
-
-        Returns
-        -------
-        go.Figure | mo.Html
-            Interactive Plotly Figure or Marimo HTML error component.
-        """
+    def create_clinical_forest_plot(df: pd.DataFrame, top_n: int = 36) -> alt.Chart | mo.Html:
         if df.empty:
             return mo.md("*No effect size data available.*")
 
-        # Guard against missing values & enforce column typing for performance
         required_cols = ["profile", "ate_days", "ci_low", "ci_high", "dominance"]
         missing_cols = set(required_cols) - set(df.columns)
         if missing_cols:
             return mo.md(f"*Missing required columns: `{list(missing_cols)}`*")
 
-        # Vectorized subset filtering, absolute value calculation, and top-N ranking
+        # Clean, map names, identify intervals crossing zero, and sort
         clean_df = (
             df.dropna(subset=required_cols)
             .assign(
                 abs_ate=lambda x: x["ate_days"].abs(),
                 dominance_pct=lambda x: x["dominance"] * 100,
+                clinical_name=lambda x: x["profile"].astype(str).map(clinical_names).fillna(x["profile"].astype(str)),
+                display_label=lambda x: x.apply(
+                    lambda r: f"{r['clinical_name']} ({r['profile']})" if r["clinical_name"] != str(r["profile"]) else str(r["profile"]),
+                    axis=1,
+                ),
+                # Check whether 0 falls inside [ci_low, ci_high]
+                crosses_zero=lambda x: (x["ci_low"] <= 0) & (x["ci_high"] >= 0),
+                effect_dir=lambda x: np.select(
+                    [
+                        x["crosses_zero"],
+                        x["ate_days"] > 0,
+                    ],
+                    [
+                        "Not Significant (CI spans 0)",
+                        "Increases LoS (+ Days)",
+                    ],
+                    default="Decreases LoS (- Days)",
+                ),
             )
-            .sort_values(by="abs_ate", ascending=True)  # Bottom-to-top layout
-            .tail(top_n)
+            .sort_values(by="abs_ate", ascending=False)
+            .head(top_n)
+            .sort_values(by="ate_days", ascending=False)  # Highest positive at top
             .reset_index(drop=True)
         )
 
         if clean_df.empty:
             return mo.md("*No valid numeric rows found after cleaning.*")
 
-        # Vectorized color assignment based on directional effect
-        marker_colors = np.where(
-            clean_df["ate_days"] > 0,
-            "#E53E3E",  # Red: Increases Length of Stay
-            "#319795",  # Teal: Decreases Length of Stay
+        y_order = clean_df["display_label"].tolist()
+
+        # Y-encoding with horizontal grid and colored Ambiguity label
+        y_encoding = alt.Y(
+            "display_label:N",
+            title=None,
+            sort=y_order,
+            axis=alt.Axis(
+                labelFontSize=12,
+                labelLimit=380,
+                ticks=False,
+                domainColor="#CBD5E1",
+                grid=True,                              # Horizontal grid enabled
+                gridColor="rgba(203, 213, 225, 0.45)",  # Soft neutral divider
+                gridDash=[2, 2],                        # Subtle dashed style
+                gridWidth=1,
+                labelColor=alt.expr(                    # Red label for Diagnostic Ambiguity
+                    "indexof(datum.value, 'Diagnostic Ambiguity') >= 0 ? '#B91C1C' : '#334155'"
+                ),
+                labelFontWeight=alt.expr(               # Bold text for Diagnostic Ambiguity
+                    "indexof(datum.value, 'Diagnostic Ambiguity') >= 0 ? 'bold' : 'normal'"
+                ),
+            ),
         )
 
-        # Vectorized calculation of error bar vectors
-        error_x_minus = clean_df["ate_days"] - clean_df["ci_low"]
-        error_x_plus = clean_df["ci_high"] - clean_df["ate_days"]
+        # 3-color palette: Red (increases), Teal (decreases), Grey (spans zero)
+        color_scale = alt.Scale(
+            domain=[
+                "Increases LoS (+ Days)",
+                "Decreases LoS (- Days)",
+                "Not Significant (CI spans 0)",
+            ],
+            range=["#E53E3E", "#319795", "#94A3B8"],
+        )
 
-        # Vectorized scaling of marker size proportional to dominance (min 8px, max 24px)
-        dom_min = clean_df["dominance_pct"].min()
-        dom_max = clean_df["dominance_pct"].max()
+        base = alt.Chart(clean_df)
 
-        if dom_max > dom_min:
-            scaled_marker_sizes = (
-                8 + 16 * (clean_df["dominance_pct"] - dom_min) / (dom_max - dom_min)
-            ).to_numpy()
-        else:
-            scaled_marker_sizes = np.full(len(clean_df), 12)
+        # 0. Horizontal shaded band behind the Diagnostic Ambiguity row
+        ambiguity_band = base.transform_filter(
+            alt.datum.profile == "unknown"
+        ).mark_rule(
+            color="#FEE2E2",
+            strokeWidth=24,
+            opacity=0.75,
+        ).encode(
+            y=y_encoding
+        )
 
-        fig = go.Figure()
+        # 1. Zero dashed baseline rule
+        zero_line = alt.Chart().mark_rule(
+            color="#64748B",
+            strokeWidth=1.5,
+            strokeDash=[5, 5],
+        ).encode(x=alt.datum(0))
 
-        # Forest plot points, confidence interval bounds, and dominance scaling
-        fig.add_trace(
-            go.Scatter(
-                x=clean_df["ate_days"],
-                y=clean_df["profile"].astype(str),
-                mode="markers",
-                marker=dict(
-                    size=scaled_marker_sizes,
-                    color=marker_colors,
-                    line=dict(width=1, color="#2D3748"),
+        # 2. 95% Confidence Interval error bars
+        error_bars = base.mark_rule(
+            strokeWidth=2.2,
+        ).encode(
+            x=alt.X("ci_low:Q"),
+            x2="ci_high:Q",
+            y=y_encoding,
+            color=alt.Color("effect_dir:N", scale=color_scale, legend=None),
+        )
+
+        # 3. Effect size circles scaled by Dominance %
+        points = base.mark_circle(
+            stroke="#1E293B",
+            strokeWidth=1.2,
+            opacity=0.95,
+        ).encode(
+            x=alt.X(
+                "ate_days:Q",
+                title="Causal Effect Sizes of Diagnosis on Hospital Length of Stay in Days (95% CI)",
+                axis=alt.Axis(
+                    orient="top",
+                    grid=True,                          # Vertical grid
+                    gridColor="rgba(160, 174, 192, 0.25)",
+                    titleFontSize=13,
+                    labelFontSize=11,
+                    titlePadding=12,
                 ),
-                error_x=dict(
-                    type="data",
-                    symmetric=False,
-                    array=error_x_plus,
-                    arrayminus=error_x_minus,
-                    color="#4A5568",
-                    thickness=2,
-                    width=5,
-                ),
-                hovertemplate=(
-                    "<b>HRG Profile:</b> %{y}<br>"
-                    "<b>ATE (Days):</b> %{x:.2f}<br>"
-                    "<b>95%% CI:</b> [%{customdata[0]:.2f}, %{customdata[1]:.2f}]<br>"
-                    "<b>Dominance (Frequency):</b> %{customdata[2]:.2f}%%"
-                    "<extra></extra>"
-                ),
-                customdata=clean_df[
-                    ["ci_low", "ci_high", "dominance_pct"]
-                ].to_numpy(),
+            ),
+            y=y_encoding,
+            size=alt.Size(
+                "dominance_pct:Q",
+                title="Dominance (%)",
+                scale=alt.Scale(range=[80, 520]),
+                legend=alt.Legend(titleFontSize=12, labelFontSize=11, orient="right"),
+            ),
+            color=alt.Color(
+                "effect_dir:N",
+                title="Causal Significance",
+                scale=color_scale,
+                legend=alt.Legend(titleFontSize=12, labelFontSize=11, orient="right"),
+            ),
+            tooltip=[
+                alt.Tooltip("clinical_name:N", title="Clinical Group"),
+                alt.Tooltip("profile:N", title="HRG Code"),
+                alt.Tooltip("ate_days:Q", title="ATE (Days)", format="+.2f"),
+                alt.Tooltip("ci_low:Q", title="95% CI Lower", format=".2f"),
+                alt.Tooltip("ci_high:Q", title="95% CI Upper", format=".2f"),
+                alt.Tooltip("dominance_pct:Q", title="Dominance (%)", format=".2f"),
+                alt.Tooltip("effect_dir:N", title="Significance"),
+            ],
+        )
+
+        # 4. Inline text note right beside the Diagnostic Ambiguity whisker
+        ambiguity_note = base.transform_filter(
+            alt.datum.profile == "unknown"
+        ).mark_text(
+            align="left",
+            baseline="middle",
+            dx=16,
+            fontSize=11,
+            fontWeight="bold",
+            color="#B91C1C",
+            text="← +2.53 days delay (28.0% of all admissions)",
+        ).encode(
+            x="ci_high:Q",
+            y=y_encoding,
+        )
+
+        return (
+            (ambiguity_band + zero_line + error_bars + points + ambiguity_note)
+            .properties(
+                width=880,
+                height=max(360, len(clean_df) * 22),
+                background="transparent",
             )
+            .configure_view(stroke=None)
         )
 
-        # Configure top X-axis positioning, transparent backgrounds, and reference baseline
-        fig.update_layout(
-            title=dict(
-                # text="Effect Sizes of HRGs on LoS (Point size = Dominance %)",
-                font=dict(size=14, color="#2D3748"),
-                pad=dict(b=20),
-            ),
-            xaxis_title="Causal Effect Sizes of Diagnosis Groups on LoS (Days) - (Point size = Dominance % in data)",
-            yaxis_title="HRG Profile",
-            margin=dict(l=60, r=30, t=80, b=30),
-            height=max(240, len(clean_df) * 28),
-            paper_bgcolor="rgba(0,0,0,0)",
-            plot_bgcolor="rgba(237, 242, 247, 0.45)",
-            xaxis=dict(
-                side="top",
-                showgrid=True,
-                gridcolor="rgba(160, 174, 192, 0.35)",
-                gridwidth=1,
-                zeroline=True,
-                zerolinecolor="#718096",
-                zerolinewidth=1.5,
-                ticks="outside",
-            ),
-            yaxis=dict(
-                showgrid=True,
-                gridcolor="rgba(160, 174, 192, 0.35)",
-                gridwidth=1,
-                type="category",
-                ticks="outside",
-            ),
-            hoverlabel=dict(bgcolor="#1A202C", font_color="#FFFFFF", font_size=12),
-        )
-
-        return mo.ui.plotly(fig)
-
-
-    # --- Marimo Reactive Cell Logic ---
-    _q = hrg_search.value.strip().upper()
-
-    # Interactive left-hand panel
-    _left = mo.vstack([create_forest_plot(diags, top_n=36)])
-
-    # Right-hand panel logic
-    if not _q:
-        _right = mo.md("*Type an HRG group to see its ICD codes here.*")
-    else:
-        _filtered = hrg_in.loc[
-            hrg_in["HRG_final"].astype(str).str.upper() == _q,
-            ["ICD_code", "ICD_description"],
-        ].reset_index(drop=True)
-
-        if _filtered.empty:
-            _right = mo.md(f"*No ICD codes found for **{_q}**.*")
-        else:
-            _right = mo.vstack(
-                [
-                    mo.md(f"### {_q} — {len(_filtered)} ICD codes"),
-                    mo.ui.table(_filtered, pagination=True, page_size=15),
-                ]
-            )
-
-    mo.vstack(
-        [
-            hrg_search,
-            mo.hstack([_left, _right], widths=[0.55, 0.45], gap=2, align="start"),
-        ]
-    )
+    create_clinical_forest_plot(diags, top_n=36)
     return
 
 
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    ### Attributable bed-days from the uncoded group and codes increasing LoS
-    """)
-    return
-
-
-@app.cell(hide_code=True)
-def _(mo):
-    mo.md(r"""
-    **Reducing diagnostic ambiguity — faster coding, resolving ungroupable admissions — could free up the bed-days**
+    ## Attributable bed-days from the uncoded group and codes increasing LoS
     """)
     return
 
@@ -591,122 +656,142 @@ def _(diags, mo):
     # 1. Dynamically build options for all groups with positive ATE days
     pos_diags = diags[diags["ate_days"] > 0].copy()
 
+    # Clinical name mapping
+    _clin_map = globals().get("clinical_names", {})
+
+    # Use concise labels so badges never crowd the row
     my_options = {}
     for _, row in pos_diags.iterrows():
         prof = str(row["profile"])
-        ate = row["ate_days"]
-        dom = row["dominance"] * 100 if row["dominance"] <= 1 else row["dominance"]
         icon = "📁" if prof == "unknown" else "🏥"
-        label_text = "Uncoded Group" if prof == "unknown" else prof
 
-        display_str = f"{icon} {label_text} (+{ate:.2f} days - {dom:.1f}% dominance)"
-        my_options[display_str] = prof
+        if prof == "unknown":
+            short_label = "📁 Uncoded"
+        else:
+            clin = _clin_map.get(prof, prof)
+            short_label = (
+                f"{icon} {prof} ({clin.split('&')[0].split('/')[0].strip()[:9]})"
+            )
 
-    # Add combined option at the end for all positive groups
-    my_options[f"⭐ Combined (All {len(pos_diags)} Positive Groups)"] = "combined"
+        my_options[short_label] = prof
 
-    label_style = "font-size: 18px; font-weight: 600; color: #1e293b;"
+    label_style = "font-size: 13px; font-weight: 600; color: #475569; display: block; margin-bottom: 4px;"
 
-    group_select = mo.ui.dropdown(
-        options=my_options,
-        value=list(my_options.keys())[0],
-        label=f"<span style='{label_style}'>Select Diagnosis Group:</span>"
+    default_key = next(
+        (k for k, v in my_options.items() if v == "unknown"),
+        list(my_options.keys())[0],
     )
 
-    # 2. Causal Estimator Metric Selection
+    # 1. Multi-select (no inline label)
+    group_select = mo.ui.multiselect(
+        options=my_options,
+        value=[default_key],
+        label="",
+    )
+
+    # 2. Causal Estimator Dropdown (no inline label)
     metric_options = {
-        "📊 Point Estimate (ATE - Mean Days)": "ate_days",
-        "📉 Conservative Estimate (CI Lower Bound)": "ci_low",
-        "📈 Aggressive Estimate (CI Upper Bound)": "ci_high",
+        "📊 Point Estimate (ATE)": "ate_days",
+        "📉 Conservative (CI Low)": "ci_low",
+        "📈 Aggressive (CI High)": "ci_high",
     }
 
     metric_select = mo.ui.dropdown(
         options=metric_options,
-        value="📊 Point Estimate (ATE - Mean Days)",
-        label=f"<span style='{label_style}'>Select Causal Estimator:</span>",
+        value="📊 Point Estimate (ATE)",
+        label="",
     )
 
+    # 3. Success Rate Slider (no inline label)
     success_rate = mo.ui.slider(
-        start=0, 
-        stop=100, 
-        step=5, 
-        value=100, 
-        label=f"<span style='{label_style}'>Ambiguity Resolution Success Rate (%):</span>" 
+        start=0,
+        stop=100,
+        step=5,
+        value=100,
+        label="",
     )
+
+    # Place each control in an isolated column with its label on top
+    col1 = mo.vstack(
+        [
+            mo.md(f"<span style='{label_style}'>Select Diagnoses:</span>"),
+            group_select,
+        ],
+        gap=0.3,
+    ).style({"flex": "1.3", "min-width": "0", "overflow": "hidden"})
+
+    col2 = mo.vstack(
+        [mo.md(f"<span style='{label_style}'>Estimator:</span>"), metric_select],
+        gap=0.3,
+    ).style({"flex": "0.9", "min-width": "0", "overflow": "hidden"})
+
+    col3 = mo.vstack(
+        [
+            mo.md(f"<span style='{label_style}'>Resolution Rate (%):</span>"),
+            success_rate,
+        ],
+        gap=0.3,
+    ).style({"flex": "1.0", "min-width": "0"})
 
     _custom_css = mo.Html("""
     <style>
+        /* Prevent multiselect from breaking its column boundary */
+        marimo-multiselect {
+            width: 100% !important;
+            display: block !important;
+        }
+        marimo-multiselect div[role="combobox"],
+        marimo-multiselect button {
+            max-height: 38px !important;
+            overflow-x: auto !important;
+            overflow-y: hidden !important;
+            white-space: nowrap !important;
+            flex-wrap: nowrap !important;
+        }
         select { 
-            font-size: 16px !important; 
-            padding: 6px 10px !important; 
-            cursor: pointer;
+            width: 100% !important;
+            font-size: 13px !important; 
+            padding: 5px 8px !important; 
         }
         input[type=range] { 
-            transform: scale(1.1); 
-            margin-left: 8px; 
             cursor: pointer;
+            width: 100% !important;
         }
     </style>
     """)
 
     controls_display = mo.hstack(
-        [group_select, metric_select, success_rate], 
-        justify="start", 
-        gap=4
+        [col1, col2, col3], justify="space-between", align="start", gap=3
     ).style(
         style={
-            "padding": "24px", 
-            "background-color": "#f8fafc", 
-            "border-radius": "12px",
+            "padding": "12px 18px",
+            "background-color": "#f8fafc",
+            "border-radius": "10px",
             "border": "1px solid #e2e8f0",
-            "align-items": "center"
+            "width": "100%",
         }
     )
 
     mo.vstack([_custom_css, controls_display])
-
-    # # Just display the UI in this cell
-    # mo.hstack([group_select, success_rate], justify="start", gap=2)
     return group_select, metric_select, success_rate
 
 
 @app.cell
-def _(cleand_df, diags, test_cut):
-    ## filter rows where there is no 0 between ci_low and ci_high
-    suc_rate = 0.2
-    _test_cut = "2025-03-01"
-    _clean_test = cleand_df[cleand_df["HS_START_DATE"] >= test_cut]
-    sign_diaglist = diags[(~((diags['ci_low'] <= 0) & (diags['ci_high'] >= 0))) & (diags['ate_days'] > 0) ]["profile"].tolist()
-    sign_diagdf = _clean_test[_clean_test["group"].isin(sign_diaglist)]
-    sign_diagdf = sign_diagdf.merge(diags[["profile", "ate_days"]], left_on="group", right_on="profile", how="left").drop(columns=["profile"])
-
-
-    ## calcualate total bed-days and excess bed-days caused by the significant diagnosis groups
-    total_bed_days = cleand_df["spell_los"].sum()
-    excess_bed_days = sign_diagdf["ate_days"].sum()*suc_rate
-    ## calculate the percentage of excess bed-days caused by the significant diagnosis groups
-    excess_percentage = (excess_bed_days / total_bed_days) * 100
-    return
-
-
-@app.cell
 def _():
-    # import matplotlib.pyplot as plt
+    # ## filter rows where there is no 0 between ci_low and ci_high
+    # suc_rate = 0.2
+    # _test_cut = "2025-03-01"
+    # _clean_test = cleand_df[cleand_df["HS_START_DATE"] >= test_cut]
+    # sign_diaglist = diags[(~((diags['ci_low'] <= 0) & (diags['ci_high'] >= 0))) & (diags['ate_days'] > 0) ]["profile"].tolist()
+    # sign_diagdf = _clean_test[_clean_test["group"].isin(sign_diaglist)]
+    # sign_diagdf = sign_diagdf.merge(diags[["profile", "ate_days"]], left_on="group", right_on="profile", how="left").drop(columns=["profile"])
 
-    # plt.figure(figsize=(12, 6))
 
-    # sns.kdeplot(
-    #     sign_diagdf["spell_los"].dropna(),
-    #     fill=True,
-    #     color="skyblue",
-    #     alpha=0.5,
-    # )
-
-    # plt.xlabel("Length of Stay (days)")
-    # plt.ylabel("Density")
-    # plt.title("Distribution of Length of Stay")
-    # plt.tight_layout()
-    # plt.show()
+    # ## calcualate total bed-days and excess bed-days caused by the significant diagnosis groups
+    # total_bed_days = cleand_df["spell_los"].sum()
+    # excess_bed_days = sign_diagdf["ate_days"].sum()*suc_rate
+    # ## calculate the percentage of excess bed-days caused by the significant diagnosis groups
+    # excess_percentage = (excess_bed_days / total_bed_days) * 100
     return
 
 
@@ -717,120 +802,127 @@ def _(cleand_df, diags, group_select, metric_select, mo, success_rate):
     clean_test = cleand_df[cleand_df["HS_START_DATE"] >= test_cut]
     total_admits = clean_test.shape[0]
 
-    # List of all groups with positive ATE from diags
     positive_groups = diags[diags["ate_days"] > 0]["profile"].tolist()
 
-    selected_group = group_select.value
+    selected_groups = group_select.value
+    if not isinstance(selected_groups, list):
+        selected_groups = [selected_groups]
 
-    if selected_group == "combined":
-        active_diag = clean_test[clean_test["group"].isin(positive_groups)]
-        group_label = "Combined Positive Groups"
+    if not selected_groups:
+        selected_groups = positive_groups
 
-        # Calculate excess for each subgroup based on its specific baseline
-        excess_los = 0
-        for profile in positive_groups:
-            sub_group = active_diag[active_diag["group"] == profile]
-            len_sub = sub_group.shape[0]
-            if not sub_group.empty:
-                baseline = diags.loc[diags["profile"] == profile, metric_select.value].values[0]
-                excess_los += len_sub * baseline
-    else:
-        active_diag = clean_test[clean_test["group"] == selected_group]
-        len_act = active_diag.shape[0]
-        group_label = "Uncoded Group" if selected_group == "unknown" else selected_group
-        baseline_los = diags.loc[diags["profile"] == selected_group, metric_select.value].values[0]
-        excess_los = len_act * baseline_los
-
+    active_diag = clean_test[clean_test["group"].isin(selected_groups)]
     num_admits = active_diag.shape[0]
 
-    # Calculate admission ratio
+    _clin_map = globals().get("clinical_names", {})
+    if len(selected_groups) == 1:
+        _p0 = selected_groups[0]
+        group_label = (
+            "Uncoded Group"
+            if _p0 == "unknown"
+            else _clin_map.get(_p0, f"Group '{_p0}'")
+        )
+        banner_context = f"**{group_label}**"
+    elif set(selected_groups) == set(positive_groups):
+        group_label = "All Positive Groups"
+        banner_context = f"across **All {len(selected_groups)} Positive Groups**"
+    else:
+        group_label = f"{len(selected_groups)} Selected Groups"
+        banner_context = f"across **{len(selected_groups)} Selected Groups**"
+
+    excess_los = 0.0
+    _metric_col = metric_select.value
+
+    for _p in selected_groups:
+        _sub_df = active_diag[active_diag["group"] == _p]
+        if not _sub_df.empty:
+            _baseline_match = diags.loc[diags["profile"] == _p, _metric_col]
+            if not _baseline_match.empty:
+                _baseline_val = _baseline_match.values[0]
+                excess_los += _sub_df.shape[0] * _baseline_val
+
     admits_pct = (num_admits / total_admits * 100.0) if total_admits > 0 else 0.0
-
     total_group_los = active_diag["spell_los"].sum()
+    beds_occupied_year = total_group_los / 365.0
 
-    # Apply the success rate
     rate = success_rate.value / 100.0
     savings_bed_days = excess_los * rate
+    beds_freed_year = savings_bed_days / 365.0
 
-    # Calculate percentages
-    pct_saved_group = (savings_bed_days / total_group_los * 100.0) if total_group_los > 0 else 0.0
-
+    pct_saved_group = (
+        (savings_bed_days / total_group_los * 100.0) if total_group_los > 0 else 0.0
+    )
     total_test_cohort_los = clean_test["spell_los"].sum()
-    pct_saved_total = (savings_bed_days / total_test_cohort_los * 100.0) if total_test_cohort_los > 0 else 0.0
+    pct_saved_total = (
+        (savings_bed_days / total_test_cohort_los * 100.0)
+        if total_test_cohort_los > 0
+        else 0.0
+    )
 
-    # Generate styled cards
-    style_base = {
-        "padding": "16px",
-        "border-radius": "12px",
+    _style_base = {
+        "padding": "14px 12px",
+        "border-radius": "10px",
         "text-align": "center",
         "flex": "1",
-        "min-width": "180px",
+        "min-width": "190px",
     }
 
+    # 1. Total Group Bed-Days & Beds Occupied
     card_total_group = mo.md(
         f"""
         ### 📁 **{total_group_los:,.0f}**
-        **Total {group_label} Bed-Days**
+        **Total {group_label} Bed-Days**  
+        <span style="font-size: 13px; font-weight: 600; color: #475569;">(~{beds_occupied_year:.0f} beds occupied / year)</span>
         """
     ).style(
         style={
-            **style_base,
+            **_style_base,
             "border": "2px solid #8c8c8c",
             "background-color": "#fafafa",
             "color": "#1a1a1a",
         }
     )
 
+    # 2. Bed-Days Saved & Beds Freed
     card_savings = mo.md(
         f"""
-        ### 🛏️ **{savings_bed_days:,.0f}**
-        **Bed-Days Saved**
+        ### 🛏️ **{savings_bed_days:,.0f}** <span style="font-size: 15px; font-weight: 600; opacity: 0.9;">({pct_saved_group:.0f}%)</span>
+        **Bed-Days Saved**  
+        <span style="font-size: 13px; font-weight: 600; color: #0369a1;">(~{beds_freed_year:.0f} beds freed / year)</span>
         """
     ).style(
         style={
-            **style_base,
+            **_style_base,
             "border": "2px solid #007bc0",
             "background-color": "#f4f9fc",
             "color": "#004d7a",
         }
     )
 
-    card_group_pct = mo.md(
-        f"""
-        ### 🎯 **{pct_saved_group:.1f}%**
-        **Saved ({group_label})**
-        """
-    ).style(
-        style={
-            **style_base,
-            "border": "2px solid #d97706",
-            "background-color": "#fffbeb",
-            "color": "#78350f",
-        }
-    )
-
+    # 3. Whole Hospital Relief
     card_total = mo.md(
         f"""
-        ### 📈 **{pct_saved_total:.1f}%**
-        **Saved (Total Cohort)**
+        ### 📈 **{pct_saved_total:.0f}%**
+        **Saved (Entire Hospital Capacity)**
         """
     ).style(
         style={
-            **style_base,
+            **_style_base,
             "border": "2px solid #16a34a",
             "background-color": "#f0fdf4",
             "color": "#14532d",
         }
     )
 
+    # Natural English phrasing for the header
     card_admits = mo.md(
         f"""
-        ### 🏥 **Cohort Analysis: {num_admits:,} {group_label} Admissions** out of {total_admits:,} Total
-        **Representing {admits_pct:.1f}% of the test cohort**
+        ### 🏥 **Patients Affected: {num_admits:,} Hospital Stays** ({banner_context})
+        **Accounts for {admits_pct:.0f}% of all admissions over the year (out of {total_admits:,} total)**
         """
     ).style(
         style={
-            **style_base,
+            **_style_base,
             "border": "2px solid #6366f1",
             "background-color": "#f5f3ff",
             "color": "#4338ca",
@@ -838,36 +930,43 @@ def _(cleand_df, diags, group_select, metric_select, mo, success_rate):
         }
     )
 
-    # Assemble dashboard layout
-    header_label = "Combined Positive Groups" if selected_group == "combined" else f"Group '{selected_group}'"
-    dashboard_header = mo.md(f"#### 🔍 Counterfactual Scenario Results for **{header_label}**")
+    dashboard_header = mo.md(
+        f"#### 🔍 Counterfactual Scenario Results for **{group_label}**"
+    )
 
     dashboard_row = mo.hstack(
-        [card_total_group, card_savings, card_group_pct, card_total], 
-        justify="space-between", 
+        [card_total_group, card_savings, card_total],
+        justify="space-between",
         align="stretch",
-        gap=1.0
+        gap=1.2,
     )
 
     mo.vstack([dashboard_header, card_admits, dashboard_row])
-    return (test_cut,)
+    return
 
 
 @app.cell
-def _():
-    # # Sample from a distribution with mean and variance
-    # import matplotlib.pyplot as plt
-    # mu = diags.loc[0, "ate_days"]
-    # se = diags.loc[0, "se"]
+def _(outline):
+    outline(4)
+    return
 
-    # # Generate random samples
-    # samples = np.random.normal(mu, se, 1000)
-    # ## plot the distribution
-    # plt.hist(samples, bins=30, edgecolor='black')
-    # plt.title("Distribution of Samples")
-    # plt.xlabel("Days")
-    # plt.ylabel("Frequency")
-    # plt.show()
+
+@app.cell
+def _(fragment_md):
+    fragment_md("""
+
+    ## Next Steps
+
+    - **Co-Designing Discharge Protocols & Teams**: Collaborating directly with CVUHB clinicians and managers to determine how specialized discharge teams should be structured and to establish tailored protocols targeting delay-inducing diagnoses identified by our causal model.
+
+    - **Interactive Decision-Support Tool:** Designing and deploying an interactive web application for clinicians and operational managers to prioritize high-impact diagnoses, and measure the real-time bed capacity impact of tailored discharge protocols.
+
+    - **Ward-Level Pilot Implementation:** Running a prospective pilot study within priority acute wards to test whether early diagnostic clarification and proactive multidisciplinary reviews translate into measured reductions in Length of Stay.
+
+    - **Academic & Practitioner Dissemination:** Presenting findings at leading Operations Research conferences (e.g., EJOR, POMS, INFORMS) and NHS executive seminars to gather peer feedback and evaluate whether the framework generalizes across other NHS trusts and hospital settings.
+
+    """
+              )           
     return
 
 
@@ -1132,7 +1231,7 @@ def _(mo):
     # _text = mo.vstack([_thanks], align="center")
     _image = mo.Html(
         '<div style="container-type:inline-size;width:100%">'
-        f'<img src="{_src}" style="display:block;margin:0 auto;max-height:50vh;max-width:100%">'
+        f'<img src="{_src}" style="display:block;margin:0 auto;max-height:55vh;max-width:100%">'
         '</div>'
     )
 
