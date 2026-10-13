@@ -1,15 +1,14 @@
 ---
-title: "Causal Impact of Diagnosis on Length of Stay at SWORDS Network Event"
-description: "SWORDS Network Event - Postgraduate OR Presentations"
+title: "From Causal Impacts of Diagnosis on Length of Stay to Reclaimed Hospital Bed Capacity"
+description: "South Wales OR Network Event"
 author: "Mustafa Aslan"
 date: "2026-10-14"
 image: "../images/hospital_bed.jpg"
 categories:
-  - Healthcare Management
+  - Healthcare Analytics
   - Discharge Planning
-  - Sequential Decision Analytics
+  - Causal Machine Learning
   - Python
-  - Time Series Forecasting
   - Machine Learning
 link-external-newwindow: true
 ---
