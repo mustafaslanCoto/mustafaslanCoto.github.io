@@ -38,11 +38,11 @@ const style = `
   z-index: 60;
   width: 100%;
   color: #20808D !important;
-  font-size: 22px;
+  font-size: 20px;
   line-height: normal;
   text-align: center;
   text-decoration: none !important;
-  font-weight: 480;
+  font-weight: 500;
   white-space: nowrap;
   pointer-events: auto;
 }
