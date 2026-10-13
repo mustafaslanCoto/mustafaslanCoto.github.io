@@ -42,7 +42,7 @@ const style = `
   line-height: normal;
   text-align: center;
   text-decoration: none !important;
-  font-weight: 500;
+  font-weight: 550;
   white-space: nowrap;
   pointer-events: auto;
 }
