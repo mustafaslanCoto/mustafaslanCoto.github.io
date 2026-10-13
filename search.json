@@ -14,13 +14,6 @@
     "text": "Key Features\n\n⚡ Unified Model-Agnostic API\nTrain any model—from classic ARIMA/ETS to modern XGBoost/LightGBM—using a simple .fit(df) and .forecast(H) workflow. This eliminates the need for manual feature/target splitting across different library types.\n\n\n🛠️ Automated Feature & Trend Engineering\nPeshbeen handles the heavy lifting of preprocessing. It automatically generates lag features and rolling statistics, while offering sophisticated trend removal options like piecewise linear or local ETS-based trends.\n\n\n🎲 Scalable Probabilistic Uncertainty\nMove beyond simple point estimates with native uncertainty quantification. peshbeen integrates Conformal Prediction, Correlated Bootstrapping, and Classical Bootstrap methods to provide robust prediction intervals that account for both model error and data volatility.\nFurthermore, the package supports the generation of stochastic forecasting scenarios. This allows users to capture the full distribution of future paths, providing the necessary inputs for downstream risk assessment, “what-if” analysis, and complex optimization problems.\n\n\n\n\n\n\nNote🚧 Under Development\n\n\n\nThe peshbeen package and its documentation are currently under active development. Deep learning-based forecasting models are planned for future releases. Stay tuned for updates!\n\n\nView Full Documentation →"
   },
   {
-    "objectID": "presentations/index.html",
-    "href": "presentations/index.html",
-    "title": "MUSTAFA ASLAN",
-    "section": "",
-    "text": "My presentations are listed below. You can click on the title of each presentation to view the slides and additional resources.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n- “causal_presentation/output_dir/**“\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
     "objectID": "workshops/rl/note.html",
     "href": "workshops/rl/note.html",
     "title": "Notes for presentation",
