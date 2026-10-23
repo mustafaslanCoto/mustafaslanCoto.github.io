@@ -2,17 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.29">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>rl_presentation_v0 – HOME</title>
+<title>rl_presentation_v0 – MUSTAFA ASLAN</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -36,10 +42,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-c1fac2584b48ed01fb6e278e36375074.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-445b8638c3d06994fee0907d791121c4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,7 +75,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -82,7 +88,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -99,9 +105,9 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="../../../styles.css">
-<meta property="og:title" content="HOME">
+<meta property="og:title" content="MUSTAFA ASLAN">
 <meta property="og:image" content="images_rl/agent_environment.png">
-<meta property="og:site_name" content="HOME">
+<meta property="og:site_name" content="MUSTAFA ASLAN">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -112,7 +118,7 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../../index.html">
-    <span class="navbar-title">HOME</span>
+    <span class="navbar-title">MUSTAFA ASLAN</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -122,16 +128,24 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../learn/index.html"> 
-<span class="menu-text">LEARN</span></a>
+    <a class="nav-link" href="../../../blog/index.html"> 
+<span class="menu-text">BLOG</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../projects/index.html"> 
+<span class="menu-text">PROJECTS</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../publications/index.html"> 
+<span class="menu-text">PUBLICATIONS</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../talks/index.html"> 
+<span class="menu-text">TALKS</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../../workshops/index.html"> 
 <span class="menu-text">WORKSHOPS</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../../CV/CV.html"> 
-<span class="menu-text">CV</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -448,7 +462,7 @@ v_{k+1}(s) &amp;\doteq \mathbb{E}_\pi \big[R_{t+1} + \gamma v_k(S_{t+1}) \mid S_
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Iterative Policy Evaluation, for estimating <span class="math inline">\(V \approx v_\pi\)</span>
+<span class="screen-reader-only">Note</span>Iterative Policy Evaluation, for estimating <span class="math inline">\(V \approx v_\pi\)</span>
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -516,7 +530,7 @@ v_{\pi'}(s) \geq v_\pi(s).
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Policy Iteration (using iterative policy evaluation) for estimating <span class="math inline">\(\pi \approx \pi_*\)</span>
+<span class="screen-reader-only">Note</span>Policy Iteration (using iterative policy evaluation) for estimating <span class="math inline">\(\pi \approx \pi_*\)</span>
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -569,7 +583,7 @@ v_{k+1}(s) &amp;= \mathbb{E} \big[R_{t+1} + \gamma v_k(S_{t+1}) \mid S_t=s, A_t 
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Value Iteration, for estimating <span class="math inline">\(\pi \approx \pi_*\)</span>
+<span class="screen-reader-only">Note</span>Value Iteration, for estimating <span class="math inline">\(\pi \approx \pi_*\)</span>
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -639,7 +653,7 @@ A deterministic policy, <span class="math inline">\(\pi \approx \pi_*\)</span>, 
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-First-Visit Monte Carlo Prediction (for estimating <span class="math inline">\(V \approx v_\pi\)</span>)
+<span class="screen-reader-only">Note</span>First-Visit Monte Carlo Prediction (for estimating <span class="math inline">\(V \approx v_\pi\)</span>)
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -671,7 +685,7 @@ A policy <span class="math inline">\(\pi\)</span> to be evaluated</p>
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Monte Carlo ES (Exploring Starts), for estimating <span class="math inline">\(\pi \approx \pi_*\)</span>
+<span class="screen-reader-only">Note</span>Monte Carlo ES (Exploring Starts), for estimating <span class="math inline">\(\pi \approx \pi_*\)</span>
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -713,7 +727,7 @@ Monte Carlo ES (Exploring Starts), for estimating <span class="math inline">\(\p
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-On-policy First-Visit MC Control (for <span class="math inline">\(\varepsilon\)</span>-soft policies), estimates <span class="math inline">\(\pi \approx \pi_*\)</span>
+<span class="screen-reader-only">Note</span>On-policy First-Visit MC Control (for <span class="math inline">\(\varepsilon\)</span>-soft policies), estimates <span class="math inline">\(\pi \approx \pi_*\)</span>
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -769,7 +783,7 @@ V(S_t) \leftarrow V(S_t) + \alpha \big[ R_{t+1} + \gamma V(S_{t+1})-V(S_t)  \big
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tabular TD(0) for Estimating <span class="math inline">\(v_\pi\)</span>
+<span class="screen-reader-only">Note</span>Tabular TD(0) for Estimating <span class="math inline">\(v_\pi\)</span>
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -802,7 +816,7 @@ Q(S_t, A_t) \leftarrow Q(S_t, A_t) + \alpha \big[R_{t+1}+\gamma Q(S_{t+1}, A_{t+
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-SARSA (On-Policy TD Control), for estimating <span class="math inline">\(Q \approx q_*\)</span>
+<span class="screen-reader-only">Note</span>SARSA (On-Policy TD Control), for estimating <span class="math inline">\(Q \approx q_*\)</span>
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -839,7 +853,7 @@ Q(S_t, A_t) \leftarrow Q(S_t, A_t)+ \alpha \big[R_{t+1}+\gamma \max_aQ(S_{t+1}, 
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Q-learning (Off-Policy TD Control), for estimating <span class="math inline">\(\pi \approx \pi_*\)</span>
+<span class="screen-reader-only">Note</span>Q-learning (Off-Policy TD Control), for estimating <span class="math inline">\(\pi \approx \pi_*\)</span>
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -939,13 +953,14 @@ except that <span class="math inline">\(Q(\text{terminal}, \cdot) = 0\)</span></
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

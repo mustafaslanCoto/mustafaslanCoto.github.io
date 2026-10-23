@@ -147,5 +147,47 @@
   },
   "talks/presentations/sword2026.qmd": {
     "sword2026.html": "3e894d47"
+  },
+  "workshops/trainings/rl_index.qmd": {
+    "rl_index.html": "8018f9ee"
+  },
+  "workshops/trainings/py_index.qmd": {
+    "py_index.html": "12c6899a"
+  },
+  "workshops/intro_python/intro_to_python_part_3.qmd": {
+    "intro_to_python_part_3.html": "6b7612eb"
+  },
+  "workshops/rl/temp/rl_python_revenue_max.ipynb": {
+    "rl_python_revenue_max.html": "9292d235"
+  },
+  "workshops/rl/temp/RL_presentation_v0.qmd": {
+    "RL_presentation_v0.html": "e4279a27"
+  },
+  "workshops/rl/note.qmd": {
+    "note.html": "b8afeeb4"
+  },
+  "workshops/rl/rl.ipynb": {
+    "rl.html": "ae128a16"
+  },
+  "workshops/rl/notes_ides.ipynb": {
+    "notes_ides.html": "290c4721"
+  },
+  "workshops/rl/RL_presentation.qmd": {
+    "RL_presentation.html": "c0aa1b90"
+  },
+  "talks/presentations/wgsss.qmd": {
+    "wgsss.html": "034e581e"
+  },
+  "talks/presentations/sword.qmd": {
+    "sword.html": "1f9fa7c0"
+  },
+  "talks/sphere/marimo.qmd": {
+    "marimo.html": "69660daf"
+  },
+  "talks/wgsss/occupancy_nb.ipynb": {
+    "occupancy_nb.html": "a3b3ea98"
+  },
+  "talks/wgsss/slides.qmd": {
+    "slides.html": "d1a24f35"
   }
 }

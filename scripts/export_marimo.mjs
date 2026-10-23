@@ -22,7 +22,7 @@ let temporarySourcePath;
 try {
   const source = await readFile(sourcePath, "utf8");
   const layoutArgument =
-    /^[\t ]*layout_file[\t ]*=[\t ]*(?:"[^"\n]*"|'[^'\n]*'|None)[\t ]*,[\t ]*$/m;
+    /(?:^[\t ]*layout_file[\t ]*=[\t ]*(?:"[^"\n]*"|'[^'\n]*'|None)[\t ]*,?[\t ]*$\r?\n?|,?[\t ]*layout_file[\t ]*=[\t ]*(?:"[^"\n]*"|'[^'\n]*'|None)[\t ]*)/m;
   const hasLayoutArgument = /\blayout_file\s*=/.test(source);
   let exportSource = source;
 
