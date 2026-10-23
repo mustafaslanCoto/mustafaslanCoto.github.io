@@ -1,5 +1,13 @@
 [
   {
+    "listing": "/blog/index.html",
+    "items": [
+      "/blog/prob_stats/mc_integration.html",
+      "/blog/prob_stats/cond_index.html",
+      "/blog/prob_stats/dists_index.html"
+    ]
+  },
+  {
     "listing": "/workshops/index.html",
     "items": [
       "/workshops/trainings/causal_ml.html",
@@ -8,12 +16,9 @@
     ]
   },
   {
-    "listing": "/blog/index.html",
+    "listing": "/projects/index.html",
     "items": [
-      "/blog/prob_stats/copul.html",
-      "/blog/prob_stats/mc_integration.html",
-      "/blog/prob_stats/cond_index.html",
-      "/blog/prob_stats/dists_index.html"
+      "/projects/peshbeen.html"
     ]
   },
   {
@@ -29,12 +34,6 @@
       "/talks/presentations/qqf.html",
       "/talks/presentations/sword.html",
       "/talks/presentations/wgsss.html"
-    ]
-  },
-  {
-    "listing": "/projects/index.html",
-    "items": [
-      "/projects/peshbeen.html"
     ]
   }
 ]
