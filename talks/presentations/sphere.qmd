@@ -19,7 +19,7 @@ link-external-newwindow: true
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 [<i class="fas fa-bookmark"></i> Slides](../sphere/present.qmd){.btn .btn-sm .btn-outline-primary}
-[<i class="fas fa-chart-line"></i> Interactive Results](../sphere/marimo_in_read.html){.btn .btn-sm .btn-outline-primary target="_blank"}
+<!-- [<i class="fas fa-chart-line"></i> Interactive Results](../sphere/marimo_in_read.html){.btn .btn-sm .btn-outline-primary target="_blank"} -->
 
 **Date:** September 23 2026 14:45 \
 **Event:** NHS SPHERE-PPL Forecasting Contest \
