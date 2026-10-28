@@ -1,0 +1,42 @@
+---
+title: "Systemic Forecasting of Hospital Patient Flow: An Interdependent Multi-Series Approach to Cross-Specialty Dynamics"
+description: "6th Welsh Postgraduate Research Conference 2026 (WGSSS)"
+author: "Mustafa Aslan"
+date: "2026-11-02"
+image: "../images/hospital_flow_network.png"
+categories:
+  - Healthcare Operations
+  - Patient Flow Management
+  - Multi-Series Forecasting
+  - Probabilistic Forecasting
+  - Machine Learning
+  - Python
+link-external-newwindow: true
+---
+
+
+![](../images/hospital_flow_network.png){fig-align="center"}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+[<i class="fas fa-bookmark"></i> Slides](../wgsss2026_bangor/present.qmd){.btn .btn-sm .btn-outline-primary}
+
+**Date:** November 2, 2026 \
+**Event:** 6th Welsh Postgraduate Research Conference 2026 — Wales Graduate School for the Social Sciences (WGSSS) (*Economy, Enterprise, and Productivity Cluster*) \
+**Location:** Prichard Jones Hall, Bangor University, UK
+
+## Context
+
+At the **6th Welsh Postgraduate Research Conference 2026** (organised by the Wales Graduate School for the Social Sciences at Bangor University), I present our research on **interdependent multi-series forecasting of hospital admissions and discharges across 29 clinical specialties** (58 coupled daily patient flow streams).
+
+Rather than forecasting each specialty and flow stream in isolation via 58 independent univariate models, our framework (implemented in the open-source [`peshbeen`](https://mustafaslancoto.github.io/peshbeen/) package) pools all 58 series into a single global model that captures cross-specialty temporal spillovers over a 42-day operational planning horizon. We evaluate three forecasting architectures across five model families (**LightGBM**, **XGBoost**, **CatBoost**, **Random Forest**, and **Ridge Regression**):
+
+1. **Independent Single-Series Forecasting:** 58 separately tuned models conditioned only on their own past lags.
+2. **Full-Input Multi-Series Forecasting:** A single unified model leveraging lagged observations across all 58 admissions and discharges streams (406 cross-lag features).
+3. **Reduced-Input Multi-Series Forecasting:** A parsimonious unified model using correlation-guided selection of one dominant flow series per specialty (196 lag features; $>51\%$ dimensionality reduction).
+
+Empirical evaluation across 30 rolling 6-week cross-validation windows demonstrates that **Multi-Series LightGBM** achieves the lowest point forecast error (RMSSE) and substantial reductions in probabilistic **Pinball Loss**, improving **51 of 58 series** (87.9%)—with the largest accuracy gains observed on **hospital discharge streams** ($+6.46\%$ RMSSE reduction; 26/29 specialties improved) and medium-to-long horizons (Weeks 3–6). Moreover, the reduced-input representation retains ~86–91% of the full-model accuracy gains while halving lag dimensionality and unlocking multi-series gains for XGBoost.
+
+## Abstract
+
+Discharge planning is a critical component of patient flow management, directly influencing hospital throughput, bed availability, and overall operational efficiency. However, modern healthcare systems often operate within siloed organizational structures, where fragmented decision-making across multidisciplinary teams contributes to systemic delays, prolonged hospital stays, delayed discharges, and inefficient resource utilization. Such fragmented approaches fail to capture the systemic "ripple effects" within hospitals, where admission patterns in one specialty, viewed through a temporal perspective, may act as leading indicators of discharge demand in another. To address this limitation, this research introduces a multivariate forecasting framework designed to quantify interdepartmental dependencies using historical patient admission and discharge data. Moving beyond the limitations of traditional univariate forecasting approaches, the proposed framework conceptualizes the hospital as an interconnected system in which patient flow dynamics across specialties are jointly modelled. By capturing these cross-specialty temporal relationships, the framework aims to improve the accuracy of discharge volume forecasts across the hospital network. The proposed holistic forecasting approach supports more proactive and coordinated discharge planning, enabling healthcare administrators and operational teams to anticipate discharge surges, allocate resources more effectively, and improve system-wide capacity management. In particular, it provides actionable insights into how rising admission volumes in specific specialties may signal impending discharge pressures in others, facilitating earlier intervention and more informed operational decision-making. Ultimately, this research seeks to enhance patient flow efficiency, optimize resource utilization, and support improved patient outcomes through a more integrated and data-driven approach to healthcare operations management.

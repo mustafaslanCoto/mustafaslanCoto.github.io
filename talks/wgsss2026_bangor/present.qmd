@@ -1,0 +1,862 @@
+---
+jupyter: python3
+# jupyter: peshbeen
+format:
+  revealjs:
+    css: style.css
+    width: 1920
+    height: 1080
+    footer: "[Systemic Forecasting of Hospital Patient Flow: A Multi-Series Approach | WGSSS Conference 2026](https://mustafaslancoto.github.io)"
+    slide-number: c/t
+    preview-links: auto
+    # chalkboard: true
+    html-math-method: mathjax
+    # margin: 0.1
+    # min-scale: 0.2
+    # max-scale: 2.0
+---
+
+{{< include title-slide.html >}}
+
+##
+
+<br>
+<br>
+
+[Outline]{.mimic-h2}
+
+:::{style="font-weight: bold; font-size: 1.3em; line-height: 1.8;"}
+- [Problem & Motivation]{style="color: #20808D;"}
+- [Interdependent Multi-Series Framework]{style="color: #999;"}
+- [Experimental Setup & Three Forecasting Approaches]{style="color: #999;"}
+- [Empirical Results: Point & Probabilistic Forecasting]{style="color: #999;"}
+- [Operational Implications & Next Steps]{style="color: #999;"}
+
+:::
+
+## The Clinical & Operational Problem
+
+<br>
+
+::::{.columns style="display: flex; align-items: center;"}
+:::{.column width="48%"}
+
+:::{style="font-size: 1.12em; line-height: 1.6; padding-right: 20px;"}
+- **Siloed Hospital Operations:** Fragmented decision-making across multidisciplinary wards contributes to systemic delays, prolonged stays, and delayed discharges.
+
+- **Systemic "Ripple Effects":** Admission surges in one clinical specialty act as leading indicators of downstream discharge pressure and bed blocking in others.
+
+- **Patient Off-Placement:** When target wards reach capacity, patients are boarded in non-specialist beds—inflating length of stay and compounding hospital gridlock.
+:::
+
+:::
+
+:::{.column width="52%"}
+![](images/gemini_congest.png){width="100%" style="border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);"}
+:::
+::::
+
+## The Scale of the Challenge
+
+### Capturing hospital-wide patient flow dynamics across 58 coupled time series
+
+<br>
+
+::::{.columns}
+:::{.column width="33%" .fragment}
+:::{.border-box style="background-color: #E8F4F5; text-align: center; padding: 35px 25px; border-radius: 12px; height: 100%;"}
+[29]{style="font-size: 3em; font-weight: 800; color: #20808D; display: block;"}
+[Clinical Specialties]{style="font-size: 1.4em; font-weight: 600; color: #091717; display: block; margin-top: 10px;"}
+General Medicine, Surgery, Trauma, Cardiology, Haematology, ICU, etc.
+:::
+:::
+
+:::{.column width="33%" .fragment}
+:::{.border-box style="background-color: #DEF7F9; text-align: center; padding: 35px 25px; border-radius: 12px; height: 100%;"}
+[2 Flow Types]{style="font-size: 3em; font-weight: 800; color: #0B363C; display: block;"}
+[Admissions & Discharges]{style="font-size: 1.4em; font-weight: 600; color: #091717; display: block; margin-top: 10px;"}
+Strongly coupled daily inflows and outflows across wards
+:::
+:::
+
+:::{.column width="33%" .fragment}
+:::{.border-box style="background-color: #FDE8E8; text-align: center; padding: 35px 25px; border-radius: 12px; height: 100%;"}
+[58 Series]{style="font-size: 3em; font-weight: 800; color: #BF505C; display: block;"}
+[Simultaneous Time Series]{style="font-size: 1.4em; font-weight: 600; color: #091717; display: block; margin-top: 10px;"}
+5+ years of daily NHS inpatient data ($>109,000$ panel observations)
+:::
+:::
+::::
+
+<br>
+
+:::{style="text-align: center; font-size: 1.3em; font-weight: 600; color: #0B363C; margin-top: 15px;" .fragment}
+**Central Research Questions:**<br>
+1. Can exploiting interdependencies across specialties in **ONE unified model** improve point and probabilistic forecasts over 58 independent models?<br>
+2. Can these gains be retained using a **reduced-input representation** (one selected flow series per specialty)?
+:::
+
+## Conventional Baseline: 58 Independent Single-Series Models
+
+<br>
+
+::::{.columns}
+:::{.column width="50%" .fragment}
+:::{.callout-warning icon="false"}
+## Independent Univariate Modeling (Approach 1)
+- Fit **58 separate forecasting models** (one per specialty and flow type).
+- Maintain, tune, and monitor each series in complete isolation:
+  - Hyperparameter tuning repeated **58 independent times** ($58 \times 75 = 4,350$ CV evaluations per model family).
+- Each model conditions exclusively on its **own historical lags**:
+$$
+\hat{y}_{t+1}^{(i)} = f_i\left(y_t^{(i)}, y_{t-1}^{(i)}, \dots, y_{t-p}^{(i)}, \mathbf{Z}_t\right)
+$$
+:::
+:::
+
+:::{.column width="50%" .fragment}
+:::{.callout-important icon="false"}
+
+## Why Siloed Forecasting Falls Short
+
+- **Ignores Cross-Specialty Spillovers:** Admissions and discharges are tightly coupled within and across specialties ($r > 0.80$ in core medical/surgical wards). Univariate models are blind to upstream admission surges.
+
+- **Data Fragmentation:** Each model trains on only $\sim 1,880$ daily observations rather than pooling shared seasonal and calendar structure across all $109,000+$ hospital records.
+
+- **Operational Maintenance Burden:** Scaling and auditing 58 separate pipelines for point and probabilistic forecasting creates substantial technical debt.
+:::
+:::
+::::
+
+<br>
+
+:::{style="text-align: center; font-size: 1.3em; font-weight: bold; color: #20808D;" .fragment}
+&#10140; Proposed Solution: Jointly model all 58 streams via an **Interdependent Multi-Series Framework**
+:::
+
+## 
+
+<br>
+<br>
+
+[Outline]{.mimic-h2}
+
+:::{style="font-weight: bold; font-size: 1.3em; line-height: 1.8;"}
+- [Problem & Motivation]{style="color: #999;"}
+- [Interdependent Multi-Series Framework]{style="color: #20808D;"}
+- [Experimental Setup & Three Forecasting Approaches]{style="color: #999;"}
+- [Empirical Results: Point & Probabilistic Forecasting]{style="color: #999;"}
+- [Operational Implications & Next Steps]{style="color: #999;"}
+
+:::
+
+## Proposed Framework: Three Forecasting Architectures Compared
+
+### Evaluating full cross-series information against correlation-guided input reduction
+
+::::{.columns style="display: flex; align-items: stretch; gap: 18px; margin-top: 10px;"}
+
+:::{.column style="width: 33%; display: flex; flex-direction: column;"}
+:::{.border-box style="background: white; border: 2px solid #0B363C; border-radius: 10px; padding: 18px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); flex: 1; font-size: 0.90em; line-height: 1.5;"}
+[Approach 1: Single-Series Baseline]{style="background: #0B363C; color: white; padding: 7px 12px; border-radius: 6px; font-weight: bold; font-size: 1.02em; display: block; text-align: center; margin-bottom: 12px;"}
+
+- **Architecture:** **58 separate models** ($f_1, \dots, f_{58}$), tuned independently.
+- **Lag Inputs:** Own lags $1 \dots 7$ only ($\mathbf{7}$ lag features per model).
+- **Cross-Series Info:** **None** — ignores cross-specialty spillovers.
+:::
+:::
+
+:::{.column style="width: 33%; display: flex; flex-direction: column;"}
+:::{.border-box style="background: white; border: 2px solid #20808D; border-radius: 10px; padding: 18px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); flex: 1; font-size: 0.90em; line-height: 1.5;"}
+[Approach 2: Multi-Series (All Lags)]{style="background: #20808D; color: white; padding: 7px 12px; border-radius: 6px; font-weight: bold; font-size: 1.02em; display: block; text-align: center; margin-bottom: 12px;"}
+
+- **Architecture:** **1 unified global model** $\mathcal{M}$ predicting all 58 series at once.
+- **Lag Inputs:** Lags $1 \dots 7$ of **all 58 series** ($58 \times 7 = \mathbf{406}$ lag features).
+- **Cross-Series Info:** Full hospital-wide inflow and outflow visibility.
+:::
+:::
+
+:::{.column style="width: 33%; display: flex; flex-direction: column;"}
+:::{.border-box style="background: white; border: 2px solid #B2582D; border-radius: 10px; padding: 18px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); flex: 1; font-size: 0.90em; line-height: 1.5;"}
+[Approach 3: Multi-Series (Selected Lags)]{style="background: #B2582D; color: white; padding: 7px 12px; border-radius: 6px; font-weight: bold; font-size: 1.02em; display: block; text-align: center; margin-bottom: 12px;"}
+
+- **Architecture:** **1 unified global model** $\mathcal{M}$ with pruned cross-lags.
+- **Lag Inputs:** **1 dominant series per specialty** ($28 \times 7 = \mathbf{196}$ lags; **$-51\%$** features).
+- **Selection Rule:** Composite $R^2$ test ($p < 0.05, |r| \ge 0.20$) on Adm vs. Dis.
+:::
+:::
+
+::::
+
+## Mathematical Formulation: Interdependent Multi-Series Model
+
+:::: {.columns}
+
+::: {.column width="62%"}
+::: {style="border-right: 1px solid #D2DFDF; padding-right: 25px;"}
+
+- **Global Functional Mapping:**  
+  Instead of 58 disconnected functions, a single model $\mathcal{M}$ predicts patient flow $y_{i,t}$ for any target stream $i \in \{1, \dots, 58\}$:
+  $$y_{i, t} = \mathcal{M}\left( s_i, \, \mathbf{X}_{t}^{\text{cross}}, \, \mathbf{Z}_{t} \right) + \epsilon_{i, t}, \qquad i = 1, \dots, N$$
+
+- **Cross-Specialty Feature Representation ($\mathbf{X}_{t}^{\text{cross}}$):**  
+  Concatenates $p=7$ autoregressive lags across the active set of series $\mathcal{S}$ ($\mathcal{S}_{\text{full}} = 58$ series in Approach 2; $\mathcal{S}_{\text{sel}} = 28$ dominant specialty series in Approach 3):
+  $$\mathbf{X}_{t}^{\text{cross}} = \Big[\mathbf{y}_{t-1:t-p}^{(k)}\Big]_{k \in \mathcal{S}} \in \mathbb{R}^{|\mathcal{S}| \cdot p}$$
+
+- **Pooled Empirical Risk Minimization:**  
+  Learned jointly across all $N=58$ streams and training days via `peshbeen`:
+  $$\min_{\mathcal{M}} \sum_{i=1}^{N} \sum_{t=p+1}^{T} \mathcal{L}\left( y_{i, t}, \, \mathcal{M}\left(s_i, \, \mathbf{X}_{t}^{\text{cross}}, \, \mathbf{Z}_{t}\right) \right) + \Omega(\mathcal{M})$$
+
+:::
+:::
+
+::: {.column width="38%"}
+::: {style="padding-left: 20px; font-size: 0.95em; line-height: 1.55;"}
+
+[**Notation & Model Interface (`peshbeen`):**]{style="color: #0B363C; font-size: 1.08em; font-weight: bold; display: block; margin-bottom: 8px;"}
+
+- $y_{i,t}$: Daily admissions or discharges for stream $i$ on day $t$
+- $s_i$: Categorical series identifier (`id_col = "specialty"`)
+- $\mathcal{S}_{\text{full}}$ vs. $\mathcal{S}_{\text{sel}}$: 406 full lags vs. 196 selected lags
+- $\mathbf{Z}_t$: Calendar (`day_of_week`, `month`), bank holidays, time trend, and capacity expansion (`gm_ch`)
+- $\mathcal{M}(\cdot)$: Pluggable estimator in `peshbeen` (`ml_multi_forecaster`):
+  - **LightGBM**, **XGBoost**, **CatBoost**, **Random Forest**, **Ridge**
+
+:::
+:::
+
+::::
+
+## The Multi-Series Training Matrix Architecture
+
+<br>
+
+{{< include matrix-architecture.html >}}
+
+
+
+## Recursive Multi-Step & Probabilistic Forecasting ($H = 42$ Days)
+
+### Propagating cross-specialty feedback loops and joint predictive uncertainty
+
+<br>
+
+::::{.columns}
+:::{.column width="33%"}
+:::{.border-box style="background: white; border: 2px solid #20808D; border-radius: 10px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); height: 100%;"}
+[1. Step $h = 1$ (Observed History)]{style="background: #20808D; color: white; padding: 6px 14px; border-radius: 6px; font-weight: bold; font-size: 1.05em; display: block; text-align: center; margin-bottom: 14px;"}
+
+- Model ingests observed cross-series lags up to origin $t$:
+$$\mathbf{X}_{t} = \left[\mathbf{y}_{t:t-6}^{(k)},\, \mathbf{Z}_{t+1}\right]_{k \in \mathcal{S}}$$
+- Generates 1-step ahead predictions $\hat{\mathbf{y}}_{t+1} = \mathcal{M}(\mathbf{X}_t)$ for **all 58 series simultaneously**.
+:::
+:::
+
+:::{.column width="33%"}
+:::{.border-box style="background: white; border: 2px solid #B2582D; border-radius: 10px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); height: 100%;"}
+[2. Steps $h = 2 \dots 42$ (Recursive Roll)]{style="background: #B2582D; color: white; padding: 6px 14px; border-radius: 6px; font-weight: bold; font-size: 1.05em; display: block; text-align: center; margin-bottom: 14px;"}
+
+- Predicted flows $\hat{\mathbf{y}}_{t+h-1}$ roll into the lag vector for step $h$:
+$$\text{Lag}_1 \leftarrow \hat{\mathbf{y}}_{t+h-1}, \quad \text{Lag}_2 \leftarrow \hat{\mathbf{y}}_{t+h-2}$$
+- Admission surges predicted on day $t+1$ dynamically feed into downstream specialty discharge forecasts over the 6-week horizon.
+:::
+:::
+
+:::{.column width="33%"}
+:::{.border-box style="background: white; border: 2px solid #0B363C; border-radius: 10px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); height: 100%;"}
+[3. Joint Probabilistic Scenarios]{style="background: #0B363C; color: white; padding: 6px 14px; border-radius: 6px; font-weight: bold; font-size: 1.05em; display: block; text-align: center; margin-bottom: 14px;"}
+
+- Via `multi_prob_forecasts` in `peshbeen`, empirical residual covariance is estimated across horizons.
+- Generates **10,000 Monte Carlo sample paths** (`method="mvn"`) per fold, yielding full predictive distributions for every specialty and horizon $h \in \{1, \dots, 42\}$.
+:::
+:::
+::::
+
+## 
+
+<br>
+<br>
+
+[Outline]{.mimic-h2}
+
+:::{style="font-weight: bold; font-size: 1.3em; line-height: 1.8;"}
+- [Problem & Motivation]{style="color: #999;"}
+- [Interdependent Multi-Series Framework]{style="color: #999;"}
+- [Experimental Setup & Three Forecasting Approaches]{style="color: #20808D;"}
+- [Empirical Results: Point & Probabilistic Forecasting]{style="color: #999;"}
+- [Operational Implications & Next Steps]{style="color: #999;"}
+
+:::
+
+## Experimental Design & Evaluation Protocol {.smaller}
+
+<br>
+
+::::{.columns style="display: flex; align-items: stretch; gap: 20px;"}
+:::{.column style="width: 50%; display: flex; flex-direction: column;"}
+:::{.border-box style="background: white; border: 2px solid #0B363C; border-radius: 10px; padding: 18px 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); flex: 1;"}
+[NHS Inpatient Dataset & Cross-Validation Design]{style="background: #0B363C; color: white; padding: 6px 14px; border-radius: 6px; font-weight: bold; font-size: 0.98em; display: block; text-align: center; margin-bottom: 12px;"}
+
+:::{style="font-size: 0.93em; line-height: 1.5;"}
+- **Dataset:** Daily NHS inpatient admissions and discharges (Jan 2021 – Feb 2026; 29 specialties $\times$ 2 flows $= \mathbf{58}$ series).
+- **Exogenous Covariates:** Day of week, month, bank holidays, linear time index, General Medicine capacity step-change (`gm_ch`), plus Fourier terms & interactions for linear models.
+- **Rolling-Origin Evaluation (`SplitTimeSeries`):**
+  - **30 rolling evaluation windows**, forecast horizon **$H = 42$ days** (6 weeks), step size $= 12$ days.
+  - Hyperparameter tuning via **Optuna** on the training partition (80 trials for multi-series ML; 75 trials per series for single-series).
+:::
+:::
+:::
+
+:::{.column style="width: 50%; display: flex; flex-direction: column;"}
+:::{.border-box style="background: white; border: 2px solid #20808D; border-radius: 10px; padding: 18px 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); flex: 1;"}
+[Five Model Families & Two Evaluation Metrics]{style="background: #20808D; color: white; padding: 6px 14px; border-radius: 6px; font-weight: bold; font-size: 0.98em; display: block; text-align: center; margin-bottom: 12px;"}
+
+:::{style="font-size: 0.93em; line-height: 1.5;"}
+- **Five Diverse Learning Algorithms Evaluated Across All 3 Approaches:**
+  1. **LightGBM (`lgb`):** Leaf-wise histogram GBDT with native categorical handling & $L_1/L_2$ regularisation.
+  2. **XGBoost (`xgb`):** Depth/leaf-regularised histogram gradient boosting.
+  3. **CatBoost (`cat`):** Oblivious trees (symmetric splits across all nodes at a given depth).
+  4. **Random Forest (`rf`):** Bagged decision tree ensemble (no sequential residual boosting).
+  5. **Ridge Regression (`ridge`):** Linear $L_2$-penalised model with one-hot series & interaction encoding.
+- **Metrics:** **RMSSE** (Point Forecasting) and **Pinball Loss** across predictive quantiles (Probabilistic Forecasting).
+:::
+:::
+:::
+::::
+
+## Forecast Evaluation Metrics
+
+### Scale-independent point accuracy (RMSSE) and distributional accuracy across quantiles (Pinball Loss)
+
+::::{.columns}
+:::{.column width="50%"}
+:::{.border-box style="background: white; border: 2px solid #0B363C; border-radius: 10px; padding: 16px 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.06);"}
+[Point Forecasting: Root Mean Squared Scaled Error (RMSSE)]{style="background: #0B363C; color: white; padding: 6px 14px; border-radius: 6px; font-weight: bold; font-size: 0.95em; display: block; text-align: center; margin-bottom: 12px;"}
+
+$$\text{RMSSE} = \sqrt{\frac{\frac{1}{H}\sum_{h=1}^{H}\left(y_{t+h} - \hat{y}_{t+h}\right)^2}{\frac{1}{T-1}\sum_{t=2}^{T}\left(y_t - y_{t-1}\right)^2}}$$
+
+:::{style="font-size: 0.92em; line-height: 1.48; margin-top: 10px;"}
+- **Scale-Independent Comparison:** Normalises forecast errors by the in-sample one-step naïve random walk, allowing fair aggregation across high-volume (General Medicine) and low-volume specialties.
+- **Relative Gain (%):** $\frac{\text{RMSSE}_{\text{Single}} - \text{RMSSE}_{\text{Multi}}}{\text{RMSSE}_{\text{Single}}} \times 100$.
+:::
+:::
+:::
+
+:::{.column width="50%"}
+:::{.border-box style="background: white; border: 2px solid #20808D; border-radius: 10px; padding: 16px 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.06);"}
+[Probabilistic Forecasting: Integrated Pinball Loss]{style="background: #20808D; color: white; padding: 6px 14px; border-radius: 6px; font-weight: bold; font-size: 0.95em; display: block; text-align: center; margin-bottom: 12px;"}
+
+$$L_\tau(y, \hat{q}_\tau) = \max\left(\tau(y - \hat{q}_\tau), \, (\tau - 1)(y - \hat{q}_\tau)\right)$$
+$$\overline{\text{PL}}(F, y) = 2 \int_0^1 L_\tau\left(y, F^{-1}(\tau)\right) d\tau$$
+
+:::{style="font-size: 0.92em; line-height: 1.48; margin-top: 10px;"}
+- **Full Distributional Evaluation:** Assesses calibration and sharpness across all predictive quantiles $\tau \in (0, 1)$ from 10,000 Monte Carlo trajectories across horizons $h = 1 \dots 42$.
+- **Lower Pinball Loss = Superior Probabilistic Quality** (Skill gain $>0\%$ indicates reduction in Pinball Loss over Single-Series).
+:::
+:::
+:::
+::::
+
+## 
+
+<br>
+<br>
+
+[Outline]{.mimic-h2}
+
+:::{style="font-weight: bold; font-size: 1.3em; line-height: 1.8;"}
+- [Problem & Motivation]{style="color: #999;"}
+- [Interdependent Multi-Series Framework]{style="color: #999;"}
+- [Experimental Setup & Three Forecasting Approaches]{style="color: #999;"}
+- [Empirical Results: Point & Probabilistic Forecasting]{style="color: #20808D;"}
+- [Operational Implications & Next Steps]{style="color: #999;"}
+
+:::
+
+## Point Forecasting Results: Comparing the Three Approaches Across Models
+
+```{python}
+#| fig-width: 100%
+#| fig-height: 100%
+#| fig-align: center
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+import pandas as pd
+import numpy as np
+
+df = pd.read_csv('tables/point_comparison.csv')
+
+plt.rcParams['figure.facecolor'] = '#FBFAF4'
+plt.rcParams['axes.facecolor'] = '#FBFAF4'
+plt.rcParams['font.sans-serif'] = 'Helvetica'
+
+fig, axes = plt.subplots(1, 2, figsize=(24, 9.5), gridspec_kw={'width_ratios': [1.18, 1.0]})
+
+models = ['lgb', 'xgb', 'cat', 'rf', 'ridge']
+model_labels = ['LightGBM\n(Winner)', 'XGBoost', 'CatBoost', 'Random\nForest', 'Ridge\n(Linear)']
+
+summary = df.groupby('model').agg(
+    Sing=('RMSSE_sing', 'mean'),
+    M7=('RMSSE_multi_7', 'mean'),
+    MDict=('RMSSE_multi_dict', 'mean'),
+    Imp_M7=('imp_m7_pct', 'mean'),
+    Imp_MDict=('imp_mdict_pct', 'mean'),
+    Wins_M7=('imp_m7_pct', lambda x: (x > 0).sum()),
+    Wins_MDict=('imp_mdict_pct', lambda x: (x > 0).sum())
+).loc[models]
+
+# --- PANEL 1: Grouped Bar Chart of Mean RMSSE ---
+ax = axes[0]
+x = np.arange(len(models))
+width = 0.26
+
+b1 = ax.bar(x - width, summary['Sing'], width, label='Approach 1: Single-Series (58 Separate Models)', color='#0B363C', alpha=0.92)
+b2 = ax.bar(x, summary['M7'], width, label='Approach 2: Multi-Series (All 58 Series Lags, 406 feats)', color='#20808D', alpha=0.95)
+b3 = ax.bar(x + width, summary['MDict'], width, label='Approach 3: Multi-Series (Selected Lags, 196 feats)', color='#E69F00', alpha=0.92)
+
+ax.set_xticks(x)
+ax.set_xticklabels(model_labels, fontsize=16, fontweight='bold')
+ax.set_ylabel('Mean RMSSE Across 58 Series (Lower is Better)', fontsize=17, fontweight='bold')
+ax.set_title('Mean Point Forecast Error (RMSSE) by Approach & Model', fontsize=20, fontweight='bold', pad=14)
+ax.set_ylim(0, 0.98)
+ax.grid(axis='y', alpha=0.3)
+ax.tick_params(labelsize=15)
+ax.legend(fontsize=14.5, loc='upper left', framealpha=0.95)
+
+for rects, col in [(b1, '#0B363C'), (b2, '#16606A'), (b3, '#B2582D')]:
+    for r in rects:
+        h = r.get_height()
+        ax.annotate(f'{h:.3f}', xy=(r.get_x() + r.get_width()/2, h),
+                    xytext=(0, 4), textcoords='offset points', ha='center', va='bottom',
+                    fontsize=12.5, fontweight='bold', color=col)
+
+# Highlight LightGBM winner
+ax.annotate('Best Overall Accuracy!\nM-All: 0.566 (+5.76%, 51/58 wins)\nM-Sel: 0.571 (+4.93%, 45/58 wins)',
+            xy=(0, 0.566), xytext=(0.05, 0.73),
+            arrowprops=dict(facecolor='#20808D', edgecolor='#20808D', shrink=0.08, width=2, headwidth=7),
+            fontsize=13.5, fontweight='bold', color='#0B363C',
+            bbox=dict(boxstyle='round,pad=0.4', facecolor='#E8F7F8', edgecolor='#20808D', linewidth=1.8))
+
+# Highlight XGBoost selected lags
+ax.annotate('Pruning Helps XGB:\nM-Sel (0.568) beats\nSingle (0.569) & M-All',
+            xy=(1 + width, 0.568), xytext=(1.15, 0.72),
+            arrowprops=dict(facecolor='#B2582D', edgecolor='#B2582D', shrink=0.08, width=1.8, headwidth=6),
+            fontsize=12.5, fontweight='bold', color='#8A3D14',
+            bbox=dict(boxstyle='round,pad=0.35', facecolor='#FFF8F5', edgecolor='#B2582D', linewidth=1.5))
+
+# Highlight Ridge collinearity
+ax.annotate('Linear Collinearity\nCollapse (-47.5%)',
+            xy=(4, 0.829), xytext=(3.15, 0.88),
+            arrowprops=dict(facecolor='#BF505C', edgecolor='#BF505C', shrink=0.08, width=1.8, headwidth=6),
+            fontsize=13, fontweight='bold', color='#BF505C',
+            bbox=dict(boxstyle='round,pad=0.35', facecolor='#FDE8E8', edgecolor='#BF505C', linewidth=1.5))
+
+# --- PANEL 2: Relative Improvement Boxplot across 58 Series (Non-linear models) ---
+ax2 = axes[1]
+plot_df = pd.melt(
+    df[df['model'].isin(['lgb', 'xgb', 'cat', 'rf'])],
+    id_vars=['series', 'model', 'flow_type'],
+    value_vars=['imp_m7_pct', 'imp_mdict_pct'],
+    var_name='Approach',
+    value_name='Improvement_Pct'
+)
+plot_df['Approach'] = plot_df['Approach'].map({
+    'imp_m7_pct': 'Approach 2: Multi-Series (All Lags)',
+    'imp_mdict_pct': 'Approach 3: Multi-Series (Selected Lags)'
+})
+
+sns.boxplot(
+    data=plot_df, x='model', y='Improvement_Pct', hue='Approach',
+    order=['lgb', 'xgb', 'cat', 'rf'],
+    palette={'Approach 2: Multi-Series (All Lags)': '#20808D', 'Approach 3: Multi-Series (Selected Lags)': '#E69F00'},
+    ax=ax2, width=0.55, fliersize=4, boxprops=dict(alpha=0.88)
+)
+
+ax2.axhline(0, color='#BF505C', linestyle='--', linewidth=2, label='Single-Series Baseline (0%)')
+ax2.set_xticks(range(4))
+ax2.set_xticklabels(['LightGBM\n(+5.8% / +4.9%)', 'XGBoost\n(-1.4% / -0.6%)', 'CatBoost\n(-8.0% / -9.2%)', 'Random Forest\n(-10.1% / -11.4%)'], fontsize=15, fontweight='bold')
+ax2.set_ylabel('Relative RMSSE Reduction vs. Single-Series (%)\n(Positive = Multi-Series Outperforms)', fontsize=16, fontweight='bold')
+ax2.set_xlabel('')
+ax2.set_title('Series-Level Accuracy Gains Across Tree Architectures (N = 58)', fontsize=20, fontweight='bold', pad=14)
+ax2.legend(fontsize=14, loc='lower left', framealpha=0.95)
+ax2.grid(axis='y', alpha=0.3)
+ax2.tick_params(labelsize=14)
+
+plt.tight_layout()
+plt.show()
+```
+
+---
+
+## Why Does LightGBM Excel While Other Models Struggle?
+
+### Model architecture interaction with high-dimensional cross-series lags
+
+::::{.columns style="display: flex; align-items: stretch; gap: 18px; margin-top: 12px;"}
+
+:::{.column style="width: 33%; display: flex; flex-direction: column;"}
+:::{.border-box style="background: white; border: 2px solid #20808D; border-radius: 10px; padding: 16px 18px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); flex: 1; font-size: 0.86em; line-height: 1.48;"}
+[LightGBM: Multi-Series Winner]{style="background: #20808D; color: white; padding: 6px 12px; border-radius: 6px; font-weight: bold; font-size: 1.02em; display: block; text-align: center; margin-bottom: 10px;"}
+
+- **Lowest Overall Error:** **0.566** (All Lags) & **0.571** (Selected Lags), beating all single-series models.
+- **Native Categorical Splits:** Optimal partitioning on `specialty` isolates series-specific regimes.
+- **Sparse $L_1$ Regularisation:** Filters noisy cross-lags while retaining true admission signals.
+:::
+:::
+
+:::{.column style="width: 33%; display: flex; flex-direction: column;"}
+:::{.border-box style="background: white; border: 2px solid #E69F00; border-radius: 10px; padding: 16px 18px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); flex: 1; font-size: 0.86em; line-height: 1.48;"}
+[XGBoost, CatBoost & Random Forest]{style="background: #B2582D; color: white; padding: 6px 12px; border-radius: 6px; font-weight: bold; font-size: 1.02em; display: block; text-align: center; margin-bottom: 10px;"}
+
+- **Input Pruning Helps XGBoost:** Selected Lags (**0.568**) beats Single-Series (**0.569**) & improves **14/29** discharge series.
+- **CatBoost (Oblivious Trees):** Symmetric depth-wide splits restrict specialty-specific conditioning.
+- **Random Forest (Bagging):** Lacks sequential boosting to correct series-level biases.
+:::
+:::
+
+:::{.column style="width: 33%; display: flex; flex-direction: column;"}
+:::{.border-box style="background: white; border: 2px solid #BF505C; border-radius: 10px; padding: 16px 18px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); flex: 1; font-size: 0.86em; line-height: 1.48;"}
+[Ridge: Linearity Limitation]{style="background: #BF505C; color: white; padding: 6px 12px; border-radius: 6px; font-weight: bold; font-size: 1.02em; display: block; text-align: center; margin-bottom: 10px;"}
+
+- **Strong Per-Series Fit (0.577):** Competitive when fitted separately with 7 own lags.
+- **Global Collapse (0.829, $-47.5\%$):** Forces identical cross-lag slopes across all 58 streams.
+- **Key Takeaway:** Cross-specialty spillovers are **non-linear and specialty-contingent**.
+:::
+:::
+
+::::
+
+---
+
+## Specialty-Level Point Forecast Gains: Admissions vs. Discharges
+
+### Full-input (Approach 2) vs. Reduced-input (Approach 3) LightGBM across clinical streams
+
+```{python}
+#| fig-width: 100%
+#| fig-height: 100%
+#| fig-align: center
+
+lgb_df = df[df['model'] == 'lgb'].copy()
+
+fig, axes = plt.subplots(1, 2, figsize=(24, 9.2), gridspec_kw={'width_ratios': [1.35, 1.0]})
+
+# --- PANEL 1: Top 18 Specialties Comparing Approach 2 (All Lags) & Approach 3 (Selected Lags) ---
+ax1 = axes[0]
+top18 = lgb_df.sort_values('imp_m7_pct', ascending=True).tail(18)
+y_pos = np.arange(len(top18))
+h_bar = 0.38
+
+bars_m7 = ax1.barh(y_pos + h_bar/2, top18['imp_m7_pct'], height=h_bar, color='#20808D', alpha=0.95,
+                   label='Approach 2: Multi-Series All Lags (406 lag features)')
+bars_md = ax1.barh(y_pos - h_bar/2, top18['imp_mdict_pct'], height=h_bar, color='#E69F00', alpha=0.90,
+                   label='Approach 3: Multi-Series Selected Lags (196 lag features)')
+
+ax1.set_yticks(y_pos)
+ax1.set_yticklabels([f"{r['specialty_clean']} ({r['flow_type'][:3]})" for _, r in top18.iterrows()],
+                    fontsize=14.5, fontweight='bold')
+ax1.set_xlabel('RMSSE Reduction over Independent Single-Series Baseline (%)', fontsize=16, fontweight='bold')
+ax1.set_title('Top 18 Clinical Streams Improved by Multi-Series LightGBM', fontsize=19, fontweight='bold', pad=12)
+ax1.axvline(0, color='black', linewidth=1.2)
+ax1.set_xlim(0, 29)
+ax1.grid(axis='x', alpha=0.3)
+ax1.tick_params(axis='x', labelsize=14)
+ax1.legend(fontsize=14, loc='lower right', framealpha=0.95)
+
+for bar in bars_m7:
+    w = bar.get_width()
+    ax1.annotate(f'+{w:.1f}%', xy=(w, bar.get_y() + bar.get_height()/2),
+                 xytext=(5, 0), textcoords='offset points', ha='left', va='center',
+                 fontsize=12, fontweight='bold', color='#0B363C')
+
+# --- PANEL 2: Admissions vs Discharges Breakdown & Efficiency Retention ---
+ax2 = axes[1]
+flow_summary = lgb_df.groupby('flow_type').agg(
+    M7_Mean=('imp_m7_pct', 'mean'),
+    MD_Mean=('imp_mdict_pct', 'mean'),
+    M7_Wins=('imp_m7_pct', lambda x: (x > 0).sum()),
+    MD_Wins=('imp_mdict_pct', lambda x: (x > 0).sum())
+).loc[['Discharge', 'Admission']]
+
+fx = np.arange(2)
+fw = 0.32
+fb1 = ax2.bar(fx - fw/2, flow_summary['M7_Mean'], fw, color='#20808D', label='Approach 2: All Lags (51/58 Wins)')
+fb2 = ax2.bar(fx + fw/2, flow_summary['MD_Mean'], fw, color='#E69F00', label='Approach 3: Selected Lags (45/58 Wins)')
+
+ax2.set_xticks(fx)
+ax2.set_xticklabels(['Hospital Discharges\n(29 Specialties)', 'Hospital Admissions\n(29 Specialties)'], fontsize=16, fontweight='bold')
+ax2.set_ylabel('Mean RMSSE Improvement vs. Single-Series (%)', fontsize=16, fontweight='bold')
+ax2.set_title('Discharges Benefit Most from Cross-Series Lags\n(Selected Lags Retain 86% of Full-Model Gains)', fontsize=18.5, fontweight='bold', pad=12)
+ax2.set_ylim(0, 8.2)
+ax2.grid(axis='y', alpha=0.3)
+ax2.tick_params(labelsize=14)
+ax2.legend(fontsize=14, loc='upper right', framealpha=0.95)
+
+annotations = [
+    (fb1[0], f"+{flow_summary.loc['Discharge', 'M7_Mean']:.2f}%\n(26/29 Wins)", '#0B363C'),
+    (fb2[0], f"+{flow_summary.loc['Discharge', 'MD_Mean']:.2f}%\n(24/29 Wins)", '#8A3D14'),
+    (fb1[1], f"+{flow_summary.loc['Admission', 'M7_Mean']:.2f}%\n(25/29 Wins)", '#0B363C'),
+    (fb2[1], f"+{flow_summary.loc['Admission', 'MD_Mean']:.2f}%\n(21/29 Wins)", '#8A3D14'),
+]
+for rect, txt, col in annotations:
+    h = rect.get_height()
+    ax2.annotate(txt, xy=(rect.get_x() + rect.get_width()/2, h),
+                 xytext=(0, 6), textcoords='offset points', ha='center', va='bottom',
+                 fontsize=14, fontweight='bold', color=col)
+
+ax2.text(0.04, 0.22,
+         "Key Empirical Insights:\n"
+         "• Discharges gain +6.46% (vs +5.06% for Admissions),\n"
+         "  confirming that upstream admissions act as leading\n"
+         "  indicators of downstream discharge demand.\n"
+         "• Approach 3 cuts lag dimensionality by >51%\n"
+         "  (406 → 196 features) while retaining 86% of the\n"
+         "  accuracy gain (+4.93% vs +5.76%).",
+         transform=ax2.transAxes, fontsize=13.5, va='bottom', color='#091717',
+         bbox=dict(boxstyle='round,pad=0.5', facecolor='#E8F7F8', edgecolor='#20808D', linewidth=1.5))
+
+plt.tight_layout()
+plt.show()
+```
+
+---
+
+## Probabilistic Forecasting Results: Pinball Loss Across Models & Horizons
+
+```{python}
+#| fig-width: 100%
+#| fig-height: 100%
+#| fig-align: center
+
+ps_ser = pd.read_csv('tables/pscore_series_summary.csv')
+
+fig, axes = plt.subplots(1, 2, figsize=(24, 9.2), gridspec_kw={'width_ratios': [1.15, 1.0]})
+
+# --- PANEL 1: Overall Pinball Loss by Model & Approach (All Horizons 1-42) ---
+ax1 = axes[0]
+sub_all = ps_ser[ps_ser['horizon_range'] == 'All (1-42)']
+models_order = ['lgb', 'xgb', 'cat', 'rf', 'ridge']
+m_names = ['LightGBM\n(Winner)', 'XGBoost\n(Runner-Up)', 'CatBoost', 'Random\nForest', 'Ridge\n(Linear)']
+
+ps_mod = sub_all.groupby('model').agg(
+    Sing=('ps_sing', 'mean'),
+    M7=('ps_multi_7', 'mean'),
+    MDict=('ps_multi_dict', 'mean'),
+    Imp_M7=('imp_m7_pct', 'mean'),
+    Imp_MDict=('imp_mdict_pct', 'mean'),
+    Wins_M7=('imp_m7_pct', lambda x: (x > 0).sum()),
+    Wins_MDict=('imp_mdict_pct', lambda x: (x > 0).sum())
+).loc[models_order]
+
+x = np.arange(len(models_order))
+w = 0.26
+p1 = ax1.bar(x - w, ps_mod['Sing'], w, label='Approach 1: Single-Series (58 Separate Models)', color='#0B363C', alpha=0.92)
+p2 = ax1.bar(x, ps_mod['M7'], w, label='Approach 2: Multi-Series All Lags (406 feats)', color='#20808D', alpha=0.95)
+p3 = ax1.bar(x + w, ps_mod['MDict'], w, label='Approach 3: Multi-Series Selected Lags (196 feats)', color='#E69F00', alpha=0.92)
+
+ax1.set_xticks(x)
+ax1.set_xticklabels(m_names, fontsize=15.5, fontweight='bold')
+ax1.set_ylabel('Mean Pinball Loss Across All Quantiles & Horizons (Lower is Better)', fontsize=15.5, fontweight='bold')
+ax1.set_title('Probabilistic Pinball Loss Across Models & Approaches (H = 1–42)', fontsize=19.5, fontweight='bold', pad=14)
+ax1.set_ylim(0, 4.1)
+ax1.grid(axis='y', alpha=0.3)
+ax1.tick_params(labelsize=14)
+ax1.legend(fontsize=14, loc='upper left', framealpha=0.95)
+
+for rects, col in [(p1, '#0B363C'), (p2, '#16606A'), (p3, '#B2582D')]:
+    for r in rects:
+        h = r.get_height()
+        ax1.annotate(f'{h:.2f}', xy=(r.get_x() + r.get_width()/2, h),
+                     xytext=(0, 4), textcoords='offset points', ha='center', va='bottom',
+                     fontsize=12.5, fontweight='bold', color=col)
+
+ax1.annotate('LightGBM Multi-Series:\n• M-Sel: 2.359 (+4.47%, 45/58 wins)\n• M-All: 2.363 (+4.88%, 51/58 wins)\nSubstantial gain over Single (2.520)',
+             xy=(0, 2.36), xytext=(0.05, 3.05),
+             arrowprops=dict(facecolor='#20808D', edgecolor='#20808D', shrink=0.08, width=2, headwidth=7),
+             fontsize=13, fontweight='bold', color='#0B363C',
+             bbox=dict(boxstyle='round,pad=0.4', facecolor='#E8F7F8', edgecolor='#20808D', linewidth=1.8))
+
+ax1.annotate('Lowest Absolute Pinball Loss:\nXGB Selected Lags (2.341)\nimproves over Single (2.352)',
+             xy=(1 + w, 2.341), xytext=(1.35, 3.05),
+             arrowprops=dict(facecolor='#B2582D', edgecolor='#B2582D', shrink=0.08, width=1.8, headwidth=6),
+             fontsize=12.5, fontweight='bold', color='#8A3D14',
+             bbox=dict(boxstyle='round,pad=0.35', facecolor='#FFF8F5', edgecolor='#B2582D', linewidth=1.5))
+
+# --- PANEL 2: Pinball Loss Improvement Across Horizon Windows (LightGBM vs XGBoost) ---
+ax2 = axes[1]
+h_order = ['1-7', '8-14', '15-21', '22-42']
+h_labels = ['Days 1–7\n(Week 1)', 'Days 8–14\n(Week 2)', 'Days 15–21\n(Week 3)', 'Days 22–42\n(Weeks 4–6)']
+
+lgb_h = ps_ser[(ps_ser['model'] == 'lgb') & (ps_ser['horizon_range'].isin(h_order))]
+xgb_h = ps_ser[(ps_ser['model'] == 'xgb') & (ps_ser['horizon_range'].isin(h_order))]
+
+hx = np.arange(len(h_order))
+hw = 0.20
+
+lgb_m7_means = [lgb_h[lgb_h['horizon_range'] == h]['imp_m7_pct'].mean() for h in h_order]
+lgb_md_means = [lgb_h[lgb_h['horizon_range'] == h]['imp_mdict_pct'].mean() for h in h_order]
+xgb_md_means = [xgb_h[xgb_h['horizon_range'] == h]['imp_mdict_pct'].mean() for h in h_order]
+
+hb1 = ax2.bar(hx - hw, lgb_m7_means, hw, label='LightGBM: Approach 2 (All Lags)', color='#20808D', alpha=0.95)
+hb2 = ax2.bar(hx, lgb_md_means, hw, label='LightGBM: Approach 3 (Selected Lags)', color='#2CA0AB', alpha=0.90)
+hb3 = ax2.bar(hx + hw, xgb_md_means, hw, label='XGBoost: Approach 3 (Selected Lags)', color='#E69F00', alpha=0.90)
+
+for rects, col in [(hb1, '#0B363C'), (hb2, '#16606A'), (hb3, '#8A3D14')]:
+    for r in rects:
+        h = r.get_height()
+        va = 'bottom' if h >= 0 else 'top'
+        ax2.annotate(f'{h:+.1f}%', xy=(r.get_x() + r.get_width()/2, h),
+                     xytext=(0, 4 if h >= 0 else -14), textcoords='offset points',
+                     ha='center', va=va, fontsize=12, fontweight='bold', color=col)
+
+ax2.axhline(0, color='black', linestyle='--', linewidth=1.5, alpha=0.7)
+ax2.set_xticks(hx)
+ax2.set_xticklabels(h_labels, fontsize=15.5, fontweight='bold')
+ax2.set_ylabel('Mean Pinball Loss Reduction vs. Single-Series (%)\n(Positive = Multi-Series Improves Distributional Quality)', fontsize=15, fontweight='bold')
+ax2.set_title('Probabilistic Skill Gains Strengthen Over Longer Horizons', fontsize=19.5, fontweight='bold', pad=14)
+ax2.set_ylim(-5.0, 8.8)
+ax2.grid(axis='y', alpha=0.3)
+ax2.tick_params(labelsize=14)
+ax2.legend(fontsize=13.5, loc='upper left', framealpha=0.95)
+
+ax2.text(0.03, 0.05,
+         "Long-Horizon Advantage (Weeks 3–6):\n"
+         "• LightGBM Pinball Loss reduction peaks in Days 15–21 (+5.95% M-All, +5.79% M-Sel)\n"
+         "  and Days 22–42 (+5.19% M-All, 52/58 series improved [89.7%]).\n"
+         "• Even XGBoost turns net-positive at Days 22–42 (+0.18%) under Selected Lags.",
+         transform=ax2.transAxes, fontsize=13, va='bottom', color='#091717',
+         bbox=dict(boxstyle='round,pad=0.45', facecolor='#E8F7F8', edgecolor='#20808D', linewidth=1.5))
+
+plt.tight_layout()
+plt.show()
+```
+
+---
+
+## System-Wide Probabilistic Improvements Across All 58 Clinical Series
+
+```{python}
+#| fig-width: 100%
+#| fig-height: 100%
+#| fig-align: center
+
+fig2, axes2 = plt.subplots(1, 2, figsize=(24, 9.2))
+lgb_clean = ps_ser[(ps_ser['model'] == 'lgb') & (ps_ser['horizon_range'].isin(['1-7', '8-14', '15-21', '22-42']))].copy()
+
+for idx, ft in enumerate(['Discharge', 'Admission']):
+    ax = axes2[idx]
+    sub = lgb_clean[lgb_clean['flow_type'] == ft].pivot(
+        index='specialty_clean', columns='horizon_range', values='imp_m7_pct'
+    )[['1-7', '8-14', '15-21', '22-42']]
+    
+    # Also attach Approach 3 (Selected Lags) overall mean for comparison in a 5th & 6th column
+    sub_all_ft = ps_ser[(ps_ser['model'] == 'lgb') & (ps_ser['flow_type'] == ft) & (ps_ser['horizon_range'] == 'All (1-42)')].set_index('specialty_clean')
+    sub['M-All (1–42)'] = sub_all_ft['imp_m7_pct']
+    sub['M-Sel (1–42)'] = sub_all_ft['imp_mdict_pct']
+    sub = sub.sort_values('M-All (1–42)', ascending=False)
+    
+    cmap = sns.diverging_palette(10, 185, s=85, l=45, as_cmap=True)
+    sns.heatmap(sub, ax=ax, cmap=cmap, center=0, annot=True, fmt='.1f',
+                cbar_kws={'label': 'Pinball Loss Reduction (%)'}, linewidths=0.4,
+                annot_kws={'size': 9.5, 'weight': 'bold'}, vmin=-10, vmax=25)
+    
+    win_m7 = (sub['M-All (1–42)'] > 0).sum()
+    win_md = (sub['M-Sel (1–42)'] > 0).sum()
+    ax.set_title(
+        f'{ft} Streams: Pinball Loss Reduction (%) vs. Single-Series (LightGBM)\n'
+        f'All Lags: {win_m7}/29 Improved (Mean +{sub["M-All (1–42)"].mean():.2f}%) | '
+        f'Selected Lags: {win_md}/29 Improved (Mean +{sub["M-Sel (1–42)"].mean():.2f}%)',
+        fontsize=16.5, fontweight='bold', pad=12
+    )
+    ax.set_xlabel('Forecasting Horizon Window & Multi-Series Approach', fontsize=13.5, fontweight='bold')
+    ax.set_ylabel('Clinical Specialty' if idx == 0 else '', fontsize=13.5, fontweight='bold')
+    ax.set_xticklabels(['Days 1–7', 'Days 8–14', 'Days 15–21', 'Days 22–42', 'All Lags\n(1–42)', 'Selected\n(1–42)'], fontsize=11.5, fontweight='bold')
+    ax.tick_params(axis='y', labelsize=10)
+
+plt.tight_layout()
+plt.show()
+```
+
+## Synthesis: Comparing the Three Forecasting Approaches {.smaller}
+
+<br>
+
+| Dimension | Approach 1: Single-Series | Approach 2: Multi-Series (All Lags) | Approach 3: Multi-Series (Selected Lags) | Key Takeaway |
+| :--- | :--- | :--- | :--- | :--- |
+| **Model Count** | **58 separate models** | **1 unified model** | **1 unified model** | [**98% fewer models to maintain**]{style="color: #20808D; font-weight: bold;"} |
+| **Lag Features** | $7$ own lags / model | $58 \times 7 = \mathbf{406}$ lags | $28 \times 7 = \mathbf{196}$ lags | [**$-51\%$ features in Approach 3**]{style="color: #B2582D; font-weight: bold;"} |
+| **Point Accuracy (LGB RMSSE)** | $0.598$ (Baseline) | **$0.566$** ($+5.8\%$, $51/58$ wins) | **$0.571$** ($+4.9\%$, $45/58$ wins) | [**Retains 86% of full-model gain**]{style="color: #20808D; font-weight: bold;"} |
+| **Discharges vs. Admissions** | Baseline ($0\%$) | **Dis: $+6.5\%$** ($26/29$) \| Adm: $+5.1\%$ | **Dis: $+5.6\%$** ($24/29$) \| Adm: $+4.3\%$ | [**Discharges gain most from cross-lags**]{style="color: #20808D; font-weight: bold;"} |
+| **Probabilistic (LGB Pinball)** | $2.520$ (Baseline) | **$2.363$** ($+4.9\%$, $51/58$ wins) | **$2.359$** ($+4.5\%$, $45/58$ wins) | [**Best LGB Pinball via Selected Lags**]{style="color: #20808D; font-weight: bold;"} |
+| **XGBoost Performance** | $0.569$ RMSSE / $2.352$ PL | $0.573$ RMSSE / $2.383$ PL | **$0.568$ RMSSE / $2.341$ PL** | [**Lag pruning unlocks XGBoost gains**]{style="color: #B2582D; font-weight: bold;"} |
+
+## 
+
+<br>
+<br>
+
+[Outline]{.mimic-h2}
+
+:::{style="font-weight: bold; font-size: 1.3em; line-height: 1.8;"}
+- [Problem & Motivation]{style="color: #999;"}
+- [Interdependent Multi-Series Framework]{style="color: #999;"}
+- [Experimental Setup & Three Forecasting Approaches]{style="color: #999;"}
+- [Empirical Results: Point & Probabilistic Forecasting]{style="color: #999;"}
+- [Operational Implications & Next Steps]{style="color: #20808D;"}
+:::
+
+## Practical Implications, Limitations & Next Steps
+
+::::{.columns style="display: flex; align-items: stretch; gap: 20px; margin-top: 12px;"}
+
+:::{.column style="width: 50%; display: flex; flex-direction: column;"}
+:::{.border-box style="background: white; border: 2px solid #20808D; border-radius: 10px; padding: 16px 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); flex: 1; font-size: 0.86em; line-height: 1.5;"}
+[Implications for Healthcare Operations]{style="background: #20808D; color: white; padding: 6px 14px; border-radius: 6px; font-weight: bold; font-size: 1.02em; display: block; text-align: center; margin-bottom: 12px;"}
+
+- **Proactive Discharge Planning:** Cross-specialty admission signals improve discharge forecasts in **26/29** (point) and **28/29** (probabilistic) specialties, peaking in **Weeks 3–6 (+5.95%)**.
+- **Parsimonious Deployment (Approach 3):** Selecting 1 flow series per specialty cuts lag features in half ($406 \rightarrow 196$) while retaining ~86–91% of accuracy gains.
+- **Streamlined MLOps:** Replaces 58 isolated models with **1 unified `peshbeen` pipeline**.
+:::
+:::
+
+:::{.column style="width: 50%; display: flex; flex-direction: column;"}
+:::{.border-box style="background: white; border: 2px solid #0B363C; border-radius: 10px; padding: 16px 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); flex: 1; font-size: 0.86em; line-height: 1.5;"}
+[Methodological Caveats & Next Steps]{style="background: #0B363C; color: white; padding: 6px 14px; border-radius: 6px; font-weight: bold; font-size: 1.02em; display: block; text-align: center; margin-bottom: 12px;"}
+
+- **Estimator Sensitivity:** Multi-series gains require learners with **conditional tree splits and $L_1$ regularisation** (LightGBM); linear (Ridge) and symmetric (CatBoost) models degrade under high lag dimensionality.
+- **From Forecasts to Bed Allocation Decisions:**
+  - Integrate joint probabilistic trajectories into **stochastic ward reservation and bed allocation optimisation** to reduce patient off-placement.
+:::
+:::
+
+::::
+
+
+## Reproducible Implementation: [pesh]{style="color: #091717;"}[been]{style="color: #20808D;"}
+
+- **Unified Forecasting Interface:** Open-source Python package developed to evaluate univariate (`ml_forecaster`) and interdependent multi-series (`ml_multi_forecaster`, `multi_prob_forecasts`) workflows across any scikit-learn compatible estimator.
+
+::::{.columns style="align-items: center;"}
+::: {.column width="65%"}
+<br>
+
+![](images/peshbeen.png){width="100%" fig-align="center"}
+:::
+
+
+::: {.column width="35%"}
+
+<br>
+
+![](images/peshbeen_qr.png){width="55%" fig-align="center"}
+
+[Scan for documentation]{style="display: block; text-align: center; font-weight: bold; color: #1A6872;"}
+
+[mustafaslancoto.github.io/peshbeen](https://mustafaslancoto.github.io/peshbeen/){style="display: block; text-align: center; font-size: 0.8em;"}
+:::
+::::
+
+# Any questions or thoughts? 💬
+
+![](images/follow_us.png){fig-align="center"}

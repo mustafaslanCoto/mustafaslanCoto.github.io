@@ -1,0 +1,261 @@
+# Task: Update My Forecasting Research Presentation for the WGSSS Postgraduate Research Conference 2026
+
+## 1. Conference context
+
+I will present my research at the **6th Welsh Postgraduate Research Conference 2026**, organised by the Wales Graduate School for the Social Sciences (WGSSS).
+
+- **Research cluster:** Economy, Enterprise, and Productivity
+- **Venue:** Prichard Jones Hall, Bangor University
+- **Date:** 2 November 2026
+
+The conference brings together postgraduate researchers from Management and Business and related pathways at different stages of their research. It provides an opportunity to present research, gain presentation experience, and receive feedback from academics outside one's supervisory team.
+
+I have already submitted my abstract and previously presented this research. I now want to update and improve my existing presentation using the latest experimental results, with a stronger emphasis on demonstrating the performance advantages of my proposed interdependent multiseries forecasting approach.
+
+## 2. Main objective
+
+**Inspect my existing research materials, analyse the new experimental results, and directly update my Quarto presentation file.**
+
+The goal is to produce a polished, academically rigorous, visually compelling presentation that communicates:
+
+1. The research problem and motivation.
+2. The proposed interdependent multiseries forecasting framework.
+3. How the framework differs from conventional single-series forecasting.
+4. The latest empirical results, including point and probabilistic forecasting performance.
+5. The extent to which multiseries forecasting improves performance across admissions and discharges for different specialties.
+6. The practical implications for forecasting hospital admissions and discharges, patient flow, and healthcare resource planning.
+
+Do not merely provide recommendations or a proposed slide outline. Inspect the files, analyse the results, make the necessary changes to the presentation, and ensure that the updated Quarto document is ready to render.
+
+## 3. Files to inspect
+
+Start by inspecting the following files and folders.
+
+### A. Submitted abstract
+
+`01_prob_abstract.qmd`
+
+This contains the abstract submitted to the conference. Read it carefully to understand the research motivation, contribution, methodology, and intended framing. The updated presentation should remain consistent with the abstract, while incorporating the latest results.
+
+### B. Previous presentation
+
+`presentation/present.qmd`
+
+This is my previous presentation of the same research. Inspect the complete presentation, including its narrative, methodology, figures, tables, and conclusions.
+
+Use it as a starting point for understanding the research and identifying reusable material. Reuse existing plots or slide structures where appropriate, but improve them where the new results justify a better presentation.
+
+### C. Current presentation to update
+
+`presentation/present.qmd`
+
+This is the actual file I want you to update for the upcoming conference. Work directly on this file rather than modifying the previous presentation as the main deliverable using the same template of the previous presentation.
+
+### D. New experimental results
+
+`presentation/present_results/`
+
+This folder contains the results from my latest experiments. Inspect its contents and identify the relevant result files, including the pickle files described below.
+
+### E. Analysis code
+
+`analysis.py`
+
+Inspect this file when necessary to understand how the experiments were conducted, how the forecasting models were evaluated, and how the results should be interpreted.
+
+### F. Supporting implementation
+
+Inspect the relevant parts of my `peshbeen` forecasting package if needed to understand how the proposed framework works and how forecasting models are passed into it.
+
+The project is located within:
+
+`phd_project/1_dissertation/wp3_forecast_discharges/`
+
+Use the actual project directory and file paths available in the working environment. Do not assume that paths from my previous machine are accessible without checking.
+
+## 4. Understand the proposed methodology before editing
+
+My research proposes an **interdependent multiseries forecasting framework** for forecasting hospital admissions and discharges across multiple specialties at once using shared information between series using single model.
+
+The central idea is to exploit relationships between different time series rather than forecasting every series independently.
+
+The framework supports passing different forecasting models (LightGBM, XGBoost, CatBoost, Random Forest and Ridge Regression in our experiemens) through a common interface in `peshbeen`, allowing the same multiseries forecasting approach to be evaluated with different machine-learning and statistical models.
+
+The experiments compare three approaches:
+
+### Approach 1: Independent single-series forecasting
+
+Each admissions or discharges series is forecast independently using its own forecasting model and its own historical information.
+
+The results are stored in:
+
+- `point_res_sing`: point forecasts for each series using a separate forecasting model for each series.
+- `pscore_dict_mod_sing`: Pinball Loss scores for probabilistic forecasts from the separate-model approach.
+
+### Approach 2: Multiseries forecasting using lags of all series
+
+A forecasting model uses lagged observations from all available admissions and discharges series to forecast the target series (42 days ahead). This allows the model to exploit potentially informative temporal relationships across specialties and between admissions and discharges.
+
+The results are stored in:
+
+- `point_res7`: point forecasts for all series using the multiseries approach with lags of all series.
+- `pscore_multi_7`: Pinball Loss scores for probabilistic forecasts from this approach.
+
+### Approach 3: Multiseries forecasting using one selected series per specialty
+
+This approach aims to simplify the input space by using the lagged admissions or discharges series selected for each specialty, rather than using the lags of every available series.
+
+Admissions and discharges are strongly correlated, so the idea is to investigate whether one appropriately selected series per specialty can provide sufficient information to forecast all target series, while reducing model complexity.
+
+The results are stored in:
+
+- `point_res_dict`: point forecasts for all series using this reduced-input multiseries approach.
+- `pscore_multi_dict`: Pinball Loss scores for probabilistic forecasts from this approach.
+
+Inspect the implementation and result structures to confirm these interpretations. In particular, establish how the selected input series are defined and whether the selection is consistent across specialties and experiments.
+
+## 5. Analyse the new experimental results
+
+Before changing the slides, load and inspect the new results carefully.
+
+Understand the structure of the pickle files, including the series identifiers, model names, forecast horizons, evaluation periods, forecast quantiles, and metric definitions where available.
+
+Do not assume that the files have identical structures or that all models and series are directly comparable. Verify their contents and establish a consistent comparison.
+
+### A. Point forecasting
+
+For point forecasting, use **RMSSE only** in the presentation.
+
+Compare the three approaches:
+
+1. Independent single-series forecasting.
+2. Multiseries forecasting using lags of all series.
+3. Multiseries forecasting using one selected series per specialty.
+4. Also highlight the winning model among multiseries approaches (LightGBM, XGBoost, CatBoost, Random Forest, or Ridge Regression).
+
+Evaluate performance across forecasting models and target series, distinguishing admissions from discharges and different specialties where informative.
+
+Use relative performance comparisons where appropriate. For example, calculate the percentage reduction in RMSSE when moving from the single-series baseline to each multiseries approach, provided the comparison is valid.
+
+Investigate whether the performance improvement is consistent across models and series, rather than relying only on averages that may hide substantial variation.
+
+### B. Probabilistic forecasting
+
+For probabilistic forecasting, use **Pinball Loss only** in the presentation.
+
+Compare the corresponding probabilistic forecasting results across the same three approaches, ensuring that quantiles, forecast horizons, evaluation periods, and target series are aligned.
+
+Where the results support it, demonstrate whether the multiseries approaches improve probabilistic forecast quality across the predictive distribution.
+
+Use concise visualisations to show overall performance and meaningful variation across models, series, and quantiles. Avoid overwhelming the audience with every individual score.
+
+### C. Forecasting models
+
+The latest experiments include additional models, including CatBoost and random-forecast baselines, alongside the previously evaluated models.
+
+Inspect the actual result files to identify every model that is available and comparable. Include the relevant new models in the presentation.
+
+Do not assume that every model improves under multiseries forecasting. My preliminary impression is that most models perform better under the multiseries approaches, with linear models such as Ridge potentially being exceptions. This is a hypothesis to verify, not a conclusion to reproduce uncritically.
+
+Pay particular attention to:
+
+- Which models benefit most from cross-series information.
+- Whether nonlinear models benefit more than linear models.
+- Whether the reduced-input multiseries approach retains most of the gains of the full-input approach.
+- Whether the random-forecast baseline provides useful context for interpreting the results.
+- Whether any models or specialties contradict the overall pattern.
+
+Distinguish clearly between observed results and possible explanations for those results.
+
+## 6. Communicate the research contribution
+
+The presentation should make the central contribution clear:
+
+**Can exploiting interdependencies between hospital admissions and discharges across specialties using ONE multiseries forecasting framework improve point and probabilistic forecasting compared with forecasting each series independently?**
+
+Use the results to answer this question empirically.
+
+A second important question is whether these benefits can be retained using a simpler multiseries input representation based on one selected series per specialty.
+
+Explain why this matters for healthcare operations. Better forecasts of specialty-level admissions and discharges could support hospital capacity planning, patient-flow management, and the allocation of constrained healthcare resources.
+
+Keep the claims proportional to the evidence. Do not imply that improved forecast accuracy automatically proves better operational outcomes; present operational benefits as potential implications unless they have been directly evaluated.
+
+Also explain the role of `peshbeen` where useful: it provides a common forecasting interface that enables different forecasting models to be evaluated within the proposed multiseries framework. Make the methodological contribution more prominent than a mere software description.
+
+## 7. Improve the presentation's visual design
+
+Use the previous presentation as a reference, but do not feel restricted to its existing plots and tables.
+
+Create clear, publication-quality visualisations that communicate the results quickly to an interdisciplinary academic audience.
+
+Potential visualisations include:
+
+- A conceptual diagram showing the three forecasting approaches.
+- A compact comparison of RMSSE across forecasting models.
+- A heatmap showing relative performance improvements across models and target series.
+- A comparison of Pinball Loss across quantiles.
+- A visual comparison of the full-input and reduced-input multiseries approaches.
+- A concise summary of the main empirical findings.
+
+Choose the visualisations that best communicate the actual results. You do not need to include all these options.
+
+Prioritise readable labels, clear legends, consistent terminology, accessible colours, sensible scales, and appropriately sized figures. Use tables only when they communicate the results more clearly than plots.
+
+Ensure that admissions and discharges, model names, and forecasting approaches are consistently labelled throughout the presentation.
+
+Avoid overcrowded slides, excessive decimal places, unnecessary methodological detail, and visualisations that require the audience to inspect many individual numbers to identify the main finding.
+
+Retain useful material from the previous presentation where appropriate, but remove outdated results, redundant explanations, and conclusions that are no longer supported by the latest experiments.
+
+## 8. Structure and narrative
+
+Develop a coherent presentation suitable for a postgraduate research conference.
+
+Use the existing presentation and submitted abstract to determine the appropriate length and structure. Do not impose an arbitrary slide count without considering the current material and the conference context.
+
+The narrative should move logically from:
+
+1. The healthcare forecasting problem and its operational relevance.
+2. The limitations of independent single-series forecasting.
+3. The proposed interdependent multiseries framework.
+4. The experimental design and evaluation metrics.
+5. The empirical comparison of the three approaches.
+6. The implications of the findings and the main research contribution.
+7. Limitations, next steps, and concluding message.
+
+Adapt this structure to the material already available. Keep the technical detail sufficient to establish methodological credibility without overwhelming the audience.
+
+## 9. Technical requirements and quality assurance
+
+- Edit `presentation/present.qmd` directly.
+- Preserve the existing Quarto project conventions, theme, dependencies, and rendering configuration wherever possible.
+- Reuse existing functions and plotting utilities when appropriate.
+- Do not modify the underlying experimental results or fabricate missing values.
+- Do not rerun expensive experiments unless necessary; the primary task is to analyse the existing results and update the presentation.
+- If result files are ambiguous, inspect the code that generated them before drawing conclusions.
+- Ensure that all figures and tables are generated from the actual results, rather than manually entered values that could become inconsistent.
+- Verify that the relative file paths used by the Quarto document work from the project's actual directory.
+- Render the updated Quarto presentation if the environment permits.
+- Resolve rendering errors, missing dependencies, broken figure references, and other issues introduced by your changes.
+- If full rendering is impossible, perform the strongest available checks and clearly report what remains unverified.
+
+## 10. Final deliverables
+
+After completing the work, provide:
+
+1. **The updated presentation:** `presentation/present.qmd`.
+2. **A concise summary of the changes:** including the revised narrative, new visualisations, and important improvements.
+3. **A summary of the main empirical findings:** based on the actual RMSSE and Pinball Loss results, including any exceptions to the overall pattern.
+4. **A brief explanation of the evidence supporting the research contribution:** especially the advantages, if demonstrated, of full-input and reduced-input multiseries forecasting.
+5. **A verification report:** stating whether the presentation rendered successfully and identifying any unresolved issues.
+
+## 11. Working instructions
+
+Start by inspecting the abstract, previous presentation, current presentation, results folder, and relevant analysis code. Build a clear understanding of the proposed framework and the evidence before making changes.
+
+Then analyse the experimental results, identify the strongest defensible findings, redesign the relevant slides, and update the presentation directly.
+
+Work autonomously where the files and results provide sufficient information. Do not stop after inspecting the files or return only a plan. If a detail is genuinely ambiguous, investigate the implementation or data structures first and ask for clarification only when necessary.
+
+**The priority is to produce a conference-ready presentation that clearly communicates the methodological contribution and demonstrates, with rigorous and accurately interpreted evidence, whether interdependent multiseries forecasting outperforms independent single-series forecasting.**

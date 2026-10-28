@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>present_guide – MUSTAFA ASLAN</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-445b8638c3d06994fee0907d791121c4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="MUSTAFA ASLAN">
+<meta property="og:site_name" content="MUSTAFA ASLAN">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">MUSTAFA ASLAN</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog/index.html"> 
+<span class="menu-text">BLOG</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../projects/index.html"> 
+<span class="menu-text">PROJECTS</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../publications/index.html"> 
+<span class="menu-text">PUBLICATIONS</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../talks/index.html"> 
+<span class="menu-text">TALKS</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../workshops/index.html"> 
+<span class="menu-text">WORKSHOPS</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools tools-wide">
+    <a href="mailto:aslanm@cardiff.ac.uk" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-envelope"></i></a>
+    <a href="https://github.com/mustafaslanCoto" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+    <a href="https://www.linkedin.com/in/aslanmu/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-linkedin"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#task-update-my-forecasting-research-presentation-for-the-wgsss-postgraduate-research-conference-2026" id="toc-task-update-my-forecasting-research-presentation-for-the-wgsss-postgraduate-research-conference-2026" class="nav-link active" data-scroll-target="#task-update-my-forecasting-research-presentation-for-the-wgsss-postgraduate-research-conference-2026">Task: Update My Forecasting Research Presentation for the WGSSS Postgraduate Research Conference 2026</a>
+  <ul class="collapse">
+  <li><a href="#conference-context" id="toc-conference-context" class="nav-link" data-scroll-target="#conference-context">1. Conference context</a></li>
+  <li><a href="#main-objective" id="toc-main-objective" class="nav-link" data-scroll-target="#main-objective">2. Main objective</a></li>
+  <li><a href="#files-to-inspect" id="toc-files-to-inspect" class="nav-link" data-scroll-target="#files-to-inspect">3. Files to inspect</a>
+  <ul class="collapse">
+  <li><a href="#a.-submitted-abstract" id="toc-a.-submitted-abstract" class="nav-link" data-scroll-target="#a.-submitted-abstract">A. Submitted abstract</a></li>
+  <li><a href="#b.-previous-presentation" id="toc-b.-previous-presentation" class="nav-link" data-scroll-target="#b.-previous-presentation">B. Previous presentation</a></li>
+  <li><a href="#c.-current-presentation-to-update" id="toc-c.-current-presentation-to-update" class="nav-link" data-scroll-target="#c.-current-presentation-to-update">C. Current presentation to update</a></li>
+  <li><a href="#d.-new-experimental-results" id="toc-d.-new-experimental-results" class="nav-link" data-scroll-target="#d.-new-experimental-results">D. New experimental results</a></li>
+  <li><a href="#e.-analysis-code" id="toc-e.-analysis-code" class="nav-link" data-scroll-target="#e.-analysis-code">E. Analysis code</a></li>
+  <li><a href="#f.-supporting-implementation" id="toc-f.-supporting-implementation" class="nav-link" data-scroll-target="#f.-supporting-implementation">F. Supporting implementation</a></li>
+  </ul></li>
+  <li><a href="#understand-the-proposed-methodology-before-editing" id="toc-understand-the-proposed-methodology-before-editing" class="nav-link" data-scroll-target="#understand-the-proposed-methodology-before-editing">4. Understand the proposed methodology before editing</a>
+  <ul class="collapse">
+  <li><a href="#approach-1-independent-single-series-forecasting" id="toc-approach-1-independent-single-series-forecasting" class="nav-link" data-scroll-target="#approach-1-independent-single-series-forecasting">Approach 1: Independent single-series forecasting</a></li>
+  <li><a href="#approach-2-multiseries-forecasting-using-lags-of-all-series" id="toc-approach-2-multiseries-forecasting-using-lags-of-all-series" class="nav-link" data-scroll-target="#approach-2-multiseries-forecasting-using-lags-of-all-series">Approach 2: Multiseries forecasting using lags of all series</a></li>
+  <li><a href="#approach-3-multiseries-forecasting-using-one-selected-series-per-specialty" id="toc-approach-3-multiseries-forecasting-using-one-selected-series-per-specialty" class="nav-link" data-scroll-target="#approach-3-multiseries-forecasting-using-one-selected-series-per-specialty">Approach 3: Multiseries forecasting using one selected series per specialty</a></li>
+  </ul></li>
+  <li><a href="#analyse-the-new-experimental-results" id="toc-analyse-the-new-experimental-results" class="nav-link" data-scroll-target="#analyse-the-new-experimental-results">5. Analyse the new experimental results</a>
+  <ul class="collapse">
+  <li><a href="#a.-point-forecasting" id="toc-a.-point-forecasting" class="nav-link" data-scroll-target="#a.-point-forecasting">A. Point forecasting</a></li>
+  <li><a href="#b.-probabilistic-forecasting" id="toc-b.-probabilistic-forecasting" class="nav-link" data-scroll-target="#b.-probabilistic-forecasting">B. Probabilistic forecasting</a></li>
+  <li><a href="#c.-forecasting-models" id="toc-c.-forecasting-models" class="nav-link" data-scroll-target="#c.-forecasting-models">C. Forecasting models</a></li>
+  </ul></li>
+  <li><a href="#communicate-the-research-contribution" id="toc-communicate-the-research-contribution" class="nav-link" data-scroll-target="#communicate-the-research-contribution">6. Communicate the research contribution</a></li>
+  <li><a href="#improve-the-presentations-visual-design" id="toc-improve-the-presentations-visual-design" class="nav-link" data-scroll-target="#improve-the-presentations-visual-design">7. Improve the presentation’s visual design</a></li>
+  <li><a href="#structure-and-narrative" id="toc-structure-and-narrative" class="nav-link" data-scroll-target="#structure-and-narrative">8. Structure and narrative</a></li>
+  <li><a href="#technical-requirements-and-quality-assurance" id="toc-technical-requirements-and-quality-assurance" class="nav-link" data-scroll-target="#technical-requirements-and-quality-assurance">9. Technical requirements and quality assurance</a></li>
+  <li><a href="#final-deliverables" id="toc-final-deliverables" class="nav-link" data-scroll-target="#final-deliverables">10. Final deliverables</a></li>
+  <li><a href="#working-instructions" id="toc-working-instructions" class="nav-link" data-scroll-target="#working-instructions">11. Working instructions</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<section id="task-update-my-forecasting-research-presentation-for-the-wgsss-postgraduate-research-conference-2026" class="level1">
+<h1>Task: Update My Forecasting Research Presentation for the WGSSS Postgraduate Research Conference 2026</h1>
+<section id="conference-context" class="level2">
+<h2 class="anchored" data-anchor-id="conference-context">1. Conference context</h2>
+<p>I will present my research at the <strong>6th Welsh Postgraduate Research Conference 2026</strong>, organised by the Wales Graduate School for the Social Sciences (WGSSS).</p>
+<ul>
+<li><strong>Research cluster:</strong> Economy, Enterprise, and Productivity</li>
+<li><strong>Venue:</strong> Prichard Jones Hall, Bangor University</li>
+<li><strong>Date:</strong> 2 November 2026</li>
+</ul>
+<p>The conference brings together postgraduate researchers from Management and Business and related pathways at different stages of their research. It provides an opportunity to present research, gain presentation experience, and receive feedback from academics outside one’s supervisory team.</p>
+<p>I have already submitted my abstract and previously presented this research. I now want to update and improve my existing presentation using the latest experimental results, with a stronger emphasis on demonstrating the performance advantages of my proposed interdependent multiseries forecasting approach.</p>
+</section>
+<section id="main-objective" class="level2">
+<h2 class="anchored" data-anchor-id="main-objective">2. Main objective</h2>
+<p><strong>Inspect my existing research materials, analyse the new experimental results, and directly update my Quarto presentation file.</strong></p>
+<p>The goal is to produce a polished, academically rigorous, visually compelling presentation that communicates:</p>
+<ol type="1">
+<li>The research problem and motivation.</li>
+<li>The proposed interdependent multiseries forecasting framework.</li>
+<li>How the framework differs from conventional single-series forecasting.</li>
+<li>The latest empirical results, including point and probabilistic forecasting performance.</li>
+<li>The extent to which multiseries forecasting improves performance across admissions and discharges for different specialties.</li>
+<li>The practical implications for forecasting hospital admissions and discharges, patient flow, and healthcare resource planning.</li>
+</ol>
+<p>Do not merely provide recommendations or a proposed slide outline. Inspect the files, analyse the results, make the necessary changes to the presentation, and ensure that the updated Quarto document is ready to render.</p>
+</section>
+<section id="files-to-inspect" class="level2">
+<h2 class="anchored" data-anchor-id="files-to-inspect">3. Files to inspect</h2>
+<p>Start by inspecting the following files and folders.</p>
+<section id="a.-submitted-abstract" class="level3">
+<h3 class="anchored" data-anchor-id="a.-submitted-abstract">A. Submitted abstract</h3>
+<p><code>01_prob_abstract.qmd</code></p>
+<p>This contains the abstract submitted to the conference. Read it carefully to understand the research motivation, contribution, methodology, and intended framing. The updated presentation should remain consistent with the abstract, while incorporating the latest results.</p>
+</section>
+<section id="b.-previous-presentation" class="level3">
+<h3 class="anchored" data-anchor-id="b.-previous-presentation">B. Previous presentation</h3>
+<p><code>presentation/present.qmd</code></p>
+<p>This is my previous presentation of the same research. Inspect the complete presentation, including its narrative, methodology, figures, tables, and conclusions.</p>
+<p>Use it as a starting point for understanding the research and identifying reusable material. Reuse existing plots or slide structures where appropriate, but improve them where the new results justify a better presentation.</p>
+</section>
+<section id="c.-current-presentation-to-update" class="level3">
+<h3 class="anchored" data-anchor-id="c.-current-presentation-to-update">C. Current presentation to update</h3>
+<p><code>presentation/present.qmd</code></p>
+<p>This is the actual file I want you to update for the upcoming conference. Work directly on this file rather than modifying the previous presentation as the main deliverable using the same template of the previous presentation.</p>
+</section>
+<section id="d.-new-experimental-results" class="level3">
+<h3 class="anchored" data-anchor-id="d.-new-experimental-results">D. New experimental results</h3>
+<p><code>presentation/present_results/</code></p>
+<p>This folder contains the results from my latest experiments. Inspect its contents and identify the relevant result files, including the pickle files described below.</p>
+</section>
+<section id="e.-analysis-code" class="level3">
+<h3 class="anchored" data-anchor-id="e.-analysis-code">E. Analysis code</h3>
+<p><code>analysis.py</code></p>
+<p>Inspect this file when necessary to understand how the experiments were conducted, how the forecasting models were evaluated, and how the results should be interpreted.</p>
+</section>
+<section id="f.-supporting-implementation" class="level3">
+<h3 class="anchored" data-anchor-id="f.-supporting-implementation">F. Supporting implementation</h3>
+<p>Inspect the relevant parts of my <code>peshbeen</code> forecasting package if needed to understand how the proposed framework works and how forecasting models are passed into it.</p>
+<p>The project is located within:</p>
+<p><code>phd_project/1_dissertation/wp3_forecast_discharges/</code></p>
+<p>Use the actual project directory and file paths available in the working environment. Do not assume that paths from my previous machine are accessible without checking.</p>
+</section>
+</section>
+<section id="understand-the-proposed-methodology-before-editing" class="level2">
+<h2 class="anchored" data-anchor-id="understand-the-proposed-methodology-before-editing">4. Understand the proposed methodology before editing</h2>
+<p>My research proposes an <strong>interdependent multiseries forecasting framework</strong> for forecasting hospital admissions and discharges across multiple specialties at once using shared information between series using single model.</p>
+<p>The central idea is to exploit relationships between different time series rather than forecasting every series independently.</p>
+<p>The framework supports passing different forecasting models (LightGBM, XGBoost, CatBoost, Random Forest and Ridge Regression in our experiemens) through a common interface in <code>peshbeen</code>, allowing the same multiseries forecasting approach to be evaluated with different machine-learning and statistical models.</p>
+<p>The experiments compare three approaches:</p>
+<section id="approach-1-independent-single-series-forecasting" class="level3">
+<h3 class="anchored" data-anchor-id="approach-1-independent-single-series-forecasting">Approach 1: Independent single-series forecasting</h3>
+<p>Each admissions or discharges series is forecast independently using its own forecasting model and its own historical information.</p>
+<p>The results are stored in:</p>
+<ul>
+<li><code>point_res_sing</code>: point forecasts for each series using a separate forecasting model for each series.</li>
+<li><code>pscore_dict_mod_sing</code>: Pinball Loss scores for probabilistic forecasts from the separate-model approach.</li>
+</ul>
+</section>
+<section id="approach-2-multiseries-forecasting-using-lags-of-all-series" class="level3">
+<h3 class="anchored" data-anchor-id="approach-2-multiseries-forecasting-using-lags-of-all-series">Approach 2: Multiseries forecasting using lags of all series</h3>
+<p>A forecasting model uses lagged observations from all available admissions and discharges series to forecast the target series (42 days ahead). This allows the model to exploit potentially informative temporal relationships across specialties and between admissions and discharges.</p>
+<p>The results are stored in:</p>
+<ul>
+<li><code>point_res7</code>: point forecasts for all series using the multiseries approach with lags of all series.</li>
+<li><code>pscore_multi_7</code>: Pinball Loss scores for probabilistic forecasts from this approach.</li>
+</ul>
+</section>
+<section id="approach-3-multiseries-forecasting-using-one-selected-series-per-specialty" class="level3">
+<h3 class="anchored" data-anchor-id="approach-3-multiseries-forecasting-using-one-selected-series-per-specialty">Approach 3: Multiseries forecasting using one selected series per specialty</h3>
+<p>This approach aims to simplify the input space by using the lagged admissions or discharges series selected for each specialty, rather than using the lags of every available series.</p>
+<p>Admissions and discharges are strongly correlated, so the idea is to investigate whether one appropriately selected series per specialty can provide sufficient information to forecast all target series, while reducing model complexity.</p>
+<p>The results are stored in:</p>
+<ul>
+<li><code>point_res_dict</code>: point forecasts for all series using this reduced-input multiseries approach.</li>
+<li><code>pscore_multi_dict</code>: Pinball Loss scores for probabilistic forecasts from this approach.</li>
+</ul>
+<p>Inspect the implementation and result structures to confirm these interpretations. In particular, establish how the selected input series are defined and whether the selection is consistent across specialties and experiments.</p>
+</section>
+</section>
+<section id="analyse-the-new-experimental-results" class="level2">
+<h2 class="anchored" data-anchor-id="analyse-the-new-experimental-results">5. Analyse the new experimental results</h2>
+<p>Before changing the slides, load and inspect the new results carefully.</p>
+<p>Understand the structure of the pickle files, including the series identifiers, model names, forecast horizons, evaluation periods, forecast quantiles, and metric definitions where available.</p>
+<p>Do not assume that the files have identical structures or that all models and series are directly comparable. Verify their contents and establish a consistent comparison.</p>
+<section id="a.-point-forecasting" class="level3">
+<h3 class="anchored" data-anchor-id="a.-point-forecasting">A. Point forecasting</h3>
+<p>For point forecasting, use <strong>RMSSE only</strong> in the presentation.</p>
+<p>Compare the three approaches:</p>
+<ol type="1">
+<li>Independent single-series forecasting.</li>
+<li>Multiseries forecasting using lags of all series.</li>
+<li>Multiseries forecasting using one selected series per specialty.</li>
+<li>Also highlight the winning model among multiseries approaches (LightGBM, XGBoost, CatBoost, Random Forest, or Ridge Regression).</li>
+</ol>
+<p>Evaluate performance across forecasting models and target series, distinguishing admissions from discharges and different specialties where informative.</p>
+<p>Use relative performance comparisons where appropriate. For example, calculate the percentage reduction in RMSSE when moving from the single-series baseline to each multiseries approach, provided the comparison is valid.</p>
+<p>Investigate whether the performance improvement is consistent across models and series, rather than relying only on averages that may hide substantial variation.</p>
+</section>
+<section id="b.-probabilistic-forecasting" class="level3">
+<h3 class="anchored" data-anchor-id="b.-probabilistic-forecasting">B. Probabilistic forecasting</h3>
+<p>For probabilistic forecasting, use <strong>Pinball Loss only</strong> in the presentation.</p>
+<p>Compare the corresponding probabilistic forecasting results across the same three approaches, ensuring that quantiles, forecast horizons, evaluation periods, and target series are aligned.</p>
+<p>Where the results support it, demonstrate whether the multiseries approaches improve probabilistic forecast quality across the predictive distribution.</p>
+<p>Use concise visualisations to show overall performance and meaningful variation across models, series, and quantiles. Avoid overwhelming the audience with every individual score.</p>
+</section>
+<section id="c.-forecasting-models" class="level3">
+<h3 class="anchored" data-anchor-id="c.-forecasting-models">C. Forecasting models</h3>
+<p>The latest experiments include additional models, including CatBoost and random-forecast baselines, alongside the previously evaluated models.</p>
+<p>Inspect the actual result files to identify every model that is available and comparable. Include the relevant new models in the presentation.</p>
+<p>Do not assume that every model improves under multiseries forecasting. My preliminary impression is that most models perform better under the multiseries approaches, with linear models such as Ridge potentially being exceptions. This is a hypothesis to verify, not a conclusion to reproduce uncritically.</p>
+<p>Pay particular attention to:</p>
+<ul>
+<li>Which models benefit most from cross-series information.</li>
+<li>Whether nonlinear models benefit more than linear models.</li>
+<li>Whether the reduced-input multiseries approach retains most of the gains of the full-input approach.</li>
+<li>Whether the random-forecast baseline provides useful context for interpreting the results.</li>
+<li>Whether any models or specialties contradict the overall pattern.</li>
+</ul>
+<p>Distinguish clearly between observed results and possible explanations for those results.</p>
+</section>
+</section>
+<section id="communicate-the-research-contribution" class="level2">
+<h2 class="anchored" data-anchor-id="communicate-the-research-contribution">6. Communicate the research contribution</h2>
+<p>The presentation should make the central contribution clear:</p>
+<p><strong>Can exploiting interdependencies between hospital admissions and discharges across specialties using ONE multiseries forecasting framework improve point and probabilistic forecasting compared with forecasting each series independently?</strong></p>
+<p>Use the results to answer this question empirically.</p>
+<p>A second important question is whether these benefits can be retained using a simpler multiseries input representation based on one selected series per specialty.</p>
+<p>Explain why this matters for healthcare operations. Better forecasts of specialty-level admissions and discharges could support hospital capacity planning, patient-flow management, and the allocation of constrained healthcare resources.</p>
+<p>Keep the claims proportional to the evidence. Do not imply that improved forecast accuracy automatically proves better operational outcomes; present operational benefits as potential implications unless they have been directly evaluated.</p>
+<p>Also explain the role of <code>peshbeen</code> where useful: it provides a common forecasting interface that enables different forecasting models to be evaluated within the proposed multiseries framework. Make the methodological contribution more prominent than a mere software description.</p>
+</section>
+<section id="improve-the-presentations-visual-design" class="level2">
+<h2 class="anchored" data-anchor-id="improve-the-presentations-visual-design">7. Improve the presentation’s visual design</h2>
+<p>Use the previous presentation as a reference, but do not feel restricted to its existing plots and tables.</p>
+<p>Create clear, publication-quality visualisations that communicate the results quickly to an interdisciplinary academic audience.</p>
+<p>Potential visualisations include:</p>
+<ul>
+<li>A conceptual diagram showing the three forecasting approaches.</li>
+<li>A compact comparison of RMSSE across forecasting models.</li>
+<li>A heatmap showing relative performance improvements across models and target series.</li>
+<li>A comparison of Pinball Loss across quantiles.</li>
+<li>A visual comparison of the full-input and reduced-input multiseries approaches.</li>
+<li>A concise summary of the main empirical findings.</li>
+</ul>
+<p>Choose the visualisations that best communicate the actual results. You do not need to include all these options.</p>
+<p>Prioritise readable labels, clear legends, consistent terminology, accessible colours, sensible scales, and appropriately sized figures. Use tables only when they communicate the results more clearly than plots.</p>
+<p>Ensure that admissions and discharges, model names, and forecasting approaches are consistently labelled throughout the presentation.</p>
+<p>Avoid overcrowded slides, excessive decimal places, unnecessary methodological detail, and visualisations that require the audience to inspect many individual numbers to identify the main finding.</p>
+<p>Retain useful material from the previous presentation where appropriate, but remove outdated results, redundant explanations, and conclusions that are no longer supported by the latest experiments.</p>
+</section>
+<section id="structure-and-narrative" class="level2">
+<h2 class="anchored" data-anchor-id="structure-and-narrative">8. Structure and narrative</h2>
+<p>Develop a coherent presentation suitable for a postgraduate research conference.</p>
+<p>Use the existing presentation and submitted abstract to determine the appropriate length and structure. Do not impose an arbitrary slide count without considering the current material and the conference context.</p>
+<p>The narrative should move logically from:</p>
+<ol type="1">
+<li>The healthcare forecasting problem and its operational relevance.</li>
+<li>The limitations of independent single-series forecasting.</li>
+<li>The proposed interdependent multiseries framework.</li>
+<li>The experimental design and evaluation metrics.</li>
+<li>The empirical comparison of the three approaches.</li>
+<li>The implications of the findings and the main research contribution.</li>
+<li>Limitations, next steps, and concluding message.</li>
+</ol>
+<p>Adapt this structure to the material already available. Keep the technical detail sufficient to establish methodological credibility without overwhelming the audience.</p>
+</section>
+<section id="technical-requirements-and-quality-assurance" class="level2">
+<h2 class="anchored" data-anchor-id="technical-requirements-and-quality-assurance">9. Technical requirements and quality assurance</h2>
+<ul>
+<li>Edit <code>presentation/present.qmd</code> directly.</li>
+<li>Preserve the existing Quarto project conventions, theme, dependencies, and rendering configuration wherever possible.</li>
+<li>Reuse existing functions and plotting utilities when appropriate.</li>
+<li>Do not modify the underlying experimental results or fabricate missing values.</li>
+<li>Do not rerun expensive experiments unless necessary; the primary task is to analyse the existing results and update the presentation.</li>
+<li>If result files are ambiguous, inspect the code that generated them before drawing conclusions.</li>
+<li>Ensure that all figures and tables are generated from the actual results, rather than manually entered values that could become inconsistent.</li>
+<li>Verify that the relative file paths used by the Quarto document work from the project’s actual directory.</li>
+<li>Render the updated Quarto presentation if the environment permits.</li>
+<li>Resolve rendering errors, missing dependencies, broken figure references, and other issues introduced by your changes.</li>
+<li>If full rendering is impossible, perform the strongest available checks and clearly report what remains unverified.</li>
+</ul>
+</section>
+<section id="final-deliverables" class="level2">
+<h2 class="anchored" data-anchor-id="final-deliverables">10. Final deliverables</h2>
+<p>After completing the work, provide:</p>
+<ol type="1">
+<li><strong>The updated presentation:</strong> <code>presentation/present.qmd</code>.</li>
+<li><strong>A concise summary of the changes:</strong> including the revised narrative, new visualisations, and important improvements.</li>
+<li><strong>A summary of the main empirical findings:</strong> based on the actual RMSSE and Pinball Loss results, including any exceptions to the overall pattern.</li>
+<li><strong>A brief explanation of the evidence supporting the research contribution:</strong> especially the advantages, if demonstrated, of full-input and reduced-input multiseries forecasting.</li>
+<li><strong>A verification report:</strong> stating whether the presentation rendered successfully and identifying any unresolved issues.</li>
+</ol>
+</section>
+<section id="working-instructions" class="level2">
+<h2 class="anchored" data-anchor-id="working-instructions">11. Working instructions</h2>
+<p>Start by inspecting the abstract, previous presentation, current presentation, results folder, and relevant analysis code. Build a clear understanding of the proposed framework and the evidence before making changes.</p>
+<p>Then analyse the experimental results, identify the strongest defensible findings, redesign the relevant slides, and update the presentation directly.</p>
+<p>Work autonomously where the files and results provide sufficient information. Do not stop after inspecting the files or return only a plan. If a detail is genuinely ambiguous, investigate the implementation or data structures first and ask for clarification only when necessary.</p>
+<p><strong>The priority is to produce a conference-ready presentation that clearly communicates the methodological contribution and demonstrates, with rigorous and accurately interpreted evidence, whether interdependent multiseries forecasting outperforms independent single-series forecasting.</strong></p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Made with ❤️ and Quarto</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

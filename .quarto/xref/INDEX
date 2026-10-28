@@ -189,5 +189,20 @@
   },
   "talks/wgsss/slides.qmd": {
     "slides.html": "d1a24f35"
+  },
+  "talks/sphere/causal-los.qmd": {
+    "causal-los.html": "763d0d8b"
+  },
+  "talks/sphere/ms-arr-blog.qmd": {
+    "ms-arr-blog.html": "3a2c6a79"
+  },
+  "talks/presentations/wgsss2026.qmd": {
+    "wgsss2026.html": "c68c07e6"
+  },
+  "talks/wgsss2026_bangor/present_guide.qmd": {
+    "present_guide.html": "32bab167"
+  },
+  "talks/wgsss2026_bangor/present.qmd": {
+    "present.html": "569f1d82"
   }
 }
