@@ -188,7 +188,7 @@ $$
 
 ::::
 
-## Mathematical Formulation: Interdependent Multi-Series Model
+## Mathematical Formulation: Interdependent Multi-Series Model {.smaller}
 
 :::: {.columns}
 
