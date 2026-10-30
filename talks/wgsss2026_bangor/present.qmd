@@ -228,9 +228,9 @@ outline(2)
 [**Notation & Model Interface (`peshbeen`):**]{style="color: #0B363C; font-size: 1.08em; font-weight: bold; display: block; margin-bottom: 8px;"}
 
 - $y_{i,t}$: Daily admissions or discharges for stream $i$ on day $t$
-- $s_i$: Categorical series identifier (`id_col = "specialty"`)
+- $s_i$: Categorical series identifier
 - $\mathcal{S}_{\text{full}}$ vs. $\mathcal{S}_{\text{sel}}$: 406 full lags vs. 196 selected lags
-- $\mathbf{Z}_t$: Calendar (`day_of_week`, `month`), bank holidays, time trend, and capacity expansion (`gm_ch`)
+- $\mathbf{Z}_t$: Calendar dates (e.g., day of week, day of month), bank holidays, time trend, and capacity expansion time
 - $\mathcal{M}(\cdot)$: Pluggable estimator in `peshbeen` (`ml_multi_forecaster`):
   - **LightGBM**, **XGBoost**, **CatBoost**, **Random Forest**, **Ridge**
 
@@ -279,7 +279,7 @@ $$\text{Lag}_1 \leftarrow \hat{\mathbf{y}}_{t+h-1}, \quad \text{Lag}_2 \leftarro
 [3. Joint Probabilistic Scenarios]{.card-header}
 
 - Via `multi_prob_forecasts` in `peshbeen`, empirical residual covariance is estimated across horizons.
-- Generates **10,000 Monte Carlo sample paths** (`method="mvn"`) per fold, yielding full predictive distributions for every specialty and horizon $h \in \{1, \dots, 42\}$.
+- Generates **10,000 Monte Carlo sample paths** per fold, yielding full predictive distributions for every specialty and horizon $h \in \{1, \dots, 42\}$.
 :::
 ::::
 
@@ -299,7 +299,7 @@ outline(3)
 [NHS Inpatient Dataset & Cross-Validation Design]{.card-header}
 
 - **Dataset:** Daily NHS inpatient admissions and discharges (Jan 2021 – Feb 2026; 29 specialties $\times$ 2 flows $= \mathbf{58}$ series).
-- **Exogenous Covariates:** Day of week, month, bank holidays, linear time index, General Medicine capacity step-change (`gm_ch`), plus Fourier terms & interactions for linear models.
+- **Exogenous Covariates:** Day of week, month, bank holidays, linear time index, General Medicine capacity step-change, plus Fourier terms & interactions for linear models.
 - **Rolling-Origin Evaluation:**
   - **30 rolling evaluation windows**, forecast horizon **$H = 42$ days** (6 weeks), step size $= 12$ days.
   - Hyperparameter tuning via **Optuna** on the training partition.
