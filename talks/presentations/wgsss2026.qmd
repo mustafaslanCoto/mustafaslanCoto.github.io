@@ -1,5 +1,5 @@
 ---
-title: "Systemic Forecasting of Hospital Patient Flow: An Interdependent Multi-Series Approach to Cross-Specialty Dynamics"
+title: "Forecasting of Hospital Patient Flow: An Interdependent Multi-Series Approach to Cross-Specialty Dynamics"
 description: "6th Welsh Postgraduate Research Conference 2026 (WGSSS)"
 author: "Mustafa Aslan"
 date: "2026-11-02"
@@ -11,6 +11,7 @@ categories:
   - Probabilistic Forecasting
   - Machine Learning
   - Python
+  - Forecasting
 link-external-newwindow: true
 ---
 
