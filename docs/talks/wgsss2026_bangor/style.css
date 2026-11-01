@@ -53,8 +53,66 @@ div.callout {
 
 div.callout .callout-title {
   background-color: #BADFDE !important;
-  /* color: #fff !important;
-  /* border-radius: 0.5em 0.5em 0 0 */
+}
+
+/* Callouts in Columns: Equal Height / Full Column Stretch */
+.reveal .columns:has(> .column .callout),
+.reveal .columns:has(> .column > .callout),
+.reveal .columns.callout-deck,
+.reveal .columns.equal-height {
+  display: flex !important;
+  align-items: stretch !important;
+  gap: 18px !important;
+}
+
+.reveal .columns.equal-height > .column,
+.reveal .columns > .column:has(.callout),
+.reveal .columns > .column:has(> .callout) {
+  display: flex !important;
+  flex-direction: column !important;
+  height: auto !important;
+  align-self: stretch !important;
+}
+
+/* Intermediate wrappers emitted by Quarto (e.g. .equal-height wrapper) */
+.reveal .columns > .column > .equal-height,
+.reveal .columns > .column > div:has(> .callout),
+.reveal .columns > .column > div:has(.callout) {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 1 auto !important;
+  height: 100% !important;
+  width: 100% !important;
+}
+
+.reveal .columns .callout,
+.reveal .equal-height .callout,
+.reveal .callout.equal-height,
+.reveal .callout.fit-height,
+.reveal .callout.fill {
+  flex: 1 1 auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.reveal .columns .callout .callout-body,
+.reveal .equal-height .callout .callout-body,
+.reveal .callout.equal-height .callout-body,
+.reveal .callout.fit-height .callout-body {
+  flex: 1 1 auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+}
+
+.reveal .columns .callout .callout-content,
+.reveal .equal-height .callout .callout-content,
+.reveal .callout.equal-height .callout-content,
+.reveal .callout.fit-height .callout-content {
+  flex: 1 1 auto !important;
 }
 
 
@@ -159,10 +217,240 @@ img {
 }
 
 
-.border-box {
-  padding: 15px;
-  border-radius: 5px;
+/* ========================================================
+   Border Boxes / Metric Stat Cards (Equal Height)
+   ======================================================== */
+.reveal .columns:has(> .column.border-box),
+.reveal .columns:has(> .column > .border-box),
+.reveal .columns.equal-height,
+.reveal .columns.border-boxes {
+  display: flex !important;
+  align-items: stretch !important;
+  gap: 18px !important;
+  margin-top: 12px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.reveal .column.border-box,
+.reveal .deck-cards > .column.border-box,
+.reveal .columns > .column.border-box {
+  text-align: center;
+  padding: 35px 25px !important;
+  border-radius: 12px;
   background-color: #DEF7F9;
+  box-sizing: border-box !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  align-self: stretch !important;
+  flex: 1 1 0 !important;
+  height: auto !important;
+}
+
+/* Also support nested .border-box inside .column */
+.reveal .columns > .column:has(> .border-box),
+.reveal .deck-cards > .column:has(> .border-box) {
+  display: flex !important;
+  flex-direction: column !important;
+  align-self: stretch !important;
+  height: auto !important;
+}
+
+.reveal .column > .border-box,
+.reveal .border-box {
+  text-align: center;
+  padding: 35px 25px !important;
+  border-radius: 12px;
+  background-color: #DEF7F9;
+  box-sizing: border-box !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  flex: 1 1 auto !important;
+  align-self: stretch !important;
+  height: auto !important;
+}
+
+/* Preset background color classes for .border-box */
+.reveal .border-box.bg-teal, .reveal .border-box.bg-teal-light { background-color: #E8F4F5 !important; }
+.reveal .border-box.bg-cyan, .reveal .border-box.bg-cyan-light { background-color: #DEF7F9 !important; }
+.reveal .border-box.bg-pink, .reveal .border-box.bg-pink-light, .reveal .border-box.bg-red-light { background-color: #FDE8E8 !important; }
+.reveal .border-box.bg-amber, .reveal .border-box.bg-amber-light { background-color: #FEF3C7 !important; }
+.reveal .border-box.bg-purple, .reveal .border-box.bg-purple-light { background-color: #EDE9FE !important; }
+
+/* ========================================================
+   Clean Reusable Presentation Cards (.deck-cards)
+   ======================================================== */
+.reveal .deck-cards {
+  display: flex !important;
+  align-items: stretch !important;
+  gap: 18px !important;
+  margin-top: 12px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Allow applying card classes directly on .column OR as nested .deck-card */
+.reveal .deck-cards > .column {
+  display: flex !important;
+  flex-direction: column !important;
+  box-sizing: border-box !important;
+}
+
+.reveal .deck-cards > .column:not([class*="card-"]) {
+  padding: 0 !important;
+}
+
+/* Base card styling (works whether on .deck-card or directly on .column.card-*) */
+.reveal .deck-card,
+.reveal .deck-cards > .column[class*="card-"],
+.reveal .column[class*="card-"] {
+  background: #FFFFFF;
+  border: 2px solid #0B363C;
+  border-radius: 10px;
+  padding: 16px 18px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  flex: 1 1 auto;
+  font-size: 0.88em;
+  line-height: 1.5;
+  box-sizing: border-box !important;
+}
+
+/* Color variations */
+.reveal .card-teal,
+.reveal .deck-card.card-teal,
+.reveal .deck-cards > .column.card-teal {
+  border-color: #20808D;
+}
+
+.reveal .card-dark,
+.reveal .deck-card.card-dark,
+.reveal .deck-cards > .column.card-dark {
+  border-color: #0B363C;
+}
+
+.reveal .card-orange,
+.reveal .deck-card.card-orange,
+.reveal .deck-cards > .column.card-orange {
+  border-color: #B2582D;
+}
+
+.reveal .card-amber,
+.reveal .deck-card.card-amber,
+.reveal .deck-cards > .column.card-amber {
+  border-color: #E69F00;
+}
+
+.reveal .card-red,
+.reveal .deck-card.card-red,
+.reveal .deck-cards > .column.card-red {
+  border-color: #BF505C;
+}
+
+/* Card Headers */
+.reveal .card-header {
+  color: #FFFFFF;
+  padding: 7px 12px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 1.02em;
+  display: block;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.reveal .card-teal .card-header {
+  background-color: #20808D;
+}
+
+.reveal .card-dark .card-header {
+  background-color: #0B363C;
+}
+
+.reveal .card-orange .card-header {
+  background-color: #B2582D;
+}
+
+.reveal .card-amber .card-header {
+  background-color: #E69F00;
+}
+
+.reveal .card-red .card-header {
+  background-color: #BF505C;
+}
+
+.reveal .deck-card ul,
+.reveal .deck-cards > .column[class*="card-"] ul {
+  margin: 0;
+  padding-left: 1.1em;
+}
+
+.reveal .deck-card li,
+.reveal .deck-cards > .column[class*="card-"] li {
+  margin-bottom: 0.45em;
+}
+
+.reveal .deck-card li:last-child,
+.reveal .deck-cards > .column[class*="card-"] li:last-child {
+  margin-bottom: 0;
+}
+
+/* ========================================================
+   Reusable Note Card (.note-card / .note-box)
+   ======================================================== */
+.reveal .note-card,
+.reveal .note-box {
+  background: var(--note-bg, #E8F7F8);
+  border-left: 5px solid var(--note-border, #20808D);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: var(--note-size, 0.8em);
+  line-height: 1.45;
+  margin-top: 6px;
+  box-sizing: border-box;
+}
+
+/* Color presets */
+.reveal .note-card.note-orange,
+.reveal .note-box.note-orange {
+  background: #FFF8F5;
+  border-left-color: #B2582D;
+}
+
+.reveal .note-card.note-amber,
+.reveal .note-box.note-amber {
+  background: #FEF9E7;
+  border-left-color: #E69F00;
+}
+
+.reveal .note-card.note-red,
+.reveal .note-box.note-red {
+  background: #FDE8E8;
+  border-left-color: #BF505C;
+}
+
+.reveal .note-card.note-dark,
+.reveal .note-box.note-dark {
+  background: #F8F9FA;
+  border-left-color: #0B363C;
+}
+
+/* List spacing inside note cards */
+.reveal .note-card ul,
+.reveal .note-box ul {
+  margin: 0;
+  padding-left: 1.1em;
+}
+
+.reveal .note-card li,
+.reveal .note-box li {
+  margin-bottom: 0.35em;
+}
+
+.reveal .note-card li:last-child,
+.reveal .note-box li:last-child {
+  margin-bottom: 0;
 }
 
 .cust_title {
@@ -256,4 +544,73 @@ img {
 
 .reveal .slides section.tables-full-slide .gt_col_heading {
   white-space: nowrap;
+}
+
+/* ========================================================
+   Altair / Vega-Lite Interactive Controls Styling
+   ======================================================== */
+.reveal .vega-embed {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+.reveal .vega-bindings {
+  order: -1 !important; /* Moves controls to TOP above chart */
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 36px !important;
+  margin-top: 0 !important;
+  margin-bottom: 16px !important;
+  font-size: 0.92em !important;
+  font-weight: 600 !important;
+  color: #0B363C !important;
+  background: #FFFFFF !important;
+  border: 2px solid #D2E4E6 !important;
+  border-radius: 10px !important;
+  padding: 10px 24px !important;
+  box-shadow: 0 4px 14px rgba(11, 54, 60, 0.05) !important;
+}
+
+.reveal .vega-bind {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+.reveal .vega-bind-name {
+  font-weight: 700 !important;
+  color: #0B363C !important;
+  font-size: 1.0em !important;
+}
+
+.reveal .vega-bind select {
+  font-size: 0.95em !important;
+  font-weight: 700 !important;
+  padding: 6px 14px !important;
+  border-radius: 8px !important;
+  border: 2px solid #20808D !important;
+  background: #FFFFFF !important;
+  color: #0B363C !important;
+  cursor: pointer !important;
+  outline: none !important;
+  box-shadow: 0 2px 6px rgba(32, 128, 141, 0.12) !important;
+}
+
+.reveal .vega-bind input[type="radio"] {
+  accent-color: #20808D !important;
+  cursor: pointer !important;
+  margin: 0 4px 0 10px !important;
+  transform: scale(1.15) !important;
+}
+
+.reveal .vega-bind label {
+  cursor: pointer !important;
+  font-size: 0.95em !important;
+  font-weight: 600 !important;
+  color: #334D50 !important;
 }

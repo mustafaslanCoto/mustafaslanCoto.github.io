@@ -388,38 +388,40 @@ summary = df.groupby('model').agg(
     Wins_MDict=('imp_mdict_pct', lambda x: (x > 0).sum())
 ).loc[models]
 
-# --- PANEL 1: Grouped Bar Chart of Mean RMSSE ---
+# --- PANEL 1: Relative Improvement vs Single-Series Baseline (%) ---
 x = np.arange(len(models))
-width = 0.26
+width = 0.34
 
-b1 = ax.bar(x - width, summary['Sing'], width, label='Approach 1: Single-Series (58 Separate Models)', color='#0B363C', alpha=0.92)
-b2 = ax.bar(x, summary['M7'], width, label='Approach 2: Multi-Series (All 58 Series Lags, 406 feats)', color='#20808D', alpha=0.95)
-b3 = ax.bar(x + width, summary['MDict'], width, label='Approach 3: Multi-Series (Selected Lags, 196 feats)', color='#E69F00', alpha=0.92)
+b2 = ax.bar(x - width/2, summary['Imp_M7'], width, label='Approach 2: Multi-Series All Lags (406 feats)', color='#20808D', alpha=0.95)
+b3 = ax.bar(x + width/2, summary['Imp_MDict'], width, label='Approach 3: Multi-Series Selected Lags (196 feats)', color='#E69F00', alpha=0.92)
+
+ax.axhline(0, color='#BF505C', linestyle='--', linewidth=1.8, label='Single-Series Baseline (0%)')
 
 ax.set_xticks(x)
 ax.set_xticklabels(model_labels, fontsize=15, fontweight='bold')
-ax.set_ylabel('Mean RMSSE Across 58 Series\n(Lower is Better)', fontsize=15, fontweight='bold')
-ax.set_title('Mean Point Forecast Error (RMSSE) by Approach & Model', fontsize=18, fontweight='bold', pad=12)
-ax.set_ylim(0, 0.98)
+ax.set_ylabel('Mean RMSSE Reduction vs. Single-Series (%)\n(Positive = Multi-Series Outperforms)', fontsize=15, fontweight='bold')
+ax.set_title('Point Forecast Relative Accuracy Gain vs. Single-Series (%)', fontsize=18, fontweight='bold', pad=12)
+ax.set_ylim(-54, 9)
 ax.grid(axis='y', alpha=0.3)
 ax.tick_params(labelsize=13.5)
-ax.legend(fontsize=13, loc='upper left', framealpha=0.95)
+ax.legend(fontsize=13, loc='lower left', framealpha=0.95)
 
-for rects, col in [(b1, '#0B363C'), (b2, '#16606A'), (b3, '#B2582D')]:
+for rects, col in [(b2, '#16606A'), (b3, '#B2582D')]:
     for r in rects:
         h = r.get_height()
-        ax.annotate(f'{h:.3f}', xy=(r.get_x() + r.get_width()/2, h),
-                    xytext=(0, 4), textcoords='offset points', ha='center', va='bottom',
-                    fontsize=12, fontweight='bold', color=col)
+        va = 'bottom' if h >= 0 else 'top'
+        y_pos = h + (0.7 if h >= 0 else -1.2)
+        ax.annotate(f'{h:+.1f}%', xy=(r.get_x() + r.get_width()/2, y_pos),
+                    ha='center', va=va, fontsize=12, fontweight='bold', color=col)
 
 plt.tight_layout()
 plt.show()
 ```
 
 :::{.note-card .fragment}
-- **LightGBM (Winner) beats every single-series model in the study **(+5.76%, 51/58 wins)**.
-- **Pruning Features Helps XGBoost:** improves 14/29 discharge series.
-- **Ridge Linearity Collapse:** degrades ($-47.5\%$) due to rigid cross-lag collinearity.
+- **LightGBM (Winner)** achieves consistent gains over Single-Series (**+5.2%** All Lags, **+4.5%** Selected Lags).
+- **Pruning Features Helps XGBoost:** narrows gap from -1.4% to **-0.5%** (improves 14/29 discharge series).
+- **Ridge Linearity Collapse:** degrades ($-45.1\%$) due to rigid cross-lag collinearity.
 :::
 
 :::
@@ -454,7 +456,12 @@ sns.boxplot(
 
 ax2.axhline(0, color='#BF505C', linestyle='--', linewidth=2, label='Single-Series Baseline (0%)')
 ax2.set_xticks(range(4))
-ax2.set_xticklabels(['LightGBM\n(+5.8% / +4.9%)', 'XGBoost\n(-1.4% / -0.6%)', 'CatBoost\n(-8.0% / -9.2%)', 'Random Forest\n(-10.1% / -11.4%)'], fontsize=14, fontweight='bold')
+ax2.set_xticklabels([
+    f"LightGBM\n(+{summary.loc['lgb', 'Imp_M7']:.1f}% / +{summary.loc['lgb', 'Imp_MDict']:.1f}%)",
+    f"XGBoost\n({summary.loc['xgb', 'Imp_M7']:+.1f}% / {summary.loc['xgb', 'Imp_MDict']:+.1f}%)",
+    f"CatBoost\n({summary.loc['cat', 'Imp_M7']:+.1f}% / {summary.loc['cat', 'Imp_MDict']:+.1f}%)",
+    f"Random Forest\n({summary.loc['rf', 'Imp_M7']:+.1f}% / {summary.loc['rf', 'Imp_MDict']:+.1f}%)"
+], fontsize=14, fontweight='bold')
 ax2.set_ylabel('RMSSE Reduction vs. Single-Series (%)\n(Positive = Multi-Series Outperforms)', fontsize=14.5, fontweight='bold')
 ax2.set_xlabel('')
 ax2.set_title('Series-Level Accuracy Gains Across Tree Architectures (N = 58)', fontsize=17, fontweight='bold', pad=12)
@@ -558,10 +565,10 @@ ax2.tick_params(labelsize=13)
 ax2.legend(fontsize=12.5, loc='upper right', framealpha=0.95)
 
 annotations = [
-    (fb1[0], f"+{flow_summary.loc['Discharge', 'M7_Mean']:.2f}%\n(26/29 Wins)", '#0B363C'),
-    (fb2[0], f"+{flow_summary.loc['Discharge', 'MD_Mean']:.2f}%\n(24/29 Wins)", '#8A3D14'),
-    (fb1[1], f"+{flow_summary.loc['Admission', 'M7_Mean']:.2f}%\n(25/29 Wins)", '#0B363C'),
-    (fb2[1], f"+{flow_summary.loc['Admission', 'MD_Mean']:.2f}%\n(21/29 Wins)", '#8A3D14'),
+    (fb1[0], f"+{flow_summary.loc['Discharge', 'M7_Mean']:.1f}%\n(26/29 Wins)", '#0B363C'),
+    (fb2[0], f"+{flow_summary.loc['Discharge', 'MD_Mean']:.1f}%\n(24/29 Wins)", '#8A3D14'),
+    (fb1[1], f"+{flow_summary.loc['Admission', 'M7_Mean']:.1f}%\n(25/29 Wins)", '#0B363C'),
+    (fb2[1], f"+{flow_summary.loc['Admission', 'MD_Mean']:.1f}%\n(21/29 Wins)", '#8A3D14'),
 ]
 for rect, txt, col in annotations:
     h = rect.get_height()
@@ -574,8 +581,8 @@ plt.show()
 ```
 
 :::{.note-card style="font-size: 0.6em;" .fragment}
-- **Discharges Benefit Most:** Gain **+6.46%** (vs +5.06% for Admissions), confirming upstream admissions act as leading indicators of discharge patterns.
-- **Parsimonious Efficiency:** Approach 3 cuts lag dimensionality by **$>51\%$** ($406 \rightarrow 196$) while retaining **86%** of the full-model accuracy gain (+4.93% vs +5.76%).
+- **Discharges Benefit Most:** Gain **+6.5%** (vs +5.1% for Admissions), confirming upstream admissions act as leading indicators of discharge patterns.
+- **Parsimonious Efficiency:** Approach 3 cuts lag dimensionality by **$>51\%$** ($406 \rightarrow 196$) while retaining **86%** of the full-model accuracy gain (+4.5% vs +5.2%).
 :::
 
 :::
@@ -583,7 +590,7 @@ plt.show()
 
 ---
 
-## Probabilistic Forecasting Results: Pinball Loss Across Models & Horizons
+## Probabilistic Forecasting Results
 
 ::::{.columns style="align-items: flex-start;"}
 :::{.column width="52%"}
@@ -597,7 +604,7 @@ ps_ser = pd.read_csv('tables/pscore_series_summary.csv')
 
 fig, ax1 = plt.subplots(figsize=(12, 7))
 
-# --- PANEL 1: Overall Pinball Loss by Model & Approach (All Horizons 1-42) ---
+# --- PANEL 1: Relative Pinball Loss Improvement vs Single-Series Baseline (%) ---
 sub_all = ps_ser[ps_ser['horizon_range'] == 'All (1-42)']
 models_order = ['lgb', 'xgb', 'cat', 'rf', 'ridge']
 m_names = ['LightGBM\n(Winner)', 'XGBoost\n(Runner-Up)', 'CatBoost', 'Random\nForest', 'Ridge\n(Linear)']
@@ -613,34 +620,36 @@ ps_mod = sub_all.groupby('model').agg(
 ).loc[models_order]
 
 x = np.arange(len(models_order))
-w = 0.26
-p1 = ax1.bar(x - w, ps_mod['Sing'], w, label='Approach 1: Single-Series (58 Separate Models)', color='#0B363C', alpha=0.92)
-p2 = ax1.bar(x, ps_mod['M7'], w, label='Approach 2: Multi-Series All Lags (406 feats)', color='#20808D', alpha=0.95)
-p3 = ax1.bar(x + w, ps_mod['MDict'], w, label='Approach 3: Multi-Series Selected Lags (196 feats)', color='#E69F00', alpha=0.92)
+w = 0.34
+p2 = ax1.bar(x - w/2, ps_mod['Imp_M7'], w, label='Approach 2: Multi-Series All Lags (406 feats)', color='#20808D', alpha=0.95)
+p3 = ax1.bar(x + w/2, ps_mod['Imp_MDict'], w, label='Approach 3: Multi-Series Selected Lags (196 feats)', color='#E69F00', alpha=0.92)
+
+ax1.axhline(0, color='#BF505C', linestyle='--', linewidth=1.8, label='Single-Series Baseline (0%)')
 
 ax1.set_xticks(x)
 ax1.set_xticklabels(m_names, fontsize=14.5, fontweight='bold')
-ax1.set_ylabel('Mean Pinball Loss Across Horizons\n(Lower is Better)', fontsize=14.5, fontweight='bold')
-ax1.set_title('Probabilistic Pinball Loss Across Models & Approaches (H = 1–42)', fontsize=17, fontweight='bold', pad=12)
-ax1.set_ylim(0, 4.1)
+ax1.set_ylabel('Mean Pinball Loss Reduction vs. Single-Series (%)\n(Positive = Multi-Series Improves)', fontsize=14.5, fontweight='bold')
+ax1.set_title('Probabilistic Skill Gain Across Models & Approaches (H = 1–42)', fontsize=17, fontweight='bold', pad=12)
+ax1.set_ylim(-56, 9)
 ax1.grid(axis='y', alpha=0.3)
 ax1.tick_params(labelsize=13)
-ax1.legend(fontsize=12.5, loc='upper left', framealpha=0.95)
+ax1.legend(fontsize=12.5, loc='lower left', framealpha=0.95)
 
-for rects, col in [(p1, '#0B363C'), (p2, '#16606A'), (p3, '#B2582D')]:
+for rects, col in [(p2, '#16606A'), (p3, '#B2582D')]:
     for r in rects:
         h = r.get_height()
-        ax1.annotate(f'{h:.2f}', xy=(r.get_x() + r.get_width()/2, h),
-                     xytext=(0, 4), textcoords='offset points', ha='center', va='bottom',
-                     fontsize=12, fontweight='bold', color=col)
+        va = 'bottom' if h >= 0 else 'top'
+        y_pos = h + (0.7 if h >= 0 else -1.2)
+        ax1.annotate(f'{h:+.1f}%', xy=(r.get_x() + r.get_width()/2, y_pos),
+                     ha='center', va=va, fontsize=12, fontweight='bold', color=col)
 
 plt.tight_layout()
 plt.show()
 ```
 
 :::{.note-card style="font-size: 0.6em;" .fragment}
-- **LightGBM Multi-Series:** Substantial gain over Single-Series (**2.52 $\rightarrow$ 2.36**, $+4.5–4.9\%$, up to **51/58** wins).
-- **Lowest Absolute Pinball Loss:** XGBoost Selected Lags (**2.34**) achieves lowest overall distributional error, improving over Single-Series (2.352).
+- **LightGBM Multi-Series:** Substantial gain over Single-Series (**+4.9%** All Lags, **+4.5%** Selected Lags; up to **51/58** wins).
+- **Pruning Efficiency:** Approach 3 retains **92%** of full-model gains while cutting lag features by $>51\%$.
 :::
 
 :::
@@ -694,8 +703,8 @@ plt.show()
 ```
 
 :::{.note-card style="font-size: 0.6em;" .fragment}
-- **Long-Horizon Peak (Weeks 3–6):** Gains peak in Days 15–21 (**+5.95%** M-All, **+5.79%** M-Sel); **89.7%** of series (52/58) improved in Days 22–42.
-- **XGBoost Crossover:** While negative in Week 1, XGBoost turns net-positive at Days 22–42 (+0.18%) under Selected Lags.
+- **Long-Horizon Peak (Weeks 3–6):** Gains peak in Days 15–21 (**+6.0%** M-All, **+5.8%** M-Sel); **89.7%** of series (52/58) improved in Days 22–42.
+- **XGBoost Crossover:** While negative in Week 1, XGBoost turns net-positive at Days 22–42 (+0.2%) under Selected Lags.
 :::
 
 :::
@@ -736,8 +745,8 @@ win_m7 = (sub['M-All (1–42)'] > 0).sum()
 win_md = (sub['M-Sel (1–42)'] > 0).sum()
 ax.set_title(
     f'{ft} Streams: Pinball Loss Reduction (%) vs. Single-Series (LightGBM)\n'
-    f'All Lags: {win_m7}/29 Improved (Mean +{sub["M-All (1–42)"].mean():.2f}%) | '
-    f'Selected Lags: {win_md}/29 Improved (Mean +{sub["M-Sel (1–42)"].mean():.2f}%)',
+    f'All Lags: {win_m7}/29 Improved (Mean +{sub["M-All (1–42)"].mean():.1f}%) | '
+    f'Selected Lags: {win_md}/29 Improved (Mean +{sub["M-Sel (1–42)"].mean():.1f}%)',
     fontsize=16.5, fontweight='bold', pad=12
 )
 ax.set_xlabel('Forecasting Horizon Window & Multi-Series Approach', fontsize=13.5, fontweight='bold')
@@ -779,8 +788,8 @@ win_m7 = (sub['M-All (1–42)'] > 0).sum()
 win_md = (sub['M-Sel (1–42)'] > 0).sum()
 ax.set_title(
     f'{ft} Streams: Pinball Loss Reduction (%) vs. Single-Series (LightGBM)\n'
-    f'All Lags: {win_m7}/29 Improved (Mean +{sub["M-All (1–42)"].mean():.2f}%) | '
-    f'Selected Lags: {win_md}/29 Improved (Mean +{sub["M-Sel (1–42)"].mean():.2f}%)',
+    f'All Lags: {win_m7}/29 Improved (Mean +{sub["M-All (1–42)"].mean():.1f}%) | '
+    f'Selected Lags: {win_md}/29 Improved (Mean +{sub["M-Sel (1–42)"].mean():.1f}%)',
     fontsize=16.5, fontweight='bold', pad=12
 )
 ax.set_xlabel('Forecasting Horizon Window & Multi-Series Approach', fontsize=13.5, fontweight='bold')
