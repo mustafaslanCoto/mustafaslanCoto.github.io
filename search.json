@@ -1302,6 +1302,13 @@
     "text": "The Scale of the Challenge\nCapturing hospital-wide patient flow dynamics across 58 coupled time series\n\n\n\n29 Clinical Specialties General Medicine, Surgery, Trauma, Cardiology, Haematology, ICU, etc.\n\n2 Flow Types Admissions & Discharges Strongly coupled daily inflows and outflows across wards\n\n58 Series Simultaneous Time Series 5+ years of daily NHS inpatient data (\\(&gt;109,000\\) panel observations)\n\n\n\nResearch Question: Can exploiting interdependencies across specialties in ONE unified model improve forecasting accuracy over 58 independent models?"
   },
   {
+    "objectID": "talks/wgsss2026_bangor/present.html#historical-patterns-across-all-58-clinical-time-series-20212026",
+    "href": "talks/wgsss2026_bangor/present.html#historical-patterns-across-all-58-clinical-time-series-20212026",
+    "title": "MUSTAFA ASLAN",
+    "section": "Historical Patterns Across All 58 Clinical Time Series (2021–2026)",
+    "text": "Historical Patterns Across All 58 Clinical Time Series (2021–2026)"
+  },
+  {
     "objectID": "talks/wgsss2026_bangor/present.html#conventional-baseline-58-independent-single-series-models",
     "href": "talks/wgsss2026_bangor/present.html#conventional-baseline-58-independent-single-series-models",
     "title": "MUSTAFA ASLAN",
@@ -1376,21 +1383,21 @@
     "href": "talks/wgsss2026_bangor/present.html#point-forecasting-results",
     "title": "MUSTAFA ASLAN",
     "section": "Point Forecasting Results",
-    "text": "Point Forecasting Results\n\n\n\n\n\n\n\n\n\n\n\n\n\nLightGBM (Winner) beats every single-series model in the study (+5.76%, 51/58 wins)**.\nPruning Features Helps XGBoost: improves 14/29 discharge series.\nRidge Linearity Collapse: degrades (\\(-47.5\\%\\)) due to rigid cross-lag collinearity.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLightGBM achieves consistent gains across 51/58 series."
+    "text": "Point Forecasting Results\n\n\n\n\n\n\n\n\n\n\n\n\n\nLightGBM (Winner) achieves consistent gains over Single-Series (+5.2% All Lags, +4.5% Selected Lags).\nPruning Features Helps XGBoost: narrows gap from -1.4% to -0.5% (improves 14/29 discharge series).\nRidge Linearity Collapse: degrades (\\(-45.1\\%\\)) due to rigid cross-lag collinearity.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLightGBM achieves consistent gains across 51/58 series."
   },
   {
     "objectID": "talks/wgsss2026_bangor/present.html#specialty-level-point-forecast-gains-admissions-vs.-discharges",
     "href": "talks/wgsss2026_bangor/present.html#specialty-level-point-forecast-gains-admissions-vs.-discharges",
     "title": "MUSTAFA ASLAN",
     "section": "Specialty-Level Point Forecast Gains: Admissions vs. Discharges",
-    "text": "Specialty-Level Point Forecast Gains: Admissions vs. Discharges\n\n\n\n\n\n\n\n\n\n\n\n\n\nTop Specialty Gains: Peaks in Haematology (+25.2%), Ophthalmology (+20.1%), and Neurology (+15.2%).\nWidespread Lift: 51 of 58 series improve under full multi-series LightGBM; 45 of 58 retain gains under pruned lags.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDischarges Benefit Most: Gain +6.46% (vs +5.06% for Admissions), confirming upstream admissions act as leading indicators of discharge patterns.\nParsimonious Efficiency: Approach 3 cuts lag dimensionality by \\(&gt;51\\%\\) (\\(406 \\rightarrow 196\\)) while retaining 86% of the full-model accuracy gain (+4.93% vs +5.76%)."
+    "text": "Specialty-Level Point Forecast Gains: Admissions vs. Discharges\n\n\n\n\n\n\n\n\n\n\n\n\n\nTop Specialty Gains: Peaks in Haematology (+25.2%), Ophthalmology (+20.1%), and Neurology (+15.2%).\nWidespread Lift: 51 of 58 series improve under full multi-series LightGBM; 45 of 58 retain gains under pruned lags.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDischarges Benefit Most: Gain +6.5% (vs +5.1% for Admissions), confirming upstream admissions act as leading indicators of discharge patterns.\nParsimonious Efficiency: Approach 3 cuts lag dimensionality by \\(&gt;51\\%\\) (\\(406 \\rightarrow 196\\)) while retaining 86% of the full-model accuracy gain (+4.5% vs +5.2%)."
   },
   {
-    "objectID": "talks/wgsss2026_bangor/present.html#probabilistic-forecasting-results-pinball-loss-across-models-horizons",
-    "href": "talks/wgsss2026_bangor/present.html#probabilistic-forecasting-results-pinball-loss-across-models-horizons",
+    "objectID": "talks/wgsss2026_bangor/present.html#probabilistic-forecasting-results",
+    "href": "talks/wgsss2026_bangor/present.html#probabilistic-forecasting-results",
     "title": "MUSTAFA ASLAN",
-    "section": "Probabilistic Forecasting Results: Pinball Loss Across Models & Horizons",
-    "text": "Probabilistic Forecasting Results: Pinball Loss Across Models & Horizons\n\n\n\n\n\n\n\n\n\n\n\n\n\nLightGBM Multi-Series: Substantial gain over Single-Series (2.52 \\(\\rightarrow\\) 2.36, \\(+4.5–4.9\\%\\), up to 51/58 wins).\nLowest Absolute Pinball Loss: XGBoost Selected Lags (2.34) achieves lowest overall distributional error, improving over Single-Series (2.352).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLong-Horizon Peak (Weeks 3–6): Gains peak in Days 15–21 (+5.95% M-All, +5.79% M-Sel); 89.7% of series (52/58) improved in Days 22–42.\nXGBoost Crossover: While negative in Week 1, XGBoost turns net-positive at Days 22–42 (+0.18%) under Selected Lags."
+    "section": "Probabilistic Forecasting Results",
+    "text": "Probabilistic Forecasting Results\n\n\n\n\n\n\n\n\n\n\n\n\n\nLightGBM Multi-Series: Substantial gain over Single-Series (+4.5% All Lags, +4.1% Selected Lags; up to 49/58 series improved).\nPruning Efficiency: Approach 3 retains 91% of full-model gains while cutting lag features by \\(&gt;51\\%\\).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLong-Horizon Peak (Weeks 3–6): Gains peak in Days 15–21 (+5.6% M-All, +4.9% M-Sel); 87.9% of series (51/58) improved in Days 22–42.\nXGBoost Crossover: While negative early on, XGBoost narrows the gap to -0.4% at Days 22–42 under Selected Lags (29/58 series improved)."
   },
   {
     "objectID": "talks/wgsss2026_bangor/present.html#system-wide-probabilistic-improvements-across-all-58-clinical-series",
@@ -1418,7 +1425,7 @@
     "href": "talks/wgsss2026_bangor/present.html#practical-implications-limitations-next-steps",
     "title": "MUSTAFA ASLAN",
     "section": "Practical Implications, Limitations & Next Steps",
-    "text": "Practical Implications, Limitations & Next Steps\n\n\n\nImplications for Healthcare Operations\n\nProactive Discharge Planning: Cross-specialty admission signals improve discharge forecasts in 26/29 (point) and 28/29 (probabilistic) specialties.\nStreamlined MLOps: Replaces 58 isolated models with 1 unified peshbeen pipeline.\n\n\nMethodological Caveats & Next Steps\n\nEstimator Sensitivity: Multi-series gains might require learners with different characteristics, such as conditional tree splits and \\(L_1\\) regularisation (LightGBM), while linear (Ridge) and symmetric (CatBoost) models may underperform under high lag dimensionality.\nFrom Forecasts to Bed Allocation Decisions:\n\nIntegrate joint probabilistic trajectories into stochastic ward reservation and bed allocation optimisation to reduce patient off-placement."
+    "text": "Practical Implications, Limitations & Next Steps\n\n\n\nImplications for Healthcare Operations\n\nProactive Discharge Planning: Cross-specialty admission signals improve discharge forecasts in 26/29 (point) and 25/29 (probabilistic) specialties.\nStreamlined MLOps: Replaces 58 isolated models with 1 unified peshbeen pipeline.\n\n\nMethodological Caveats & Next Steps\n\nEstimator Sensitivity: Multi-series gains might require learners with different characteristics, such as conditional tree splits and \\(L_1\\) regularisation (LightGBM), while linear (Ridge) and symmetric (CatBoost) models may underperform under high lag dimensionality.\nFrom Forecasts to Bed Allocation Decisions:\n\nIntegrate joint probabilistic trajectories into stochastic ward reservation and bed allocation optimisation to reduce patient off-placement."
   },
   {
     "objectID": "talks/wgsss2026_bangor/present.html#reproducible-implementation-peshbeen",
